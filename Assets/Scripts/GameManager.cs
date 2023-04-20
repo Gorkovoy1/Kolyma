@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public Transform playerParent;
     public Transform opponentParent;
     public Transform board;
+    public Transform boardArt;
 
     public TextMeshProUGUI playerSumText;
     public TextMeshProUGUI opponentSumText;
@@ -76,20 +77,24 @@ public class GameManager : MonoBehaviour
         
         //roll dice
         diceOne = (GameObject) Instantiate(dicePrefab);
+        diceOne.transform.localScale = new Vector3(0.015f, 0.015f, 0.015f);
         diceOne.transform.SetParent(board, false);
-        diceOne.transform.position = new Vector3(120, 190, 0);
+        diceOne.transform.position = new Vector3(755, 350, 0);
 
         diceTwo = (GameObject) Instantiate(dicePrefab);
+        diceTwo.transform.localScale = new Vector3(0.015f, 0.015f, 0.015f);
         diceTwo.transform.SetParent(board, false);
-        diceTwo.transform.position = new Vector3(80, 190, 0);
+        diceTwo.transform.position = new Vector3 (730, 350, 0);
 
         diceThree = (GameObject) Instantiate(dicePrefab);
+        diceThree.transform.localScale = new Vector3(0.015f, 0.015f, 0.015f);
         diceThree.transform.SetParent(board, false);
-        diceThree.transform.position = new Vector3(120, 420, 0);
+        diceThree.transform.position = new Vector3(755, 200, 0);
 
         diceFour = (GameObject) Instantiate(dicePrefab);
+        diceFour.transform.localScale = new Vector3(0.015f, 0.015f, 0.015f);
         diceFour.transform.SetParent(board, false);
-        diceFour.transform.position = new Vector3(80, 420, 0);
+        diceFour.transform.position = new Vector3(730, 200, 0);
 
         StartCoroutine(targetCalculate());
         
