@@ -176,6 +176,11 @@ MonoBehaviour:
   swap: 1
   flip: 0
   give: 0
+  self: 0
+  opponent: 1
+  five: 1
+  plusTwoPrefab: {fileID: 2051728403891364242, guid: 81507faa47d5882439248de8943f61fd, type: 3}
+  minusTwoPrefab: {fileID: 2051728403891364242, guid: 5786d49b9c6d1e4429f0326912833809, type: 3}
 --- !u!225 &-1073220978480353498
 CanvasGroup:
   m_ObjectHideFlags: 0

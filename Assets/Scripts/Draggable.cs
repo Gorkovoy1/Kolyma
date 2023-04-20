@@ -16,8 +16,15 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public bool self;
     public bool opponent;
 
-    public GameObject plusTwoPrefab;
-    public GameObject minusTwoPrefab;
+    public bool discardSpecial;
+    public bool discardValue;
+
+    public bool five;
+    public bool eight;
+    public bool seven;
+    public bool nine;
+
+    public GameObject givePrefab;
 
     void Update()
     {
@@ -34,7 +41,12 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                 Debug.Log("give");
                 if(opponent == true)
                 {
-                    GameObject given = (GameObject) Instantiate (plusTwoPrefab);
+                    GameObject given = (GameObject) Instantiate (givePrefab);
+                    GameObject board = GameObject.Find("Board");
+                    given.transform.localScale = new Vector3(0.095f, 0.095f, 0.095f);
+                    given.transform.localPosition = new Vector3(319, 356, 0);
+                    given.transform.SetParent(board.transform);
+
 
                 }
 
@@ -77,16 +89,19 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
         GetComponent<CanvasGroup>().blocksRaycasts = true;
 
-        if(this.transform.parent == parentReturnTo)
+        if(this.GetComponent<Tile>().special == true)
         {
-            Debug.Log("Parent is Opponent Hand");
-            GameObject discardPile = GameObject.Find("Discard");
-            this.transform.position = discardPile.transform.position; 
-
-            if(this.transform.position == discardPile.transform.position)
+            if(this.transform.parent == parentReturnTo)
             {
-                Debug.Log("position equal");
-                cardActivate = true;
+                Debug.Log("Parent is Opponent Hand");
+                GameObject discardPile = GameObject.Find("Discard");
+                this.transform.position = discardPile.transform.position; 
+
+                if(this.transform.position == discardPile.transform.position)
+                {
+                    Debug.Log("position equal");
+                    cardActivate = true;
+                }
             }
         }
 

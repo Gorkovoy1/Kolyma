@@ -176,6 +176,15 @@ MonoBehaviour:
   swap: 0
   flip: 1
   give: 0
+  self: 0
+  opponent: 1
+  discardSpecial: 0
+  discardValue: 0
+  five: 0
+  eight: 0
+  seven: 0
+  nine: 1
+  givePrefab: {fileID: 0}
 --- !u!225 &-1073220978480353498
 CanvasGroup:
   m_ObjectHideFlags: 0

@@ -173,7 +173,13 @@ MonoBehaviour:
   board: {fileID: 0}
   discard: {fileID: 0}
   cardActivate: 0
-  cardEffectString: swap
+  swap: 0
+  flip: 0
+  give: 0
+  self: 0
+  opponent: 1
+  plusTwoPrefab: {fileID: 0}
+  minusTwoPrefab: {fileID: 0}
 --- !u!225 &-1073220978480353498
 CanvasGroup:
   m_ObjectHideFlags: 0
