@@ -16,20 +16,48 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public bool self;
     public bool opponent;
 
+    public bool duplicateValue;
+
     public bool discardSpecial;
     public bool discardValue;
+    public bool drawTwoSpecial;
+    public bool drawOneSpecial;
+    public bool finisherSwap;
 
     public bool five;
     public bool eight;
     public bool seven;
     public bool nine;
+    public bool two;
+    public bool youNegative;
+    public bool theyDiscarded;
+
+    public bool duplicate;
+
 
     public GameObject givePrefab;
+
+    public GameManager gameManager;
+
+    public int finisherSwapCount = 0;
+
+
 
     void Update()
     {
         if(cardActivate == true)
         {
+            //must check if condition is fulfilled
+            //separate forces and conditions
+            //check condition first then check card info 
+            //check condition by searching for presence of prefab?
+
+
+
+            //on initial deal, read card info and set value bools
+            //take bools from game manager as condition
+
+
             cardActivate = false;
             
             //figure out what the effect is (by reading a string?)
@@ -38,15 +66,25 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
             //carry out the effect
             if(give == true)
             {
+                //if card takes this condition, if list has the value, then carry out action
+                //every time card is given, update current value of player
                 Debug.Log("give");
                 if(opponent == true)
                 {
                     GameObject given = (GameObject) Instantiate (givePrefab);
                     GameObject board = GameObject.Find("Board");
-                    given.transform.localScale = new Vector3(0.095f, 0.095f, 0.095f);
-                    given.transform.localPosition = new Vector3(319, 356, 0);
                     given.transform.SetParent(board.transform);
+                    given.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                    given.transform.localPosition = new Vector3(80, 266, 0);
 
+                }
+                if(self == true)
+                {
+                    GameObject given = (GameObject) Instantiate (givePrefab);
+                    GameObject board = GameObject.Find("Board");
+                    given.transform.SetParent(board.transform);
+                    given.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                    given.transform.localPosition = new Vector3(80, 110, 0);
 
                 }
 
@@ -54,6 +92,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
             else if(swap == true)
             {
                 Debug.Log("swap");
+                finisherSwapCount++;
 
             }
             else if(flip == true)
@@ -61,7 +100,34 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                 Debug.Log("flip");
 
             }
+            else if (drawTwoSpecial == true) //try using get component to set special draw in game manager to true so it executes from there
+            {
+                if(self == true)
+                {
+                    gameManager.DrawTwo();
+                }
+            }
+            else if(drawOneSpecial == true)
+            {
+                if(self == true)
+                {
+                    gameManager.DrawOne();
+                }
+            }
+            else if (finisherSwap == true)
+            {
+                for(int i = 0; i < finisherSwapCount; i++)
+                {
+                    GameObject given = (GameObject) Instantiate (givePrefab);
+                    GameObject board = GameObject.Find("Board");
+                    given.transform.localScale = new Vector3(0.095f, 0.095f, 0.095f);
+                    given.transform.localPosition = new Vector3(319, 356, 0);
+                    given.transform.SetParent(board.transform);
+                }
+            }
+
         }
+
     }
 
     public void OnBeginDrag(PointerEventData eventData)
