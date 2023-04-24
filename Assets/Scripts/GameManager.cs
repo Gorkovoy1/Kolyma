@@ -59,7 +59,11 @@ public class GameManager : MonoBehaviour
 
 
     public int tempLastValue;
+    public int oppTempLastValue;
     public int negMultiple;
+
+    public int multiple;
+    public int oppMultiple;
      
 
 
@@ -171,7 +175,7 @@ public class GameManager : MonoBehaviour
         //StartCoroutine(DelayCode());
 
         
-        //redo
+        //player value organizing
         int currentPos = -60;
         List<GameObject> negatives = new List<GameObject>();
         List<GameObject> positives = new List<GameObject>();
@@ -194,23 +198,87 @@ public class GameManager : MonoBehaviour
 
         for(int i = 1; i < positives.Count; i++)
         {
-            positives[0].transform.localPosition = new Vector3(-60, 107, 0);
+            positives[0].transform.localPosition = new Vector3(-60, 111, 0);
             int multiple = positives2[i-1];
-            positives[i].transform.localPosition = new Vector3(currentPos + multiple * 20, 107, 0);
+            positives[i].transform.localPosition = new Vector3(currentPos + multiple * 20, 111, 0);
             currentPos = currentPos + multiple * 20;
             tempLastValue = currentPos;
         }
 
         if (negatives.Count >= 1)
         {
-            negatives[0].transform.localPosition = new Vector3(tempLastValue, 47, 0);
+            if(positives.Count == 1)
+            {
+                
+                //negatives[0].transform.localPosition = new Vector3(tempLastValue - multiple * 20, 36, 0);
+                //tempLastValue = tempLastValue - multiple*20;
+                negatives[0].transform.localPosition = new Vector3(-60, 36, 0);
+                tempLastValue = -60;
+            }
+            else
+            {
+                negatives[0].transform.localPosition = new Vector3(tempLastValue, 36, 0);
+            }
+            
         }
         for(int k = 1; k < negatives.Count; k++)
         {
             int multiple2 = negatives2[k-1];
-            negatives[k].transform.localPosition = new Vector3(tempLastValue + multiple2 * 20, 47, 0);
+            negatives[k].transform.localPosition = new Vector3(tempLastValue + multiple2 * 20, 36, 0);
+        }
+        //fix if 3 negative values positioning is wrong
+
+
+        //opponent values organizing
+        int oppCurrentPos = -60;
+        List<GameObject> oppNegatives = new List<GameObject>();
+        List<GameObject> oppPositives = new List<GameObject>();
+        List<int> oppPositives2 = new List<int>();
+        List<int> oppNegatives2 = new List<int>();
+
+        for(int j = 0; j < currentOpponentValues.Count; j++)
+        {
+            if(opponentValues[j] > 0)
+            {
+                oppPositives.Add(currentOpponentValues[j]);
+                oppPositives2.Add(opponentValues[j]);
+            }
+            else
+            {
+                oppNegatives.Add(currentOpponentValues[j]);
+                oppNegatives2.Add(opponentValues[j]);
+            }
         }
 
+        for(int i = 1; i < oppPositives.Count; i++)
+        {
+            oppPositives[0].transform.localPosition = new Vector3(-60, 266, 0);
+            int oppMultiple = oppPositives2[i-1];
+            oppPositives[i].transform.localPosition = new Vector3(oppCurrentPos + oppMultiple * 20, 266, 0);
+            oppCurrentPos = oppCurrentPos + oppMultiple * 20;
+            oppTempLastValue = oppCurrentPos;
+        }
+
+        if (oppNegatives.Count >= 1)
+        {
+            if(oppPositives.Count == 1)
+            {
+                //oppTempLastValue = oppTempLastValue + oppMultiple*20;
+                //oppNegatives[0].transform.localPosition = new Vector3(oppTempLastValue, 191, 0);
+                oppNegatives[0].transform.localPosition = new Vector3(-60, 191, 0);
+                oppTempLastValue = -60;
+                
+            }
+            else
+            {
+                oppNegatives[0].transform.localPosition = new Vector3(oppTempLastValue, 191, 0);
+            }
+        }
+        for(int k = 1; k < oppNegatives.Count; k++)
+        {
+            int oppMultiple2 = oppNegatives2[k-1];
+            oppNegatives[k].transform.localPosition = new Vector3(oppTempLastValue + oppMultiple2 * 20, 191, 0);
+        }
 
     }
     
