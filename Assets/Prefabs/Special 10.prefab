@@ -178,8 +178,18 @@ MonoBehaviour:
   give: 0
   self: 0
   opponent: 1
-  plusTwoPrefab: {fileID: 0}
-  minusTwoPrefab: {fileID: 0}
+  discardSpecial: 0
+  discardValue: 0
+  drawTwoSpecial: 0
+  drawOneSpecial: 0
+  five: 0
+  eight: 0
+  seven: 0
+  nine: 0
+  two: 0
+  duplicate: 1
+  givePrefab: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!225 &-1073220978480353498
 CanvasGroup:
   m_ObjectHideFlags: 0

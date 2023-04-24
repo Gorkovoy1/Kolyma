@@ -10,10 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject cardPrefab;
     public GameObject dicePrefab;
     public GameObject hand;
-    /*
-    public GameObject player;
-    public GameObject opponent;
-    */
+    
 
     public GameObject diceOne;
     public GameObject diceTwo;
@@ -41,6 +38,11 @@ public class GameManager : MonoBehaviour
     public List<GameObject> specialList;
     public List<GameObject> opponentList;
 
+    public List<int> playerValues;
+    public List<int> opponentValues;
+    public List<GameObject> currentPlayerValues;
+    public List<GameObject> currentOpponentValues;
+
     public int cardCount;
     public int valueCount;
     public int opponentCardCount;
@@ -54,6 +56,12 @@ public class GameManager : MonoBehaviour
 
     public bool specialDraw;
     bool quit = false;
+
+
+    public int tempLastValue;
+    public int negMultiple;
+     
+
 
 
     void Start()
@@ -158,9 +166,75 @@ public class GameManager : MonoBehaviour
 
         }
 
+
+        //maybe have an updating script where it takes the list of prefab objects and constantly reorders them into the right position
+        //StartCoroutine(DelayCode());
+
+        
+        //redo
+        int currentPos = -60;
+        List<GameObject> negatives = new List<GameObject>();
+        List<GameObject> positives = new List<GameObject>();
+        List<int> positives2 = new List<int>();
+        List<int> negatives2 = new List<int>();
+
+        for(int j = 0; j < currentPlayerValues.Count; j++)
+        {
+            if(playerValues[j] > 0)
+            {
+                positives.Add(currentPlayerValues[j]);
+                positives2.Add(playerValues[j]);
+            }
+            else
+            {
+                negatives.Add(currentPlayerValues[j]);
+                negatives2.Add(playerValues[j]);
+            }
+        }
+
+        for(int i = 1; i < positives.Count; i++)
+        {
+            positives[0].transform.localPosition = new Vector3(-60, 107, 0);
+            int multiple = positives2[i-1];
+            positives[i].transform.localPosition = new Vector3(currentPos + multiple * 20, 107, 0);
+            currentPos = currentPos + multiple * 20;
+            tempLastValue = currentPos;
+        }
+
+        if (negatives.Count >= 1)
+        {
+            negatives[0].transform.localPosition = new Vector3(tempLastValue, 47, 0);
+        }
+        for(int k = 1; k < negatives.Count; k++)
+        {
+            int multiple2 = negatives2[k-1];
+            negatives[k].transform.localPosition = new Vector3(tempLastValue + multiple2 * 20, 47, 0);
+        }
+
+
     }
+    
 
+    IEnumerator DelayCode()
+    {
+        float counter = 0;
+        float waitTime = 3;
 
+        while(counter<waitTime)
+        {
+            //Increment Timer until counter >= waitTime
+            counter += Time.deltaTime;
+            //Debug.Log("We have waited for: " + counter + " seconds");
+            //Wait for a frame so that Unity doesn't freeze
+            //Check if we want to quit this function
+            if (quit)
+            {
+                //Quit function
+                yield break;
+            }
+            yield return null;
+        }
+    }
 
     void Shuffle()
     {
@@ -258,6 +332,8 @@ public class GameManager : MonoBehaviour
             //if negative, do something
             //get value, check for positive or negative, do positives first then negative
             tempValue = valueCard.GetComponent<Tile>().cardValue;
+            playerValues.Add(tempValue);
+            currentPlayerValues.Add(valueCard);
             lastValue = tempValue;
             Debug.Log(tempValue);
                 if(tempValue > 0)
@@ -280,6 +356,8 @@ public class GameManager : MonoBehaviour
             //opponent
             GameObject valueCard2 = (GameObject) Instantiate(valueList[n+1]);
             tempValue2 = valueCard2.GetComponent<Tile>().cardValue;
+            opponentValues.Add(tempValue2);
+            currentOpponentValues.Add(valueCard2);
             lastValue2 = tempValue2;
                 if(tempValue2 > 0)
                 {
@@ -311,6 +389,13 @@ public class GameManager : MonoBehaviour
         cardCount++;
         GameObject cardTwo = (GameObject) Instantiate(specialList[cardCount+1]);
         cardTwo.transform.SetParent(handParent, false);
+        cardCount++;
+    }
+
+    public void DrawOne()
+    {
+        GameObject cardDraw = (GameObject) Instantiate(specialList[cardCount+1]);
+        cardDraw.transform.SetParent(handParent, false);
         cardCount++;
     }
 }

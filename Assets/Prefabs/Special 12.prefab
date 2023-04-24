@@ -173,7 +173,23 @@ MonoBehaviour:
   board: {fileID: 0}
   discard: {fileID: 0}
   cardActivate: 0
-  cardEffectString: swap
+  swap: 1
+  flip: 0
+  give: 0
+  self: 0
+  opponent: 1
+  discardSpecial: 0
+  discardValue: 0
+  drawTwoSpecial: 0
+  drawOneSpecial: 0
+  five: 0
+  eight: 0
+  seven: 0
+  nine: 0
+  two: 0
+  duplicate: 0
+  givePrefab: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!225 &-1073220978480353498
 CanvasGroup:
   m_ObjectHideFlags: 0
