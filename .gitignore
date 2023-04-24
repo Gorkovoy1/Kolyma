@@ -59,8 +59,4 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
-$ git rm <[Uu]ser[Ss]ettings/>
 
-$ git commit -m "Deleted user settings folder from the git repository"
-
-$ git push
