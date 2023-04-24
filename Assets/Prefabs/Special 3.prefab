@@ -173,9 +173,17 @@ MonoBehaviour:
   board: {fileID: 0}
   discard: {fileID: 0}
   cardActivate: 0
-  swap: 1
+  swap: 0
   flip: 0
-  give: 0
+  give: 1
+  self: 0
+  opponent: 1
+  discardSpecial: 0
+  discardValue: 0
+  five: 0
+  eight: 0
+  seven: 1
+  givePrefab: {fileID: 2051728403891364242, guid: 8ad4af1a296fe1148b9216d7c807cd7d, type: 3}
 --- !u!225 &-1073220978480353498
 CanvasGroup:
   m_ObjectHideFlags: 0

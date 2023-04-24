@@ -175,7 +175,20 @@ MonoBehaviour:
   cardActivate: 0
   swap: 0
   flip: 0
-  give: 1
+  give: 0
+  self: 0
+  opponent: 1
+  discardSpecial: 0
+  discardValue: 1
+  drawTwoSpecial: 0
+  drawOneSpecial: 0
+  five: 0
+  eight: 0
+  seven: 0
+  nine: 0
+  two: 0
+  givePrefab: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!225 &-1073220978480353498
 CanvasGroup:
   m_ObjectHideFlags: 0
