@@ -609,6 +609,10 @@ MonoBehaviour:
   valueList: []
   specialList: []
   opponentList: []
+  playerValues: 
+  opponentValues: 
+  currentPlayerValues: []
+  currentOpponentValues: []
   cardCount: 0
   valueCount: 0
   opponentCardCount: 0
@@ -617,6 +621,11 @@ MonoBehaviour:
   targetValue: 0
   tempValue: 0
   specialDraw: 0
+  tempLastValue: 0
+  oppTempLastValue: 0
+  negMultiple: 0
+  multiple: 0
+  oppMultiple: 0
 --- !u!1 &709629250
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,7 +663,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -0.10003662, y: 0}
+  m_AnchoredPosition: {x: -0.100097656, y: 0}
   m_SizeDelta: {x: -0.000100016594, y: 131.1367}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &709629252
@@ -1193,7 +1202,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.10003662, y: 0.574646}
+  m_AnchoredPosition: {x: -0.100097656, y: 0.574646}
   m_SizeDelta: {x: -0.000061035156, y: -0.71492004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1631184923
@@ -1530,8 +1539,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5842059996830667613, guid: 049268cc004abe043b3718538c2696b0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8276023
+      objectReference: {fileID: 0}
+    - target: {fileID: 5842059996830667613, guid: 049268cc004abe043b3718538c2696b0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0801574
+      objectReference: {fileID: 0}
+    - target: {fileID: 5842059996830667613, guid: 049268cc004abe043b3718538c2696b0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -63.9256
       objectReference: {fileID: 0}
     - target: {fileID: 5842059996830667613, guid: 049268cc004abe043b3718538c2696b0, type: 3}
       propertyPath: m_LocalPosition.y
