@@ -178,18 +178,23 @@ MonoBehaviour:
   give: 1
   self: 1
   opponent: 1
+  duplicateValue: 0
   discardSpecial: 0
   discardValue: 0
   drawTwoSpecial: 0
   drawOneSpecial: 0
+  finisherSwap: 0
   five: 0
   eight: 0
   seven: 0
   nine: 0
   two: 0
+  youNegative: 0
+  theyDiscarded: 0
   duplicate: 0
   givePrefab: {fileID: 2051728403891364242, guid: ee18130f0ffc60a4e87a94d74fc5785f, type: 3}
   gameManager: {fileID: 0}
+  finisherSwapCount: 0
 --- !u!225 &-1073220978480353498
 CanvasGroup:
   m_ObjectHideFlags: 0

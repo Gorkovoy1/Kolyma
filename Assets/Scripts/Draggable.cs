@@ -104,7 +104,8 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
             {
                 if(self == true)
                 {
-                    gameManager.DrawTwo();
+                    //this.GetComponent<GameManager>().DrawTwo();           //this doesnt work, try moving script to here
+                    //gameManager.DrawTwo();
                 }
             }
             else if(drawOneSpecial == true)
@@ -132,45 +133,52 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log ("OnBeginDrag");
+        //Debug.Log ("OnBeginDrag");
 
-        parentReturnTo = this.transform.parent;
-        this.transform.SetParent(this.transform.parent.parent);
+        if(this.GetComponent<Tile>().special == true)
+        {
+            parentReturnTo = this.transform.parent;
+            this.transform.SetParent(this.transform.parent.parent);
 
-        GetComponent<CanvasGroup>().blocksRaycasts = false;
+            GetComponent<CanvasGroup>().blocksRaycasts = false;
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         //Debug.Log("OnDrag");
-
-        this.transform.position = eventData.position;
+        if(this.GetComponent<Tile>().special == true)
+            this.transform.position = eventData.position;
 
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("OnEndDrag");
-        this.transform.SetParent(parentReturnTo);
-
-        GetComponent<CanvasGroup>().blocksRaycasts = true;
-
+        //Debug.Log("OnEndDrag");
         if(this.GetComponent<Tile>().special == true)
         {
-            if(this.transform.parent == parentReturnTo)
-            {
-                Debug.Log("Parent is Opponent Hand");
-                GameObject discardPile = GameObject.Find("Discard");
-                this.transform.position = discardPile.transform.position; 
+            cardActivate = true;
 
-                if(this.transform.position == discardPile.transform.position)
+            this.transform.SetParent(parentReturnTo);
+
+            GetComponent<CanvasGroup>().blocksRaycasts = true;
+
+            if(this.GetComponent<Tile>().special == true)
+            {
+                if(this.transform.parent == parentReturnTo)
                 {
-                    Debug.Log("position equal");
-                    cardActivate = true;
+                    Debug.Log("Parent is Opponent Hand");
+                    GameObject discardPile = GameObject.Find("Discard");
+                    this.transform.position = discardPile.transform.position; 
+
+                    if(this.transform.position == discardPile.transform.position)
+                    {
+                        Debug.Log("position equal");
+                        cardActivate = true;
+                    }
                 }
             }
         }
-
     }
 
     

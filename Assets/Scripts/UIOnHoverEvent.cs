@@ -33,7 +33,7 @@ public class UIOnHoverEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         //transform.localPosition = new Vector3(transform.localPosition.x, 200, transform.localPosition.z);
         //i think the issue is that its parented
 
-        Debug.Log("enter");
+        //Debug.Log("enter");
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -44,6 +44,6 @@ public class UIOnHoverEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
         transform.localScale = cachedScale;
         
-        Debug.Log("exit");
+        //Debug.Log("exit");
     }
 }

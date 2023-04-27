@@ -178,6 +178,7 @@ MonoBehaviour:
   give: 0
   self: 0
   opponent: 1
+  duplicateValue: 0
   discardSpecial: 0
   discardValue: 0
   drawTwoSpecial: 0
@@ -188,6 +189,8 @@ MonoBehaviour:
   seven: 0
   nine: 0
   two: 0
+  youNegative: 0
+  theyDiscarded: 0
   duplicate: 0
   givePrefab: {fileID: 0}
   gameManager: {fileID: 0}

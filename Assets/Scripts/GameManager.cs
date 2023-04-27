@@ -91,22 +91,22 @@ public class GameManager : MonoBehaviour
         diceOne = (GameObject) Instantiate(dicePrefab);
         diceOne.transform.localScale = new Vector3(0.015f, 0.015f, 0.015f);
         diceOne.transform.SetParent(board, false);
-        diceOne.transform.position = new Vector3(755, 350, 0);
+        diceOne.transform.position = new Vector3(875, 350, 0);
 
         diceTwo = (GameObject) Instantiate(dicePrefab);
         diceTwo.transform.localScale = new Vector3(0.015f, 0.015f, 0.015f);
         diceTwo.transform.SetParent(board, false);
-        diceTwo.transform.position = new Vector3 (730, 350, 0);
+        diceTwo.transform.position = new Vector3 (850, 350, 0);
 
         diceThree = (GameObject) Instantiate(dicePrefab);
         diceThree.transform.localScale = new Vector3(0.015f, 0.015f, 0.015f);
         diceThree.transform.SetParent(board, false);
-        diceThree.transform.position = new Vector3(755, 200, 0);
+        diceThree.transform.position = new Vector3(875, 200, 0);
 
         diceFour = (GameObject) Instantiate(dicePrefab);
         diceFour.transform.localScale = new Vector3(0.015f, 0.015f, 0.015f);
         diceFour.transform.SetParent(board, false);
-        diceFour.transform.position = new Vector3(730, 200, 0);
+        diceFour.transform.position = new Vector3(850, 200, 0);
 
         StartCoroutine(targetCalculate());
         
@@ -122,7 +122,7 @@ public class GameManager : MonoBehaviour
         {
             //Increment Timer until counter >= waitTime
             counter += Time.deltaTime;
-            Debug.Log("We have waited for: " + counter + " seconds");
+            //Debug.Log("We have waited for: " + counter + " seconds");
             //Wait for a frame so that Unity doesn't freeze
             //Check if we want to quit this function
             if (quit)
