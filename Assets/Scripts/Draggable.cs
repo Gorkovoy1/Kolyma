@@ -34,12 +34,15 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     public bool duplicate;
 
+    public bool conditionMet;
+
 
     public GameObject givePrefab;
 
-    public GameManager gameManager;
 
     public int finisherSwapCount = 0;
+
+    GameManager gm;
 
 
 
@@ -77,6 +80,17 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                     given.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                     given.transform.localPosition = new Vector3(80, 266, 0);
 
+                    if(given.GetComponent<Tile>().cardValue > 0)
+                    {
+                            gm.oppPositives.Add(given);
+                            gm.oppPositives2.Add(given.GetComponent<Tile>().cardValue);
+                    }
+                    else
+                    {
+                            gm.oppNegatives.Add(given);
+                            gm.oppNegatives2.Add(given.GetComponent<Tile>().cardValue);
+                    }
+
                 }
                 if(self == true)
                 {
@@ -85,6 +99,17 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                     given.transform.SetParent(board.transform);
                     given.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                     given.transform.localPosition = new Vector3(80, 110, 0);
+
+                    if(given.GetComponent<Tile>().cardValue > 0)
+                    {
+                            gm.positives.Add(given);
+                            gm.positives2.Add(given.GetComponent<Tile>().cardValue);
+                    }
+                    else
+                    {
+                            gm.negatives.Add(given);
+                            gm.negatives2.Add(given.GetComponent<Tile>().cardValue);
+                    }
 
                 }
 
@@ -112,7 +137,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
             {
                 if(self == true)
                 {
-                    gameManager.DrawOne();
+                    gm.DrawOne();
                 }
             }
             else if (finisherSwap == true)
@@ -137,10 +162,13 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
         if(this.GetComponent<Tile>().special == true)
         {
+            if(conditionMet == true)
+            {
             parentReturnTo = this.transform.parent;
             this.transform.SetParent(this.transform.parent.parent);
 
             GetComponent<CanvasGroup>().blocksRaycasts = false;
+            }
         }
     }
 
@@ -148,6 +176,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     {
         //Debug.Log("OnDrag");
         if(this.GetComponent<Tile>().special == true)
+            if(conditionMet==true)
             this.transform.position = eventData.position;
 
     }
@@ -155,6 +184,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public void OnEndDrag(PointerEventData eventData)
     {
         //Debug.Log("OnEndDrag");
+        if(conditionMet==true)
         if(this.GetComponent<Tile>().special == true)
         {
             cardActivate = true;

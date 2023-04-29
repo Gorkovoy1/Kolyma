@@ -43,6 +43,15 @@ public class GameManager : MonoBehaviour
     public List<GameObject> currentPlayerValues;
     public List<GameObject> currentOpponentValues;
 
+    public List<GameObject> positives;
+    public List<GameObject> negatives;
+    public List<GameObject> oppPositives;
+    public List<GameObject> oppNegatives;
+    public List<int> positives2;
+    public List<int> negatives2;
+    public List<int> oppPositives2;
+    public List<int> oppNegatives2;
+
     public int cardCount;
     public int valueCount;
     public int opponentCardCount;
@@ -91,22 +100,22 @@ public class GameManager : MonoBehaviour
         diceOne = (GameObject) Instantiate(dicePrefab);
         diceOne.transform.localScale = new Vector3(0.015f, 0.015f, 0.015f);
         diceOne.transform.SetParent(board, false);
-        diceOne.transform.position = new Vector3(875, 350, 0);
+        diceOne.transform.localPosition = new Vector3(-180, 225, 0);
 
         diceTwo = (GameObject) Instantiate(dicePrefab);
         diceTwo.transform.localScale = new Vector3(0.015f, 0.015f, 0.015f);
         diceTwo.transform.SetParent(board, false);
-        diceTwo.transform.position = new Vector3 (850, 350, 0);
+        diceTwo.transform.localPosition = new Vector3 (-205, 225, 0);
 
         diceThree = (GameObject) Instantiate(dicePrefab);
         diceThree.transform.localScale = new Vector3(0.015f, 0.015f, 0.015f);
         diceThree.transform.SetParent(board, false);
-        diceThree.transform.position = new Vector3(875, 200, 0);
+        diceThree.transform.localPosition = new Vector3(-180, 75, 0);
 
         diceFour = (GameObject) Instantiate(dicePrefab);
         diceFour.transform.localScale = new Vector3(0.015f, 0.015f, 0.015f);
         diceFour.transform.SetParent(board, false);
-        diceFour.transform.position = new Vector3(850, 200, 0);
+        diceFour.transform.localPosition = new Vector3(-205, 75, 0);
 
         StartCoroutine(targetCalculate());
         

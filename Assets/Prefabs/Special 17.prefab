@@ -190,7 +190,9 @@ MonoBehaviour:
   nine: 0
   two: 0
   youNegative: 0
+  theyDiscarded: 0
   duplicate: 0
+  conditionMet: 1
   givePrefab: {fileID: 0}
   gameManager: {fileID: 0}
   finisherSwapCount: 0

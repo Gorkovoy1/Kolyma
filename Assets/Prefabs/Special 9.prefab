@@ -192,6 +192,7 @@ MonoBehaviour:
   youNegative: 0
   theyDiscarded: 0
   duplicate: 0
+  conditionMet: 1
   givePrefab: {fileID: 2051728403891364242, guid: 81507faa47d5882439248de8943f61fd, type: 3}
   gameManager: {fileID: 0}
   finisherSwapCount: 0
