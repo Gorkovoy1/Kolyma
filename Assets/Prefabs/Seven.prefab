@@ -95,8 +95,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileRevealed: 1
+  special: 0
   originalSprite: {fileID: 21300000, guid: b0657dd98ec3e4840bbdcb136c834d6d, type: 3}
-  hiddenSprite: {fileID: 21300000, guid: fde36b6100d49ba4aa8a1f4b8c0f8938, type: 3}
+  hiddenSprite: {fileID: 21300000, guid: 354f1539bb0f1304390d61ecfcb913ca, type: 3}
   cardValue: 7
 --- !u!114 &2051728403891364246
 MonoBehaviour:
@@ -169,6 +170,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentReturnTo: {fileID: 0}
+  board: {fileID: 0}
+  discard: {fileID: 0}
+  cardActivate: 0
+  swap: 0
+  flip: 0
+  give: 0
+  self: 0
+  opponent: 0
+  duplicateValue: 0
+  discardSpecial: 0
+  discardValue: 0
+  drawTwoSpecial: 0
+  drawOneSpecial: 0
+  finisherSwap: 0
+  five: 0
+  eight: 0
+  seven: 0
+  nine: 0
+  two: 0
+  youNegative: 0
+  theyDiscarded: 0
+  duplicate: 0
+  conditionMet: 0
+  givePrefab: {fileID: 0}
+  finisherSwapCount: 0
 --- !u!225 &-1073220978480353498
 CanvasGroup:
   m_ObjectHideFlags: 0

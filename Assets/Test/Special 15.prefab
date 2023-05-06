@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 7617939220175948460}
   - component: {fileID: -1073220978480353498}
   m_Layer: 5
-  m_Name: Four
+  m_Name: Special 15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,14 +33,14 @@ RectTransform:
   m_GameObject: {fileID: 2051728403891364242}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 2, y: -144}
   m_SizeDelta: {x: 450, y: 675}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -72,7 +72,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b0657dd98ec3e4840bbdcb136c834d6d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 66962aeb2119b7f4c820cde15e7dffa3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -94,11 +94,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 824b005ea71637148a7fee9206d78474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileRevealed: 1
-  special: 0
-  originalSprite: {fileID: 21300000, guid: b0657dd98ec3e4840bbdcb136c834d6d, type: 3}
-  hiddenSprite: {fileID: 21300000, guid: 3581b4b9fd9e2c3428f2cf0aab730a29, type: 3}
-  cardValue: 4
+  tileRevealed: 0
+  special: 1
+  originalSprite: {fileID: 21300000, guid: d37f45bc6c6b303408d18ff750cf2113, type: 3}
+  hiddenSprite: {fileID: 21300000, guid: 66962aeb2119b7f4c820cde15e7dffa3, type: 3}
+  cardValue: 0
 --- !u!114 &2051728403891364246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2051728403891364242}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23dd9096bf4803c4dbf92e1f53a6598a, type: 3}
   m_Name: 
@@ -177,13 +177,13 @@ MonoBehaviour:
   flip: 0
   give: 0
   self: 0
-  opponent: 0
+  opponent: 1
   duplicateValue: 0
   discardSpecial: 0
   discardValue: 0
   drawTwoSpecial: 0
   drawOneSpecial: 0
-  finisherSwap: 0
+  finisherSwap: 1
   five: 0
   eight: 0
   seven: 0
@@ -192,8 +192,9 @@ MonoBehaviour:
   youNegative: 0
   theyDiscarded: 0
   duplicate: 0
-  conditionMet: 0
+  conditionMet: 1
   givePrefab: {fileID: 0}
+  gameManager: {fileID: 0}
   finisherSwapCount: 0
 --- !u!225 &-1073220978480353498
 CanvasGroup:
