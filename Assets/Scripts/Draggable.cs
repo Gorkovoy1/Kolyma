@@ -48,111 +48,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     void Update()
     {
-        if(cardActivate == true)
-        {
-            //must check if condition is fulfilled
-            //separate forces and conditions
-            //check condition first then check card info 
-            //check condition by searching for presence of prefab?
-
-
-
-            //on initial deal, read card info and set value bools
-            //take bools from game manager as condition
-
-
-            cardActivate = false;
-            
-            //figure out what the effect is (by reading a string?)
-            //or a boolean (have all possible cards as bools and check diff for each)
-            //if true then do it
-            //carry out the effect
-            if(give == true)
-            {
-                //if card takes this condition, if list has the value, then carry out action
-                //every time card is given, update current value of player
-                Debug.Log("give");
-                if(opponent == true)
-                {
-                    GameObject given = (GameObject) Instantiate (givePrefab);
-                    GameObject board = GameObject.Find("Board");
-                    given.transform.SetParent(board.transform);
-                    given.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                    given.transform.localPosition = new Vector3(80, 266, 0);
-
-                    if(given.GetComponent<Tile>().cardValue > 0)
-                    {
-                            gm.oppPositives.Add(given);
-                            gm.oppPositives2.Add(given.GetComponent<Tile>().cardValue);
-                    }
-                    else
-                    {
-                            gm.oppNegatives.Add(given);
-                            gm.oppNegatives2.Add(given.GetComponent<Tile>().cardValue);
-                    }
-
-                }
-                if(self == true)
-                {
-                    GameObject given = (GameObject) Instantiate (givePrefab);
-                    GameObject board = GameObject.Find("Board");
-                    given.transform.SetParent(board.transform);
-                    given.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                    given.transform.localPosition = new Vector3(80, 110, 0);
-
-                    if(given.GetComponent<Tile>().cardValue > 0)
-                    {
-                            gm.positives.Add(given);
-                            gm.positives2.Add(given.GetComponent<Tile>().cardValue);
-                    }
-                    else
-                    {
-                            gm.negatives.Add(given);
-                            gm.negatives2.Add(given.GetComponent<Tile>().cardValue);
-                    }
-
-                }
-
-            }
-            else if(swap == true)
-            {
-                Debug.Log("swap");
-                finisherSwapCount++;
-
-            }
-            else if(flip == true)
-            {
-                Debug.Log("flip");
-
-            }
-            else if (drawTwoSpecial == true) //try using get component to set special draw in game manager to true so it executes from there
-            {
-                if(self == true)
-                {
-                    //this.GetComponent<GameManager>().DrawTwo();           //this doesnt work, try moving script to here
-                    //gameManager.DrawTwo();
-                }
-            }
-            else if(drawOneSpecial == true)
-            {
-                if(self == true)
-                {
-                    gm.DrawOne();
-                }
-            }
-            else if (finisherSwap == true)
-            {
-                for(int i = 0; i < finisherSwapCount; i++)
-                {
-                    GameObject given = (GameObject) Instantiate (givePrefab);
-                    GameObject board = GameObject.Find("Board");
-                    given.transform.localScale = new Vector3(0.095f, 0.095f, 0.095f);
-                    given.transform.localPosition = new Vector3(319, 356, 0);
-                    given.transform.SetParent(board.transform);
-                }
-            }
-
-        }
+        
 
     }
 
@@ -160,8 +56,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     {
         //Debug.Log ("OnBeginDrag");
 
-        if(this.GetComponent<Tile>().special == true)
-        {
+        
             if(conditionMet == true)
             {
             parentReturnTo = this.transform.parent;
@@ -169,13 +64,13 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
             GetComponent<CanvasGroup>().blocksRaycasts = false;
             }
-        }
+        
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         //Debug.Log("OnDrag");
-        if(this.GetComponent<Tile>().special == true)
+        
             if(conditionMet==true)
             this.transform.position = eventData.position;
 
@@ -185,7 +80,6 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     {
         //Debug.Log("OnEndDrag");
         if(conditionMet==true)
-        if(this.GetComponent<Tile>().special == true)
         {
             cardActivate = true;
 
@@ -193,8 +87,8 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
             GetComponent<CanvasGroup>().blocksRaycasts = true;
 
-            if(this.GetComponent<Tile>().special == true)
-            {
+            
+            
                 if(this.transform.parent == parentReturnTo)
                 {
                     Debug.Log("Parent is Opponent Hand");
@@ -207,7 +101,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                         cardActivate = true;
                     }
                 }
-            }
+            
         }
     }
 

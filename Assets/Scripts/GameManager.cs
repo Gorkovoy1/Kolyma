@@ -6,473 +6,254 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
     
-    public GameObject cardPrefab;
-    public GameObject dicePrefab;
-    public GameObject hand;
-    
+    public List<GameObject> valueDeck;
 
-    public GameObject diceOne;
-    public GameObject diceTwo;
-    public GameObject diceThree;
-    public GameObject diceFour;
-    
+    public List<GameObject> playerSpecialDeck;
+    public List<GameObject> AISpecialDeck;
+    public List<GameObject> playerSpecials;
+    public List<GameObject> AISpecials;
 
-    public Transform handParent;
-    public Transform opponentHandParent;
-    public Transform playerParent;
-    public Transform opponentParent;
+    public List<GameObject> playerValues;
+    public List<GameObject> AIValues;
+
+    public List<GameObject> tempNegsPlayer;
+    public List<GameObject> tempNegsAI;
+
+    
+    public bool hasDiscarded;
+
+
     public Transform board;
-    public Transform boardArt;
-
-    public TextMeshProUGUI playerSumText;
-    public TextMeshProUGUI opponentSumText;
-    public TextMeshProUGUI targetValueText;
-    
-
-    public List<GameObject> valuePrefabs;
-    public List<GameObject> specialPrefabs;
-    public List<GameObject> opponentPrefabs;
-    
-    public List<GameObject> valueList;
-    public List<GameObject> specialList;
-    public List<GameObject> opponentList;
-
-    public List<int> playerValues;
-    public List<int> opponentValues;
-    public List<GameObject> currentPlayerValues;
-    public List<GameObject> currentOpponentValues;
-
-    public List<GameObject> positives;
-    public List<GameObject> negatives;
-    public List<GameObject> oppPositives;
-    public List<GameObject> oppNegatives;
-    public List<int> positives2;
-    public List<int> negatives2;
-    public List<int> oppPositives2;
-    public List<int> oppNegatives2;
-
-    public int cardCount;
-    public int valueCount;
-    public int opponentCardCount;
-
-    public int playerSum;
-    public int opponentSum;
-    public int targetValue;
-
-    public int tempValue;
+    public Transform playerHand;
+    public Transform AIHand;
 
 
-    public bool specialDraw;
-    bool quit = false;
+    public int offset;
 
+    public int cardsSwapped;
+    public int cardsDiscarded;
+    public int cardsGiven;
 
-    public int tempLastValue;
-    public int oppTempLastValue;
-    public int negMultiple;
-
-    public int multiple;
-    public int oppMultiple;
-     
-
-
+    public bool gameEnd;
 
     void Start()
     {
-        
-    }
-
-
-    void Awake()
-    {
-        
-        specialDraw = false;
-        cardCount = 0;
-        valueCount = 0;
-        playerSum = 0;
-        opponentSum = 0;
-        Shuffle();
+        board = GameObject.Find("Canvas/Panel").transform;
+        offset = 7;
+        cardsSwapped = 0;
+        hasDiscarded = false;
+        ShuffleSpecials();
+        DealSpecials();
+        ShuffleDeck();
         DealCards();
-        DealValues();
-
-        
-        //roll dice
-        diceOne = (GameObject) Instantiate(dicePrefab);
-        diceOne.transform.localScale = new Vector3(0.015f, 0.015f, 0.015f);
-        diceOne.transform.SetParent(board, false);
-        diceOne.transform.localPosition = new Vector3(-180, 225, 0);
-
-        diceTwo = (GameObject) Instantiate(dicePrefab);
-        diceTwo.transform.localScale = new Vector3(0.015f, 0.015f, 0.015f);
-        diceTwo.transform.SetParent(board, false);
-        diceTwo.transform.localPosition = new Vector3 (-205, 225, 0);
-
-        diceThree = (GameObject) Instantiate(dicePrefab);
-        diceThree.transform.localScale = new Vector3(0.015f, 0.015f, 0.015f);
-        diceThree.transform.SetParent(board, false);
-        diceThree.transform.localPosition = new Vector3(-180, 75, 0);
-
-        diceFour = (GameObject) Instantiate(dicePrefab);
-        diceFour.transform.localScale = new Vector3(0.015f, 0.015f, 0.015f);
-        diceFour.transform.SetParent(board, false);
-        diceFour.transform.localPosition = new Vector3(-205, 75, 0);
-
-        StartCoroutine(targetCalculate());
-        
+        OrganizeCards();
     }
 
-    IEnumerator targetCalculate()
+    private void Awake()
     {
-        float counter = 0;
-        float waitTime = 3;
-        int diceValue;
-
-        while(counter<waitTime)
+        if (instance == null)
         {
-            //Increment Timer until counter >= waitTime
-            counter += Time.deltaTime;
-            //Debug.Log("We have waited for: " + counter + " seconds");
-            //Wait for a frame so that Unity doesn't freeze
-            //Check if we want to quit this function
-            if (quit)
-            {
-                //Quit function
-                yield break;
-            }
-            yield return null;
+            instance = this;
         }
-        
-        diceValue = diceOne.GetComponent<Dice>().finalSide;
-        targetValue = targetValue + diceValue;
-        
-
-        diceValue = diceTwo.GetComponent<Dice>().finalSide;
-        targetValue = targetValue + diceValue;
-
-
-        diceValue = diceThree.GetComponent<Dice>().finalSide;
-        targetValue = targetValue + diceValue;
-
-
-        diceValue = diceFour.GetComponent<Dice>().finalSide;
-        targetValue = targetValue + diceValue;
-
-
-
-        targetValueText.text = "Target\nValue:\n" + targetValue.ToString();
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
     }
 
-    void Update()
+
+    void ShuffleDeck()
     {
-        int diceValue;
-
-        playerSumText.text = playerSum.ToString();
-        opponentSumText.text = opponentSum.ToString();
-
-        if(specialDraw)
+        // Fisher-Yates shuffle algorithm
+        for (int i = valueDeck.Count - 1; i > 0; i--)
         {
-            DrawTwo();
-            specialDraw = false;
+            int j = Random.Range(0, i + 1);
+            GameObject temp = valueDeck[i];
+            valueDeck[i] = valueDeck[j];
+            valueDeck[j] = temp;
+        }
+    }
+
+    void DealCards()
+    {
+       
+
+        for(int i = 0; i < 4; i++)
+        {
+            for(int j = 0; j < 1; j++)
+            {
+                
+
+                GameObject cardOne = (GameObject) Instantiate(valueDeck[j]);
+                cardOne.tag = "PlayerValue";
+                playerValues.Add(cardOne);
+                
+                
+             
+
+                GameObject cardTwo = (GameObject) Instantiate(valueDeck[j+1]);
+                cardTwo.tag = "AIValue";
+                AIValues.Add(cardTwo);
+                
+
+                valueDeck.RemoveAt(1);
+                valueDeck.RemoveAt(0);
+            }
+        
+        }
+    }
+
+    void ShuffleSpecials()
+    {
+        // Fisher-Yates shuffle algorithm
+        for (int i = playerSpecialDeck.Count - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            GameObject temp1 = playerSpecialDeck[i];
+            playerSpecialDeck[i] = playerSpecialDeck[j];
+            playerSpecialDeck[j] = temp1;
+        }
+
+        // Fisher-Yates shuffle algorithm
+        for (int i = AISpecialDeck.Count - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            GameObject temp2 = AISpecialDeck[i];
+            AISpecialDeck[i] = AISpecialDeck[j];
+            AISpecialDeck[j] = temp2;
+        }
+    }
+
+    void DealSpecials()
+    {
+        for(int k = 0; k < 6; k++)
+        {
+            GameObject playerSpecial = (GameObject) Instantiate(playerSpecialDeck[0]);
+            playerSpecial.transform.SetParent(playerHand, false);
+            //playerSpecial.transform.localPosition = new Vector3(0, -200, 0);
+            playerSpecials.Add(playerSpecial);
+            playerSpecialDeck.RemoveAt(0);
+        }
+
+        for(int j = 0; j < 6; j++)
+        {
+            GameObject AISpecial = (GameObject) Instantiate(AISpecialDeck[0]);
+            AISpecial.transform.SetParent(AIHand, false);
+            //AISpecial.transform.localPosition = new Vector3(0, 200, 0);
+            AISpecials.Add(AISpecial);
+            AISpecialDeck.RemoveAt(0);
+        }
+    }
+
+    public void DrawSpecial()
+    {
+        if(playerSpecialDeck.Count > 0)
+        {
+            GameObject drawnSpecial = (GameObject) Instantiate(playerSpecialDeck[0]);
+            drawnSpecial.transform.SetParent(board, false);
+            drawnSpecial.transform.localPosition = new Vector3(0, -200, 0);
+            playerSpecials.Add(drawnSpecial);
+            playerSpecialDeck.RemoveAt(0);
         }
         else
         {
+            Debug.Log("Deck is empty!");
+        }
+        
+    }
 
+    void OrganizeValueList()
+    {
+        
+
+        for(int i = playerValues.Count-1; i >= 0; i--)
+        {
+            if(playerValues[i].GetComponent<ValueCard>().value < 0)
+            {
+                tempNegsPlayer.Add(playerValues[i]);
+                playerValues.RemoveAt(i);
+            }
+        }
+        
+
+
+
+        for(int k = AIValues.Count-1; k >= 0; k--)
+        {
+            if(AIValues[k].GetComponent<ValueCard>().value < 0)
+            {
+                tempNegsAI.Add(AIValues[k]);
+                AIValues.RemoveAt(k);
+            }
+        }
+        
+    }
+
+    public void OrganizeCards()
+    {
+        OrganizeValueList();
+
+        int playerPos = 0;
+        int AIPos = 0;
+        int temp = 0;
+        int temp2 = 0;
+
+        int tempCount = 0;
+        int tempCount2 = 0;
+
+        //try forcing layer sort like in special card hand (opposite for pos and neg)
+        //try keeping positives and negatives in separate lists
+        //have position indicated after doing positive
+
+        if(playerValues.Count > 0)
+        {
+            foreach(GameObject i in playerValues)
+            {
+                i.transform.SetParent(board, false);
+                i.transform.localPosition = new Vector3(playerPos, -100, 0);
+                playerPos = playerPos + i.GetComponent<ValueCard>().value * offset;
+                tempCount = tempCount + i.GetComponent<ValueCard>().value;
+            }
+        }
+        if(tempNegsPlayer.Count > 0)
+        {
+            temp = tempCount*offset - 10*offset;
+            for(int k = 0; k < tempNegsPlayer.Count; k++)
+            {
+                tempNegsPlayer[k].transform.SetParent(board, false);
+                tempNegsPlayer[k].transform.localPosition = new Vector3(temp, -210, 0);
+                temp = temp + tempNegsPlayer[k].GetComponent<ValueCard>().value * offset;
+            }
         }
 
 
-        //maybe have an updating script where it takes the list of prefab objects and constantly reorders them into the right position
-        //StartCoroutine(DelayCode());
+        if(AIValues.Count > 0)
+        {
+            foreach(GameObject i in AIValues)
+            {
+                i.transform.SetParent(board, false);
+                i.transform.localPosition = new Vector3(AIPos, 100, 0);
+                AIPos = AIPos + i.GetComponent<ValueCard>().value * offset;
+                tempCount2 = tempCount2 + i.GetComponent<ValueCard>().value;
+            }
+        }
+        if(tempNegsAI.Count > 0)
+        {
+            temp2 = tempCount2*offset - 10*offset;
+            for(int k = 0; k < tempNegsAI.Count; k++)
+            {
+                tempNegsAI[k].transform.SetParent(board,false);
+                tempNegsAI[k].transform.localPosition = new Vector3(temp2, -10, 0);
+                temp2 = temp2 + tempNegsAI[k].GetComponent<ValueCard>().value * offset;
+            }
+        }
+
 
         
-        //player value organizing
-        int currentPos = -60;
-        List<GameObject> negatives = new List<GameObject>();
-        List<GameObject> positives = new List<GameObject>();
-        List<int> positives2 = new List<int>();
-        List<int> negatives2 = new List<int>();
-
-        for(int j = 0; j < currentPlayerValues.Count; j++)
-        {
-            if(playerValues[j] > 0)
-            {
-                positives.Add(currentPlayerValues[j]);
-                positives2.Add(playerValues[j]);
-            }
-            else
-            {
-                negatives.Add(currentPlayerValues[j]);
-                negatives2.Add(playerValues[j]);
-            }
-        }
-
-        for(int i = 1; i < positives.Count; i++)
-        {
-            positives[0].transform.localPosition = new Vector3(-60, 111, 0);
-            int multiple = positives2[i-1];
-            positives[i].transform.localPosition = new Vector3(currentPos + multiple * 20, 111, 0);
-            currentPos = currentPos + multiple * 20;
-            tempLastValue = currentPos;
-        }
-
-        if (negatives.Count >= 1)
-        {
-            if(positives.Count == 1)
-            {
-                
-                //negatives[0].transform.localPosition = new Vector3(tempLastValue - multiple * 20, 36, 0);
-                //tempLastValue = tempLastValue - multiple*20;
-                negatives[0].transform.localPosition = new Vector3(-60, 36, 0);
-                tempLastValue = -60;
-            }
-            else
-            {
-                negatives[0].transform.localPosition = new Vector3(tempLastValue, 36, 0);
-            }
-            
-        }
-        for(int k = 1; k < negatives.Count; k++)
-        {
-            int multiple2 = negatives2[k-1];
-            negatives[k].transform.localPosition = new Vector3(tempLastValue + multiple2 * 20, 36, 0);
-        }
-        //fix if 3 negative values positioning is wrong
-
-
-        //opponent values organizing
-        int oppCurrentPos = -60;
-        List<GameObject> oppNegatives = new List<GameObject>();
-        List<GameObject> oppPositives = new List<GameObject>();
-        List<int> oppPositives2 = new List<int>();
-        List<int> oppNegatives2 = new List<int>();
-
-        for(int j = 0; j < currentOpponentValues.Count; j++)
-        {
-            if(opponentValues[j] > 0)
-            {
-                oppPositives.Add(currentOpponentValues[j]);
-                oppPositives2.Add(opponentValues[j]);
-            }
-            else
-            {
-                oppNegatives.Add(currentOpponentValues[j]);
-                oppNegatives2.Add(opponentValues[j]);
-            }
-        }
-
-        for(int i = 1; i < oppPositives.Count; i++)
-        {
-            oppPositives[0].transform.localPosition = new Vector3(-60, 266, 0);
-            int oppMultiple = oppPositives2[i-1];
-            oppPositives[i].transform.localPosition = new Vector3(oppCurrentPos + oppMultiple * 20, 266, 0);
-            oppCurrentPos = oppCurrentPos + oppMultiple * 20;
-            oppTempLastValue = oppCurrentPos;
-        }
-
-        if (oppNegatives.Count >= 1)
-        {
-            if(oppPositives.Count == 1)
-            {
-                //oppTempLastValue = oppTempLastValue + oppMultiple*20;
-                //oppNegatives[0].transform.localPosition = new Vector3(oppTempLastValue, 191, 0);
-                oppNegatives[0].transform.localPosition = new Vector3(-60, 191, 0);
-                oppTempLastValue = -60;
-                
-            }
-            else
-            {
-                oppNegatives[0].transform.localPosition = new Vector3(oppTempLastValue, 191, 0);
-            }
-        }
-        for(int k = 1; k < oppNegatives.Count; k++)
-        {
-            int oppMultiple2 = oppNegatives2[k-1];
-            oppNegatives[k].transform.localPosition = new Vector3(oppTempLastValue + oppMultiple2 * 20, 191, 0);
-        }
-
+        //fix offset issue - line up not the cards but the squares
+        //fix layer issue when new card enters list
     }
     
-
-    IEnumerator DelayCode()
-    {
-        float counter = 0;
-        float waitTime = 3;
-
-        while(counter<waitTime)
-        {
-            //Increment Timer until counter >= waitTime
-            counter += Time.deltaTime;
-            //Debug.Log("We have waited for: " + counter + " seconds");
-            //Wait for a frame so that Unity doesn't freeze
-            //Check if we want to quit this function
-            if (quit)
-            {
-                //Quit function
-                yield break;
-            }
-            yield return null;
-        }
-    }
-
-    void Shuffle()
-    {
-        for(int i = 0; i < 40; i++)
-        {
-            GameObject temp = valuePrefabs[i];
-            int rand = Random.Range(0,40);
-            valuePrefabs[i] = valuePrefabs[rand];
-            valuePrefabs[rand] = temp;
-        }
-
-        foreach(GameObject i in valuePrefabs)
-        {
-            valueList.Add(i);
-        }
-
-        for(int k=0; k < 18; k++)
-        {
-            GameObject tempTwo = specialPrefabs[k];
-            int randTwo = Random.Range(0,18);
-            specialPrefabs[k] = specialPrefabs[randTwo];
-            specialPrefabs[randTwo] = tempTwo;
-        }
-
-        foreach(GameObject k in specialPrefabs)
-        {
-            specialList.Add(k);
-        }
-
-        for(int j=0; j < 18; j++) //for reference, in future this will be length of array
-        {
-            GameObject tempThree = opponentPrefabs[j];
-            int randThree = Random.Range(0,18);
-            opponentPrefabs[j] = opponentPrefabs[randThree];
-            opponentPrefabs[randThree] = tempThree;
-        }
-
-        foreach(GameObject j in opponentPrefabs)
-        {
-            opponentList.Add(j);
-        }
-
-    }
-    
-
-
-    public void DealCards()
-    {
-        cardCount = 0;
-        
-       
-
-        for(int k = 0; k < 6; k++)
-        {
-            
-
-            GameObject card = (GameObject) Instantiate(specialList[k+1]);
-            
-            card.transform.SetParent(handParent, false);
-
-            cardCount++;
-            Debug.Log(" "+ cardCount);
-
-        }
-
-        //opponent hand
-        for(int j = 0; j < 6; j++)
-        {
-            GameObject card2 = (GameObject) Instantiate(opponentList[j+1]);
-            
-            card2.transform.SetParent(opponentHandParent, false);
-
-            opponentCardCount++;
-            Debug.Log(" "+ opponentCardCount);
-
-        }
-    }
-
-    public void DealValues()
-    {
-        valueCount = 0;
-        int tempValue = 0;
-        int lastValue = 0;
-        int tempValue2 = 0;
-        int lastValue2 = 0;
-        int offset1 = 0;
-        int offset2 = 0;
-
-        for (int n = 0; n < 8; n+=2)
-        {
-            //player
-            GameObject valueCard = (GameObject) Instantiate(valueList[n]);
-            //get card value from prefab, set it as value, translate card by unit * value, add value to total sum
-            //get component, find integer, idk how
-            //if negative, do something
-            //get value, check for positive or negative, do positives first then negative
-            tempValue = valueCard.GetComponent<Tile>().cardValue;
-            playerValues.Add(tempValue);
-            currentPlayerValues.Add(valueCard);
-            lastValue = tempValue;
-            Debug.Log(tempValue);
-                if(tempValue > 0)
-                {
-                    playerSum = playerSum + tempValue;
-                    valueCard.transform.localPosition = new Vector3(-60, -40, 0);
-                    valueCard.transform.SetParent(board, false);
-                    valueCount++;
-                }
-                else
-                {
-                    playerSum = playerSum + tempValue;
-                    valueCard.transform.localPosition = new Vector3(-60, -115, 0);
-                    valueCard.transform.SetParent(board, false);
-                    valueCount++;
-                }
-
-
-
-            //opponent
-            GameObject valueCard2 = (GameObject) Instantiate(valueList[n+1]);
-            tempValue2 = valueCard2.GetComponent<Tile>().cardValue;
-            opponentValues.Add(tempValue2);
-            currentOpponentValues.Add(valueCard2);
-            lastValue2 = tempValue2;
-                if(tempValue2 > 0)
-                {
-                    opponentSum = opponentSum + tempValue2;
-                    valueCard2.transform.localPosition = new Vector3(-60, 120, 0);
-                    valueCard2.transform.SetParent(board, false);
-                    valueCount++;
-                }
-                else
-                {
-                    opponentSum = opponentSum + tempValue2;
-                    valueCard2.transform.localPosition = new Vector3(-60, 45, 0);
-                    valueCard2.transform.SetParent(board, false);
-                    valueCount++;
-                }
-
-
-        Debug.Log("Opponent value is: " + opponentSum);
-        Debug.Log("Your value is: " + playerSum);
-
-        }
-    }
-
-    public void DrawTwo()
-    {
-        Debug.Log("drawtwo");
-        GameObject cardOne = (GameObject) Instantiate(specialList[cardCount+1]);
-        cardOne.transform.SetParent(handParent, false);
-        cardCount++;
-        GameObject cardTwo = (GameObject) Instantiate(specialList[cardCount+1]);
-        cardTwo.transform.SetParent(handParent, false);
-        cardCount++;
-    }
-
-    public void DrawOne()
-    {
-        GameObject cardDraw = (GameObject) Instantiate(specialList[cardCount+1]);
-        cardDraw.transform.SetParent(handParent, false);
-        cardCount++;
-    }
 }
