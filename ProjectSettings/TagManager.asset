@@ -4,10 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Destroyable
-  - Undefined
-  - AIValue
   - PlayerValue
+  - AIValue
+  - Undefined
+  - Destroyable
   layers:
   - Default
   - TransparentFX
@@ -15,7 +15,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Values
   - Crossfade
   - 
   - 
