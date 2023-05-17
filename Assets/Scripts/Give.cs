@@ -47,6 +47,7 @@ public class Give : MonoBehaviour
         givePrefab.transform.SetParent(board, false);
         gm.playerValues.Add(givePrefab);
         gm.OrganizeCards();
+        DestroyMe();
     }
 
     public void GiveOpp2() //positiveTwo
@@ -57,7 +58,7 @@ public class Give : MonoBehaviour
         gm.AIValues.Add(givePrefab);
         gm.OrganizeCards();
         gm.cardsGiven += 1;
-
+        DestroyMe();
         //force sorting order so given card is at very bottom
     }
 
@@ -75,6 +76,8 @@ public class Give : MonoBehaviour
         givePrefab2.transform.SetParent(board, false);
         gm.OrganizeCards();
         gm.cardsGiven += 1;
+
+        DestroyMe();
     }
 
     public void Give3()
@@ -90,7 +93,8 @@ public class Give : MonoBehaviour
             gm.cardsGiven += 1;
         }
 
-
+        
+        DestroyMe();
         /*
         if(has7)
         {
@@ -158,6 +162,7 @@ public class Give : MonoBehaviour
             
             
         }
+        DestroyMe();
     }
     
     public void ifDiscardGive2()
@@ -167,6 +172,13 @@ public class Give : MonoBehaviour
             GiveOpp2();
             gm.cardsGiven += 1;
         }
+        DestroyMe();
+    }
+
+    void DestroyMe()
+    {
+        gm.playerSpecials.Remove(this.gameObject);
+        Destroy(this.gameObject);
     }
     
 }

@@ -34,6 +34,7 @@ public class Discard : MonoBehaviour
         {
             Debug.Log("The opponent's hand is empty!");
         }
+        DestroyMe();
     }
 
     public void ifNegativeDiscard()
@@ -58,6 +59,7 @@ public class Discard : MonoBehaviour
         {
             Debug.Log("No negative!");
         }
+        DestroyMe();
     }
 
     public void if8DiscsardSpecial()
@@ -68,5 +70,12 @@ public class Discard : MonoBehaviour
             DiscardSpecial();
             gm.cardsDiscarded += 1;
         }
+        DestroyMe();
+    }
+
+    void DestroyMe()
+    {
+        gm.playerSpecials.Remove(this.gameObject);
+        Destroy(this.gameObject);
     }
 }

@@ -85,6 +85,7 @@ public class Flip : MonoBehaviour
                 gm.OrganizeCards();
             }
         }
+        DestroyMe();
     }
 
     private GameObject GetObjectWithValueCard(ValueCard[] components, int valueToMatch)
@@ -100,7 +101,11 @@ public class Flip : MonoBehaviour
         return null;
     }
         
-    
+    void DestroyMe()
+    {
+        gm.playerSpecials.Remove(this.gameObject);
+        Destroy(this.gameObject);
+    }
     
 }
 

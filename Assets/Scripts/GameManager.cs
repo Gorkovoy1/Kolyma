@@ -41,7 +41,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         board = GameObject.Find("Canvas/Panel").transform;
-        offset = 7;
         cardsSwapped = 0;
         hasDiscarded = false;
         ShuffleSpecials();
@@ -152,7 +151,7 @@ public class GameManager : MonoBehaviour
         if(playerSpecialDeck.Count > 0)
         {
             GameObject drawnSpecial = (GameObject) Instantiate(playerSpecialDeck[0]);
-            drawnSpecial.transform.SetParent(board, false);
+            drawnSpecial.transform.SetParent(playerHand, false);
             drawnSpecial.transform.localPosition = new Vector3(0, -200, 0);
             playerSpecials.Add(drawnSpecial);
             playerSpecialDeck.RemoveAt(0);
@@ -212,7 +211,7 @@ public class GameManager : MonoBehaviour
             foreach(GameObject i in playerValues)
             {
                 i.transform.SetParent(board, false);
-                i.transform.localPosition = new Vector3(playerPos, -100, 0);
+                i.transform.localPosition = new Vector3(playerPos, -60, 0);
                 playerPos = playerPos + i.GetComponent<ValueCard>().value * offset;
                 tempCount = tempCount + i.GetComponent<ValueCard>().value;
             }
@@ -223,7 +222,7 @@ public class GameManager : MonoBehaviour
             for(int k = 0; k < tempNegsPlayer.Count; k++)
             {
                 tempNegsPlayer[k].transform.SetParent(board, false);
-                tempNegsPlayer[k].transform.localPosition = new Vector3(temp, -210, 0);
+                tempNegsPlayer[k].transform.localPosition = new Vector3(temp, -170, 0);
                 temp = temp + tempNegsPlayer[k].GetComponent<ValueCard>().value * offset;
             }
         }
@@ -234,7 +233,7 @@ public class GameManager : MonoBehaviour
             foreach(GameObject i in AIValues)
             {
                 i.transform.SetParent(board, false);
-                i.transform.localPosition = new Vector3(AIPos, 100, 0);
+                i.transform.localPosition = new Vector3(AIPos, 150, 0);
                 AIPos = AIPos + i.GetComponent<ValueCard>().value * offset;
                 tempCount2 = tempCount2 + i.GetComponent<ValueCard>().value;
             }
@@ -245,7 +244,7 @@ public class GameManager : MonoBehaviour
             for(int k = 0; k < tempNegsAI.Count; k++)
             {
                 tempNegsAI[k].transform.SetParent(board,false);
-                tempNegsAI[k].transform.localPosition = new Vector3(temp2, -10, 0);
+                tempNegsAI[k].transform.localPosition = new Vector3(temp2, 40, 0);
                 temp2 = temp2 + tempNegsAI[k].GetComponent<ValueCard>().value * offset;
             }
         }

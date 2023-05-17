@@ -33,7 +33,7 @@ public class UIOnHoverEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         tempRaycaster = gameObject.AddComponent<GraphicRaycaster>();
 
         transform.localScale = new Vector3(0.27f, 0.27f, 0.5f);
-        transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + 30, transform.localPosition.z);
+        transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + 300, transform.localPosition.z);
         //transform.position += Vector3.up;
         //transform.localPosition = new Vector3(transform.localPosition.x, 200, transform.localPosition.z);
         //i think the issue is that its parented
@@ -43,6 +43,9 @@ public class UIOnHoverEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         gm.playerHand.transform.position += Vector3.up * 140f;
     }
 
+
+    //fix on click position messing up and not registering as on pointer exit
+
     public void OnPointerExit(PointerEventData eventData)
     {
         Destroy(tempRaycaster);
@@ -50,7 +53,7 @@ public class UIOnHoverEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         
 
         transform.localScale = cachedScale;
-        gm.playerHand.transform.position = originalPosition;
+        gm.playerHand.transform.position = new Vector3(1050, -20, 0);
         //transform.localPosition = cachedPosition;
         
         //Debug.Log("exit");

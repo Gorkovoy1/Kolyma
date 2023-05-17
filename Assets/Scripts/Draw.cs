@@ -27,12 +27,20 @@ public class Draw : MonoBehaviour
         {
             gm.DrawSpecial();
         }
+        DestroyMe();
     }
 
     public void Draw2Special()
     {
         gm.DrawSpecial();
         gm.DrawSpecial();
+        DestroyMe();
+    }
+
+    void DestroyMe()
+    {
+        gm.playerSpecials.Remove(this.gameObject);
+        Destroy(this.gameObject);
     }
     
 }

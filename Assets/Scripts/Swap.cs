@@ -39,6 +39,7 @@ public class Swap : MonoBehaviour
                 break;
             }
         }
+        DestroyMe();
     }
 
     public void SwapHighest()
@@ -71,6 +72,13 @@ public class Swap : MonoBehaviour
         gm.OrganizeCards();
         gm.cardsSwapped += 1;
 
+        DestroyMe();
         //at a certain point it says gameobject has been destroyed but youre stil trying to access it
+    }
+
+    void DestroyMe()
+    {
+        gm.playerSpecials.Remove(this.gameObject);
+        Destroy(this.gameObject);
     }
 }

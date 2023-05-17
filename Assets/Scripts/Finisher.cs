@@ -34,6 +34,7 @@ public class Finisher : MonoBehaviour
             gm.OrganizeCards();
             gm.gameEnd = true;
         }
+        DestroyMe();
     }
 
     public void DiscardFinisher()
@@ -46,6 +47,7 @@ public class Finisher : MonoBehaviour
             gm.OrganizeCards();
             gm.gameEnd = true;
         }
+        DestroyMe();
     }
 
 
@@ -59,7 +61,12 @@ public class Finisher : MonoBehaviour
             gm.OrganizeCards();
             gm.gameEnd = true;
         }
+        DestroyMe();
     }
 
-    
+    void DestroyMe()
+    {
+        gm.playerSpecials.Remove(this.gameObject);
+        Destroy(this.gameObject);
+    }
 }
