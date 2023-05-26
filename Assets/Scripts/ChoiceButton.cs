@@ -6,25 +6,28 @@ using UnityEngine.UI;
 
 public class ChoiceButton : MonoBehaviour
 {
-    public string text;
+    public string option1;
+    public string option2;
+    public string option3;
+    public Button button1;
+    public Button button2;
+    public Button button3;
     public Dialogue dialogue;
-    public TextMeshProUGUI buttonText;
 
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Button>().onClick.AddListener(OnClick);
+        option1 = "";
+        option2 = "";
+        option3 = "";
     }
 
-    public void OnClick()
-    {
-        buttonText.text = text;
-        dialogue.index += 1;
-    }
 
     // Update is called once per frame
     void Update()
-    {
-        
+    { 
+      button1.GetComponentInChildren<Text>().text = option1;
+      button2.GetComponentInChildren<Text>().text = option2;
+      button3.GetComponentInChildren<Text>().text = option3;
     }
 }
