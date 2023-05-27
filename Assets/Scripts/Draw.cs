@@ -6,12 +6,16 @@ public class Draw : MonoBehaviour
 {
 
     public GameManager gm;
+    public TurnSystem ts;
+    public bool attack;
 
     // Start is called before the first frame update
     private void Start()
     {
         GameObject manager = GameObject.Find("Game Manager");    
         gm = manager.GetComponent<GameManager>();
+        attack = false;
+        
     }
 
     // Update is called once per frame
@@ -26,8 +30,9 @@ public class Draw : MonoBehaviour
         if(two != null)
         {
             gm.DrawSpecial();
+            
+            DestroyMe();
         }
-        DestroyMe();
     }
 
     public void Draw2Special()
@@ -39,8 +44,15 @@ public class Draw : MonoBehaviour
 
     void DestroyMe()
     {
+        
         gm.playerSpecials.Remove(this.gameObject);
         Destroy(this.gameObject);
+        gm.playerSpecials.Remove(this.gameObject);
+        Destroy(this.gameObject);
+        GameObject manager = GameObject.Find("Game Manager");    
+        ts = manager.GetComponent<TurnSystem>();
+        ts.cardSelected = true;
+        
     }
     
 }

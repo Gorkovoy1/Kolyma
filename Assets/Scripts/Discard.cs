@@ -5,10 +5,13 @@ using UnityEngine;
 public class Discard : MonoBehaviour
 {
     public GameManager gm;
+    public TurnSystem ts;
+    public bool attack;
 
     // Start is called before the first frame update
     private void Start()
     {
+        
         GameObject manager = GameObject.Find("Game Manager");    
         gm = manager.GetComponent<GameManager>();
     }
@@ -75,7 +78,11 @@ public class Discard : MonoBehaviour
 
     void DestroyMe()
     {
+        
         gm.playerSpecials.Remove(this.gameObject);
         Destroy(this.gameObject);
+        GameObject manager = GameObject.Find("Game Manager");    
+        ts = manager.GetComponent<TurnSystem>();
+        ts.cardSelected = true;
     }
 }

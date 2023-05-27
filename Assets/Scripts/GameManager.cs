@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     
     public bool hasDiscarded;
 
+    public bool playerHasDiscarded;
+
 
     public Transform board;
     public Transform playerHand;
@@ -37,6 +39,10 @@ public class GameManager : MonoBehaviour
     public int cardsGiven;
 
     public bool gameEnd;
+
+    public int AIValue;
+    public int playerValue;
+    public int targetValue;
 
     void Start()
     {

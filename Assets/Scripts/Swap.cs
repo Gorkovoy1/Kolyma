@@ -6,12 +6,17 @@ public class Swap : MonoBehaviour
 {
 
     public GameManager gm;
+    public TurnSystem ts;
+
+    
+    public bool attack;
 
     // Start is called before the first frame update
     private void Start()
     {
         GameObject manager = GameObject.Find("Game Manager");    
         gm = manager.GetComponent<GameManager>();
+        attack = true;
     }
 
     // Update is called once per frame
@@ -36,10 +41,11 @@ public class Swap : MonoBehaviour
                 gm.valueDeck.RemoveAt(0);
                 gm.OrganizeCards();
                 gm.cardsSwapped+= 1;
+                DestroyMe();
                 break;
             }
         }
-        DestroyMe();
+        //DestroyMe();
     }
 
     public void SwapHighest()
@@ -78,7 +84,13 @@ public class Swap : MonoBehaviour
 
     void DestroyMe()
     {
+        
         gm.playerSpecials.Remove(this.gameObject);
         Destroy(this.gameObject);
+        gm.playerSpecials.Remove(this.gameObject);
+        Destroy(this.gameObject);
+        GameObject manager = GameObject.Find("Game Manager");    
+        ts = manager.GetComponent<TurnSystem>();
+        ts.cardSelected = true;
     }
 }

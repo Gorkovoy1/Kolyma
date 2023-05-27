@@ -8,6 +8,9 @@ public class Finisher : MonoBehaviour
     public GameObject four;
     public GameManager gm;
     public Transform board;
+    public TurnSystem ts;
+    
+    public bool attack;
 
     // Start is called before the first frame update
     private void Start()
@@ -16,6 +19,7 @@ public class Finisher : MonoBehaviour
         gm = manager.GetComponent<GameManager>();
         GameObject tempBoard = GameObject.Find("Canvas/Panel");
         board = tempBoard.transform; 
+        attack = true;
     }
 
     // Update is called once per frame
@@ -66,7 +70,13 @@ public class Finisher : MonoBehaviour
 
     void DestroyMe()
     {
+        
         gm.playerSpecials.Remove(this.gameObject);
         Destroy(this.gameObject);
+        gm.playerSpecials.Remove(this.gameObject);
+        Destroy(this.gameObject);
+        GameObject manager = GameObject.Find("Game Manager");    
+        ts = manager.GetComponent<TurnSystem>();
+        ts.cardSelected = true;
     }
 }

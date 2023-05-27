@@ -44,7 +44,14 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     GameManager gm;
 
+    public bool playableCard;
+    public bool attack;
+    public bool help;
 
+    void Start()
+    {
+        discard = GameObject.Find("Discard").transform;
+    }
 
     void Update()
     {
@@ -57,13 +64,15 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         //Debug.Log ("OnBeginDrag");
 
         
-            if(conditionMet == true)
-            {
+            //if(conditionMet == true)
+            //{
             parentReturnTo = this.transform.parent;
-            this.transform.SetParent(this.transform.parent.parent);
+            
+
+            
 
             GetComponent<CanvasGroup>().blocksRaycasts = false;
-            }
+            //}
         
     }
 
@@ -71,7 +80,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     {
         //Debug.Log("OnDrag");
         
-            if(conditionMet==true)
+            //if(conditionMet==true)
             this.transform.position = eventData.position;
 
     }
@@ -79,30 +88,32 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public void OnEndDrag(PointerEventData eventData)
     {
         //Debug.Log("OnEndDrag");
-        if(conditionMet==true)
-        {
+        //if(conditionMet==true)
+        //{
             cardActivate = true;
 
             this.transform.SetParent(parentReturnTo);
 
             GetComponent<CanvasGroup>().blocksRaycasts = true;
-
+            /*
+            if(!playableCard)
+            {
+                this.transform.SetParent(parentReturnTo);
+            }
             
-            
-                if(this.transform.parent == parentReturnTo)
-                {
-                    Debug.Log("Parent is Opponent Hand");
+                
                     GameObject discardPile = GameObject.Find("Discard");
                     this.transform.position = discardPile.transform.position; 
+                    //gm.playerSpecials.Remove(this.gameObject);
 
                     if(this.transform.position == discardPile.transform.position)
                     {
                         Debug.Log("position equal");
                         cardActivate = true;
                     }
-                }
+            */    
             
-        }
+        //}
     }
 
     

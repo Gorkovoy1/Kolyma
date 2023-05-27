@@ -7,6 +7,9 @@ public class Flip : MonoBehaviour
     public GameManager gm;
     public int integerValueToMatch;
     public GameObject newObj;
+    public TurnSystem ts;
+    
+    public bool attack;
 
     // Start is called before the first frame update
     private void Start()
@@ -15,6 +18,7 @@ public class Flip : MonoBehaviour
         gm = manager.GetComponent<GameManager>();
         //GameObject tempBoard = GameObject.Find("Canvas/Panel");
         //board = tempBoard.transform; 
+        attack = true;
     }
 
     // Update is called once per frame
@@ -84,8 +88,9 @@ public class Flip : MonoBehaviour
                 gm.AIValues.Add(flipped);
                 gm.OrganizeCards();
             }
+            DestroyMe();
         }
-        DestroyMe();
+        
     }
 
     private GameObject GetObjectWithValueCard(ValueCard[] components, int valueToMatch)
@@ -103,8 +108,14 @@ public class Flip : MonoBehaviour
         
     void DestroyMe()
     {
+        
         gm.playerSpecials.Remove(this.gameObject);
         Destroy(this.gameObject);
+        gm.playerSpecials.Remove(this.gameObject);
+        Destroy(this.gameObject);
+        GameObject manager = GameObject.Find("Game Manager");    
+        ts = manager.GetComponent<TurnSystem>();
+        ts.cardSelected = true;
     }
     
 }

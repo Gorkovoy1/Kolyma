@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 3711161507828489567}
   - component: {fileID: 3711161507828489565}
   - component: {fileID: 3711161507828489564}
+  - component: {fileID: -1052795110222078463}
+  - component: {fileID: 1106573684452198601}
   m_Layer: 5
   m_Name: swap out 5
   m_TagString: Untagged
@@ -91,6 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c9ffd0a41f0d54449687218d3736b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gm: {fileID: 0}
 --- !u!114 &3711161507828489565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 2
+  - eventID: 14
     callback:
       m_PersistentCalls:
         m_Calls:
@@ -133,3 +136,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 0}
+  ts: {fileID: 0}
+  attack: 0
+--- !u!114 &-1052795110222078463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3711161507828489555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbfe94753e06f4546b81d15813842143, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentReturnTo: {fileID: 0}
+  board: {fileID: 0}
+  discard: {fileID: 0}
+  cardActivate: 0
+  swap: 0
+  flip: 0
+  give: 0
+  self: 0
+  opponent: 0
+  duplicateValue: 0
+  discardSpecial: 0
+  discardValue: 0
+  drawTwoSpecial: 0
+  drawOneSpecial: 0
+  finisherSwap: 0
+  five: 1
+  eight: 0
+  seven: 0
+  nine: 0
+  two: 0
+  youNegative: 0
+  theyDiscarded: 0
+  duplicate: 0
+  conditionMet: 0
+  givePrefab: {fileID: 0}
+  finisherSwapCount: 0
+  playableCard: 0
+  attack: 1
+  help: 0
+--- !u!225 &1106573684452198601
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3711161507828489555}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

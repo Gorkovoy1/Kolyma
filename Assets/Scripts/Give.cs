@@ -28,7 +28,10 @@ public class Give : MonoBehaviour
 
     public Transform board;
 
+    public TurnSystem ts;
+
     
+    public bool attack;
 
     //public bool has7;
 
@@ -43,6 +46,7 @@ public class Give : MonoBehaviour
 
     public void GiveSelf2() //negativeTwo
     {
+        attack = false;
         GameObject givePrefab = (GameObject) Instantiate (negTwo, board);
         givePrefab.transform.SetParent(board, false);
         gm.playerValues.Add(givePrefab);
@@ -52,6 +56,7 @@ public class Give : MonoBehaviour
 
     public void GiveOpp2() //positiveTwo
     {
+        attack = true;
         GameObject givePrefab = (GameObject) Instantiate (two, board);
         givePrefab.transform.SetParent(board, false);
         //gm.AIValues.Insert(0, givePrefab);
@@ -64,6 +69,7 @@ public class Give : MonoBehaviour
 
     public void GiveAll4()
     {
+        attack = false;
         GameObject givePrefab = (GameObject) Instantiate (four, board);
         GameObject givePrefab2 = (GameObject) Instantiate (four, board);
         //gm.AIValues.Insert(0, givePrefab);
@@ -82,7 +88,7 @@ public class Give : MonoBehaviour
 
     public void Give3()
     {
-
+        attack = true;
         GameObject seven = gm.AIValues.Find(obj => obj.GetComponent<ValueCard>().value == 7);
         if(seven != null)
         {
@@ -91,10 +97,11 @@ public class Give : MonoBehaviour
             gm.AIValues.Add(givePrefab);
             gm.OrganizeCards();
             gm.cardsGiven += 1;
+
+            DestroyMe();
         }
 
         
-        DestroyMe();
         /*
         if(has7)
         {
@@ -115,6 +122,7 @@ public class Give : MonoBehaviour
 
     public void GiveDuplicate()
     {
+        attack = true;
         // Assuming you have a list of prefabs called myPrefabList and another list called duplicatesList
         List<GameObject> myPrefabList = new List<GameObject>();
 
@@ -160,25 +168,110 @@ public class Give : MonoBehaviour
             }
 
             
-            
+        DestroyMe();   
         }
-        DestroyMe();
     }
     
     public void ifDiscardGive2()
     {
+        attack = true;
         if(gm.hasDiscarded == true)
         {
             GiveOpp2();
             gm.cardsGiven += 1;
+            
+            DestroyMe();
         }
-        DestroyMe();
     }
 
     void DestroyMe()
     {
+        
         gm.playerSpecials.Remove(this.gameObject);
         Destroy(this.gameObject);
+        gm.playerSpecials.Remove(this.gameObject);
+        Destroy(this.gameObject);
+        GameObject manager = GameObject.Find("Game Manager");    
+        ts = manager.GetComponent<TurnSystem>();
+        ts.cardSelected = true;
+        
+    }
+
+
+
+    //AI METHODS
+    //
+    //
+    //
+    //
+    //
+
+    public void AIGiveDuplicate()
+    {
+        // Assuming you have a list of prefabs called myPrefabList and another list called duplicatesList
+        List<GameObject> myPrefabList = new List<GameObject>();
+
+        // Finding duplicates using LINQ
+        for(int i = 0; i < gm.AIValues.Count; i++)
+        {
+            myPrefabList.Add(gm.AIValues[i]);
+        }
+        for(int k = 0; k < gm.tempNegsAI.Count; k++)
+        {
+            myPrefabList.Add(gm.tempNegsAI[k]);
+        }
+
+
+        var duplicateGroups = myPrefabList.GroupBy(x => x.GetComponent<ValueCard>().value)
+            .Where(g => g.Count() > 1)
+            .Select(g => new { Value = g.Key, Objects = g.ToList() });
+
+        // Moving one duplicate to the duplicatesList
+        foreach (var group in duplicateGroups)
+        {
+            GameObject duplicatePrefab2 = group.Objects[0];
+            myPrefabList.Remove(duplicatePrefab2);
+
+            GameObject duplicatePrefab = (GameObject) Instantiate (duplicatePrefab2, board);
+            
+            if(duplicatePrefab.GetComponent<ValueCard>().value > 0)
+            {
+                gm.AIValues.Remove(group.Objects[0]);
+                gm.playerValues.Add(duplicatePrefab);
+                duplicatePrefab.transform.SetParent(board, false);
+                //gm.AIValues.Insert(gm.AIValues.Count, duplicatePrefab);
+                gm.OrganizeCards();
+                //gm.AICardsGiven += 1;
+            }
+            if(duplicatePrefab.GetComponent<ValueCard>().value < 0)
+            {
+                gm.tempNegsAI.Remove(group.Objects[0]);
+                gm.tempNegsPlayer.Add(group.Objects[0]);
+                group.Objects[0].transform.SetParent(board, false);
+                gm.OrganizeCards();
+                //gm.AICardsGiven += 1;
+            }
+
+            
+        DestroyMe();   
+        }
+    }
+
+    public void AIGive3()
+    {
+        GameObject seven = gm.playerValues.Find(obj => obj.GetComponent<ValueCard>().value == 7);
+                if(seven != null)
+                {
+                    GameObject givePrefab = (GameObject) Instantiate (three, board); //might have to use resources.load or gameobject.find to get the three 
+                    givePrefab.transform.SetParent(board, false);
+                    gm.playerValues.Add(givePrefab);
+                    gm.OrganizeCards();
+                    //gm.AICardsGiven += 1;
+
+                    DestroyMe();
+                }
     }
     
+
+
 }
