@@ -40,10 +40,14 @@ public class Dialogue : MonoBehaviour
     {
         choiceNumber = 0;
         choice = false;
-        
-        //<i>italicized</i>
+      
 
-        lines = new List<string>() {"Don't worry, I know the rules. You were here first and the bed is yours. But can I still sit here? It has been a long and tiring journey.",
+
+    //<i>italicized</i>
+
+
+
+    lines = new List<string>() {"Don't worry, I know the rules. You were here first and the bed is yours. But can I still sit here? It has been a long and tiring journey.",
         "",
         "It's just unthinkable! A week on a train, two days on a boat and here we are.",
         "I have been to this part of Russia before, but never could I imagine I'd have to travel all the way to Magadan again.",
