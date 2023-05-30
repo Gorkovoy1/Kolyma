@@ -32,6 +32,9 @@ public class Dialogue : MonoBehaviour
 
     public GameObject blocker;
 
+    public Image NPC;
+    public Image arkady; 
+
     [SerializeField] private ButtonScript choiceList;
 
 
@@ -105,8 +108,38 @@ public class Dialogue : MonoBehaviour
                 }
             }    
         
+            if(choice)
+            {
+                HighlightArkady();
+                //Debug.Log("arkady");
+            }
+            else if(!choice)
+            {
+                HighlightNPC();
+                //Debug.Log("npc");
+            }
             
         
+    }
+
+    void HighlightNPC()
+    {
+        Color colorNPC = NPC.color;
+        Color colorArkady = arkady.color;
+        colorNPC = new Color(colorNPC.r, colorNPC.g, colorNPC.b, 1f);
+        colorArkady = new Color(colorArkady.r, colorArkady.g, colorArkady.b, 0.6f);
+        NPC.color = colorNPC;
+        arkady.color = colorArkady;
+    }
+
+    void HighlightArkady()
+    {
+        Color colorNPC = NPC.color;
+        Color colorArkady = arkady.color;
+        colorNPC = new Color(colorNPC.r, colorNPC.g, colorNPC.b, 0.6f);
+        colorArkady = new Color(colorArkady.r, colorArkady.g, colorArkady.b, 1f);
+        NPC.color = colorNPC;
+        arkady.color = colorArkady;
     }
 
     void StartDialogue()

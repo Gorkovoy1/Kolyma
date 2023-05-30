@@ -1305,6 +1305,8 @@ MonoBehaviour:
   outcome3: []
   choiceNumber: 0
   blocker: {fileID: 1123746000}
+  NPC: {fileID: 713508382}
+  arkady: {fileID: 848152636}
   choiceList: {fileID: 3261295}
 --- !u!1 &1858700118
 GameObject:
