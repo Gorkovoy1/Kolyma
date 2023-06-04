@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class Dialogue : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
+    public TextMeshProUGUI nameTag;
     public List<string> lines;
     public float textSpeed;
     public int index;
@@ -43,42 +44,42 @@ public class Dialogue : MonoBehaviour
     {
         choiceNumber = 0;
         choice = false;
-      
+      choiceList.gameObject.SetActive(false);
 
 
     //<i>italicized</i>
+    //<u> underline </i>
 
 
-
-    lines = new List<string>() {"Old Man: You don't look like a thief. So, can I ask you a question? Oh, don't worry, I know the rules. You were here first and the bed is yours. But can I still sit here?.. I never ask for anything, but you see... It's been a long and tiring journey.",
+    lines = new List<string>() {"You don't look like a thief. So, can I ask you a question? Oh, don't worry, I know the rules. You were here first and the bed is yours. But can I still sit here?.. I never ask for anything, but you see... It's been a long and tiring journey.",
         "",
-        "Old Man: It's just unthinkable! A week on a train, two days on a boat and here we are.",
-        "Old Man: I've been to this part of Russia before, but never could I imagine I'd have to travel all the way to Magadan again.",
-        "Old Man: I am Andreyev, Alexander Andreyev.",
+        "It's just unthinkable! A week on a train, two days on a boat and here we are.",
+        "I've been to this part of Russia before, but never could I imagine I'd have to travel all the way to Magadan again.",
+        "I am Andreyev, Alexander Andreyev.",
         "",
-        "Andreyev: It is quite ironic. I was arrested for anti-government activity in 1905 and I am an enemy of the Soviet state today, in 1938. Things did not change for me that much!",
-        "Andreyev: Our Revolution was a dream that never came true. Well, you are sharing this cell with me, there's no need to tell you that... What is your name?",
+        "It is quite ironic. I was arrested for anti-government activity in 1905 and I am an enemy of the Soviet state today, in 1938. Things did not change for me that much!",
+        "Our Revolution was a dream that never came true. Well, you are sharing this cell with me, there's no need to tell you that... What is your name?",
         "",
         "",
-        "Andreyev: I am sorry... But let me give you some advice. Forget about your former self. Focus on more important matters.",
-        "Andreyev: You are a prisoner now. Remember, time is your main enemy. You can trust me on this one, I know what I am talking about.",
-        "Andreyev: To kill the time, let's play a simple game. It's called Numbers. It is very popular among the prisoners so you better remember the rules. It might even save your life one day so listen carefully"
+        "I am sorry... But let me give you some advice. Forget about your former self. Focus on more important matters.",
+        "You are a prisoner now. Remember, time is your main enemy. You can trust me on this one, I know what I am talking about.",
+        "To kill the time, let's play a simple game. It's called Numbers. It is very popular among the prisoners so you better remember the rules. It might even save your life one day so listen carefully"
         };
 
 
 
         indexList = new List<int>() {1, 5, 8, 9};
 
-        outcome1 = new List<string>() {"Old Man: Oh, I am so grateful!", 
-        "Andreyev: Yes I was. A member since 1901.", "Andreyev: If you don't mind me asking, was General Kojukh your father?", "Andreyev: His trial was a joke, and you could tell how badly those miserable party clerks wanted to get rid of him."};
+        outcome1 = new List<string>() {"Oh, I am so grateful!", 
+        "Yes I was. A member since 1901.", "If you don't mind me asking, was General Kojukh your father?", "His trial was a joke, and you could tell how badly those miserable party clerks wanted to get rid of him."};
 
 
-        outcome2 = new List<string>() {"Old Man: Rules are rules. Although I really doubt anyone will be able to catch some sleep in such a packed cell.", 
-        "Andreyev: I did. But they lured me into a trap. I have no regrets though, I'd rather die here than in France, like one of those impotent pathetic immigrants.", "As you wish. As far as I have heard, someone here called you Arkady. That's good enough for me.", ""};
+        outcome2 = new List<string>() {"Rules are rules. Although I really doubt anyone will be able to catch some sleep in such a packed cell.", 
+        "I did. But they lured me into a trap. I have no regrets though, I'd rather die here than in France, like one of those impotent pathetic immigrants.", "As you wish. As far as I have heard, someone here called you Arkady. That's good enough for me.", ""};
         
         
-        outcome3 = new List<string>() {"Old Man: Hm. I thank you. Your heart is soft. Don't worry, it won't stay that way for too long",
-        "Andreyev: It sure was. They are calling everyone a spy now. They need us, the scapegoats, for the Purge to happen. Ha! One day they will pay for this!", "", ""};
+        outcome3 = new List<string>() {"Hm. I thank you. Your heart is soft. Don't worry, it won't stay that way for too long",
+        "It sure was. They are calling everyone a spy now. They need us, the scapegoats, for the Purge to happen. Ha! One day they will pay for this!", "", ""};
 
 
         textComponent.text = string.Empty;
@@ -118,8 +119,18 @@ public class Dialogue : MonoBehaviour
                 HighlightNPC();
                 //Debug.Log("npc");
             }
-            
+
+        if (index < 4)
+
+        {
+            nameTag.text = "Old Man";
+
+        }
+        else 
+        {
+            nameTag.text = "Andreyev"; 
         
+        }
     }
 
     void HighlightNPC()
@@ -183,6 +194,14 @@ public class Dialogue : MonoBehaviour
             NextLine();
         }
 
+        if (textComponent.text == outcome1[2])
+
+
+        {
+            DisplayChoices("General Valentin Kojukh was my father.", "No. I do not have a father.", "He was. He was arrested for no reason.");
+
+        }
+
     }
 
     void NextLine()
@@ -230,17 +249,9 @@ public class Dialogue : MonoBehaviour
         lines[indexList[choiceNumber]] = outcome1[choiceNumber];
         choiceNumber++;
         button3.gameObject.SetActive(true);
+        NextLine();
 
-        if(lines[8] == outcome1[2] && choiceNumber == 3)
-        {
-            NextLine();
-            DisplayChoices("General Valentin Kojukh was my father.", "No. I do not have a father.", "He was. He was arrested for no reason.");
-        }
-        else
-        {
-            NextLine();
-        }
-        
+
     }
 
     private void secondClicked()
