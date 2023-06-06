@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class Dialogue : MonoBehaviour
+public class Dialogue2 : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
     public TextMeshProUGUI nameTag;
@@ -18,7 +18,7 @@ public class Dialogue : MonoBehaviour
     public Button button2;
     public Button button3;
 
-    
+
     public bool noThird;
 
     public bool choice;
@@ -34,7 +34,7 @@ public class Dialogue : MonoBehaviour
     public GameObject blocker;
 
     public Image NPC;
-    public Image arkady; 
+    public Image arkady;
 
     [SerializeField] private ButtonScript choiceList;
 
@@ -44,14 +44,14 @@ public class Dialogue : MonoBehaviour
     {
         choiceNumber = 0;
         choice = false;
-      choiceList.gameObject.SetActive(false);
+        choiceList.gameObject.SetActive(false);
 
 
-    //<i>italicized</i>
-    //<u> underline </i>
+        //<i>italicized</i>
+        //<u> underline </i>
 
 
-    lines = new List<string>() {"Don't worry, I know the rules. You were here first and the bed is yours. But can I still sit here?.. I never ask for anything, but it's been a long and tiring journey.",
+        lines = new List<string>() {"Don't worry, I know the rules. You were here first and the bed is yours. But can I still sit here?.. I never ask for anything, but it's been a long and tiring journey.",
         "",
         "It's just unthinkable! A week on a train, two days on a boat and here we are.",
         "I've been to this part of Russia before, but never could I imagine I'd have to travel all the way to Magadan again.",
@@ -69,16 +69,16 @@ public class Dialogue : MonoBehaviour
 
 
 
-        indexList = new List<int>() {1, 5, 9, 10};
+        indexList = new List<int>() { 1, 5, 9, 10 };
 
-        outcome1 = new List<string>() {"Oh, I am so grateful!", 
+        outcome1 = new List<string>() {"Oh, I am so grateful!",
         "Yes I was. A member since 1901.", "If you don't mind me asking, was General Kojukh your father?", "His trial was a joke, and you could tell how badly those miserable party clerks wanted to get rid of him."};
 
 
-        outcome2 = new List<string>() {"Rules are rules. Although I really doubt anyone will be able to catch some sleep in such a packed cell.", 
+        outcome2 = new List<string>() {"Rules are rules. Although I really doubt anyone will be able to catch some sleep in such a packed cell.",
         "I did. But they lured me into a trap. I have no regrets though, I'd rather die here than in France, like one of those impotent pathetic immigrants.", "As you wish. As far as I have heard, someone here called you Arkady. That's good enough for me.", ""};
-        
-        
+
+
         outcome3 = new List<string>() {"Hm. I thank you. Your heart is soft. Don't worry, it won't stay that way for too long",
         "It sure was. They are calling everyone a spy now. They need us, the scapegoats, for the Purge to happen. Ha! One day they will pay for this!", "", ""};
 
@@ -89,37 +89,37 @@ public class Dialogue : MonoBehaviour
 
     void Awake()
     {
-        
+
     }
 
-    
+
 
     void Update()
     {
-        
-            if(Input.GetMouseButtonDown(0))
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (textComponent.text == lines[index] && !choice)
             {
-                if(textComponent.text == lines[index] && !choice)
-                {
-                    NextLine();
-                }
-                else 
-                {
-                    textSpeed = 0.0000000001f;
-                    
-                }
-            }    
-        
-            if(choice)
-            {
-                HighlightArkady();
-                //Debug.Log("arkady");
+                NextLine();
             }
-            else if(!choice)
+            else
             {
-                HighlightNPC();
-                //Debug.Log("npc");
+                textSpeed = 0.0000000001f;
+
             }
+        }
+
+        if (choice)
+        {
+            HighlightArkady();
+            //Debug.Log("arkady");
+        }
+        else if (!choice)
+        {
+            HighlightNPC();
+            //Debug.Log("npc");
+        }
 
         if (index < 4)
 
@@ -127,10 +127,10 @@ public class Dialogue : MonoBehaviour
             nameTag.text = "Old Man";
 
         }
-        else 
+        else
         {
-            nameTag.text = "Andreyev"; 
-        
+            nameTag.text = "Andreyev";
+
         }
     }
 
@@ -170,27 +170,29 @@ public class Dialogue : MonoBehaviour
             textComponent.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
-        
-        if(textComponent.text == lines[index] && index == 0)
+
+        if (textComponent.text == lines[index] && index == 0)
         {
             DisplayChoices("Sure. You may sit down.", "You may sit down. But do not forget you're sleeping on the floor tonight.", "Of course. Sit down here, it's hard to stand in such a crowded cell.");
+            Debug.Log("HI");
             yield return null;
+         
         }
 
-        if(textComponent.text == lines[index] && index == 4)
+        if (textComponent.text == lines[index] && index == 4)
         {
             DisplayChoices("I know you. You were a member of the Socialist Revolutionary Party.", "Former terrorist? I thought you left the country.", "I heard you were a spy. Was it another false accusation?");
             yield return null;
         }
 
-        if(textComponent.text == lines[index] && index == 8)
+        if (textComponent.text == lines[index] && index == 8)
         {
             DisplayChoices("Arkady Kojukh.", "No need to know my name.", "");
             button3.gameObject.SetActive(false);
-            
+
         }
 
-        if(lines[index] == "")
+        if (lines[index] == "")
         {
             NextLine();
         }
@@ -207,7 +209,7 @@ public class Dialogue : MonoBehaviour
 
     void NextLine()
     {
-        if(index < lines.Count - 1)
+        if (index < lines.Count - 1)
         {
             index++;
             textComponent.text = string.Empty;
@@ -219,13 +221,13 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    
+
 
     public void DisplayChoices(string first, string second, string third)
     {
         choice = true;
         choiceList.gameObject.SetActive(true);
-        if(noThird)
+        if (noThird)
         {
             choiceList.thirdChoice.gameObject.SetActive(false);
         }
@@ -244,7 +246,7 @@ public class Dialogue : MonoBehaviour
 
     private void firstClicked()
     {
-        choice = false;    
+        choice = false;
         Debug.Log("first");
         choiceList.gameObject.SetActive(false);
         lines[indexList[choiceNumber]] = outcome1[choiceNumber];
