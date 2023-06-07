@@ -1512,6 +1512,8 @@ MonoBehaviour:
   button3: {fileID: 2048041813}
   noThird: 0
   choice: 0
+  italics: {fileID: 11400000, guid: 6ab5949ed37d5e241a624f40c21839a4, type: 2}
+  regular: {fileID: 11400000, guid: 7e2447a1bbc55e94aa428d0d139b1653, type: 2}
   indexRef: 0
   indexList: 
   outcome1: []

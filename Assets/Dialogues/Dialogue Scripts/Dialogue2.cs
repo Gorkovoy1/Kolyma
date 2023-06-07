@@ -23,6 +23,8 @@ public class Dialogue2 : MonoBehaviour
 
     public bool choice;
 
+    public TMP_FontAsset italics;
+    public TMP_FontAsset regular;
 
     public int indexRef;
     public List<int> indexList;
@@ -51,36 +53,20 @@ public class Dialogue2 : MonoBehaviour
         //<u> underline </i>
 
 
-        lines = new List<string>() {"Don't worry, I know the rules. You were here first and the bed is yours. But can I still sit here?.. I never ask for anything, but it's been a long and tiring journey.",
-        "",
-        "It's just unthinkable! A week on a train, two days on a boat and here we are.",
-        "I've been to this part of Russia before, but never could I imagine I'd have to travel all the way to Magadan again.",
-        "I am Andreyev, Alexander Andreyev.",
-        "",
-        "It is quite ironic. I was arrested for anti-government activity in 1905 and I am an enemy of the Soviet state today, in 1938.",
-        "Things did not change for me that much!",
-        "Our Revolution was a dream that never came true. Well, you are sharing this cell with me, there's no need to tell you that... What is your name?",
-        "",
-        "",
-        "I am sorry... But let me give you some advice. Forget about your former self. Focus on more important matters.",
-        "You are a prisoner now. Remember, time is your main enemy. You can trust me on this one, I know what I am talking about.",
-        "To kill the time, let's play a simple game. It's called Numbers. It is very popular among the prisoners so you better remember the rules. It might even save your life one day so listen carefully"
+        lines = new List<string>() {"Well, now you know how Numbers work",
+        "Take this deck, I have a spare one. Keep it close to your heart",
+        "Now if you don't mind, I want to close my eyes for a couple of minutes...",
+
+        "Andreyev. Andreyev, show yourself!",
+        "They are taking me away. It is my turn now. Time to go",
+        "Accept this as a token of my gratitude for letting me spend some time on this bed",
+        "Here. Give it to someone who tried to make the world a better place, but failed. Just like me...",
+       
         };
 
 
 
-        indexList = new List<int>() { 1, 5, 9, 10 };
-
-        outcome1 = new List<string>() {"Oh, I am so grateful!",
-        "Yes I was. A member since 1901.", "If you don't mind me asking, was General Kojukh your father?", "His trial was a joke, and you could tell how badly those miserable party clerks wanted to get rid of him."};
-
-
-        outcome2 = new List<string>() {"Rules are rules. Although I really doubt anyone will be able to catch some sleep in such a packed cell.",
-        "I did. But they lured me into a trap. I have no regrets though, I'd rather die here than in France, like one of those impotent pathetic immigrants.", "As you wish. As far as I have heard, someone here called you Arkady. That's good enough for me.", ""};
-
-
-        outcome3 = new List<string>() {"Hm. I thank you. Your heart is soft. Don't worry, it won't stay that way for too long",
-        "It sure was. They are calling everyone a spy now. They need us, the scapegoats, for the Purge to happen. Ha! One day they will pay for this!", "", ""};
+        
 
 
         textComponent.text = string.Empty;
@@ -121,16 +107,19 @@ public class Dialogue2 : MonoBehaviour
             //Debug.Log("npc");
         }
 
-        if (index < 4)
+        
+         
 
+        if (index==3) 
         {
-            nameTag.text = "Old Man";
-
+            nameTag.text = "Convoy Officer";
+            textComponent.font = italics;
         }
-        else
-        {
+        else { 
+            
             nameTag.text = "Andreyev";
-
+            textComponent.font = regular;
+        
         }
     }
 
@@ -171,40 +160,7 @@ public class Dialogue2 : MonoBehaviour
             yield return new WaitForSeconds(textSpeed);
         }
 
-        if (textComponent.text == lines[index] && index == 0)
-        {
-            DisplayChoices("Sure. You may sit down.", "You may sit down. But do not forget you're sleeping on the floor tonight.", "Of course. Sit down here, it's hard to stand in such a crowded cell.");
-            Debug.Log("HI");
-            yield return null;
-         
-        }
-
-        if (textComponent.text == lines[index] && index == 4)
-        {
-            DisplayChoices("I know you. You were a member of the Socialist Revolutionary Party.", "Former terrorist? I thought you left the country.", "I heard you were a spy. Was it another false accusation?");
-            yield return null;
-        }
-
-        if (textComponent.text == lines[index] && index == 8)
-        {
-            DisplayChoices("Arkady Kojukh.", "No need to know my name.", "");
-            button3.gameObject.SetActive(false);
-
-        }
-
-        if (lines[index] == "")
-        {
-            NextLine();
-        }
-
-        if (textComponent.text == outcome1[2])
-
-
-        {
-            DisplayChoices("General Valentin Kojukh was my father.", "No. I do not have a father.", "He was. He was arrested for no reason.");
-
-        }
-
+        
     }
 
     void NextLine()
@@ -223,59 +179,5 @@ public class Dialogue2 : MonoBehaviour
 
 
 
-    public void DisplayChoices(string first, string second, string third)
-    {
-        choice = true;
-        choiceList.gameObject.SetActive(true);
-        if (noThird)
-        {
-            choiceList.thirdChoice.gameObject.SetActive(false);
-        }
-        button1.onClick.RemoveAllListeners();
-        button2.onClick.RemoveAllListeners();
-        button3.onClick.RemoveAllListeners();
-        button1.onClick.AddListener(firstClicked);
-        button2.onClick.AddListener(secondClicked);
-        button3.onClick.AddListener(thirdClicked);
-
-        choiceList.GetComponent<ButtonScript>().choice1 = first;
-        choiceList.GetComponent<ButtonScript>().choice2 = second;
-        choiceList.GetComponent<ButtonScript>().choice3 = third;
-
-    }
-
-    private void firstClicked()
-    {
-        choice = false;
-        Debug.Log("first");
-        choiceList.gameObject.SetActive(false);
-        lines[indexList[choiceNumber]] = outcome1[choiceNumber];
-        choiceNumber++;
-        button3.gameObject.SetActive(true);
-        NextLine();
-
-
-    }
-
-    private void secondClicked()
-    {
-        choice = false;
-        Debug.Log("second");
-        choiceList.gameObject.SetActive(false);
-        lines[indexList[choiceNumber]] = outcome2[choiceNumber];
-        choiceNumber++;
-        button3.gameObject.SetActive(true);
-        NextLine();
-    }
-
-    private void thirdClicked()
-    {
-        choice = false;
-        Debug.Log("third");
-        choiceList.gameObject.SetActive(false);
-        lines[indexList[choiceNumber]] = outcome3[choiceNumber];
-        choiceNumber++;
-        button3.gameObject.SetActive(true);
-        NextLine();
-    }
+   
 }
