@@ -26,6 +26,7 @@ public class Dialogue : MonoBehaviour
 
     public int indexRef;
     public List<int> indexList;
+    public List<string> introText;
     public List<string> outcome1;
     public List<string> outcome2;
     public List<string> outcome3;
@@ -47,29 +48,36 @@ public class Dialogue : MonoBehaviour
       choiceList.gameObject.SetActive(false);
 
 
-    //<i>italicized</i>
-    //<u> underline </i>
+        //<i>italicized</i>
+        //<u> underline </i>
 
+        introText = new List<string>()
+        {
+            "There are too many people in this jail. The prisoners took all the bunks, occupied all the space under the beds and around them.",
+            "The air is stuffy. The smell of wet clothes emanates from the cells.",
+            "Everyone is tired. Those who cannot lie down, try to lean on something and close their eyes"
+        };
 
-    lines = new List<string>() {"Don't worry, I know the rules. You were here first and the bed is yours. But can I still sit here?.. I never ask for anything, but it's been a long and tiring journey.",
+    lines = new List<string>() {"Don't worry, I know the rules. You were here first and the bed is yours. But can I still sit here? I never ask for anything, but it's been a long and tiring journey.",
         "",
-        "It's just unthinkable! A week on a train, two days on a boat and here we are.",
+        "Just think about it! 45 days on a train, 2 days on a boat and here we are.",
         "I've been to this part of Russia before, but never could I imagine I'd have to travel all the way to Magadan again.",
         "I am Andreyev, Alexander Andreyev.",
         "",
-        "It is quite ironic. I was arrested for anti-government activity in 1905 and I am an enemy of the Soviet state today, in 1938.",
+        "It is quite ironic. The Imperial Okhrana came after me in 1907. And I am an enemy of the Soviet state today, in 1938.",
         "Things did not change for me that much!",
-        "Our Revolution was a dream that never came true. Well, you are sharing this cell with me, there's no need to tell you that... What is your name?",
+        "All those sentimental idiots say that our Revolution was a dream that never came true!",
+        "The Revolution was first and foremost an opportunity. We had our chance and we missed it... What is your name?",
         "",
         "",
-        "I am sorry... But let me give you some advice. Forget about your former self. Focus on more important matters.",
-        "You are a prisoner now. Remember, time is your main enemy. You can trust me on this one, I know what I am talking about.",
-        "To kill the time, let's play a simple game. It's called Numbers. It is very popular among the prisoners so you better remember the rules. It might even save your life one day so listen carefully"
+        "I am sorry... But let me give you some advice. You are a prisoner now, so forget about your former self. Focus on more important matters.",
+        "Let's play a simple game. It will keep our minds busy and help us to kill the time",
+        "The game is called Numbers. It is very popular among the prisoners so you better remember the rules. It might even save your life one day so listen carefully"
         };
 
 
 
-        indexList = new List<int>() {1, 5, 9, 10};
+        indexList = new List<int>() {1, 5, 10, 11};
 
         outcome1 = new List<string>() {"Oh, I am so grateful!", 
         "Yes I was. A member since 1901.", "If you don't mind me asking, was General Kojukh your father?", "His trial was a joke, and you could tell how badly those miserable party clerks wanted to get rid of him."};
@@ -183,7 +191,7 @@ public class Dialogue : MonoBehaviour
             yield return null;
         }
 
-        if(textComponent.text == lines[index] && index == 8)
+        if(textComponent.text == lines[index] && index == 9)
         {
             DisplayChoices("Arkady Kojukh.", "No need to know my name.", "");
             button3.gameObject.SetActive(false);
