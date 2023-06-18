@@ -218,7 +218,7 @@ MonoBehaviour:
   choice1: 
   choice2: 
   choice3: 
-  dialogue: {fileID: 0}
+  dialogue1: {fileID: 0}
   firstChoice: {fileID: 1289635343}
   secondChoice: {fileID: 677038186}
   thirdChoice: {fileID: 2048041813}
@@ -281,7 +281,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7e2447a1bbc55e94aa428d0d139b1653, type: 2}
   m_sharedMaterial: {fileID: -4730502537268128557, guid: 7e2447a1bbc55e94aa428d0d139b1653, type: 2}
@@ -1837,6 +1837,60 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1829689299}
     m_Modifications:
+    - target: {fileID: 2198693685562322992, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198693685562322992, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198693685562322993, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_text
+      value: 'Wednesday, November 30th, 1938
+
+
+        Magadan, City Jail, The Soviet
+        Union
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198693685562322993, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198693685562322993, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_margin.x
+      value: -22.63086
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198693685562322993, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_margin.z
+      value: -47.524902
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198693685562322993, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 3ca328912e0a38149b8228bbc141eea1, type: 2}
+    - target: {fileID: 2198693685562322993, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198693685562322993, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198693685562322993, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -8965707779658738276, guid: 3ca328912e0a38149b8228bbc141eea1, type: 2}
+    - target: {fileID: 2198693685562322993, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 16777215
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198693685562322993, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5733221822061483634, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
       propertyPath: m_Interactable
       value: 0
@@ -1847,7 +1901,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5733221822405243114, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5733221822405243114, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
       propertyPath: m_LocalPosition.x

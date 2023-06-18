@@ -65,9 +65,11 @@ public class Dialogue1 : MonoBehaviour
 
     introText = new List<string>()
         {
-            "There are too many people in this jail. The prisoners took all the bunks, occupied all the space under the beds and around them.",
-            "The air is stuffy. The smell of wet clothes emanates from the cells.",
-            "Everyone is tired. Those who cannot lie down, try to lean on something and close their eyes."
+            "There were too many people in this jail. The prisoners took all the bunks, occupied all the space under the beds and around them.",
+            "The air was stuffy. The smell of wet clothes emanated from the cells.",
+            "Everyone was tired. Those who could not lie down, tried to lean on something.",
+            "Arkady was shivering on his bottom bunk. He was about to turn on the side and try to fall asleep when suddenly he felt that someone was looking at him.",
+            "An old man approached his bed. The stranger had a strong presence. He was exhasted like everyone and yet Arkady could tell that his spirit was not broken."
         };
 
     lines = new List<string>() {"Don't worry, I know the rules. You were here first and the bed is yours. But can I still sit here? I never ask for anything, but it's been a long and tiring journey.",
@@ -117,9 +119,9 @@ public class Dialogue1 : MonoBehaviour
 
     IEnumerator Intro()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(4.3f);
         textComponent.text = string.Empty;
-        for(int i = 0; i < 3; i++)
+        for(int i = 0; i < 5; i++)
         {
             
             foreach(char c in introText[i].ToCharArray())
