@@ -13,6 +13,7 @@ public class Dialogue : MonoBehaviour
     public List<string> lines;
     public float textSpeed;
     public int index;
+    public int indexIntro;
 
     public Button button1;
     public Button button2;
@@ -92,7 +93,10 @@ public class Dialogue : MonoBehaviour
 
 
         textComponent.text = string.Empty;
+        StartIntro();
+
         StartDialogue();
+        
     }
 
     void Awake()
@@ -107,6 +111,15 @@ public class Dialogue : MonoBehaviour
         
             if(Input.GetMouseButtonDown(0))
             {
+            if (textComponent.text == introText[indexIntro])
+            
+            {
+                NextLine(); 
+            
+            
+            }
+                
+               
                 if(textComponent.text == lines[index] && !choice)
                 {
                     NextLine();
@@ -164,8 +177,15 @@ public class Dialogue : MonoBehaviour
 
     void StartDialogue()
     {
-        index = 0;
-        StartCoroutine(TypeLine());
+        if (indexIntro == 3) 
+        
+        {
+            index = 0;
+            StartCoroutine(TypeLine());
+
+        }
+
+      
 
     }
 
@@ -215,7 +235,15 @@ public class Dialogue : MonoBehaviour
 
     void NextLine()
     {
-        if(index < lines.Count - 1)
+       
+        if(indexIntro < introText.Count - 1)
+        {
+            indexIntro++;
+            textComponent.text = string.Empty;
+            StartCoroutine(TypeIntro());
+        }
+       
+        else if(index < lines.Count - 1)
         {
             index++;
             textComponent.text = string.Empty;
@@ -225,6 +253,7 @@ public class Dialogue : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+        
     }
 
     
@@ -284,4 +313,27 @@ public class Dialogue : MonoBehaviour
         button3.gameObject.SetActive(true);
         NextLine();
     }
+
+    IEnumerator TypeIntro()
+    {
+
+        textSpeed = 0.03f;
+        foreach (char c in introText[indexIntro].ToCharArray())
+        {
+            textComponent.text += c;
+            yield return new WaitForSeconds(textSpeed);
+        }
+
+
+    }
+
+    public void StartIntro()
+
+    
+    {
+        StartCoroutine(TypeIntro());
+   
+           
+    }
+
 }
