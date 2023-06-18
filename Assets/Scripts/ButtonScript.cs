@@ -10,7 +10,7 @@ public class ButtonScript : MonoBehaviour
     public string choice2;
     public string choice3;
 
-    public Dialogue dialogue;
+    public Dialogue1 dialogue1;
 
     public Button firstChoice;
     public Button secondChoice;
