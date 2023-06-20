@@ -6,7 +6,6 @@ public class Draw : MonoBehaviour
 {
 
     public GameManager gm;
-    public TurnSystem ts;
     public bool attack;
 
     // Start is called before the first frame update
@@ -29,7 +28,7 @@ public class Draw : MonoBehaviour
         GameObject two = gm.AIValues.Find(obj => obj.GetComponent<ValueCard>().value == 2);
         if(two != null)
         {
-            gm.DrawSpecial();
+            gm.DrawSpecial(gm.playerSpecialDeck, gm.playerHand);
             
             DestroyMe();
         }
@@ -37,8 +36,8 @@ public class Draw : MonoBehaviour
 
     public void Draw2Special()
     {
-        gm.DrawSpecial();
-        gm.DrawSpecial();
+        gm.DrawSpecial(gm.playerSpecialDeck, gm.playerHand);
+        gm.DrawSpecial(gm.playerSpecialDeck, gm.playerHand);
         DestroyMe();
     }
 
@@ -49,9 +48,7 @@ public class Draw : MonoBehaviour
         Destroy(this.gameObject);
         gm.playerSpecials.Remove(this.gameObject);
         Destroy(this.gameObject);
-        GameObject manager = GameObject.Find("Game Manager");    
-        ts = manager.GetComponent<TurnSystem>();
-        ts.cardSelected = true;
+        gm.cardSelected = true;
         
     }
     

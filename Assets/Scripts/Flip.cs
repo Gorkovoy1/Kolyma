@@ -7,7 +7,6 @@ public class Flip : MonoBehaviour
     public GameManager gm;
     public int integerValueToMatch;
     public GameObject newObj;
-    public TurnSystem ts;
     
     public bool attack;
 
@@ -113,9 +112,7 @@ public class Flip : MonoBehaviour
         Destroy(this.gameObject);
         gm.playerSpecials.Remove(this.gameObject);
         Destroy(this.gameObject);
-        GameObject manager = GameObject.Find("Game Manager");    
-        ts = manager.GetComponent<TurnSystem>();
-        ts.cardSelected = true;
+        gm.cardSelected = true;
     }
     
 }

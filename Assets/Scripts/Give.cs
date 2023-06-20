@@ -28,8 +28,6 @@ public class Give : MonoBehaviour
 
     public Transform board;
 
-    public TurnSystem ts;
-
     
     public bool attack;
 
@@ -191,9 +189,7 @@ public class Give : MonoBehaviour
         Destroy(this.gameObject);
         gm.playerSpecials.Remove(this.gameObject);
         Destroy(this.gameObject);
-        GameObject manager = GameObject.Find("Game Manager");    
-        ts = manager.GetComponent<TurnSystem>();
-        ts.cardSelected = true;
+        gm.cardSelected = true;
         
     }
 

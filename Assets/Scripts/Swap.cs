@@ -6,7 +6,6 @@ public class Swap : MonoBehaviour
 {
 
     public GameManager gm;
-    public TurnSystem ts;
 
     
     public bool attack;
@@ -89,8 +88,6 @@ public class Swap : MonoBehaviour
         Destroy(this.gameObject);
         gm.playerSpecials.Remove(this.gameObject);
         Destroy(this.gameObject);
-        GameObject manager = GameObject.Find("Game Manager");    
-        ts = manager.GetComponent<TurnSystem>();
-        ts.cardSelected = true;
+        gm.cardSelected = true;
     }
 }

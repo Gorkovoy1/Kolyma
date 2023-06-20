@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Linq;
 
-public class GameManager : MonoBehaviour
+public class Tutorial : MonoBehaviour
 {
     public List<GameObject> valueDeck;
     public List<GameObject> playerSpecialDeck;
@@ -76,6 +76,20 @@ public class GameManager : MonoBehaviour
         GameOver = false;
         hasDiscarded = false;
         playerHasDiscarded = false;
+
+
+
+
+        //player clicks to draw 4 cards
+        //andreev draws 4
+        //dice flash, click and roll
+        //the sum is 17, draw 6 from special deck
+        //explanation of goal and cards
+        //since player has 12 and andreev has 5, player starts
+
+
+
+
 
         RollDice();
         ShuffleSpecials();

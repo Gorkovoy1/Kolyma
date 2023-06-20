@@ -8,7 +8,6 @@ public class Finisher : MonoBehaviour
     public GameObject four;
     public GameManager gm;
     public Transform board;
-    public TurnSystem ts;
     
     public bool attack;
 
@@ -39,6 +38,7 @@ public class Finisher : MonoBehaviour
             gm.gameEnd = true;
         }
         DestroyMe();
+        gm.GameOver = true;
     }
 
     public void DiscardFinisher()
@@ -52,6 +52,7 @@ public class Finisher : MonoBehaviour
             gm.gameEnd = true;
         }
         DestroyMe();
+        gm.GameOver = true;
     }
 
 
@@ -66,6 +67,7 @@ public class Finisher : MonoBehaviour
             gm.gameEnd = true;
         }
         DestroyMe();
+        gm.GameOver = true;
     }
 
     void DestroyMe()
@@ -75,8 +77,6 @@ public class Finisher : MonoBehaviour
         Destroy(this.gameObject);
         gm.playerSpecials.Remove(this.gameObject);
         Destroy(this.gameObject);
-        GameObject manager = GameObject.Find("Game Manager");    
-        ts = manager.GetComponent<TurnSystem>();
-        ts.cardSelected = true;
+        gm.cardSelected = true;
     }
 }
