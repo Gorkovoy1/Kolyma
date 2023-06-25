@@ -192,6 +192,14 @@ MonoBehaviour:
   playableCard: 0
   attack: 1
   help: 0
+  draw2: 0
+  give4: 0
+  giveself2: 0
+  swaphighest: 0
+  giveopp2: 0
+  forcediscardspecial: 0
+  swapfinisher: 0
+  addValue: 3
 --- !u!225 &6649579365295782140
 CanvasGroup:
   m_ObjectHideFlags: 0
