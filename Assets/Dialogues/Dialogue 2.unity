@@ -218,7 +218,7 @@ MonoBehaviour:
   choice1: 
   choice2: 
   choice3: 
-  dialogue: {fileID: 0}
+  dialogue1: {fileID: 0}
   firstChoice: {fileID: 1289635343}
   secondChoice: {fileID: 677038186}
   thirdChoice: {fileID: 2048041813}
@@ -1523,6 +1523,7 @@ MonoBehaviour:
   blocker: {fileID: 0}
   NPC: {fileID: 713508382}
   arkady: {fileID: 848152636}
+  canvas: {fileID: 1829689298}
   choiceList: {fileID: 3261295}
 --- !u!1 &1858700118
 GameObject:
