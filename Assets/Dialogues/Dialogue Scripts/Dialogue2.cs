@@ -37,6 +37,7 @@ public class Dialogue2 : MonoBehaviour
 
     public Image NPC;
     public Image arkady;
+    public Image canvas;
 
     [SerializeField] private ButtonScript choiceList;
 
@@ -56,7 +57,7 @@ public class Dialogue2 : MonoBehaviour
         lines = new List<string>() {"Well, now you know how Numbers work",
         "Take this deck, I have a spare one. Keep it close to your heart",
         "Now if you don't mind, I want to close my eyes for a couple of minutes...",
-
+        "",
         "Andreyev. Andreyev, show yourself!",
         "They are taking me away. It is my turn now. Time to go",
         "Accept this as a token of my gratitude for letting me spend some time on this bed",
@@ -110,7 +111,7 @@ public class Dialogue2 : MonoBehaviour
         
          
 
-        if (index==3) 
+        if (index==4) 
         {
             nameTag.text = "Convoy Officer";
             textComponent.font = italics;
@@ -121,7 +122,24 @@ public class Dialogue2 : MonoBehaviour
             textComponent.font = regular;
         
         }
-    }
+        if (index == 3)
+        {
+            NPC.gameObject.SetActive(false);
+            arkady.gameObject.SetActive(false);
+            textComponent.gameObject.SetActive(false);
+            nameTag.gameObject.SetActive(false);
+            Color colorCanvas = canvas.color;
+            colorCanvas = new Color(colorCanvas.r, colorCanvas.g, colorCanvas.b, 0f);
+        }
+        else
+        {
+            NPC.gameObject.SetActive(true);
+            arkady.gameObject.SetActive(true);
+            textComponent.gameObject.SetActive(true);
+            nameTag.gameObject.SetActive(true);
+            
+        }
+    }   
 
     void HighlightNPC()
     {
@@ -152,6 +170,11 @@ public class Dialogue2 : MonoBehaviour
 
     IEnumerator TypeLine()
     {
+        if (index == 3)
+        {
+            yield return new WaitForSeconds(2);
+        }
+
         textSpeed = 0.03f;
         choice = false;
         foreach (char c in lines[index].ToCharArray())
