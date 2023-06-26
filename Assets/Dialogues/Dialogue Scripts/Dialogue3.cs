@@ -42,10 +42,13 @@ public class Dialogue3 : MonoBehaviour
 
     [SerializeField] private ButtonScript choiceList;
 
+    public TextMeshProUGUI settingText;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        settingText.text = "Location";
         choiceNumber = 0;
         choice = false;
         choiceList.gameObject.SetActive(false);
@@ -159,6 +162,10 @@ public class Dialogue3 : MonoBehaviour
 
     IEnumerator TypeLine()
     {
+        if(index == 0)
+        {
+            yield return new WaitForSeconds(4.3f);
+        }
         textSpeed = 0.03f;
         choice = false;
         foreach (char c in lines[index].ToCharArray())

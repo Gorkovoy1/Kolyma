@@ -218,7 +218,7 @@ MonoBehaviour:
   choice1: 
   choice2: 
   choice3: 
-  dialogue: {fileID: 0}
+  dialogue1: {fileID: 0}
   firstChoice: {fileID: 1289635343}
   secondChoice: {fileID: 677038186}
   thirdChoice: {fileID: 2048041813}
@@ -696,7 +696,7 @@ GameObject:
   - component: {fileID: 713508383}
   - component: {fileID: 713508382}
   m_Layer: 5
-  m_Name: Image
+  m_Name: NPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1211,6 +1211,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1052949765}
   m_CullTransparentMesh: 1
+--- !u!1001 &1068218054
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1858700122}
+    m_Modifications:
+    - target: {fileID: 5733221822405243114, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733221822405243114, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -798
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733221822405243114, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -406
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733221822405243114, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733221822405243114, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733221822405243114, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733221822405243114, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733221822405243114, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733221822405243114, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733221822405243114, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733221822405243114, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733221822405243115, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_Name
+      value: LevelLoader
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+--- !u!4 &1068218055 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5733221822405243114, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+  m_PrefabInstance: {fileID: 1068218054}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1123746000
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,6 +1471,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1289635341}
   m_CullTransparentMesh: 1
+--- !u!114 &1525272448 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2198693685562322993, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+  m_PrefabInstance: {fileID: 1068218054}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1829689298
 GameObject:
   m_ObjectHideFlags: 0
@@ -1507,13 +1580,13 @@ MonoBehaviour:
   lines: []
   textSpeed: 0
   index: 0
-  button1: {fileID: 0}
-  button2: {fileID: 0}
-  button3: {fileID: 0}
+  button1: {fileID: 1289635343}
+  button2: {fileID: 677038186}
+  button3: {fileID: 2048041813}
   noThird: 0
   choice: 0
-  italics: {fileID: 0}
-  regular: {fileID: 0}
+  italics: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  regular: {fileID: 11400000, guid: 6ab5949ed37d5e241a624f40c21839a4, type: 2}
   indexRef: 0
   indexList: 
   outcome1: []
@@ -1521,9 +1594,10 @@ MonoBehaviour:
   outcome3: []
   choiceNumber: 0
   blocker: {fileID: 0}
-  NPC: {fileID: 0}
-  arkady: {fileID: 0}
-  choiceList: {fileID: 0}
+  NPC: {fileID: 713508382}
+  arkady: {fileID: 848152636}
+  choiceList: {fileID: 3261295}
+  settingText: {fileID: 1525272448}
 --- !u!1 &1858700118
 GameObject:
   m_ObjectHideFlags: 0
@@ -1620,6 +1694,7 @@ RectTransform:
   - {fileID: 1123746001}
   - {fileID: 848152635}
   - {fileID: 713508381}
+  - {fileID: 1068218055}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
