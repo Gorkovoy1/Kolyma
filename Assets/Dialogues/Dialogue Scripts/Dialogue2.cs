@@ -68,7 +68,7 @@ public class Dialogue2 : MonoBehaviour
         "Now if you don't mind, I want to close my eyes for a couple of minutes...",
         "",
         "",
-        "Andreyev. Andreyev, show yourself!",
+        "Andreyev! Andreyev, show yourself!",
         "They are taking me away. It is my turn now. Time to go.",
         "Accept this as a token of my gratitude for letting me spend some time on this bed.",
         "Here. Give it to someone who tried to make the world a better place, but failed. Just like me...",

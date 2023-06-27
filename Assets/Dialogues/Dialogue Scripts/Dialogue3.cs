@@ -48,7 +48,7 @@ public class Dialogue3 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        settingText.text = "Location";
+        //settingText.text = "Friday, December 2nd, 1938\r\nNorth East Labour Camp, Kolyma Region, The Soviet Union";
         choiceNumber = 0;
         choice = false;
         choiceList.gameObject.SetActive(false);
@@ -58,7 +58,7 @@ public class Dialogue3 : MonoBehaviour
         //<u> underline </i>
 
 
-        lines = new List<string>() {"Two guards are busy closing the gates behind you. The rest of them are looking at the new prisoners, but their eyes do not express any interest.",
+        lines = new List<string>() {"Two guards closed the main gates. The rest of them were looking at the new prisoners. Their eyes did not express any interest.",
         "It is just another routine procedure in the North. The final batch of convits to close this year.",
         "The prisoners are standing in formation. It is cold, it is hard to stand still.",
 

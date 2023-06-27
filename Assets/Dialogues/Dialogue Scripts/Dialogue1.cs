@@ -69,7 +69,7 @@ public class Dialogue1 : MonoBehaviour
             "After long weeks of traveling the prisoners reached the North. Everyone was tired.",
             "The air was stuffy. The smell of wet clothes emanated from the cells.",
             "Arkady was shivering on his bottom bunk. He was about to turn on the side and try to fall asleep when suddenly he felt that someone was looking at him.",
-            "An old man approached his bed. The stranger had a strong presence. He was exhasted like everyone and yet Arkady could tell that his spirit was not broken."
+            "An old man approached his bed. The stranger had a strong presence. He was exhasted like everyone else and yet Arkady could tell that his spirit was not broken."
         };
 
     lines = new List<string>() {"Don't worry, I know the rules. You were here first and the bed is yours. But can I still sit here? I never ask for anything, but it's been a long and tiring journey.",
@@ -86,7 +86,7 @@ public class Dialogue1 : MonoBehaviour
         "",
         "I am sorry... But let me give you some advice. You are a prisoner now, so forget about your former self. Focus on more important matters.",
         "Let's play a simple game. It will keep our minds busy and help us to kill the time.",
-        "The game is called Numbers. It is very popular among the prisoners so you better remember the rules. It might even save your life one day so listen carefully."
+        "The game is called NUMBERS. It is very popular among the prisoners so you better remember the rules. It might even save your life one day so listen carefully."
         };
 
 
@@ -257,10 +257,21 @@ public class Dialogue1 : MonoBehaviour
             }
             else if(isRed)
             {
-                //textComponent.text += "<color=blue>" + c + "</color>";
-                textComponent.text += "<font=\"" + numbersFont.name + "\">" + c + "</font>";
+                if (c == '.' || c == ',' || c == '!' || c == '?' || c == ':')
+
+                {
+                    textComponent.text += c;
+
+
+                }
+                else
+                {
+                    textComponent.text += "<color=red><font=\"" + numbersFont.name + "\">" + c + "</font></color>";
+                }
+                
                 
             }
+           
             else
             {
                 textComponent.text += c;
@@ -273,6 +284,7 @@ public class Dialogue1 : MonoBehaviour
                 // String is fully displayed, perform additional actions
                 endOfString = true;
             }
+            
         }
         
         if(endOfString && index == 0)

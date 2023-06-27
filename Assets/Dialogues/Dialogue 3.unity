@@ -1218,14 +1218,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1858700122}
     m_Modifications:
+    - target: {fileID: 2198693685562322992, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198693685562322992, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198693685562322993, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_text
+      value: 'Friday, December 2nd, 1938
+
+
+        North East Labour Camp, Kolyma
+        Region, The Soviet Union'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198693685562322993, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 2198693685562322993, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 1536c5662972899418d1e29092024ed5, type: 2}
+      objectReference: {fileID: 11400000, guid: 3ca328912e0a38149b8228bbc141eea1, type: 2}
+    - target: {fileID: 2198693685562322993, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 2198693685562322993, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 1426295547487872739, guid: 1536c5662972899418d1e29092024ed5, type: 2}
+      objectReference: {fileID: -8965707779658738276, guid: 3ca328912e0a38149b8228bbc141eea1, type: 2}
+    - target: {fileID: 2198693685562322993, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198693685562322993, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5733221822405243114, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
       propertyPath: m_RootOrder
       value: 4
