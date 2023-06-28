@@ -69,7 +69,7 @@ public class Dialogue1 : MonoBehaviour
             "After long weeks of traveling the prisoners reached the North. Everyone was tired.",
             "The air was stuffy. The smell of wet clothes emanated from the cells.",
             "Arkady was shivering on his bottom bunk. He was about to turn on the side and try to fall asleep when suddenly he felt that someone was looking at him.",
-            "An old man approached his bed. The stranger had a strong presence. He was exhasted like everyone else and yet Arkady could tell that his spirit was not broken."
+            "An old man approached his bed. The stranger had a strong presence. He was exhausted like everyone else and yet Arkady could tell that his spirit was not broken."
         };
 
     lines = new List<string>() {"Don't worry, I know the rules. You were here first and the bed is yours. But can I still sit here? I never ask for anything, but it's been a long and tiring journey.",
