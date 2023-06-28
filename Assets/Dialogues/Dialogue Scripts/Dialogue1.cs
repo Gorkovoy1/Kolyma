@@ -123,11 +123,15 @@ public class Dialogue1 : MonoBehaviour
         textComponent.text = string.Empty;
         for(int i = 0; i < 5; i++)
         {
-            
+            textSpeed = 0.03f;
             foreach(char c in introText[i].ToCharArray())
             {
                 textComponent.text += c;
-                yield return new WaitForSeconds(0.03f);
+                if(Input.GetMouseButtonDown(0))
+                {
+                    textSpeed = 0.000001f;
+                }
+                yield return new WaitForSeconds(textSpeed);
             }
             bool isWaitingForClick = true;
             while(isWaitingForClick)
