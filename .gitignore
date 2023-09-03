@@ -49,6 +49,9 @@ ExportedObj/
 *.pdb.meta
 *.mdb.meta
 
+#Layout
+[Uu]serSettings\Layouts\default-2021.dwlt
+
 # Unity3D generated file on crash reports
 sysinfo.txt
 
