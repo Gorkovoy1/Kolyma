@@ -29,6 +29,7 @@ public class CardGameManager : MonoBehaviour
     public CardGameCharacter player; //scriptable object class containing player data
 
     public List<NumberCard> numberDeck; //the numbers deck- assuming this is communal?
+    public List<SpecialDeckCard> playerDeck, opponentDeck, playerHand, opponentHand; //list for storing current deck and hand states
 
     public bool isStoryBattle = false; //is this a one-round story battle or not? pass this var in from outside when triggering the battle. if not set defaults to normal 3 round battle.
 
@@ -46,9 +47,9 @@ public class CardGameManager : MonoBehaviour
 
     [Header("UI References")] //references to all the UI elements in the scene
 
-    public Transform panel;
-    public Transform playerHand;
-    public Transform opponentHand;
+    public Transform panelTransform;
+    public Transform playerHandTransform;
+    public Transform opponentHandTransform;
     public TextMeshProUGUI opponentSumText;
     public TextMeshProUGUI playerSumText;
     public TextMeshProUGUI targetValueText;
