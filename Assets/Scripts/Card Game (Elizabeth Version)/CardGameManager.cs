@@ -22,7 +22,7 @@ public class NewBehaviourScript : MonoBehaviour
 
     public int bet = 5; //amt bet on game
 
-    public int targetValue = 21; //target value to win a round
+    public int targetValue; //target value to win a round
     public int opponentCurrValue, playerCurrValue = 0; //current progress towards target value.
 
     public bool roundOver = false; //becomes true when someone meets or exceeds target value.
@@ -58,7 +58,7 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(opponentCurrValue >= targetValue || playerCurrValue >= targetValue) {
+        if(opponentCurrValue >= targetValue || playerCurrValue >= targetValue) {  //if double skip - previous state skip then skip again then end round 
             state = State.ENDROUND;
         }
         switch (state) {
@@ -79,24 +79,31 @@ public class NewBehaviourScript : MonoBehaviour
             case State.STARTROUND:
                 drawCards(opponent, 4, 6);
                 drawCards(player, 4, 6);
-                state = State.PLAYERTURN;
+
+                //roll dice - two for each player
+                //if player dice higher, state = State.PLAYERTURN;
+                //if opponent dice higher, state = State.OPPONENTTURN;
+
+
+                //state = State.PLAYERTURN; 
                 break;
 
             case State.PLAYERTURN:
                 /*NYI
                 Take input and perform actions for player turn. swap to end turn when clicking end turn button.
                 */
+                //player plays one special card OR uses their action AND may swap out one of their cards from their hand - they can also pass
                 prevState = State.PLAYERTURN; //leveraging this so ENDTURN knows whose turn ended. if this gets messy we can make separate ENDTURN states.
                 state = State.ENDTURN;
                 break;
 
             case State.OPPONENTTURN:
-
+                //use AI to choose best action - sift through if opp closer or player closer, if better to attack or defend
                 break;
 
             case State.ENDTURN:
                 if(prevState == State.PLAYERTURN) {
-                    drawCards(player, 0, 1);
+                    drawCards(player, 0, 1); 
                     state = State.OPPONENTTURN;
                 }
                 else{
