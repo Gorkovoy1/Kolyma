@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ab8743a438f77146ae77173153fd85d, type: 3}
-  m_Name: negtwo
+  m_Name: -4
   m_EditorClassIdentifier: 
-  value: -2
-  artwork: {fileID: 21300000, guid: e9eb9b3bba22b8f4d974d9afe454296c, type: 3}
+  name: Snitch
+  value: -4
+  artwork: {fileID: 21300000, guid: 26590536852ad1542be949874f64b0c1, type: 3}

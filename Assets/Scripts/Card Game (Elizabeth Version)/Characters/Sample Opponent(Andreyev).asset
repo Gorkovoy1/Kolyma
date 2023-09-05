@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ab8743a438f77146ae77173153fd85d, type: 3}
-  m_Name: five
+  m_Script: {fileID: 11500000, guid: 3d6e0783477110740bbb3be39777204a, type: 3}
+  m_Name: Sample Opponent(Andreyev)
   m_EditorClassIdentifier: 
-  value: 5
-  artwork: {fileID: 21300000, guid: 1aa901a83dad99241bf6240c73fa2cef, type: 3}
+  name: Andreyev
+  portrait: {fileID: 21300000, guid: d0d213218988de94aa65952358746a94, type: 3}
+  deck: []

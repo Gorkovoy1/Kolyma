@@ -1,31 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class NewBehaviourScript : MonoBehaviour
+public class CardGameManager : MonoBehaviour
 {
-    //This class manages the card game. It is designed to attach to the card game scene and load and run one card game from start to finish.
-
-    public int roundCount = 0; //defaults to round 0 whenever a new game is started
-
-    public GameObject opponent; //NYI scriptable object class containing opponent data for this card game
-    public GameObject player; //NYI player data class containing info such as player deck, buffs/debuffs if any, etc. the stats they load into this card game with.
-    //note- maybe the player data is also a scriptable object of the same class as the opponent? so it becomes simply a matter of pluging in two scriptable objects with deck data.
-
-    public List<GameObject> numberDeck; //the numbers deck- assuming this is communal?
-    public List<GameObject> opponentSpecialDeck; //opponent's deck of special cards
-    public List<GameObject> playerSpecialDeck; //player's deck of special cards
-
-    public bool isStoryBattle = false; //is this a one-round story battle or not? pass this var in from outside when triggering the battle. if not set defaults to normal 3 round battle.
-
-    private int opponentPoints, playerPoints = 0; //rounds won score for each person
-
-    public int bet = 5; //amt bet on game
-
-    public int targetValue; //target value to win a round
-    public int opponentCurrValue, playerCurrValue = 0; //current progress towards target value.
-
-    public bool roundOver = false; //becomes true when someone meets or exceeds target value.
 
     public enum State {
         INIT, //tasks to complete ONCE as the scene loads in, before anything starts. Use for technical behind the scenes stuff, eg loading art and sound
@@ -41,8 +20,39 @@ public class NewBehaviourScript : MonoBehaviour
         PAUSED //player has paused the game- this'll mean something when there's a pause menu. enter and exit this state to basically pause the game.
     };
 
+    [Header("Card Game Info")]
+    //This class manages the card game. It is designed to attach to the card game scene and load and run one card game from start to finish.
+
+    public int roundCount = 0; //defaults to round 0 whenever a new game is started
+
+    public CardGameCharacter opponent; //scriptable object class containing opponent data
+    public CardGameCharacter player; //scriptable object class containing player data
+
+    public List<NumberCard> numberDeck; //the numbers deck- assuming this is communal?
+
+    public bool isStoryBattle = false; //is this a one-round story battle or not? pass this var in from outside when triggering the battle. if not set defaults to normal 3 round battle.
+
+    private int opponentPoints, playerPoints = 0; //rounds won score for each person
+
+    public int bet = 5; //amt bet on game
+
+    public int targetValue; //target value to win a round
+    public int opponentCurrValue, playerCurrValue = 0; //current progress towards target value.
+
+    public bool roundOver = false; //becomes true when someone meets or exceeds target value.
     public State state; //current state
     private State prevState; //record which state we were in before we paused so we can go back to it
+
+
+    [Header("UI References")] //references to all the UI elements in the scene
+
+    public Transform panel;
+    public Transform playerHand;
+    public Transform opponentHand;
+    public TextMeshProUGUI opponentSumText;
+    public TextMeshProUGUI playerSumText;
+    public TextMeshProUGUI targetValueText;
+    public GameObject discardPile;
 
     // Awake called before Start as soon as loaded into scene
     void Awake() {
@@ -152,7 +162,7 @@ public class NewBehaviourScript : MonoBehaviour
         }
     }
 
-    void drawCards(GameObject target, int numberCards, int specialCards) {
+    void drawCards(CardGameCharacter target, int numberCards, int specialCards) {
         /*NYI
         draw specified number of cards from each deck and put it in target's hand */
         return;

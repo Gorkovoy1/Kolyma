@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ab8743a438f77146ae77173153fd85d, type: 3}
-  m_Name: four
+  m_Name: 5
   m_EditorClassIdentifier: 
-  value: 4
-  artwork: {fileID: 21300000, guid: f7f30d652142f08408549c5bc5cbfe93, type: 3}
+  name: Cook
+  value: 5
+  artwork: {fileID: 21300000, guid: 1aa901a83dad99241bf6240c73fa2cef, type: 3}
