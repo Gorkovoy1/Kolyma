@@ -29,7 +29,7 @@ public class CardGameManager : MonoBehaviour
     public CardGameCharacter player; //scriptable object class containing player data
 
     public List<NumberCard> numberDeck; //the numbers deck- assuming this is communal?
-    public List<SpecialDeckCard> playerDeck, opponentDeck, playerHand, opponentHand; //list for storing current deck and hand states
+    private List<SpecialDeckCard> playerDeck, opponentDeck, playerHand, opponentHand; //list for storing current deck and hand states
 
     public bool isStoryBattle = false; //is this a one-round story battle or not? pass this var in from outside when triggering the battle. if not set defaults to normal 3 round battle.
 
@@ -37,10 +37,10 @@ public class CardGameManager : MonoBehaviour
 
     public int bet = 5; //amt bet on game
 
-    public int targetValue; //target value to win a round
-    public int opponentCurrValue, playerCurrValue = 0; //current progress towards target value.
+    private int targetValue; //target value to win a round
+    private int opponentCurrValue, playerCurrValue = 0; //current progress towards target value.
 
-    public bool roundOver = false; //becomes true when someone meets or exceeds target value.
+    private bool roundOver = false; //becomes true when someone meets or exceeds target value.
     public State state; //current state
     private State prevState; //record which state we were in before we paused so we can go back to it
 
@@ -69,12 +69,11 @@ public class CardGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(opponentCurrValue >= targetValue || playerCurrValue >= targetValue) {  //if double skip - previous state skip then skip again then end round 
-            state = State.ENDROUND;
-        }
         switch (state) {
             case State.INIT:
                 //loading tasks go here
+                opponentDeck = opponent.deckList;
+                playerDeck = player.deckList;
                 state = State.STARTGAME;
                 break;
 
@@ -88,15 +87,28 @@ public class CardGameManager : MonoBehaviour
                 break;
 
             case State.STARTROUND:
+                playerCurrValue = 0;
+                opponentCurrValue = 0;
                 drawCards(opponent, 4, 6);
                 drawCards(player, 4, 6);
+                roundCount += 1;
 
                 //roll dice - two for each player
                 //if player dice higher, state = State.PLAYERTURN;
                 //if opponent dice higher, state = State.OPPONENTTURN;
+                int playerTotal = 0;
+                int opponentTotal = 0;
+                while(playerTotal == opponentTotal) {
+                    playerTotal = Random.Range(1, 7) + Random.Range(1, 7);
+                    opponentTotal = Random.Range(1,7) + Random.Range(1, 7);
+                }
 
-
-                //state = State.PLAYERTURN; 
+                if(opponentTotal > playerTotal) {
+                    state = State.OPPONENTTURN;
+                }
+                else {
+                    state = State.PLAYERTURN;
+                }
                 break;
 
             case State.PLAYERTURN:
@@ -104,15 +116,22 @@ public class CardGameManager : MonoBehaviour
                 Take input and perform actions for player turn. swap to end turn when clicking end turn button.
                 */
                 //player plays one special card OR uses their action AND may swap out one of their cards from their hand - they can also pass
+                Debug.Log("Player turn");
                 prevState = State.PLAYERTURN; //leveraging this so ENDTURN knows whose turn ended. if this gets messy we can make separate ENDTURN states.
                 state = State.ENDTURN;
                 break;
 
             case State.OPPONENTTURN:
                 //use AI to choose best action - sift through if opp closer or player closer, if better to attack or defend
+                Debug.Log("opponent turn");
+                prevState = State.OPPONENTTURN;
+                state = State.ENDTURN;
                 break;
 
             case State.ENDTURN:
+                if(playerCurrValue >= targetValue || opponentCurrValue >= targetValue) {
+                    state = State.ENDROUND;
+                }
                 if(prevState == State.PLAYERTURN) {
                     drawCards(player, 0, 1); 
                     state = State.OPPONENTTURN;
@@ -124,6 +143,7 @@ public class CardGameManager : MonoBehaviour
                 break;
 
             case State.ENDROUND:
+                Debug.Log("End round");
                 if(playerCurrValue >= targetValue) {
                     playerPoints += 1;
                 }
@@ -131,13 +151,14 @@ public class CardGameManager : MonoBehaviour
                     opponentPoints += 1;
                 }
 
-                if(playerPoints >= 2 || opponentPoints >= 2) {
+                if(playerPoints >= 2 || opponentPoints >= 2 || roundCount >= 3) {
                     state = State.ENDGAME;
                 }
                 else{
                     /*NYI
                     remove leftover cards from hands
                     */
+                    Debug.Log("New Round");
                     state = State.STARTROUND;
                 }
                 break;
