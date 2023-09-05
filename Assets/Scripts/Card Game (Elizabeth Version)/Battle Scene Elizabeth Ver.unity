@@ -636,14 +636,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 657149d27ba7912429eae4a3c961fb76, type: 2}
   isStoryBattle: 0
   bet: 5
-  targetValue: 0
-  opponentCurrValue: 0
-  playerCurrValue: 0
-  roundOver: 0
   state: 0
-  panel: {fileID: 1631184922}
-  playerHand: {fileID: 553018432}
-  opponentHand: {fileID: 563015554}
+  panelTransform: {fileID: 0}
+  playerHandTransform: {fileID: 0}
+  opponentHandTransform: {fileID: 0}
   opponentSumText: {fileID: 1907661252}
   playerSumText: {fileID: 716944751}
   targetValueText: {fileID: 1005801580}
@@ -3340,7 +3336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1781000492
 MonoBehaviour:
   m_ObjectHideFlags: 0
