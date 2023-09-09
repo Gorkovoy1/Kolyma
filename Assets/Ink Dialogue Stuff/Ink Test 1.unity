@@ -1215,7 +1215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8ed09f6a82fadf4fb6df22e97674174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSON: {fileID: 4900000, guid: c86b3aab458f0584db81f47ee8c2139d, type: 3}
+  inkJSON: {fileID: 4900000, guid: a56d087a42574114da7889b88da97aab, type: 3}
   dialogueText: {fileID: 59785639}
   choiceButtonPrefab: {fileID: 3191542086940010076, guid: 00c79ff29c47a3f479a4a5b15ffd0c79, type: 3}
   choicesContainer: {fileID: 1298901663}
