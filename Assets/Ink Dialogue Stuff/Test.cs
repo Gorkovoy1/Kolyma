@@ -26,27 +26,52 @@ public class Test : MonoBehaviour
     public Button choiceButtonPrefab;
     public Transform choicesContainer;
 
+    public float textSpeed;
+    public bool choiceSelected;
+    public bool startOfDialogue;
+
+    public bool isItalic;
+    public bool isRed;
+    public bool arkadyTalking;
+    public bool NPCTalking;
+
+    public Image NPC;
+    public Image arkady;
+
+    public TMP_FontAsset numbersFont;
+
     // Start is called before the first frame update
     private void Start()
     {
         inkStory = new Story(inkJSON.text);
         StartCoroutine(ShowInkStory());
+        startOfDialogue = true;
     }
 
     IEnumerator ShowInkStory()
     {
-        while (inkStory.canContinue || inkStory.currentChoices.Count > 0)
+        int maxIterations = 9999999; // Set a maximum number of iterations to prevent freezing
+
+        for (int i = 0; i < maxIterations; i++)
         {
             if (inkStory.canContinue)
             {
-                string text = inkStory.Continue();
-                yield return StartCoroutine(DisplayTextLetterByLetter(text));
+                if(Input.GetMouseButtonDown(0) || choiceSelected || startOfDialogue)
+                {
+                    choiceSelected = false;
+                    startOfDialogue = false;
+                    string text = inkStory.Continue();
+                    textSpeed = 0.04f;
+                    yield return StartCoroutine(DisplayTextLetterByLetter(text));
+                }
             }
             else if (inkStory.currentChoices.Count > 0)
             {
                 DisplayChoices();
                 yield break; // Wait for player input
             }
+
+            yield return null; // Yield to the next frame
         }
     }
 
@@ -56,9 +81,60 @@ public class Test : MonoBehaviour
 
         foreach (char letter in text)
         {
-            dialogueText.text += letter;
-            yield return new WaitForSeconds(0.05f); // Adjust the delay between letters as needed
+            if(letter == ' ')
+            {
+                isItalic = false;
+                isRed = false;
+                arkadyTalking = false;
+                NPCTalking = false;
+            }
+            if (letter == 'N')  //the word No is red lol - mark with something else and make it skip - maybe a ~ before Numbers. 
+            {
+                isRed = true;            
+            }
+            if(letter == '<')
+            {
+                isItalic = true;
+                continue;
+            }
+            if(letter == '@')                     // add these tags in ink
+            {
+                arkadyTalking = true;
+                continue;
+            }
+            if(letter == '%')                     // add these tags in ink
+            {
+                NPCTalking = true;
+                continue;
+            }
+
+            if(isItalic)
+            {
+                dialogueText.text += "<i>" + letter + "</i>";
+            }
+            else if(isRed)
+            {
+                if (letter == '.' || letter == ',' || letter == '!' || letter == '?' || letter == ':')
+
+                {
+                    dialogueText.text += letter;
+
+
+                }
+                else
+                {
+                    dialogueText.text += "<color=red><font=\"" + numbersFont.name + "\">" + letter + "</font></color>";
+                }
+            }
+
+            else
+            {
+                dialogueText.text += letter;
+            }
+            
+            yield return new WaitForSeconds(textSpeed); // Adjust the delay between letters as needed
         }
+        
 
         // Optional: You can wait for player input or a timer before continuing.
         // For example, you can use Input.GetKeyDown or a timer to wait for player input.
@@ -80,6 +156,7 @@ public class Test : MonoBehaviour
     {
         inkStory.ChooseChoiceIndex(choice.index);
         choicesContainer.ClearChildren(); // Clear the choice buttons
+        choiceSelected = true;
         StartCoroutine(ShowInkStory());
     }
 
@@ -87,8 +164,38 @@ public class Test : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0)) // Change the input condition as needed
         {
-            ShowInkStory();
+                textSpeed = 0.0006f;
         }
+
+        if(arkadyTalking)
+        {
+            HighlightArkady();
+        }
+
+        if(NPCTalking)
+        {
+            HighlightNPC();
+        }
+    }
+
+    void HighlightNPC()
+    {
+        Color colorNPC = NPC.color;
+        Color colorArkady = arkady.color;
+        colorNPC = new Color(colorNPC.r, colorNPC.g, colorNPC.b, 1f);
+        colorArkady = new Color(colorArkady.r, colorArkady.g, colorArkady.b, 0.6f);
+        NPC.color = colorNPC;
+        arkady.color = colorArkady;
+    }
+
+    void HighlightArkady()
+    {
+        Color colorNPC = NPC.color;
+        Color colorArkady = arkady.color;
+        colorNPC = new Color(colorNPC.r, colorNPC.g, colorNPC.b, 0.6f);
+        colorArkady = new Color(colorArkady.r, colorArkady.g, colorArkady.b, 1f);
+        NPC.color = colorNPC;
+        arkady.color = colorArkady;
     }
 
 }
