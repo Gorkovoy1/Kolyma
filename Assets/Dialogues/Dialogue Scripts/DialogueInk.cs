@@ -80,9 +80,10 @@ public class DialogueInk : MonoBehaviour
                 arkadyTalking = false;
                 NPCTalking = false;
             }
-            if (letter == 'N')  //the word No is red lol - mark with something else and make it skip - maybe a ~ before Numbers. 
+            if (letter == '$')  //the word No is red lol - mark with something else and make it skip - maybe a ~ before Numbers. Note by SillyGoose 
             {
                 isRed = true;
+                continue;
             }
             if (letter == '<')
             {
