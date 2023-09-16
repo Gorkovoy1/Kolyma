@@ -20,6 +20,7 @@ public static class TransformExtensions
 public class DialogueInk : MonoBehaviour
 {
     public Image NPCPortrait;
+    public Image PlayerPortrait;
     public TextAsset inkJSON;
     private Story inkStory;
     public TextMeshProUGUI dialogueText;
@@ -75,11 +76,17 @@ public class DialogueInk : MonoBehaviour
         List<string> tags = inkStory.currentTags;
         if (tags.Count > 0)
         {if (tags[0] == "Narrator")
-            {NPCPortrait.gameObject.SetActive (false);   
+            {NPCPortrait.gameObject.SetActive (false);
+             PlayerPortrait.gameObject.SetActive (false);
             }
         if (tags[0] == "Andreyev")
             {
                 NPCPortrait.gameObject.SetActive(true);
+            }
+            if (tags[0] == "Arkady")
+            {
+                PlayerPortrait.gameObject.SetActive(true); 
+            
             }
         }
         foreach (char letter in text)
