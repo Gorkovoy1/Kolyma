@@ -4,6 +4,7 @@ using UnityEngine;
 using Ink.Runtime;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 public static class TransformExtensions
 {
@@ -20,6 +21,7 @@ public static class TransformExtensions
 public class DialogueInk : MonoBehaviour
 {
     public Image NPCPortrait;
+    public Image PlayerPortrait;
     public TextAsset inkJSON;
     private Story inkStory;
     public TextMeshProUGUI dialogueText;
@@ -33,8 +35,8 @@ public class DialogueInk : MonoBehaviour
     public bool NPCTalking;
     public float textSpeed;
     public TMP_FontAsset numbersFont;
-    
-    
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,13 +45,14 @@ public class DialogueInk : MonoBehaviour
         startofDialogue = true;
     }
 
-    IEnumerator ShowInkStory() 
-    { int maxiterations = 999999;
+    IEnumerator ShowInkStory()
+    {
+        int maxiterations = 999999;
         for (int i = 0; i < maxiterations; i++)
         {
             if (inkStory.canContinue)
             {
-                if (Input.GetMouseButtonDown(0) || startofDialogue || choiceSelected)
+                if (choiceSelected || Input.GetMouseButtonDown(0) || startofDialogue)
                 {
                     choiceSelected = false;
                     startofDialogue = false;
@@ -62,24 +65,44 @@ public class DialogueInk : MonoBehaviour
             else if (inkStory.currentChoices.Count > 0)
             {
                 DisplayChoices();
+                choiceSelected = true;
                 yield break;
 
             }
             yield return null;
-        }   
-    
+        }
+
     }
-    IEnumerator LetterByLetter(string text) 
+    IEnumerator LetterByLetter(string text)
     {
         dialogueText.text = "";
         List<string> tags = inkStory.currentTags;
         if (tags.Count > 0)
-        {if (tags[0] == "Narrator")
-            {NPCPortrait.gameObject.SetActive (false);   
-            }
-        if (tags[0] == "Andreyev")
+
+        {
+            if (tags[0] == "SetPortraitsActive")
             {
                 NPCPortrait.gameObject.SetActive(true);
+                PlayerPortrait.gameObject.SetActive(true);
+                HighlightNPC();
+
+            }
+
+
+
+            if (tags[0] == "Narrator")
+            {
+                NPCPortrait.gameObject.SetActive(false);
+                PlayerPortrait.gameObject.SetActive(false);
+            }
+            if (tags[0] == "Andreyev")
+            {
+                HighlightNPC();
+            }
+            if (tags[0] == "Arkady")
+            {
+                
+
             }
         }
         foreach (char letter in text)
@@ -141,21 +164,24 @@ public class DialogueInk : MonoBehaviour
         }
     }
     void DisplayChoices()
-    
-    {foreach (Choice choice in inkStory.currentChoices)
+
+    {
+        HighlightPlayer();
+
+        foreach (Choice choice in inkStory.currentChoices)
         {
             Button choiceButton = Instantiate(choiceButtonPrefab, choicesContainer);
             choiceButton.GetComponentInChildren<TextMeshProUGUI>().text = choice.text;
             choiceButton.onClick.AddListener(() => OnChoiceSelected(choice));
         }
-    
-    
+
+
     }
-    void OnChoiceSelected(Choice choice) 
+    void OnChoiceSelected(Choice choice)
     {
+        choiceSelected = true;
         inkStory.ChooseChoiceIndex(choice.index);
         choicesContainer.ClearChildren();
-        choiceSelected = true;
         StartCoroutine(ShowInkStory());
     }
 
@@ -165,7 +191,27 @@ public class DialogueInk : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             textSpeed = 0.0006f;
-        
+
         }
+    }
+    void HighlightNPC()
+    {
+        Color colorNPC = NPCPortrait.color;
+        Color colorArkady = PlayerPortrait.color;
+        colorNPC = new Color(colorNPC.r, colorNPC.g, colorNPC.b, 1f);
+        colorArkady = new Color(colorArkady.r, colorArkady.g, colorArkady.b, 0.6f);
+        NPCPortrait.color = colorNPC;
+        PlayerPortrait.color = colorArkady;
+    }
+
+    void HighlightPlayer()
+    {
+        Color colorNPC = NPCPortrait.color;
+        Color colorArkady = PlayerPortrait.color;
+        colorNPC = new Color(colorNPC.r, colorNPC.g, colorNPC.b, 0.6f);
+        colorArkady = new Color(colorArkady.r, colorArkady.g, colorArkady.b, 1f);
+        NPCPortrait.color = colorNPC;
+        PlayerPortrait.color = colorArkady;
+
     }
 }

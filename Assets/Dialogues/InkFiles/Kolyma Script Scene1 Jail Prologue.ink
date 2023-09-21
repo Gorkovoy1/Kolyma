@@ -5,7 +5,7 @@ The air was stuffy. The smell of wet clothes emanated from the cells.#Narrator
 Arkady was shivering on his bottom bunk. He was about to turn on the side and try to fall asleep when suddenly he felt that someone was looking at him.#Narrator
 An old man approached his bed. The stranger had a strong presence. He was exhausted like everyone else, and yet Arkady could tell that his spirit was not broken.#Narrator
 //Characters appear on screen and the dialogue begins.
-Don't worry, I know the rules. You were here first and the bed is yours. You know, I never ask for anything, but can I sit here? It's been a long and tiring journey.#Andreyev
+Don't worry, I know the rules. You were here first and the bed is yours. You know, I never ask for anything, but can I sit here? It's been a long and tiring journey.#SetPortraitsActive #Andreyev
 //different color for responses?
     *[Sure. You may sit down]#Arkady
  Oh, I am so grateful.#Andreyev
