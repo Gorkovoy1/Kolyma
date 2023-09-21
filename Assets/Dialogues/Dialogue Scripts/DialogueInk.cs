@@ -65,7 +65,7 @@ public class DialogueInk : MonoBehaviour
             else if (inkStory.currentChoices.Count > 0)
             {
                 DisplayChoices();
-                choiceSelected = true;
+                //choiceSelected = true;
                 yield break;
 
             }
@@ -76,92 +76,100 @@ public class DialogueInk : MonoBehaviour
     IEnumerator LetterByLetter(string text)
     {
         dialogueText.text = "";
+        //Debug.Log(text);
         List<string> tags = inkStory.currentTags;
-        if (tags.Count > 0)
-
+        if(text == "\n")
         {
-            if (tags[0] == "SetPortraitsActive")
+            choiceSelected = true;
+        }
+        else
+        {
+            if (tags.Count > 0)
             {
-                NPCPortrait.gameObject.SetActive(true);
-                PlayerPortrait.gameObject.SetActive(true);
-                HighlightNPC();
+                if (tags[0] == "SetPortraitsActive")
+                {
+                    NPCPortrait.gameObject.SetActive(true);
+                    PlayerPortrait.gameObject.SetActive(true);
+                    HighlightNPC();
 
-            }
+                }
 
 
 
-            if (tags[0] == "Narrator")
-            {
-                NPCPortrait.gameObject.SetActive(false);
-                PlayerPortrait.gameObject.SetActive(false);
-            }
-            if (tags[0] == "Andreyev")
-            {
-                HighlightNPC();
-            }
-            if (tags[0] == "Arkady")
-            {
+                if (tags[0] == "Narrator")
+                {
+                    NPCPortrait.gameObject.SetActive(false);
+                    PlayerPortrait.gameObject.SetActive(false);
+                }
+                if (tags[0] == "Andreyev")
+                {
+                    HighlightNPC();
+                }
+                if (tags[0] == "Arkady")
+                {
                 
 
-            }
-        }
-        foreach (char letter in text)
-        {
-            if (letter == ' ')
-            {
-                isItalic = false;
-                isRed = false;
-                arkadyTalking = false;
-                NPCTalking = false;
-            }
-            if (letter == '$')  //the word No is red lol - mark with something else and make it skip - maybe a ~ before Numbers. Note by SillyGoose 
-            {
-                isRed = true;
-                continue;
-            }
-            if (letter == '<')
-            {
-                isItalic = true;
-                continue;
-            }
-            if (letter == '@')                     // add these tags in ink
-            {
-                arkadyTalking = true;
-                continue;
-            }
-            if (letter == '%')                     // add these tags in ink
-            {
-                NPCTalking = true;
-                continue;
-            }
-
-            if (isItalic)
-            {
-                dialogueText.text += "<i>" + letter + "</i>";
-            }
-            else if (isRed)
-            {
-                if (letter == '.' || letter == ',' || letter == '!' || letter == '?' || letter == ':')
-
-                {
-                    dialogueText.text += letter;
-
-
                 }
+            }
+            foreach (char letter in text)
+            {
+                if (letter == ' ')
+                {
+                    isItalic = false;
+                    isRed = false;
+                    arkadyTalking = false;
+                    NPCTalking = false;
+                }
+                if (letter == '$')  //the word No is red lol - mark with something else and make it skip - maybe a ~ before Numbers. Note by SillyGoose 
+                {
+                    isRed = true;
+                    continue;
+                }
+                if (letter == '<')
+                {
+                    isItalic = true;
+                    continue;
+                }
+                if (letter == '@')                     // add these tags in ink
+                {
+                    arkadyTalking = true;
+                    continue;
+                }
+                if (letter == '%')                     // add these tags in ink
+                {
+                    NPCTalking = true;
+                    continue;
+                }
+
+                if (isItalic)
+                {
+                    dialogueText.text += "<i>" + letter + "</i>";
+                }
+                else if (isRed)
+                {
+                    if (letter == '.' || letter == ',' || letter == '!' || letter == '?' || letter == ':')
+
+                    {
+                        dialogueText.text += letter;
+
+
+                    }
+                    else
+                    {
+                        dialogueText.text += "<color=red><font=\"" + numbersFont.name + "\">" + letter + "</font></color>";
+                    }
+                }
+
                 else
                 {
-                    dialogueText.text += "<color=red><font=\"" + numbersFont.name + "\">" + letter + "</font></color>";
+                    dialogueText.text += letter;
                 }
+
+                yield return new WaitForSeconds(textSpeed); // Adjust the delay between letters as needed 
+
             }
-
-            else
-            {
-                dialogueText.text += letter;
-            }
-
-            yield return new WaitForSeconds(textSpeed); // Adjust the delay between letters as needed 
-
         }
+        
     }
     void DisplayChoices()
 
