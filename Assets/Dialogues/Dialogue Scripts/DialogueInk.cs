@@ -81,6 +81,7 @@ public class DialogueInk : MonoBehaviour
         if(text == "\n")
         {
             choiceSelected = true;
+            HighlightNPC();
         }
         else
         {
