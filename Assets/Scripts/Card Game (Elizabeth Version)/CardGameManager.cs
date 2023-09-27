@@ -89,8 +89,8 @@ public class CardGameManager : MonoBehaviour
             case State.STARTROUND:
                 playerCurrValue = 0;
                 opponentCurrValue = 0;
-                drawCards(opponent, 4, 6);
-                drawCards(player, 4, 6);
+                DrawCards(opponent, 4, 6);
+                DrawCards(player, 4, 6);
                 roundCount += 1;
 
                 //roll dice - two for each player
@@ -133,11 +133,11 @@ public class CardGameManager : MonoBehaviour
                     state = State.ENDROUND;
                 }
                 if(prevState == State.PLAYERTURN) {
-                    drawCards(player, 0, 1); 
+                    DrawCards(player, 0, 1); 
                     state = State.OPPONENTTURN;
                 }
                 else{
-                    drawCards(opponent, 0, 1);
+                    DrawCards(opponent, 0, 1);
                     state = State.PLAYERTURN;
                 }
                 break;
@@ -184,9 +184,14 @@ public class CardGameManager : MonoBehaviour
         }
     }
 
-    void drawCards(CardGameCharacter target, int numberCards, int specialCards) {
+    void DrawCards(CardGameCharacter target, int numberCards, int specialCards) {
         /*NYI
         draw specified number of cards from each deck and put it in target's hand */
         return;
+    }
+
+    void ShuffleCards(List<GenericCard> shuffle) {
+
+
     }
 }

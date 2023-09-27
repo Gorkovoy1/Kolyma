@@ -65,13 +65,10 @@ public enum SpecialClass {
 };
 
 [CreateAssetMenu(fileName = "New Special Card")]
-public class SpecialDeckCard : ScriptableObject
+public class SpecialDeckCard : GenericCard
 {
     [Header("Card Info")]
-    public string name;
     public string description;
-    public Sprite cardBack;
-    public Sprite artwork;
     public SpecialClass cardClass;
 
     [Header("Keywords for Card Effects/Targets")]
