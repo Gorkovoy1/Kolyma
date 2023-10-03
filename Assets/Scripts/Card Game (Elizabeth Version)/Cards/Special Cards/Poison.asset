@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Poison
   m_EditorClassIdentifier: 
   name: Poison
+  artwork: {fileID: 21300000, guid: c984de9308a99934e8535dcd8c39211c, type: 3}
   description: force your opponent to discard one special card
-  cardBack: {fileID: 0}
-  artwork: {fileID: 0}
   cardClass: 5
   keywords: 0300000006000000
   intOne: 1

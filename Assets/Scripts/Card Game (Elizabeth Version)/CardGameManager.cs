@@ -29,7 +29,6 @@ public class CardGameManager : MonoBehaviour
     public CardGameCharacter player; //scriptable object class containing player data
 
     public List<NumberCard> numberDeck; //the numbers deck- assuming this is communal?
-    private List<SpecialDeckCard> playerDeck, opponentDeck, playerHand, opponentHand; //list for storing current deck and hand states
 
     public bool isStoryBattle = false; //is this a one-round story battle or not? pass this var in from outside when triggering the battle. if not set defaults to normal 3 round battle.
 
@@ -72,8 +71,6 @@ public class CardGameManager : MonoBehaviour
         switch (state) {
             case State.INIT:
                 //loading tasks go here
-                opponentDeck = opponent.deckList;
-                playerDeck = player.deckList;
                 state = State.STARTGAME;
                 break;
 
@@ -89,8 +86,8 @@ public class CardGameManager : MonoBehaviour
             case State.STARTROUND:
                 playerCurrValue = 0;
                 opponentCurrValue = 0;
-                ShuffleCards(playerDeck);
-                ShuffleCards(opponentDeck);
+                ShuffleCards(player.deck);
+                ShuffleCards(opponent.deck);
                 ShuffleCards(numberDeck);
                 DrawCards(opponent, 4, 6);
                 DrawCards(player, 4, 6);
@@ -193,10 +190,18 @@ public class CardGameManager : MonoBehaviour
         return;
     }
 
-    void ShuffleCards(List<GenericCard> shuffle) {
+    void ShuffleCards(List<SpecialDeckCard> shuffle) {
         for(int i = shuffle.Count - 1; i > 0; i--) {
             int j = Random.Range(0, i + 1) ;
-            GenericCard temp = shuffle[i];
+            SpecialDeckCard temp = shuffle[i];
+            shuffle[i] = shuffle [j];
+            shuffle [j] = temp;
+        }
+    }
+    void ShuffleCards(List<NumberCard> shuffle) {
+        for(int i = shuffle.Count - 1; i > 0; i--) {
+            int j = Random.Range(0, i + 1) ;
+            NumberCard temp = shuffle[i];
             shuffle[i] = shuffle [j];
             shuffle [j] = temp;
         }

@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Thick Woolen Coat
   m_EditorClassIdentifier: 
   name: Thick Woolen Coat
+  artwork: {fileID: 21300000, guid: c984de9308a99934e8535dcd8c39211c, type: 3}
   description: Give yourself -2
-  cardBack: {fileID: 0}
-  artwork: {fileID: 0}
   cardClass: 5
   keywords: 0100000005000000
   intOne: 2
