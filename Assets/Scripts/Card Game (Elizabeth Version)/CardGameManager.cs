@@ -89,6 +89,9 @@ public class CardGameManager : MonoBehaviour
             case State.STARTROUND:
                 playerCurrValue = 0;
                 opponentCurrValue = 0;
+                ShuffleCards(playerDeck);
+                ShuffleCards(opponentDeck);
+                ShuffleCards(numberDeck);
                 DrawCards(opponent, 4, 6);
                 DrawCards(player, 4, 6);
                 roundCount += 1;
@@ -191,7 +194,11 @@ public class CardGameManager : MonoBehaviour
     }
 
     void ShuffleCards(List<GenericCard> shuffle) {
-
-
+        for(int i = shuffle.Count - 1; i > 0; i--) {
+            int j = Random.Range(0, i + 1) ;
+            GenericCard temp = shuffle[i];
+            shuffle[i] = shuffle [j];
+            shuffle [j] = temp;
+        }
     }
 }

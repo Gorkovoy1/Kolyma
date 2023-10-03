@@ -637,9 +637,9 @@ MonoBehaviour:
   isStoryBattle: 0
   bet: 5
   state: 0
-  panelTransform: {fileID: 0}
-  playerHandTransform: {fileID: 0}
-  opponentHandTransform: {fileID: 0}
+  panelTransform: {fileID: 1631184922}
+  playerHandTransform: {fileID: 553018432}
+  opponentHandTransform: {fileID: 563015554}
   opponentSumText: {fileID: 1907661252}
   playerSumText: {fileID: 716944751}
   targetValueText: {fileID: 1005801580}
