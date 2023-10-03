@@ -28,6 +28,7 @@ public class DisplayCard : MonoBehaviour
     void Card(NumberCard card) {
         name.text = card.name;
         artwork.sprite = card.artwork;
+        artwork.color = Color.white;
         description.text = "";
     }
     void Card(SpecialDeckCard card){
