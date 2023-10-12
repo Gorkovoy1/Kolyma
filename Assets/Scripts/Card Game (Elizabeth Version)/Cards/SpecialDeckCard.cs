@@ -22,7 +22,13 @@ intThree = N/A
 another example, a card that says "you and your opponent both draw a special card"
 keywords = DRAW, PLAYER, OPPONENT, SPECIAL
 intOne = 1
-intTwo = N/A
+intTwo = 1
+intThree = N/A
+
+another example, a card that says "you draw 1 special and opponent draws 2 specials"
+keywords = DRAW, PLAYER, OPPONENT, SPECIAL
+intOne = 1
+intTwo = 2
 intThree = N/A
 
 More functionality will be added in the future to support more complex cards. For example, what if multiple commands could be represented on one card? Example of how the future might look:
@@ -38,6 +44,7 @@ we COULD use regex to decipher the string descriptions of the cards, but this is
 maybe limited use of regex to handle the more niche cases like the duplicate and conditional cards. still exploring that. 
 either way consider this a science experiment. gonna try this method described above, if it doesnt work i'll learn something and figure out a different way.
 */
+
 public enum SpecialKeyword {
     /*use these keywords for dictating the action to be performed*/
     EFFECT_NONE,
