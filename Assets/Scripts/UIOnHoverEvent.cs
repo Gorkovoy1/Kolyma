@@ -31,7 +31,7 @@ public class UIOnHoverEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         tempCanvas.sortingOrder = 1;
         tempRaycaster = gameObject.AddComponent<GraphicRaycaster>();
 
-        transform.localScale = new Vector3(0.27f, 0.27f, 0.5f);
+        transform.localScale = new Vector3(1f, 1f, 0.5f);
         transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + 90, transform.localPosition.z);
         //transform.position += Vector3.up;
         //transform.localPosition = new Vector3(transform.localPosition.x, 200, transform.localPosition.z);
