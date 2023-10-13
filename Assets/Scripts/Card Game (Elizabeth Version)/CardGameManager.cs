@@ -43,9 +43,11 @@ public class CardGameManager : MonoBehaviour
     public State state; //current state
     private State prevState; //record which state we were in before we paused so we can go back to it
 
+    [HideInInspector] public List<DisplayCard> activeCardVisuals;
 
     [Header("UI References")] //references to all the UI elements in the scene
 
+    public GameObject cardVisualPrefab;
     public Transform panelTransform;
     public Transform playerHandTransform;
     public Transform opponentHandTransform;
@@ -71,6 +73,10 @@ public class CardGameManager : MonoBehaviour
         switch (state) {
             case State.INIT:
                 //loading tasks go here
+                player.deck.Clear();
+                opponent.deck.Clear();
+                player.hand.Clear();
+                opponent.hand.Clear();
                 state = State.STARTGAME;
                 break;
 
@@ -80,6 +86,12 @@ public class CardGameManager : MonoBehaviour
                 if(betDoubled) {
                     bet = 10;
                 }*/
+                foreach(SpecialDeckCard card in player.deckList) {
+                    player.deck.Add(card);
+                }
+                foreach(SpecialDeckCard card in opponent.deckList) {
+                    opponent.deck.Add(card);
+                }
                 state = State.STARTROUND;
                 break;
 
@@ -89,11 +101,12 @@ public class CardGameManager : MonoBehaviour
                 ShuffleCards(player.deck);
                 ShuffleCards(opponent.deck);
                 ShuffleCards(numberDeck);
-                DrawCards(opponent, 4, 6);
-                DrawCards(player, 4, 6);
+                DrawSpecialCards(opponent, 6);
+                DrawSpecialCards(player,6);
                 roundCount += 1;
 
-                //roll dice - two for each player
+                state = State.PLAYERTURN;
+                /*//roll dice - two for each player
                 //if player dice higher, state = State.PLAYERTURN;
                 //if opponent dice higher, state = State.OPPONENTTURN;
                 int playerTotal = 0;
@@ -108,7 +121,7 @@ public class CardGameManager : MonoBehaviour
                 }
                 else {
                     state = State.PLAYERTURN;
-                }
+                }*/
                 break;
 
             case State.PLAYERTURN:
@@ -116,9 +129,7 @@ public class CardGameManager : MonoBehaviour
                 Take input and perform actions for player turn. swap to end turn when clicking end turn button.
                 */
                 //player plays one special card OR uses their action AND may swap out one of their cards from their hand - they can also pass
-                Debug.Log("Player turn");
                 prevState = State.PLAYERTURN; //leveraging this so ENDTURN knows whose turn ended. if this gets messy we can make separate ENDTURN states.
-                state = State.ENDTURN;
                 break;
 
             case State.OPPONENTTURN:
@@ -133,11 +144,11 @@ public class CardGameManager : MonoBehaviour
                     state = State.ENDROUND;
                 }
                 if(prevState == State.PLAYERTURN) {
-                    DrawCards(player, 0, 1); 
+                    DrawSpecialCards(player, 1); 
                     state = State.OPPONENTTURN;
                 }
                 else{
-                    DrawCards(opponent, 0, 1);
+                    DrawSpecialCards(opponent, 1);
                     state = State.PLAYERTURN;
                 }
                 break;
@@ -184,10 +195,34 @@ public class CardGameManager : MonoBehaviour
         }
     }
 
-    void DrawCards(CardGameCharacter target, int numberCards, int specialCards) {
+    void DrawSpecialCards(CardGameCharacter target, int specialCards) {
         /*NYI
         draw specified number of cards from each deck and put it in target's hand */
-        return;
+        for(int i = 0; i < specialCards; i ++) {
+            if(target.deck.Count == 0) {
+                Debug.Log(target.name + " is out of cards!");
+                break;
+            }
+            SpecialDeckCard newCard = target.deck[0];
+            target.hand.Add(newCard);
+            target.deck.Remove(newCard);
+            GameObject newCardVisual = Instantiate(cardVisualPrefab);
+            DisplayCard newCardDisplay = newCardVisual.GetComponent<DisplayCard>();
+            newCardDisplay.owner = target;
+            newCardDisplay.baseCard = newCard;
+            if(target = player) {
+                newCardVisual.transform.SetParent(playerHandTransform);
+            }
+            else {
+                newCardVisual.transform.SetParent(opponentHandTransform);
+            }
+            activeCardVisuals.Add(newCardDisplay);
+        }
+    }
+
+    public void PlayCard(GenericCard card, CardGameCharacter owner) {
+        //NYI decision tree to execute the effects of played cards.
+        Debug.Log(owner.name + " played " + card.name);
     }
 
     void ShuffleCards(List<SpecialDeckCard> shuffle) {
@@ -206,4 +241,5 @@ public class CardGameManager : MonoBehaviour
             shuffle [j] = temp;
         }
     }
+
 }

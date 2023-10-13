@@ -8,6 +8,7 @@ using TMPro;
 public class DisplayCard : MonoBehaviour
 {
     public GenericCard baseCard;
+    [HideInInspector] public CardGameCharacter owner;
     [SerializeField] private Image artwork;
     [SerializeField] private TMP_Text name;
     [SerializeField] private TMP_Text description;

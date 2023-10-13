@@ -10,15 +10,14 @@ public class UIOnHoverEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     Vector3 cachedPosition;
     private Canvas tempCanvas;
     private GraphicRaycaster tempRaycaster;
-    public GameManager gm;
+    public CardGameManager gm;
     Vector3 originalPosition;
 
     
 
     void Start()
     {
-        GameObject manager = GameObject.Find("Game Manager");    
-        gm = manager.GetComponent<GameManager>();
+        gm = GameObject.Find("Game Manager").GetComponent<CardGameManager>();
         cachedScale = transform.localScale;
         cachedPosition = transform.localPosition;
     }
@@ -39,8 +38,8 @@ public class UIOnHoverEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         //i think the issue is that its parented
 
         //Debug.Log("enter");
-        originalPosition = gm.playerHand.transform.position;
-        gm.playerHand.transform.position += Vector3.up * 140f;
+        originalPosition = gm.playerHandTransform.position;
+        gm.playerHandTransform.position += Vector3.up * 140f;
     }
 
 
@@ -53,7 +52,7 @@ public class UIOnHoverEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         
 
         transform.localScale = cachedScale;
-        gm.playerHand.transform.position = new Vector3(450, -20, 0);
+        gm.playerHandTransform.position = new Vector3(450, -20, 0);
         //transform.localPosition = cachedPosition;
         
         //Debug.Log("exit");

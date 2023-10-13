@@ -21,7 +21,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dfe82fca72c245941a17d8a4b5ffd8c3, type: 2}
   - {fileID: 11400000, guid: 6c7042eeb6d62434a892d1816f3b673c, type: 2}
   - {fileID: 11400000, guid: 0cb3671d8d2a1c541bf3172b7dcf6aab, type: 2}
-  currDeck: []
+  deck: []
   hand: []
-  numberCards: []
-  value: 0
