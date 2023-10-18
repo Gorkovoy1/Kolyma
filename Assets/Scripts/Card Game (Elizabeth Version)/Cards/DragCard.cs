@@ -7,7 +7,7 @@ using System.Linq;
 public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
 
-    private GameObject discard, panel;
+    private GameObject discard, playZone;
     private Transform parentReturnTo;
     private CardGameManager manager;
     private DisplayCard display;
@@ -17,7 +17,7 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     void Start() {
         display = gameObject.GetComponent<DisplayCard>();
         discard = GameObject.Find("Canvas/Discard");
-        panel = GameObject.Find("Canvas/Panel");
+        playZone = GameObject.Find("Canvas/Card Play Zone");
         manager = GameObject.Find("Game Manager").GetComponent<CardGameManager>();    
     }
 
@@ -40,8 +40,11 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         dragActive = false;
         gameObject.transform.SetParent(parentReturnTo);
 
-        if(gameObject.transform.parent == panel.transform) {
-            manager.PlayCard(display.baseCard, display.owner);
+        if(gameObject.transform.parent == playZone.transform) {
+            manager.PlayCard(display);
+        }
+        else if(gameObject.transform.parent == discard.transform) {
+            manager.DiscardCard(display);
         }
 
     }
@@ -49,6 +52,7 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     void OnTriggerEnter2D(Collider2D col) {
         if(dragActive) {
             parentReturnTo = col.gameObject.transform;
+            Debug.Log("updated parent");
         }
     }
     

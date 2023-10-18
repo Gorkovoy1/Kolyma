@@ -43,6 +43,8 @@ public class CardGameManager : MonoBehaviour
     public State state; //current state
     private State prevState; //record which state we were in before we paused so we can go back to it
 
+    private List<SpecialDeckCard> discardPile = new List<SpecialDeckCard>();
+
     [HideInInspector] public List<DisplayCard> activeCardVisuals;
 
     [Header("UI References")] //references to all the UI elements in the scene
@@ -54,7 +56,6 @@ public class CardGameManager : MonoBehaviour
     public TextMeshProUGUI opponentSumText;
     public TextMeshProUGUI playerSumText;
     public TextMeshProUGUI targetValueText;
-    public GameObject discardPile;
 
     // Awake called before Start as soon as loaded into scene
     void Awake() {
@@ -96,6 +97,7 @@ public class CardGameManager : MonoBehaviour
                 break;
 
             case State.STARTROUND:
+                discardPile.Clear();
                 playerCurrValue = 0;
                 opponentCurrValue = 0;
                 ShuffleCards(player.deck);
@@ -220,9 +222,20 @@ public class CardGameManager : MonoBehaviour
         }
     }
 
-    public void PlayCard(GenericCard card, CardGameCharacter owner) {
+    public void PlayCard(DisplayCard display) {
         //NYI decision tree to execute the effects of played cards.
-        Debug.Log(owner.name + " played " + card.name);
+        Debug.Log(display.owner.name + " played " + display.baseCard.name);
+
+    }
+
+    public void DiscardCard(DisplayCard display) {
+        //NYI remove card from hand, update top of discard pile to show this card, add to discarded cards
+        Debug.Log(display.owner.name + " discarded " + display.baseCard.name);
+        SpecialDeckCard card = (SpecialDeckCard) display.baseCard;
+        discardPile.Add(card);
+        display.owner.hand.Remove(card);
+        activeCardVisuals.Remove(display);
+        Destroy(display.gameObject);
     }
 
     void ShuffleCards(List<SpecialDeckCard> shuffle) {
