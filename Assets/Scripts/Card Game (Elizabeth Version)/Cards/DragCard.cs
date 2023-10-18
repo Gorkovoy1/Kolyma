@@ -52,7 +52,6 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     void OnTriggerEnter2D(Collider2D col) {
         if(dragActive) {
             parentReturnTo = col.gameObject.transform;
-            Debug.Log("updated parent");
         }
     }
     

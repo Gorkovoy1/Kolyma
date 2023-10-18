@@ -37,8 +37,7 @@ public class CardGameManager : MonoBehaviour
     public int bet = 5; //amt bet on game
 
     private int targetValue; //target value to win a round
-    private int opponentCurrValue, playerCurrValue = 0; //current progress towards target value.
-
+   
     private bool roundOver = false; //becomes true when someone meets or exceeds target value.
     public State state; //current state
     private State prevState; //record which state we were in before we paused so we can go back to it
@@ -71,6 +70,11 @@ public class CardGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Update curr value text and such every frame because its easier to just do it here
+        opponentSumText.text = "AI CURR VALUE: " + opponent.currValue;
+        playerSumText.text = "PLAYER CURR VALUE: " + player.currValue;
+
+        //Ye Olde Turn Manager State Machine
         switch (state) {
             case State.INIT:
                 //loading tasks go here
@@ -98,8 +102,8 @@ public class CardGameManager : MonoBehaviour
 
             case State.STARTROUND:
                 discardPile.Clear();
-                playerCurrValue = 0;
-                opponentCurrValue = 0;
+                player.currValue = 0;
+                opponent.currValue = 0;
                 ShuffleCards(player.deck);
                 ShuffleCards(opponent.deck);
                 ShuffleCards(numberDeck);
@@ -142,7 +146,7 @@ public class CardGameManager : MonoBehaviour
                 break;
 
             case State.ENDTURN:
-                if(playerCurrValue >= targetValue || opponentCurrValue >= targetValue) {
+                if(player.currValue >= targetValue || opponent.currValue >= targetValue) {
                     state = State.ENDROUND;
                 }
                 if(prevState == State.PLAYERTURN) {
@@ -157,7 +161,7 @@ public class CardGameManager : MonoBehaviour
 
             case State.ENDROUND:
                 Debug.Log("End round");
-                if(playerCurrValue >= targetValue) {
+                if(player.currValue >= targetValue) {
                     playerPoints += 1;
                 }
                 else{
@@ -222,12 +226,19 @@ public class CardGameManager : MonoBehaviour
         }
     }
 
+    //play a special card
     public void PlayCard(DisplayCard display) {
-        //NYI decision tree to execute the effects of played cards.
         Debug.Log(display.owner.name + " played " + display.baseCard.name);
-
+        SpecialDeckCard card = (SpecialDeckCard) display.baseCard;
+        discardPile.Add(card);
+        display.owner.hand.Remove(card);
+        activeCardVisuals.Remove(display);
+        Destroy(display.gameObject);
+        //do the decision tree (separate function because i forsee this eventually using recursion)
+        ExecuteCardEffect(display);
     }
 
+    //discard a special card
     public void DiscardCard(DisplayCard display) {
         //NYI remove card from hand, update top of discard pile to show this card, add to discarded cards
         Debug.Log(display.owner.name + " discarded " + display.baseCard.name);
@@ -252,6 +263,52 @@ public class CardGameManager : MonoBehaviour
             NumberCard temp = shuffle[i];
             shuffle[i] = shuffle [j];
             shuffle [j] = temp;
+        }
+    }
+
+    //Very PROTOTYPE version of the card decision tree
+    void ExecuteCardEffect(DisplayCard display) {
+        SpecialDeckCard card = (SpecialDeckCard) display.baseCard;
+        //rudimentary draft of the card playing decision tree
+        SpecialKeyword effectType = card.keywords[0];
+
+        //If OPPONENT plays this card, the TARGET_PLAYER keyword would refer to the opponent- the person who played the card.
+        CardGameCharacter playerTarget = display.owner;
+        CardGameCharacter opponentTarget;
+        if(playerTarget = opponent) {
+            opponentTarget = player;
+        }
+        else {
+            opponentTarget = opponent;
+        }
+
+        switch(effectType) {
+            case SpecialKeyword.EFFECT_NONE:
+                Debug.Log("This card has no effect");
+            break;
+            case SpecialKeyword.EFFECT_ADDVALUE:
+                /*EFFECT_ADDVALUE ANTICPATED SYNTAX:
+                keywords[i] = target to add value to
+                values[i - 1] = amount to add to keywords[i]
+                */
+                for(int i = 1; i < card.keywords.Count; i++) {
+                    if(card.keywords[i] == SpecialKeyword.TARGET_PLAYER) {
+                        playerTarget.currValue += card.values[i-1];
+                    }
+                    else{
+                        opponentTarget.currValue += card.values[i-1];
+                    }
+                }
+            break;
+            case SpecialKeyword.EFFECT_DRAW:
+                Debug.Log("Draw Effects NYI");
+            break;
+            case SpecialKeyword.EFFECT_DISCARD:
+                Debug.Log("Discard Effects NYI");
+            break;
+            case SpecialKeyword.EFFECT_CONDITIONAL:
+                Debug.Log("Conditional Effects NYI");
+            break;
         }
     }
 

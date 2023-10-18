@@ -17,6 +17,4 @@ MonoBehaviour:
   description: force your opponent to discard one special card
   cardClass: 5
   keywords: 0300000006000000
-  intOne: 1
-  intTwo: 0
-  intThree: 0
+  values: 01000000

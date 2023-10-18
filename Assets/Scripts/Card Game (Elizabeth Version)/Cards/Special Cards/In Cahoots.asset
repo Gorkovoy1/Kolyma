@@ -17,6 +17,4 @@ MonoBehaviour:
   description: Give both players +4
   cardClass: 5
   keywords: 010000000500000006000000
-  intOne: 4
-  intTwo: 0
-  intThree: 0
+  values: 0400000004000000

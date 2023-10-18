@@ -17,6 +17,4 @@ MonoBehaviour:
   description: Draw two special cards
   cardClass: 5
   keywords: 020000000500000008000000
-  intOne: 2
-  intTwo: 0
-  intThree: 0
+  values: 02000000

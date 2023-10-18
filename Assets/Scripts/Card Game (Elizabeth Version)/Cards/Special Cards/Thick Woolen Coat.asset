@@ -17,6 +17,4 @@ MonoBehaviour:
   description: Give yourself -2
   cardClass: 5
   keywords: 0100000005000000
-  intOne: 2
-  intTwo: 0
-  intThree: 0
+  values: feffffff

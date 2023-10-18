@@ -83,8 +83,6 @@ public class SpecialDeckCard : GenericCard
     public List<SpecialKeyword> keywords;
 
     [Header("Numerical Values for Card Effects")]
-    public int intOne;
-    public int intTwo;
-    public int intThree;
+    public List<int> values;
 
 }
