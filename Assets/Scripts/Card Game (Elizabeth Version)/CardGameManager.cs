@@ -274,8 +274,9 @@ public class CardGameManager : MonoBehaviour
 
         //If OPPONENT plays this card, the TARGET_PLAYER keyword would refer to the opponent- the person who played the card.
         CardGameCharacter playerTarget = display.owner;
+        Debug.Log(playerTarget.name + " Target");
         CardGameCharacter opponentTarget;
-        if(playerTarget = opponent) {
+        if(playerTarget == opponent) {
             opponentTarget = player;
         }
         else {
@@ -302,6 +303,27 @@ public class CardGameManager : MonoBehaviour
             break;
             case SpecialKeyword.EFFECT_DRAW:
                 Debug.Log("Draw Effects NYI");
+                /* EFFECT_DRAWCARD ANTICIPATED SYNTAX
+                keywords[last item] = type of card to draw
+                keywords[i] -> keywords[2nd to last item] = target to draw to
+                values[i-1] = # cards to draw*/
+                SpecialKeyword cardType = card.keywords[card.keywords.Count - 1];
+
+                for(int i = 1; i< card.keywords.Count - 1; i++) {
+                    if(card.keywords[i] == SpecialKeyword.TARGET_PLAYER && cardType == SpecialKeyword.TYPE_SPECIAL) {
+                        DrawSpecialCards(playerTarget, card.values[i-1]);
+                    }
+                    else if(card.keywords[i] == SpecialKeyword.TARGET_PLAYER && cardType == SpecialKeyword.TYPE_NUMBER){
+                        Debug.Log("drawing number cards NYI");
+                    }
+                    else if(card.keywords[i] == SpecialKeyword.TARGET_OPPONENT && cardType == SpecialKeyword.TYPE_NUMBER){
+                        Debug.Log("drawing number cards NYI");
+                    }
+                    else if(card.keywords[i] == SpecialKeyword.TARGET_OPPONENT && cardType == SpecialKeyword.TYPE_SPECIAL){
+                        DrawSpecialCards(opponentTarget, card.values[i-1]);
+                    }
+                }
+
             break;
             case SpecialKeyword.EFFECT_DISCARD:
                 Debug.Log("Discard Effects NYI");
