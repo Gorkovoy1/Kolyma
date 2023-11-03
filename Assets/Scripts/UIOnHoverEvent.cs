@@ -11,6 +11,7 @@ public class UIOnHoverEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     private Canvas tempCanvas;
     private GraphicRaycaster tempRaycaster;
     public CardGameManager gm;
+    private DisplayCard card;
 
     
 
@@ -23,18 +24,19 @@ public class UIOnHoverEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        //x = 40;
+        card = gameObject.GetComponent<DisplayCard>();
+        
+        if(card != null && card.baseCard is SpecialDeckCard && card.owner == gm.player) {
+            tempCanvas = gameObject.AddComponent<Canvas>();
+            tempCanvas.overrideSorting = true;
+            tempCanvas.sortingOrder = 1;
+            tempRaycaster = gameObject.AddComponent<GraphicRaycaster>();
+            cachedScale = transform.localScale;
+            cachedPosition = transform.localPosition;
 
-        tempCanvas = gameObject.AddComponent<Canvas>();
-        tempCanvas.overrideSorting = true;
-        tempCanvas.sortingOrder = 1;
-        tempRaycaster = gameObject.AddComponent<GraphicRaycaster>();
-
-        cachedScale = transform.localScale;
-        cachedPosition = transform.localPosition;
-
-        transform.localScale = new Vector3(0.2f, 0.2f, 0.5f);
-        transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + 60, transform.localPosition.z);
+            transform.localScale = new Vector3(0.2f, 0.2f, 0.5f);
+            transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + 60, transform.localPosition.z);
+        }
         //transform.position += Vector3.up;
         //transform.localPosition = new Vector3(transform.localPosition.x, 200, transform.localPosition.z);
         //i think the issue is that its parented
@@ -47,12 +49,15 @@ public class UIOnHoverEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Destroy(tempRaycaster);
-        Destroy(tempCanvas);
-        
 
-        transform.localScale = cachedScale;
-        transform.localPosition = cachedPosition;
+        if(card != null && card.baseCard is SpecialDeckCard && card.owner == gm.player) {
+            Destroy(tempRaycaster);
+            Destroy(tempCanvas);
+            
+
+            transform.localScale = cachedScale;
+            transform.localPosition = cachedPosition;
+        }
         
         //Debug.Log("exit");
     }

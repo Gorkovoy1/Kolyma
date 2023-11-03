@@ -23,28 +23,36 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-
-        parentReturnTo = gameObject.transform.parent;
-        dragActive = true;
+        if(display.baseCard is SpecialDeckCard) {
+            parentReturnTo = gameObject.transform.parent;
+            dragActive = true;
+        }
+        else {
+            dragActive = false;
+        }
         
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        gameObject.transform.position = eventData.position;
+        if(dragActive) {
+            gameObject.transform.position = eventData.position;
+        }
 
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        dragActive = false;
-        gameObject.transform.SetParent(parentReturnTo);
+        if(display.baseCard is SpecialDeckCard && display.owner == manager.player){
+            dragActive = false;
+            gameObject.transform.SetParent(parentReturnTo);
 
-        if(gameObject.transform.parent == playZone.transform) {
-            manager.PlayCard(display);
-        }
-        else if(gameObject.transform.parent == discard.transform) {
-            manager.DiscardCard(display);
+            if(gameObject.transform.parent == playZone.transform) {
+                manager.PlayCard(display);
+            }
+            else if(gameObject.transform.parent == discard.transform) {
+                manager.DiscardCard(display);
+            }
         }
 
     }

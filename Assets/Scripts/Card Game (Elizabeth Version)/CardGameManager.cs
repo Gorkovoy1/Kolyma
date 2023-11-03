@@ -42,7 +42,7 @@ public class CardGameManager : MonoBehaviour
     public State state; //current state
     private State prevState; //record which state we were in before we paused so we can go back to it
 
-    private List<SpecialDeckCard> discardPile = new List<SpecialDeckCard>();
+    private List<GenericCard> discardPile = new List<GenericCard>();
 
     [HideInInspector] public List<DisplayCard> activeCardVisuals;
 
@@ -55,6 +55,8 @@ public class CardGameManager : MonoBehaviour
     public TextMeshProUGUI opponentSumText;
     public TextMeshProUGUI playerSumText;
     public TextMeshProUGUI targetValueText;
+    public Transform opponentNumberZone;
+    public Transform playerNumberZone;
 
     // Awake called before Start as soon as loaded into scene
     void Awake() {
@@ -109,8 +111,12 @@ public class CardGameManager : MonoBehaviour
                 ShuffleCards(numberDeck);
                 DrawSpecialCards(opponent, 6);
                 DrawSpecialCards(player,6);
+                DrawNumberCards(opponent, 4);
+                DrawNumberCards(player, 4);
                 roundCount += 1;
 
+                targetValue = Random.Range(1,7) + Random.Range(1,7) + Random.Range(1,7) + Random.Range(1,7);
+                targetValueText.text = "TARGET VALUE: " + targetValue;
                 state = State.PLAYERTURN;
                 /*//roll dice - two for each player
                 //if player dice higher, state = State.PLAYERTURN;
@@ -140,9 +146,7 @@ public class CardGameManager : MonoBehaviour
 
             case State.OPPONENTTURN:
                 //use AI to choose best action - sift through if opp closer or player closer, if better to attack or defend
-                Debug.Log("opponent turn");
                 prevState = State.OPPONENTTURN;
-                state = State.ENDTURN;
                 break;
 
             case State.ENDTURN:
@@ -201,6 +205,30 @@ public class CardGameManager : MonoBehaviour
         }
     }
 
+    void DrawNumberCards(CardGameCharacter target, int numberCards) {
+        for(int i = 0; i < numberCards; i++) {
+            if(numberDeck.Count == 0) {
+                Debug.Log("Number Deck is Empty");
+            }
+            NumberCard newCard = numberDeck[0];
+            target.numberHand.Add(newCard);
+            numberDeck.Remove(newCard);
+            GameObject newCardVisual = Instantiate(cardVisualPrefab);
+            DisplayCard newCardDisplay = newCardVisual.GetComponent<DisplayCard>();
+            newCardDisplay.owner = target;
+            newCardDisplay.baseCard = newCard;
+            if(target == player) {
+                newCardVisual.transform.SetParent(playerNumberZone);
+                player.currValue += newCard.value;
+            }
+            else {
+                newCardVisual.transform.SetParent(opponentNumberZone);
+                opponent.currValue += newCard.value;
+            }
+            activeCardVisuals.Add(newCardDisplay);
+       } 
+    }
+
     void DrawSpecialCards(CardGameCharacter target, int specialCards) {
         /*NYI
         draw specified number of cards from each deck and put it in target's hand */
@@ -216,7 +244,7 @@ public class CardGameManager : MonoBehaviour
             DisplayCard newCardDisplay = newCardVisual.GetComponent<DisplayCard>();
             newCardDisplay.owner = target;
             newCardDisplay.baseCard = newCard;
-            if(target = player) {
+            if(target == player) {
                 newCardVisual.transform.SetParent(playerHandTransform);
             }
             else {
@@ -230,7 +258,7 @@ public class CardGameManager : MonoBehaviour
     public void PlayCard(DisplayCard display) {
         Debug.Log(display.owner.name + " played " + display.baseCard.name);
         SpecialDeckCard card = (SpecialDeckCard) display.baseCard;
-        discardPile.Add(card);
+        discardPile.Add(display.baseCard);
         display.owner.hand.Remove(card);
         activeCardVisuals.Remove(display);
         Destroy(display.gameObject);
@@ -242,9 +270,13 @@ public class CardGameManager : MonoBehaviour
     public void DiscardCard(DisplayCard display) {
         //NYI remove card from hand, update top of discard pile to show this card, add to discarded cards
         Debug.Log(display.owner.name + " discarded " + display.baseCard.name);
-        SpecialDeckCard card = (SpecialDeckCard) display.baseCard;
-        discardPile.Add(card);
-        display.owner.hand.Remove(card);
+        if(display.baseCard is SpecialDeckCard) {
+            display.owner.hand.Remove((SpecialDeckCard)display.baseCard);
+        }
+        else {
+            display.owner.numberHand.Remove((NumberCard)display.baseCard);
+        }
+        discardPile.Add(display.baseCard);
         activeCardVisuals.Remove(display);
         Destroy(display.gameObject);
     }
@@ -274,7 +306,6 @@ public class CardGameManager : MonoBehaviour
 
         //If OPPONENT plays this card, the TARGET_PLAYER keyword would refer to the opponent- the person who played the card.
         CardGameCharacter playerTarget = display.owner;
-        Debug.Log(playerTarget.name + " Target");
         CardGameCharacter opponentTarget;
         if(playerTarget == opponent) {
             opponentTarget = player;
