@@ -23,7 +23,7 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if(display.baseCard is SpecialDeckCard) {
+        if(display.baseCard is SpecialDeckCard && manager.state == CardGameManager.State.PLAYERTURN) {
             parentReturnTo = gameObject.transform.parent;
             dragActive = true;
         }
@@ -43,7 +43,7 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if(display.baseCard is SpecialDeckCard && display.owner == manager.player){
+        if(dragActive && display.baseCard is SpecialDeckCard && display.owner == manager.player){
             dragActive = false;
             gameObject.transform.SetParent(parentReturnTo);
 

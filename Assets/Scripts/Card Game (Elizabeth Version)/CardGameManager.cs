@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class CardGameManager : MonoBehaviour
@@ -41,10 +42,13 @@ public class CardGameManager : MonoBehaviour
     private bool roundOver = false; //becomes true when someone meets or exceeds target value.
     public State state; //current state
     private State prevState; //record which state we were in before we paused so we can go back to it
+    private bool opponentEndRound, playerEndRound;
 
     private List<GenericCard> discardPile = new List<GenericCard>();
 
     [HideInInspector] public List<DisplayCard> activeCardVisuals;
+
+    private bool printed = false;
 
     [Header("UI References")] //references to all the UI elements in the scene
 
@@ -57,6 +61,8 @@ public class CardGameManager : MonoBehaviour
     public TextMeshProUGUI targetValueText;
     public Transform opponentNumberZone;
     public Transform playerNumberZone;
+    public Toggle playerRoundToggle;
+    public Toggle opponentRoundToggle;
 
     // Awake called before Start as soon as loaded into scene
     void Awake() {
@@ -73,8 +79,8 @@ public class CardGameManager : MonoBehaviour
     void Update()
     {
         //Update curr value text and such every frame because its easier to just do it here
-        opponentSumText.text = "AI CURR VALUE: " + opponent.currValue;
-        playerSumText.text = "PLAYER CURR VALUE: " + player.currValue;
+        opponentSumText.text = opponent.name + " CURR VALUE: " + opponent.currValue;
+        playerSumText.text = player.name + " CURR VALUE: " + player.currValue;
 
         //Ye Olde Turn Manager State Machine
         switch (state) {
@@ -84,6 +90,8 @@ public class CardGameManager : MonoBehaviour
                 opponent.deck.Clear();
                 player.hand.Clear();
                 opponent.hand.Clear();
+                opponentRoundToggle.isOn = false;
+                playerRoundToggle.isOn = false;
                 state = State.STARTGAME;
                 break;
 
@@ -103,6 +111,8 @@ public class CardGameManager : MonoBehaviour
                 break;
 
             case State.STARTROUND:
+                playerEndRound = false;
+                opponentEndRound = false;
                 discardPile.Clear();
                 player.currValue = 0;
                 opponent.currValue = 0;
@@ -114,7 +124,6 @@ public class CardGameManager : MonoBehaviour
                 DrawNumberCards(opponent, 4);
                 DrawNumberCards(player, 4);
                 roundCount += 1;
-
                 targetValue = Random.Range(1,7) + Random.Range(1,7) + Random.Range(1,7) + Random.Range(1,7);
                 targetValueText.text = "TARGET VALUE: " + targetValue;
                 state = State.PLAYERTURN;
@@ -141,56 +150,82 @@ public class CardGameManager : MonoBehaviour
                 Take input and perform actions for player turn. swap to end turn when clicking end turn button.
                 */
                 //player plays one special card OR uses their action AND may swap out one of their cards from their hand - they can also pass
-                prevState = State.PLAYERTURN; //leveraging this so ENDTURN knows whose turn ended. if this gets messy we can make separate ENDTURN states.
+                playerEndRound = playerRoundToggle.isOn;
+                opponentEndRound = opponentRoundToggle.isOn;
                 break;
 
             case State.OPPONENTTURN:
                 //use AI to choose best action - sift through if opp closer or player closer, if better to attack or defend
-                prevState = State.OPPONENTTURN;
+                ButtonEndTurn(); //AI NYI so just skip turn for now.
                 break;
 
             case State.ENDTURN:
-                if(player.currValue >= targetValue || opponent.currValue >= targetValue) {
+                if(playerEndRound && opponentEndRound) {
                     state = State.ENDROUND;
                 }
-                if(prevState == State.PLAYERTURN) {
-                    DrawSpecialCards(player, 1); 
+                if(prevState == State.PLAYERTURN && !opponentEndRound) {
+                    DrawSpecialCards(opponent, 1); 
                     state = State.OPPONENTTURN;
                 }
-                else{
-                    DrawSpecialCards(opponent, 1);
+                else if(prevState == State.OPPONENTTURN && !playerEndRound){
+                    DrawSpecialCards(player, 1);
                     state = State.PLAYERTURN;
                 }
                 break;
 
             case State.ENDROUND:
                 Debug.Log("End round");
-                if(player.currValue >= targetValue) {
+                if(Mathf.Abs(targetValue - player.currValue) < Mathf.Abs(targetValue - opponent.currValue)) {
+                    Debug.Log(player.name + " won this round");
                     playerPoints += 1;
                 }
-                else{
+                else if(Mathf.Abs(targetValue - player.currValue) > Mathf.Abs(targetValue - opponent.currValue)) {
+                    Debug.Log(opponent.name + " won this round");
                     opponentPoints += 1;
+                }
+                else {
+                    Debug.Log("This round was a tie with no victor");
                 }
 
                 if(playerPoints >= 2 || opponentPoints >= 2 || roundCount >= 3) {
                     state = State.ENDGAME;
                 }
                 else{
-                    /*NYI
-                    remove leftover cards from hands
-                    */
+                    foreach(DisplayCard card in activeCardVisuals) {
+                        if(card.baseCard is NumberCard) {
+                            numberDeck.Add((NumberCard) card.baseCard);
+                        }
+                        Destroy(card.gameObject);
+                    }
+                    activeCardVisuals.Clear();
+                    discardPile.Clear();
+                    player.hand.Clear();
+                    opponent.hand.Clear();
+                    player.deck.Clear();
+                    opponent.deck.Clear();
+                    foreach(SpecialDeckCard card in player.deckList) {
+                        player.deck.Add(card);
+                    }
+                    foreach(SpecialDeckCard card in opponent.deckList) {
+                        opponent.deck.Add(card);
+                    }
+                    playerRoundToggle.isOn = false;
+                    opponentRoundToggle.isOn = false;
                     Debug.Log("New Round");
                     state = State.STARTROUND;
                 }
                 break;
 
             case State.ENDGAME:
-                Debug.Log("Game over!");
-                if(playerPoints >= 2) {
-                    Debug.Log("winner is player!");
-                }
-                else{
-                    Debug.Log("winner is opponent!");
+                if(!printed) {
+                    Debug.Log("Game over!");
+                    if(playerPoints >= 2) {
+                        Debug.Log("winner is " + player.name);
+                    }
+                    else{
+                        Debug.Log("winner is " + opponent.name);
+                    }
+                    printed = true;
                 }
                 /*NYI
                 transfer out of card game scene and record winner of match in game data */
@@ -209,6 +244,7 @@ public class CardGameManager : MonoBehaviour
         for(int i = 0; i < numberCards; i++) {
             if(numberDeck.Count == 0) {
                 Debug.Log("Number Deck is Empty");
+                break;
             }
             NumberCard newCard = numberDeck[0];
             target.numberHand.Add(newCard);
@@ -298,6 +334,10 @@ public class CardGameManager : MonoBehaviour
         }
     }
 
+    public void ButtonEndTurn() {
+        prevState =  state;
+        state = State.ENDTURN;
+    }
     //Very PROTOTYPE version of the card decision tree
     void ExecuteCardEffect(DisplayCard display) {
         SpecialDeckCard card = (SpecialDeckCard) display.baseCard;
