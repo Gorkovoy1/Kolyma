@@ -1,31 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
-public class NewBehaviourScript : MonoBehaviour
+public class CardGameManager : MonoBehaviour
 {
-    //This class manages the card game. It is designed to attach to the card game scene and load and run one card game from start to finish.
-
-    public int roundCount = 0; //defaults to round 0 whenever a new game is started
-
-    public GameObject opponent; //NYI scriptable object class containing opponent data for this card game
-    public GameObject player; //NYI player data class containing info such as player deck, buffs/debuffs if any, etc. the stats they load into this card game with.
-    //note- maybe the player data is also a scriptable object of the same class as the opponent? so it becomes simply a matter of pluging in two scriptable objects with deck data.
-
-    public List<GameObject> numberDeck; //the numbers deck- assuming this is communal?
-    public List<GameObject> opponentSpecialDeck; //opponent's deck of special cards
-    public List<GameObject> playerSpecialDeck; //player's deck of special cards
-
-    public bool isStoryBattle = false; //is this a one-round story battle or not? pass this var in from outside when triggering the battle. if not set defaults to normal 3 round battle.
-
-    private int opponentPoints, playerPoints = 0; //rounds won score for each person
-
-    public int bet = 5; //amt bet on game
-
-    public int targetValue; //target value to win a round
-    public int opponentCurrValue, playerCurrValue = 0; //current progress towards target value.
-
-    public bool roundOver = false; //becomes true when someone meets or exceeds target value.
 
     public enum State {
         INIT, //tasks to complete ONCE as the scene loads in, before anything starts. Use for technical behind the scenes stuff, eg loading art and sound
@@ -41,8 +21,48 @@ public class NewBehaviourScript : MonoBehaviour
         PAUSED //player has paused the game- this'll mean something when there's a pause menu. enter and exit this state to basically pause the game.
     };
 
+    [Header("Card Game Info")]
+    //This class manages the card game. It is designed to attach to the card game scene and load and run one card game from start to finish.
+
+    public int roundCount = 0; //defaults to round 0 whenever a new game is started
+
+    public CardGameCharacter opponent; //scriptable object class containing opponent data
+    public CardGameCharacter player; //scriptable object class containing player data
+
+    public List<NumberCard> numberDeck; //the numbers deck- assuming this is communal?
+
+    public bool isStoryBattle = false; //is this a one-round story battle or not? pass this var in from outside when triggering the battle. if not set defaults to normal 3 round battle.
+
+    private int opponentPoints, playerPoints = 0; //rounds won score for each person
+
+    public int bet = 5; //amt bet on game
+
+    private int targetValue; //target value to win a round
+   
+    private bool roundOver = false; //becomes true when someone meets or exceeds target value.
     public State state; //current state
     private State prevState; //record which state we were in before we paused so we can go back to it
+    private bool opponentEndRound, playerEndRound;
+
+    private List<GenericCard> discardPile = new List<GenericCard>();
+
+    [HideInInspector] public List<DisplayCard> activeCardVisuals;
+
+    private bool printed = false;
+
+    [Header("UI References")] //references to all the UI elements in the scene
+
+    public GameObject cardVisualPrefab;
+    public Transform panelTransform;
+    public Transform playerHandTransform;
+    public Transform opponentHandTransform;
+    public TextMeshProUGUI opponentSumText;
+    public TextMeshProUGUI playerSumText;
+    public TextMeshProUGUI targetValueText;
+    public Transform opponentNumberZone;
+    public Transform playerNumberZone;
+    public Toggle playerRoundToggle;
+    public Toggle opponentRoundToggle;
 
     // Awake called before Start as soon as loaded into scene
     void Awake() {
@@ -58,12 +78,20 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(opponentCurrValue >= targetValue || playerCurrValue >= targetValue) {  //if double skip - previous state skip then skip again then end round 
-            state = State.ENDROUND;
-        }
+        //Update curr value text and such every frame because its easier to just do it here
+        opponentSumText.text = opponent.name + " CURR VALUE: " + opponent.currValue;
+        playerSumText.text = player.name + " CURR VALUE: " + player.currValue;
+
+        //Ye Olde Turn Manager State Machine
         switch (state) {
             case State.INIT:
                 //loading tasks go here
+                player.deck.Clear();
+                opponent.deck.Clear();
+                player.hand.Clear();
+                opponent.hand.Clear();
+                opponentRoundToggle.isOn = false;
+                playerRoundToggle.isOn = false;
                 state = State.STARTGAME;
                 break;
 
@@ -73,19 +101,48 @@ public class NewBehaviourScript : MonoBehaviour
                 if(betDoubled) {
                     bet = 10;
                 }*/
+                foreach(SpecialDeckCard card in player.deckList) {
+                    player.deck.Add(card);
+                }
+                foreach(SpecialDeckCard card in opponent.deckList) {
+                    opponent.deck.Add(card);
+                }
                 state = State.STARTROUND;
                 break;
 
             case State.STARTROUND:
-                drawCards(opponent, 4, 6);
-                drawCards(player, 4, 6);
-
-                //roll dice - two for each player
+                playerEndRound = false;
+                opponentEndRound = false;
+                discardPile.Clear();
+                player.currValue = 0;
+                opponent.currValue = 0;
+                ShuffleCards(player.deck);
+                ShuffleCards(opponent.deck);
+                ShuffleCards(numberDeck);
+                DrawSpecialCards(opponent, 6);
+                DrawSpecialCards(player,6);
+                DrawNumberCards(opponent, 4);
+                DrawNumberCards(player, 4);
+                roundCount += 1;
+                targetValue = Random.Range(1,7) + Random.Range(1,7) + Random.Range(1,7) + Random.Range(1,7);
+                targetValueText.text = "TARGET VALUE: " + targetValue;
+                state = State.PLAYERTURN;
+                /*//roll dice - two for each player
                 //if player dice higher, state = State.PLAYERTURN;
                 //if opponent dice higher, state = State.OPPONENTTURN;
+                int playerTotal = 0;
+                int opponentTotal = 0;
+                while(playerTotal == opponentTotal) {
+                    playerTotal = Random.Range(1, 7) + Random.Range(1, 7);
+                    opponentTotal = Random.Range(1,7) + Random.Range(1, 7);
+                }
 
-
-                //state = State.PLAYERTURN; 
+                if(opponentTotal > playerTotal) {
+                    state = State.OPPONENTTURN;
+                }
+                else {
+                    state = State.PLAYERTURN;
+                }*/
                 break;
 
             case State.PLAYERTURN:
@@ -93,51 +150,82 @@ public class NewBehaviourScript : MonoBehaviour
                 Take input and perform actions for player turn. swap to end turn when clicking end turn button.
                 */
                 //player plays one special card OR uses their action AND may swap out one of their cards from their hand - they can also pass
-                prevState = State.PLAYERTURN; //leveraging this so ENDTURN knows whose turn ended. if this gets messy we can make separate ENDTURN states.
-                state = State.ENDTURN;
+                playerEndRound = playerRoundToggle.isOn;
+                opponentEndRound = opponentRoundToggle.isOn;
                 break;
 
             case State.OPPONENTTURN:
                 //use AI to choose best action - sift through if opp closer or player closer, if better to attack or defend
+                ButtonEndTurn(); //AI NYI so just skip turn for now.
                 break;
 
             case State.ENDTURN:
-                if(prevState == State.PLAYERTURN) {
-                    drawCards(player, 0, 1); 
+                if(playerEndRound && opponentEndRound) {
+                    state = State.ENDROUND;
+                }
+                if(prevState == State.PLAYERTURN && !opponentEndRound) {
+                    DrawSpecialCards(opponent, 1); 
                     state = State.OPPONENTTURN;
                 }
-                else{
-                    drawCards(opponent, 0, 1);
+                else if(prevState == State.OPPONENTTURN && !playerEndRound){
+                    DrawSpecialCards(player, 1);
                     state = State.PLAYERTURN;
                 }
                 break;
 
             case State.ENDROUND:
-                if(playerCurrValue >= targetValue) {
+                Debug.Log("End round");
+                if(Mathf.Abs(targetValue - player.currValue) < Mathf.Abs(targetValue - opponent.currValue)) {
+                    Debug.Log(player.name + " won this round");
                     playerPoints += 1;
                 }
-                else{
+                else if(Mathf.Abs(targetValue - player.currValue) > Mathf.Abs(targetValue - opponent.currValue)) {
+                    Debug.Log(opponent.name + " won this round");
                     opponentPoints += 1;
                 }
+                else {
+                    Debug.Log("This round was a tie with no victor");
+                }
 
-                if(playerPoints >= 2 || opponentPoints >= 2) {
+                if(playerPoints >= 2 || opponentPoints >= 2 || roundCount >= 3) {
                     state = State.ENDGAME;
                 }
                 else{
-                    /*NYI
-                    remove leftover cards from hands
-                    */
+                    foreach(DisplayCard card in activeCardVisuals) {
+                        if(card.baseCard is NumberCard) {
+                            numberDeck.Add((NumberCard) card.baseCard);
+                        }
+                        Destroy(card.gameObject);
+                    }
+                    activeCardVisuals.Clear();
+                    discardPile.Clear();
+                    player.hand.Clear();
+                    opponent.hand.Clear();
+                    player.deck.Clear();
+                    opponent.deck.Clear();
+                    foreach(SpecialDeckCard card in player.deckList) {
+                        player.deck.Add(card);
+                    }
+                    foreach(SpecialDeckCard card in opponent.deckList) {
+                        opponent.deck.Add(card);
+                    }
+                    playerRoundToggle.isOn = false;
+                    opponentRoundToggle.isOn = false;
+                    Debug.Log("New Round");
                     state = State.STARTROUND;
                 }
                 break;
 
             case State.ENDGAME:
-                Debug.Log("Game over!");
-                if(playerPoints >= 2) {
-                    Debug.Log("winner is player!");
-                }
-                else{
-                    Debug.Log("winner is opponent!");
+                if(!printed) {
+                    Debug.Log("Game over!");
+                    if(playerPoints >= 2) {
+                        Debug.Log("winner is " + player.name);
+                    }
+                    else{
+                        Debug.Log("winner is " + opponent.name);
+                    }
+                    printed = true;
                 }
                 /*NYI
                 transfer out of card game scene and record winner of match in game data */
@@ -152,9 +240,169 @@ public class NewBehaviourScript : MonoBehaviour
         }
     }
 
-    void drawCards(GameObject target, int numberCards, int specialCards) {
+    void DrawNumberCards(CardGameCharacter target, int numberCards) {
+        for(int i = 0; i < numberCards; i++) {
+            if(numberDeck.Count == 0) {
+                Debug.Log("Number Deck is Empty");
+                break;
+            }
+            NumberCard newCard = numberDeck[0];
+            target.numberHand.Add(newCard);
+            numberDeck.Remove(newCard);
+            GameObject newCardVisual = Instantiate(cardVisualPrefab);
+            DisplayCard newCardDisplay = newCardVisual.GetComponent<DisplayCard>();
+            newCardDisplay.owner = target;
+            newCardDisplay.baseCard = newCard;
+            if(target == player) {
+                newCardVisual.transform.SetParent(playerNumberZone);
+                player.currValue += newCard.value;
+            }
+            else {
+                newCardVisual.transform.SetParent(opponentNumberZone);
+                opponent.currValue += newCard.value;
+            }
+            activeCardVisuals.Add(newCardDisplay);
+       } 
+    }
+
+    void DrawSpecialCards(CardGameCharacter target, int specialCards) {
         /*NYI
         draw specified number of cards from each deck and put it in target's hand */
-        return;
+        for(int i = 0; i < specialCards; i ++) {
+            if(target.deck.Count == 0) {
+                Debug.Log(target.name + " is out of cards!");
+                break;
+            }
+            SpecialDeckCard newCard = target.deck[0];
+            target.hand.Add(newCard);
+            target.deck.Remove(newCard);
+            GameObject newCardVisual = Instantiate(cardVisualPrefab);
+            DisplayCard newCardDisplay = newCardVisual.GetComponent<DisplayCard>();
+            newCardDisplay.owner = target;
+            newCardDisplay.baseCard = newCard;
+            if(target == player) {
+                newCardVisual.transform.SetParent(playerHandTransform);
+            }
+            else {
+                newCardVisual.transform.SetParent(opponentHandTransform);
+            }
+            activeCardVisuals.Add(newCardDisplay);
+        }
     }
+
+    //play a special card
+    public void PlayCard(DisplayCard display) {
+        Debug.Log(display.owner.name + " played " + display.baseCard.name);
+        SpecialDeckCard card = (SpecialDeckCard) display.baseCard;
+        discardPile.Add(display.baseCard);
+        display.owner.hand.Remove(card);
+        activeCardVisuals.Remove(display);
+        Destroy(display.gameObject);
+        //do the decision tree (separate function because i forsee this eventually using recursion)
+        ExecuteCardEffect(display);
+    }
+
+    //discard a special card
+    public void DiscardCard(DisplayCard display) {
+        //NYI remove card from hand, update top of discard pile to show this card, add to discarded cards
+        Debug.Log(display.owner.name + " discarded " + display.baseCard.name);
+        if(display.baseCard is SpecialDeckCard) {
+            display.owner.hand.Remove((SpecialDeckCard)display.baseCard);
+        }
+        else {
+            display.owner.numberHand.Remove((NumberCard)display.baseCard);
+        }
+        discardPile.Add(display.baseCard);
+        activeCardVisuals.Remove(display);
+        Destroy(display.gameObject);
+    }
+
+    void ShuffleCards(List<SpecialDeckCard> shuffle) {
+        for(int i = shuffle.Count - 1; i > 0; i--) {
+            int j = Random.Range(0, i + 1) ;
+            SpecialDeckCard temp = shuffle[i];
+            shuffle[i] = shuffle [j];
+            shuffle [j] = temp;
+        }
+    }
+    void ShuffleCards(List<NumberCard> shuffle) {
+        for(int i = shuffle.Count - 1; i > 0; i--) {
+            int j = Random.Range(0, i + 1) ;
+            NumberCard temp = shuffle[i];
+            shuffle[i] = shuffle [j];
+            shuffle [j] = temp;
+        }
+    }
+
+    public void ButtonEndTurn() {
+        prevState =  state;
+        state = State.ENDTURN;
+    }
+    //Very PROTOTYPE version of the card decision tree
+    void ExecuteCardEffect(DisplayCard display) {
+        SpecialDeckCard card = (SpecialDeckCard) display.baseCard;
+        //rudimentary draft of the card playing decision tree
+        SpecialKeyword effectType = card.keywords[0];
+
+        //If OPPONENT plays this card, the TARGET_PLAYER keyword would refer to the opponent- the person who played the card.
+        CardGameCharacter playerTarget = display.owner;
+        CardGameCharacter opponentTarget;
+        if(playerTarget == opponent) {
+            opponentTarget = player;
+        }
+        else {
+            opponentTarget = opponent;
+        }
+
+        switch(effectType) {
+            case SpecialKeyword.EFFECT_NONE:
+                Debug.Log("This card has no effect");
+            break;
+            case SpecialKeyword.EFFECT_ADDVALUE:
+                /*EFFECT_ADDVALUE ANTICPATED SYNTAX:
+                keywords[i] = target to add value to
+                values[i - 1] = amount to add to keywords[i]
+                */
+                for(int i = 1; i < card.keywords.Count; i++) {
+                    if(card.keywords[i] == SpecialKeyword.TARGET_PLAYER) {
+                        playerTarget.currValue += card.values[i-1];
+                    }
+                    else{
+                        opponentTarget.currValue += card.values[i-1];
+                    }
+                }
+            break;
+            case SpecialKeyword.EFFECT_DRAW:
+                Debug.Log("Draw Effects NYI");
+                /* EFFECT_DRAWCARD ANTICIPATED SYNTAX
+                keywords[last item] = type of card to draw
+                keywords[i] -> keywords[2nd to last item] = target to draw to
+                values[i-1] = # cards to draw*/
+                SpecialKeyword cardType = card.keywords[card.keywords.Count - 1];
+
+                for(int i = 1; i< card.keywords.Count - 1; i++) {
+                    if(card.keywords[i] == SpecialKeyword.TARGET_PLAYER && cardType == SpecialKeyword.TYPE_SPECIAL) {
+                        DrawSpecialCards(playerTarget, card.values[i-1]);
+                    }
+                    else if(card.keywords[i] == SpecialKeyword.TARGET_PLAYER && cardType == SpecialKeyword.TYPE_NUMBER){
+                        Debug.Log("drawing number cards NYI");
+                    }
+                    else if(card.keywords[i] == SpecialKeyword.TARGET_OPPONENT && cardType == SpecialKeyword.TYPE_NUMBER){
+                        Debug.Log("drawing number cards NYI");
+                    }
+                    else if(card.keywords[i] == SpecialKeyword.TARGET_OPPONENT && cardType == SpecialKeyword.TYPE_SPECIAL){
+                        DrawSpecialCards(opponentTarget, card.values[i-1]);
+                    }
+                }
+
+            break;
+            case SpecialKeyword.EFFECT_DISCARD:
+                Debug.Log("Discard Effects NYI");
+            break;
+            case SpecialKeyword.EFFECT_CONDITIONAL:
+                Debug.Log("Conditional Effects NYI");
+            break;
+        }
+    }
+
 }

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d6e0783477110740bbb3be39777204a, type: 3}
+  m_Name: Player (Arkady)
+  m_EditorClassIdentifier: 
+  name: Arkady Kojukh
+  portrait: {fileID: 21300000, guid: 6c9dd7c5b1cb6be418a371796d96e9bb, type: 3}
+  deckList:
+  - {fileID: 11400000, guid: b456b791f6c01fd4dbd154bfa3348c29, type: 2}
+  - {fileID: 11400000, guid: 3eb2f16ca56f6c24bb10f9f9ea480105, type: 2}
+  - {fileID: 11400000, guid: c162ae6f8df6d2c499c0028abfe15fcc, type: 2}
+  - {fileID: 11400000, guid: dfe82fca72c245941a17d8a4b5ffd8c3, type: 2}
+  - {fileID: 11400000, guid: 6c7042eeb6d62434a892d1816f3b673c, type: 2}
+  - {fileID: 11400000, guid: 0cb3671d8d2a1c541bf3172b7dcf6aab, type: 2}
+  deck: []
+  hand: []
