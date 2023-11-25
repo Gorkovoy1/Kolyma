@@ -63,6 +63,18 @@ public class CardGameManager : MonoBehaviour
     public Transform playerNumberZone;
     public Toggle playerRoundToggle;
     public Toggle opponentRoundToggle;
+    public Transform board;
+
+    public List<GameObject> playerNegativeCards;
+    public List<GameObject> AINegativeCards;
+    public List<int> playerNegativeCardsValues;
+    public List<int> AINegativeCardsValues;
+    public int offset;
+    public int playerPos = 0;
+    public int negPos;
+    public int AIPos = 0;
+    public int AINegPos;
+
 
     // Awake called before Start as soon as loaded into scene
     void Awake() {
@@ -254,15 +266,71 @@ public class CardGameManager : MonoBehaviour
             newCardDisplay.owner = target;
             newCardDisplay.baseCard = newCard;
             if(target == player) {
-                newCardVisual.transform.SetParent(playerNumberZone);
+                PlaceCard(newCardVisual, target, newCard.value);
                 player.currValue += newCard.value;
             }
             else {
-                newCardVisual.transform.SetParent(opponentNumberZone);
+                PlaceCard(newCardVisual, target, newCard.value);
                 opponent.currValue += newCard.value;
             }
             activeCardVisuals.Add(newCardDisplay);
        } 
+    }
+
+    void PlaceCard(GameObject card, CardGameCharacter target, int value)
+    {
+        if(target == player)
+        {
+            card.transform.SetParent(board);
+            if(value>0)
+            {
+                card.transform.localPosition = new Vector3(playerPos, -60, 0);
+                playerPos = playerPos + value*offset;
+
+            }
+            else{
+                playerNegativeCards.Add(card);
+                playerNegativeCardsValues.Add(value);
+            }
+            
+        } //-60 -170 150 40
+        else
+        {
+            card.transform.SetParent(board);
+            if(value>0)
+            {
+                card.transform.localPosition = new Vector3(AIPos, 150, 0);
+                AIPos = AIPos + value*offset;
+            }
+            else{
+                AINegativeCards.Add(card);
+                AINegativeCardsValues.Add(value);
+            }
+        }
+
+        negPos = playerPos - 10*offset;
+        AINegPos = AIPos - 10*offset;
+        PlaceNegativeCard(playerNegativeCards, playerNegativeCardsValues, negPos, player);
+        PlaceNegativeCard(AINegativeCards, AINegativeCardsValues, AINegPos, opponent);
+        
+    }
+
+    void PlaceNegativeCard(List<GameObject> negativeCards, List<int> negativeCardsValues, int pos, CardGameCharacter target)
+    {
+        int x = 0;
+        if(target == player)
+        {
+            x = -170;
+        }
+        else{
+            x = 40;
+        }
+        for(int i = 0; i < negativeCards.Count; i++)
+        {
+            
+            negativeCards[i].transform.localPosition = new Vector3(pos, x, 0);
+            pos = pos + negativeCardsValues[i]*offset;
+        }
     }
 
     void DrawSpecialCards(CardGameCharacter target, int specialCards) {

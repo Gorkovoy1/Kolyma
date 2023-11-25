@@ -13,6 +13,7 @@ public class DisplayCard : MonoBehaviour
     [SerializeField] private Image artwork;
     [SerializeField] private TMP_Text name;
     [SerializeField] private TMP_Text description;
+    [SerializeField] private int value;
     void Update() {
         if(baseCard != null) {
            if(baseCard is NumberCard){
