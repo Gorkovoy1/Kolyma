@@ -28,13 +28,13 @@ public class DisplayCard : MonoBehaviour
         } 
     }
 
-    void Card(NumberCard card) {
+    private void Card(NumberCard card) {
         name.text = card.name;
         artwork.sprite = card.artwork;
         artwork.color = Color.white;
         description.text = "";
     }
-    void Card(SpecialDeckCard card){
+    private void Card(SpecialDeckCard card){
         name.text = card.name;
         description.text = card.description;
         artwork.sprite = card.artwork;
@@ -58,5 +58,9 @@ public class DisplayCard : MonoBehaviour
             artwork.color = Color.yellow;
         }
 
+    }
+
+    public void ShowSelected() {
+        artwork.color = Color.magenta;
     }
 }

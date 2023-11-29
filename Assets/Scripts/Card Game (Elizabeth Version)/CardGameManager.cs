@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using TMPro;
 
 public class CardGameManager : MonoBehaviour
@@ -15,6 +16,7 @@ public class CardGameManager : MonoBehaviour
         OPPONENTTURN, /*opponent AI takes their turn and plays cards. Will access the AI (NYI) and any particulars for this opponent via the opponent scriptableobject.
         The opponents AI will need to be coded too- look into Behavior Trees maybe?- and the AI will dictate an action, pass the action to this manager to be performed, animated, and completed.
         Once this manager completes the designated action, pass back to opponent AI to determine next move*/
+        SELECTCARDS, //selection mode to pick cards to swap or discard, etc etc
         ENDTURN, //tasks to complete at the end of a turn. eg draws a card for current turn, then flips to other person's turn. Could perhaps reorg this dep. on needs- states for OPPONENTEND and PLAYEREND maybe?
         ENDROUND, //tasks to complete at the end of each round. eg check round winner, add score, end game if there is a winner or start next round if not.
         ENDGAME, //tasks to complete ONCE when the game is over. eg cleanup vars from gameplay, record winner, transfer out of card game scene
@@ -74,6 +76,7 @@ public class CardGameManager : MonoBehaviour
     public int negPos;
     public int AIPos = 0;
     public int AINegPos;
+    private EventSystem eventSystem;
 
 
     // Awake called before Start as soon as loaded into scene
@@ -84,6 +87,7 @@ public class CardGameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        eventSystem = EventSystem.current;
         
     }
 
@@ -183,6 +187,10 @@ public class CardGameManager : MonoBehaviour
                     DrawSpecialCards(player, 1);
                     state = State.PLAYERTURN;
                 }
+                break;
+            case State.SELECTCARDS:
+                //this state mostly exists to lock the player out of performing unwanted actions and acknowledge to the rest of the system that the player is in the
+                //middle of picking a card for some purpose.         
                 break;
 
             case State.ENDROUND:
@@ -358,6 +366,65 @@ public class CardGameManager : MonoBehaviour
         }
     }
 
+    //enter the select card state
+    private IEnumerator SelectCard(int numCards, SpecialKeyword cardType, SpecialKeyword selectionPurpose, List<DisplayCard> selectedCards = null) {
+        if(selectedCards == null) {
+            Debug.Log("Made new selectedCards list");
+            selectedCards = new List<DisplayCard>();
+        }
+        if(state != State.SELECTCARDS) {
+            prevState = state;
+            state = State.SELECTCARDS;
+            Debug.Log("Set state to SELECTCARDS");
+        }
+        while(true) {
+            if(selectedCards.Count < numCards) {
+                if(prevState == State.OPPONENTTURN) {
+                    Debug.Log("AI for selecting cards NYI");
+                    yield return null;
+                } 
+                else if(Input.GetMouseButtonDown(0)) {
+                    Debug.Log("CLICK DETECTED");
+                    RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+                    if(hit.collider != null) {
+                        Debug.Log(hit.collider);
+                        DisplayCard hitCard = hit.collider.gameObject.GetComponent<DisplayCard>();
+                        if (((hitCard.baseCard is NumberCard && cardType == SpecialKeyword.TYPE_NUMBER) || 
+                        (hitCard.baseCard is SpecialDeckCard && cardType == SpecialKeyword.TYPE_SPECIAL))
+                        && selectedCards.Find(delegate(DisplayCard c) {
+                            return hitCard.gameObject.GetInstanceID() == c.gameObject.GetInstanceID();
+                        }) == null){
+                            Debug.Log("Selected: " + hitCard.baseCard.name);
+                            hitCard.ShowSelected();
+                            selectedCards.Add(hitCard);
+                        }
+                    }
+                    else {
+                        Debug.Log("BUT IT DIDNT HIT ANYTHING");
+                    }
+                    yield return null;
+                }
+                else {
+                    yield return null;
+                } 
+            }
+            else {
+                Debug.Log("enough cards were selected, now we execute");
+                switch(selectionPurpose) {
+                    case SpecialKeyword.EFFECT_DISCARD:
+                        foreach(DisplayCard card in selectedCards) {
+                            DiscardCard(card);
+                        }
+                        break;
+                }
+                break;
+            }
+        }
+        
+        state = prevState;
+        Debug.Log("Finished SelectedCards, returned state to normal");
+    }
+
     //play a special card
     public void PlayCard(DisplayCard display) {
         Debug.Log(display.owner.name + " played " + display.baseCard.name);
@@ -465,7 +532,14 @@ public class CardGameManager : MonoBehaviour
 
             break;
             case SpecialKeyword.EFFECT_DISCARD:
-                Debug.Log("Discard Effects NYI");
+                /*EFFECT_DISCARD ANTICIPATED SYNTAX
+                keywords[2] = type of card to discard
+                values[0] = # to discard.
+                
+                done in a coroutine to allow everyone to select their cards which may take multiple frames
+                this is still very much testing that the coroutine strategy CAN work. it is presently set up 
+                only to work if there is only one discard target, and that target is the person who played the card*/
+                StartCoroutine(SelectCard(card.values[0], card.keywords[2], card.keywords[0]));
             break;
             case SpecialKeyword.EFFECT_CONDITIONAL:
                 Debug.Log("Conditional Effects NYI");
