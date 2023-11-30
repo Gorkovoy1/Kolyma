@@ -47,16 +47,17 @@ public class CardGameManager : MonoBehaviour
     private bool opponentEndRound, playerEndRound;
 
     private List<GenericCard> discardPile = new List<GenericCard>();
-    private List<GameObject> playerNegativeCards;
-    private List<GameObject> AINegativeCards;
-    private List<int> playerNegativeCardsValues;
-    private List<int> AINegativeCardsValues;
 
     [HideInInspector] public List<DisplayCard> activeCardVisuals;
 
     private bool printed = false;
     private bool selectionConfirmation = false;
-    private bool enableSelectionConfirm = false;
+    private bool enableSelectionConfirmButton = false;
+
+    private List<GameObject> playerNegativeCards = new List<GameObject>();
+    private List<GameObject> opponentNegativeCards = new List<GameObject>();
+    private List<int> playerNegativeCardsValues = new List<int>();
+    private List<int> opponentNegativeCardsValues= new List<int>();
 
     [Header("UI References")] //references to all the UI elements in the scene
     public GameObject cardVisualPrefab;
@@ -72,7 +73,7 @@ public class CardGameManager : MonoBehaviour
     public Toggle playerRoundToggle;
     public Toggle opponentRoundToggle;
     public Transform board;
-    private int offset;
+    public int offset;
     private int playerPos = 0;
     private int negPos;
     private int AIPos = 0;
@@ -143,6 +144,7 @@ public class CardGameManager : MonoBehaviour
                 roundCount += 1;
                 targetValue = Random.Range(1,7) + Random.Range(1,7) + Random.Range(1,7) + Random.Range(1,7);
                 targetValueText.text = "TARGET VALUE: " + targetValue;
+                selectionConfirmation = false;
                 state = State.PLAYERTURN;
                 /*//roll dice - two for each player
                 //if player dice higher, state = State.PLAYERTURN;
@@ -192,7 +194,7 @@ public class CardGameManager : MonoBehaviour
             case State.SELECTCARDS:
                 //this state mostly exists to lock the player out of performing unwanted actions and acknowledge to the rest of the system that the player is in the
                 //middle of picking a card for some purpose.   
-                selectConfirmButton.SetActive(enableSelectionConfirm);  
+                selectConfirmButton.SetActive(enableSelectionConfirmButton);  
                 break;
 
             case State.ENDROUND:
@@ -213,6 +215,10 @@ public class CardGameManager : MonoBehaviour
                     state = State.ENDGAME;
                 }
                 else{
+                    playerNegativeCardsValues.Clear();
+                    opponentNegativeCardsValues.Clear();
+                    playerNegativeCards.Clear();
+                    opponentNegativeCards.Clear();
                     foreach(DisplayCard card in activeCardVisuals) {
                         if(card.baseCard is NumberCard) {
                             numberDeck.Add((NumberCard) card.baseCard);
@@ -313,15 +319,15 @@ public class CardGameManager : MonoBehaviour
                 AIPos = AIPos + value*offset;
             }
             else{
-                AINegativeCards.Add(card);
-                AINegativeCardsValues.Add(value);
+                opponentNegativeCards.Add(card);
+                opponentNegativeCardsValues.Add(value);
             }
         }
 
         negPos = playerPos - 10*offset;
         AINegPos = AIPos - 10*offset;
         PlaceNegativeCard(playerNegativeCards, playerNegativeCardsValues, negPos, player);
-        PlaceNegativeCard(AINegativeCards, AINegativeCardsValues, AINegPos, opponent);
+        PlaceNegativeCard(opponentNegativeCards, opponentNegativeCardsValues, AINegPos, opponent);
         
     }
 
@@ -380,10 +386,10 @@ public class CardGameManager : MonoBehaviour
         if(setupPlayerUI) {
             UIToggleSelectionMode(true);
         }
-        while(selectedCards.Count < numCards && !selectionConfirmation) {
+        selectionConfirmation = false;
+        while(selectedCards.Count < numCards || !selectionConfirmation) {
             if(prevState == State.OPPONENTTURN) {
                 Debug.Log("AI for selecting cards NYI");
-                yield return null;
             } 
             else if(Input.GetMouseButtonDown(0)) {
                 RaycastHit2D hit = Physics2D.Raycast(Input.mousePosition, Vector2.zero, Mathf.Infinity, LayerMask.GetMask("Card"));
@@ -407,18 +413,17 @@ public class CardGameManager : MonoBehaviour
                     }
                 }
                 if(selectedCards.Count >= numCards) {
-                    enableSelectionConfirm = true;
+
+                    enableSelectionConfirmButton = true;
+                    selectionConfirmation = false;
                 }
                 else{
-                    enableSelectionConfirm = false;
+                    enableSelectionConfirmButton = false;
                     selectionConfirmation = false;
                 }
 
-                yield return null;
             }
-            else {
-                yield return null;
-            } 
+            yield return null;
         }
         Debug.Log("enough cards were selected, now we execute");
         switch(selectionPurpose) {
@@ -498,6 +503,7 @@ public class CardGameManager : MonoBehaviour
         state = State.ENDTURN;
     }
     public void ButtonConfirmSelection(){
+        Debug.Log("pressed the button");
         selectionConfirmation = true;
     }
 
