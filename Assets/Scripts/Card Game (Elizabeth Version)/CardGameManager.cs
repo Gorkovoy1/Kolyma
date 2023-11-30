@@ -76,8 +76,8 @@ public class CardGameManager : MonoBehaviour
     public int offset;
     private int playerPos = 0;
     private int negPos;
-    private int AIPos = 0;
-    private int AINegPos;
+    private int opponentPos = 0;
+    private int opponentNegPos;
     private EventSystem eventSystem;
 
 
@@ -215,6 +215,8 @@ public class CardGameManager : MonoBehaviour
                     state = State.ENDGAME;
                 }
                 else{
+                    playerPos = 0;
+                    opponentPos = 0;
                     playerNegativeCardsValues.Clear();
                     opponentNegativeCardsValues.Clear();
                     playerNegativeCards.Clear();
@@ -315,8 +317,8 @@ public class CardGameManager : MonoBehaviour
             card.transform.SetParent(board);
             if(value>0)
             {
-                card.transform.localPosition = new Vector3(AIPos, 150, 0);
-                AIPos = AIPos + value*offset;
+                card.transform.localPosition = new Vector3(opponentPos, 150, 0);
+                opponentPos = opponentPos + value*offset;
             }
             else{
                 opponentNegativeCards.Add(card);
@@ -325,9 +327,9 @@ public class CardGameManager : MonoBehaviour
         }
 
         negPos = playerPos - 10*offset;
-        AINegPos = AIPos - 10*offset;
+        opponentNegPos = opponentPos - 10*offset;
         PlaceNegativeCard(playerNegativeCards, playerNegativeCardsValues, negPos, player);
-        PlaceNegativeCard(opponentNegativeCards, opponentNegativeCardsValues, AINegPos, opponent);
+        PlaceNegativeCard(opponentNegativeCards, opponentNegativeCardsValues, opponentNegPos, opponent);
         
     }
 
