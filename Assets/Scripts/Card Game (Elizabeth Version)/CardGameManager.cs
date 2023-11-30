@@ -47,14 +47,20 @@ public class CardGameManager : MonoBehaviour
     private bool opponentEndRound, playerEndRound;
 
     private List<GenericCard> discardPile = new List<GenericCard>();
+    private List<GameObject> playerNegativeCards;
+    private List<GameObject> AINegativeCards;
+    private List<int> playerNegativeCardsValues;
+    private List<int> AINegativeCardsValues;
 
     [HideInInspector] public List<DisplayCard> activeCardVisuals;
 
     private bool printed = false;
+    private bool selectionConfirmation = false;
+    private bool enableSelectionConfirm = false;
 
     [Header("UI References")] //references to all the UI elements in the scene
-
     public GameObject cardVisualPrefab;
+    public GameObject endTurnButton, selectConfirmButton;
     public Transform panelTransform;
     public Transform playerHandTransform;
     public Transform opponentHandTransform;
@@ -66,16 +72,11 @@ public class CardGameManager : MonoBehaviour
     public Toggle playerRoundToggle;
     public Toggle opponentRoundToggle;
     public Transform board;
-
-    public List<GameObject> playerNegativeCards;
-    public List<GameObject> AINegativeCards;
-    public List<int> playerNegativeCardsValues;
-    public List<int> AINegativeCardsValues;
-    public int offset;
-    public int playerPos = 0;
-    public int negPos;
-    public int AIPos = 0;
-    public int AINegPos;
+    private int offset;
+    private int playerPos = 0;
+    private int negPos;
+    private int AIPos = 0;
+    private int AINegPos;
     private EventSystem eventSystem;
 
 
@@ -190,7 +191,8 @@ public class CardGameManager : MonoBehaviour
                 break;
             case State.SELECTCARDS:
                 //this state mostly exists to lock the player out of performing unwanted actions and acknowledge to the rest of the system that the player is in the
-                //middle of picking a card for some purpose.         
+                //middle of picking a card for some purpose.   
+                selectConfirmButton.SetActive(enableSelectionConfirm);  
                 break;
 
             case State.ENDROUND:
@@ -367,60 +369,67 @@ public class CardGameManager : MonoBehaviour
     }
 
     //enter the select card state
-    private IEnumerator SelectCard(int numCards, SpecialKeyword cardType, SpecialKeyword selectionPurpose, List<DisplayCard> selectedCards = null) {
+    private IEnumerator SelectCard(int numCards, SpecialKeyword cardType, SpecialKeyword selectionPurpose, bool setupPlayerUI = true, List<DisplayCard> selectedCards = null) {
         if(selectedCards == null) {
-            Debug.Log("Made new selectedCards list");
             selectedCards = new List<DisplayCard>();
         }
         if(state != State.SELECTCARDS) {
             prevState = state;
             state = State.SELECTCARDS;
-            Debug.Log("Set state to SELECTCARDS");
         }
-        while(true) {
-            if(selectedCards.Count < numCards) {
-                if(prevState == State.OPPONENTTURN) {
-                    Debug.Log("AI for selecting cards NYI");
-                    yield return null;
-                } 
-                else if(Input.GetMouseButtonDown(0)) {
-                    Debug.Log("CLICK DETECTED");
-                    RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-                    if(hit.collider != null) {
-                        Debug.Log(hit.collider);
-                        DisplayCard hitCard = hit.collider.gameObject.GetComponent<DisplayCard>();
-                        if (((hitCard.baseCard is NumberCard && cardType == SpecialKeyword.TYPE_NUMBER) || 
-                        (hitCard.baseCard is SpecialDeckCard && cardType == SpecialKeyword.TYPE_SPECIAL))
-                        && selectedCards.Find(delegate(DisplayCard c) {
-                            return hitCard.gameObject.GetInstanceID() == c.gameObject.GetInstanceID();
-                        }) == null){
+        if(setupPlayerUI) {
+            UIToggleSelectionMode(true);
+        }
+        while(selectedCards.Count < numCards && !selectionConfirmation) {
+            if(prevState == State.OPPONENTTURN) {
+                Debug.Log("AI for selecting cards NYI");
+                yield return null;
+            } 
+            else if(Input.GetMouseButtonDown(0)) {
+                RaycastHit2D hit = Physics2D.Raycast(Input.mousePosition, Vector2.zero, Mathf.Infinity, LayerMask.GetMask("Card"));
+                if(hit.collider != null) {
+                    Debug.Log(hit.collider);
+                    DisplayCard hitCard = hit.collider.gameObject.GetComponent<DisplayCard>();
+                    if ((hitCard.baseCard is NumberCard && cardType == SpecialKeyword.TYPE_NUMBER) || 
+                    (hitCard.baseCard is SpecialDeckCard && cardType == SpecialKeyword.TYPE_SPECIAL)){
+                        if(selectedCards.Find(delegate(DisplayCard c) {
+                        return hitCard.gameObject.GetInstanceID() == c.gameObject.GetInstanceID();
+                        }) == null) {
                             Debug.Log("Selected: " + hitCard.baseCard.name);
-                            hitCard.ShowSelected();
+                            hitCard.ToggleSelected();
                             selectedCards.Add(hitCard);
                         }
+                        else{
+                            Debug.Log("Deselected: " + hitCard.baseCard.name);
+                            hitCard.ToggleSelected();
+                            selectedCards.Remove(hitCard);
+                        }
                     }
-                    else {
-                        Debug.Log("BUT IT DIDNT HIT ANYTHING");
-                    }
-                    yield return null;
                 }
-                else {
-                    yield return null;
-                } 
+                if(selectedCards.Count >= numCards) {
+                    enableSelectionConfirm = true;
+                }
+                else{
+                    enableSelectionConfirm = false;
+                    selectionConfirmation = false;
+                }
+
+                yield return null;
             }
             else {
-                Debug.Log("enough cards were selected, now we execute");
-                switch(selectionPurpose) {
-                    case SpecialKeyword.EFFECT_DISCARD:
-                        foreach(DisplayCard card in selectedCards) {
-                            DiscardCard(card);
-                        }
-                        break;
+                yield return null;
+            } 
+        }
+        Debug.Log("enough cards were selected, now we execute");
+        switch(selectionPurpose) {
+            case SpecialKeyword.EFFECT_DISCARD:
+                foreach(DisplayCard card in selectedCards) {
+                    DiscardCard(card);
                 }
                 break;
-            }
         }
-        
+        selectionConfirmation = false;
+        UIToggleSelectionMode(false);
         state = prevState;
         Debug.Log("Finished SelectedCards, returned state to normal");
     }
@@ -469,10 +478,29 @@ public class CardGameManager : MonoBehaviour
         }
     }
 
+    void UIToggleSelectionMode(bool toggle) {
+        if(toggle) {
+            endTurnButton.SetActive(false);
+            selectConfirmButton.SetActive(true);
+            playerRoundToggle.gameObject.SetActive(false);
+            opponentRoundToggle.gameObject.SetActive(false);
+        }
+        else {
+            endTurnButton.SetActive(true);
+            selectConfirmButton.SetActive(false);
+            playerRoundToggle.gameObject.SetActive(true);
+            opponentRoundToggle.gameObject.SetActive(true);
+        }
+    }
+
     public void ButtonEndTurn() {
         prevState =  state;
         state = State.ENDTURN;
     }
+    public void ButtonConfirmSelection(){
+        selectionConfirmation = true;
+    }
+
     //Very PROTOTYPE version of the card decision tree
     void ExecuteCardEffect(DisplayCard display) {
         SpecialDeckCard card = (SpecialDeckCard) display.baseCard;

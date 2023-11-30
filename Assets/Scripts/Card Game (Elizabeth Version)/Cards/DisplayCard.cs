@@ -14,6 +14,11 @@ public class DisplayCard : MonoBehaviour
     [SerializeField] private TMP_Text name;
     [SerializeField] private TMP_Text description;
     [SerializeField] private int value;
+    [SerializeField] private GameObject selectionEffect;
+
+    void Start() {
+        selectionEffect.SetActive(false);
+    }
     void Update() {
         if(baseCard != null) {
            if(baseCard is NumberCard){
@@ -60,7 +65,7 @@ public class DisplayCard : MonoBehaviour
 
     }
 
-    public void ShowSelected() {
-        artwork.color = Color.magenta;
+    public void ToggleSelected() {
+        selectionEffect.SetActive(!selectionEffect.activeSelf);
     }
 }
