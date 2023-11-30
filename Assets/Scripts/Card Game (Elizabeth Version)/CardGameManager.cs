@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using TMPro;
 
 public class CardGameManager : MonoBehaviour
@@ -15,6 +16,7 @@ public class CardGameManager : MonoBehaviour
         OPPONENTTURN, /*opponent AI takes their turn and plays cards. Will access the AI (NYI) and any particulars for this opponent via the opponent scriptableobject.
         The opponents AI will need to be coded too- look into Behavior Trees maybe?- and the AI will dictate an action, pass the action to this manager to be performed, animated, and completed.
         Once this manager completes the designated action, pass back to opponent AI to determine next move*/
+        SELECTCARDS, //selection mode to pick cards to swap or discard, etc etc
         ENDTURN, //tasks to complete at the end of a turn. eg draws a card for current turn, then flips to other person's turn. Could perhaps reorg this dep. on needs- states for OPPONENTEND and PLAYEREND maybe?
         ENDROUND, //tasks to complete at the end of each round. eg check round winner, add score, end game if there is a winner or start next round if not.
         ENDGAME, //tasks to complete ONCE when the game is over. eg cleanup vars from gameplay, record winner, transfer out of card game scene
@@ -49,10 +51,17 @@ public class CardGameManager : MonoBehaviour
     [HideInInspector] public List<DisplayCard> activeCardVisuals;
 
     private bool printed = false;
+    private bool selectionConfirmation = false;
+    private bool enableSelectionConfirmButton = false;
+
+    private List<GameObject> playerNegativeCards = new List<GameObject>();
+    private List<GameObject> opponentNegativeCards = new List<GameObject>();
+    private List<int> playerNegativeCardsValues = new List<int>();
+    private List<int> opponentNegativeCardsValues= new List<int>();
 
     [Header("UI References")] //references to all the UI elements in the scene
-
     public GameObject cardVisualPrefab;
+    public GameObject endTurnButton, selectConfirmButton;
     public Transform panelTransform;
     public Transform playerHandTransform;
     public Transform opponentHandTransform;
@@ -64,16 +73,12 @@ public class CardGameManager : MonoBehaviour
     public Toggle playerRoundToggle;
     public Toggle opponentRoundToggle;
     public Transform board;
-
-    public List<GameObject> playerNegativeCards;
-    public List<GameObject> AINegativeCards;
-    public List<int> playerNegativeCardsValues;
-    public List<int> AINegativeCardsValues;
     public int offset;
-    public int playerPos = 0;
-    public int negPos;
-    public int AIPos = 0;
-    public int AINegPos;
+    private int playerPos = 0;
+    private int negPos;
+    private int opponentPos = 0;
+    private int opponentNegPos;
+    private EventSystem eventSystem;
 
 
     // Awake called before Start as soon as loaded into scene
@@ -84,6 +89,7 @@ public class CardGameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        eventSystem = EventSystem.current;
         
     }
 
@@ -138,6 +144,7 @@ public class CardGameManager : MonoBehaviour
                 roundCount += 1;
                 targetValue = Random.Range(1,7) + Random.Range(1,7) + Random.Range(1,7) + Random.Range(1,7);
                 targetValueText.text = "TARGET VALUE: " + targetValue;
+                selectionConfirmation = false;
                 state = State.PLAYERTURN;
                 /*//roll dice - two for each player
                 //if player dice higher, state = State.PLAYERTURN;
@@ -184,6 +191,11 @@ public class CardGameManager : MonoBehaviour
                     state = State.PLAYERTURN;
                 }
                 break;
+            case State.SELECTCARDS:
+                //this state mostly exists to lock the player out of performing unwanted actions and acknowledge to the rest of the system that the player is in the
+                //middle of picking a card for some purpose.   
+                selectConfirmButton.SetActive(enableSelectionConfirmButton);  
+                break;
 
             case State.ENDROUND:
                 Debug.Log("End round");
@@ -203,6 +215,12 @@ public class CardGameManager : MonoBehaviour
                     state = State.ENDGAME;
                 }
                 else{
+                    playerPos = 0;
+                    opponentPos = 0;
+                    playerNegativeCardsValues.Clear();
+                    opponentNegativeCardsValues.Clear();
+                    playerNegativeCards.Clear();
+                    opponentNegativeCards.Clear();
                     foreach(DisplayCard card in activeCardVisuals) {
                         if(card.baseCard is NumberCard) {
                             numberDeck.Add((NumberCard) card.baseCard);
@@ -299,19 +317,19 @@ public class CardGameManager : MonoBehaviour
             card.transform.SetParent(board);
             if(value>0)
             {
-                card.transform.localPosition = new Vector3(AIPos, 150, 0);
-                AIPos = AIPos + value*offset;
+                card.transform.localPosition = new Vector3(opponentPos, 150, 0);
+                opponentPos = opponentPos + value*offset;
             }
             else{
-                AINegativeCards.Add(card);
-                AINegativeCardsValues.Add(value);
+                opponentNegativeCards.Add(card);
+                opponentNegativeCardsValues.Add(value);
             }
         }
 
         negPos = playerPos - 10*offset;
-        AINegPos = AIPos - 10*offset;
+        opponentNegPos = opponentPos - 10*offset;
         PlaceNegativeCard(playerNegativeCards, playerNegativeCardsValues, negPos, player);
-        PlaceNegativeCard(AINegativeCards, AINegativeCardsValues, AINegPos, opponent);
+        PlaceNegativeCard(opponentNegativeCards, opponentNegativeCardsValues, opponentNegPos, opponent);
         
     }
 
@@ -358,6 +376,71 @@ public class CardGameManager : MonoBehaviour
         }
     }
 
+    //enter the select card state
+    private IEnumerator SelectCard(int numCards, SpecialKeyword cardType, SpecialKeyword selectionPurpose, bool setupPlayerUI = true, List<DisplayCard> selectedCards = null) {
+        if(selectedCards == null) {
+            selectedCards = new List<DisplayCard>();
+        }
+        if(state != State.SELECTCARDS) {
+            prevState = state;
+            state = State.SELECTCARDS;
+        }
+        if(setupPlayerUI) {
+            UIToggleSelectionMode(true);
+        }
+        selectionConfirmation = false;
+        while(selectedCards.Count < numCards || !selectionConfirmation) {
+            if(prevState == State.OPPONENTTURN) {
+                Debug.Log("AI for selecting cards NYI");
+            } 
+            else if(Input.GetMouseButtonDown(0)) {
+                RaycastHit2D hit = Physics2D.Raycast(Input.mousePosition, Vector2.zero, Mathf.Infinity, LayerMask.GetMask("Card"));
+                if(hit.collider != null) {
+                    Debug.Log(hit.collider);
+                    DisplayCard hitCard = hit.collider.gameObject.GetComponent<DisplayCard>();
+                    if ((hitCard.baseCard is NumberCard && cardType == SpecialKeyword.TYPE_NUMBER) || 
+                    (hitCard.baseCard is SpecialDeckCard && cardType == SpecialKeyword.TYPE_SPECIAL)){
+                        if(selectedCards.Find(delegate(DisplayCard c) {
+                        return hitCard.gameObject.GetInstanceID() == c.gameObject.GetInstanceID();
+                        }) == null) {
+                            Debug.Log("Selected: " + hitCard.baseCard.name);
+                            hitCard.ToggleSelected();
+                            selectedCards.Add(hitCard);
+                        }
+                        else{
+                            Debug.Log("Deselected: " + hitCard.baseCard.name);
+                            hitCard.ToggleSelected();
+                            selectedCards.Remove(hitCard);
+                        }
+                    }
+                }
+                if(selectedCards.Count >= numCards) {
+
+                    enableSelectionConfirmButton = true;
+                    selectionConfirmation = false;
+                }
+                else{
+                    enableSelectionConfirmButton = false;
+                    selectionConfirmation = false;
+                }
+
+            }
+            yield return null;
+        }
+        Debug.Log("enough cards were selected, now we execute");
+        switch(selectionPurpose) {
+            case SpecialKeyword.EFFECT_DISCARD:
+                foreach(DisplayCard card in selectedCards) {
+                    DiscardCard(card);
+                }
+                break;
+        }
+        selectionConfirmation = false;
+        UIToggleSelectionMode(false);
+        state = prevState;
+        Debug.Log("Finished SelectedCards, returned state to normal");
+    }
+
     //play a special card
     public void PlayCard(DisplayCard display) {
         Debug.Log(display.owner.name + " played " + display.baseCard.name);
@@ -402,10 +485,30 @@ public class CardGameManager : MonoBehaviour
         }
     }
 
+    void UIToggleSelectionMode(bool toggle) {
+        if(toggle) {
+            endTurnButton.SetActive(false);
+            selectConfirmButton.SetActive(true);
+            playerRoundToggle.gameObject.SetActive(false);
+            opponentRoundToggle.gameObject.SetActive(false);
+        }
+        else {
+            endTurnButton.SetActive(true);
+            selectConfirmButton.SetActive(false);
+            playerRoundToggle.gameObject.SetActive(true);
+            opponentRoundToggle.gameObject.SetActive(true);
+        }
+    }
+
     public void ButtonEndTurn() {
         prevState =  state;
         state = State.ENDTURN;
     }
+    public void ButtonConfirmSelection(){
+        Debug.Log("pressed the button");
+        selectionConfirmation = true;
+    }
+
     //Very PROTOTYPE version of the card decision tree
     void ExecuteCardEffect(DisplayCard display) {
         SpecialDeckCard card = (SpecialDeckCard) display.baseCard;
@@ -465,7 +568,14 @@ public class CardGameManager : MonoBehaviour
 
             break;
             case SpecialKeyword.EFFECT_DISCARD:
-                Debug.Log("Discard Effects NYI");
+                /*EFFECT_DISCARD ANTICIPATED SYNTAX
+                keywords[2] = type of card to discard
+                values[0] = # to discard.
+                
+                done in a coroutine to allow everyone to select their cards which may take multiple frames
+                this is still very much testing that the coroutine strategy CAN work. it is presently set up 
+                only to work if there is only one discard target, and that target is the person who played the card*/
+                StartCoroutine(SelectCard(card.values[0], card.keywords[2], card.keywords[0]));
             break;
             case SpecialKeyword.EFFECT_CONDITIONAL:
                 Debug.Log("Conditional Effects NYI");

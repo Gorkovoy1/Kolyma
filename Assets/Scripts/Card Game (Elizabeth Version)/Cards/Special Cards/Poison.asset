@@ -16,5 +16,5 @@ MonoBehaviour:
   artwork: {fileID: 21300000, guid: c984de9308a99934e8535dcd8c39211c, type: 3}
   description: force your opponent to discard one special card
   cardClass: 5
-  keywords: 0300000006000000
+  keywords: 030000000600000008000000
   values: 01000000

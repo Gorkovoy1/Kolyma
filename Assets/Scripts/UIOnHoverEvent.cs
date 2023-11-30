@@ -8,8 +8,6 @@ public class UIOnHoverEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 {
     Vector3 cachedScale;
     Vector3 cachedPosition;
-    private Canvas tempCanvas;
-    private GraphicRaycaster tempRaycaster;
     public CardGameManager gm;
     private DisplayCard card;
 
@@ -27,10 +25,6 @@ public class UIOnHoverEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         card = gameObject.GetComponent<DisplayCard>();
         
         if(card != null && card.baseCard is SpecialDeckCard && card.owner == gm.player) {
-            tempCanvas = gameObject.AddComponent<Canvas>();
-            tempCanvas.overrideSorting = true;
-            tempCanvas.sortingOrder = 1;
-            tempRaycaster = gameObject.AddComponent<GraphicRaycaster>();
             cachedScale = transform.localScale;
             cachedPosition = transform.localPosition;
 
@@ -51,9 +45,6 @@ public class UIOnHoverEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
 
         if(card != null && card.baseCard is SpecialDeckCard && card.owner == gm.player) {
-            Destroy(tempRaycaster);
-            Destroy(tempCanvas);
-            
 
             transform.localScale = cachedScale;
             transform.localPosition = cachedPosition;
