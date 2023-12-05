@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: -3
   m_EditorClassIdentifier: 
   name: Lame
-  value: -3
   artwork: {fileID: 21300000, guid: 6dc7ea82f99002f46a11ea07cec8434d, type: 3}
+  cardClass: 0
+  value: -3

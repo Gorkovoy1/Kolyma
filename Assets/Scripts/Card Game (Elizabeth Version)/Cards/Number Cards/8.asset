@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: 8
   m_EditorClassIdentifier: 
   name: Boss
-  value: 8
   artwork: {fileID: 21300000, guid: 4f7acd11b67e3cd44a381433899275f1, type: 3}
+  cardClass: 1
+  value: 8

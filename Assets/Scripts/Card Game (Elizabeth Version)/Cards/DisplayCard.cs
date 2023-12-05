@@ -38,30 +38,25 @@ public class DisplayCard : MonoBehaviour
         artwork.sprite = card.artwork;
         artwork.color = Color.white;
         description.text = "";
+        //you could change the tints of the cards if you wanted to. not sure we want that though
+        /*if(card.cardClass == NumberClass.NONE) {
+            artwork.color = Color.white;
+        }
+        else if(card.cardClass == NumberClass.BLUE) {
+            artwork.color = Color.blue;
+        }
+        else if(card.cardClass == NumberClass.RED) {
+            artwork.color = Color.red;
+        }
+        else if(card.cardClass == NumberClass.YELLOW) {
+            artwork.color = Color.yellow;
+        }*/
     }
     private void Card(SpecialDeckCard card){
         name.text = card.name;
         description.text = card.description;
         artwork.sprite = card.artwork;
-        
-        if(card.cardClass == SpecialClass.NONE) {
-            artwork.color = Color.white;
-        }
-        else if(card.cardClass == SpecialClass.BLACK) {
-            artwork.color = Color.grey;
-        }
-        else if(card.cardClass == SpecialClass.BLUE) {
-            artwork.color = Color.blue;
-        }
-        else if(card.cardClass == SpecialClass.RED) {
-            artwork.color = Color.red;
-        }
-        else if(card.cardClass == SpecialClass.GREEN) {
-            artwork.color = Color.green;
-        }
-        else if(card.cardClass == SpecialClass.YELLOW) {
-            artwork.color = Color.yellow;
-        }
+        artwork.color = Color.white;
 
     }
 

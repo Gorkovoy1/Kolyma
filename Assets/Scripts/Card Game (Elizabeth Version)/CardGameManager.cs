@@ -23,6 +23,20 @@ public class CardGameManager : MonoBehaviour
         PAUSED //player has paused the game- this'll mean something when there's a pause menu. enter and exit this state to basically pause the game.
     };
 
+   private struct CardSelectSettings{
+        public readonly int numCards {get;}
+        public readonly SpecialKeyword cardType{get;}
+        public readonly SpecialKeyword selectionPurpose{get;}
+        public readonly bool setupPlayerUI{get;}
+
+        public CardSelectSettings(int n, SpecialKeyword c, SpecialKeyword s, bool p){
+            numCards = n;
+            cardType = c;
+            selectionPurpose = s;
+            setupPlayerUI = p;
+        }
+    }
+
     [Header("Card Game Info")]
     //This class manages the card game. It is designed to attach to the card game scene and load and run one card game from start to finish.
 
@@ -58,6 +72,8 @@ public class CardGameManager : MonoBehaviour
     private List<GameObject> opponentNegativeCards = new List<GameObject>();
     private List<int> playerNegativeCardsValues = new List<int>();
     private List<int> opponentNegativeCardsValues= new List<int>();
+    private bool selectCoroutineRunning = false;
+    private Stack<CardSelectSettings> cardSelectStack = new Stack<CardSelectSettings>();
 
     [Header("UI References")] //references to all the UI elements in the scene
     public GameObject cardVisualPrefab;
@@ -65,9 +81,7 @@ public class CardGameManager : MonoBehaviour
     public Transform panelTransform;
     public Transform playerHandTransform;
     public Transform opponentHandTransform;
-    public TextMeshProUGUI opponentSumText;
-    public TextMeshProUGUI playerSumText;
-    public TextMeshProUGUI targetValueText;
+    public TextMeshProUGUI opponentSumText, playerSumText, targetValueText, selectionAmountText;
     public Transform opponentNumberZone;
     public Transform playerNumberZone;
     public Toggle playerRoundToggle;
@@ -99,6 +113,15 @@ public class CardGameManager : MonoBehaviour
         //Update curr value text and such every frame because its easier to just do it here
         opponentSumText.text = opponent.name + " CURR VALUE: " + opponent.currValue;
         playerSumText.text = player.name + " CURR VALUE: " + player.currValue;
+
+        //update selection confirmation button
+        selectConfirmButton.SetActive(enableSelectionConfirmButton); 
+
+        //check if we need to be selecting cards because a selection event is queued
+        if(cardSelectStack.Count > 0 && state != State.SELECTCARDS) {
+            prevState = state;
+            state = State.SELECTCARDS;
+        }
 
         //Ye Olde Turn Manager State Machine
         switch (state) {
@@ -194,7 +217,11 @@ public class CardGameManager : MonoBehaviour
             case State.SELECTCARDS:
                 //this state mostly exists to lock the player out of performing unwanted actions and acknowledge to the rest of the system that the player is in the
                 //middle of picking a card for some purpose.   
-                selectConfirmButton.SetActive(enableSelectionConfirmButton);  
+                if(!selectCoroutineRunning && cardSelectStack.Count > 0) {
+                    Debug.Log("Running a selection event");
+                    CardSelectSettings curr = cardSelectStack.Pop();
+                    StartCoroutine(SelectCard(curr.numCards, curr.cardType, curr.selectionPurpose, curr.setupPlayerUI));
+                } 
                 break;
 
             case State.ENDROUND:
@@ -378,6 +405,8 @@ public class CardGameManager : MonoBehaviour
 
     //enter the select card state
     private IEnumerator SelectCard(int numCards, SpecialKeyword cardType, SpecialKeyword selectionPurpose, bool setupPlayerUI = true, List<DisplayCard> selectedCards = null) {
+        selectCoroutineRunning = true;
+        enableSelectionConfirmButton = false;
         if(selectedCards == null) {
             selectedCards = new List<DisplayCard>();
         }
@@ -388,10 +417,48 @@ public class CardGameManager : MonoBehaviour
         if(setupPlayerUI) {
             UIToggleSelectionMode(true);
         }
+        else{
+            UIToggleSelectionMode(false);
+        }
+        //check if need to select more cards than the player has, in which case just select everything they have.
+        if(setupPlayerUI && cardType == SpecialKeyword.TYPE_SPECIAL && numCards > player.hand.Count) {
+            numCards = player.hand.Count;
+        }
+        else if(setupPlayerUI && cardType == SpecialKeyword.TYPE_NUMBER && numCards > player.numberHand.Count) {
+            numCards = player.numberHand.Count;
+        }
+        else if(!setupPlayerUI && cardType == SpecialKeyword.TYPE_NUMBER && numCards > opponent.numberHand.Count) {
+            numCards = opponent.numberHand.Count;
+        }
+        else if(!setupPlayerUI && cardType == SpecialKeyword.TYPE_SPECIAL && numCards > opponent.hand.Count) {
+            numCards = opponent.hand.Count;
+        }
+
+        selectionAmountText.text = "Select " + numCards + " total cards!";
+        
         selectionConfirmation = false;
         while(selectedCards.Count < numCards || !selectionConfirmation) {
-            if(prevState == State.OPPONENTTURN) {
-                Debug.Log("AI for selecting cards NYI");
+            state = State.SELECTCARDS;
+            if(!setupPlayerUI) {
+                enableSelectionConfirmButton = false;
+                Debug.Log("AI for selecting cards NYI, using temp random selection");
+                for(int i = 0; i < numCards; i++) {
+                    int j = Random.Range(0, opponent.hand.Count - 1) ;
+                    DisplayCard hitCard = activeCardVisuals.Find(delegate(DisplayCard c) {
+                        return (c.baseCard == opponent.hand[j] && c.owner == opponent);
+                    });
+                    while(selectedCards.Find(delegate(DisplayCard c) {
+                        return hitCard.gameObject.GetInstanceID() == c.gameObject.GetInstanceID();
+                    }) != null) {
+                        j = Random.Range(0, opponent.hand.Count - 1) ;
+                        hitCard = activeCardVisuals.Find(delegate(DisplayCard c) {
+                            return (c.baseCard == opponent.hand[j] && c.owner == opponent);
+                        });
+                    }
+                    selectedCards.Add(hitCard);
+                }
+                selectionConfirmation = true;
+                yield return null;
             } 
             else if(Input.GetMouseButtonDown(0)) {
                 RaycastHit2D hit = Physics2D.Raycast(Input.mousePosition, Vector2.zero, Mathf.Infinity, LayerMask.GetMask("Card"));
@@ -403,9 +470,14 @@ public class CardGameManager : MonoBehaviour
                         if(selectedCards.Find(delegate(DisplayCard c) {
                         return hitCard.gameObject.GetInstanceID() == c.gameObject.GetInstanceID();
                         }) == null) {
-                            Debug.Log("Selected: " + hitCard.baseCard.name);
-                            hitCard.ToggleSelected();
-                            selectedCards.Add(hitCard);
+                            if(selectedCards.Count == numCards) {
+                                Debug.Log("Selected too many cards, deselect something first!");
+                            }
+                            else{
+                                Debug.Log("Selected: " + hitCard.baseCard.name);
+                                hitCard.ToggleSelected();
+                                selectedCards.Add(hitCard);
+                            }
                         }
                         else{
                             Debug.Log("Deselected: " + hitCard.baseCard.name);
@@ -414,7 +486,7 @@ public class CardGameManager : MonoBehaviour
                         }
                     }
                 }
-                if(selectedCards.Count >= numCards) {
+                if(selectedCards.Count >= numCards && setupPlayerUI) {
 
                     enableSelectionConfirmButton = true;
                     selectionConfirmation = false;
@@ -436,9 +508,11 @@ public class CardGameManager : MonoBehaviour
                 break;
         }
         selectionConfirmation = false;
+        enableSelectionConfirmButton = false;
         UIToggleSelectionMode(false);
         state = prevState;
         Debug.Log("Finished SelectedCards, returned state to normal");
+        selectCoroutineRunning = false;
     }
 
     //play a special card
@@ -491,12 +565,14 @@ public class CardGameManager : MonoBehaviour
             selectConfirmButton.SetActive(true);
             playerRoundToggle.gameObject.SetActive(false);
             opponentRoundToggle.gameObject.SetActive(false);
+            selectionAmountText.gameObject.SetActive(true);
         }
         else {
             endTurnButton.SetActive(true);
             selectConfirmButton.SetActive(false);
             playerRoundToggle.gameObject.SetActive(true);
             opponentRoundToggle.gameObject.SetActive(true);
+            selectionAmountText.gameObject.SetActive(false);
         }
     }
 
@@ -544,7 +620,6 @@ public class CardGameManager : MonoBehaviour
                 }
             break;
             case SpecialKeyword.EFFECT_DRAW:
-                Debug.Log("Draw Effects NYI");
                 /* EFFECT_DRAWCARD ANTICIPATED SYNTAX
                 keywords[last item] = type of card to draw
                 keywords[i] -> keywords[2nd to last item] = target to draw to
@@ -569,13 +644,22 @@ public class CardGameManager : MonoBehaviour
             break;
             case SpecialKeyword.EFFECT_DISCARD:
                 /*EFFECT_DISCARD ANTICIPATED SYNTAX
-                keywords[2] = type of card to discard
+                keywords[last item] = type of card to discard
+                keywords[1 -> 2nd to last item] = the discard target
                 values[0] = # to discard.
                 
-                done in a coroutine to allow everyone to select their cards which may take multiple frames
-                this is still very much testing that the coroutine strategy CAN work. it is presently set up 
-                only to work if there is only one discard target, and that target is the person who played the card*/
-                StartCoroutine(SelectCard(card.values[0], card.keywords[2], card.keywords[0]));
+                done in a coroutine and selectcards state to allow everyone to select their cards which may take multiple framesit is presently set up 
+                only to work if there is only one card type that needs discarding*/
+                for(int i = 1; i < card.keywords.Count - 1; i++ ) {
+                    if(card.keywords[i] == SpecialKeyword.TARGET_PLAYER) {
+                        CardSelectSettings newSettings = new CardSelectSettings(card.values[i-1], card.keywords[card.keywords.Count -1], card.keywords[0], playerTarget == player);
+                        cardSelectStack.Push(newSettings);
+                    }
+                    else{
+                        CardSelectSettings newSettings = new CardSelectSettings(card.values[i-1], card.keywords[card.keywords.Count -1], card.keywords[0], !playerTarget == player);
+                        cardSelectStack.Push(newSettings);
+                    }
+                }
             break;
             case SpecialKeyword.EFFECT_CONDITIONAL:
                 Debug.Log("Conditional Effects NYI");

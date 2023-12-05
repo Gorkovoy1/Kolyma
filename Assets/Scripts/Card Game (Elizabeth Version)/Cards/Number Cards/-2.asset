@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: -2
   m_EditorClassIdentifier: 
   name: Scrawny
-  value: -2
   artwork: {fileID: 21300000, guid: e9eb9b3bba22b8f4d974d9afe454296c, type: 3}
+  cardClass: 3
+  value: -2

@@ -62,21 +62,11 @@ public enum SpecialKeyword {
 
 };
 
-public enum SpecialClass {
-    RED,
-    BLUE,
-    GREEN,
-    YELLOW,
-    BLACK,
-    NONE
-};
-
 [CreateAssetMenu(fileName = "New Special Card")]
 public class SpecialDeckCard : GenericCard
 {
     [Header("Card Info")]
     public string description;
-    public SpecialClass cardClass;
 
     [Header("Keywords for Card Effects/Targets")]
     [Header("EFFECT -> TARGET(S) -> TYPE")]
