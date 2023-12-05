@@ -1,3 +1,4 @@
 # Kolyma
 
-kolymagame.com
+[Visit the website!
+](https://kolymagame.com/)https://kolymagame.com/
