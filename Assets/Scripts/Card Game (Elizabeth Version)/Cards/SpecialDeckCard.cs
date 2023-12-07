@@ -47,18 +47,22 @@ either way consider this a science experiment. gonna try this method described a
 
 public enum SpecialKeyword {
     /*use these keywords for dictating the action to be performed*/
-    EFFECT_NONE,
-    EFFECT_ADDVALUE,
-    EFFECT_DRAW,
-    EFFECT_DISCARD,
-    EFFECT_CONDITIONAL,
+    EFFECT_NONE = 0,
+    EFFECT_ADDVALUE = 1,
+    EFFECT_DRAW = 2,
+    EFFECT_DISCARD = 3,
+    EFFECT_CONDITIONAL = 4,
+
     /*use these keywords for targeting*/
-    TARGET_PLAYER,
-    TARGET_OPPONENT,
+    TARGET_PLAYER = 5,
+    TARGET_OPPONENT = 6,
 
     /*use these keywords for card type*/
-    TYPE_NUMBER,
-    TYPE_SPECIAL,
+    TYPE_NUMBER = 7,
+    TYPE_SPECIAL = 8,
+
+    /* used to demarcate the end of an effect in cards that have more than one effect*/
+    END_COMMAND = 9,
 
 };
 
@@ -70,7 +74,7 @@ public class SpecialDeckCard : GenericCard
 
     [Header("Keywords for Card Effects/Targets")]
     [Header("EFFECT -> TARGET(S) -> TYPE")]
-    public List<SpecialKeyword> keywords;
+    public List<SpecialKeyword> keywords = new List<SpecialKeyword>();
 
     [Header("Numerical Values for Card Effects")]
     public List<int> values;

@@ -218,7 +218,6 @@ public class CardGameManager : MonoBehaviour
                 //this state mostly exists to lock the player out of performing unwanted actions and acknowledge to the rest of the system that the player is in the
                 //middle of picking a card for some purpose.   
                 if(!selectCoroutineRunning && cardSelectStack.Count > 0) {
-                    Debug.Log("Running a selection event");
                     CardSelectSettings curr = cardSelectStack.Pop();
                     StartCoroutine(SelectCard(curr.numCards, curr.cardType, curr.selectionPurpose, curr.setupPlayerUI));
                 } 
@@ -427,7 +426,6 @@ public class CardGameManager : MonoBehaviour
             numCards = opponent.numberHand.Count;
         }
         else if(!setupPlayerUI && cardType == SpecialKeyword.TYPE_SPECIAL && numCards > opponent.hand.Count) {
-            Debug.Log("Didnt have enough cards in hand");
             numCards = opponent.hand.Count;
         }
 
@@ -506,7 +504,6 @@ public class CardGameManager : MonoBehaviour
             }
             yield return null;
         }
-        Debug.Log("enough cards were selected, now we execute");
         switch(selectionPurpose) {
             case SpecialKeyword.EFFECT_DISCARD:
                 foreach(DisplayCard card in selectedCards) {
@@ -517,7 +514,6 @@ public class CardGameManager : MonoBehaviour
         selectionConfirmation = false;
         UIToggleSelectionMode(false);
         state = prevState;
-        Debug.Log("Finished SelectedCards, returned state to normal");
         selectCoroutineRunning = false;
     }
 
@@ -529,8 +525,19 @@ public class CardGameManager : MonoBehaviour
         display.owner.hand.Remove(card);
         activeCardVisuals.Remove(display);
         Destroy(display.gameObject);
+
+        List<SpecialKeyword> keywords = card.keywords;
+        List<int> values = card.values;
+        CardGameCharacter playerTarget = display.owner;
+        CardGameCharacter opponentTarget;
+        if(playerTarget == opponent) {
+            opponentTarget = player;
+        }
+        else {
+            opponentTarget = opponent;
+        }
         //do the decision tree (separate function because i forsee this eventually using recursion)
-        ExecuteCardEffect(display);
+        ExecuteCardEffect(keywords, values, playerTarget, opponentTarget);
     }
 
     //discard a special card
@@ -592,20 +599,43 @@ public class CardGameManager : MonoBehaviour
     }
 
     //Very PROTOTYPE version of the card decision tree
-    void ExecuteCardEffect(DisplayCard display) {
-        SpecialDeckCard card = (SpecialDeckCard) display.baseCard;
-        //rudimentary draft of the card playing decision tree
-        SpecialKeyword effectType = card.keywords[0];
-
-        //If OPPONENT plays this card, the TARGET_PLAYER keyword would refer to the opponent- the person who played the card.
-        CardGameCharacter playerTarget = display.owner;
-        CardGameCharacter opponentTarget;
-        if(playerTarget == opponent) {
-            opponentTarget = player;
+    void ExecuteCardEffect(List<SpecialKeyword> keywords, List<int> values, CardGameCharacter playerTarget, CardGameCharacter opponentTarget) {
+        List<SpecialKeyword> currKeys = new List<SpecialKeyword>();
+        List<int> currValues = new List<int>();
+        List<SpecialKeyword> truncatedKeys = new List<SpecialKeyword>();
+        List<int> truncatedValues = new List<int>();
+        int skippedValues = 0;
+        for(int i = 0; i < keywords.Count; i++ ) {
+            if(keywords[i] == SpecialKeyword.END_COMMAND) {
+                for(int j = i+1; j < keywords.Count; j++) {
+                    truncatedKeys.Add(keywords[j]);
+                }
+                for(int k = i - skippedValues; k < values.Count; k++) {
+                    truncatedValues.Add(values[k]);
+                }
+                ExecuteCardEffect(truncatedKeys, truncatedValues, playerTarget, opponentTarget);
+                break;
+            }
+            else if(keywords[i] == SpecialKeyword.TARGET_PLAYER || keywords[i] == SpecialKeyword.TARGET_OPPONENT) {
+                currKeys.Add(keywords[i]);
+                currValues.Add(values[i - skippedValues]);
+            }
+            else{
+                currKeys.Add(keywords[i]);
+                skippedValues += 1;
+            }
         }
-        else {
-            opponentTarget = opponent;
+        keywords = currKeys;
+        values = currValues;
+       /* Debug.Log("Keywords: " );
+        foreach(SpecialKeyword k in currKeys) {
+            Debug.Log(k);
         }
+        Debug.Log("Values: " );
+        foreach(int v in currValues) {
+            Debug.Log(v);
+        }*/
+        SpecialKeyword effectType = keywords[0];
 
         switch(effectType) {
             case SpecialKeyword.EFFECT_NONE:
@@ -616,12 +646,12 @@ public class CardGameManager : MonoBehaviour
                 keywords[i] = target to add value to
                 values[i - 1] = amount to add to keywords[i]
                 */
-                for(int i = 1; i < card.keywords.Count; i++) {
-                    if(card.keywords[i] == SpecialKeyword.TARGET_PLAYER) {
-                        playerTarget.currValue += card.values[i-1];
+                for(int i = 1; i < keywords.Count; i++) {
+                    if(keywords[i] == SpecialKeyword.TARGET_PLAYER) {
+                        playerTarget.currValue += values[i-1];
                     }
                     else{
-                        opponentTarget.currValue += card.values[i-1];
+                        opponentTarget.currValue += values[i-1];
                     }
                 }
             break;
@@ -630,20 +660,20 @@ public class CardGameManager : MonoBehaviour
                 keywords[last item] = type of card to draw
                 keywords[i] -> keywords[2nd to last item] = target to draw to
                 values[i-1] = # cards to draw*/
-                SpecialKeyword cardType = card.keywords[card.keywords.Count - 1];
+                SpecialKeyword cardType = keywords[keywords.Count - 1];
 
-                for(int i = 1; i< card.keywords.Count - 1; i++) {
-                    if(card.keywords[i] == SpecialKeyword.TARGET_PLAYER && cardType == SpecialKeyword.TYPE_SPECIAL) {
-                        DrawSpecialCards(playerTarget, card.values[i-1]);
+                for(int i = 1; i< keywords.Count - 1; i++) {
+                    if(keywords[i] == SpecialKeyword.TARGET_PLAYER && cardType == SpecialKeyword.TYPE_SPECIAL) {
+                        DrawSpecialCards(playerTarget, values[i-1]);
                     }
-                    else if(card.keywords[i] == SpecialKeyword.TARGET_PLAYER && cardType == SpecialKeyword.TYPE_NUMBER){
+                    else if(keywords[i] == SpecialKeyword.TARGET_PLAYER && cardType == SpecialKeyword.TYPE_NUMBER){
                         Debug.Log("drawing number cards NYI");
                     }
-                    else if(card.keywords[i] == SpecialKeyword.TARGET_OPPONENT && cardType == SpecialKeyword.TYPE_NUMBER){
+                    else if(keywords[i] == SpecialKeyword.TARGET_OPPONENT && cardType == SpecialKeyword.TYPE_NUMBER){
                         Debug.Log("drawing number cards NYI");
                     }
-                    else if(card.keywords[i] == SpecialKeyword.TARGET_OPPONENT && cardType == SpecialKeyword.TYPE_SPECIAL){
-                        DrawSpecialCards(opponentTarget, card.values[i-1]);
+                    else if(keywords[i] == SpecialKeyword.TARGET_OPPONENT && cardType == SpecialKeyword.TYPE_SPECIAL){
+                        DrawSpecialCards(opponentTarget, values[i-1]);
                     }
                 }
 
@@ -656,13 +686,13 @@ public class CardGameManager : MonoBehaviour
                 
                 done in a coroutine and selectcards state to allow everyone to select their cards which may take multiple framesit is presently set up 
                 only to work if there is only one card type that needs discarding*/
-                for(int i = 1; i < card.keywords.Count - 1; i++ ) {
-                    if(card.keywords[i] == SpecialKeyword.TARGET_PLAYER) {
-                        CardSelectSettings newSettings = new CardSelectSettings(card.values[i-1], card.keywords[card.keywords.Count -1], card.keywords[0], playerTarget == player);
+                for(int i = 1; i < keywords.Count - 1; i++ ) {
+                    if(keywords[i] == SpecialKeyword.TARGET_PLAYER) {
+                        CardSelectSettings newSettings = new CardSelectSettings(values[i-1], keywords[keywords.Count -1], keywords[0], playerTarget == player);
                         cardSelectStack.Push(newSettings);
                     }
                     else{
-                        CardSelectSettings newSettings = new CardSelectSettings(card.values[i-1], card.keywords[card.keywords.Count -1], card.keywords[0], !playerTarget == player);
+                        CardSelectSettings newSettings = new CardSelectSettings(values[i-1], keywords[keywords.Count -1], keywords[0], !playerTarget == player);
                         cardSelectStack.Push(newSettings);
                     }
                 }
