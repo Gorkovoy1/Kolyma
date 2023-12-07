@@ -410,10 +410,6 @@ public class CardGameManager : MonoBehaviour
         if(selectedCards == null) {
             selectedCards = new List<DisplayCard>();
         }
-        if(state != State.SELECTCARDS) {
-            prevState = state;
-            state = State.SELECTCARDS;
-        }
         if(setupPlayerUI) {
             UIToggleSelectionMode(true);
         }
@@ -431,31 +427,40 @@ public class CardGameManager : MonoBehaviour
             numCards = opponent.numberHand.Count;
         }
         else if(!setupPlayerUI && cardType == SpecialKeyword.TYPE_SPECIAL && numCards > opponent.hand.Count) {
+            Debug.Log("Didnt have enough cards in hand");
             numCards = opponent.hand.Count;
         }
 
         selectionAmountText.text = "Select " + numCards + " total cards!";
         
         selectionConfirmation = false;
-        while(selectedCards.Count < numCards || !selectionConfirmation) {
-            state = State.SELECTCARDS;
+        while(selectedCards.Count < numCards || !selectionConfirmation && numCards > 0) {
             if(!setupPlayerUI) {
                 enableSelectionConfirmButton = false;
                 Debug.Log("AI for selecting cards NYI, using temp random selection");
-                for(int i = 0; i < numCards; i++) {
-                    int j = Random.Range(0, opponent.hand.Count - 1) ;
-                    DisplayCard hitCard = activeCardVisuals.Find(delegate(DisplayCard c) {
-                        return (c.baseCard == opponent.hand[j] && c.owner == opponent);
-                    });
-                    while(selectedCards.Find(delegate(DisplayCard c) {
-                        return hitCard.gameObject.GetInstanceID() == c.gameObject.GetInstanceID();
-                    }) != null) {
-                        j = Random.Range(0, opponent.hand.Count - 1) ;
-                        hitCard = activeCardVisuals.Find(delegate(DisplayCard c) {
+                if(numCards >= opponent.hand.Count) {
+                    foreach(DisplayCard card in activeCardVisuals) {
+                        if(card.baseCard is SpecialDeckCard && card.owner == opponent) {
+                            selectedCards.Add(card);
+                        }
+                    }
+                }
+                else {
+                    for(int i = 0; i < numCards; i++) {
+                        int j = Random.Range(0, opponent.hand.Count - 1) ;
+                        DisplayCard hitCard = activeCardVisuals.Find(delegate(DisplayCard c) {
                             return (c.baseCard == opponent.hand[j] && c.owner == opponent);
                         });
+                        while(selectedCards.Find(delegate(DisplayCard c) {
+                            return hitCard.gameObject.GetInstanceID() == c.gameObject.GetInstanceID();
+                        }) != null) {
+                            j = Random.Range(0, opponent.hand.Count - 1) ;
+                            hitCard = activeCardVisuals.Find(delegate(DisplayCard c) {
+                                return (c.baseCard == opponent.hand[j] && c.owner == opponent);
+                            });
+                        }
+                        selectedCards.Add(hitCard);
                     }
-                    selectedCards.Add(hitCard);
                 }
                 selectionConfirmation = true;
                 yield return null;
@@ -463,7 +468,6 @@ public class CardGameManager : MonoBehaviour
             else if(Input.GetMouseButtonDown(0)) {
                 RaycastHit2D hit = Physics2D.Raycast(Input.mousePosition, Vector2.zero, Mathf.Infinity, LayerMask.GetMask("Card"));
                 if(hit.collider != null) {
-                    Debug.Log(hit.collider);
                     DisplayCard hitCard = hit.collider.gameObject.GetComponent<DisplayCard>();
                     if ((hitCard.baseCard is NumberCard && cardType == SpecialKeyword.TYPE_NUMBER) || 
                     (hitCard.baseCard is SpecialDeckCard && cardType == SpecialKeyword.TYPE_SPECIAL)){
@@ -491,6 +495,9 @@ public class CardGameManager : MonoBehaviour
                     enableSelectionConfirmButton = true;
                     selectionConfirmation = false;
                 }
+                else if(!setupPlayerUI) {
+                    selectionConfirmation = true;
+                }
                 else{
                     enableSelectionConfirmButton = false;
                     selectionConfirmation = false;
@@ -508,7 +515,6 @@ public class CardGameManager : MonoBehaviour
                 break;
         }
         selectionConfirmation = false;
-        enableSelectionConfirmButton = false;
         UIToggleSelectionMode(false);
         state = prevState;
         Debug.Log("Finished SelectedCards, returned state to normal");
@@ -573,6 +579,7 @@ public class CardGameManager : MonoBehaviour
             playerRoundToggle.gameObject.SetActive(true);
             opponentRoundToggle.gameObject.SetActive(true);
             selectionAmountText.gameObject.SetActive(false);
+            enableSelectionConfirmButton = false;
         }
     }
 
@@ -581,7 +588,6 @@ public class CardGameManager : MonoBehaviour
         state = State.ENDTURN;
     }
     public void ButtonConfirmSelection(){
-        Debug.Log("pressed the button");
         selectionConfirmation = true;
     }
 
