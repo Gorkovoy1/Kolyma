@@ -127,10 +127,8 @@ public class CardGameManager : MonoBehaviour
         switch (state) {
             case State.INIT:
                 //loading tasks go here
-                player.deck.Clear();
-                opponent.deck.Clear();
-                player.hand.Clear();
-                opponent.hand.Clear();
+                player.FlushGameplayVariables();
+                opponent.FlushGameplayVariables();
                 opponentRoundToggle.isOn = false;
                 playerRoundToggle.isOn = false;
                 state = State.STARTGAME;
@@ -155,8 +153,6 @@ public class CardGameManager : MonoBehaviour
                 playerEndRound = false;
                 opponentEndRound = false;
                 discardPile.Clear();
-                player.currValue = 0;
-                opponent.currValue = 0;
                 ShuffleCards(player.deck);
                 ShuffleCards(opponent.deck);
                 ShuffleCards(numberDeck);
@@ -255,10 +251,8 @@ public class CardGameManager : MonoBehaviour
                     }
                     activeCardVisuals.Clear();
                     discardPile.Clear();
-                    player.hand.Clear();
-                    opponent.hand.Clear();
-                    player.deck.Clear();
-                    opponent.deck.Clear();
+                    player.FlushGameplayVariables();
+                    opponent.FlushGameplayVariables();
                     foreach(SpecialDeckCard card in player.deckList) {
                         player.deck.Add(card);
                     }
@@ -698,7 +692,39 @@ public class CardGameManager : MonoBehaviour
                 }
             break;
             case SpecialKeyword.EFFECT_CONDITIONAL:
-                Debug.Log("Conditional Effects NYI");
+                //first, if keyword is conditional, verify the CONDITION. this will return a bool. if true, execute SUCCESS_PATH. if false, execute FAILURE_PATH
+                //every conditional card must have EFFECT_CONDITION, CONDITION_[target] and then SUCCESS_PATH and FAILURE_PATH
+
+                /*
+                Things conditional needs to test:
+                character has specific class card
+                character has specific value card
+                character value status relative to target (above or below)
+                character has a duplicate card
+                character discarded a card
+                character has a negative value card
+                character swapped a card
+                character flipped a card
+                character transferred a card to other player
+                character has certain quantity of cards on table
+
+                CONDITIONAL FLAGS NEEDED:
+                CON_HAS_CLASS_CARD (character target, enum class, int count)
+                CON_HAS_VALUE_CARD (character target, int value, int count)
+                CON_HAS_DUPLICATE (character target, enum card type)
+                CON_DISCARD_FLAG (character target)
+                CON_SWAP_FLAG ^
+                CON_FLIP_FLAG ^
+                CON_TRANSFER_FLAG ^
+                CON_CARD_QUANTITY (character target, card type, int amount)
+
+
+                THE PLAN:
+                dissect the conditional list into 3 command lists here: the conditional IF, the SUCCESS path, and the FAIL path.
+                for each category of IF, call a function. Sequence is CONDITIONAL TYPE -> function required inputs in order
+                function returns a success or failure boolean. if true, execute card effect with the success list. if false, execute card effect with the fail list.
+                */
+
             break;
         }
     }
