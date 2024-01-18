@@ -729,4 +729,59 @@ public class CardGameManager : MonoBehaviour
         }
     }
 
+    private bool ConditionalHasClassCard(CardGameCharacter target, NumberCard.NumberClass color, int count = 1){
+        int x = 0;
+        foreach(NumberCard c in target.numberHand) {
+            if(c.cardClass == color) {
+                x++;
+            }
+        }
+        return x >= count;
+    }
+    private bool ConditionalHasValueCard(CardGameCharacter target, int value, int count = 1){
+        int x = 0;
+        foreach(NumberCard c in target.numberHand) {
+            if(c.value == value){
+                x++;
+            }
+        }
+        return x >= count;
+    }
+    private bool ConditionalHasDuplicate(CardGameCharacter target, SpecialKeyword type){
+        if(type == SpecialKeyword.TYPE_NUMBER) {
+            for(int i = 0; i < target.hand.Count - 1; i++){
+                for(int j = i + 1; j < target.hand.Count; j++) {
+                    if(target.hand[i].name == target.hand[j].name) {
+                        return true;
+                    }
+                }
+            }
+        }
+        else {
+            for(int i = 0; i < target.numberHand.Count - 1; i++){
+                for(int j = i + 1; j < target.numberHand.Count; j++) {
+                    if(target.numberHand[i].name == target.numberHand[j].name) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    private bool ConditionalDiscardFlag(CardGameCharacter target){
+        return target.discardFlag;
+    }
+    private bool ConditionalSwapFlag(CardGameCharacter target){
+        return target.swapFlag;
+    }
+    private bool ConditionalFlipFlag(CardGameCharacter target){
+        return target.flipFlag;
+    }
+    private bool ConditionalTransferFlag(CardGameCharacter target){
+        return target.transferFlag;
+    }
+    private bool ConditionalCardQuantity(CardGameCharacter target, SpecialKeyword type, int min, int max){
+        return (type == SpecialKeyword.TYPE_NUMBER) ? (target.numberHand.Count >= min && target.numberHand.Count <= max) : (target.hand.Count >= min && target.hand.Count <= max); 
+    }
+
 }

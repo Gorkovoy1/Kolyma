@@ -47,22 +47,35 @@ either way consider this a science experiment. gonna try this method described a
 
 public enum SpecialKeyword {
     /*use these keywords for dictating the action to be performed*/
-    EFFECT_NONE = 0,
-    EFFECT_ADDVALUE = 1,
-    EFFECT_DRAW = 2,
-    EFFECT_DISCARD = 3,
-    EFFECT_CONDITIONAL = 4,
+    EFFECT_NONE,
+    EFFECT_ADDVALUE,
+    EFFECT_DRAW,
+    EFFECT_DISCARD,
+    EFFECT_CONDITIONAL,
 
     /*use these keywords for targeting*/
-    TARGET_PLAYER = 5,
-    TARGET_OPPONENT = 6,
+    TARGET_PLAYER,
+    TARGET_OPPONENT,
 
     /*use these keywords for card type*/
-    TYPE_NUMBER = 7,
-    TYPE_SPECIAL = 8,
+    TYPE_NUMBER,
+    TYPE_SPECIAL,
 
     /* used to demarcate the end of an effect in cards that have more than one effect*/
-    END_COMMAND = 9,
+    END_COMMAND,
+
+    /*use these to call different conditional functions*/
+    CON_HAS_CLASS_CARD,
+    CON_HAS_VALUE_CARD,
+    CON_HAS_DUPLICATE,
+    CON_DISCARD_FLAG,
+    CON_SWAP_FLAG,
+    CON_FLIP_FLAG,
+    CON_TRANSFER_FLAG,
+    CON_CARD_QUANTITY,
+    SUCCESS_PATH,
+    FAILURE_PATH,
+
 
 };
 
