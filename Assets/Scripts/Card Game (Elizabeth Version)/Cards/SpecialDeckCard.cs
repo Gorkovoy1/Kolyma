@@ -64,6 +64,9 @@ public enum SpecialKeyword {
     /* used to demarcate the end of an effect in cards that have more than one effect*/
     END_COMMAND,
 
+    /*used to store an integer parameter for a conditional function. Remember, enumerators also correspond to integers*/
+    CON_STORE_ADDITIONAL_INTEGER,
+
     /*use these to call different conditional functions*/
     CON_HAS_CLASS_CARD,
     CON_HAS_VALUE_CARD,

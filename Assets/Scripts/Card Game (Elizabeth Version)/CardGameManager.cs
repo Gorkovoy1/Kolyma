@@ -725,6 +725,64 @@ public class CardGameManager : MonoBehaviour
                 function returns a success or failure boolean. if true, execute card effect with the success list. if false, execute card effect with the fail list.
                 */
 
+                List<SpecialKeyword> conditionalFlags = new List<SpecialKeyword>();
+                List<SpecialKeyword> successCommand = new List<SpecialKeyword>();
+                List<SpecialKeyword> failCommand = new List<SpecialKeyword>();
+
+                List<int> conditionalValues = new List<int>();
+                List<int> successValues = new List<int>();
+                List<int> failValues = new List<int>();
+                skippedValues = 0;
+                int indicesConsumed = 0;
+                List<SpecialKeyword> sortingBin = conditionalFlags;
+                List<int> valuesBin = conditionalValues;
+
+                for(int i = 1; i < keywords.Count; i++) {
+                    indicesConsumed++;
+                    if(keywords[i] == SpecialKeyword.SUCCESS_PATH) {
+                        sortingBin = successCommand;
+                        valuesBin = successValues;
+                    }
+                    else if(keywords[i] == SpecialKeyword.FAILURE_PATH) {
+                        sortingBin = failCommand;
+                        valuesBin = failValues;
+                    }
+                    else if(keywords[i] == SpecialKeyword.END_COMMAND){
+                        break;
+                    }
+
+                    else if(keywords[i] == SpecialKeyword.TARGET_PLAYER || keywords[i] == SpecialKeyword.TARGET_OPPONENT) {
+                        sortingBin.Add(keywords[i]);
+                        valuesBin.Add(values[i - skippedValues]);
+                    }
+                    else{
+                        sortingBin.Add(keywords[i]);
+                        skippedValues += 1;
+                    }
+                    
+                }
+
+                foreach(SpecialKeyword w in conditionalFlags) {
+                    switch (w){
+                        case SpecialKeyword.CON_CARD_QUANTITY:
+                            break;
+                        case SpecialKeyword.CON_DISCARD_FLAG:
+                            break;
+                        case SpecialKeyword.CON_FLIP_FLAG:
+                            break;
+                        case SpecialKeyword.CON_HAS_CLASS_CARD:
+                            break;
+                        case SpecialKeyword.CON_HAS_DUPLICATE:
+                            break;
+                        case SpecialKeyword.CON_HAS_VALUE_CARD:
+                            break;
+                        case SpecialKeyword.CON_SWAP_FLAG:
+                            break;
+                        case SpecialKeyword.CON_TRANSFER_FLAG:
+                            break;
+                    }
+                }
+
             break;
         }
     }
