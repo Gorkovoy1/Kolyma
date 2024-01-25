@@ -610,7 +610,7 @@ public class CardGameManager : MonoBehaviour
                 ExecuteCardEffect(truncatedKeys, truncatedValues, playerTarget, opponentTarget);
                 break;
             }
-            else if(keywords[i] == SpecialKeyword.TARGET_PLAYER || keywords[i] == SpecialKeyword.TARGET_OPPONENT) {
+            else if(keywords[i] == SpecialKeyword.TARGET_PLAYER || keywords[i] == SpecialKeyword.TARGET_OPPONENT || keywords[i] == SpecialKeyword.CON_STORE_ADDITIONAL_INTEGER) {
                 currKeys.Add(keywords[i]);
                 currValues.Add(values[i - skippedValues]);
             }
@@ -733,12 +733,10 @@ public class CardGameManager : MonoBehaviour
                 List<int> successValues = new List<int>();
                 List<int> failValues = new List<int>();
                 skippedValues = 0;
-                int indicesConsumed = 0;
                 List<SpecialKeyword> sortingBin = conditionalFlags;
                 List<int> valuesBin = conditionalValues;
 
                 for(int i = 1; i < keywords.Count; i++) {
-                    indicesConsumed++;
                     if(keywords[i] == SpecialKeyword.SUCCESS_PATH) {
                         sortingBin = successCommand;
                         valuesBin = successValues;
@@ -751,42 +749,100 @@ public class CardGameManager : MonoBehaviour
                         break;
                     }
 
-                    else if(keywords[i] == SpecialKeyword.TARGET_PLAYER || keywords[i] == SpecialKeyword.TARGET_OPPONENT) {
+                    if(keywords[i] == SpecialKeyword.TARGET_PLAYER || keywords[i] == SpecialKeyword.TARGET_OPPONENT || keywords[i] == SpecialKeyword.CON_STORE_ADDITIONAL_INTEGER) {
                         sortingBin.Add(keywords[i]);
-                        valuesBin.Add(values[i - skippedValues]);
+                        valuesBin.Add(values[i - 1 - skippedValues]);
                     }
                     else{
-                        sortingBin.Add(keywords[i]);
+                        if(keywords[i] != SpecialKeyword.SUCCESS_PATH && keywords[i] != SpecialKeyword.FAILURE_PATH) {
+                            sortingBin.Add(keywords[i]);
+                        }
                         skippedValues += 1;
                     }
                     
                 }
 
-                foreach(SpecialKeyword w in conditionalFlags) {
-                    switch (w){
+                bool successCheck = true;
+                int flagsConsumed = 0;
+                int valuesConsumed = 0;
+                CardGameCharacter flagTarget;
+
+                for(int i = 0; i < conditionalFlags.Count; i++) {
+                    flagsConsumed = 0;
+                    if(conditionalFlags[i+1] == SpecialKeyword.TARGET_PLAYER) {
+                        flagTarget = playerTarget;
+                    }
+                    else{
+                        flagTarget = opponentTarget;
+                    }
+                    switch (conditionalFlags[i]){
                         case SpecialKeyword.CON_CARD_QUANTITY:
+                            Debug.Log("quantity");
+                            successCheck = successCheck & ConditionalCardQuantity(flagTarget, conditionalFlags[i+2], conditionalValues[valuesConsumed], conditionalValues[valuesConsumed + 1]);
+                            flagsConsumed += 3;
+                            valuesConsumed += 2;
                             break;
                         case SpecialKeyword.CON_DISCARD_FLAG:
+                            Debug.Log("discard");
+                            successCheck = successCheck & ConditionalDiscardFlag(flagTarget);
+                            flagsConsumed += 1;
+                            valuesConsumed += 1;
                             break;
                         case SpecialKeyword.CON_FLIP_FLAG:
+                            Debug.Log("flip");
+                            successCheck = successCheck & ConditionalFlipFlag(flagTarget);
+                            flagsConsumed += 1;
+                            valuesConsumed += 1;
                             break;
                         case SpecialKeyword.CON_HAS_CLASS_CARD:
+                            Debug.Log("has class card");
+                            successCheck = successCheck & ConditionalHasClassCard(flagTarget, (NumberCard.NumberClass)conditionalValues[valuesConsumed], conditionalValues[valuesConsumed+1]);
+                            flagsConsumed += 3;
+                            valuesConsumed += 2;
                             break;
                         case SpecialKeyword.CON_HAS_DUPLICATE:
+                            Debug.Log("has dupe");
+                            successCheck = successCheck & ConditionalHasDuplicate(flagTarget, conditionalFlags[i+2]);
+                            flagsConsumed += 2;
+                            valuesConsumed += 1;
                             break;
                         case SpecialKeyword.CON_HAS_VALUE_CARD:
+                            Debug.Log("has value");
+                            successCheck = successCheck & ConditionalHasValueCard(flagTarget, conditionalValues[valuesConsumed], conditionalValues[valuesConsumed + 1]);
+                            flagsConsumed += 2;
+                            valuesConsumed += 2;
                             break;
                         case SpecialKeyword.CON_SWAP_FLAG:
+                            Debug.Log("swap");
+                            successCheck = successCheck & ConditionalSwapFlag(flagTarget);
+                            flagsConsumed += 1;
+                            valuesConsumed += 1;
                             break;
                         case SpecialKeyword.CON_TRANSFER_FLAG:
+                            Debug.Log("transfer");
+                            successCheck = successCheck & ConditionalTransferFlag(flagTarget);
+                            flagsConsumed += 1;
+                            valuesConsumed += 1;
                             break;
                     }
+                    i += flagsConsumed;
+                }
+
+                Debug.Log(successCheck);
+
+                if(successCheck) {
+                    ExecuteCardEffect(successCommand, successValues, playerTarget, opponentTarget);
+                }
+                else {
+                    ExecuteCardEffect(failCommand, failValues, playerTarget, opponentTarget);
                 }
 
             break;
         }
     }
 
+/*TARGET -> color
+STORE INT -> count*/
     private bool ConditionalHasClassCard(CardGameCharacter target, NumberCard.NumberClass color, int count = 1){
         int x = 0;
         foreach(NumberCard c in target.numberHand) {
@@ -796,6 +852,8 @@ public class CardGameManager : MonoBehaviour
         }
         return x >= count;
     }
+/*TARGET -> value
+STORE INT -> count*/
     private bool ConditionalHasValueCard(CardGameCharacter target, int value, int count = 1){
         int x = 0;
         foreach(NumberCard c in target.numberHand) {
@@ -805,8 +863,9 @@ public class CardGameManager : MonoBehaviour
         }
         return x >= count;
     }
+/*TARGET -> -1 (N/A)*/
     private bool ConditionalHasDuplicate(CardGameCharacter target, SpecialKeyword type){
-        if(type == SpecialKeyword.TYPE_NUMBER) {
+        if(type == SpecialKeyword.TYPE_SPECIAL) {
             for(int i = 0; i < target.hand.Count - 1; i++){
                 for(int j = i + 1; j < target.hand.Count; j++) {
                     if(target.hand[i].name == target.hand[j].name) {
@@ -826,20 +885,31 @@ public class CardGameManager : MonoBehaviour
         }
         return false;
     }
+/*TARGET -> -1 (N/A)*/
     private bool ConditionalDiscardFlag(CardGameCharacter target){
         return target.discardFlag;
     }
+/*TARGET -> -1 (N/A)*/
     private bool ConditionalSwapFlag(CardGameCharacter target){
         return target.swapFlag;
     }
+/*TARGET -> -1 (N/A)*/
     private bool ConditionalFlipFlag(CardGameCharacter target){
         return target.flipFlag;
     }
+/*TARGET -> -1 (N/A)*/
     private bool ConditionalTransferFlag(CardGameCharacter target){
         return target.transferFlag;
     }
+    /*TARGET -> min
+    STORE INT -> max*/
     private bool ConditionalCardQuantity(CardGameCharacter target, SpecialKeyword type, int min, int max){
-        return (type == SpecialKeyword.TYPE_NUMBER) ? (target.numberHand.Count >= min && target.numberHand.Count <= max) : (target.hand.Count >= min && target.hand.Count <= max); 
+       if(type == SpecialKeyword.TYPE_SPECIAL) {
+        return (target.hand.Count >= min && target.hand.Count <= max);
+       } 
+       else {
+        return (target.numberHand.Count >= min && target.numberHand.Count <= max);
+       }
     }
 
 }

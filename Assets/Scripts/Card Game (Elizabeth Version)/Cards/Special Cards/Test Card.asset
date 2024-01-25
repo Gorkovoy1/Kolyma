@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1ca1c77e5dbee41bef96edb6e284ca, type: 3}
   m_Name: Test Card
   m_EditorClassIdentifier: 
-  name: Test Chained Effects
+  name: Test Conditional Effects
   artwork: {fileID: 21300000, guid: c984de9308a99934e8535dcd8c39211c, type: 3}
-  description: 'TEST: discard special END opponent discardl END discard special'
-  keywords: 0300000005000000080000000900000003000000060000000800000009000000030000000500000008000000
-  values: 010000000100000001000000
+  description: 'TEST: conditionals'
+  keywords: 010000000500000009000000040000001200000005000000080000000a00000013000000020000000500000008000000140000000100000005000000
+  values: 020000000000000064000000010000002a000000
