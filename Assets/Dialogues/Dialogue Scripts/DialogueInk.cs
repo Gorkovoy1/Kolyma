@@ -36,6 +36,7 @@ public class DialogueInk : MonoBehaviour
     public float textSpeed;
     public TMP_FontAsset numbersFont;
 
+    public const string Dissolve = "_Dissolve";
 
     // Start is called before the first frame update
     void Start()
@@ -91,6 +92,9 @@ public class DialogueInk : MonoBehaviour
                 {
                     NPCPortrait.gameObject.SetActive(true);
                     PlayerPortrait.gameObject.SetActive(true);
+                    NPCPortrait.GetComponent<Material>().SetFloat(Dissolve, -0.6f);
+                    NPCPortrait.GetComponent<Material>().SetFloat(Dissolve, 0f);
+                    NPCPortrait.GetComponent<Material>().SetFloat(Dissolve, 0.5f);
                     HighlightNPC();
 
                 }
