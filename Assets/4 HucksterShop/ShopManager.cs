@@ -35,7 +35,25 @@ public class ShopManager : MonoBehaviour
 
     public void CheckPurchaseable()
     {
+        for (int i = 0; i < shopItemsSO.Length; i++)
+        {
+            if (gold >= shopItemsSO[i].cost)
+                buyButtons[i].interactable = true;
+            else
+                buyButtons[i].interactable = false;
+        }
+    }
 
+    public void PurchaseItem(int buttonNumber)
+    {
+        if (gold >= shopItemsSO[buttonNumber].cost)
+        {
+            gold = gold - shopItemsSO[buttonNumber].cost;
+            goldText.text = "Gold: " + gold.ToString();
+            //add bought card to deck
+            //make card unavailable
+            CheckPurchaseable();
+        }
     }
 
     public void LoadPanels()
