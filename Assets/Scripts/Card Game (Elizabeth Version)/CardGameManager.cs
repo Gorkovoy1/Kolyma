@@ -797,6 +797,12 @@ public class CardGameManager : MonoBehaviour
                             flagsConsumed += 1;
                             valuesConsumed += 1;
                             break;
+                        case SpecialKeyword.CON_COMPARE_AGAINST_TARGET:
+                            Debug.Log("compare against target");
+                            successCheck = successCheck & ConditionalCompareAgainstTarget(flagTarget);
+                            flagsConsumed += 1;
+                            valuesConsumed += 1;
+                            break;
                     }
                     i += flagsConsumed;
                 }
@@ -883,6 +889,11 @@ STORE INT -> count*/
        else {
         return (target.numberHand.Count >= min && target.numberHand.Count <= max);
        }
+    }
+
+/* TARGET -> -1 (N/A) */
+    private bool ConditionalCompareAgainstTarget(CardGameCharacter target) {
+        return target.currValue >= targetValue;
     }
 
 }
