@@ -204,10 +204,12 @@ public class CardGameManager : MonoBehaviour
                 if(prevState == State.PLAYERTURN && !opponentEndRound) {
                     DrawSpecialCards(opponent, 1); 
                     state = State.OPPONENTTURN;
+                    player.discardFlag = false;
                 }
                 else if(prevState == State.OPPONENTTURN && !playerEndRound){
                     DrawSpecialCards(player, 1);
                     state = State.PLAYERTURN;
+                    opponent.discardFlag = false;
                 }
                 break;
             case State.SELECTCARDS:
@@ -544,6 +546,7 @@ public class CardGameManager : MonoBehaviour
         else {
             display.owner.numberHand.Remove((NumberCard)display.baseCard);
         }
+        display.owner.discardFlag = true;
         discardPile.Add(display.baseCard);
         activeCardVisuals.Remove(display);
         Destroy(display.gameObject);
@@ -621,14 +624,14 @@ public class CardGameManager : MonoBehaviour
         }
         keywords = currKeys;
         values = currValues;
-       /* Debug.Log("Keywords: " );
+        Debug.Log("Keywords: " );
         foreach(SpecialKeyword k in currKeys) {
             Debug.Log(k);
         }
         Debug.Log("Values: " );
         foreach(int v in currValues) {
             Debug.Log(v);
-        }*/
+        }
         SpecialKeyword effectType = keywords[0];
 
         switch(effectType) {
@@ -694,36 +697,6 @@ public class CardGameManager : MonoBehaviour
             case SpecialKeyword.EFFECT_CONDITIONAL:
                 //first, if keyword is conditional, verify the CONDITION. this will return a bool. if true, execute SUCCESS_PATH. if false, execute FAILURE_PATH
                 //every conditional card must have EFFECT_CONDITION, CONDITION_[target] and then SUCCESS_PATH and FAILURE_PATH
-
-                /*
-                Things conditional needs to test:
-                character has specific class card
-                character has specific value card
-                character value status relative to target (above or below)
-                character has a duplicate card
-                character discarded a card
-                character has a negative value card
-                character swapped a card
-                character flipped a card
-                character transferred a card to other player
-                character has certain quantity of cards on table
-
-                CONDITIONAL FLAGS NEEDED:
-                CON_HAS_CLASS_CARD (character target, enum class, int count)
-                CON_HAS_VALUE_CARD (character target, int value, int count)
-                CON_HAS_DUPLICATE (character target, enum card type)
-                CON_DISCARD_FLAG (character target)
-                CON_SWAP_FLAG ^
-                CON_FLIP_FLAG ^
-                CON_TRANSFER_FLAG ^
-                CON_CARD_QUANTITY (character target, card type, int amount)
-
-
-                THE PLAN:
-                dissect the conditional list into 3 command lists here: the conditional IF, the SUCCESS path, and the FAIL path.
-                for each category of IF, call a function. Sequence is CONDITIONAL TYPE -> function required inputs in order
-                function returns a success or failure boolean. if true, execute card effect with the success list. if false, execute card effect with the fail list.
-                */
 
                 List<SpecialKeyword> conditionalFlags = new List<SpecialKeyword>();
                 List<SpecialKeyword> successCommand = new List<SpecialKeyword>();
