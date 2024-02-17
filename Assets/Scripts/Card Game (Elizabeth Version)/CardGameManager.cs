@@ -624,14 +624,14 @@ public class CardGameManager : MonoBehaviour
         }
         keywords = currKeys;
         values = currValues;
-        Debug.Log("Keywords: " );
+        /*Debug.Log("Keywords: " );
         foreach(SpecialKeyword k in currKeys) {
             Debug.Log(k);
         }
         Debug.Log("Values: " );
         foreach(int v in currValues) {
             Debug.Log(v);
-        }
+        }*/
         SpecialKeyword effectType = keywords[0];
 
         switch(effectType) {
