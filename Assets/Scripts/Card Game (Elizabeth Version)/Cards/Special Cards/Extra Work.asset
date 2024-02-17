@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1ca1c77e5dbee41bef96edb6e284ca, type: 3}
   m_Name: Extra Work
   m_EditorClassIdentifier: 
-  name: 
+  name: Extra Work
   artwork: {fileID: 21300000, guid: c984de9308a99934e8535dcd8c39211c, type: 3}
-  description: 
-  keywords: 
-  values: 
+  description: If your opponent flipped a card, they draw a number card.
+  keywords: 040000001000000006000000140000000200000006000000070000001500000000000000
+  values: ffffffff01000000

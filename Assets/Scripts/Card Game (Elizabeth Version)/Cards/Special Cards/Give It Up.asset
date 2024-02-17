@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1ca1c77e5dbee41bef96edb6e284ca, type: 3}
   m_Name: Give It Up
   m_EditorClassIdentifier: 
-  name: 
+  name: Give It Up
   artwork: {fileID: 21300000, guid: c984de9308a99934e8535dcd8c39211c, type: 3}
-  description: 
-  keywords: 
-  values: 
+  description: If you have a negative card, your opponent must discard a special
+    card.
+  keywords: 040000000c000000050000000a0000001400000003000000060000000800000015000000040000000c000000050000000a0000001400000003000000060000000800000015000000040000000c000000060000000a000000140000000300000006000000080000001500000000000000
+  values: feffffff0100000001000000fdffffff0100000001000000fcffffff0100000001000000

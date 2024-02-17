@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1ca1c77e5dbee41bef96edb6e284ca, type: 3}
   m_Name: Backstab Swap
   m_EditorClassIdentifier: 
-  name: 
+  name: Backstab Swap
   artwork: {fileID: 21300000, guid: c984de9308a99934e8535dcd8c39211c, type: 3}
-  description: 
-  keywords: 
-  values: 
+  description: If your opponent swapped out a card, give them -2 if they're under
+    the target value, otherwise give them +2.
+  keywords: 040000000f00000006000000150000000000000014000000040000001300000006000000140000000100000006000000150000000100000006000000
+  values: ffffffffffffffff02000000feffffff

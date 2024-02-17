@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1ca1c77e5dbee41bef96edb6e284ca, type: 3}
   m_Name: Thick Woolen Coat
   m_EditorClassIdentifier: 
-  name: 
+  name: Thick Woolen Coat
   artwork: {fileID: 21300000, guid: c984de9308a99934e8535dcd8c39211c, type: 3}
-  description: 
-  keywords: 
-  values: 
+  description: Give yourself -2
+  keywords: 0100000005000000
+  values: feffffff
