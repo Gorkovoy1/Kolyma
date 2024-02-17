@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed1ca1c77e5dbee41bef96edb6e284ca, type: 3}
-  m_Name: In Cahoots
+  m_Name: Weakness
   m_EditorClassIdentifier: 
-  name: In Cahoots
+  name: 
   artwork: {fileID: 21300000, guid: c984de9308a99934e8535dcd8c39211c, type: 3}
-  description: Give both players +4
-  cardClass: 5
-  keywords: 010000000500000006000000
-  values: 0400000004000000
+  description: 
+  keywords: 
+  values: 

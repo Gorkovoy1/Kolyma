@@ -76,6 +76,7 @@ public enum SpecialKeyword {
     CON_FLIP_FLAG,
     CON_TRANSFER_FLAG,
     CON_CARD_QUANTITY,
+    CON_COMPARE_AGAINST_TARGET,
     SUCCESS_PATH,
     FAILURE_PATH,
 
