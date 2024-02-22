@@ -402,7 +402,7 @@ MonoBehaviour:
   playerRoundToggle: {fileID: 226165763}
   opponentRoundToggle: {fileID: 720452549}
   board: {fileID: 1961323044}
-  offset: 6
+  offset: 7
 --- !u!4 &502440818
 Transform:
   m_ObjectHideFlags: 0

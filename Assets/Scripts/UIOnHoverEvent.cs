@@ -6,10 +6,12 @@ using UnityEngine.EventSystems;
 
 public class UIOnHoverEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    Vector3 cachedScale;
-    Vector3 cachedPosition;
+    private Canvas tempCanvas;
+    private GraphicRaycaster tempRaycaster;
     public CardGameManager gm;
     private DisplayCard card;
+    Vector3 cachedPosition;
+    Vector3 cachedScale;
 
     
 
@@ -24,7 +26,12 @@ public class UIOnHoverEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         card = gameObject.GetComponent<DisplayCard>();
         
-        if(card != null && card.baseCard is SpecialDeckCard && card.owner == gm.player) {
+        if(card != null && card.baseCard is SpecialDeckCard && card.owner == gm.player) 
+        {
+            tempCanvas = gameObject.AddComponent<Canvas>();
+            tempCanvas.overrideSorting = true;
+            tempCanvas.sortingOrder = 1;
+            tempRaycaster = gameObject.AddComponent<GraphicRaycaster>();
             cachedScale = transform.localScale;
             cachedPosition = transform.localPosition;
 
@@ -32,10 +39,6 @@ public class UIOnHoverEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + 60, transform.localPosition.z);
             gameObject.GetComponent<DisplayCard>().ToggleHover();
         }
-        //transform.position += Vector3.up;
-        //transform.localPosition = new Vector3(transform.localPosition.x, 200, transform.localPosition.z);
-        //i think the issue is that its parented
-
         //Debug.Log("enter");
     }
 
@@ -45,7 +48,10 @@ public class UIOnHoverEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public void OnPointerExit(PointerEventData eventData)
     {
 
-        if(card != null && card.baseCard is SpecialDeckCard && card.owner == gm.player) {
+         if(card != null && card.baseCard is SpecialDeckCard && card.owner == gm.player) {
+            Destroy(tempRaycaster);
+            Destroy(tempCanvas);
+            
 
             transform.localScale = cachedScale;
             transform.localPosition = cachedPosition;
