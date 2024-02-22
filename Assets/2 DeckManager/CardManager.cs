@@ -14,12 +14,17 @@ public class CardManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     private Image imageComponent;
     private Material originalMaterial; // Store the original material to revert back
 
+    
+
     void Start()
     {
         description.SetActive(false);
         imageComponent = GetComponent<Image>();
         originalMaterial = imageComponent.material;
+
     }
+
+    
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -35,4 +40,6 @@ public class CardManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         description.SetActive(false);
         GetComponent<Image>().material = normal;
     }
+
+    
 }
