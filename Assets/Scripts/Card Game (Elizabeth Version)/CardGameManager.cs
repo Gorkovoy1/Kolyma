@@ -88,10 +88,10 @@ public class CardGameManager : MonoBehaviour
     public Toggle opponentRoundToggle;
     public Transform board;
     public int offset;
-    private int playerPos = 0;
-    private int negPos;
-    private int opponentPos = 0;
-    private int opponentNegPos;
+    private float playerPos = 0f;
+    private float negPos;
+    private float opponentPos = 0f;
+    private float opponentNegPos;
     private EventSystem eventSystem;
 
 
@@ -239,8 +239,8 @@ public class CardGameManager : MonoBehaviour
                     state = State.ENDGAME;
                 }
                 else{
-                    playerPos = 0;
-                    opponentPos = 0;
+                    playerPos = 0f;
+                    opponentPos = 0f;
                     playerNegativeCardsValues.Clear();
                     opponentNegativeCardsValues.Clear();
                     playerNegativeCards.Clear();
@@ -319,13 +319,18 @@ public class CardGameManager : MonoBehaviour
 
     void PlaceCard(GameObject card, CardGameCharacter target, int value)
     {
+        Vector2 topRightCorner = new Vector2(1, 1);
+        Vector2 edgeVector = Camera.main.ViewportToWorldPoint(topRightCorner);
+        int screenWidth = (int) edgeVector.x * 2;
+
+        int screenHeight = (int) edgeVector.y * 2;
         if(target == player)
         {
             card.transform.SetParent(board);
             if(value>0)
             {
                 card.transform.localPosition = new Vector3(playerPos, -60, 0);
-                playerPos = playerPos + value*offset;
+                playerPos = playerPos + value*(screenWidth*offset/1000);
 
             }
             else{
@@ -340,7 +345,7 @@ public class CardGameManager : MonoBehaviour
             if(value>0)
             {
                 card.transform.localPosition = new Vector3(opponentPos, 150, 0);
-                opponentPos = opponentPos + value*offset;
+                opponentPos = opponentPos + value*(screenWidth*offset/800);
             }
             else{
                 opponentNegativeCards.Add(card);
@@ -355,7 +360,7 @@ public class CardGameManager : MonoBehaviour
         
     }
 
-    void PlaceNegativeCard(List<GameObject> negativeCards, List<int> negativeCardsValues, int pos, CardGameCharacter target)
+    void PlaceNegativeCard(List<GameObject> negativeCards, List<int> negativeCardsValues, float pos, CardGameCharacter target)
     {
         int x = 0;
         if(target == player)
