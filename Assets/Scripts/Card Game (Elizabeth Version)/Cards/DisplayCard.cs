@@ -15,9 +15,11 @@ public class DisplayCard : MonoBehaviour
     [SerializeField] private TMP_Text description;
     [SerializeField] private int value;
     [SerializeField] private GameObject selectionEffect;
+    [SerializeField] private GameObject tooltip;
 
     void Start() {
         selectionEffect.SetActive(false);
+        tooltip.SetActive(false);
     }
     void Update() {
         if(baseCard != null) {
@@ -62,5 +64,8 @@ public class DisplayCard : MonoBehaviour
 
     public void ToggleSelected() {
         selectionEffect.SetActive(!selectionEffect.activeSelf);
+    }
+    public void ToggleHover() {
+        tooltip.SetActive(!tooltip.activeSelf);
     }
 }

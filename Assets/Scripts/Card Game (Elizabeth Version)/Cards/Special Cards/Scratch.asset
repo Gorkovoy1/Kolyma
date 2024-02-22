@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Scratch
   m_EditorClassIdentifier: 
   name: Scratch
-  artwork: {fileID: 21300000, guid: c984de9308a99934e8535dcd8c39211c, type: 3}
+  artwork: {fileID: 21300000, guid: 4e6287db47f618a47bd20d00a04e23e2, type: 3}
   description: If your opponent gave you a card, they discard a special card.
   keywords: 040000001100000006000000140000000300000006000000080000001500000000000000
   values: ffffffff01000000

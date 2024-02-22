@@ -30,6 +30,7 @@ public class UIOnHoverEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
             transform.localScale = new Vector3(0.2f, 0.2f, 0.5f);
             transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + 60, transform.localPosition.z);
+            gameObject.GetComponent<DisplayCard>().ToggleHover();
         }
         //transform.position += Vector3.up;
         //transform.localPosition = new Vector3(transform.localPosition.x, 200, transform.localPosition.z);
@@ -48,6 +49,7 @@ public class UIOnHoverEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
             transform.localScale = cachedScale;
             transform.localPosition = cachedPosition;
+            gameObject.GetComponent<DisplayCard>().ToggleHover();
         }
         
         //Debug.Log("exit");
