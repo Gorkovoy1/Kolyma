@@ -326,9 +326,9 @@ public class CardGameManager : MonoBehaviour
     {
         Vector2 topRightCorner = new Vector2(1, 1);
         Vector2 edgeVector = Camera.main.ViewportToWorldPoint(topRightCorner);
-        int screenWidth = (int) edgeVector.x * 2;
+        int screenWidth = Screen.width;
 
-        int screenHeight = (int) edgeVector.y * 2;
+        int screenHeight = Screen.height;
 
         offset = (screenWidth/offsetInteger)*51/128;
         scaleNumber = (screenWidth/offsetInteger);
@@ -394,6 +394,14 @@ public class CardGameManager : MonoBehaviour
     void DrawSpecialCards(CardGameCharacter target, int specialCards) {
         /*NYI
         draw specified number of cards from each deck and put it in target's hand */
+        Vector2 topRightCorner = new Vector2(1, 1);
+        Vector2 edgeVector = Camera.main.ViewportToWorldPoint(topRightCorner);
+        int screenWidth = Screen.width;
+
+        int screenHeight = Screen.height;
+
+        float scaleFactor = Mathf.Min(screenWidth, screenHeight) * 0.0002f;
+
         for(int i = 0; i < specialCards; i ++) {
             if(target.deck.Count == 0) {
                 Debug.Log(target.name + " is out of cards!");
@@ -407,9 +415,12 @@ public class CardGameManager : MonoBehaviour
             newCardDisplay.owner = target;
             newCardDisplay.baseCard = newCard;
             if(target == player) {
+                
+                newCardVisual.transform.localScale = new Vector3 (scaleFactor, scaleFactor, scaleFactor);
                 newCardVisual.transform.SetParent(playerHandTransform);
             }
             else {
+                newCardVisual.transform.localScale =  new Vector3 (scaleFactor, scaleFactor, scaleFactor);
                 newCardVisual.transform.SetParent(opponentHandTransform);
             }
             activeCardVisuals.Add(newCardDisplay);
