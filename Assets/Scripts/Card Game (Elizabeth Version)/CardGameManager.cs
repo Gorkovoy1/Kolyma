@@ -95,6 +95,10 @@ public class CardGameManager : MonoBehaviour
     private EventSystem eventSystem;
 
 
+    public int offsetInteger;
+    public int scaleInteger; 
+    public float scaleNumber;
+
     // Awake called before Start as soon as loaded into scene
     void Awake() {
         state = State.INIT;
@@ -105,6 +109,7 @@ public class CardGameManager : MonoBehaviour
     {
         eventSystem = EventSystem.current;
         
+
     }
 
     // Update is called once per frame
@@ -324,13 +329,18 @@ public class CardGameManager : MonoBehaviour
         int screenWidth = (int) edgeVector.x * 2;
 
         int screenHeight = (int) edgeVector.y * 2;
+
+        offset = (screenWidth/offsetInteger)*51/128;
+        scaleNumber = (screenWidth/offsetInteger);
+
         if(target == player)
         {
             card.transform.SetParent(board);
             if(value>0)
             {
+                card.transform.localScale = new Vector3 (3/scaleNumber, 3/scaleNumber, 3/scaleNumber);
                 card.transform.localPosition = new Vector3(playerPos, -60, 0);
-                playerPos = playerPos + value*(screenWidth*offset/1000);
+                playerPos = playerPos + value*offset;
 
             }
             else{
@@ -344,8 +354,11 @@ public class CardGameManager : MonoBehaviour
             card.transform.SetParent(board);
             if(value>0)
             {
+                Debug.Log(screenHeight);
+                Debug.Log(screenWidth);
+                card.transform.localScale = new Vector3 (3/scaleNumber, 3/scaleNumber, 3/scaleNumber);
                 card.transform.localPosition = new Vector3(opponentPos, 150, 0);
-                opponentPos = opponentPos + value*(screenWidth*offset/800);
+                opponentPos = opponentPos + value*offset;
             }
             else{
                 opponentNegativeCards.Add(card);
@@ -372,7 +385,7 @@ public class CardGameManager : MonoBehaviour
         }
         for(int i = 0; i < negativeCards.Count; i++)
         {
-            
+            negativeCards[i].transform.localScale = new Vector3 (3/scaleNumber, 3/scaleNumber, 3/scaleNumber);
             negativeCards[i].transform.localPosition = new Vector3(pos, x, 0);
             pos = pos + negativeCardsValues[i]*offset;
         }
