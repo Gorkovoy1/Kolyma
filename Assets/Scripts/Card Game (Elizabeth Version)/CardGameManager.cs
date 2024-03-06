@@ -333,13 +333,16 @@ public class CardGameManager : MonoBehaviour
         offset = (screenWidth/offsetInteger)*51/128;
         scaleNumber = (screenWidth/offsetInteger);
 
+        //note since its 3/scaleNumber, if screensize is tiny then the cards are super large - bugproof this
+        //also find a way to unify scaling based on maybe ratio of width vs height so that everything scales consistently?
+
         if(target == player)
         {
             card.transform.SetParent(board);
             if(value>0)
             {
                 card.transform.localScale = new Vector3 (3/scaleNumber, 3/scaleNumber, 3/scaleNumber);
-                card.transform.localPosition = new Vector3(playerPos, -60, 0);
+                card.transform.localPosition = new Vector3(playerPos, screenHeight/7, 0);
                 playerPos = playerPos + value*offset;
 
             }
@@ -348,7 +351,7 @@ public class CardGameManager : MonoBehaviour
                 playerNegativeCardsValues.Add(value);
             }
             
-        } //-60 -170 150 40
+        } 
         else
         {
             card.transform.SetParent(board);
@@ -357,7 +360,7 @@ public class CardGameManager : MonoBehaviour
                 Debug.Log(screenHeight);
                 Debug.Log(screenWidth);
                 card.transform.localScale = new Vector3 (3/scaleNumber, 3/scaleNumber, 3/scaleNumber);
-                card.transform.localPosition = new Vector3(opponentPos, 150, 0);
+                card.transform.localPosition = new Vector3(opponentPos, -(screenHeight/14), 0);
                 opponentPos = opponentPos + value*offset;
             }
             else{
@@ -365,9 +368,9 @@ public class CardGameManager : MonoBehaviour
                 opponentNegativeCardsValues.Add(value);
             }
         }
-
-        negPos = playerPos - 10*offset;
-        opponentNegPos = opponentPos - 10*offset;
+        int cardSize = screenWidth/170;
+        negPos = playerPos - cardSize*offset;
+        opponentNegPos = opponentPos - cardSize*offset;
         PlaceNegativeCard(playerNegativeCards, playerNegativeCardsValues, negPos, player);
         PlaceNegativeCard(opponentNegativeCards, opponentNegativeCardsValues, opponentNegPos, opponent);
         
@@ -376,12 +379,14 @@ public class CardGameManager : MonoBehaviour
     void PlaceNegativeCard(List<GameObject> negativeCards, List<int> negativeCardsValues, float pos, CardGameCharacter target)
     {
         int x = 0;
+        int screenHeight = Screen.height;
+        int screenWidth = Screen.width;
         if(target == player)
         {
-            x = -170;
+            x = (screenHeight/14);
         }
         else{
-            x = 40;
+            x = -(screenHeight/7);
         }
         for(int i = 0; i < negativeCards.Count; i++)
         {
@@ -400,7 +405,7 @@ public class CardGameManager : MonoBehaviour
 
         int screenHeight = Screen.height;
 
-        float scaleFactor = Mathf.Min(screenWidth, screenHeight) * 0.0002f;
+        float scaleFactor = Mathf.Min(screenWidth, screenHeight) * 0.00025f;
 
         for(int i = 0; i < specialCards; i ++) {
             if(target.deck.Count == 0) {
