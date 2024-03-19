@@ -209,12 +209,12 @@ public class CardGameManager : MonoBehaviour
                 if(prevState == State.PLAYERTURN && !opponentEndRound) {
                     DrawSpecialCards(opponent, 1); 
                     state = State.OPPONENTTURN;
-                    player.discardFlag = false;
+                    opponent.FlushFlags();
                 }
                 else if(prevState == State.OPPONENTTURN && !playerEndRound){
                     DrawSpecialCards(player, 1);
                     state = State.PLAYERTURN;
-                    opponent.discardFlag = false;
+                    player.FlushFlags();
                 }
                 break;
             case State.SELECTCARDS:
@@ -357,8 +357,8 @@ public class CardGameManager : MonoBehaviour
             card.transform.SetParent(board);
             if(value>0)
             {
-                Debug.Log(screenHeight);
-                Debug.Log(screenWidth);
+                //Debug.Log(screenHeight);
+                //Debug.Log(screenWidth);
                 card.transform.localScale = new Vector3 (3/scaleNumber, 3/scaleNumber, 3/scaleNumber);
                 card.transform.localPosition = new Vector3(opponentPos, -(screenHeight/14), 0);
                 opponentPos = opponentPos + value*offset;
@@ -534,10 +534,23 @@ public class CardGameManager : MonoBehaviour
             }
             yield return null;
         }
+
+        //this is the place to add what to do with the cards once all the cards have been selected
         switch(selectionPurpose) {
             case SpecialKeyword.EFFECT_DISCARD:
                 foreach(DisplayCard card in selectedCards) {
                     DiscardCard(card);
+                }
+                break;
+            case SpecialKeyword.EFFECT_TRANSFER:
+                foreach(DisplayCard card in selectedCards) {
+                    if(setupPlayerUI) {
+                        card.ToggleSelected();
+                        TransferCard(card, player, opponent);
+                    }
+                    else {
+                        TransferCard(card, opponent, player);
+                    }
                 }
                 break;
         }
@@ -566,6 +579,7 @@ public class CardGameManager : MonoBehaviour
         else {
             opponentTarget = opponent;
         }
+        display.owner.playFlag = true;
         //do the decision tree (separate function because i forsee this eventually using recursion)
         ExecuteCardEffect(keywords, values, playerTarget, opponentTarget);
     }
@@ -649,6 +663,7 @@ public class CardGameManager : MonoBehaviour
             to.numberHand.Add(castedBase);
             PlaceCard(display.gameObject, to, castedBase.value);
         }
+        Debug.Log(from.name + " gave " + display.baseCard.name + " to " +to.name);
     }
 
     //Very PROTOTYPE version of the card decision tree
@@ -737,8 +752,25 @@ public class CardGameManager : MonoBehaviour
                 keywords[1 -> 2nd to last item] = the discard target
                 values[0] = # to discard.
                 
-                done in a coroutine and selectcards state to allow everyone to select their cards which may take multiple framesit is presently set up 
-                only to work if there is only one card type that needs discarding*/
+                done in a coroutine and selectcards state to allow time to select their cards which may take multiple frames*/
+                for(int i = 1; i < keywords.Count - 1; i++ ) {
+                    if(keywords[i] == SpecialKeyword.TARGET_PLAYER) {
+                        CardSelectSettings newSettings = new CardSelectSettings(values[i-1], keywords[keywords.Count -1], keywords[0], playerTarget == player);
+                        cardSelectStack.Push(newSettings);
+                    }
+                    else{
+                        CardSelectSettings newSettings = new CardSelectSettings(values[i-1], keywords[keywords.Count -1], keywords[0], !playerTarget == player);
+                        cardSelectStack.Push(newSettings);
+                    }
+                }
+            break;
+            case SpecialKeyword.EFFECT_TRANSFER:
+                /*EFFECT_TRANSFER ANTICIPATED SYNTAX
+                keywords[2] = type of card to transfer
+                keywords[1] = the transfer target
+                values[0] = # to discard.
+                
+                done in a coroutine and selectcards state to allow time to select their cards which may take multiple frames*/
                 for(int i = 1; i < keywords.Count - 1; i++ ) {
                     if(keywords[i] == SpecialKeyword.TARGET_PLAYER) {
                         CardSelectSettings newSettings = new CardSelectSettings(values[i-1], keywords[keywords.Count -1], keywords[0], playerTarget == player);

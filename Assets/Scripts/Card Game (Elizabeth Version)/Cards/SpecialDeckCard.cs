@@ -79,7 +79,7 @@ public enum SpecialKeyword {
     CON_COMPARE_AGAINST_TARGET,
     SUCCESS_PATH,
     FAILURE_PATH,
-
+    EFFECT_TRANSFER,
 
 };
 
