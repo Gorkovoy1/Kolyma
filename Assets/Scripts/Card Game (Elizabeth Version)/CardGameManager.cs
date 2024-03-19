@@ -698,10 +698,10 @@ public class CardGameManager : MonoBehaviour
                         DrawSpecialCards(playerTarget, values[i-1]);
                     }
                     else if(keywords[i] == SpecialKeyword.TARGET_PLAYER && cardType == SpecialKeyword.TYPE_NUMBER){
-                        Debug.Log("drawing number cards NYI");
+                        DrawNumberCards(playerTarget, values [i-1]);
                     }
                     else if(keywords[i] == SpecialKeyword.TARGET_OPPONENT && cardType == SpecialKeyword.TYPE_NUMBER){
-                        Debug.Log("drawing number cards NYI");
+                        DrawNumberCards(opponentTarget, values [i-1]);
                     }
                     else if(keywords[i] == SpecialKeyword.TARGET_OPPONENT && cardType == SpecialKeyword.TYPE_SPECIAL){
                         DrawSpecialCards(opponentTarget, values[i-1]);
