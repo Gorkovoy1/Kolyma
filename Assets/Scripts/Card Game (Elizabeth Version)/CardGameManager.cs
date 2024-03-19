@@ -629,6 +629,28 @@ public class CardGameManager : MonoBehaviour
         selectionConfirmation = true;
     }
 
+    public void TransferCard(DisplayCard display, CardGameCharacter from, CardGameCharacter to) {
+        display.owner = to;
+        from.transferFlag = true;
+        if(display.baseCard is SpecialDeckCard) {
+            SpecialDeckCard castedBase = (SpecialDeckCard) display.baseCard;
+            from.hand.Remove(castedBase);
+            to.hand.Add(castedBase);
+            if(to == opponent) {
+                display.transform.SetParent(opponentHandTransform);
+            }
+            else {
+                display.transform.SetParent(playerHandTransform);
+            }
+        }
+        else{
+            NumberCard castedBase = (NumberCard) display.baseCard;
+            from.numberHand.Remove(castedBase);
+            to.numberHand.Add(castedBase);
+            PlaceCard(display.gameObject, to, castedBase.value);
+        }
+    }
+
     //Very PROTOTYPE version of the card decision tree
     void ExecuteCardEffect(List<SpecialKeyword> keywords, List<int> values, CardGameCharacter playerTarget, CardGameCharacter opponentTarget) {
         List<SpecialKeyword> currKeys = new List<SpecialKeyword>();
