@@ -306,24 +306,26 @@ public class CardGameManager : MonoBehaviour
             NumberCard newCard = numberDeck[0];
             target.numberHand.Add(newCard);
             numberDeck.Remove(newCard);
-            GameObject newCardVisual = Instantiate(cardVisualPrefab);
-            DisplayCard newCardDisplay = newCardVisual.GetComponent<DisplayCard>();
+            DisplayCard newCardDisplay = Instantiate(cardVisualPrefab).GetComponent<DisplayCard>();
             newCardDisplay.owner = target;
             newCardDisplay.baseCard = newCard;
             if(target == player) {
-                PlaceCard(newCardVisual, target, newCard.value);
+                PlaceCard(newCardDisplay, target);
                 player.currValue += newCard.value;
             }
             else {
-                PlaceCard(newCardVisual, target, newCard.value);
+                PlaceCard(newCardDisplay, target);
                 opponent.currValue += newCard.value;
             }
             activeCardVisuals.Add(newCardDisplay);
        } 
     }
 
-    void PlaceCard(GameObject card, CardGameCharacter target, int value)
+    void PlaceCard(DisplayCard card, CardGameCharacter target)
     {
+        NumberCard numberCardDataAsset = (NumberCard) card.baseCard;
+        int value = numberCardDataAsset.value;
+        //card.NumberAnchor will give you the location of the transform anchor from the prefab
         Vector2 topRightCorner = new Vector2(1, 1);
         Vector2 edgeVector = Camera.main.ViewportToWorldPoint(topRightCorner);
         int screenWidth = Screen.width;
@@ -341,30 +343,30 @@ public class CardGameManager : MonoBehaviour
             card.transform.SetParent(board);
             if(value>0)
             {
-                card.transform.localScale = new Vector3 (3/scaleNumber, 3/scaleNumber, 3/scaleNumber);
-                card.transform.localPosition = new Vector3(playerPos, screenHeight/7, 0);
+                card.gameObject.transform.localScale = new Vector3 (3/scaleNumber, 3/scaleNumber, 3/scaleNumber);
+                card.gameObject.transform.localPosition = new Vector3(playerPos, screenHeight/7, 0);
                 playerPos = playerPos + value*offset;
 
             }
             else{
-                playerNegativeCards.Add(card);
+                playerNegativeCards.Add(card.gameObject);
                 playerNegativeCardsValues.Add(value);
             }
             
         } 
         else
         {
-            card.transform.SetParent(board);
+            card.gameObject.transform.SetParent(board);
             if(value>0)
             {
                 //Debug.Log(screenHeight);
                 //Debug.Log(screenWidth);
-                card.transform.localScale = new Vector3 (3/scaleNumber, 3/scaleNumber, 3/scaleNumber);
-                card.transform.localPosition = new Vector3(opponentPos, -(screenHeight/14), 0);
+                card.gameObject.transform.localScale = new Vector3 (3/scaleNumber, 3/scaleNumber, 3/scaleNumber);
+                card.gameObject.transform.localPosition = new Vector3(opponentPos, -(screenHeight/14), 0);
                 opponentPos = opponentPos + value*offset;
             }
             else{
-                opponentNegativeCards.Add(card);
+                opponentNegativeCards.Add(card.gameObject);
                 opponentNegativeCardsValues.Add(value);
             }
         }
@@ -661,7 +663,7 @@ public class CardGameManager : MonoBehaviour
             NumberCard castedBase = (NumberCard) display.baseCard;
             from.numberHand.Remove(castedBase);
             to.numberHand.Add(castedBase);
-            PlaceCard(display.gameObject, to, castedBase.value);
+            PlaceCard(display, to);
         }
         Debug.Log(from.name + " gave " + display.baseCard.name + " to " +to.name);
     }
