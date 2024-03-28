@@ -6,7 +6,6 @@ using System.Linq;
 
 public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-
     private GameObject discard, playZone;
     private Transform parentReturnTo;
     private CardGameManager manager;

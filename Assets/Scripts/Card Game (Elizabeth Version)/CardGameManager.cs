@@ -5,6 +5,22 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
+public struct CardSelectSettings
+{
+    public readonly int numCards { get; }
+    public readonly SpecialKeyword cardType { get; }
+    public readonly SpecialKeyword selectionPurpose { get; }
+    public readonly bool setupPlayerUI { get; }
+
+    public CardSelectSettings(int n, SpecialKeyword c, SpecialKeyword s, bool p)
+    {
+        numCards = n;
+        cardType = c;
+        selectionPurpose = s;
+        setupPlayerUI = p;
+    }
+}
+
 public class CardGameManager : MonoBehaviour
 {
 
@@ -23,19 +39,6 @@ public class CardGameManager : MonoBehaviour
         PAUSED //player has paused the game- this'll mean something when there's a pause menu. enter and exit this state to basically pause the game.
     };
 
-   private struct CardSelectSettings{
-        public readonly int numCards {get;}
-        public readonly SpecialKeyword cardType{get;}
-        public readonly SpecialKeyword selectionPurpose{get;}
-        public readonly bool setupPlayerUI{get;}
-
-        public CardSelectSettings(int n, SpecialKeyword c, SpecialKeyword s, bool p){
-            numCards = n;
-            cardType = c;
-            selectionPurpose = s;
-            setupPlayerUI = p;
-        }
-    }
 
     [Header("Card Game Info")]
     //This class manages the card game. It is designed to attach to the card game scene and load and run one card game from start to finish.
@@ -53,10 +56,10 @@ public class CardGameManager : MonoBehaviour
 
     public int bet = 5; //amt bet on game
 
-    private int targetValue; //target value to win a round
-   
+    public int targetValue; //target value to win a round
+
     private bool roundOver = false; //becomes true when someone meets or exceeds target value.
-    public State state; //current state
+    public State state = State.INIT; //current state
     private State prevState; //record which state we were in before we paused so we can go back to it
     private bool opponentEndRound, playerEndRound;
 
@@ -71,13 +74,14 @@ public class CardGameManager : MonoBehaviour
     private List<GameObject> playerNegativeCards = new List<GameObject>();
     private List<GameObject> opponentNegativeCards = new List<GameObject>();
     private List<int> playerNegativeCardsValues = new List<int>();
-    private List<int> opponentNegativeCardsValues= new List<int>();
+    private List<int> opponentNegativeCardsValues = new List<int>();
     private bool selectCoroutineRunning = false;
-    private Stack<CardSelectSettings> cardSelectStack = new Stack<CardSelectSettings>();
+    public Stack<CardSelectSettings> cardSelectStack = new Stack<CardSelectSettings>();
 
     [Header("UI References")] //references to all the UI elements in the scene
     public GameObject cardVisualPrefab;
     public GameObject endTurnButton, selectConfirmButton;
+    public Transform OpponentCardZone, PlayerCardZone, NegativeCardZone;
     public Transform panelTransform;
     public Transform playerHandTransform;
     public Transform opponentHandTransform;
@@ -92,209 +96,277 @@ public class CardGameManager : MonoBehaviour
     private float negPos;
     private float opponentPos = 0f;
     private float opponentNegPos;
-    private EventSystem eventSystem;
 
 
     public int offsetInteger;
-    public int scaleInteger; 
+    public int scaleInteger;
     public float scaleNumber;
 
-    // Awake called before Start as soon as loaded into scene
-    void Awake() {
-        state = State.INIT;
-    }
+    public static CardGameManager Instance;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        eventSystem = EventSystem.current;
-        
-
+        Instance = this;
     }
 
     // Update is called once per frame
     void Update()
     {
         //Update curr value text and such every frame because its easier to just do it here
-        opponentSumText.text = opponent.name + " CURR VALUE: " + opponent.currValue;
-        playerSumText.text = player.name + " CURR VALUE: " + player.currValue;
+        /* Very Inefficient! UI rendering updates are costly in Unity. You should keep them to a minimum */
 
         //update selection confirmation button
-        selectConfirmButton.SetActive(enableSelectionConfirmButton); 
+        selectConfirmButton.SetActive(enableSelectionConfirmButton);
 
         //check if we need to be selecting cards because a selection event is queued
-        if(cardSelectStack.Count > 0 && state != State.SELECTCARDS) {
+        if (cardSelectStack.Count > 0 && state != State.SELECTCARDS) {
             prevState = state;
             state = State.SELECTCARDS;
         }
 
         //Ye Olde Turn Manager State Machine
+        /*Most of these probably shouldn't be in Update*/
         switch (state) {
             case State.INIT:
-                //loading tasks go here
-                player.FlushGameplayVariables();
-                opponent.FlushGameplayVariables();
-                opponentRoundToggle.isOn = false;
-                playerRoundToggle.isOn = false;
-                state = State.STARTGAME;
+                Init();
                 break;
 
             case State.STARTGAME:
-                /*NYI
-                display option to double bet
-                if(betDoubled) {
-                    bet = 10;
-                }*/
-                foreach(SpecialDeckCard card in player.deckList) {
-                    player.deck.Add(card);
-                }
-                foreach(SpecialDeckCard card in opponent.deckList) {
-                    opponent.deck.Add(card);
-                }
-                state = State.STARTROUND;
+                StartGame();
                 break;
 
             case State.STARTROUND:
-                playerEndRound = false;
-                opponentEndRound = false;
-                discardPile.Clear();
-                ShuffleCards(player.deck);
-                ShuffleCards(opponent.deck);
-                ShuffleCards(numberDeck);
-                DrawSpecialCards(opponent, 6);
-                DrawSpecialCards(player,6);
-                DrawNumberCards(opponent, 4);
-                DrawNumberCards(player, 4);
-                roundCount += 1;
-                targetValue = Random.Range(1,7) + Random.Range(1,7) + Random.Range(1,7) + Random.Range(1,7);
-                targetValueText.text = "TARGET VALUE: " + targetValue;
-                selectionConfirmation = false;
-                state = State.PLAYERTURN;
-                /*//roll dice - two for each player
-                //if player dice higher, state = State.PLAYERTURN;
-                //if opponent dice higher, state = State.OPPONENTTURN;
-                int playerTotal = 0;
-                int opponentTotal = 0;
-                while(playerTotal == opponentTotal) {
-                    playerTotal = Random.Range(1, 7) + Random.Range(1, 7);
-                    opponentTotal = Random.Range(1,7) + Random.Range(1, 7);
-                }
-
-                if(opponentTotal > playerTotal) {
-                    state = State.OPPONENTTURN;
-                }
-                else {
-                    state = State.PLAYERTURN;
-                }*/
+                StartRound();
                 break;
 
             case State.PLAYERTURN:
-                /*NYI
-                Take input and perform actions for player turn. swap to end turn when clicking end turn button.
-                */
-                //player plays one special card OR uses their action AND may swap out one of their cards from their hand - they can also pass
-                playerEndRound = playerRoundToggle.isOn;
-                opponentEndRound = opponentRoundToggle.isOn;
+                PlayerTurn();
                 break;
 
             case State.OPPONENTTURN:
-                //use AI to choose best action - sift through if opp closer or player closer, if better to attack or defend
-                ButtonEndTurn(); //AI NYI so just skip turn for now.
+                OpponentTurn();
                 break;
 
             case State.ENDTURN:
-                if(playerEndRound && opponentEndRound) {
-                    state = State.ENDROUND;
-                }
-                if(prevState == State.PLAYERTURN && !opponentEndRound) {
-                    DrawSpecialCards(opponent, 1); 
-                    state = State.OPPONENTTURN;
-                    player.discardFlag = false;
-                }
-                else if(prevState == State.OPPONENTTURN && !playerEndRound){
-                    DrawSpecialCards(player, 1);
-                    state = State.PLAYERTURN;
-                    opponent.discardFlag = false;
-                }
+                EndTurn();
                 break;
             case State.SELECTCARDS:
-                //this state mostly exists to lock the player out of performing unwanted actions and acknowledge to the rest of the system that the player is in the
-                //middle of picking a card for some purpose.   
-                if(!selectCoroutineRunning && cardSelectStack.Count > 0) {
-                    CardSelectSettings curr = cardSelectStack.Pop();
-                    StartCoroutine(SelectCard(curr.numCards, curr.cardType, curr.selectionPurpose, curr.setupPlayerUI));
-                } 
+                SelectCard();
                 break;
 
             case State.ENDROUND:
-                Debug.Log("End round");
-                if(Mathf.Abs(targetValue - player.currValue) < Mathf.Abs(targetValue - opponent.currValue)) {
-                    Debug.Log(player.name + " won this round");
-                    playerPoints += 1;
-                }
-                else if(Mathf.Abs(targetValue - player.currValue) > Mathf.Abs(targetValue - opponent.currValue)) {
-                    Debug.Log(opponent.name + " won this round");
-                    opponentPoints += 1;
-                }
-                else {
-                    Debug.Log("This round was a tie with no victor");
-                }
-
-                if(playerPoints >= 2 || opponentPoints >= 2 || roundCount >= 3) {
-                    state = State.ENDGAME;
-                }
-                else{
-                    playerPos = 0f;
-                    opponentPos = 0f;
-                    playerNegativeCardsValues.Clear();
-                    opponentNegativeCardsValues.Clear();
-                    playerNegativeCards.Clear();
-                    opponentNegativeCards.Clear();
-                    foreach(DisplayCard card in activeCardVisuals) {
-                        if(card.baseCard is NumberCard) {
-                            numberDeck.Add((NumberCard) card.baseCard);
-                        }
-                        Destroy(card.gameObject);
-                    }
-                    activeCardVisuals.Clear();
-                    discardPile.Clear();
-                    player.FlushGameplayVariables();
-                    opponent.FlushGameplayVariables();
-                    foreach(SpecialDeckCard card in player.deckList) {
-                        player.deck.Add(card);
-                    }
-                    foreach(SpecialDeckCard card in opponent.deckList) {
-                        opponent.deck.Add(card);
-                    }
-                    playerRoundToggle.isOn = false;
-                    opponentRoundToggle.isOn = false;
-                    Debug.Log("New Round");
-                    state = State.STARTROUND;
-                }
+                EndRound();
                 break;
 
             case State.ENDGAME:
-                if(!printed) {
-                    Debug.Log("Game over!");
-                    if(playerPoints >= 2) {
-                        Debug.Log("winner is " + player.name);
-                    }
-                    else{
-                        Debug.Log("winner is " + opponent.name);
-                    }
-                    printed = true;
-                }
-                /*NYI
-                transfer out of card game scene and record winner of match in game data */
+                EndGame();
                 break;
 
             case State.PAUSED:
-                /*NYI
-                if(exit pause menu) {
-                    state = prevState;
-                }*/
+                Paused();
                 break;
         }
+    }
+
+    void Init()
+    {
+        //loading tasks go here
+        player.FlushGameplayVariables();
+        opponent.FlushGameplayVariables();
+        opponentRoundToggle.isOn = false;
+        playerRoundToggle.isOn = false;
+        state = State.STARTGAME;
+    }
+
+    void StartGame()
+    {
+        /*NYI
+        display option to double bet
+        if(betDoubled) {
+            bet = 10;
+        }*/
+        foreach (SpecialDeckCard card in player.deckList)
+        {
+            player.deck.Add(card);
+        }
+        foreach (SpecialDeckCard card in opponent.deckList)
+        {
+            opponent.deck.Add(card);
+        }
+        state = State.STARTROUND;
+    }
+
+    void StartRound()
+    {
+        playerEndRound = false;
+        opponentEndRound = false;
+        discardPile.Clear();
+        ShuffleCards(player.deck);
+        ShuffleCards(opponent.deck);
+        ShuffleCards(numberDeck);
+        DrawSpecialCards(opponent, 6);
+        DrawSpecialCards(player, 6);
+        DrawNumberCards(opponent, 4);
+        DrawNumberCards(player, 4);
+        roundCount += 1;
+        targetValue = Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7);
+        targetValueText.text = "" + targetValue; //"TARGET VALUE: " + 
+        selectionConfirmation = false;
+        state = State.PLAYERTURN;
+        /*//roll dice - two for each player
+        //if player dice higher, state = State.PLAYERTURN;
+        //if opponent dice higher, state = State.OPPONENTTURN;
+        int playerTotal = 0;
+        int opponentTotal = 0;
+        while(playerTotal == opponentTotal) {
+            playerTotal = Random.Range(1, 7) + Random.Range(1, 7);
+            opponentTotal = Random.Range(1,7) + Random.Range(1, 7);
+        }
+
+        if(opponentTotal > playerTotal) {
+            state = State.OPPONENTTURN;
+        }
+        else {
+            state = State.PLAYERTURN;
+        }*/
+    }
+
+    void UpdateUIValues()
+    {
+        opponentSumText.text = opponent.name + ":\n" + opponent.currValue;//CURR VALUE
+        playerSumText.text = player.name + ":\n" + player.currValue;//CURR VALUE
+    }
+
+    void PlayerTurn()
+    {
+        /*NYI
+        Take input and perform actions for player turn. swap to end turn when clicking end turn button.
+        */
+        //player plays one special card OR uses their action AND may swap out one of their cards from their hand - they can also pass
+        playerEndRound = playerRoundToggle.isOn;
+        opponentEndRound = opponentRoundToggle.isOn;
+    }
+
+    void OpponentTurn()
+    {
+        //use AI to choose best action - sift through if opp closer or player closer, if better to attack or defend
+        ButtonEndTurn(); //AI NYI so just skip turn for now.
+    }
+
+    void EndTurn()
+    {
+        if (playerEndRound && opponentEndRound)
+        {
+            state = State.ENDROUND;
+        }
+        if (prevState == State.PLAYERTURN && !opponentEndRound)
+        {
+            DrawSpecialCards(opponent, 1);
+            state = State.OPPONENTTURN;
+            player.discardFlag = false;
+        }
+        else if (prevState == State.OPPONENTTURN && !playerEndRound)
+        {
+            DrawSpecialCards(player, 1);
+            state = State.PLAYERTURN;
+            opponent.discardFlag = false;
+        }
+    }
+
+    void SelectCard()
+    {
+        //this state mostly exists to lock the player out of performing unwanted actions and acknowledge to the rest of the system that the player is in the
+        //middle of picking a card for some purpose.   
+        if (!selectCoroutineRunning && cardSelectStack.Count > 0)
+        {
+            CardSelectSettings curr = cardSelectStack.Pop();
+            StartCoroutine(SelectCard(curr.numCards, curr.cardType, curr.selectionPurpose, curr.setupPlayerUI));
+        }
+
+    }
+
+    void EndRound()
+    {
+        Debug.Log("End round");
+        if (Mathf.Abs(targetValue - player.currValue) < Mathf.Abs(targetValue - opponent.currValue))
+        {
+            Debug.Log(player.name + " won this round");
+            playerPoints += 1;
+        }
+        else if (Mathf.Abs(targetValue - player.currValue) > Mathf.Abs(targetValue - opponent.currValue))
+        {
+            Debug.Log(opponent.name + " won this round");
+            opponentPoints += 1;
+        }
+        else
+        {
+            Debug.Log("This round was a tie with no victor");
+        }
+
+        if (playerPoints >= 2 || opponentPoints >= 2 || roundCount >= 3)
+        {
+            state = State.ENDGAME;
+        }
+        else
+        {
+            playerPos = 0f;
+            opponentPos = 0f;
+            playerNegativeCardsValues.Clear();
+            opponentNegativeCardsValues.Clear();
+            playerNegativeCards.Clear();
+            opponentNegativeCards.Clear();
+            foreach (DisplayCard card in activeCardVisuals)
+            {
+                if (card.baseCard is NumberCard)
+                {
+                    numberDeck.Add((NumberCard)card.baseCard);
+                }
+                Destroy(card.gameObject);
+            }
+            activeCardVisuals.Clear();
+            discardPile.Clear();
+            player.FlushGameplayVariables();
+            opponent.FlushGameplayVariables();
+            foreach (SpecialDeckCard card in player.deckList)
+            {
+                player.deck.Add(card);
+            }
+            foreach (SpecialDeckCard card in opponent.deckList)
+            {
+                opponent.deck.Add(card);
+            }
+            playerRoundToggle.isOn = false;
+            opponentRoundToggle.isOn = false;
+            Debug.Log("New Round");
+            state = State.STARTROUND;
+        }
+    }
+
+    void EndGame()
+    {
+        if (!printed)
+        {
+            Debug.Log("Game over!");
+            if (playerPoints >= 2)
+            {
+                Debug.Log("winner is " + player.name);
+            }
+            else
+            {
+                Debug.Log("winner is " + opponent.name);
+            }
+            printed = true;
+        }
+        /*NYI
+        transfer out of card game scene and record winner of match in game data */
+    }
+
+    void Paused()
+    {
+        /*NYI
+        if(exit pause menu) {
+            state = prevState;
+        }*/
     }
 
     void DrawNumberCards(CardGameCharacter target, int numberCards) {
@@ -310,75 +382,91 @@ public class CardGameManager : MonoBehaviour
             DisplayCard newCardDisplay = newCardVisual.GetComponent<DisplayCard>();
             newCardDisplay.owner = target;
             newCardDisplay.baseCard = newCard;
-            if(target == player) {
-                PlaceCard(newCardVisual, target, newCard.value);
+            PlaceCard(newCardVisual, target, newCard.value);
+            target.currValue += newCard.value;
+            /*if (target == player) {
                 player.currValue += newCard.value;
             }
             else {
                 PlaceCard(newCardVisual, target, newCard.value);
                 opponent.currValue += newCard.value;
-            }
+            }*/
             activeCardVisuals.Add(newCardDisplay);
-       } 
+       }
+        UpdateUIValues();
     }
 
     void PlaceCard(GameObject card, CardGameCharacter target, int value)
     {
-        Vector2 topRightCorner = new Vector2(1, 1);
+        /*Vector2 topRightCorner = new Vector2(1, 1);
         Vector2 edgeVector = Camera.main.ViewportToWorldPoint(topRightCorner);
         int screenWidth = Screen.width;
-
         int screenHeight = Screen.height;
 
         offset = (screenWidth/offsetInteger)*51/128;
-        scaleNumber = (screenWidth/offsetInteger);
+        scaleNumber = (screenWidth/offsetInteger);*/
 
         //note since its 3/scaleNumber, if screensize is tiny then the cards are super large - bugproof this
         //also find a way to unify scaling based on maybe ratio of width vs height so that everything scales consistently?
 
         if(target == player)
         {
-            card.transform.SetParent(board);
-            if(value>0)
-            {
-                card.transform.localScale = new Vector3 (3/scaleNumber, 3/scaleNumber, 3/scaleNumber);
-                card.transform.localPosition = new Vector3(playerPos, screenHeight/7, 0);
-                playerPos = playerPos + value*offset;
+            card.transform.SetParent(PlayerCardZone);
 
-            }
-            else{
+            if(value <=0)
+            {
                 playerNegativeCards.Add(card);
                 playerNegativeCardsValues.Add(value);
             }
+            /*if (value>0)
+            {
+                //card.transform.localScale = new Vector3 (3/scaleNumber, 3/scaleNumber, 3/scaleNumber);
+                card.GetComponent<RectTransform>().anchoredPosition = new Vector3(playerPos, screenHeight/7, 0);
+                playerPos = playerPos + value*offset;
+
+            }
+            else
+            {
+                playerNegativeCards.Add(card);
+                playerNegativeCardsValues.Add(value);
+            }*/
             
         } 
         else
         {
-            card.transform.SetParent(board);
-            if(value>0)
+            card.transform.SetParent(OpponentCardZone);
+            if(value <= 0)
+            {
+                opponentNegativeCards.Add(card);
+                opponentNegativeCardsValues.Add(value);
+            }
+            /*if(value>0)
             {
                 Debug.Log(screenHeight);
                 Debug.Log(screenWidth);
-                card.transform.localScale = new Vector3 (3/scaleNumber, 3/scaleNumber, 3/scaleNumber);
-                card.transform.localPosition = new Vector3(opponentPos, -(screenHeight/14), 0);
+                //card.transform.localScale = new Vector3 (3/scaleNumber, 3/scaleNumber, 3/scaleNumber);
+                card.GetComponent<RectTransform>().anchoredPosition = new Vector3(opponentPos, -(screenHeight/14), 0);
                 opponentPos = opponentPos + value*offset;
             }
             else{
                 opponentNegativeCards.Add(card);
                 opponentNegativeCardsValues.Add(value);
-            }
+            }*/
         }
-        int cardSize = screenWidth/170;
+        /*int cardSize = screenWidth/170;
         negPos = playerPos - cardSize*offset;
-        opponentNegPos = opponentPos - cardSize*offset;
-        PlaceNegativeCard(playerNegativeCards, playerNegativeCardsValues, negPos, player);
-        PlaceNegativeCard(opponentNegativeCards, opponentNegativeCardsValues, opponentNegPos, opponent);
-        
+        opponentNegPos = opponentPos - cardSize*offset;*/
+        PlaceNegativeCard(playerNegativeCards);//, playerNegativeCardsValues, negPos, player);
+        PlaceNegativeCard(opponentNegativeCards);//, opponentNegativeCardsValues, opponentNegPos, opponent);
     }
 
-    void PlaceNegativeCard(List<GameObject> negativeCards, List<int> negativeCardsValues, float pos, CardGameCharacter target)
+    void PlaceNegativeCard(List<GameObject> negativeCards)//, List<int> negativeCardsValues, float pos, CardGameCharacter target)
     {
-        int x = 0;
+        foreach(GameObject card in negativeCards)
+        {
+            card.transform.SetParent(NegativeCardZone);
+        }
+        /*int x = 0;
         int screenHeight = Screen.height;
         int screenWidth = Screen.width;
         if(target == player)
@@ -390,22 +478,21 @@ public class CardGameManager : MonoBehaviour
         }
         for(int i = 0; i < negativeCards.Count; i++)
         {
-            negativeCards[i].transform.localScale = new Vector3 (3/scaleNumber, 3/scaleNumber, 3/scaleNumber);
-            negativeCards[i].transform.localPosition = new Vector3(pos, x, 0);
+            //negativeCards[i].transform.localScale = new Vector3 (3/scaleNumber, 3/scaleNumber, 3/scaleNumber);
+            negativeCards[i].GetComponent<RectTransform>().anchoredPosition = new Vector3(pos, x, 0);
             pos = pos + negativeCardsValues[i]*offset;
-        }
+        }*/
     }
 
-    void DrawSpecialCards(CardGameCharacter target, int specialCards) {
+    public void DrawSpecialCards(CardGameCharacter target, int specialCards) {
         /*NYI
         draw specified number of cards from each deck and put it in target's hand */
-        Vector2 topRightCorner = new Vector2(1, 1);
+        /*Vector2 topRightCorner = new Vector2(1, 1);
         Vector2 edgeVector = Camera.main.ViewportToWorldPoint(topRightCorner);
         int screenWidth = Screen.width;
-
         int screenHeight = Screen.height;
 
-        float scaleFactor = Mathf.Min(screenWidth, screenHeight) * 0.00025f;
+        float scaleFactor = Mathf.Min(screenWidth, screenHeight) * 0.00025f;*/
 
         for(int i = 0; i < specialCards; i ++) {
             if(target.deck.Count == 0) {
@@ -421,11 +508,11 @@ public class CardGameManager : MonoBehaviour
             newCardDisplay.baseCard = newCard;
             if(target == player) {
                 
-                newCardVisual.transform.localScale = new Vector3 (scaleFactor, scaleFactor, scaleFactor);
+                //newCardVisual.transform.localScale = new Vector3 (scaleFactor, scaleFactor, scaleFactor);
                 newCardVisual.transform.SetParent(playerHandTransform);
             }
             else {
-                newCardVisual.transform.localScale =  new Vector3 (scaleFactor, scaleFactor, scaleFactor);
+                //newCardVisual.transform.localScale =  new Vector3 (scaleFactor, scaleFactor, scaleFactor);
                 newCardVisual.transform.SetParent(opponentHandTransform);
             }
             activeCardVisuals.Add(newCardDisplay);
@@ -436,17 +523,60 @@ public class CardGameManager : MonoBehaviour
     private IEnumerator SelectCard(int numCards, SpecialKeyword cardType, SpecialKeyword selectionPurpose, bool setupPlayerUI = true, List<DisplayCard> selectedCards = null) {
         selectCoroutineRunning = true;
         enableSelectionConfirmButton = false;
-        if(selectedCards == null) {
+
+        if(selectedCards == null) 
             selectedCards = new List<DisplayCard>();
-        }
-        if(setupPlayerUI) {
+        
+        UIToggleSelectionMode(setupPlayerUI);
+        /*if (setupPlayerUI) {
             UIToggleSelectionMode(true);
         }
         else{
             UIToggleSelectionMode(false);
-        }
+        }*/
+
         //check if need to select more cards than the player has, in which case just select everything they have.
-        if(setupPlayerUI && cardType == SpecialKeyword.TYPE_SPECIAL && numCards > player.hand.Count) {
+
+        if(setupPlayerUI)
+        {
+            switch(cardType)
+            {
+                case SpecialKeyword.TYPE_SPECIAL:
+                    if (numCards > player.hand.Count)
+                    {
+                        numCards = player.hand.Count;
+                    }
+                    break;
+                case SpecialKeyword.TYPE_NUMBER:
+                    if (numCards > player.numberHand.Count)
+                    {
+                        numCards = player.numberHand.Count;
+                    }
+                    break;
+            }
+        }
+        else
+        {
+            switch (cardType)
+            {
+                case SpecialKeyword.TYPE_SPECIAL:
+                    if(numCards > opponent.hand.Count)
+                    {
+                        numCards = opponent.hand.Count;
+                    }
+                    break;
+                case SpecialKeyword.TYPE_NUMBER:
+                    if(numCards > opponent.numberHand.Count)
+                    {
+                        numCards = opponent.numberHand.Count;
+                    }
+                    break;
+            }
+        }
+
+        /*Reorganized for readability
+         * 
+         * if(setupPlayerUI && cardType == SpecialKeyword.TYPE_SPECIAL && numCards > player.hand.Count) {
             numCards = player.hand.Count;
         }
         else if(setupPlayerUI && cardType == SpecialKeyword.TYPE_NUMBER && numCards > player.numberHand.Count) {
@@ -457,7 +587,7 @@ public class CardGameManager : MonoBehaviour
         }
         else if(!setupPlayerUI && cardType == SpecialKeyword.TYPE_SPECIAL && numCards > opponent.hand.Count) {
             numCards = opponent.hand.Count;
-        }
+        }*/
 
         selectionAmountText.text = "Select " + numCards + " total cards!";
         
@@ -497,8 +627,7 @@ public class CardGameManager : MonoBehaviour
                 RaycastHit2D hit = Physics2D.Raycast(Input.mousePosition, Vector2.zero, Mathf.Infinity, LayerMask.GetMask("Card"));
                 if(hit.collider != null) {
                     DisplayCard hitCard = hit.collider.gameObject.GetComponent<DisplayCard>();
-                    if ((hitCard.baseCard is NumberCard && cardType == SpecialKeyword.TYPE_NUMBER) || 
-                    (hitCard.baseCard is SpecialDeckCard && cardType == SpecialKeyword.TYPE_SPECIAL)){
+                    if ((hitCard.baseCard is NumberCard && cardType == SpecialKeyword.TYPE_NUMBER) || (hitCard.baseCard is SpecialDeckCard && cardType == SpecialKeyword.TYPE_SPECIAL)){
                         if(selectedCards.Find(delegate(DisplayCard c) {
                         return hitCard.gameObject.GetInstanceID() == c.gameObject.GetInstanceID();
                         }) == null) {
@@ -567,7 +696,9 @@ public class CardGameManager : MonoBehaviour
             opponentTarget = opponent;
         }
         //do the decision tree (separate function because i forsee this eventually using recursion)
-        ExecuteCardEffect(keywords, values, playerTarget, opponentTarget);
+        CardEffectChecker.Instance.ExecuteCardEffect(keywords, values, playerTarget, opponentTarget);
+
+        UpdateUIValues();
     }
 
     //discard a special card
@@ -584,6 +715,7 @@ public class CardGameManager : MonoBehaviour
         discardPile.Add(display.baseCard);
         activeCardVisuals.Remove(display);
         Destroy(display.gameObject);
+        UpdateUIValues();
     }
 
     void ShuffleCards(List<SpecialDeckCard> shuffle) {
@@ -603,8 +735,15 @@ public class CardGameManager : MonoBehaviour
         }
     }
 
-    void UIToggleSelectionMode(bool toggle) {
-        if(toggle) {
+    void UIToggleSelectionMode(bool toggle)
+    {
+        endTurnButton.SetActive(!toggle);
+        selectConfirmButton.SetActive(toggle);
+        playerRoundToggle.gameObject.SetActive(!toggle);
+        opponentRoundToggle.gameObject.SetActive(!toggle);
+        selectionAmountText.gameObject.SetActive(toggle);
+        enableSelectionConfirmButton = toggle;
+        /*if (toggle) {
             endTurnButton.SetActive(false);
             selectConfirmButton.SetActive(true);
             playerRoundToggle.gameObject.SetActive(false);
@@ -618,316 +757,15 @@ public class CardGameManager : MonoBehaviour
             opponentRoundToggle.gameObject.SetActive(true);
             selectionAmountText.gameObject.SetActive(false);
             enableSelectionConfirmButton = false;
-        }
+        }*/
     }
 
     public void ButtonEndTurn() {
         prevState =  state;
         state = State.ENDTURN;
     }
+
     public void ButtonConfirmSelection(){
         selectionConfirmation = true;
     }
-
-    //Very PROTOTYPE version of the card decision tree
-    void ExecuteCardEffect(List<SpecialKeyword> keywords, List<int> values, CardGameCharacter playerTarget, CardGameCharacter opponentTarget) {
-        List<SpecialKeyword> currKeys = new List<SpecialKeyword>();
-        List<int> currValues = new List<int>();
-        List<SpecialKeyword> truncatedKeys = new List<SpecialKeyword>();
-        List<int> truncatedValues = new List<int>();
-        int skippedValues = 0;
-        for(int i = 0; i < keywords.Count; i++ ) {
-            if(keywords[i] == SpecialKeyword.END_COMMAND) {
-                for(int j = i+1; j < keywords.Count; j++) {
-                    truncatedKeys.Add(keywords[j]);
-                }
-                for(int k = i - skippedValues; k < values.Count; k++) {
-                    truncatedValues.Add(values[k]);
-                }
-                ExecuteCardEffect(truncatedKeys, truncatedValues, playerTarget, opponentTarget);
-                break;
-            }
-            else if(keywords[i] == SpecialKeyword.TARGET_PLAYER || keywords[i] == SpecialKeyword.TARGET_OPPONENT || keywords[i] == SpecialKeyword.CON_STORE_ADDITIONAL_INTEGER) {
-                currKeys.Add(keywords[i]);
-                currValues.Add(values[i - skippedValues]);
-            }
-            else{
-                currKeys.Add(keywords[i]);
-                skippedValues += 1;
-            }
-        }
-        keywords = currKeys;
-        values = currValues;
-        /*Debug.Log("Keywords: " );
-        foreach(SpecialKeyword k in currKeys) {
-            Debug.Log(k);
-        }
-        Debug.Log("Values: " );
-        foreach(int v in currValues) {
-            Debug.Log(v);
-        }*/
-        SpecialKeyword effectType = keywords[0];
-
-        switch(effectType) {
-            case SpecialKeyword.EFFECT_NONE:
-                Debug.Log("This card has no effect");
-            break;
-            case SpecialKeyword.EFFECT_ADDVALUE:
-                /*EFFECT_ADDVALUE ANTICPATED SYNTAX:
-                keywords[i] = target to add value to
-                values[i - 1] = amount to add to keywords[i]
-                */
-                for(int i = 1; i < keywords.Count; i++) {
-                    if(keywords[i] == SpecialKeyword.TARGET_PLAYER) {
-                        playerTarget.currValue += values[i-1];
-                    }
-                    else{
-                        opponentTarget.currValue += values[i-1];
-                    }
-                }
-            break;
-            case SpecialKeyword.EFFECT_DRAW:
-                /* EFFECT_DRAWCARD ANTICIPATED SYNTAX
-                keywords[last item] = type of card to draw
-                keywords[i] -> keywords[2nd to last item] = target to draw to
-                values[i-1] = # cards to draw*/
-                SpecialKeyword cardType = keywords[keywords.Count - 1];
-
-                for(int i = 1; i< keywords.Count - 1; i++) {
-                    if(keywords[i] == SpecialKeyword.TARGET_PLAYER && cardType == SpecialKeyword.TYPE_SPECIAL) {
-                        DrawSpecialCards(playerTarget, values[i-1]);
-                    }
-                    else if(keywords[i] == SpecialKeyword.TARGET_PLAYER && cardType == SpecialKeyword.TYPE_NUMBER){
-                        Debug.Log("drawing number cards NYI");
-                    }
-                    else if(keywords[i] == SpecialKeyword.TARGET_OPPONENT && cardType == SpecialKeyword.TYPE_NUMBER){
-                        Debug.Log("drawing number cards NYI");
-                    }
-                    else if(keywords[i] == SpecialKeyword.TARGET_OPPONENT && cardType == SpecialKeyword.TYPE_SPECIAL){
-                        DrawSpecialCards(opponentTarget, values[i-1]);
-                    }
-                }
-
-            break;
-            case SpecialKeyword.EFFECT_DISCARD:
-                /*EFFECT_DISCARD ANTICIPATED SYNTAX
-                keywords[last item] = type of card to discard
-                keywords[1 -> 2nd to last item] = the discard target
-                values[0] = # to discard.
-                
-                done in a coroutine and selectcards state to allow everyone to select their cards which may take multiple framesit is presently set up 
-                only to work if there is only one card type that needs discarding*/
-                for(int i = 1; i < keywords.Count - 1; i++ ) {
-                    if(keywords[i] == SpecialKeyword.TARGET_PLAYER) {
-                        CardSelectSettings newSettings = new CardSelectSettings(values[i-1], keywords[keywords.Count -1], keywords[0], playerTarget == player);
-                        cardSelectStack.Push(newSettings);
-                    }
-                    else{
-                        CardSelectSettings newSettings = new CardSelectSettings(values[i-1], keywords[keywords.Count -1], keywords[0], !playerTarget == player);
-                        cardSelectStack.Push(newSettings);
-                    }
-                }
-            break;
-            case SpecialKeyword.EFFECT_CONDITIONAL:
-                //first, if keyword is conditional, verify the CONDITION. this will return a bool. if true, execute SUCCESS_PATH. if false, execute FAILURE_PATH
-                //every conditional card must have EFFECT_CONDITION, CONDITION_[target] and then SUCCESS_PATH and FAILURE_PATH
-
-                List<SpecialKeyword> conditionalFlags = new List<SpecialKeyword>();
-                List<SpecialKeyword> successCommand = new List<SpecialKeyword>();
-                List<SpecialKeyword> failCommand = new List<SpecialKeyword>();
-
-                List<int> conditionalValues = new List<int>();
-                List<int> successValues = new List<int>();
-                List<int> failValues = new List<int>();
-                skippedValues = 0;
-                List<SpecialKeyword> sortingBin = conditionalFlags;
-                List<int> valuesBin = conditionalValues;
-
-                for(int i = 1; i < keywords.Count; i++) {
-                    if(keywords[i] == SpecialKeyword.SUCCESS_PATH) {
-                        sortingBin = successCommand;
-                        valuesBin = successValues;
-                    }
-                    else if(keywords[i] == SpecialKeyword.FAILURE_PATH) {
-                        sortingBin = failCommand;
-                        valuesBin = failValues;
-                    }
-                    else if(keywords[i] == SpecialKeyword.END_COMMAND){
-                        break;
-                    }
-
-                    if(keywords[i] == SpecialKeyword.TARGET_PLAYER || keywords[i] == SpecialKeyword.TARGET_OPPONENT || keywords[i] == SpecialKeyword.CON_STORE_ADDITIONAL_INTEGER) {
-                        sortingBin.Add(keywords[i]);
-                        valuesBin.Add(values[i - 1 - skippedValues]);
-                    }
-                    else{
-                        if(keywords[i] != SpecialKeyword.SUCCESS_PATH && keywords[i] != SpecialKeyword.FAILURE_PATH) {
-                            sortingBin.Add(keywords[i]);
-                        }
-                        skippedValues += 1;
-                    }
-                    
-                }
-
-                bool successCheck = true;
-                int flagsConsumed = 0;
-                int valuesConsumed = 0;
-                CardGameCharacter flagTarget;
-
-                for(int i = 0; i < conditionalFlags.Count; i++) {
-                    flagsConsumed = 0;
-                    if(conditionalFlags[i+1] == SpecialKeyword.TARGET_PLAYER) {
-                        flagTarget = playerTarget;
-                    }
-                    else{
-                        flagTarget = opponentTarget;
-                    }
-                    switch (conditionalFlags[i]){
-                        case SpecialKeyword.CON_CARD_QUANTITY:
-                            Debug.Log("quantity");
-                            successCheck = successCheck & ConditionalCardQuantity(flagTarget, conditionalFlags[i+2], conditionalValues[valuesConsumed], conditionalValues[valuesConsumed + 1]);
-                            flagsConsumed += 3;
-                            valuesConsumed += 2;
-                            break;
-                        case SpecialKeyword.CON_DISCARD_FLAG:
-                            Debug.Log("discard");
-                            successCheck = successCheck & ConditionalDiscardFlag(flagTarget);
-                            flagsConsumed += 1;
-                            valuesConsumed += 1;
-                            break;
-                        case SpecialKeyword.CON_FLIP_FLAG:
-                            Debug.Log("flip");
-                            successCheck = successCheck & ConditionalFlipFlag(flagTarget);
-                            flagsConsumed += 1;
-                            valuesConsumed += 1;
-                            break;
-                        case SpecialKeyword.CON_HAS_CLASS_CARD:
-                            Debug.Log("has class card");
-                            successCheck = successCheck & ConditionalHasClassCard(flagTarget, (NumberCard.NumberClass)conditionalValues[valuesConsumed], conditionalValues[valuesConsumed+1]);
-                            flagsConsumed += 3;
-                            valuesConsumed += 2;
-                            break;
-                        case SpecialKeyword.CON_HAS_DUPLICATE:
-                            Debug.Log("has dupe");
-                            successCheck = successCheck & ConditionalHasDuplicate(flagTarget, conditionalFlags[i+2]);
-                            flagsConsumed += 2;
-                            valuesConsumed += 1;
-                            break;
-                        case SpecialKeyword.CON_HAS_VALUE_CARD:
-                            Debug.Log("has value");
-                            successCheck = successCheck & ConditionalHasValueCard(flagTarget, conditionalValues[valuesConsumed], conditionalValues[valuesConsumed + 1]);
-                            flagsConsumed += 2;
-                            valuesConsumed += 2;
-                            break;
-                        case SpecialKeyword.CON_SWAP_FLAG:
-                            Debug.Log("swap");
-                            successCheck = successCheck & ConditionalSwapFlag(flagTarget);
-                            flagsConsumed += 1;
-                            valuesConsumed += 1;
-                            break;
-                        case SpecialKeyword.CON_TRANSFER_FLAG:
-                            Debug.Log("transfer");
-                            successCheck = successCheck & ConditionalTransferFlag(flagTarget);
-                            flagsConsumed += 1;
-                            valuesConsumed += 1;
-                            break;
-                        case SpecialKeyword.CON_COMPARE_AGAINST_TARGET:
-                            Debug.Log("compare against target");
-                            successCheck = successCheck & ConditionalCompareAgainstTarget(flagTarget);
-                            flagsConsumed += 1;
-                            valuesConsumed += 1;
-                            break;
-                    }
-                    i += flagsConsumed;
-                }
-
-                Debug.Log(successCheck);
-
-                if(successCheck) {
-                    ExecuteCardEffect(successCommand, successValues, playerTarget, opponentTarget);
-                }
-                else {
-                    ExecuteCardEffect(failCommand, failValues, playerTarget, opponentTarget);
-                }
-
-            break;
-        }
-    }
-
-/*TARGET -> color
-STORE INT -> count*/
-    private bool ConditionalHasClassCard(CardGameCharacter target, NumberCard.NumberClass color, int count = 1){
-        int x = 0;
-        foreach(NumberCard c in target.numberHand) {
-            if(c.cardClass == color) {
-                x++;
-            }
-        }
-        return x >= count;
-    }
-/*TARGET -> value
-STORE INT -> count*/
-    private bool ConditionalHasValueCard(CardGameCharacter target, int value, int count = 1){
-        int x = 0;
-        foreach(NumberCard c in target.numberHand) {
-            if(c.value == value){
-                x++;
-            }
-        }
-        return x >= count;
-    }
-/*TARGET -> -1 (N/A)*/
-    private bool ConditionalHasDuplicate(CardGameCharacter target, SpecialKeyword type){
-        if(type == SpecialKeyword.TYPE_SPECIAL) {
-            for(int i = 0; i < target.hand.Count - 1; i++){
-                for(int j = i + 1; j < target.hand.Count; j++) {
-                    if(target.hand[i].name == target.hand[j].name) {
-                        return true;
-                    }
-                }
-            }
-        }
-        else {
-            for(int i = 0; i < target.numberHand.Count - 1; i++){
-                for(int j = i + 1; j < target.numberHand.Count; j++) {
-                    if(target.numberHand[i].name == target.numberHand[j].name) {
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
-    }
-/*TARGET -> -1 (N/A)*/
-    private bool ConditionalDiscardFlag(CardGameCharacter target){
-        return target.discardFlag;
-    }
-/*TARGET -> -1 (N/A)*/
-    private bool ConditionalSwapFlag(CardGameCharacter target){
-        return target.swapFlag;
-    }
-/*TARGET -> -1 (N/A)*/
-    private bool ConditionalFlipFlag(CardGameCharacter target){
-        return target.flipFlag;
-    }
-/*TARGET -> -1 (N/A)*/
-    private bool ConditionalTransferFlag(CardGameCharacter target){
-        return target.transferFlag;
-    }
-    /*TARGET -> min
-    STORE INT -> max*/
-    private bool ConditionalCardQuantity(CardGameCharacter target, SpecialKeyword type, int min, int max){
-       if(type == SpecialKeyword.TYPE_SPECIAL) {
-        return (target.hand.Count >= min && target.hand.Count <= max);
-       } 
-       else {
-        return (target.numberHand.Count >= min && target.numberHand.Count <= max);
-       }
-    }
-
-/* TARGET -> -1 (N/A) */
-    private bool ConditionalCompareAgainstTarget(CardGameCharacter target) {
-        return target.currValue >= targetValue;
-    }
-
 }
