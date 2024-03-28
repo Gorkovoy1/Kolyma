@@ -16,7 +16,7 @@ public class DisplayCard : MonoBehaviour
     [SerializeField] private int value;
     [SerializeField] private GameObject selectionEffect;
     [SerializeField] private GameObject tooltip;
-
+    public Transform NumberAnchor;
     void Start() {
         selectionEffect.SetActive(false);
         tooltip.SetActive(false);
@@ -40,19 +40,7 @@ public class DisplayCard : MonoBehaviour
         artwork.sprite = card.artwork;
         artwork.color = Color.white;
         description.text = "";
-        //you could change the tints of the cards if you wanted to. not sure we want that though
-        /*if(card.cardClass == NumberClass.NONE) {
-            artwork.color = Color.white;
-        }
-        else if(card.cardClass == NumberClass.BLUE) {
-            artwork.color = Color.blue;
-        }
-        else if(card.cardClass == NumberClass.RED) {
-            artwork.color = Color.red;
-        }
-        else if(card.cardClass == NumberClass.YELLOW) {
-            artwork.color = Color.yellow;
-        }*/
+        /*calculate the location of NumberAnchor based on the cards value, use local space so that it's relative to the display card's universe and not the scene as a whole*/
     }
     private void Card(SpecialDeckCard card){
         name.text = card.name;

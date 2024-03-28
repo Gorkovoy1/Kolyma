@@ -17,16 +17,19 @@ public class CardGameCharacter : ScriptableObject
     public int currValue; //current total value
     public bool discardFlag, swapFlag, transferFlag, flipFlag, playFlag; //flag booleans to be raised when certain card actions have been performed
 
+    public void FlushFlags(){
+        discardFlag = false;
+        swapFlag = false;
+        transferFlag = false;
+        flipFlag = false;
+        playFlag = false;
+    }
     public void FlushGameplayVariables()
     {
         deck.Clear();
         hand.Clear();
         numberHand.Clear();
         currValue = 0;
-        discardFlag = false;
-        swapFlag = false;
-        transferFlag = false;
-        flipFlag = false;
-        playFlag = false;
+        FlushFlags();
     }
 }

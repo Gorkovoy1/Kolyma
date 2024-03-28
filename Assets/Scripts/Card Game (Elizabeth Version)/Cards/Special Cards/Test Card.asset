@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed1ca1c77e5dbee41bef96edb6e284ca, type: 3}
-  m_Name: Burden
+  m_Name: Test Card
   m_EditorClassIdentifier: 
-  name: Burden
+  name: Test Card
   artwork: {fileID: 21300000, guid: c984de9308a99934e8535dcd8c39211c, type: 3}
-  description: If your opponent has a 7, give them +3
-  keywords: 040000000c000000060000000a00000014000000000000001300000001000000060000001500000000000000
-  values: 070000000100000003000000
+  description: Transfer a special card from player to opponent
+  keywords: 160000000500000008000000
+  values: 01000000
