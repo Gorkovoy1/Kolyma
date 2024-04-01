@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Test Card
   artwork: {fileID: 21300000, guid: c984de9308a99934e8535dcd8c39211c, type: 3}
-  description: Transfer a special card from player to opponent
-  keywords: 160000000500000008000000
+  description: swap out a number card
+  keywords: 170000000500000007000000
   values: 01000000

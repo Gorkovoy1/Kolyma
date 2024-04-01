@@ -555,6 +555,28 @@ public class CardGameManager : MonoBehaviour
                     }
                 }
                 break;
+            case SpecialKeyword.EFFECT_SWAP:
+                foreach(DisplayCard card in selectedCards) {
+                    DiscardCard(card);
+                }
+                if(setupPlayerUI) {
+                    if(cardType == SpecialKeyword.TYPE_NUMBER) {
+                        DrawNumberCards(player, numCards);
+                    }
+                    else {
+                        DrawSpecialCards(player, numCards);
+                    }
+                }
+                else {
+                    if(cardType == SpecialKeyword.TYPE_NUMBER) {
+                        DrawNumberCards(opponent, numCards);
+                    }
+                    else {
+                        DrawSpecialCards(opponent, numCards);
+                    }
+
+                }
+                break;
         }
         selectionConfirmation = false;
         UIToggleSelectionMode(false);
@@ -770,7 +792,7 @@ public class CardGameManager : MonoBehaviour
                 /*EFFECT_TRANSFER ANTICIPATED SYNTAX
                 keywords[2] = type of card to transfer
                 keywords[1] = the transfer target
-                values[0] = # to discard.
+                values[0] = # to transfer.
                 
                 done in a coroutine and selectcards state to allow time to select their cards which may take multiple frames*/
                 for(int i = 1; i < keywords.Count - 1; i++ ) {
@@ -781,6 +803,26 @@ public class CardGameManager : MonoBehaviour
                     else{
                         CardSelectSettings newSettings = new CardSelectSettings(values[i-1], keywords[keywords.Count -1], keywords[0], !playerTarget == player);
                         cardSelectStack.Push(newSettings);
+                    }
+                }
+            break;
+            case SpecialKeyword.EFFECT_SWAP:
+                /*EFFECT_SWAP ANTICIPATED SYNTAX
+                keywords[2] = type of card to swap
+                keywords[1] = the swap target
+                values[0] = # to swap.
+                
+                done in a coroutine and selectcards state to allow time to select their cards which may take multiple frames*/
+                for(int i = 1; i < keywords.Count - 1; i++ ) {
+                    if(keywords[i] == SpecialKeyword.TARGET_PLAYER) {
+                        CardSelectSettings newSettings = new CardSelectSettings(values[i-1], keywords[keywords.Count -1], keywords[0], playerTarget == player);
+                        cardSelectStack.Push(newSettings);
+                        player.swapFlag = true;
+                    }
+                    else{
+                        CardSelectSettings newSettings = new CardSelectSettings(values[i-1], keywords[keywords.Count -1], keywords[0], !playerTarget == player);
+                        cardSelectStack.Push(newSettings);
+                        opponent.swapFlag = true;
                     }
                 }
             break;
