@@ -531,6 +531,7 @@ MonoBehaviour:
   value: 0
   selectionEffect: {fileID: 5538872607382078507}
   tooltip: {fileID: 5958136364055283419}
+  NumberAnchor: {fileID: 0}
 --- !u!114 &3906581684707951929
 MonoBehaviour:
   m_ObjectHideFlags: 0

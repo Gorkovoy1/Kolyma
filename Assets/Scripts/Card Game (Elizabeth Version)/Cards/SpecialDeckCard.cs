@@ -52,6 +52,8 @@ public enum SpecialKeyword {
     EFFECT_DRAW,
     EFFECT_DISCARD,
     EFFECT_CONDITIONAL,
+    EFFECT_SWAP,
+    EFFECT_FLIP,
 
     /*use these keywords for targeting*/
     TARGET_PLAYER,

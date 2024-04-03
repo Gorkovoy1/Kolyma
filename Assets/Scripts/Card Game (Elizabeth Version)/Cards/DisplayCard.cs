@@ -8,12 +8,12 @@ using TMPro;
 public class DisplayCard : MonoBehaviour
 {
     public GenericCard baseCard;
-    [HideInInspector] public CardGameCharacter owner; //This will be used to track WHOSE card this is in its current iteration. It is stored here instead of in the card data so that each instance of a card can have its own owner.
+    public CharacterInstance owner; //This will be used to track WHOSE card this is in its current iteration. It is stored here instead of in the card data so that each instance of a card can have its own owner.
     //doing it this way allows there to be two instances of the In Cahoots card in play, for example, where the player owns one and the AI owns the other.
     [SerializeField] private Image artwork;
     [SerializeField] private TMP_Text name;
     [SerializeField] private TMP_Text description;
-    [SerializeField] private int value;
+    [SerializeField] public int value;
     [SerializeField] private GameObject selectionEffect;
     [SerializeField] private GameObject tooltip;
     public Transform NumberAnchor;
@@ -21,7 +21,7 @@ public class DisplayCard : MonoBehaviour
         selectionEffect.SetActive(false);
         tooltip.SetActive(false);
     }
-    void Update() {
+    /*void Update() {
         if(baseCard != null) {
            if(baseCard is NumberCard){
                 NumberCard card = (NumberCard) baseCard;
@@ -33,22 +33,44 @@ public class DisplayCard : MonoBehaviour
                 Card(card);
             } 
         } 
-    }
+    }*/
 
-    private void Card(NumberCard card) {
+    public void InitNumberCard(NumberCard card, CharacterInstance owner)
+    {
+        baseCard = card;
         name.text = card.name;
         artwork.sprite = card.artwork;
         artwork.color = Color.white;
         description.text = "";
-        /*calculate the location of NumberAnchor based on the cards value, use local space so that it's relative to the display card's universe and not the scene as a whole*/
+        value = card.value;
+        this.owner = owner;
     }
+
+    public void InitSpecialCard(SpecialDeckCard card, CharacterInstance owner)
+    {
+        baseCard = card;
+        name.text = card.name;
+        description.text = card.description;
+        artwork.sprite = card.artwork;
+        artwork.color = Color.white;
+        this.owner = owner;
+    }
+
+    /*private void Card(NumberCard card) {
+        name.text = card.name;
+        artwork.sprite = card.artwork;
+        artwork.color = Color.white;
+        description.text = "";
+        value = card.value;
+        /*calculate the location of NumberAnchor based on the cards value, use local space so that it's relative to the display card's universe and not the scene as a whole*/
+    /*}
     private void Card(SpecialDeckCard card){
         name.text = card.name;
         description.text = card.description;
         artwork.sprite = card.artwork;
         artwork.color = Color.white;
 
-    }
+    }*/
 
     public void ToggleSelected() {
         selectionEffect.SetActive(!selectionEffect.activeSelf);

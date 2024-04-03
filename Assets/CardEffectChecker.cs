@@ -12,7 +12,7 @@ public class CardEffectChecker : MonoBehaviour
     }
 
     //Very PROTOTYPE version of the card decision tree
-    public void ExecuteCardEffect(List<SpecialKeyword> keywords, List<int> values, CardGameCharacter playerTarget, CardGameCharacter opponentTarget)
+    public void ExecuteCardEffect(List<SpecialKeyword> keywords, List<int> values, CharacterInstance playerTarget, CharacterInstance opponentTarget)
     {
         List<SpecialKeyword> currKeys = new List<SpecialKeyword>();
         List<int> currValues = new List<int>();
@@ -180,7 +180,7 @@ public class CardEffectChecker : MonoBehaviour
                 bool successCheck = true;
                 int flagsConsumed = 0;
                 int valuesConsumed = 0;
-                CardGameCharacter flagTarget;
+                CharacterInstance flagTarget;
 
                 for (int i = 0; i < conditionalFlags.Count; i++)
                 {
@@ -270,11 +270,12 @@ public class CardEffectChecker : MonoBehaviour
 
     /*TARGET -> color
     STORE INT -> count*/
-    public bool ConditionalHasClassCard(CardGameCharacter target, NumberCard.NumberClass color, int count = 1)
+    public bool ConditionalHasClassCard(CharacterInstance target, NumberCard.NumberClass color, int count = 1)
     {
         int x = 0;
-        foreach (NumberCard c in target.numberHand)
+        foreach (DisplayCard d in target.numberDisplayHand)
         {
+            NumberCard c = (NumberCard)d.baseCard;
             if (c.cardClass == color)
             {
                 x++;
@@ -284,11 +285,12 @@ public class CardEffectChecker : MonoBehaviour
     }
     /*TARGET -> value
     STORE INT -> count*/
-    public bool ConditionalHasValueCard(CardGameCharacter target, int value, int count = 1)
+    public bool ConditionalHasValueCard(CharacterInstance target, int value, int count = 1)
     {
         int x = 0;
-        foreach (NumberCard c in target.numberHand)
+        foreach (DisplayCard d in target.numberDisplayHand)
         {
+            NumberCard c = (NumberCard)d.baseCard;
             if (c.value == value)
             {
                 x++;
@@ -297,7 +299,7 @@ public class CardEffectChecker : MonoBehaviour
         return x >= count;
     }
     /*TARGET -> -1 (N/A)*/
-    public bool ConditionalHasDuplicate(CardGameCharacter target, SpecialKeyword type)
+    public bool ConditionalHasDuplicate(CharacterInstance target, SpecialKeyword type)
     {
         if (type == SpecialKeyword.TYPE_SPECIAL)
         {
@@ -314,11 +316,11 @@ public class CardEffectChecker : MonoBehaviour
         }
         else
         {
-            for (int i = 0; i < target.numberHand.Count - 1; i++)
+            for (int i = 0; i < target.numberDisplayHand.Count - 1; i++)
             {
-                for (int j = i + 1; j < target.numberHand.Count; j++)
+                for (int j = i + 1; j < target.numberDisplayHand.Count; j++)
                 {
-                    if (target.numberHand[i].name == target.numberHand[j].name)
+                    if (target.numberDisplayHand[i].baseCard.name == target.numberDisplayHand[j].baseCard.name)
                     {
                         return true;
                     }
@@ -328,28 +330,28 @@ public class CardEffectChecker : MonoBehaviour
         return false;
     }
     /*TARGET -> -1 (N/A)*/
-    public bool ConditionalDiscardFlag(CardGameCharacter target)
+    public bool ConditionalDiscardFlag(CharacterInstance target)
     {
         return target.discardFlag;
     }
     /*TARGET -> -1 (N/A)*/
-    public bool ConditionalSwapFlag(CardGameCharacter target)
+    public bool ConditionalSwapFlag(CharacterInstance target)
     {
         return target.swapFlag;
     }
     /*TARGET -> -1 (N/A)*/
-    public bool ConditionalFlipFlag(CardGameCharacter target)
+    public bool ConditionalFlipFlag(CharacterInstance target)
     {
         return target.flipFlag;
     }
     /*TARGET -> -1 (N/A)*/
-    public bool ConditionalTransferFlag(CardGameCharacter target)
+    public bool ConditionalTransferFlag(CharacterInstance target)
     {
         return target.transferFlag;
     }
     /*TARGET -> min
     STORE INT -> max*/
-    public bool ConditionalCardQuantity(CardGameCharacter target, SpecialKeyword type, int min, int max)
+    public bool ConditionalCardQuantity(CharacterInstance target, SpecialKeyword type, int min, int max)
     {
         if (type == SpecialKeyword.TYPE_SPECIAL)
         {
@@ -357,12 +359,12 @@ public class CardEffectChecker : MonoBehaviour
         }
         else
         {
-            return (target.numberHand.Count >= min && target.numberHand.Count <= max);
+            return (target.numberDisplayHand.Count >= min && target.numberDisplayHand.Count <= max);
         }
     }
 
     /* TARGET -> -1 (N/A) */
-    public bool ConditionalCompareAgainstTarget(CardGameCharacter target)
+    public bool ConditionalCompareAgainstTarget(CharacterInstance target)
     {
         return target.currValue >= CardGameManager.Instance.targetValue;
     }
