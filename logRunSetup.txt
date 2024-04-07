@@ -1,0 +1,1287 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+[Licensing::IpcConnector] Successfully connected to the License Client on channel: "LicenseClient-Andrei"
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.15.0+66d4389
+  Session Id:              472cf5ba8e1041d1b49d51ad84e558bf
+  Correlation Id:          3ae19db52abeae111f13e2dbe8ef5744
+  External correlation Id: 3429008546478957274
+  Machine Id:              qNpmoJE+HgcL/TatiHzZA2vA7ps=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-Andrei" (connect: 0.00s, validation: 0.01s, handshake: 0.83s)
+[Licensing::IpcConnector] Successfully connected to the License Notification on channel: "LicenseClient-Andrei-notifications"
+Entitlement-based licensing initiated
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully updated license
+Built from '2021.3/staging' branch; Version is '2021.3.21f1 (1b156197d683) revision 1774945'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Core' Language: 'en' Physical Memory: 16061 MB
+[Licensing::Client] Successfully resolved entitlements
+[Licensing::Module] Serial number assigned to: "F4-26BS-SAD7-W6VF-22ED-XXXX"
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+[Package Manager] Server::Start -- Port 52950 was selected
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2021.3.21f1\Editor\Unity.exe
+-batchmode
+-nographics
+-logFile
+logRunSetup.txt
+-projectPath
+C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp
+-executeMethod
+WwiseSetupWizard.RunModify
+-quit
+Successfully changed project path to: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp
+C:/Users/Andrei/Documents/GitHub/Kolyma_WwiseIntegrationTemp
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [26212] Host "[IP] 192.168.1.240 [Port] 55496 [Flags] 2 [Guid] 4108967640 [EditorId] 4108967640 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-CGVM13KB) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [26212] Host "[IP] 192.168.1.240 [Port] 55496 [Flags] 2 [Guid] 4108967640 [EditorId] 4108967640 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-CGVM13KB) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Licensing::Client] Successfully resolved entitlements
+[Package Manager] Done resolving packages in 1.24s seconds
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] 
+Registered 60 packages:
+  Packages from [https://packages.unity.com]:
+    com.unity.collab-proxy@2.0.1 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.collab-proxy@2.0.1)
+    com.unity.ide.rider@3.0.18 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.ide.rider@3.0.18)
+    com.unity.ide.visualstudio@2.0.17 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.ide.visualstudio@2.0.17)
+    com.unity.ide.vscode@1.2.5 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.ide.vscode@1.2.5)
+    com.unity.test-framework@1.1.31 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.test-framework@1.1.31)
+    com.unity.textmeshpro@3.0.6 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.textmeshpro@3.0.6)
+    com.unity.timeline@1.6.4 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.timeline@1.6.4)
+    com.unity.visualscripting@1.8.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.visualscripting@1.8.0)
+    com.unity.ext.nunit@1.0.6 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.ext.nunit@1.0.6)
+    com.unity.mathematics@1.2.6 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.mathematics@1.2.6)
+    com.unity.burst@1.8.2 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.burst@1.8.2)
+    com.unity.2d.animation@7.0.9 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.2d.animation@7.0.9)
+    com.unity.2d.pixel-perfect@5.0.3 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.2d.pixel-perfect@5.0.3)
+    com.unity.2d.psdimporter@6.0.7 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.2d.psdimporter@6.0.7)
+    com.unity.2d.spriteshape@7.0.6 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.2d.spriteshape@7.0.6)
+    com.unity.2d.tilemap.extras@2.2.4 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.2d.tilemap.extras@2.2.4)
+    com.unity.searcher@4.9.1 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.searcher@4.9.1)
+    com.unity.2d.common@6.0.6 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.2d.common@6.0.6)
+    com.unity.2d.path@5.0.2 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.2d.path@5.0.2)
+  Built-in packages:
+    com.unity.feature.2d@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.feature.2d@1.0.0)
+    com.unity.render-pipelines.universal@12.1.10 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.render-pipelines.universal@12.1.10)
+    com.unity.ugui@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.ugui@1.0.0)
+    com.unity.visualeffectgraph@12.1.10 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.visualeffectgraph@12.1.10)
+    com.unity.modules.ai@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.ai@1.0.0)
+    com.unity.modules.androidjni@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.androidjni@1.0.0)
+    com.unity.modules.animation@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.animation@1.0.0)
+    com.unity.modules.assetbundle@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.assetbundle@1.0.0)
+    com.unity.modules.audio@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.audio@1.0.0)
+    com.unity.modules.cloth@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.cloth@1.0.0)
+    com.unity.modules.director@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.director@1.0.0)
+    com.unity.modules.imageconversion@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.imageconversion@1.0.0)
+    com.unity.modules.imgui@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.imgui@1.0.0)
+    com.unity.modules.jsonserialize@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.jsonserialize@1.0.0)
+    com.unity.modules.particlesystem@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.particlesystem@1.0.0)
+    com.unity.modules.physics@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.physics@1.0.0)
+    com.unity.modules.physics2d@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.physics2d@1.0.0)
+    com.unity.modules.screencapture@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.screencapture@1.0.0)
+    com.unity.modules.terrain@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.terrain@1.0.0)
+    com.unity.modules.terrainphysics@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.terrainphysics@1.0.0)
+    com.unity.modules.tilemap@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.tilemap@1.0.0)
+    com.unity.modules.ui@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.ui@1.0.0)
+    com.unity.modules.uielements@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.uielements@1.0.0)
+    com.unity.modules.umbra@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.umbra@1.0.0)
+    com.unity.modules.unityanalytics@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.unityanalytics@1.0.0)
+    com.unity.modules.unitywebrequest@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.unitywebrequest@1.0.0)
+    com.unity.modules.unitywebrequestassetbundle@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.unitywebrequestassetbundle@1.0.0)
+    com.unity.modules.unitywebrequestaudio@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.unitywebrequestaudio@1.0.0)
+    com.unity.modules.unitywebrequesttexture@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.unitywebrequesttexture@1.0.0)
+    com.unity.modules.unitywebrequestwww@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.unitywebrequestwww@1.0.0)
+    com.unity.modules.vehicles@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.vehicles@1.0.0)
+    com.unity.modules.video@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.video@1.0.0)
+    com.unity.modules.vr@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.vr@1.0.0)
+    com.unity.modules.wind@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.wind@1.0.0)
+    com.unity.modules.xr@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.xr@1.0.0)
+    com.unity.modules.subsystems@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.subsystems@1.0.0)
+    com.unity.modules.uielementsnative@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.modules.uielementsnative@1.0.0)
+    com.unity.shadergraph@12.1.10 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.shadergraph@12.1.10)
+    com.unity.render-pipelines.core@12.1.10 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.render-pipelines.core@12.1.10)
+    com.unity.2d.sprite@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.2d.sprite@1.0.0)
+    com.unity.2d.tilemap@1.0.0 (location: C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.2d.tilemap@1.0.0)
+
+[Subsystems] No new subsystems found in resolved package list.
+Package Manager log level set to [2]
+[Package Manager] Done registering packages in 0.01s seconds
+Refreshing native plugins compatible for Editor in 8.85 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.21f1 (1b156197d683)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.21f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Andrei/Documents/GitHub/Kolyma_WwiseIntegrationTemp/Assets
+Forcing GfxDevice: Null
+GfxDevice: creating device client; threaded=0; jobified=0
+NullGfxDevice:
+    Version:  NULL 1.0 [1.0]
+    Renderer: Null Device
+    Vendor:   Unity Technologies
+[Licensing::Client] Successfully resolved entitlements
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.21f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.21f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.21f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56036
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.21f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.014938 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 3.26 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.580 seconds
+Domain Reload Profiling:
+	ReloadAssembly (581ms)
+		BeginReloadAssembly (80ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (391ms)
+			LoadAssemblies (77ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (86ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (38ms)
+			SetupLoadedEditorAssemblies (217ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (3ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (153ms)
+				ProcessInitializeOnLoadMethodAttributes (53ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+[Licensing::Client] Successfully resolved entitlements
+Application.AssetDatabase Initial Refresh Start
+A meta data file (.meta) exists but its folder 'Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/DecodedBanks/English(US)' can't be found, and has been created. Empty directories cannot be stored in version control, so it's assumed that the meta data file is for an empty directory in version control. When moving or deleting folders outside of Unity, please ensure that the corresponding .meta file is moved or deleted along with it.
+A meta data file (.meta) exists but its folder 'Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/DecodedBanks/English(US)' can't be found, and has been created. Empty directories cannot be stored in version control, so it's assumed that the meta data file is for an empty directory in version control. When moving or deleting folders outside of Unity, please ensure that the corresponding .meta file is moved or deleted along with it.
+A meta data file (.meta) exists but its folder 'Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/DecodedBanks/English(US)' can't be found, and has been created. Empty directories cannot be stored in version control, so it's assumed that the meta data file is for an empty directory in version control. When moving or deleting folders outside of Unity, please ensure that the corresponding .meta file is moved or deleted along with it.
+Registering precompiled user dll's ...
+Registered in 0.013329 seconds.
+Start importing Assets/Wwise/MonoBehaviour/Runtime/AkState.cs using Guid(51103976da307de4c97ee181e82e3427) Importer(-1,00000000000000000000000000000000)  -> (artifact id: 'cf0b3a36da40ac58c4acd7c8e7f4e3d7') in 0.007328 seconds 
+Start importing Assets/Wwise/MonoBehaviour/Runtime/AkInitializer.cs using Guid(86bd1dcc8ea9d124c8fb6810c19c17d9) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '2dd29be114f33359664aa409d008c5e0') in 0.003003 seconds 
+Start importing Assets/Wwise/MonoBehaviour/Runtime/AkSwitch.cs using Guid(48c855e25178db94690a3b2431862c22) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '4cdd2294be13c8b303c3109eece2112b') in 0.001422 seconds 
+Start importing Assets/Wwise/MonoBehaviour/Runtime/AkGameObj.cs using Guid(5ae9ff37d027082449c8f5bd316981a5) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '43ec184e50d8452c55d47207e0ef58d9') in 0.002194 seconds 
+Start importing Assets/Wwise/MonoBehaviour/Runtime/AkBank.cs using Guid(9adb4f0c9c817b44da611910abb77857) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '9b1288374080afc1b4bef5adf2595fb4') in 0.001950 seconds 
+Start importing Assets/Wwise/MonoBehaviour/Runtime/AkTerminator.cs using Guid(ad11c66ccfd5a5f469ac445b2fd9f13d) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '350d6153fa724de1a207fefb4905c85e') in 0.001411 seconds 
+Start importing Assets/Wwise/MonoBehaviour/Runtime/AkAudioListener.cs using Guid(ad28791e0a3909a4684d71dc8bb9eccb) Importer(-1,00000000000000000000000000000000)  -> (artifact id: 'd754440f3cbf5bd03aecd641f4b37b85') in 0.001457 seconds 
+[API Updater] Processing imported assemblies took 114 ms (0/0 assembly(ies)).
+Assembly Updater Post Process Assets time: 0.123934s
+[ScriptCompilation] Requested script compilation because: Assembly Definition File(s) changed
+[ScriptCompilation] Requested script compilation because: Assetdatabase observed changes in script compilation related files
+Starting: C:\Program Files\Unity\Hub\Editor\2021.3.21f1\Editor\Data\bee_backend.exe --profile="Library/Bee/backend_profiler0.traceevents" --stdin-canary --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure ScriptAssemblies
+WorkingDir: C:/Users/Andrei/Documents/GitHub/Kolyma_WwiseIntegrationTemp
+ExitCode: 4 Duration: 0s58ms
+Rebuilding DAG because FileSignature timestamp changed: Library/Bee/1900b0aE-inputdata.json
+*** Tundra requires additional run (0.02 seconds), 0 items updated, 0 evaluated
+Starting: C:\Program Files\Unity\Hub\Editor\2021.3.21f1\Editor\Data\Tools\netcorerun\netcorerun.exe "C:\Program Files\Unity\Hub\Editor\2021.3.21f1\Editor\Data\Tools\BuildPipeline\ScriptCompilationBuildProgram.exe" "Library/Bee/1900b0aE.dag.json" "Library/Bee/1900b0aE-inputdata.json" "Library/Bee/buildprogram0.traceevents"
+WorkingDir: C:/Users/Andrei/Documents/GitHub/Kolyma_WwiseIntegrationTemp
+ExitCode: 0 Duration: 0s648ms
+Starting: C:\Program Files\Unity\Hub\Editor\2021.3.21f1\Editor\Data\bee_backend.exe --profile="Library/Bee/backend_profiler1.traceevents" --stdin-canary --dagfile="Library/Bee/1900b0aE.dag" --continue-on-failure --dagfilejson="Library/Bee/1900b0aE.dag.json" ScriptAssemblies
+WorkingDir: C:/Users/Andrei/Documents/GitHub/Kolyma_WwiseIntegrationTemp
+ExitCode: 0 Duration: 10s
+Finished compiling graph: 781 nodes, 9871 flattened edges (9871 ToBuild, 0 ToUse), maximum node priority 504
+[377/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.dll.mvfrm
+[378/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/UnityEngine.TestRunner.dll (+2 others)
+[379/780    0s] CopyFiles Library/ScriptAssemblies/UnityEngine.TestRunner.pdb
+[382/780    0s] CopyFiles Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+[383/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.dll (+2 others)
+[385/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/UnityEditor.TestRunner.dll (+2 others)
+[386/780    0s] CopyFiles Library/ScriptAssemblies/UnityEditor.TestRunner.pdb
+[388/780    0s] CopyFiles Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+[389/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.dll.mvfrm
+[390/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.dll (+2 others)
+[392/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.ShaderGraph.Utilities.dll (+2 others)
+[393/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.Searcher.Editor.dll (+2 others)
+[394/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.InternalAPIEngineBridge.001.dll (+2 others)
+[395/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.2D.IK.Runtime.dll (+2 others)
+[396/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.2D.PixelPerfect.dll (+2 others)
+[397/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.2D.Tilemap.Extras.dll (+2 others)
+[398/780    1s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.2D.Path.Editor.dll (+2 others)
+[399/780    1s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.Timeline.dll (+2 others)
+[400/780    1s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.2D.Sprite.Editor.dll (+2 others)
+[401/780    1s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.2D.Tilemap.Editor.dll (+2 others)
+[402/780    2s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.TextMeshPro.dll (+2 others)
+[403/780    2s] Csc Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.API.dll (+2 others)
+[404/780    2s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.RenderPipelines.Core.Runtime.dll (+2 others)
+[405/780    1s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.RenderPipelines.Universal.Shaders.dll (+2 others)
+[406/780    1s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.RenderPipelines.Core.ShaderLibrary.dll (+2 others)
+[407/780    2s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.VSCode.Editor.dll (+2 others)
+[408/780    1s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.VisualEffectGraph.Runtime.dll (+2 others)
+[425/780    2s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.Rider.Editor.dll (+2 others)
+[427/780    0s] CopyFiles Library/ScriptAssemblies/Unity.Rider.Editor.dll
+[428/780    0s] CopyFiles Library/ScriptAssemblies/Unity.Rider.Editor.pdb
+[429/780    2s] Csc Library/Bee/artifacts/1900b0aE.dag/Ink-Libraries.dll (+2 others)
+[430/780    1s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.InternalAPIEditorBridge.001.dll (+2 others)
+[432/780    3s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.Burst.dll (+2 others)
+[433/780    2s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.VisualStudio.Editor.dll (+2 others)
+[435/780    0s] CopyFiles Library/ScriptAssemblies/Unity.VisualStudio.Editor.pdb
+[436/780    0s] CopyFiles Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+[437/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.TextMeshPro.Editor.dll.mvfrm
+[438/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.2D.Tilemap.Extras.Editor.dll.mvfrm
+[439/780    1s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.2D.Tilemap.Extras.Editor.dll (+2 others)
+[442/780    1s] Csc Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.API.WwiseTypes.dll (+2 others)
+[443/780    3s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Core.dll (+2 others)
+[444/780    1s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.RenderPipeline.Universal.ShaderLibrary.dll (+2 others)
+[445/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.InternalAPIEditorBridge.001.dll.mvfrm
+[446/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll (+2 others)
+[447/780    3s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.PlasticSCM.Editor.dll (+2 others)
+[451/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.VisualEffectGraph.Runtime.dll.mvfrm
+[452/780    1s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.TextMeshPro.Editor.dll (+2 others)
+[455/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.Burst.CodeGen.dll.mvfrm
+[456/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Flow.dll.mvfrm
+[457/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.CollabProxy.Editor.dll.mvfrm
+[458/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.Burst.CodeGen.dll (+2 others)
+[459/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Core.Editor.dll.mvfrm
+[469/780    1s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.RenderPipelines.Core.Editor.dll (+2 others)
+[491/780    0s] CopyFiles Library/ScriptAssemblies/Ink-Libraries.pdb
+[492/780    0s] CopyFiles Library/ScriptAssemblies/Ink-Libraries.dll
+[493/780    0s] CopyFiles Library/ScriptAssemblies/Unity.ShaderGraph.Utilities.pdb
+[494/780    0s] CopyFiles Library/ScriptAssemblies/Unity.ShaderGraph.Utilities.dll
+[495/780    0s] CopyFiles Library/ScriptAssemblies/Unity.Timeline.pdb
+[496/780    0s] CopyFiles Library/ScriptAssemblies/Unity.Timeline.dll
+[497/780    0s] CopyFiles Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.pdb
+[498/780    0s] CopyFiles Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
+[499/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.Tilemap.Extras.pdb
+[500/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.Tilemap.Extras.dll
+[501/780    0s] CopyFiles Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll
+[502/780    0s] CopyFiles Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.pdb
+[503/780    0s] CopyFiles Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.pdb
+[504/780    0s] CopyFiles Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll
+[505/780    0s] CopyFiles Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll
+[506/780    0s] CopyFiles Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.pdb
+[507/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll
+[508/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.PixelPerfect.pdb
+[509/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.Sprite.Editor.pdb
+[510/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll
+[511/780    0s] CopyFiles Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll
+[512/780    0s] CopyFiles Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.pdb
+[513/780    0s] CopyFiles Library/ScriptAssemblies/AK.Wwise.Unity.API.WwiseTypes.pdb
+[514/780    0s] CopyFiles Library/ScriptAssemblies/AK.Wwise.Unity.API.WwiseTypes.dll
+[515/780    0s] CopyFiles Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.pdb
+[516/780    0s] CopyFiles Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll
+[517/780    0s] CopyFiles Library/ScriptAssemblies/Unity.TextMeshPro.pdb
+[518/780    0s] CopyFiles Library/ScriptAssemblies/Unity.TextMeshPro.dll
+[519/780    0s] CopyFiles Library/ScriptAssemblies/Unity.Burst.pdb
+[520/780    0s] CopyFiles Library/ScriptAssemblies/Unity.Burst.dll
+[521/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.Tilemap.Extras.Editor.pdb
+[522/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/PsdPlugin.dll (+2 others)
+[523/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.CollabProxy.Editor.dll (+2 others)
+[524/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.Tilemap.Extras.Editor.dll
+[525/780    0s] CopyFiles Library/ScriptAssemblies/Unity.VisualScripting.Core.pdb
+[526/780    0s] CopyFiles Library/ScriptAssemblies/Unity.VisualScripting.Core.dll
+[527/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.Timeline.dll (+2 others)
+[528/780    0s] CopyFiles Library/ScriptAssemblies/UnityEngine.UI.dll
+[529/780    0s] CopyFiles Library/ScriptAssemblies/UnityEngine.UI.pdb
+[531/780    0s] CopyFiles Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+[532/780    0s] CopyFiles Library/ScriptAssemblies/Unity.CollabProxy.Editor.pdb
+[533/780    0s] CopyFiles Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.pdb
+[534/780    0s] CopyFiles Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll
+[535/780    0s] CopyFiles Library/ScriptAssemblies/Unity.TextMeshPro.Editor.pdb
+[536/780    0s] CopyFiles Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+[538/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.IK.Runtime.pdb
+[539/780    0s] CopyFiles Library/ScriptAssemblies/PsdPlugin.dll
+[540/780    0s] CopyFiles Library/ScriptAssemblies/PsdPlugin.pdb
+[542/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.IK.Runtime.dll
+[543/780    0s] CopyFiles Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.pdb
+[544/780    0s] CopyFiles Library/ScriptAssemblies/AK.Wwise.Unity.Timeline.pdb
+[545/780    0s] CopyFiles Library/ScriptAssemblies/AK.Wwise.Unity.Timeline.dll
+[546/780    0s] CopyFiles Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll
+[547/780    0s] CopyFiles Library/ScriptAssemblies/UnityEditor.UI.dll
+[548/780    0s] CopyFiles Library/ScriptAssemblies/UnityEditor.UI.pdb
+[549/780    0s] CopyFiles Library/ScriptAssemblies/AK.Wwise.Unity.API.dll
+[550/780    0s] CopyFiles Library/ScriptAssemblies/AK.Wwise.Unity.API.pdb
+[551/780    0s] CopyFiles Library/ScriptAssemblies/Unity.Searcher.Editor.pdb
+[552/780    0s] CopyFiles Library/ScriptAssemblies/Unity.Searcher.Editor.dll
+[553/780    0s] CopyFiles Library/ScriptAssemblies/Unity.PlasticSCM.Editor.pdb
+[554/780    0s] CopyFiles Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll
+[555/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll
+[556/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.pdb
+[557/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.Path.Editor.dll
+[558/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.Path.Editor.pdb
+[559/780    0s] CopyFiles Library/ScriptAssemblies/Unity.Burst.CodeGen.dll
+[560/780    0s] CopyFiles Library/ScriptAssemblies/Unity.VisualEffectGraph.Runtime.dll
+[561/780    0s] CopyFiles Library/ScriptAssemblies/Unity.VisualEffectGraph.Runtime.pdb
+[562/780    0s] CopyFiles Library/ScriptAssemblies/Unity.Burst.CodeGen.pdb
+[563/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.MonoBehaviour.dll (+2 others)
+[564/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.Burst.Editor.dll.mvfrm
+[565/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Ak.Wwise.Api.WAAPI.dll (+2 others)
+[568/780    0s] CopyFiles Library/ScriptAssemblies/Ak.Wwise.Api.WAAPI.dll
+[569/780    0s] CopyFiles Library/ScriptAssemblies/Ak.Wwise.Api.WAAPI.pdb
+[570/780    0s] CopyFiles Library/ScriptAssemblies/AK.Wwise.Unity.MonoBehaviour.pdb
+[571/780    0s] CopyFiles Library/ScriptAssemblies/AK.Wwise.Unity.MonoBehaviour.dll
+[572/780    0s] CopyFiles Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+[573/780    0s] CopyFiles Library/ScriptAssemblies/Unity.VSCode.Editor.pdb
+[574/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/PsdPlugin.dll.mvfrm
+[575/780    1s] Csc Library/Bee/artifacts/1900b0aE.dag/InkEditor.dll (+2 others)
+[577/780    0s] CopyFiles Library/ScriptAssemblies/InkEditor.dll
+[578/780    0s] CopyFiles Library/ScriptAssemblies/InkEditor.pdb
+[579/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.ShaderGraph.Editor.dll.mvfrm
+[580/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.Timeline.Editor.dll.mvfrm
+[582/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.Timeline.Editor.dll.mvfrm
+[583/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.Timeline.dll.mvfrm
+[584/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.RenderPipeline.Universal.ShaderLibrary.dll.mvfrm
+[585/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.RenderPipelines.Core.Editor.dll.mvfrm
+[586/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.RenderPipelines.Core.Runtime.dll.mvfrm
+[587/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.MonoBehaviour.Editor.dll.mvfrm
+[588/780    2s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.Timeline.Editor.dll (+2 others)
+[589/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.2D.Sprite.Editor.dll.mvfrm
+[591/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.API.Editor.dll.mvfrm
+[592/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.API.WwiseTypes.dll.mvfrm
+[594/780    0s] CopyFiles Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+[595/780    0s] CopyFiles Library/ScriptAssemblies/Unity.Timeline.Editor.pdb
+[596/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll.mvfrm
+[597/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.Searcher.Editor.dll.mvfrm
+[599/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.2D.PixelPerfect.dll.mvfrm
+[600/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.2D.Tilemap.Editor.dll.mvfrm
+[601/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.2D.IK.Runtime.dll.mvfrm
+[602/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.PlasticSCM.Editor.dll.mvfrm
+[603/780    1s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Flow.dll (+2 others)
+[604/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Ink-Libraries.dll.mvfrm
+[607/780    0s] CopyFiles Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll
+[608/780    0s] CopyFiles Library/ScriptAssemblies/Unity.VisualScripting.Flow.pdb
+[609/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.Mathematics.dll.mvfrm
+[610/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Ak.Wwise.Api.WAAPI.dll.mvfrm
+[611/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.TextMeshPro.dll.mvfrm
+[612/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.Burst.dll.mvfrm
+[613/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.API.dll.mvfrm
+[614/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.Timeline.dll.mvfrm
+[615/780    1s] Csc Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.API.Editor.dll (+2 others)
+[616/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/InkEditor.dll.mvfrm
+[617/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.VSCode.Editor.dll.mvfrm
+[618/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.ShaderGraph.Utilities.dll.mvfrm
+[620/780    0s] CopyFiles Library/ScriptAssemblies/AK.Wwise.Unity.API.Editor.pdb
+[621/780    0s] CopyFiles Library/ScriptAssemblies/AK.Wwise.Unity.API.Editor.dll
+[622/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.2D.Path.Editor.dll.mvfrm
+[623/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.State.dll.mvfrm
+[624/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Core.dll.mvfrm
+[625/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.MonoBehaviour.dll.mvfrm
+[626/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.RenderPipelines.Core.ShaderLibrary.dll.mvfrm
+[627/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.InternalAPIEngineBridge.001.dll.mvfrm
+[628/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.RenderPipelines.Universal.Shaders.dll.mvfrm
+[629/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.2D.Tilemap.Extras.dll.mvfrm
+[630/780    2s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Core.Editor.dll (+2 others)
+[631/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.State.dll (+2 others)
+[632/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.Timeline.Editor.dll (+2 others)
+[636/780    6s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.Mathematics.dll (+2 others)
+[637/780    0s] CopyFiles Library/ScriptAssemblies/Unity.VisualScripting.State.dll
+[638/780    0s] CopyFiles Library/ScriptAssemblies/Unity.VisualScripting.State.pdb
+[640/780    0s] CopyFiles Library/ScriptAssemblies/Unity.VisualScripting.Core.Editor.pdb
+[641/780    0s] CopyFiles Library/ScriptAssemblies/Unity.VisualScripting.Core.Editor.dll
+[643/780    0s] CopyFiles Library/ScriptAssemblies/AK.Wwise.Unity.Timeline.Editor.dll
+[644/780    0s] CopyFiles Library/ScriptAssemblies/AK.Wwise.Unity.Timeline.Editor.pdb
+[647/780    0s] CopyFiles Library/ScriptAssemblies/Unity.Mathematics.pdb
+[648/780    0s] CopyFiles Library/ScriptAssemblies/Unity.Mathematics.dll
+[649/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/AK.Wwise.Unity.MonoBehaviour.Editor.dll (+2 others)
+[651/780    0s] CopyFiles Library/ScriptAssemblies/AK.Wwise.Unity.MonoBehaviour.Editor.pdb
+[652/780    0s] CopyFiles Library/ScriptAssemblies/AK.Wwise.Unity.MonoBehaviour.Editor.dll
+[653/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Flow.Editor.dll.mvfrm
+[654/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.RenderPipelines.Universal.Runtime.dll.mvfrm
+[655/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.2D.Common.Runtime.dll.mvfrm
+[656/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.Mathematics.Editor.dll.mvfrm
+[657/780    2s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.ShaderGraph.Editor.dll (+2 others)
+[660/780    0s] CopyFiles Library/ScriptAssemblies/Unity.ShaderGraph.Editor.pdb
+[661/780    0s] CopyFiles Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll
+[662/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.Mathematics.Editor.dll (+2 others)
+[663/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.2D.Common.Runtime.dll (+2 others)
+[666/780    0s] CopyFiles Library/ScriptAssemblies/Unity.Mathematics.Editor.pdb
+[667/780    0s] CopyFiles Library/ScriptAssemblies/Unity.Mathematics.Editor.dll
+[670/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.Common.Runtime.pdb
+[671/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll
+[672/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.VisualEffectGraph.Editor.dll.mvfrm
+[673/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Flow.Editor.dll (+2 others)
+[676/780    0s] CopyFiles Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.pdb
+[677/780    0s] CopyFiles Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll
+[678/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.2D.Animation.Runtime.dll.mvfrm
+[679/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.2D.Common.Editor.dll.mvfrm
+[680/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.2D.SpriteShape.Runtime.dll.mvfrm
+[681/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.SettingsProvider.Editor.dll.mvfrm
+[682/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.2D.Common.Editor.dll (+2 others)
+[684/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.State.Editor.dll.mvfrm
+[686/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.Common.Editor.pdb
+[687/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.Common.Editor.dll
+[688/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.RenderPipelines.Universal.Runtime.dll (+2 others)
+[691/780    0s] CopyFiles Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.pdb
+[692/780    0s] CopyFiles Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll
+[693/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.2D.Animation.Runtime.dll (+2 others)
+[696/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.Animation.Runtime.pdb
+[697/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll
+[698/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.2D.SpriteShape.Runtime.dll (+2 others)
+[701/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.pdb
+[702/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll
+[703/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.SettingsProvider.Editor.dll (+2 others)
+[706/780    0s] CopyFiles Library/ScriptAssemblies/Unity.VisualScripting.SettingsProvider.Editor.pdb
+[707/780    0s] CopyFiles Library/ScriptAssemblies/Unity.VisualScripting.SettingsProvider.Editor.dll
+[708/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.State.Editor.dll (+2 others)
+[711/780    0s] CopyFiles Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.pdb
+[712/780    0s] CopyFiles Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.dll
+[713/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.2D.Animation.Editor.dll.mvfrm
+[714/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.2D.SpriteShape.Editor.dll.mvfrm
+[715/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Shared.Editor.dll.mvfrm
+[716/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.2D.SpriteShape.Editor.dll (+2 others)
+[719/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.pdb
+[720/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll
+[721/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Shared.Editor.dll (+2 others)
+[724/780    0s] CopyFiles Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.pdb
+[725/780    0s] CopyFiles Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll
+[726/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.2D.Animation.Editor.dll (+2 others)
+[729/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.Animation.Editor.pdb
+[730/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll
+[731/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.2D.Psdimporter.Editor.dll.mvfrm
+[732/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.2D.IK.Editor.dll.mvfrm
+[733/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.2D.IK.Editor.dll (+2 others)
+[736/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.IK.Editor.pdb
+[737/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.IK.Editor.dll
+[738/780    1s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.VisualEffectGraph.Editor.dll (+2 others)
+[739/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.2D.Psdimporter.Editor.dll (+2 others)
+[743/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.pdb
+[744/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll
+[746/780    0s] CopyFiles Library/ScriptAssemblies/Unity.VisualEffectGraph.Editor.pdb
+[747/780    0s] CopyFiles Library/ScriptAssemblies/Unity.VisualEffectGraph.Editor.dll
+[748/780    4s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.Burst.Editor.dll (+2 others)
+[751/780    0s] CopyFiles Library/ScriptAssemblies/Unity.Burst.Editor.pdb
+[752/780    0s] CopyFiles Library/ScriptAssemblies/Unity.Burst.Editor.dll
+[753/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.RenderPipelines.Universal.Editor.dll.mvfrm
+[754/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.RenderPipelines.Universal.Editor.dll (+2 others)
+[757/780    0s] CopyFiles Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.pdb
+[758/780    0s] CopyFiles Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll
+[759/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Unity.2D.PixelPerfect.Editor.dll.mvfrm
+[760/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/PPv2URPConverters.dll.mvfrm
+[761/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/PPv2URPConverters.dll (+2 others)
+[763/780    0s] CopyFiles Library/ScriptAssemblies/PPv2URPConverters.dll
+[764/780    0s] CopyFiles Library/ScriptAssemblies/PPv2URPConverters.pdb
+[765/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Unity.2D.PixelPerfect.Editor.dll (+2 others)
+[768/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.pdb
+[769/780    0s] CopyFiles Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll
+[770/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll.mvfrm
+[771/780    0s] MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp-Editor.dll.mvfrm
+[772/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp.dll (+2 others)
+Assets\Scripts\Card Game (Elizabeth Version)\Characters\CardGameCharacter.cs(9,19): warning CS0108: 'CardGameCharacter.name' hides inherited member 'Object.name'. Use the new keyword if hiding was intended.
+
+Assets\Scripts\Card Game (Elizabeth Version)\Cards\DisplayCard.cs(14,39): warning CS0108: 'DisplayCard.name' hides inherited member 'Object.name'. Use the new keyword if hiding was intended.
+
+Assets\Scripts\Card Game (Elizabeth Version)\Cards\GenericCard.cs(7,19): warning CS0108: 'GenericCard.name' hides inherited member 'Object.name'. Use the new keyword if hiding was intended.
+
+Assets\Scripts\Card Game (Elizabeth Version)\CardGameManager.cs(58,18): warning CS0414: The field 'CardGameManager.roundOver' is assigned but its value is never used
+[774/780    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp.pdb
+[775/780    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp.dll
+[776/780    0s] Csc Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp-Editor.dll (+2 others)
+[778/780    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+[779/780    0s] CopyFiles Library/ScriptAssemblies/Assembly-CSharp-Editor.pdb
+*** Tundra build success (10.90 seconds), 280 items updated, 780 evaluated
+Assets\Scripts\Card Game (Elizabeth Version)\Characters\CardGameCharacter.cs(9,19): warning CS0108: 'CardGameCharacter.name' hides inherited member 'Object.name'. Use the new keyword if hiding was intended.
+Assets\Scripts\Card Game (Elizabeth Version)\Cards\DisplayCard.cs(14,39): warning CS0108: 'DisplayCard.name' hides inherited member 'Object.name'. Use the new keyword if hiding was intended.
+Assets\Scripts\Card Game (Elizabeth Version)\Cards\GenericCard.cs(7,19): warning CS0108: 'GenericCard.name' hides inherited member 'Object.name'. Use the new keyword if hiding was intended.
+Assets\Scripts\Card Game (Elizabeth Version)\CardGameManager.cs(58,18): warning CS0414: The field 'CardGameManager.roundOver' is assigned but its value is never used
+AssetDatabase: script compilation time: 12.328420s
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\Andrei\Documents\GitHub\Kolyma_WwiseIntegrationTemp\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 116.16 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.530 seconds
+Domain Reload Profiling:
+	ReloadAssembly (3531ms)
+		BeginReloadAssembly (108ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (21ms)
+		EndReloadAssembly (3343ms)
+			LoadAssemblies (318ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (272ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (72ms)
+			SetupLoadedEditorAssemblies (2616ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (116ms)
+				BeforeProcessingInitializeOnLoad (109ms)
+				ProcessInitializeOnLoadAttributes (2147ms)
+				ProcessInitializeOnLoadMethodAttributes (228ms)
+				AfterProcessingInitializeOnLoad (11ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.009286 seconds.
+Start importing Assets/WwiseSettings.xml using Guid(843b5725fb6535d4eb6b373fa9ae265c) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '2bb6c480be1fff3f79c66863ee5a1282') in 0.010730 seconds 
+Start importing Assets/Wwise/NewVersion.txt using Guid(e726bbbfc94908641b0b1bf4594590d3) Importer(-1,00000000000000000000000000000000)  -> (artifact id: 'f19b0c2b9ab94876621891b396ae0a56') in 0.057984 seconds 
+Start importing Assets/Wwise/LauncherInfo.json using Guid(4adc2761524b37949adc423d076c2ca4) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '633fbd6c42daa1d77e44252168d8c22e') in 0.005745 seconds 
+[C:\build\output\unity\unity\Modules\LocalizationEditor\LocalizationDatabase.cpp:811]Packages/com.unity.timeline/Editor/Localization/ja.po
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.09 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.10 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.15 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.19 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.13 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+State comes from an incompatible keyword space
+State comes from an incompatible keyword space
+State comes from an incompatible keyword space
+State comes from an incompatible keyword space
+State comes from an incompatible keyword space
+State comes from an incompatible keyword space
+State comes from an incompatible keyword space
+State comes from an incompatible keyword space
+State comes from an incompatible keyword space
+State comes from an incompatible keyword space
+State comes from an incompatible keyword space
+State comes from an incompatible keyword space
+State comes from an incompatible keyword space
+State comes from an incompatible keyword space
+State comes from an incompatible keyword space
+State comes from an incompatible keyword space
+State comes from an incompatible keyword space
+Registering precompiled user dll's ...
+Registered in 0.009598 seconds.
+Ink compilation started at 2:09:16 PM
+Files compiled:
+Assets/1 Dialogues/InkFiles/Kolyma Script Scene1 Jail Prologue.ink
+Assets/Ink Dialogue Stuff/New Ink.ink
+Assets/Ink Dialogue Stuff/Kolyma Script Scene1 Jail Prologue.ink
+Assets/Ink/Demos/Basic Demo/Ink/story.ink
+Assets/1 Dialogues/InkFiles/Test1.ink
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Ink.UnityIntegration.InkCompiler:CompileInk (Ink.UnityIntegration.InkFile[],bool,System.Action) (at Assets/Ink/Editor/Core/Compiler/InkCompiler.cs:131)
+Ink.UnityIntegration.InkCompiler:CompileInk (Ink.UnityIntegration.InkFile[]) (at Assets/Ink/Editor/Core/Compiler/InkCompiler.cs:107)
+Ink.UnityIntegration.InkPostProcessor:PostprocessInkFiles (System.Collections.Generic.List`1<string>) (at Assets/Ink/Editor/Core/Compiler/Auto Compiler/InkPostProcessor.cs:208)
+Ink.UnityIntegration.InkPostProcessor:OnImportAssets (string[]) (at Assets/Ink/Editor/Core/Compiler/Auto Compiler/InkPostProcessor.cs:189)
+Ink.UnityIntegration.InkPostProcessor:OnPostprocessAllAssets (string[],string[],string[],string[]) (at Assets/Ink/Editor/Core/Compiler/Auto Compiler/InkPostProcessor.cs:33)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.AssetPostprocessingInternal:InvokeMethod (System.Reflection.MethodInfo,object[])
+UnityEditor.AssetPostprocessingInternal:PostprocessAllAssets (string[],string[],string[],string[],string[],bool)
+
+(Filename: Assets/Ink/Editor/Core/Compiler/InkCompiler.cs Line: 131)
+
+Registering precompiled user dll's ...
+Registered in 0.008369 seconds.
+Start importing Packages/com.unity.visualeffectgraph/Editor/Templates/DefaultSubgraphOperator.vfxoperator using Guid(64b68714a7a2a594c994c8b658209762) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '8417c54978596035f48d3be42ef70abb') in 0.002390 seconds 
+Start importing Packages/com.unity.visualeffectgraph/Editor/Templates/DefaultSubgraphBlock.vfxblock using Guid(6952bb3b42e083e4bb41a64cd34ce4dd) Importer(-1,00000000000000000000000000000000)  -> (artifact id: 'acf755d75a3da09d1cf19956188527dd') in 0.001167 seconds 
+Start importing Packages/com.unity.visualeffectgraph/Editor/Templates/SimpleRibbon.vfx using Guid(c071abb088c76054bb603238f21bce1c) Importer(-1,00000000000000000000000000000000) DisplayProgressbar: Compiling Packages/com.unity.visualeffectgraph/Editor/Templates/SimpleRibbon.vfx
+ -> (artifact id: '22f99193c35f9ce0681cfe89b680a44b') in 0.298039 seconds 
+Start importing Packages/com.unity.visualeffectgraph/Editor/Templates/SimpleHeadsAndTrails.vfx using Guid(f0efff9416db4174984390120a80ee87) Importer(-1,00000000000000000000000000000000) DisplayProgressbar: Compiling Packages/com.unity.visualeffectgraph/Editor/Templates/SimpleHeadsAndTrails.vfx
+ -> (artifact id: '5b2765a63bdcaa3c38a24db3a0a03cac') in 0.105208 seconds 
+Start importing Packages/com.unity.visualeffectgraph/Editor/Templates/EmptyParticleSystem.vfx using Guid(b7261d938a155b74cb61a60a16d9f2aa) Importer(-1,00000000000000000000000000000000) DisplayProgressbar: Compiling Packages/com.unity.visualeffectgraph/Editor/Templates/EmptyParticleSystem.vfx
+ -> (artifact id: '46b3e9aa3a0e9da1a3a9eb8da01c0070') in 0.069064 seconds 
+Start importing Packages/com.unity.visualeffectgraph/Editor/Templates/SimpleParticleSystem.vfx using Guid(a8d8823499ff50847aa460cb119c445d) Importer(-1,00000000000000000000000000000000) DisplayProgressbar: Compiling Packages/com.unity.visualeffectgraph/Editor/Templates/SimpleParticleSystem.vfx
+ -> (artifact id: 'feda07fd8ee36078b09d342dbcb7fec6') in 0.068939 seconds 
+Start importing Packages/com.unity.visualeffectgraph/Editor/Templates/SimpleSwarmParticleSystem.vfx using Guid(b84f73c7c4a6c6443a3bfbb2f7a504f9) Importer(-1,00000000000000000000000000000000) DisplayProgressbar: Compiling Packages/com.unity.visualeffectgraph/Editor/Templates/SimpleSwarmParticleSystem.vfx
+ -> (artifact id: 'e3213a77e838c9def7b424686a088d89') in 0.073058 seconds 
+Start importing Packages/com.unity.visualeffectgraph/Editor/Templates/SimpleHeadsAndSparks.vfx using Guid(092c27d29de329c43aa5ad8ca20e4be9) Importer(-1,00000000000000000000000000000000) DisplayProgressbar: Compiling Packages/com.unity.visualeffectgraph/Editor/Templates/SimpleHeadsAndSparks.vfx
+ -> (artifact id: '28377e8fd9a064299cf335e53f68cd95') in 0.113486 seconds 
+Loading style catalogs (8)
+	StyleSheets/Extensions/base/common.uss
+	UIPackageResources/StyleSheets/Default/Variables/Public/common.uss
+	StyleSheets/Northstar/common.uss
+	StyleSheets/Extensions/fonts/inter.uss
+	StyleSheets/Extensions/base/dark.uss
+	UIPackageResources/StyleSheets/Default/Northstar/Palette/dark.uss
+	Packages/com.unity.timeline/Editor/StyleSheets/Extensions/dark.uss
+	Packages/com.unity.timeline/Editor/StyleSheets/Extensions/common.uss
+Refreshing native plugins compatible for Editor in 1.28 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 44.123 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	Summary:
+		Imports: total=18 (actual=18, local cache=0, cache server=0)
+		Asset DB Process Time: managed=7 ms, native=4522 ms
+		Asset DB Callback time: managed=5682 ms, native=14255 ms
+		Scripting: domain reloads=1, domain reload time=3703 ms, compile time=12454 ms, other=3497 ms
+		Project Asset Count: scripts=7660, non-scripts=3482
+		Asset File Changes: new=11142, changed=11142, moved=0, deleted=0
+		Scan Filter Count: 11
+	InvokeBeforeRefreshCallbacks: 0.442ms
+	ApplyChangesToAssetFolders: 0.182ms
+	Scan: 1784.971ms
+	OnSourceAssetsModified: 169.583ms
+	InitializeImportedAssetsSnapshot: 138.736ms
+	GetAllGuidsForCategorization: 4.064ms
+	CategorizeAssets: 560.417ms
+	ImportOutOfDateAssets: 21552.452ms (8145.900ms without children)
+		ImportManagerImport: 939.064ms (107.090ms without children)
+			ImportInProcess: 831.399ms
+			UpdateCategorizedAssets: 0.575ms
+		CompileScripts: 12453.839ms
+		ReloadImportedAssets: 2.230ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 5.934ms
+		InitializingProgressBar: 0.021ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 2.607ms
+		OnDemandSchedulerStart: 2.857ms
+	ReloadSourceAssets: 3.879ms
+	UnloadImportedAssets: 31.751ms
+	PostProcessAllAssets: 20925.687ms
+	Hotreload: 3.871ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.908ms
+	UnloadStreamsBegin: 58.172ms
+	LoadedImportedAssetsSnapshotReleaseGCHandles: 11.750ms
+	GetLoadedSourceAssetsIDs: 6.290ms
+	GetLoadedSourceAssetsSnapshot: 8.446ms
+	PersistCurrentRevisions: 1.607ms
+	UnloadStreamsEnd: 0.519ms
+	GenerateScriptTypeHashes: 7.743ms
+	Untracked: 19785.423ms
+Application.AssetDatabase Initial Refresh End
+Scanning for USB devices : 10.518ms
+Initializing Unity extensions:
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-My project
+ProgressiveSceneManager::Cancel()
+Unloading 12 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 11483 unused Assets / (93.1 MB). Loaded Objects now: 7332.
+Memory consumption went from 300.3 MB to 207.2 MB.
+Total: 22.690800 ms (FindLiveObjects: 1.764500 ms CreateObjectMapping: 1.117300 ms MarkObjects: 8.024100 ms  DeleteObjects: 11.783700 ms)
+
+WwiseUnity: Running modify setup...
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+WwiseSetupWizard:RunModify () (at Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:28)
+
+(Filename: Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs Line: 28)
+
+[Licensing::Client] Successfully resolved entitlements
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 1 unused Assets / (2.2 KB). Loaded Objects now: 7336.
+Memory consumption went from 175.2 MB to 175.2 MB.
+Total: 7.267500 ms (FindLiveObjects: 0.378100 ms CreateObjectMapping: 0.234900 ms MarkObjects: 6.634400 ms  DeleteObjects: 0.019200 ms)
+
+Registering precompiled user dll's ...
+Registered in 0.008715 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/DSP/libAkSynthOne.bundle using Guid(7aa9cc907b3efa34d84d6b84f047f714) Importer(-1,00000000000000000000000000000000)  -> (artifact id: 'f2e43c0ad2b8a064faf98f3e054bf7d5') in 0.009171 seconds 
+Refreshing native plugins compatible for Editor in 1.67 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.097 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.008006 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86/Profile/AkSoundEngine.dll using Guid(4942058dd5011124fabd24e3cb4fa17b) Importer(-1,00000000000000000000000000000000)  -> (artifact id: 'c408dfc0bf1447674fd04b96f826cbf9') in 0.002900 seconds 
+Refreshing native plugins compatible for Editor in 1.46 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.125 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.008743 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86/DSP/McDSP.dll using Guid(f549a6640d6bcc841a8d6dee03948487) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '86bf2efec6fb3c33ab75ca008edc4992') in 0.004732 seconds 
+Refreshing native plugins compatible for Editor in 1.38 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.128 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.009001 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/DSP/libAkTremolo.bundle using Guid(522b69bd0f3d8ce4488122de04ce5b9e) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '4a89fac685346f18b94abc9bfe8cee1d') in 0.002843 seconds 
+Refreshing native plugins compatible for Editor in 1.13 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.072 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.008384 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/DSP/libMcDSP.bundle using Guid(9dbd17d54bf2b9a4996675ba69384f17) Importer(-1,00000000000000000000000000000000)  -> (artifact id: 'dd03529e8891af647eba378c9fc59597') in 0.010606 seconds 
+Refreshing native plugins compatible for Editor in 1.19 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.078 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.008312 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86/DSP/AkSoundSeedGrain.dll using Guid(f909d3bd85a9fd24ca402d36f18b1589) Importer(-1,00000000000000000000000000000000)  -> (artifact id: 'ee78547f4ac68cbde154fe4ff0c15616') in 0.008580 seconds 
+Refreshing native plugins compatible for Editor in 1.37 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.134 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.008118 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/DSP/iZotope.dll using Guid(c0a10d44b11d9d4478cd7f0f22836033) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '855e5af3699c1849590819c919db14e5') in 0.002916 seconds 
+Refreshing native plugins compatible for Editor in 1.34 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.151 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.008510 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/DSP/AkSoundSeedAir.dll using Guid(0435ff6742ec41b47b679a6f789f249b) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '5209f12ffeb9aaf63a4cc295cfb630c5') in 0.003081 seconds 
+Refreshing native plugins compatible for Editor in 1.32 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.126 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.007955 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86/DSP/iZotope.dll using Guid(910bc81972cb511409b2b6bfbdf67153) Importer(-1,00000000000000000000000000000000)  -> (artifact id: 'b94a5345f6d356a47c5982d06d7d3251') in 0.009756 seconds 
+Refreshing native plugins compatible for Editor in 1.30 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.133 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.007844 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86/DSP/MasteringSuite.dll using Guid(6afc8f29c12ce6548bd32c86cf1c1a0f) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '5e27d9a6a2a385fadaf9759496dcf6e2') in 0.003517 seconds 
+Refreshing native plugins compatible for Editor in 1.31 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.127 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.008616 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86/DSP/AkMotion.dll using Guid(d174e16ddfcbdfc47bc3efcd5d4a7c65) Importer(-1,00000000000000000000000000000000)  -> (artifact id: 'a4d7d1dae1e86cf26693a8330e9056be') in 0.005402 seconds 
+Refreshing native plugins compatible for Editor in 1.28 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.128 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.008016 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/DSP/libAkReflect.bundle using Guid(5a5b8480e35665c4cbd90e9b6b6b5d36) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '5a33260cf4aa000b764914d8325670b4') in 0.002643 seconds 
+Refreshing native plugins compatible for Editor in 1.18 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.071 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.008651 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/DSP/libAkFlanger.bundle using Guid(f66be2957f9426347bdcdbfbb67adee5) Importer(-1,00000000000000000000000000000000)  -> (artifact id: 'da3974afc7f37e834705bb1abf2799e5') in 0.010124 seconds 
+Refreshing native plugins compatible for Editor in 1.31 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.078 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.008256 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Debug/AkSoundEngine.bundle using Guid(8d27de145af79b249b9e3e9da081dfed) Importer(-1,00000000000000000000000000000000)  -> (artifact id: 'b36669406200774ab1dd9fd43f0cb8a8') in 0.008231 seconds 
+Refreshing native plugins compatible for Editor in 1.19 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.077 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.008308 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/DSP/libiZotope.bundle using Guid(ce5f0babde0ac8b44b4a37890ec8a40f) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '5c3e750368949d0a749dca8d6314e64e') in 0.008040 seconds 
+Refreshing native plugins compatible for Editor in 1.17 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.078 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.008693 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/DSP/libAkHarmonizer.bundle using Guid(392df7e84ae834e4988b4fea1d1bc8d3) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '2c6130b5a311a33c64c36c394e0da403') in 0.002860 seconds 
+Refreshing native plugins compatible for Editor in 1.15 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.071 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.008257 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/DSP/AkSoundSeedGrain.dll using Guid(20ceb36ccdf7dd44abfdaecb72b84dd9) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '608fcd9a385e460bc4032aaa925d40dd') in 0.006734 seconds 
+Refreshing native plugins compatible for Editor in 1.39 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.147 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.008634 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/DSP/McDSP.dll using Guid(d7b1cce6c5a47704a9819e4add27f6b7) Importer(-1,00000000000000000000000000000000)  -> (artifact id: 'd8c162338a03f0eb1b462881538fac7f') in 0.010873 seconds 
+Refreshing native plugins compatible for Editor in 2.32 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.156 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.007993 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Profile/AkSoundEngine.bundle using Guid(4faab8544d8ac9f48ba5b412d3614f0c) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '96617fdd2f809dd46929dd5c66adad71') in 0.006670 seconds 
+Refreshing native plugins compatible for Editor in 1.24 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.077 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.009594 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/DSP/libAkSoundSeedGrain.bundle using Guid(aa54ede8d68381540874c3140b66c141) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '9fe8f0e570286d170264a54fe295f586') in 0.002593 seconds 
+Refreshing native plugins compatible for Editor in 1.14 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.071 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.008129 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86/Release/AkSoundEngine.dll using Guid(558b45d86ed63e84aa75f66d341c0716) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '31fbee73e20cb588150c37e3b8b510c8') in 0.008737 seconds 
+Refreshing native plugins compatible for Editor in 1.35 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.137 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.008058 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/DSP/Auro.dll using Guid(830bd5b25f633b8428be0c3787f2afb1) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '1d8d6802ff63ccaff49a41bca27a117a') in 0.002781 seconds 
+Refreshing native plugins compatible for Editor in 1.30 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.129 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.008419 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86/DSP/AkSoundSeedAir.dll using Guid(d56fd154167dfe8439642e89554d55bd) Importer(-1,00000000000000000000000000000000)  -> (artifact id: 'd1251e50180e60d9049b2aa3f96bdf10') in 0.002796 seconds 
+Refreshing native plugins compatible for Editor in 1.30 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.130 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.008715 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/DSP/AkSynthOne.dll using Guid(74ddb16e53c02b3439568d02f03bb7ac) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '0374f336c97fb97182a81c2fad0ae260') in 0.004068 seconds 
+Refreshing native plugins compatible for Editor in 1.30 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.135 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.008536 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86/DSP/AkConvolutionReverb.dll using Guid(8c44c37b023a8e4459bf71f87142c325) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '2953ba5e55625e78c56cd16e4d668422') in 0.007923 seconds 
+Refreshing native plugins compatible for Editor in 1.29 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.147 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.008552 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/DSP/libAkGuitarDistortion.bundle using Guid(af1589dc17141a54483ee7b879617e27) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '16188c3f3c1e2d4c3295099ef4e1aaad') in 0.003221 seconds 
+Refreshing native plugins compatible for Editor in 1.18 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.069 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.008194 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/DSP/libAkTimeStretch.bundle using Guid(5af684f1f61d511408e54f859e94835a) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '141ce42e9d25704739433aa352e0e210') in 0.008655 seconds 
+Refreshing native plugins compatible for Editor in 1.15 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.077 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.008358 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86/DSP/AkSynthOne.dll using Guid(a3257f40a236a4c4fb82a412395639c4) Importer(-1,00000000000000000000000000000000)  -> (artifact id: 'ee6b3fafe475a12f0758cc6f37004dca') in 0.010567 seconds 
+Refreshing native plugins compatible for Editor in 1.63 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.135 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.009000 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/DSP/libAkConvolutionReverb.bundle using Guid(f16f7d9ebddc56b469ab7ccb62cc7978) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '7e675a8bbfa3ce543963135e4225bc59') in 0.003075 seconds 
+Refreshing native plugins compatible for Editor in 1.24 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.073 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.010497 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/DSP/libAkStereoDelay.bundle using Guid(369236e66acbcf645afe82750b90a441) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '5018c8d58133131bab7715a3de277c97') in 0.005221 seconds 
+Refreshing native plugins compatible for Editor in 1.84 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.087 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.010954 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Profile/AkSoundEngine.dll using Guid(a8656ab6ed11c844c816d8533d0bc0e9) Importer(-1,00000000000000000000000000000000)  -> (artifact id: 'e11f98ca66d2c7e8042b90e6b1086192') in 0.004600 seconds 
+Refreshing native plugins compatible for Editor in 5.22 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.185 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.009277 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86/DSP/Auro.dll using Guid(f8b8d4eae4648e948a036d866b00ad2d) Importer(-1,00000000000000000000000000000000)  -> (artifact id: 'db2839bd9391d24c490d5c2349334a39') in 0.002987 seconds 
+Refreshing native plugins compatible for Editor in 1.40 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.133 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.009060 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/DSP/libMasteringSuite.bundle using Guid(b73f4985b65bdf841b6e7924f94ee95f) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '251315063c1986632ba69ae9f1f432be') in 0.002876 seconds 
+Refreshing native plugins compatible for Editor in 1.20 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.074 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.008599 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86/Debug/AkSoundEngine.dll using Guid(60afb28aa1c84f84a932c8f1587dabd4) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '02e5a763177be9a57130409b107f23d9') in 0.002989 seconds 
+Refreshing native plugins compatible for Editor in 1.38 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.125 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.007905 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/DSP/MasteringSuite.dll using Guid(33642a217b07cd549816ac53d7e0c22b) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '273fc812636f7d6dfa8b1418bce95095') in 0.002940 seconds 
+Refreshing native plugins compatible for Editor in 1.47 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.148 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.007999 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Debug/AkSoundEngine.dll using Guid(e1c4aa2f0173500419195cd0b18af612) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '940f1c9018c8baa202416ac90bbd23fc') in 0.002891 seconds 
+Refreshing native plugins compatible for Editor in 1.41 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.124 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.008587 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/DSP/libAkRecorder.bundle using Guid(93984bdf40815464a9ffc499f4b60418) Importer(-1,00000000000000000000000000000000)  -> (artifact id: 'dab187fc4c82e16549f7ebdc6ef16ec4') in 0.002724 seconds 
+Refreshing native plugins compatible for Editor in 1.18 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.072 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.008376 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/DSP/AkMotion.dll using Guid(4585c8c0fefc20e43b4e74f26965f084) Importer(-1,00000000000000000000000000000000)  -> (artifact id: 'b9b30202a95a17b1cacee89d9f763994') in 0.002959 seconds 
+Refreshing native plugins compatible for Editor in 1.36 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.128 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.009437 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/Release/AkSoundEngine.dll using Guid(1381da7eec842bf4a85d70f74458b55a) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '6bea8166bcac451e89117aea281c689b') in 0.002953 seconds 
+Refreshing native plugins compatible for Editor in 1.33 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.127 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.008616 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/DSP/libAkRoomVerb.bundle using Guid(56a77b39bddb8a34d83a64b9a4408361) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '336d0cecf8598c3a2ff7158197aedc7b') in 0.002665 seconds 
+Refreshing native plugins compatible for Editor in 1.18 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.071 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.008371 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/DSP/libAuro.bundle using Guid(c50f3232284a28548b019fce5c40afc7) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '710fb3b28b7dcdc8d611403b7a823625') in 0.003285 seconds 
+Refreshing native plugins compatible for Editor in 1.25 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.071 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.008926 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/DSP/libAkPitchShifter.bundle using Guid(4133bd95114017941a03b16c3c373aa0) Importer(-1,00000000000000000000000000000000)  -> (artifact id: 'a7e5f5e3781af0be39572f13e9077c1c') in 0.002635 seconds 
+Refreshing native plugins compatible for Editor in 1.74 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.072 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.010366 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/DSP/libAkSoundSeedAir.bundle using Guid(b56866b6552666f4d9932b7117c813de) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '4b9eb772e387ac9b37aa391dc65b4ed2') in 0.002907 seconds 
+Refreshing native plugins compatible for Editor in 1.19 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.074 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.008001 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/DSP/libAk3DAudioBedMixer.bundle using Guid(5d1c24ed05d7f6b41b8f9efe8394ded1) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '955eaec6a4e0fd32f4a207efb347e42d') in 0.005839 seconds 
+Refreshing native plugins compatible for Editor in 1.15 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.071 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.007874 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Windows/x86_64/DSP/AkConvolutionReverb.dll using Guid(06d763d0bb07e884ea9ecdadaac2dd31) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '4ef24d9f4c2522670bb977a309d3e3af') in 0.013967 seconds 
+Refreshing native plugins compatible for Editor in 1.32 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.137 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Registering precompiled user dll's ...
+Registered in 0.008431 seconds.
+Start importing Assets/Wwise/API/Runtime/Plugins/Mac/Release/AkSoundEngine.bundle using Guid(ee357404b31203a4fa114e54071554f3) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '4d03a176127182d66dbddf57489429da') in 0.002641 seconds 
+Refreshing native plugins compatible for Editor in 1.30 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.069 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Refreshing native plugins compatible for Editor in 0.75 ms, found 5 plugins.
+WwiseUnity: Refreshing asset database.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+WwiseSetupWizard:RunModify () (at Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:34)
+
+(Filename: Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs Line: 34)
+
+Asset Pipeline Refresh: Total: 0.002 seconds - Initiated by RefreshV2(NoUpdateAssetOptions)
+WwiseUnity: End of setup, exiting Unity.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+WwiseSetupWizard:RunModify () (at Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs:38)
+
+(Filename: Assets/Wwise/MonoBehaviour/Editor/WwiseSetupWizard/AkWwiseSetupWizard.cs Line: 38)
+
+Batchmode quit successfully invoked - shutting down!
+Registering precompiled user dll's ...
+Registered in 0.008912 seconds.
+Start importing ProjectSettings/ProjectSettings.asset using Guid(00000000000000004000000000000000) Importer(-1,00000000000000000000000000000000)  -> (artifact id: '1452ca385354ffd5fba54f0758677e06') in 0.001695 seconds 
+Start importing Assets/Wwise/Editor/ProjectData/AkWwiseProjectData.asset using Guid(2b99330d7c24a1a43a9da6756475c34a) Importer(-1,00000000000000000000000000000000)  -> (artifact id: 'f9083befd2f4c721157a9a5efe6a6c68') in 0.002547 seconds 
+Refreshing native plugins compatible for Editor in 1.40 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh: Total: 0.104 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[Licensing::IpcConnector] License Notification channel disconnected successfully.
+[Licensing::IpcConnector] License Client channel disconnected successfully.
+AcceleratorClientConnectionCallback - disconnected - :0
+Cleanup mono
+debugger-agent: Unable to listen on 4992
+[Performance] WinEditorMain                                                                                              :        1 samples, Peak.  2.22 s (1.0x), Avg.  2.22 s, Total. 2.221 s (4.0%)
+[Performance] WinEditorMain.ConfigureCrashHandler                                                                        :        1 samples, Peak.  18.3 us (1.0x), Avg.  18.3 us, Total. 18.30 us (0.0%)
+[Performance] WinEditorMain.CurlRequestInitialize                                                                        :        1 samples, Peak.  1.21 ms (1.0x), Avg.  1.21 ms, Total. 1.210 ms (0.0%)
+[Performance] WinEditorMain.SetupLogFile                                                                                 :        1 samples, Peak.   375 us (1.0x), Avg.   375 us, Total. 374.7 us (0.0%)
+[Performance] WinEditorMain.RunNativeTestsIfRequiredAndExit                                                              :        1 samples, Peak.   100 ns (1.0x), Avg.   100 ns, Total. 100.0 ns (0.0%)
+[Performance] WinEditorMain.Licensing                                                                                    :        1 samples, Peak.  2.21 s (1.0x), Avg.  2.21 s, Total. 2.206 s (4.0%)
+[Performance] WinEditorMain.InitializeCrashHandler                                                                       :        1 samples, Peak.  11.6 ms (1.0x), Avg.  11.6 ms, Total. 11.55 ms (0.0%)
+[Performance] WinEditorMain.CreateApplication                                                                            :        1 samples, Peak.   198 us (1.0x), Avg.   198 us, Total. 198.0 us (0.0%)
+[Performance] Application.InitializeProject                                                                              :        1 samples, Peak.  47.5 s (1.0x), Avg.  47.5 s, Total. 47.54 s (85.5%)
+[Performance] Application.PackageManager.StartServer                                                                     :        1 samples, Peak.  4.21 ms (1.0x), Avg.  4.21 ms, Total. 4.213 ms (0.0%)
+[Performance] Application.AcquireProjectLock                                                                             :        1 samples, Peak.  4.71 ms (1.0x), Avg.  4.71 ms, Total. 4.712 ms (0.0%)
+[Performance] Application.InitializeEngineNoGraphics                                                                     :        1 samples, Peak.  50.8 ms (1.0x), Avg.  50.8 ms, Total. 50.85 ms (0.1%)
+[Performance] Application.PackageManager.Initialize                                                                      :        1 samples, Peak.   507 ms (1.0x), Avg.   507 ms, Total. 506.9 ms (0.9%)
+[Performance] CurlRequestCheck                                                                                           :       10 samples, Peak.  77.1 us (5.7x), Avg.  13.5 us, Total. 135.5 us (0.0%)
+[Performance] PackageManager::RunRequestSynchronously                                                                    :       24 samples, Peak.   566 us (18.6x), Avg.  30.4 us, Total. 730.4 us (0.0%)
+[Performance] Application.EngineGraphics.Initialize                                                                      :        1 samples, Peak.   124 ms (1.0x), Avg.   124 ms, Total. 123.7 ms (0.2%)
+[Performance] Application.GI.Initialize                                                                                  :        1 samples, Peak.  2.04 ms (1.0x), Avg.  2.04 ms, Total. 2.039 ms (0.0%)
+[Performance] Application.LoadAllDefaultResourcesFromEditor                                                              :        1 samples, Peak.  2.02 ms (1.0x), Avg.  2.02 ms, Total. 2.025 ms (0.0%)
+[Performance] Application.LoadMonoAssemblies                                                                             :        1 samples, Peak.   590 ms (1.0x), Avg.   590 ms, Total. 589.7 ms (1.1%)
+[Performance] RestoreManagedReferences                                                                                   :        2 samples, Peak.  28.6 ms (2.0x), Avg.  14.3 ms, Total. 28.58 ms (0.1%)
+[Performance] InitializeOnLoad LayerSettingsWindow                                                                       :        2 samples, Peak.   211 us (1.1x), Avg.   192 us, Total. 383.2 us (0.0%)
+[Performance] InitializeOnLoad ParameterControllerEditor                                                                 :        2 samples, Peak.   101 us (1.7x), Avg.  58.5 us, Total. 116.9 us (0.0%)
+[Performance] InitializeOnLoad ServicesRepository                                                                        :        2 samples, Peak.   764 us (1.0x), Avg.   757 us, Total. 1.514 ms (0.0%)
+[Performance] InitializeOnLoad AdsService                                                                                :        2 samples, Peak.  3.85 ms (1.7x), Avg.  2.22 ms, Total. 4.446 ms (0.0%)
+[Performance] InitializeOnLoad AnalyticsService                                                                          :        2 samples, Peak.   147 us (1.2x), Avg.   125 us, Total. 249.5 us (0.0%)
+[Performance] InitializeOnLoad BuildService                                                                              :        2 samples, Peak.   126 us (1.1x), Avg.   111 us, Total. 221.3 us (0.0%)
+[Performance] InitializeOnLoad CloudBuildPoller                                                                          :        2 samples, Peak.  85.7 us (1.1x), Avg.  78.1 us, Total. 156.3 us (0.0%)
+[Performance] InitializeOnLoad CollabService                                                                             :        2 samples, Peak.   284 us (1.5x), Avg.   193 us, Total. 385.3 us (0.0%)
+[Performance] InitializeOnLoad CrashService                                                                              :        2 samples, Peak.   255 us (1.4x), Avg.   176 us, Total. 352.0 us (0.0%)
+[Performance] InitializeOnLoad PurchasingService                                                                         :        2 samples, Peak.  10.1 ms (1.9x), Avg.  5.46 ms, Total. 10.93 ms (0.0%)
+[Performance] InitializeOnLoad UDPService                                                                                :        2 samples, Peak.   237 us (1.4x), Avg.   175 us, Total. 350.9 us (0.0%)
+[Performance] InitializeOnLoad UIDocumentHierarchyWatcher                                                                :        2 samples, Peak.   713 us (1.7x), Avg.   429 us, Total. 858.3 us (0.0%)
+[Performance] InitializeOnLoad RetainedMode                                                                              :        2 samples, Peak.  1.65 ms (1.1x), Avg.  1.54 ms, Total. 3.074 ms (0.0%)
+[Performance] InitializeOnLoad EditorMonitor                                                                             :        2 samples, Peak.   174 us (1.2x), Avg.   144 us, Total. 287.0 us (0.0%)
+[Performance] InitializeOnLoad EditorShaderLoader                                                                        :        2 samples, Peak.   984 us (1.2x), Avg.   789 us, Total. 1.578 ms (0.0%)
+[Performance] InitializeOnLoad UXMLEditorFactories                                                                       :        2 samples, Peak.  64.8 ms (1.2x), Avg.  54.7 ms, Total. 109.4 ms (0.2%)
+[Performance] InitializeOnLoad SearchMonitor                                                                             :        2 samples, Peak.  23.6 ms (1.6x), Avg.  15.0 ms, Total. 30.02 ms (0.1%)
+[Performance] InitializeOnLoad PlayModeDownload                                                                          :        2 samples, Peak.  2.42 ms (1.8x), Avg.  1.32 ms, Total. 2.635 ms (0.0%)
+[Performance] InitializeOnLoad SearchWindow                                                                              :        2 samples, Peak.   184 us (1.2x), Avg.   152 us, Total. 304.1 us (0.0%)
+[Performance] InitializeOnLoad EditMode                                                                                  :        2 samples, Peak.   421 us (1.2x), Avg.   351 us, Total. 702.7 us (0.0%)
+[Performance] InitializeOnLoad AssetStoreContext                                                                         :        2 samples, Peak.  4.00 ms (1.7x), Avg.  2.32 ms, Total. 4.648 ms (0.0%)
+[Performance] InitializeOnLoad DrivenRectTransformUndo                                                                   :        2 samples, Peak.   179 us (1.1x), Avg.   164 us, Total. 328.7 us (0.0%)
+[Performance] InitializeOnLoad CacheServerWindow                                                                         :        2 samples, Peak.  10.1 us (1.0x), Avg.  9.65 us, Total. 19.30 us (0.0%)
+[Performance] InitializeOnLoad ManagedDebuggerWindow                                                                     :        2 samples, Peak.   697 us (1.5x), Avg.   460 us, Total. 920.0 us (0.0%)
+[Performance] InitializeOnLoad WindowLayout                                                                              :        2 samples, Peak.  19.1 ms (2.0x), Avg.  9.67 ms, Total. 19.33 ms (0.0%)
+[Performance] InitializeOnLoad PrefabInstanceChangedListener                                                             :        2 samples, Peak.   323 us (1.8x), Avg.   183 us, Total. 366.2 us (0.0%)
+[Performance] InitializeOnLoad SettingsService                                                                           :        2 samples, Peak.  10.7 us (1.4x), Avg.  7.75 us, Total. 15.50 us (0.0%)
+[Performance] InitializeOnLoad NativeFormatImporterUtility                                                               :        2 samples, Peak.  4.42 ms (1.5x), Avg.  2.99 ms, Total. 5.976 ms (0.0%)
+[Performance] InitializeOnLoad UISystemProfilerRenderService                                                             :        2 samples, Peak.  14.5 us (1.4x), Avg.  10.6 us, Total. 21.20 us (0.0%)
+[Performance] InitializeOnLoad ShortcutIntegration                                                                       :        2 samples, Peak.   133 us (1.3x), Avg.  98.9 us, Total. 197.7 us (0.0%)
+[Performance] InitializeOnLoad UnityConnect                                                                              :        2 samples, Peak.   151 us (1.6x), Avg.  94.8 us, Total. 189.7 us (0.0%)
+[Performance] InitializeOnLoad ObjectSelectorSearch                                                                      :        2 samples, Peak.   729 us (1.9x), Avg.   383 us, Total. 765.3 us (0.0%)
+[Performance] InitializeOnLoad ProjectSearch                                                                             :        2 samples, Peak.   111 us (1.7x), Avg.  66.5 us, Total. 133.1 us (0.0%)
+[Performance] InitializeOnLoad SceneSearch                                                                               :        2 samples, Peak.  63.6 us (1.5x), Avg.  42.4 us, Total. 84.70 us (0.0%)
+[Performance] InitializeOnLoad SearchService                                                                             :        2 samples, Peak.   207 us (1.4x), Avg.   146 us, Total. 292.2 us (0.0%)
+[Performance] InitializeOnLoad AddComponentWindow                                                                        :        2 samples, Peak.   180 us (1.4x), Avg.   132 us, Total. 263.3 us (0.0%)
+[Performance] InitializeOnLoad Collab                                                                                    :        2 samples, Peak.  7.64 ms (1.1x), Avg.  6.93 ms, Total. 13.86 ms (0.0%)
+[Performance] InitializeOnLoad CloudBuild                                                                                :        2 samples, Peak.  5.70 us (1.3x), Avg.  4.45 us, Total. 8.900 us (0.0%)
+[Performance] InitializeOnLoad MixerEffectDefinitionReloader                                                             :        2 samples, Peak.  1.47 ms (1.2x), Avg.  1.25 ms, Total. 2.497 ms (0.0%)
+[Performance] InitializeOnLoad MenuItems                                                                                 :        2 samples, Peak.  97.1 us (1.2x), Avg.  84.4 us, Total. 168.7 us (0.0%)
+[Performance] InitializeOnLoad ManagedDebugger                                                                           :        2 samples, Peak.  1.50 us (1.4x), Avg.  1.05 us, Total. 2.100 us (0.0%)
+[Performance] InitializeOnLoad EditorDragAndDrop.RegisterEditorClient                                                    :        2 samples, Peak.  2.12 ms (1.8x), Avg.  1.18 ms, Total. 2.357 ms (0.0%)
+[Performance] InitializeOnLoad EditorDelegateRegistration.Initialize                                                     :        2 samples, Peak.   770 us (1.3x), Avg.   602 us, Total. 1.203 ms (0.0%)
+[Performance] InitializeOnLoad LiveReloadTrackerCreator.Initialize                                                       :        2 samples, Peak.   357 us (1.3x), Avg.   268 us, Total. 536.6 us (0.0%)
+[Performance] InitializeOnLoad PackageManagerHookGUIDConverter.RegisterPackagesEventHandler                              :        2 samples, Peak.   256 us (1.4x), Avg.   183 us, Total. 365.6 us (0.0%)
+[Performance] InitializeOnLoad RuntimeEditorDelegateRegistration.Initialize                                              :        2 samples, Peak.   373 us (1.4x), Avg.   261 us, Total. 522.6 us (0.0%)
+[Performance] InitializeOnLoad EditorEventCallbacks.InitializeFontAssetResourceChangeCallBacks                           :        2 samples, Peak.  2.26 ms (1.4x), Avg.  1.58 ms, Total. 3.156 ms (0.0%)
+[Performance] InitializeOnLoad SceneTemplateService.Init                                                                 :        2 samples, Peak.   838 us (1.6x), Avg.   513 us, Total. 1.025 ms (0.0%)
+[Performance] InitializeOnLoad EntitlementsErrorChecker.OpenFirstEntitlementError                                        :        2 samples, Peak.  29.3 ms (1.6x), Avg.  18.7 ms, Total. 37.37 ms (0.1%)
+[Performance] InitializeOnLoad ScopedRegistryAddedPopup.SubscribeToRegistriesAdded                                       :        2 samples, Peak.   130 us (1.1x), Avg.   118 us, Total. 236.6 us (0.0%)
+[Performance] InitializeOnLoad DiagnosticSwitchesConsoleMessage.Init                                                     :        2 samples, Peak.  5.46 ms (1.8x), Avg.  3.06 ms, Total. 6.119 ms (0.0%)
+[Performance] InitializeOnLoad SysrootManager.Initialize                                                                 :        2 samples, Peak.   637 us (1.1x), Avg.   577 us, Total. 1.153 ms (0.0%)
+[Performance] InitializeOnLoad AssetPostprocessingInternal.RefreshCustomDependencies                                     :        2 samples, Peak.  2.35 ms (1.4x), Avg.  1.74 ms, Total. 3.484 ms (0.0%)
+[Performance] InitializeOnLoad EditorWindow.Initialize                                                                   :        2 samples, Peak.   255 us (1.1x), Avg.   222 us, Total. 444.9 us (0.0%)
+[Performance] InitializeOnLoad SceneVisibilityManager.Initialize                                                         :        2 samples, Peak.  5.54 ms (1.7x), Avg.  3.21 ms, Total. 6.424 ms (0.0%)
+[Performance] InitializeOnLoad MemoryProfilerCompilationGuard.InjectCompileGuard                                         :        2 samples, Peak.   132 us (1.2x), Avg.   106 us, Total. 212.9 us (0.0%)
+[Performance] ProcessService.EditorAfterLoadAllAssemblies                                                                :        2 samples, Peak.   411 us (1.4x), Avg.   301 us, Total. 601.5 us (0.0%)
+[Performance] Application.ReadLicenseInfo                                                                                :        1 samples, Peak.  13.9 ms (1.0x), Avg.  13.9 ms, Total. 13.90 ms (0.0%)
+[Performance] Application.InitialRefresh                                                                                 :        1 samples, Peak.  44.1 s (1.0x), Avg.  44.1 s, Total. 44.13 s (79.4%)
+[Performance] BuilderAssetModificationProcessor.OnWillCreateAsset                                                        :        2 samples, Peak.   840 us (2.0x), Avg.   430 us, Total. 860.7 us (0.0%)
+[Performance] ShaderImporter.SourceAssetModified                                                                         :        2 samples, Peak.  50.5 ms (1.2x), Avg.  42.7 ms, Total. 85.34 ms (0.2%)
+[Performance] UpgradeShaderAsset                                                                                         :      200 samples, Peak.  1.85 ms (4.4x), Avg.   419 us, Total. 83.86 ms (0.2%)
+[Performance] ShaderIncludeImporter.SourceAssetModified                                                                  :        2 samples, Peak.  4.51 ms (1.1x), Avg.  4.01 ms, Total. 8.028 ms (0.0%)
+[Performance] UpgradeShaderIncludeAsset                                                                                  :      532 samples, Peak.   680 us (71.4x), Avg.  9.53 us, Total. 5.071 ms (0.0%)
+[Performance] PresetManagerPostProcessor.OnPreprocessAsset                                                               :       66 samples, Peak.   665 us (21.8x), Avg.  30.5 us, Total. 2.010 ms (0.0%)
+[Performance] CancelSplashScreenOnAssetChange.OnPreprocessAsset                                                          :       66 samples, Peak.   110 us (20.0x), Avg.  5.47 us, Total. 361.3 us (0.0%)
+[Performance] Compiling Scripts                                                                                          :        1 samples, Peak.  12.5 s (1.0x), Avg.  12.5 s, Total. 12.45 s (22.4%)
+[Performance] InitializeOnLoad ProbeGIBaking                                                                             :        1 samples, Peak.   595 us (1.0x), Avg.   595 us, Total. 595.2 us (0.0%)
+[Performance] InitializeOnLoad FilterWindow                                                                              :        1 samples, Peak.  68.7 us (1.0x), Avg.  68.7 us, Total. 68.70 us (0.0%)
+[Performance] InitializeOnLoad RealtimeProbeSubdivisionDebug                                                             :        1 samples, Peak.   213 us (1.0x), Avg.   213 us, Total. 213.1 us (0.0%)
+[Performance] InitializeOnLoad AkWaapiUtilities                                                                          :        1 samples, Peak.   199 ms (1.0x), Avg.   199 ms, Total. 198.9 ms (0.4%)
+[Performance] InitializeOnLoad AkPortalManager                                                                           :        1 samples, Peak.   541 us (1.0x), Avg.   541 us, Total. 541.1 us (0.0%)
+[Performance] InitializeOnLoad AkMacBuildPreprocessor                                                                    :        1 samples, Peak.  2.42 ms (1.0x), Avg.  2.42 ms, Total. 2.421 ms (0.0%)
+[Performance] InitializeOnLoad AkWindowsBuildPreprocessor                                                                :        1 samples, Peak.   116 us (1.0x), Avg.   116 us, Total. 116.5 us (0.0%)
+[Performance] InitializeOnLoad AkWwisePostImportCallbackSetup                                                            :        1 samples, Peak.   776 us (1.0x), Avg.   776 us, Total. 776.1 us (0.0%)
+[Performance] InitializeOnLoad SceneDragAndDrop                                                                          :        1 samples, Peak.  1.79 ms (1.0x), Avg.  1.79 ms, Total. 1.786 ms (0.0%)
+[Performance] InitializeOnLoad SpriteShapeUnityAnalyticsStorage                                                          :        1 samples, Peak.  22.2 us (1.0x), Avg.  22.2 us, Total. 22.20 us (0.0%)
+[Performance] InitializeOnLoad SpriteShapeUpdateCache                                                                    :        1 samples, Peak.   885 us (1.0x), Avg.   885 us, Total. 884.8 us (0.0%)
+[Performance] InitializeOnLoad ShaderGraphMaterialsUpdater                                                               :        2 samples, Peak.   322 us (1.2x), Avg.   270 us, Total. 540.4 us (0.0%)
+[Performance] InitializeOnLoad RendererDataPatcher                                                                       :        1 samples, Peak.   128 ms (1.0x), Avg.   128 ms, Total. 128.4 ms (0.2%)
+[Performance] InitializeOnLoad EditorToolManager                                                                         :        2 samples, Peak.   412 us (1.3x), Avg.   328 us, Total. 656.0 us (0.0%)
+[Performance] InitializeOnLoad Renderer2DAnalytics                                                                       :        1 samples, Peak.  99.3 us (1.0x), Avg.  99.3 us, Total. 99.30 us (0.0%)
+[Performance] InitializeOnLoad BurstLoader                                                                               :        1 samples, Peak.  1.49 s (1.0x), Avg.  1.49 s, Total. 1.489 s (2.7%)
+[Performance] InitializeOnLoad InkEditorUtils                                                                            :        1 samples, Peak.  6.80 us (1.0x), Avg.  6.80 us, Total. 6.800 us (0.0%)
+[Performance] InitializeOnLoad InkBrowserIcons                                                                           :        1 samples, Peak.   226 us (1.0x), Avg.   226 us, Total. 225.8 us (0.0%)
+[Performance] InitializeOnLoad InkUnityIntegrationStartupWindow                                                          :        1 samples, Peak.   109 us (1.0x), Avg.   109 us, Total. 108.7 us (0.0%)
+[Performance] InitializeOnLoad AkPlatformPluginActivator                                                                 :        1 samples, Peak.  5.80 us (1.0x), Avg.  5.80 us, Total. 5.800 us (0.0%)
+[Performance] InitializeOnLoad AkPluginActivator                                                                         :        1 samples, Peak.   375 us (1.0x), Avg.   375 us, Total. 375.1 us (0.0%)
+[Performance] InitializeOnLoad AkMacPluginActivator                                                                      :        1 samples, Peak.  1.23 ms (1.0x), Avg.  1.23 ms, Total. 1.232 ms (0.0%)
+[Performance] InitializeOnLoad AkWindowsPluginActivator                                                                  :        1 samples, Peak.   146 us (1.0x), Avg.   146 us, Total. 146.3 us (0.0%)
+[Performance] InitializeOnLoad AkWwiseWWUBuilder                                                                         :        1 samples, Peak.  16.2 ms (1.0x), Avg.  16.2 ms, Total. 16.18 ms (0.0%)
+[Performance] InitializeOnLoad AkWwiseXMLBuilder                                                                         :        1 samples, Peak.  59.6 us (1.0x), Avg.  59.6 us, Total. 59.60 us (0.0%)
+[Performance] InitializeOnLoad PlasticPlugin                                                                             :        1 samples, Peak.  13.8 ms (1.0x), Avg.  13.8 ms, Total. 13.76 ms (0.0%)
+[Performance] InitializeOnLoad Analytics                                                                                 :        1 samples, Peak.   644 us (1.0x), Avg.   644 us, Total. 644.4 us (0.0%)
+[Performance] InitializeOnLoad SpriteEditorWindow                                                                        :        1 samples, Peak.   493 us (1.0x), Avg.   493 us, Total. 492.9 us (0.0%)
+[Performance] InitializeOnLoad VSUsageUtility                                                                            :        1 samples, Peak.  34.2 ms (1.0x), Avg.  34.2 ms, Total. 34.15 ms (0.1%)
+[Performance] InitializeOnLoad VisualStudioEditor                                                                        :        1 samples, Peak.  39.9 ms (1.0x), Avg.  39.9 ms, Total. 39.85 ms (0.1%)
+[Performance] InitializeOnLoad VisualStudioIntegration                                                                   :        1 samples, Peak.  27.1 ms (1.0x), Avg.  27.1 ms, Total. 27.14 ms (0.0%)
+[Performance] InitializeOnLoad TestRunnerApiListener                                                                     :        1 samples, Peak.  5.85 ms (1.0x), Avg.  5.85 ms, Total. 5.845 ms (0.0%)
+[Performance] InitializeOnLoad ShadowCasterGroup2DManager                                                                :        1 samples, Peak.   670 us (1.0x), Avg.   670 us, Total. 669.5 us (0.0%)
+[Performance] InitializeOnLoad UnityAnalyticsStorage                                                                     :        1 samples, Peak.  4.90 ms (1.0x), Avg.  4.90 ms, Total. 4.896 ms (0.0%)
+[Performance] InitializeOnLoad BoneGizmoInitializer                                                                      :        1 samples, Peak.  5.26 ms (1.0x), Avg.  5.26 ms, Total. 5.263 ms (0.0%)
+[Performance] InitializeOnLoad VisualEffectAssetEditorUtility                                                            :        1 samples, Peak.   512 us (1.0x), Avg.   512 us, Total. 512.1 us (0.0%)
+[Performance] InitializeOnLoad VFXGraphPreprocessor                                                                      :        1 samples, Peak.  1.14 ms (1.0x), Avg.  1.14 ms, Total. 1.140 ms (0.0%)
+[Performance] InitializeOnLoad VFXFilterWindow                                                                           :        1 samples, Peak.  91.9 us (1.0x), Avg.  91.9 us, Total. 91.90 us (0.0%)
+[Performance] InitializeOnLoad ToolbarBootstrap                                                                          :        1 samples, Peak.   384 us (1.0x), Avg.   384 us, Total. 384.2 us (0.0%)
+[Performance] InitializeOnLoad NodeClassCache                                                                            :        1 samples, Peak.  82.2 ms (1.0x), Avg.  82.2 ms, Total. 82.19 ms (0.1%)
+[Performance] InitializeOnLoad RiderScriptEditor                                                                         :        1 samples, Peak.  5.75 ms (1.0x), Avg.  5.75 ms, Total. 5.745 ms (0.0%)
+[Performance] InitializeOnLoad CallbackInitializer                                                                       :        1 samples, Peak.  1.70 ms (1.0x), Avg.  1.70 ms, Total. 1.700 ms (0.0%)
+[Performance] InitializeOnLoad PrefabLayoutRebuilder                                                                     :        1 samples, Peak.   363 us (1.0x), Avg.   363 us, Total. 363.1 us (0.0%)
+[Performance] InitializeOnLoad RerunCallbackInitializer                                                                  :        1 samples, Peak.   662 us (1.0x), Avg.   662 us, Total. 661.7 us (0.0%)
+[Performance] InitializeOnLoad UnityTestProtocolStarter                                                                  :        1 samples, Peak.   210 us (1.0x), Avg.   210 us, Total. 210.4 us (0.0%)
+[Performance] InitializeOnLoad TestStarter                                                                               :        1 samples, Peak.   877 us (1.0x), Avg.   877 us, Total. 877.4 us (0.0%)
+[Performance] InitializeOnLoad BackgroundWatcher                                                                         :        1 samples, Peak.  97.6 us (1.0x), Avg.  97.6 us, Total. 97.60 us (0.0%)
+[Performance] InitializeOnLoad VSCodeScriptEditor                                                                        :        1 samples, Peak.  4.19 ms (1.0x), Avg.  4.19 ms, Total. 4.195 ms (0.0%)
+[Performance] InitializeOnLoad BasicInkExampleEditor                                                                     :        1 samples, Peak.   291 us (1.0x), Avg.   291 us, Total. 290.8 us (0.0%)
+[Performance] InitializeOnLoad ContextualMenuDispatcher.RegisterAdditionalDataMenus                                      :        1 samples, Peak.  45.0 ms (1.0x), Avg.  45.0 ms, Total. 45.03 ms (0.1%)
+[Performance] Menu.FilterMenuItem                                                                                        :      866 samples, Peak.  16.1 ms (853.5x), Avg.  18.9 us, Total. 16.38 ms (0.0%)
+[Performance] InitializeOnLoad CoreRenderPipelinePreferences.InitPreferenceProviders                                     :        1 samples, Peak.  13.1 ms (1.0x), Avg.  13.1 ms, Total. 13.07 ms (0.0%)
+[Performance] InitializeOnLoad VolumeGizmoDrawer.InitVolumeGizmoCallbacks                                                :        1 samples, Peak.   293 us (1.0x), Avg.   293 us, Total. 292.6 us (0.0%)
+[Performance] InitializeOnLoad $BurstDirectCallInitializer.Initialize                                                    :        3 samples, Peak.  5.72 ms (1.4x), Avg.  4.00 ms, Total. 12.00 ms (0.0%)
+[Performance] InitializeOnLoad MaterialReimporter.RegisterUpgraderReimport                                               :        2 samples, Peak.   156 us (1.6x), Avg.  95.5 us, Total. 191.0 us (0.0%)
+[Performance] InitializeOnLoad InkCompiler.OnProjectLoadedInEditor                                                       :        1 samples, Peak.   569 us (1.0x), Avg.   569 us, Total. 569.0 us (0.0%)
+[Performance] InitializeOnLoad AkEventPlayableBehavior.DetermineCanPostEvents                                            :        1 samples, Peak.   264 us (1.0x), Avg.   264 us, Total. 264.2 us (0.0%)
+[Performance] InitializeOnLoad AkTimelineEventPlayableBehavior.DetermineCanPostEvents                                    :        1 samples, Peak.   125 us (1.0x), Avg.   125 us, Total. 125.5 us (0.0%)
+[Performance] InitializeOnLoad Editor.SetupSoundbankSetting                                                              :        1 samples, Peak.  68.6 ms (1.0x), Avg.  68.6 ms, Total. 68.59 ms (0.1%)
+[Performance] InitializeOnLoad AkEventPlayableInspector.SetupSoundbankSetting                                            :        1 samples, Peak.  26.6 ms (1.0x), Avg.  26.6 ms, Total. 26.64 ms (0.0%)
+[Performance] InitializeOnLoad SceneViewGridManager.Initialize                                                           :        1 samples, Peak.  32.0 ms (1.0x), Avg.  32.0 ms, Total. 31.97 ms (0.1%)
+[Performance] InitializeOnLoad SceneViewOpenTilePaletteHelper.Initialize                                                 :        1 samples, Peak.  2.15 ms (1.0x), Avg.  2.15 ms, Total. 2.150 ms (0.0%)
+[Performance] InitializeOnLoad TileDragAndDropManager.Initialize                                                         :        1 samples, Peak.   687 us (1.0x), Avg.   687 us, Total. 687.0 us (0.0%)
+[Performance] InitializeOnLoad TilemapPrefabStageHelper.Initialize                                                       :        1 samples, Peak.   489 us (1.0x), Avg.   489 us, Total. 488.6 us (0.0%)
+[Performance] InitializeOnLoad VFXLibrary.RegisterSRPChangeCallback                                                      :        1 samples, Peak.   293 us (1.0x), Avg.   293 us, Total. 292.8 us (0.0%)
+[Performance] InitializeOnLoad AkMacSettings.AutomaticPlatformRegistration                                               :        1 samples, Peak.   507 us (1.0x), Avg.   507 us, Total. 507.0 us (0.0%)
+[Performance] InitializeOnLoad AkWindowsSettings.AutomaticPlatformRegistration                                           :        1 samples, Peak.  73.3 us (1.0x), Avg.  73.3 us, Total. 73.30 us (0.0%)
+[Performance] InitializeOnLoad IKEditorManager.CreateInstance                                                            :        1 samples, Peak.  4.58 ms (1.0x), Avg.  4.58 ms, Total. 4.583 ms (0.0%)
+[Performance] InitializeOnLoad TestJobDataHolder.ResumeRunningJobs                                                       :        1 samples, Peak.   607 us (1.0x), Avg.   607 us, Total. 606.7 us (0.0%)
+[Performance] InitializeOnLoad AnalyticsReporter.RegisterCallbacks                                                       :        1 samples, Peak.   226 us (1.0x), Avg.   226 us, Total. 226.4 us (0.0%)
+[Performance] DidReloadScriptsDebugWindow.OnEditorReload                                                                 :        1 samples, Peak.  4.25 ms (1.0x), Avg.  4.25 ms, Total. 4.248 ms (0.0%)
+[Performance] DidReloadScriptsVolumeComponentEditor.OnEditorReload                                                       :        1 samples, Peak.  21.6 ms (1.0x), Avg.  21.6 ms, Total. 21.60 ms (0.0%)
+[Performance] DidReloadScriptsLookDev.OnEditorReload                                                                     :        1 samples, Peak.   256 us (1.0x), Avg.   256 us, Total. 255.8 us (0.0%)
+[Performance] DidReloadScriptsTestListCache.ScriptReloaded                                                               :        1 samples, Peak.  1.80 ms (1.0x), Avg.  1.80 ms, Total. 1.804 ms (0.0%)
+[Performance] DidReloadScriptsTestRunnerWindow.CompilationCallback                                                       :        1 samples, Peak.   858 us (1.0x), Avg.   858 us, Total. 858.3 us (0.0%)
+[Performance] DidReloadScriptsAdvancedDropdownWindow.OnScriptReload                                                      :        1 samples, Peak.   228 us (1.0x), Avg.   228 us, Total. 228.1 us (0.0%)
+[Performance] AssemblyReloadEvents.afterAssemblyReload: UnityEditor.U2D.Animation.BoneGizmo.OnAfterAssemblyReload        :        1 samples, Peak.  1.71 ms (1.0x), Avg.  1.71 ms, Total. 1.710 ms (0.0%)
+[Performance] SpriteLibrarySourceAssetPostProcessor.OnPreprocessAsset                                                    :       59 samples, Peak.   199 us (29.4x), Avg.  6.77 us, Total. 399.7 us (0.0%)
+[Performance] SpritePostProcess.OnPreprocessAsset                                                                        :       59 samples, Peak.  1.67 ms (42.9x), Avg.  39.0 us, Total. 2.299 ms (0.0%)
+[Performance] VFXExternalShaderProcessor.OnPreprocessAsset                                                               :       59 samples, Peak.   511 us (38.3x), Avg.  13.3 us, Total. 787.4 us (0.0%)
+[Performance] AssetSaver.OnWillSaveAssets                                                                                :        9 samples, Peak.  11.1 ms (3.2x), Avg.  3.51 ms, Total. 31.57 ms (0.1%)
+[Performance] AssetModificationProcessor.OnWillSaveAssets                                                                :        3 samples, Peak.   288 us (2.9x), Avg.  98.7 us, Total. 296.0 us (0.0%)
+[Performance] PaletteAssetModificationProcessor.OnWillSaveAssets                                                         :        3 samples, Peak.  1.86 ms (3.0x), Avg.   622 us, Total. 1.866 ms (0.0%)
+[Performance] VisualEffectAssetModicationProcessor.OnWillSaveAssets                                                      :        3 samples, Peak.   628 us (2.8x), Avg.   227 us, Total. 681.9 us (0.0%)
+[Performance] FlowMacroSavedEvent.OnWillSaveAssets                                                                       :        3 samples, Peak.   470 us (2.0x), Avg.   231 us, Total. 692.1 us (0.0%)
+[Performance] StateMacroSavedEvent.OnWillSaveAssets                                                                      :        3 samples, Peak.   155 us (2.1x), Avg.  74.7 us, Total. 224.1 us (0.0%)
+[Performance] BuilderAssetModificationProcessor.OnWillSaveAssets                                                         :        3 samples, Peak.  1.37 ms (2.7x), Avg.   515 us, Total. 1.544 ms (0.0%)
+[Performance] TerrainModificationProcessor.OnWillSaveAssets                                                              :        3 samples, Peak.   490 us (3.0x), Avg.   164 us, Total. 493.5 us (0.0%)
+[Performance] VersionControl.Task.Wait                                                                                   :        1 samples, Peak.   300 us (1.0x), Avg.   300 us, Total. 300.1 us (0.0%)
+[Performance] EditorApplication.projectChanged: UnityEditor.Audio.MixerEffectDefinitionReloader.OnProjectChanged         :        3 samples, Peak.   846 us (2.8x), Avg.   303 us, Total. 908.4 us (0.0%)
+[Performance] AssetDatabase.ImportAssets                                                                                 :       51 samples, Peak.   104 ms (50.7x), Avg.  2.05 ms, Total. 104.8 ms (0.2%)
+[Performance] AkPluginActivator.OnPostprocessAllAssets                                                                   :       98 samples, Peak.  4.43 ms (39.3x), Avg.   113 us, Total. 11.05 ms (0.0%)
+[Performance] AkWwiseWWUBuilder.OnPostprocessAllAssets                                                                   :       98 samples, Peak.  12.5 ms (48.4x), Avg.   258 us, Total. 25.30 ms (0.0%)
+[Performance] AkWwiseXMLBuilder.OnPostprocessAllAssets                                                                   :       98 samples, Peak.   171 us (10.4x), Avg.  16.3 us, Total. 1.600 ms (0.0%)
+[Performance] InkPostProcessor.OnPostprocessAllAssets                                                                    :       98 samples, Peak.  57.2 ms (48.0x), Avg.  1.19 ms, Total. 116.8 ms (0.2%)
+[Performance] TMPro_TexturePostProcessor.OnPostprocessAllAssets                                                          :       98 samples, Peak.   950 ms (49.0x), Avg.  19.4 ms, Total. 1.902 s (3.4%)
+[Performance] AssetPostprocessor.OnPostprocessAllAssets                                                                  :       98 samples, Peak.   377 us (34.8x), Avg.  10.8 us, Total. 1.059 ms (0.0%)
+[Performance] BuilderAssetPostprocessor.OnPostprocessAllAssets                                                           :       98 samples, Peak.   217 ms (48.7x), Avg.  4.45 ms, Total. 436.3 ms (0.8%)
+[Performance] ArtifactBrowserPostProcessor.OnPostprocessAllAssets                                                        :       98 samples, Peak.   456 us (36.3x), Avg.  12.6 us, Total. 1.231 ms (0.0%)
+[Performance] AssetEvents.OnPostprocessAllAssets                                                                         :      196 samples, Peak.   315 us (50.3x), Avg.  6.27 us, Total. 1.229 ms (0.0%)
+[Performance] AudioMixerPostprocessor.OnPostprocessAllAssets                                                             :       98 samples, Peak.   380 us (39.0x), Avg.  9.76 us, Total. 956.0 us (0.0%)
+[Performance] StyleCatalogPostProcessor.OnPostprocessAllAssets                                                           :       98 samples, Peak.   102 ms (40.8x), Avg.  2.49 ms, Total. 243.7 ms (0.4%)
+[Performance] BuildCatalog                                                                                               :        2 samples, Peak.   102 ms (1.7x), Avg.  60.2 ms, Total. 120.3 ms (0.2%)
+[Performance] ModelImporterPostProcessor.OnPostprocessAllAssets                                                          :       98 samples, Peak.  2.31 s (49.0x), Avg.  47.2 ms, Total. 4.623 s (8.3%)
+[Performance] MaterialPostprocessor.OnPostprocessAllAssets                                                               :      196 samples, Peak.  64.7 ms (50.6x), Avg.  1.28 ms, Total. 250.8 ms (0.5%)
+[Performance] RetainedModeAssetPostprocessor.OnPostprocessAllAssets                                                      :       98 samples, Peak.  25.2 ms (48.1x), Avg.   524 us, Total. 51.31 ms (0.1%)
+[Performance] AssetChangedListener.OnPostprocessAllAssets                                                                :       98 samples, Peak.   156 ms (48.2x), Avg.  3.24 ms, Total. 317.4 ms (0.6%)
+[Performance] PostProcessor.OnPostprocessAllAssets                                                                       :       98 samples, Peak.  90.2 ms (48.6x), Avg.  1.85 ms, Total. 181.7 ms (0.3%)
+[Performance] ShaderGraphAssetPostProcessor.OnPostprocessAllAssets                                                       :       98 samples, Peak.   311 ms (48.6x), Avg.  6.40 ms, Total. 626.9 ms (1.1%)
+[Performance] SpeedTreePostProcessor.OnPostprocessAllAssets                                                              :       98 samples, Peak.  57.6 ms (48.7x), Avg.  1.18 ms, Total. 115.9 ms (0.2%)
+[Performance] TextAssetPostProcessor.OnPostprocessAllAssets                                                              :       98 samples, Peak.  7.89 ms (46.3x), Avg.   170 us, Total. 16.71 ms (0.0%)
+[Performance] AssetProcessor.OnPostprocessAllAssets                                                                      :      294 samples, Peak.  2.19 ms (89.7x), Avg.  24.4 us, Total. 7.162 ms (0.0%)
+[Performance] PSDImportPostProcessor.OnPostprocessAllAssets                                                              :       98 samples, Peak.   300 us (32.8x), Avg.  9.15 us, Total. 896.8 us (0.0%)
+[Performance] SpriteEditorTexturePostprocessor.OnPostprocessAllAssets                                                    :       98 samples, Peak.   322 us (1.9x), Avg.   168 us, Total. 16.45 ms (0.0%)
+[Performance] SpriteShapeAssetPostProcessor.OnPostprocessAllAssets                                                       :       98 samples, Peak.  1.47 ms (20.3x), Avg.  72.1 us, Total. 7.067 ms (0.0%)
+[Performance] UIDocumentAssetPostProcessor.OnPostprocessAllAssets                                                        :       98 samples, Peak.  1.26 ms (39.4x), Avg.  32.0 us, Total. 3.137 ms (0.0%)
+[Performance] VFXGraphPreprocessor.OnPostprocessAllAssets                                                                :       98 samples, Peak.  1.75 s (49.0x), Avg.  35.7 ms, Total. 3.498 s (6.3%)
+[Performance] AssetDatabase.ImportAsset                                                                                  :       54 samples, Peak.   185 ms (2.0x), Avg.  91.4 ms, Total. 4.936 s (8.9%)
+[Performance] SyncVS.PostprocessSyncProject                                                                              :       49 samples, Peak.   335 ms (9.3x), Avg.  36.2 ms, Total. 1.773 s (3.2%)
+[Performance] Application.ImportPackagesAndSetTemplateWhenCreatingProject                                                :        1 samples, Peak.  54.8 ms (1.0x), Avg.  54.8 ms, Total. 54.83 ms (0.1%)
+[Performance] Application.SyncCurrentColorSpace                                                                          :        1 samples, Peak.  1.40 us (1.0x), Avg.  1.40 us, Total. 1.400 us (0.0%)
+[Performance] Application.OnUsbDevicesChanged                                                                            :        1 samples, Peak.  10.6 ms (1.0x), Avg.  10.6 ms, Total. 10.58 ms (0.0%)
+[Performance] Application.AssetInstanceCacheUpdate                                                                       :        1 samples, Peak.   400 ns (1.0x), Avg.   400 ns, Total. 400.0 ns (0.0%)
+[Performance] Application.UnityExtensions.Initialize                                                                     :        1 samples, Peak.  1.62 ms (1.0x), Avg.  1.62 ms, Total. 1.615 ms (0.0%)
+[Performance] Application.InitializeManagedCompilationPipeline                                                           :        1 samples, Peak.   286 ms (1.0x), Avg.   286 ms, Total. 285.5 ms (0.5%)
+[Performance] Application.ExecuteStartups                                                                                :        1 samples, Peak.  46.1 ms (1.0x), Avg.  46.1 ms, Total. 46.06 ms (0.1%)
+[Performance] Menu.RegisterMenuInterface                                                                                 :       26 samples, Peak.  2.50 us (7.8x), Avg.   319 ns, Total. 8.300 us (0.0%)
+[Performance] Gizmo.RebuildRenderers                                                                                     :        1 samples, Peak.  40.8 ms (1.0x), Avg.  40.8 ms, Total. 40.85 ms (0.1%)
+[Performance] Gizmo.AddGizmoRenderers                                                                                    :      102 samples, Peak.  1.28 ms (57.6x), Avg.  22.3 us, Total. 2.274 ms (0.0%)
+[Performance] Application.editorInitializingProject                                                                      :        1 samples, Peak.   394 us (1.0x), Avg.   394 us, Total. 394.1 us (0.0%)
+[Performance] Application.InitializeMenu                                                                                 :        1 samples, Peak.  85.9 ms (1.0x), Avg.  85.9 ms, Total. 85.87 ms (0.2%)
+[Performance] Menu.RebuildAll                                                                                            :        1 samples, Peak.  85.9 ms (1.0x), Avg.  85.9 ms, Total. 85.86 ms (0.2%)
+[Performance] Menu.BuildRegisteredMenuInterfaces                                                                         :        1 samples, Peak.  81.1 ms (1.0x), Avg.  81.1 ms, Total. 81.06 ms (0.1%)
+[Performance] UpdateAllMenus                                                                                             :        1 samples, Peak.  1.49 ms (1.0x), Avg.  1.49 ms, Total. 1.491 ms (0.0%)
+[Performance] Menu.RebuildOSMainMenu                                                                                     :        2 samples, Peak.  2.13 ms (1.1x), Avg.  1.90 ms, Total. 3.803 ms (0.0%)
+[Performance] EditorSceneManager.sceneClosing: UnityEditor.SceneVisibilityManager.EditorSceneManagerOnSceneClosing       :        2 samples, Peak.   930 us (2.0x), Avg.   468 us, Total. 935.9 us (0.0%)
+[Performance] EditorSceneManager.activeSceneChangedInEditMode: callback in UnityEditor.Search.SearchMonitor              :        2 samples, Peak.  68.3 us (2.0x), Avg.  34.7 us, Total. 69.30 us (0.0%)
+[Performance] GUIView.RepaintAll.PlayerLoopController                                                                    :        2 samples, Peak.  1.70 us (1.2x), Avg.  1.40 us, Total. 2.800 us (0.0%)
+[Performance] EditorSceneManager.newSceneCreated: UnityEditor.SceneVisibilityManager.EditorSceneManagerOnNewSceneCreated :        2 samples, Peak.   663 us (2.0x), Avg.   337 us, Total. 673.7 us (0.0%)
+[Performance] EditorSceneManager.newSceneCreated: UnityEditor.SceneManagement.StageNavigationManager.OnNewSceneCreated   :        2 samples, Peak.  66.6 us (2.0x), Avg.  33.8 us, Total. 67.60 us (0.0%)
+[Performance] Application.InvokeFinishedLoadingProject                                                                   :        1 samples, Peak.  83.5 ms (1.0x), Avg.  83.5 ms, Total. 83.46 ms (0.2%)
+[Performance] ProcessService.OnProjectLoaded                                                                             :        1 samples, Peak.  44.4 us (1.0x), Avg.  44.4 us, Total. 44.40 us (0.0%)
+[Performance] AssetDatabase.Refresh                                                                                      :        1 samples, Peak.  1.78 ms (1.0x), Avg.  1.78 ms, Total. 1.783 ms (0.0%)
+[Performance] EditorApplication.quitting: Unity.Burst.Editor.BurstLoader.OnEditorApplicationQuitting                     :        1 samples, Peak.  34.6 us (1.0x), Avg.  34.6 us, Total. 34.60 us (0.0%)
+[Performance] EditorApplication.quitting: UnityEditor.Search.SearchMonitor.OnQuitting                                    :        1 samples, Peak.   905 us (1.0x), Avg.   905 us, Total. 904.8 us (0.0%)
+[Performance] EditorApplication.quitting: UnityEditor.Tilemaps.SceneViewGridManager.EditorQuitting                       :        1 samples, Peak.  68.6 us (1.0x), Avg.  68.6 us, Total. 68.60 us (0.0%)
+[Performance] EditorApplication.quitting: callback in UnityEditor.TextCore.Text.EditorEventCallbacks                     :        1 samples, Peak.  7.82 ms (1.0x), Avg.  7.82 ms, Total. 7.819 ms (0.0%)
+[Performance] Application.Shutdown.PauseProfilerSession                                                                  :        1 samples, Peak.   590 us (1.0x), Avg.   590 us, Total. 590.3 us (0.0%)
+[Performance] Application.Shutdown.PauseAssetImportWorkers                                                               :        1 samples, Peak.   340 us (1.0x), Avg.   340 us, Total. 339.8 us (0.0%)
+[Performance] Application.Shutdown.SaveAssets                                                                            :        1 samples, Peak.   115 ms (1.0x), Avg.   115 ms, Total. 115.3 ms (0.2%)
+[Performance] Application.Shutdown.CleanupRenderPipeline                                                                 :        1 samples, Peak.  6.40 us (1.0x), Avg.  6.40 us, Total. 6.400 us (0.0%)
+[Performance] Application.Shutdown.StopPreloadManager                                                                    :        1 samples, Peak.  9.61 ms (1.0x), Avg.  9.61 ms, Total. 9.612 ms (0.0%)
+[Performance] Application.Shutdown.DestroyWorld                                                                          :        1 samples, Peak.   888 us (1.0x), Avg.   888 us, Total. 887.8 us (0.0%)
+[Performance] Application.Shutdown.CleanupAfterLoad                                                                      :        1 samples, Peak.   180 ms (1.0x), Avg.   180 ms, Total. 179.9 ms (0.3%)
+[Performance] Application.Shutdown.Progress                                                                              :        1 samples, Peak.  7.90 us (1.0x), Avg.  7.90 us, Total. 7.900 us (0.0%)
+[Performance] Application.Shutdown.GICleanupManagers                                                                     :        1 samples, Peak.  14.4 ms (1.0x), Avg.  14.4 ms, Total. 14.38 ms (0.0%)
+[Performance] Application.Shutdown.MenuCleanupClass                                                                      :        1 samples, Peak.   226 us (1.0x), Avg.   226 us, Total. 226.4 us (0.0%)
+[Performance] Application.Shutdown.ADBSaveStateBeforeShutdown                                                            :        1 samples, Peak.  8.90 us (1.0x), Avg.  8.90 us, Total. 8.900 us (0.0%)
+[Performance] Application.Shutdown.RemoteShutdown                                                                        :        1 samples, Peak.   700 ns (1.0x), Avg.   700 ns, Total. 700.0 ns (0.0%)
+[Performance] Application.Shutdown.CleanupVCProvider                                                                     :        1 samples, Peak.   237 us (1.0x), Avg.   237 us, Total. 237.1 us (0.0%)
+[Performance] Application.Shutdown.InputShutdown                                                                         :        1 samples, Peak.  2.70 us (1.0x), Avg.  2.70 us, Total. 2.700 us (0.0%)
+[Performance] Application.Shutdown.GizmoManagerDestroy                                                                   :        1 samples, Peak.   568 us (1.0x), Avg.   568 us, Total. 567.8 us (0.0%)
+[Performance] Application.Shutdown.ProfilerSession                                                                       :        1 samples, Peak.   643 us (1.0x), Avg.   643 us, Total. 642.7 us (0.0%)
+[Performance] Application.Shutdown.ReleaseGfxWindowOnAllGUIViews                                                         :        1 samples, Peak.   700 ns (1.0x), Avg.   700 ns, Total. 700.0 ns (0.0%)
+[Performance] Application.Shutdown.CleanupEngine                                                                         :        1 samples, Peak.  54.1 ms (1.0x), Avg.  54.1 ms, Total. 54.05 ms (0.1%)
+[Performance] Application.Shutdown.CleanupAssetDatabase                                                                  :        1 samples, Peak.  15.2 ms (1.0x), Avg.  15.2 ms, Total. 15.19 ms (0.0%)
+[Performance] Application.Shutdown.ScriptCompilationCleanUp                                                              :        1 samples, Peak.  24.4 us (1.0x), Avg.  24.4 us, Total. 24.40 us (0.0%)
+[Performance] Application.Shutdown.DestroyJobSystem                                                                      :        1 samples, Peak.  86.6 us (1.0x), Avg.  86.6 us, Total. 86.60 us (0.0%)
+[Performance] Application.Shutdown.CleanupPersistentManager                                                              :        1 samples, Peak.  3.73 ms (1.0x), Avg.  3.73 ms, Total. 3.727 ms (0.0%)
+[Performance] Application.Shutdown.CleanupAsyncReadManager                                                               :        1 samples, Peak.   496 us (1.0x), Avg.   496 us, Total. 496.0 us (0.0%)
+[Performance] Application.Shutdown.CleanupProgressBar                                                                    :        1 samples, Peak.   200 ns (1.0x), Avg.   200 ns, Total. 200.0 ns (0.0%)
+[Performance] Application.Shutdown.CleanupMono                                                                           :        1 samples, Peak.   121 ms (1.0x), Avg.   121 ms, Total. 121.4 ms (0.2%)
+[Performance] Application.Shutdown.CleanupStdConverters                                                                  :        1 samples, Peak.  30.2 us (1.0x), Avg.  30.2 us, Total. 30.20 us (0.0%)
+[Performance] Application.Shutdown.UnloadAllPlatformSupportModuleNativeDlls                                              :        1 samples, Peak.   400 ns (1.0x), Avg.   400 ns, Total. 400.0 ns (0.0%)
+[Performance] Application.Shutdown.UnloadAllPlatformSupportNativeLibraries                                               :        1 samples, Peak. 0.0 (-nan(ind)x), Avg. 0.0, Total. 0.0 (0.0%)
+[Performance] Application.Shutdown.CleanupAutoDocumentation                                                              :        1 samples, Peak.   377 us (1.0x), Avg.   377 us, Total. 376.9 us (0.0%)
+[Performance] Application.Shutdown.ShaderNameManagerDestroy                                                              :        1 samples, Peak.  48.5 us (1.0x), Avg.  48.5 us, Total. 48.50 us (0.0%)
+[Performance] Application.Shutdown.CleanupCacheServer                                                                    :        1 samples, Peak.   200 ns (1.0x), Avg.   200 ns, Total. 200.0 ns (0.0%)
+[Performance] Application.Shutdown.Virtualization_Shutdown                                                               :        1 samples, Peak.   300 ns (1.0x), Avg.   300 ns, Total. 300.0 ns (0.0%)
+[Performance] Application.Shutdown.DevConnections                                                                        :        1 samples, Peak.   104 us (1.0x), Avg.   104 us, Total. 104.5 us (0.0%)
+Exiting batchmode successfully now!
+Exiting without the bug reporter. Application will terminate with return code 0
