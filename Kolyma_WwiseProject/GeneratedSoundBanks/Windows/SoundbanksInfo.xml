@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="16" SoundBankVersion="150">
+	<RootPaths>
+		<ProjectRoot>../..</ProjectRoot>
+		<SourceFilesRoot>../../.cache/Windows</SourceFilesRoot>
+		<SoundBanksRoot>.</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>.</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{B6CBD692-12EC-CDBA-0932-48F63C40C91F}">
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<Plugins>
+				<AudioDevices>
+					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
+					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
+				</AudioDevices>
+			</Plugins>
+			<Busses>
+				<Bus Id="3803692087" Name="Master Audio Bus"/>
+			</Busses>
+		</SoundBank>
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{CC063B5E-37A7-3C9A-202C-924BBF3D19B3}">
+			<ShortName>Main</ShortName>
+			<Path>Main.bnk</Path>
+			<Media>
+				<File Id="1025660266" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Mechanical, Click, Door Code Enter, Button Press, Click, Hotel, Orleans, France SND92301.wav</ShortName>
+					<CachePath>SFX/Mechanical, Click, Door Code Enter, Button Press, Click, Hotel, Orleans, France SND92301_672891BA.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="311910498" Name="Play_Click" DurationType="OneShot" DurationMin="0.16373876" DurationMax="0.16373876">
+					<MediaRefs>
+						<MediaRef Id="1025660266"/>
+					</MediaRefs>
+				</Event>
+			</Events>
+		</SoundBank>
+	</SoundBanks>
+	<FileHash>{51621807-9A89-84DA-FD7E-D1194A0A0848}</FileHash>
+</SoundBanksInfo>

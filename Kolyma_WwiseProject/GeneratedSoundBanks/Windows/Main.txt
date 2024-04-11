@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	311910498	Play_Click			\Default Work Unit\Play_Click	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	1025660266	Click	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Mechanical, Click, Door Code Enter, Button Press, Click, Hotel, Orleans, France SND92301_672891BA.wem		\Actor-Mixer Hierarchy\Default Work Unit\Click		31532
+
