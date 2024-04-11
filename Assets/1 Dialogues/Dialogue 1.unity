@@ -1573,6 +1573,7 @@ GameObject:
   - component: {fileID: 1289635346}
   - component: {fileID: 1289635348}
   - component: {fileID: 1289635349}
+  - component: {fileID: 1289635350}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -1656,7 +1657,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
 --- !u!114 &1289635344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1707,7 +1708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da74a6682ef8cd34883626605922ffdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerList: f7e1664c
+  triggerList: 
   useOtherObject: 0
   actionOnEventType: 0
   curveInterpolation: 4
@@ -1779,6 +1780,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07312ade62e8f774abadc3775eff5067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1289635350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289635341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 384aaf24ba9908b4ea476d44fba22ea7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: 9864aaa1
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  useCallbacks: 0
+  Callbacks: []
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  eventIdInternal: 0
+  valueGuidInternal: 
+  m_callbackDataInternal: {fileID: 0}
 --- !u!1 &1829689298
 GameObject:
   m_ObjectHideFlags: 0
