@@ -233,7 +233,7 @@ public class Dialogue1 : MonoBehaviour
 
     IEnumerator TypeLine()
     {
-        textSpeed = 0.03f;
+        textSpeed = 0.06f;
         choice = false;
         endOfString = false;
         char[] charArray = lines[index].ToCharArray();
@@ -279,6 +279,7 @@ public class Dialogue1 : MonoBehaviour
             else
             {
                 textComponent.text += c;
+                AkSoundEngine.PostEvent("Play_Typewriter", gameObject);
             }
 
             yield return new WaitForSeconds(textSpeed);

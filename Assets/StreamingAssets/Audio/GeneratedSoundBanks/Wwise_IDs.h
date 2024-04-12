@@ -14,6 +14,7 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID PLAY_CLICK = 311910498U;
+        static const AkUniqueID PLAY_TYPEWRITER = 57706899U;
     } // namespace EVENTS
 
     namespace BANKS

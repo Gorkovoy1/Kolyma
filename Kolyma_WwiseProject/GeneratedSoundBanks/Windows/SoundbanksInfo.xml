@@ -22,13 +22,21 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{CC063B5E-37A7-3C9A-202C-924BBF3D19B3}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{8BD2E2BD-F743-47AA-00CD-3D226734638E}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
+				<File Id="167421717" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Communications, Typewriter, Typewriter, Sequence, Typing Burst, Variations, Perspective 01, Clicking 01 SND87102 1.wav</ShortName>
+					<CachePath>SFX/Communications, Typewriter, Typewriter, Sequence, Typing Burst, Variations, Perspective 01, Clicking 01 SND87102 1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="405272047" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Communications, Typewriter, Typewriter, Sequence, Typing Burst, Variations, Perspective 01, Clicking 01 SND87102.wav</ShortName>
+					<CachePath>SFX/Communications, Typewriter, Typewriter, Sequence, Typing Burst, Variations, Perspective 01, Clicking 01 SND87102_818F3B66.wem</CachePath>
+				</File>
 				<File Id="1025660266" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Mechanical, Click, Door Code Enter, Button Press, Click, Hotel, Orleans, France SND92301.wav</ShortName>
-					<CachePath>SFX/Mechanical, Click, Door Code Enter, Button Press, Click, Hotel, Orleans, France SND92301_672891BA.wem</CachePath>
+					<CachePath>SFX/Mechanical, Click, Door Code Enter, Button Press, Click, Hotel, Orleans, France SND92301_7AE63B87.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
@@ -37,8 +45,14 @@
 						<MediaRef Id="1025660266"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="57706899" Name="Play_Typewriter" DurationType="OneShot" DurationMin="0.5763711" DurationMax="0.71427137">
+					<MediaRefs>
+						<MediaRef Id="167421717"/>
+						<MediaRef Id="405272047"/>
+					</MediaRefs>
+				</Event>
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{51621807-9A89-84DA-FD7E-D1194A0A0848}</FileHash>
+	<FileHash>{2E1670C9-DAA6-F493-6A66-65F5D927AE1A}</FileHash>
 </SoundBanksInfo>
