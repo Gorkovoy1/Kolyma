@@ -5,10 +5,10 @@
 			<ChildrenList>
 				<Event Name="Play_Click" ID="{292D2C3D-DA5A-4840-B2EB-693B20A41DEB}">
 					<ChildrenList>
-						<Action Name="" ID="{8C29E5D9-B547-4D66-ABA1-9EEC0D69C153}" ShortID="1068233192">
+						<Action Name="" ID="{878590FE-D5E2-4001-B09A-28D5A157EF2B}" ShortID="838078768">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Click" ID="{1737BF83-4383-4096-B086-733A75A00CC9}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+									<ObjectRef Name="Click3" ID="{4C25109E-033E-4978-931B-42722571DE12}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

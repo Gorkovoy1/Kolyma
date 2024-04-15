@@ -104,8 +104,112 @@
 								<ActiveSource Name="Communications, Typewriter, Typewriter, Sequence, Typing Burst, Variations, Perspective 01, Clicking 01 SND87102 1" ID="{70AE16FC-5AC4-4577-95B2-BF03A0664704}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="Silence" ID="{AEB29F6F-4997-4AE2-9341-F1A71700B996}" ShortID="882583531">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<SourcePlugin Name="Silence" ID="{8ADB9D20-DBFF-4C41-A7FC-344E8C6D6AD9}" ShortID="551735360" PluginName="Wwise Silence" CompanyID="0" PluginID="101">
+									<Language>SFX</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Silence" ID="{8ADB9D20-DBFF-4C41-A7FC-344E8C6D6AD9}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="New Silence" ID="{C7900A8C-6632-4A0A-8894-48A0EC90D009}" ShortID="503895683">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<SourcePlugin Name="Silence" ID="{7B34FAB2-46DC-4EF7-B664-23014A604A14}" ShortID="153601694" PluginName="Wwise Silence" CompanyID="0" PluginID="101">
+									<Language>SFX</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Silence" ID="{7B34FAB2-46DC-4EF7-B664-23014A604A14}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</RandomSequenceContainer>
+				<Sound Name="Click2" ID="{EA50D8FC-38E5-4D2A-B278-4BFB68BDC40C}" ShortID="701148745">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-11</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Menu Click" ID="{322E375C-465B-49C9-9A18-C78659E2FC28}">
+							<PropertyList>
+								<Property Name="FadeOutDuration" Type="Real64" Value="0.0716925334768582"/>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+								<Property Name="TrimEnd" Type="Real64" Value="0.745602348159337"/>
+							</PropertyList>
+							<Language>SFX</Language>
+							<AudioFile>Menu Click.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="121547243"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Menu Click" ID="{322E375C-465B-49C9-9A18-C78659E2FC28}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Click3" ID="{4C25109E-033E-4978-931B-42722571DE12}" ShortID="513758391">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-13</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Menu Click2" ID="{3F00B4E2-5B97-41B1-A601-8D9917977795}">
+							<PropertyList>
+								<Property Name="FadeOutDuration" Type="Real64" Value="0.0888987415113041"/>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+								<Property Name="TrimEnd" Type="Real64" Value="0.470303019608192"/>
+							</PropertyList>
+							<Language>SFX</Language>
+							<AudioFile>Menu Click2.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="927065734"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Menu Click2" ID="{3F00B4E2-5B97-41B1-A601-8D9917977795}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

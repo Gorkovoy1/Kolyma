@@ -2,8 +2,12 @@ Event	ID	Name			Wwise Object Path	Notes
 	57706899	Play_Typewriter			\Default Work Unit\Play_Typewriter	
 	311910498	Play_Click			\Default Work Unit\Play_Click	
 
+Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
+	153601694	Silence	Wwise Silence		\Actor-Mixer Hierarchy\Default Work Unit\typewriter\New Silence\Silence	
+	551735360	Silence	Wwise Silence		\Actor-Mixer Hierarchy\Default Work Unit\typewriter\Silence\Silence	
+
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	167421717	Communications, Typewriter, Typewriter, Sequence, Typing Burst, Variations, Perspective 01, Clicking 01 SND87102 1	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Communications, Typewriter, Typewriter, Sequence, Typing Burst, Variations, Perspective 01, Clicking 01 SND87102 1_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\typewriter\Communications, Typewriter, Typewriter, Sequence, Typing Burst, Variations, Perspective 01, Clicking 01 SND87102 1		22698
 	405272047	Communications, Typewriter, Typewriter, Sequence, Typing Burst, Variations, Perspective 01, Clicking 01 SND87102	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Communications, Typewriter, Typewriter, Sequence, Typing Burst, Variations, Perspective 01, Clicking 01 SND87102_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\typewriter\Communications, Typewriter, Typewriter, Sequence, Typing Burst, Variations, Perspective 01, Clicking 01 SND87102		22696
-	1025660266	Click	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Mechanical, Click, Door Code Enter, Button Press, Click, Hotel, Orleans, France SND92301_7AE63B87.wem		\Actor-Mixer Hierarchy\Default Work Unit\Click		31532
+	927065734	Click3	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Menu Click2_C7192CF6.wem		\Actor-Mixer Hierarchy\Default Work Unit\Click3		83056
 
