@@ -22,27 +22,34 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{2B553298-4DAC-3133-14E3-1FFC638346C5}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{4354085D-4D01-7344-85CC-00D2DD3B9340}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
-				<File Id="167421717" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Communications, Typewriter, Typewriter, Sequence, Typing Burst, Variations, Perspective 01, Clicking 01 SND87102 1.wav</ShortName>
-					<CachePath>SFX/Communications, Typewriter, Typewriter, Sequence, Typing Burst, Variations, Perspective 01, Clicking 01 SND87102 1_818F3B66.wem</CachePath>
+				<File Id="250322044" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>typewriter 3.wav</ShortName>
+					<CachePath>SFX/typewriter 3_818F3B66.wem</CachePath>
 				</File>
-				<File Id="405272047" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Communications, Typewriter, Typewriter, Sequence, Typing Burst, Variations, Perspective 01, Clicking 01 SND87102.wav</ShortName>
-					<CachePath>SFX/Communications, Typewriter, Typewriter, Sequence, Typing Burst, Variations, Perspective 01, Clicking 01 SND87102_818F3B66.wem</CachePath>
+				<File Id="379890764" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>typewriter 1.wav</ShortName>
+					<CachePath>SFX/typewriter 1_818F3B66.wem</CachePath>
 				</File>
 				<File Id="927065734" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Menu Click2.wav</ShortName>
-					<CachePath>SFX/Menu Click2_C7192CF6.wem</CachePath>
+					<CachePath>SFX/Menu Click2_EAD471C1.wem</CachePath>
+				</File>
+				<File Id="946429198" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>typewriter 4.wav</ShortName>
+					<CachePath>SFX/typewriter 4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="957449488" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>typewriter 2.wav</ShortName>
+					<CachePath>SFX/typewriter 2_818F3B66.wem</CachePath>
 				</File>
 			</Media>
 			<Plugins>
 				<Custom>
-					<Plugin Id="153601694" Name="Silence" LibName="Wwise Silence" LibId="6619138"/>
-					<Plugin Id="551735360" Name="Silence" LibName="Wwise Silence" LibId="6619138"/>
+					<Plugin Id="579356722" Name="Silence" LibName="Wwise Silence" LibId="6619138"/>
 				</Custom>
 			</Plugins>
 			<Events>
@@ -51,20 +58,21 @@
 						<MediaRef Id="927065734"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="57706899" Name="Play_Typewriter" DurationType="OneShot" DurationMin="0.5763711" DurationMax="1.7348398">
+				<Event Id="57706899" Name="Play_Typewriter" DurationType="OneShot" DurationMin="0" DurationMax="9">
 					<MediaRefs>
-						<MediaRef Id="167421717"/>
-						<MediaRef Id="405272047"/>
+						<MediaRef Id="250322044"/>
+						<MediaRef Id="379890764"/>
+						<MediaRef Id="946429198"/>
+						<MediaRef Id="957449488"/>
 					</MediaRefs>
 					<PluginRefs>
 						<Custom>
-							<PluginRef Id="153601694"/>
-							<PluginRef Id="551735360"/>
+							<PluginRef Id="579356722"/>
 						</Custom>
 					</PluginRefs>
 				</Event>
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{0CC252D5-3352-8FC8-18B7-F87E3B5F32BC}</FileHash>
+	<FileHash>{6EDF03A7-0559-8FDE-77DC-76C96CB51BED}</FileHash>
 </SoundBanksInfo>

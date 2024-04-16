@@ -3,145 +3,6 @@
 	<AudioObjects>
 		<WorkUnit Name="Default Work Unit" ID="{74310AB0-07D5-4309-8789-1F30662D7577}" PersistMode="Standalone">
 			<ChildrenList>
-				<Sound Name="Click" ID="{1737BF83-4383-4096-B086-733A75A00CC9}" ShortID="757541331">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="Mechanical, Click, Door Code Enter, Button Press, Click, Hotel, Orleans, France SND92301" ID="{2DDD372F-82DB-4CDC-A4EC-F7DB2549D7AA}">
-							<PropertyList>
-								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-								<Property Name="TrimBegin" Type="Real64" Value="0.00321958218549127"/>
-							</PropertyList>
-							<Language>SFX</Language>
-							<AudioFile>Mechanical, Click, Door Code Enter, Button Press, Click, Hotel, Orleans, France SND92301.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="1025660266"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="Mechanical, Click, Door Code Enter, Button Press, Click, Hotel, Orleans, France SND92301" ID="{2DDD372F-82DB-4CDC-A4EC-F7DB2549D7AA}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<RandomSequenceContainer Name="typewriter" ID="{794C409E-7968-4A7C-B405-AC28F753F9F1}" ShortID="143940037">
-					<PropertyList>
-						<Property Name="InitialDelay" Type="Real64">
-							<ValueList>
-								<Value>0.4</Value>
-							</ValueList>
-						</Property>
-						<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
-						<Property Name="Pitch" Type="int32">
-							<ModifierList>
-								<ModifierInfo>
-									<Modifier Name="" ID="{8B5EA21C-66D4-4051-8C3D-3DF2FE8D7FE6}">
-										<PropertyList>
-											<Property Name="Enabled" Type="bool" Value="True"/>
-											<Property Name="Max" Type="Real64" Value="500"/>
-											<Property Name="Min" Type="Real64" Value="-500"/>
-										</PropertyList>
-									</Modifier>
-								</ModifierInfo>
-							</ModifierList>
-						</Property>
-					</PropertyList>
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<Sound Name="Communications, Typewriter, Typewriter, Sequence, Typing Burst, Variations, Perspective 01, Clicking 01 SND87102" ID="{38F95D62-DC1F-49AD-98F7-027701F39A65}" ShortID="850839434">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Communications, Typewriter, Typewriter, Sequence, Typing Burst, Variations, Perspective 01, Clicking 01 SND87102" ID="{0D1D8F96-2F03-4505-BBFE-C6310D0E44E6}">
-									<Language>SFX</Language>
-									<AudioFile>Communications, Typewriter, Typewriter, Sequence, Typing Burst, Variations, Perspective 01, Clicking 01 SND87102.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="405272047"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Communications, Typewriter, Typewriter, Sequence, Typing Burst, Variations, Perspective 01, Clicking 01 SND87102" ID="{0D1D8F96-2F03-4505-BBFE-C6310D0E44E6}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Communications, Typewriter, Typewriter, Sequence, Typing Burst, Variations, Perspective 01, Clicking 01 SND87102 1" ID="{DC3048CE-AE7A-430C-9609-0B99EC3691DA}" ShortID="853776855">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Communications, Typewriter, Typewriter, Sequence, Typing Burst, Variations, Perspective 01, Clicking 01 SND87102 1" ID="{70AE16FC-5AC4-4577-95B2-BF03A0664704}">
-									<Language>SFX</Language>
-									<AudioFile>Communications, Typewriter, Typewriter, Sequence, Typing Burst, Variations, Perspective 01, Clicking 01 SND87102 1.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="167421717"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Communications, Typewriter, Typewriter, Sequence, Typing Burst, Variations, Perspective 01, Clicking 01 SND87102 1" ID="{70AE16FC-5AC4-4577-95B2-BF03A0664704}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Silence" ID="{AEB29F6F-4997-4AE2-9341-F1A71700B996}" ShortID="882583531">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<SourcePlugin Name="Silence" ID="{8ADB9D20-DBFF-4C41-A7FC-344E8C6D6AD9}" ShortID="551735360" PluginName="Wwise Silence" CompanyID="0" PluginID="101">
-									<Language>SFX</Language>
-								</SourcePlugin>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Silence" ID="{8ADB9D20-DBFF-4C41-A7FC-344E8C6D6AD9}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="New Silence" ID="{C7900A8C-6632-4A0A-8894-48A0EC90D009}" ShortID="503895683">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<SourcePlugin Name="Silence" ID="{7B34FAB2-46DC-4EF7-B664-23014A604A14}" ShortID="153601694" PluginName="Wwise Silence" CompanyID="0" PluginID="101">
-									<Language>SFX</Language>
-								</SourcePlugin>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Silence" ID="{7B34FAB2-46DC-4EF7-B664-23014A604A14}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-					</ChildrenList>
-				</RandomSequenceContainer>
 				<Sound Name="Click2" ID="{EA50D8FC-38E5-4D2A-B278-4BFB68BDC40C}" ShortID="701148745">
 					<PropertyList>
 						<Property Name="Volume" Type="Real64">
@@ -208,6 +69,256 @@
 					</ChildrenList>
 					<ActiveSourceList>
 						<ActiveSource Name="Menu Click2" ID="{3F00B4E2-5B97-41B1-A601-8D9917977795}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<RandomSequenceContainer Name="Typewriter" ID="{8E9D5974-A6CF-48CA-AC45-4DAA1EBB1C4E}" ShortID="187066381">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{27A2CB04-FAA3-46D8-AE3B-8048FAAE8A6D}"/>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+						<Property Name="PlayMechanismResetPlaylistEachPlay" Type="bool" Value="False"/>
+						<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<RandomSequenceContainer Name="Typewriter2" ID="{E19B66C0-F9A2-4381-A5F5-A4144A96BD0D}" ShortID="103581008">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{D4908C07-4D8F-405E-885A-D2A34B49D2D1}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="typewriter 1" ID="{3E9396D6-8D46-4C27-B747-396D758AFD9F}" ShortID="94652565">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{02B023C2-C522-43C5-AA1A-A06199161425}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="typewriter 1" ID="{78324EF5-D8C6-47F6-87CA-3CE2F61B39E2}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>typewriter 1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="379890764"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="typewriter 1" ID="{78324EF5-D8C6-47F6-87CA-3CE2F61B39E2}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="typewriter 2" ID="{6A00BAED-41D5-4A0F-8859-34475239C45D}" ShortID="969612553">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="typewriter 2" ID="{E32F2E22-1345-4912-A2CE-A3AAD7B77EC0}">
+											<Language>SFX</Language>
+											<AudioFile>typewriter 2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="957449488"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="typewriter 2" ID="{E32F2E22-1345-4912-A2CE-A3AAD7B77EC0}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="typewriter1" ID="{794C409E-7968-4A7C-B405-AC28F753F9F1}" ShortID="143940037">
+							<PropertyList>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.4</Value>
+									</ValueList>
+								</Property>
+								<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{8B5EA21C-66D4-4051-8C3D-3DF2FE8D7FE6}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="typewriter 3" ID="{054D4F8A-3596-4DFB-B84C-403A1999E65A}" ShortID="189459539">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="typewriter 3" ID="{53C2974C-082F-4234-A579-BD54A8A5D04C}">
+											<Language>SFX</Language>
+											<AudioFile>typewriter 3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="250322044"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="typewriter 3" ID="{53C2974C-082F-4234-A579-BD54A8A5D04C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="typewriter 4" ID="{953C9970-9C5E-47E9-BCFA-9A79D42530F7}" ShortID="232227649">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="typewriter 4" ID="{960633B1-255E-4D73-BCCF-723ABDC6FEDB}">
+											<Language>SFX</Language>
+											<AudioFile>typewriter 4.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="946429198"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="typewriter 4" ID="{960633B1-255E-4D73-BCCF-723ABDC6FEDB}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<Sound Name="Silence" ID="{392BBDF2-D066-4CCF-A0CD-4648B4B000F9}" ShortID="27040335">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<SourcePlugin Name="Silence" ID="{991E66FA-D252-47C5-AD1F-96C1DFAACC3B}" ShortID="579356722" PluginName="Wwise Silence" CompanyID="0" PluginID="101">
+									<PropertyList>
+										<Property Name="LengthMax" Type="Real32" Value="8"/>
+										<Property Name="LengthMin" Type="Real32" Value="-8"/>
+									</PropertyList>
+									<Language>SFX</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Silence" ID="{991E66FA-D252-47C5-AD1F-96C1DFAACC3B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="Playlist">
+							<Reference>
+								<ObjectRef Name="typewriter1" ID="{794C409E-7968-4A7C-B405-AC28F753F9F1}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+							</Reference>
+							<Reference>
+								<ObjectRef Name="Silence" ID="{392BBDF2-D066-4CCF-A0CD-4648B4B000F9}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+							</Reference>
+							<Reference>
+								<ObjectRef Name="Typewriter2" ID="{E19B66C0-F9A2-4381-A5F5-A4144A96BD0D}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+				</RandomSequenceContainer>
+				<Sound Name="Click" ID="{1737BF83-4383-4096-B086-733A75A00CC9}" ShortID="757541331">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{4DF7BD1F-B913-4DDE-AF46-748AF5341862}"/>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Mechanical, Click, Door Code Enter, Button Press, Click, Hotel, Orleans, France SND92301" ID="{2DDD372F-82DB-4CDC-A4EC-F7DB2549D7AA}">
+							<PropertyList>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+								<Property Name="TrimBegin" Type="Real64" Value="0.00321958218549127"/>
+							</PropertyList>
+							<Language>SFX</Language>
+							<AudioFile>Mechanical, Click, Door Code Enter, Button Press, Click, Hotel, Orleans, France SND92301.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="1025660266"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Mechanical, Click, Door Code Enter, Button Press, Click, Hotel, Orleans, France SND92301" ID="{2DDD372F-82DB-4CDC-A4EC-F7DB2549D7AA}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 			</ChildrenList>

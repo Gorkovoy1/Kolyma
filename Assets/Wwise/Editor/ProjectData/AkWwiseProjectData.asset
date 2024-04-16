@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584884773572260192
+    m_lastTime: -8584883684799350070
     List:
     - name: Play_Click
       guid: 3d2c2d295ada4048b2eb693b20a41deb
@@ -128,8 +128,8 @@ MonoBehaviour:
         guid: 5e0e236cb18e67459def99af8593ebaa
       Path: Events\Default Work Unit\Play_Typewriter
       maxAttenuation: 0
-      maxDuration: 1.7348398
-      minDuration: 0.5763711
+      maxDuration: 9
+      minDuration: 0
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:

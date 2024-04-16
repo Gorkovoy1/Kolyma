@@ -3,11 +3,12 @@ Event	ID	Name			Wwise Object Path	Notes
 	311910498	Play_Click			\Default Work Unit\Play_Click	
 
 Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
-	153601694	Silence	Wwise Silence		\Actor-Mixer Hierarchy\Default Work Unit\typewriter\New Silence\Silence	
-	551735360	Silence	Wwise Silence		\Actor-Mixer Hierarchy\Default Work Unit\typewriter\Silence\Silence	
+	579356722	Silence	Wwise Silence		\Actor-Mixer Hierarchy\Default Work Unit\Typewriter\Silence\Silence	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	167421717	Communications, Typewriter, Typewriter, Sequence, Typing Burst, Variations, Perspective 01, Clicking 01 SND87102 1	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Communications, Typewriter, Typewriter, Sequence, Typing Burst, Variations, Perspective 01, Clicking 01 SND87102 1_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\typewriter\Communications, Typewriter, Typewriter, Sequence, Typing Burst, Variations, Perspective 01, Clicking 01 SND87102 1		22698
-	405272047	Communications, Typewriter, Typewriter, Sequence, Typing Burst, Variations, Perspective 01, Clicking 01 SND87102	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Communications, Typewriter, Typewriter, Sequence, Typing Burst, Variations, Perspective 01, Clicking 01 SND87102_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\typewriter\Communications, Typewriter, Typewriter, Sequence, Typing Burst, Variations, Perspective 01, Clicking 01 SND87102		22696
-	927065734	Click3	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Menu Click2_C7192CF6.wem		\Actor-Mixer Hierarchy\Default Work Unit\Click3		83056
+	250322044	typewriter 3	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\typewriter 3_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Typewriter\typewriter1\typewriter 3		213716
+	379890764	typewriter 1	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\typewriter 1_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Typewriter\Typewriter2\typewriter 1		213716
+	927065734	Click3	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Menu Click2_EAD471C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Click3		83056
+	946429198	typewriter 4	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\typewriter 4_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Typewriter\typewriter1\typewriter 4		213716
+	957449488	typewriter 2	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\typewriter 2_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Typewriter\Typewriter2\typewriter 2		213716
 
