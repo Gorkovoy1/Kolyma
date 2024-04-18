@@ -1935,6 +1935,12 @@ MonoBehaviour:
   arkady: {fileID: 848152636}
   levelLoader: {fileID: 1250554988}
   numbersFont: {fileID: 11400000, guid: c3c31f48d9654774897ef21c8f51b0c2, type: 2}
+  playSound: 0
+  soundEnded: 0
+  soundEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: b703706f2482f0a43bb6e7f9392c384b, type: 2}
   choiceList: {fileID: 3261295}
 --- !u!114 &1829689303
 MonoBehaviour:

@@ -16,10 +16,10 @@
 				</Event>
 				<Event Name="Play_Typewriter" ID="{6C230E5E-8EB1-4567-9DEF-99AF8593EBAA}">
 					<ChildrenList>
-						<Action Name="" ID="{3808DDB0-8DD4-4BF1-A9F9-330A8A1E1BE7}" ShortID="42089451">
+						<Action Name="" ID="{7BACF516-058F-489D-B480-BF3EB50B2761}" ShortID="1033544164">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Typewriter" ID="{8E9D5974-A6CF-48CA-AC45-4DAA1EBB1C4E}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+									<ObjectRef Name="Typewriter_Loops" ID="{2F15D8AE-526F-4637-9E0D-921760D9E9B9}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

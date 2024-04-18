@@ -48,13 +48,17 @@ public class Dialogue1 : MonoBehaviour
     public GameObject levelLoader;
 
     public TMP_FontAsset numbersFont;
-
+    public bool playSound;
+    public bool soundEnded;
+    public AK.Wwise.Event soundEvent;
     [SerializeField] private ButtonScript choiceList;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        soundEnded= true;
+        playSound = false;
         choiceNumber = 0;
         choice = false;
         choiceList.gameObject.SetActive(false);
@@ -165,8 +169,14 @@ public class Dialogue1 : MonoBehaviour
 
     void Update()
     {
-        
-            if(Input.GetMouseButtonDown(0))
+        if (playSound && soundEnded)
+        {
+            soundEnded = false;
+            PlaySound();
+
+        }
+
+        if (Input.GetMouseButtonDown(0))
             {
                 if(endOfString && !choice)
                 {
@@ -237,6 +247,9 @@ public class Dialogue1 : MonoBehaviour
         choice = false;
         endOfString = false;
         char[] charArray = lines[index].ToCharArray();
+        playSound = true;
+        
+
         for(int i = 0; i < charArray.Length; i++)
         {
             char c = charArray[i];
@@ -279,7 +292,7 @@ public class Dialogue1 : MonoBehaviour
             else
             {
                 textComponent.text += c;
-                AkSoundEngine.PostEvent("Play_Typewriter", gameObject);
+               
             }
 
             yield return new WaitForSeconds(textSpeed);
@@ -288,6 +301,7 @@ public class Dialogue1 : MonoBehaviour
             {
                 // String is fully displayed, perform additional actions
                 endOfString = true;
+                playSound=false;
             }
             
         }
@@ -414,4 +428,18 @@ public class Dialogue1 : MonoBehaviour
         button3.gameObject.SetActive(true);
         NextLine();
     }
-}
+    public void PlaySound() 
+    {
+        soundEvent.Post(gameObject, (uint)AkCallbackType.AK_EndOfEvent, SoundEndedCallback);
+    }
+
+    private void SoundEndedCallback(object in_cookie, AkCallbackType in_type, object in_info)
+    {
+        // Check if the callback type is EndOfEvent, indicating the sound has ended
+        if (in_type == AkCallbackType.AK_EndOfEvent)
+        {
+            Debug.Log("Sound has ended.");
+            soundEnded = true;
+        }
+    }
+} 
