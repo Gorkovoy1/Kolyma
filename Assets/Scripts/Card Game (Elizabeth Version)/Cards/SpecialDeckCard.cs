@@ -45,8 +45,8 @@ maybe limited use of regex to handle the more niche cases like the duplicate and
 either way consider this a science experiment. gonna try this method described above, if it doesnt work i'll learn something and figure out a different way.
 */
 
-public enum SpecialKeyword {
-    /*use these keywords for dictating the action to be performed*/
+/*public enum SpecialKeyword {
+    use these keywords for dictating the action to be performed
     EFFECT_NONE,
     EFFECT_ADDVALUE,
     EFFECT_DRAW,
@@ -55,21 +55,21 @@ public enum SpecialKeyword {
     EFFECT_SWAP,
     EFFECT_FLIP,
 
-    /*use these keywords for targeting*/
+    /*use these keywords for targeting
     TARGET_PLAYER,
     TARGET_OPPONENT,
 
-    /*use these keywords for card type*/
+    /*use these keywords for card type
     TYPE_NUMBER,
     TYPE_SPECIAL,
 
-    /* used to demarcate the end of an effect in cards that have more than one effect*/
+    /* used to demarcate the end of an effect in cards that have more than one effect
     END_COMMAND,
 
-    /*used to store an integer parameter for a conditional function. Remember, enumerators also correspond to integers*/
+    /*used to store an integer parameter for a conditional function. Remember, enumerators also correspond to integers
     CON_STORE_ADDITIONAL_INTEGER,
 
-    /*use these to call different conditional functions*/
+    /*use these to call different conditional functions
     CON_HAS_CLASS_CARD,
     CON_HAS_VALUE_CARD,
     CON_HAS_DUPLICATE,
@@ -82,8 +82,8 @@ public enum SpecialKeyword {
     SUCCESS_PATH,
     FAILURE_PATH,
     EFFECT_TRANSFER,
+};*/
 
-};
 
 [CreateAssetMenu(fileName = "New Special Card")]
 public class SpecialDeckCard : GenericCard
@@ -91,11 +91,12 @@ public class SpecialDeckCard : GenericCard
     [Header("Card Info")]
     public string description;
 
-    [Header("Keywords for Card Effects/Targets")]
+    /*[Header("Keywords for Card Effects/Targets")]
     [Header("EFFECT -> TARGET(S) -> TYPE")]
     public List<SpecialKeyword> keywords = new List<SpecialKeyword>();
 
     [Header("Numerical Values for Card Effects")]
-    public List<int> values;
+    public List<int> values;*/
 
+    public EffectStatement InitialEffectStatement;
 }

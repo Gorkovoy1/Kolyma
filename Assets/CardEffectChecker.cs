@@ -11,8 +11,112 @@ public class CardEffectChecker : MonoBehaviour
         Instance = this;
     }
 
+    public void ExecuteEffectStatement(EffectStatement statement, CharacterInstance playerOfCard, CharacterInstance opponentOfPlayer)
+    {
+        Debug.Log("Execute statement: " + statement.name + " - " + statement.Condition.ToString());
+        bool success = true;
+
+        if(statement.ConditonalTarget != TargetCharacter.None)
+        {
+            CharacterInstance targetCharacter = statement.ConditonalTarget == TargetCharacter.PlayerOfCard ? playerOfCard : opponentOfPlayer;
+            switch (statement.Condition)
+            {
+                case Condition.None:
+                    break;
+                case Condition.IfHasClass:
+                    success = ConditionalHasClass(targetCharacter, statement.ConditionalNumberClass);
+                    break;
+                case Condition.IfHasCards:
+                    success = ConditionalHasCard(targetCharacter, statement.ConditionalValues[0]);
+                    break;
+                case Condition.IfHasDuplicate:
+                    success = ConditionalHasDuplicate(targetCharacter, statement.ConditionalCardType);
+                    break;
+                case Condition.IfDiscarded:
+                    success = ConditionalDiscardFlag(targetCharacter);
+                    break;
+                case Condition.IfSwapped:
+                    success = ConditionalSwapFlag(targetCharacter);
+                    break;
+                case Condition.IfFlipped:
+                    success = ConditionalFlipFlag(targetCharacter);
+                    break;
+                case Condition.IfGaveACard:
+                    success = ConditionalGaveACard(targetCharacter);
+                    break;
+                case Condition.IfHasQuantity:
+                    success = ConditionalCardQuantity(targetCharacter, statement.ConditionalCardType, statement.ConditionalValues[0], statement.ConditionalValues[1]);
+                    break;
+                case Condition.IfGreaterThanOrEqualToTarget:
+                    success = ConditionalGreaterThanOrEqualToTarget(targetCharacter);
+                    break;
+                case Condition.IfHasNegativeCard:
+                    success = ConditionalHasNegativeCard(targetCharacter);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        if(success)
+        {
+            Debug.Log("Successful statement: " + statement.name + " - " + statement.Condition.ToString());
+            for (int i = 0; i < statement.EffectsOnSuccess.Count; i++)
+            {
+                DoEffect(statement.EffectsOnSuccess[i], statement.TargetsOnSuccess[i] == TargetCharacter.PlayerOfCard ? playerOfCard : opponentOfPlayer, statement.CardTypesOnSuccess[i], statement.ValuesOnSuccess[i]);
+            }
+            if(statement.StatementOnSuccess != null)
+            {
+                ExecuteEffectStatement(statement.StatementOnSuccess, playerOfCard, opponentOfPlayer);
+            }
+        }
+        else
+        {
+            Debug.Log("Failed statement: " + statement.name + " - " + statement.Condition.ToString());
+            for (int i = 0; i < statement.EffectsOnFail.Count; i++)
+            {
+                DoEffect(statement.EffectsOnFail[i], statement.TargetsOnFail[i] == TargetCharacter.PlayerOfCard ? playerOfCard : opponentOfPlayer, statement.CardTypesOnFail[i], statement.ValuesOnFail[i]);
+            }
+            if (statement.StatementOnFail != null)
+            {
+                ExecuteEffectStatement(statement.StatementOnFail, playerOfCard, opponentOfPlayer);
+            }
+        }
+    }
+
+    void DoEffect(Effect effect, CharacterInstance targetCharacter, CardType cardType, int effectValue)
+    {
+        switch (effect)
+        {
+            case Effect.None:
+                break;
+            case Effect.AddValue:
+                targetCharacter.AddValue(effectValue);
+                break;
+            case Effect.Draw:
+                if(cardType == CardType.Special)
+                    CardGameManager.Instance.DrawSpecialCards(targetCharacter, effectValue);
+                else
+                    CardGameManager.Instance.DrawNumberCards(targetCharacter, effectValue);
+                break;
+            case Effect.Discard:
+                CardSelectSettings newSettings = new CardSelectSettings(effectValue, cardType, effect, targetCharacter, true);
+                CardGameManager.Instance.cardSelectStack.Push(newSettings);
+                break;
+            case Effect.Swap:
+                CardGameManager.Instance.SetFlip(true);
+                targetCharacter.ToggleForceFlip(true);
+                break;
+            case Effect.Flip:
+                CardGameManager.Instance.SetSwap(true);
+                targetCharacter.ToggleForcedSwap(true);
+                break;
+        }
+    }
+
     //Very PROTOTYPE version of the card decision tree
-    public void ExecuteCardEffect(List<SpecialKeyword> keywords, List<int> values, CharacterInstance playerTarget, CharacterInstance opponentTarget)
+    //public void ExecuteCardEffect(List<SpecialKeyword> keywords, List<int> values, CharacterInstance playerTarget, CharacterInstance opponentTarget)
+    /*public void ExecuteEffectStatement(EffectStatement statement, CharacterInstance playerTarget, CharacterInstance opponentTarget)
     {
         List<SpecialKeyword> currKeys = new List<SpecialKeyword>();
         List<int> currValues = new List<int>();
@@ -55,19 +159,19 @@ public class CardEffectChecker : MonoBehaviour
         foreach(int v in currValues) {
             Debug.Log(v);
         }*/
-        SpecialKeyword effectType = keywords[0];
+                /*SpecialKeyword effectType = keywords[0];
 
-        switch (effectType)
-        {
-            case SpecialKeyword.EFFECT_NONE:
-                Debug.Log("This card has no effect");
-                break;
-            case SpecialKeyword.EFFECT_ADDVALUE:
-                /*EFFECT_ADDVALUE ANTICPATED SYNTAX:
-                keywords[i] = target to add value to
-                values[i - 1] = amount to add to keywords[i]
-                */
-                for (int i = 1; i < keywords.Count; i++)
+                switch (effectType)
+                {
+                    case SpecialKeyword.EFFECT_NONE:
+                        Debug.Log("This card has no effect");
+                        break;
+                    case SpecialKeyword.EFFECT_ADDVALUE:
+                        /*EFFECT_ADDVALUE ANTICPATED SYNTAX:
+                        keywords[i] = target to add value to
+                        values[i - 1] = amount to add to keywords[i]
+                        */
+                /*for (int i = 1; i < keywords.Count; i++)
                 {
                     if (keywords[i] == SpecialKeyword.TARGET_PLAYER)
                     {
@@ -84,7 +188,7 @@ public class CardEffectChecker : MonoBehaviour
                 keywords[last item] = type of card to draw
                 keywords[i] -> keywords[2nd to last item] = target to draw to
                 values[i-1] = # cards to draw*/
-                SpecialKeyword cardType = keywords[keywords.Count - 1];
+                /*SpecialKeyword cardType = keywords[keywords.Count - 1];
 
                 for (int i = 1; i < keywords.Count - 1; i++)
                 {
@@ -115,7 +219,7 @@ public class CardEffectChecker : MonoBehaviour
                 
                 done in a coroutine and selectcards state to allow everyone to select their cards which may take multiple framesit is presently set up 
                 only to work if there is only one card type that needs discarding*/
-                for (int i = 1; i < keywords.Count - 1; i++)
+                /*for (int i = 1; i < keywords.Count - 1; i++)
                 {
                     if (keywords[i] == SpecialKeyword.TARGET_PLAYER)
                     {
@@ -133,6 +237,12 @@ public class CardEffectChecker : MonoBehaviour
                 //first, if keyword is conditional, verify the CONDITION. this will return a bool. if true, execute SUCCESS_PATH. if false, execute FAILURE_PATH
                 //every conditional card must have EFFECT_CONDITION, CONDITION_[target] and then SUCCESS_PATH and FAILURE_PATH
 
+                /*MARK
+                 * I don't understand what was originally intended here or if some code is missing/unfinished. I think almost all the variables are never given values.
+                 * For example, doesn't fill conditionalValues with values, but has valuesBin take on the conditionalValues. 
+                 * conditionalValues is then never given any values
+                 * 
+                 * 
                 List<SpecialKeyword> conditionalFlags = new List<SpecialKeyword>();
                 List<SpecialKeyword> successCommand = new List<SpecialKeyword>();
                 List<SpecialKeyword> failCommand = new List<SpecialKeyword>();
@@ -143,6 +253,8 @@ public class CardEffectChecker : MonoBehaviour
                 skippedValues = 0;
                 List<SpecialKeyword> sortingBin = conditionalFlags;
                 List<int> valuesBin = conditionalValues;
+
+
 
                 for (int i = 1; i < keywords.Count; i++)
                 {
@@ -174,7 +286,6 @@ public class CardEffectChecker : MonoBehaviour
                         }
                         skippedValues += 1;
                     }
-
                 }
 
                 bool successCheck = true;
@@ -263,14 +374,14 @@ public class CardEffectChecker : MonoBehaviour
                 {
                     ExecuteCardEffect(failCommand, failValues, playerTarget, opponentTarget);
                 }
-
+                
                 break;
         }
-    }
+    }*/
 
-    /*TARGET -> color
-    STORE INT -> count*/
-    public bool ConditionalHasClassCard(CharacterInstance target, NumberCard.NumberClass color, int count = 1)
+                /*TARGET -> color
+                STORE INT -> count*/
+                public bool ConditionalHasClass(CharacterInstance target, NumberCard.NumberClass color)
     {
         int x = 0;
         foreach (DisplayCard d in target.numberDisplayHand)
@@ -281,11 +392,11 @@ public class CardEffectChecker : MonoBehaviour
                 x++;
             }
         }
-        return x >= count;
+        return x >= 1;
     }
     /*TARGET -> value
     STORE INT -> count*/
-    public bool ConditionalHasValueCard(CharacterInstance target, int value, int count = 1)
+    public bool ConditionalHasCard(CharacterInstance target, int value)
     {
         int x = 0;
         foreach (DisplayCard d in target.numberDisplayHand)
@@ -296,12 +407,13 @@ public class CardEffectChecker : MonoBehaviour
                 x++;
             }
         }
-        return x >= count;
+        return x >= 1;
     }
+
     /*TARGET -> -1 (N/A)*/
-    public bool ConditionalHasDuplicate(CharacterInstance target, SpecialKeyword type)
+    public bool ConditionalHasDuplicate(CharacterInstance target, CardType type)
     {
-        if (type == SpecialKeyword.TYPE_SPECIAL)
+        if (type == CardType.Special)
         {
             for (int i = 0; i < target.hand.Count - 1; i++)
             {
@@ -332,28 +444,36 @@ public class CardEffectChecker : MonoBehaviour
     /*TARGET -> -1 (N/A)*/
     public bool ConditionalDiscardFlag(CharacterInstance target)
     {
-        return target.discardFlag;
+        //NYI
+        return true;
+        return target.DiscardedThisTurn;
     }
     /*TARGET -> -1 (N/A)*/
     public bool ConditionalSwapFlag(CharacterInstance target)
     {
-        return target.swapFlag;
+        //NYI
+        return true;
+        return target.SwappedThisTurn;
     }
     /*TARGET -> -1 (N/A)*/
     public bool ConditionalFlipFlag(CharacterInstance target)
     {
-        return target.flipFlag;
+        //NYI
+        return true;
+        return target.FlippedThisTurn;
     }
     /*TARGET -> -1 (N/A)*/
-    public bool ConditionalTransferFlag(CharacterInstance target)
+    public bool ConditionalGaveACard(CharacterInstance target)
     {
-        return target.transferFlag;
+        //NYI
+        return true;
+        return target.GaveThisTurn;
     }
     /*TARGET -> min
     STORE INT -> max*/
-    public bool ConditionalCardQuantity(CharacterInstance target, SpecialKeyword type, int min, int max)
+    public bool ConditionalCardQuantity(CharacterInstance target, CardType type, int min, int max)
     {
-        if (type == SpecialKeyword.TYPE_SPECIAL)
+        if (type == CardType.Special)
         {
             return (target.hand.Count >= min && target.hand.Count <= max);
         }
@@ -364,9 +484,22 @@ public class CardEffectChecker : MonoBehaviour
     }
 
     /* TARGET -> -1 (N/A) */
-    public bool ConditionalCompareAgainstTarget(CharacterInstance target)
+    public bool ConditionalGreaterThanOrEqualToTarget(CharacterInstance target)
     {
         return target.currValue >= CardGameManager.Instance.targetValue;
+    }
+
+    public bool ConditionalHasNegativeCard(CharacterInstance target)
+    {
+        foreach (DisplayCard d in target.numberDisplayHand)
+        {
+            NumberCard c = (NumberCard)d.baseCard;
+            if (c.value < 0)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

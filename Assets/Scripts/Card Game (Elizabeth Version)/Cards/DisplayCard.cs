@@ -17,9 +17,16 @@ public class DisplayCard : MonoBehaviour
     [SerializeField] private GameObject selectionEffect;
     [SerializeField] private GameObject tooltip;
     public Transform NumberAnchor;
+
+    public NumberCardOrganizer NumberCardOrganizer; 
+
+    private float OGScale = 0.25f;
+    private float OGWidth = 500f, OGHeight = 300f;
     void Start() {
         selectionEffect.SetActive(false);
         tooltip.SetActive(false);
+        transform.localScale = new Vector3(OGScale, OGScale, 1);
+        GetComponent<RectTransform>().sizeDelta = new Vector2(OGWidth, OGHeight);
     }
     /*void Update() {
         if(baseCard != null) {
@@ -48,7 +55,7 @@ public class DisplayCard : MonoBehaviour
 
     public void InitSpecialCard(SpecialDeckCard card, CharacterInstance owner)
     {
-        baseCard = card;
+        //baseCard = card;
         name.text = card.name;
         description.text = card.description;
         artwork.sprite = card.artwork;

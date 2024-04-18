@@ -10,7 +10,6 @@ public class CardGameCharacter : ScriptableObject
     public Sprite portrait;
     public List<SpecialDeckCard> deckList; //The cards a character will use in the card game
 
-
     //**Moved to Character Instance
     /*[Header("Ingame Variables - Code Use Only, Do Not Fill Out Here")]
     public List<SpecialDeckCard> deck; //the remaining special cards in the character's current deck (used during  an instance of gameplay)

@@ -4,20 +4,24 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public struct CardSelectSettings
 {
     public readonly int numCards { get; }
-    public readonly SpecialKeyword cardType { get; }
-    public readonly SpecialKeyword selectionPurpose { get; }
+    public readonly CardType cardType { get; }
+    public readonly Effect selectionPurpose { get; }
+
+    public readonly CharacterInstance targetCharacter; 
     public readonly bool setupPlayerUI { get; }
 
-    public CardSelectSettings(int n, SpecialKeyword c, SpecialKeyword s, bool p)
+    public CardSelectSettings(int number, CardType card, Effect effect, CharacterInstance character, bool playerUI)
     {
-        numCards = n;
-        cardType = c;
-        selectionPurpose = s;
-        setupPlayerUI = p;
+        numCards = number;
+        cardType = card;
+        selectionPurpose = effect;
+        targetCharacter = character;
+        setupPlayerUI = playerUI;
     }
 }
 
@@ -82,7 +86,7 @@ public class CardGameManager : MonoBehaviour
     [Header("UI References")] //references to all the UI elements in the scene
     public GameObject cardVisualPrefab;
     public GameObject endTurnButton, selectConfirmButton;
-    public Transform OpponentCardZone, PlayerCardZone, OpponentNegativeCardZone, PlayerNegativeCardZone;
+    public NumberCardOrganizer OpponentCardZone, PlayerCardZone, OpponentNegativeCardZone, PlayerNegativeCardZone;
     public Transform panelTransform;
     public Transform playerHandTransform;
     public Transform opponentHandTransform;
@@ -112,10 +116,6 @@ public class CardGameManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        player = gameObject.AddComponent<CharacterInstance>();
-        player.Init(playerCharacter);
-        opponent = gameObject.AddComponent<CharacterInstance>();
-        opponent.Init(opponentCharacter);
     }
 
     // Update is called once per frame
@@ -177,9 +177,18 @@ public class CardGameManager : MonoBehaviour
         }
     }
 
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     void Init()
     {
         //loading tasks go here
+        player = gameObject.AddComponent<CharacterInstance>();
+        player.Init(playerCharacter, PlayerCardZone, PlayerNegativeCardZone);
+        opponent = gameObject.AddComponent<CharacterInstance>();
+        opponent.Init(opponentCharacter, OpponentCardZone, OpponentNegativeCardZone);
         player.FlushGameplayVariables();
         opponent.FlushGameplayVariables();
         opponentRoundToggle.isOn = false;
@@ -240,68 +249,89 @@ public class CardGameManager : MonoBehaviour
         }*/
     }
 
-    void UpdateValues()
+    public void UpdateValues()
     {
-        opponent.currValue = 0;
+        opponent.currValue = opponent.addedValues;
         foreach(DisplayCard card in opponent.numberDisplayHand)
         {
             opponent.currValue += card.value;
         }
-        player.currValue = 0;
+        player.currValue = player.addedValues;
         foreach (DisplayCard card in player.numberDisplayHand)
         {
             player.currValue += card.value;
         }
-        opponentSumText.text = opponent.name + ":\n" + opponent.currValue;//CURR VALUE
-        playerSumText.text = player.name + ":\n" + player.currValue;//CURR VALUE
+        opponentSumText.text = opponent.character.name + ":\n" + opponent.currValue;//CURR VALUE
+        playerSumText.text = player.character.name + ":\n" + player.currValue;//CURR VALUE
+    }
+
+    public void ToggleFlipSelectionMode(bool on, bool forced = false)
+    {
+        player.CurrentlyFlipping = on;
+        player.FlippingForced = forced;
     }
 
     public void ToggleFlip()
     {
-        player.flipFlag = !player.flipFlag;
-        if (player.swapFlag && player.flipFlag)
+        if (!player.CurrentlySwapping)
         {
-            ToggleSwap();
+            SetFlip(!player.CurrentlyFlipping);
         }
-        FlipText.text = player.flipFlag ? "FLIPPING..." : "FLIP";
-        if (player.flipFlag)
+    }
+
+    public void SetFlip(bool newFlip)
+    {
+        player.CurrentlyFlipping = newFlip;
+
+        FlipText.text = player.CurrentlyFlipping ? "FLIPPING..." : "FLIP";
+        if (player.CurrentlyFlipping)
         {
             //CardSelectSettings drawSettings = new CardSelectSettings(1, SpecialKeyword.TYPE_SPECIAL, SpecialKeyword.EFFECT_DRAW, true);
             //cardSelectStack.Push(drawSettings);
-            CardSelectSettings discardSettings = new CardSelectSettings(1, SpecialKeyword.TYPE_NUMBER, SpecialKeyword.EFFECT_FLIP, true);
-            cardSelectStack.Push(discardSettings);
+            CardSelectSettings flipSettings = new CardSelectSettings(1, CardType.Number, Effect.Flip, player, true);
+            cardSelectStack.Push(flipSettings);
         }
     }
 
     public void EndFlip()
     {
         FlipText.text = "FLIPPED";
-        player.flipFlag = false;
+        player.FlippedThisTurn = true;
+        player.CurrentlyFlipping = false;
         FlipButton.interactable = false;
     }
 
     public void ToggleSwap()
     {
-        player.swapFlag = !player.swapFlag; 
-        if (player.swapFlag && player.flipFlag)
+        if(!player.CurrentlyFlipping)
         {
-            ToggleFlip();
+            SetSwap(!player.CurrentlySwapping);
         }
-        SwapText.text = player.swapFlag ? "SWAPPING..." : "SWAP";
+    }
 
-        if (player.swapFlag)
+    public void SetSwap(bool newSwap)
+    {
+        if(!player.CurrentlyFlipping)
         {
-            //CardSelectSettings drawSettings = new CardSelectSettings(1, SpecialKeyword.TYPE_SPECIAL, SpecialKeyword.EFFECT_DRAW, true);
-            //cardSelectStack.Push(drawSettings);
-            CardSelectSettings discardSettings = new CardSelectSettings(1, SpecialKeyword.TYPE_NUMBER, SpecialKeyword.EFFECT_SWAP, true);
-            cardSelectStack.Push(discardSettings);
+            player.CurrentlySwapping = newSwap;
+
+            SwapText.text = player.CurrentlySwapping ? "SWAPPING..." : "SWAP";
+
+            if (player.CurrentlySwapping)
+            {
+                //CardSelectSettings drawSettings = new CardSelectSettings(1, SpecialKeyword.TYPE_SPECIAL, SpecialKeyword.EFFECT_DRAW, true);
+                //cardSelectStack.Push(drawSettings);
+                CardSelectSettings swapSettings = new CardSelectSettings(1, CardType.Number, Effect.Swap, player, true);
+                cardSelectStack.Push(swapSettings);
+            }
         }
     }
 
     public void EndSwap()
     {
         SwapText.text = "SWAPPED";
-        player.swapFlag = false;
+        player.SwappedThisTurn = true;
+        player.CurrentlySwapping = false;
         SwapButton.interactable = false;
     }
 
@@ -331,13 +361,13 @@ public class CardGameManager : MonoBehaviour
         {
             DrawSpecialCards(opponent, 1);
             state = State.OPPONENTTURN;
-            player.discardFlag = false;
+            player.FlushFlags();
         }
         else if (prevState == State.OPPONENTTURN && !playerEndRound)
         {
             DrawSpecialCards(player, 1);
             state = State.PLAYERTURN;
-            opponent.discardFlag = false;
+            opponent.FlushFlags();
         }
     }
 
@@ -348,7 +378,7 @@ public class CardGameManager : MonoBehaviour
         if (!selectCoroutineRunning && cardSelectStack.Count > 0)
         {
             CardSelectSettings curr = cardSelectStack.Pop();
-            StartCoroutine(SelectCard(curr.numCards, curr.cardType, curr.selectionPurpose, curr.setupPlayerUI));
+            StartCoroutine(SelectCardState(curr.numCards, curr.cardType, curr.selectionPurpose, curr.targetCharacter, curr.setupPlayerUI));
         }
 
     }
@@ -358,12 +388,12 @@ public class CardGameManager : MonoBehaviour
         Debug.Log("End round");
         if (Mathf.Abs(targetValue - player.currValue) < Mathf.Abs(targetValue - opponent.currValue))
         {
-            Debug.Log(player.name + " won this round");
+            Debug.Log(player.character.name + " won this round");
             playerPoints += 1;
         }
         else if (Mathf.Abs(targetValue - player.currValue) > Mathf.Abs(targetValue - opponent.currValue))
         {
-            Debug.Log(opponent.name + " won this round");
+            Debug.Log(opponent.character.name + " won this round");
             opponentPoints += 1;
         }
         else
@@ -417,11 +447,11 @@ public class CardGameManager : MonoBehaviour
             Debug.Log("Game over!");
             if (playerPoints >= 2)
             {
-                Debug.Log("winner is " + player.name);
+                Debug.Log("winner is " + player.character.name);
             }
             else
             {
-                Debug.Log("winner is " + opponent.name);
+                Debug.Log("winner is " + opponent.character.name);
             }
             printed = true;
         }
@@ -437,7 +467,7 @@ public class CardGameManager : MonoBehaviour
         }*/
     }
 
-    void DrawNumberCards(CharacterInstance target, int numberCards) {
+    public void DrawNumberCards(CharacterInstance target, int numberCards) {
         for(int i = 0; i < numberCards; i++) {
             if(numberDeck.Count == 0) {
                 Debug.Log("Number Deck is Empty");
@@ -454,7 +484,7 @@ public class CardGameManager : MonoBehaviour
             newCardDisplay.InitNumberCard(newCard, target);
             PlaceCard(newCardVisual, target, newCard.value);
             target.currValue += newCard.value;
-            Debug.Log("New Number Card for " + target.name + ": " + newCard.value);
+            Debug.Log("New Number Card for " + target.character.name + ": " + newCard.value);
             /*if (target == player) {
                 player.currValue += newCard.value;
             }
@@ -486,13 +516,13 @@ public class CardGameManager : MonoBehaviour
 
             if(value <=0)
             {
-                card.transform.SetParent(PlayerNegativeCardZone);
+                PlayerNegativeCardZone.PlaceCard(card);
                 //playerNegativeCards.Add(card);
                 //playerNegativeCardsValues.Add(value);
             }
             else
             {
-                card.transform.SetParent(PlayerCardZone);
+                PlayerCardZone.PlaceCard(card);
             }
             /*if (value>0)
             {
@@ -512,13 +542,13 @@ public class CardGameManager : MonoBehaviour
         {
             if(value <= 0)
             {
-                card.transform.SetParent(OpponentNegativeCardZone);
+                OpponentNegativeCardZone.PlaceCard(card);
                 //opponentNegativeCards.Add(card);
                 //opponentNegativeCardsValues.Add(value);
             }
             else
             {
-                card.transform.SetParent(OpponentCardZone);
+                OpponentCardZone.PlaceCard(card);
             }
             /*if(value>0)
             {
@@ -585,8 +615,8 @@ public class CardGameManager : MonoBehaviour
             GameObject newCardVisual = Instantiate(cardVisualPrefab);
             DisplayCard newCardDisplay = newCardVisual.GetComponent<DisplayCard>();
             newCardDisplay.InitSpecialCard(newCard, target);
-            //newCardDisplay.owner = target;
-            //newCardDisplay.baseCard = newCard;
+            newCardDisplay.owner = target;
+            newCardDisplay.baseCard = newCard;
             if(target == player) {
                 
                 //newCardVisual.transform.localScale = new Vector3 (scaleFactor, scaleFactor, scaleFactor);
@@ -601,7 +631,7 @@ public class CardGameManager : MonoBehaviour
     }
 
     //enter the select card state
-    private IEnumerator SelectCard(int numCards, SpecialKeyword cardType, SpecialKeyword selectionPurpose, bool setupPlayerUI = true, List<DisplayCard> selectedCards = null) {
+    private IEnumerator SelectCardState(int numCards, CardType cardType, Effect effect, CharacterInstance targetCharacter, bool setupPlayerUI = true, List<DisplayCard> selectedCards = null) {
         selectCoroutineRunning = true;
         enableSelectionConfirmButton = false;
 
@@ -622,13 +652,13 @@ public class CardGameManager : MonoBehaviour
         {
             switch(cardType)
             {
-                case SpecialKeyword.TYPE_SPECIAL:
+                case CardType.Special:
                     if (numCards > player.hand.Count)
                     {
                         numCards = player.hand.Count;
                     }
                     break;
-                case SpecialKeyword.TYPE_NUMBER:
+                case CardType.Number:
                     if (numCards > player.numberDisplayHand.Count)
                     {
                         numCards = player.numberDisplayHand.Count;
@@ -640,13 +670,13 @@ public class CardGameManager : MonoBehaviour
         {
             switch (cardType)
             {
-                case SpecialKeyword.TYPE_SPECIAL:
+                case CardType.Special:
                     if(numCards > opponent.hand.Count)
                     {
                         numCards = opponent.hand.Count;
                     }
                     break;
-                case SpecialKeyword.TYPE_NUMBER:
+                case CardType.Number:
                     if(numCards > opponent.numberDisplayHand.Count)
                     {
                         numCards = opponent.numberDisplayHand.Count;
@@ -708,7 +738,7 @@ public class CardGameManager : MonoBehaviour
                 RaycastHit2D hit = Physics2D.Raycast(Input.mousePosition, Vector2.zero, Mathf.Infinity, LayerMask.GetMask("Card"));
                 if(hit.collider != null) {
                     DisplayCard hitCard = hit.collider.gameObject.GetComponent<DisplayCard>();
-                    if ((hitCard.baseCard is NumberCard && cardType == SpecialKeyword.TYPE_NUMBER) || (hitCard.baseCard is SpecialDeckCard && cardType == SpecialKeyword.TYPE_SPECIAL)){
+                    if ((hitCard.baseCard is NumberCard && cardType == CardType.Number) || (hitCard.baseCard is SpecialDeckCard && cardType == CardType.Special)){
                         if(selectedCards.Find(delegate(DisplayCard c) {
                         return hitCard.gameObject.GetInstanceID() == c.gameObject.GetInstanceID();
                         }) == null) {
@@ -744,31 +774,25 @@ public class CardGameManager : MonoBehaviour
             }
             yield return null;
         }
-        switch(selectionPurpose) {
-            case SpecialKeyword.EFFECT_DISCARD:
+        switch(effect) {
+            case Effect.Discard:
                 foreach(DisplayCard card in selectedCards) {
                     DiscardCard(card);
                 }
                 break;
-            case SpecialKeyword.EFFECT_SWAP:
+            case Effect.Swap:
                 foreach (DisplayCard card in selectedCards)
                 {
                     SwapCard(card);
                 }
-                if (player.swapFlag)
-                {
-                    EndSwap();
-                }
+                EndSwap();
                 break;
-            case SpecialKeyword.EFFECT_FLIP:
+            case Effect.Flip:
                 foreach(DisplayCard card in selectedCards)
                 {
                     FlipCard(card);
                 }
-                if(player.flipFlag)
-                {
-                    EndFlip();
-                }
+                EndFlip();
                 break;
         }
         selectionConfirmation = false;
@@ -787,8 +811,8 @@ public class CardGameManager : MonoBehaviour
         activeCardVisuals.Remove(display);
         Destroy(display.gameObject);
 
-        List<SpecialKeyword> keywords = card.keywords;
-        List<int> values = card.values;
+        //List<SpecialKeyword> keywords = card.keywords;
+        //List<int> values = card.values;
         CharacterInstance playerTarget = display.owner;
         CharacterInstance opponentTarget;
         if(playerTarget == opponent) {
@@ -798,13 +822,16 @@ public class CardGameManager : MonoBehaviour
             opponentTarget = opponent;
         }
         //do the decision tree (separate function because i forsee this eventually using recursion)
-        CardEffectChecker.Instance.ExecuteCardEffect(keywords, values, playerTarget, opponentTarget);
+        Debug.Log("Card Played: " + card.name + "\n" + card.description);
+        CardEffectChecker.Instance.ExecuteEffectStatement(card.InitialEffectStatement, playerTarget, opponentTarget);
+        //CardEffectChecker.Instance.ExecuteCardEffect(keywords, values, playerTarget, opponentTarget);
 
         UpdateValues();
     }
 
     //discard a special card
-    public void DiscardCard(DisplayCard display) {
+    public void DiscardCard(DisplayCard display) 
+    {
         //NYI remove card from hand, update top of discard pile to show this card, add to discarded cards
         Debug.Log(display.owner.name + " discarded " + display.baseCard.name);
         if(display.baseCard is SpecialDeckCard) {
@@ -813,10 +840,14 @@ public class CardGameManager : MonoBehaviour
         else {
             display.owner.numberDisplayHand.Remove(display);
         }
-        display.owner.discardFlag = true;
+        display.owner.DiscardedThisTurn = true;
         discardPile.Add(display.baseCard);
         activeCardVisuals.Remove(display);
-        Destroy(display.gameObject);
+        if(display.baseCard is NumberCard)
+        {
+            display.NumberCardOrganizer.RemoveCard(display.gameObject);
+            display.gameObject.SetActive(false);
+        }
         UpdateValues();
     }
 
@@ -832,10 +863,10 @@ public class CardGameManager : MonoBehaviour
             display.owner.numberDisplayHand.Remove(display);
             DrawNumberCards(display.owner, 1);
         }
-        display.owner.discardFlag = true;
+        display.owner.SwappedThisTurn = true;
         numberDeck.Add((NumberCard)display.baseCard);
         activeCardVisuals.Remove(display);
-        Destroy(display.gameObject);
+        display.gameObject.SetActive(false);
         UpdateValues();
     }
 
@@ -844,11 +875,13 @@ public class CardGameManager : MonoBehaviour
         display.value *= -1;
         if(display.value <= 0)
         {
-            display.transform.SetParent(PlayerNegativeCardZone);
+            display.owner.PositiveCardsZone.RemoveCard(display.gameObject);
+            display.owner.NegativeCardsZone.PlaceCard(display.gameObject);
         }
         else
         {
-            display.transform.SetParent(PlayerCardZone);
+            display.owner.NegativeCardsZone.RemoveCard(display.gameObject);
+            display.owner.PositiveCardsZone.PlaceCard(display.gameObject);
         }
         UpdateValues();
     }

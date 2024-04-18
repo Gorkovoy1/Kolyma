@@ -6,12 +6,12 @@ using UnityEngine;
 public class NumberCard : GenericCard
 {
     public enum NumberClass {
+        NONE = 0,
         RED = 1,
         BLUE = 2,
         GREEN = 3,
         YELLOW = 4,
-        BLACK = 5,
-        NONE = 6
+        BLACK = 5
     };
 
     public NumberClass cardClass;
