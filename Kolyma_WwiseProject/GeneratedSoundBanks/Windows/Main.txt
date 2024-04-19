@@ -1,10 +1,17 @@
 Event	ID	Name			Wwise Object Path	Notes
 	57706899	Play_Typewriter			\Default Work Unit\Play_Typewriter	
 	311910498	Play_Click			\Default Work Unit\Play_Click	
+	1112221790	Play_Screen_Sfx			\Default Work Unit\Play_Screen_Sfx	
+	3643466302	Play_Music_Jail			\Default Work Unit\Play_Music_Jail	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	457142352	Typewriter_Loop1	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\typewriter loop1_26B6A4BB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Typewriter_Loops\Typewriter_Loop1		213716
-	543232325	Typewriter_Loop2	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\typewriter_loop-002_6680E795.wem		\Actor-Mixer Hierarchy\Default Work Unit\Typewriter_Loops\Typewriter_Loop2		149700
-	737968334	Typewriter_Loop3	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\typewriter_loop-003_999053B1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Typewriter_Loops\Typewriter_Loop3		139960
+	90128117	Clocks_Chime	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Clocks, Chime, Metallic Wall Clock, Chime Ringing SND102458_126908D9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Clocks_Chime		775148
+	355118563	Typewriter_Loop_1	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\typewriter_loop-001_EE0BA48D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Typewriter_Loops\Typewriter_Loop_1		194876
+	543232325	Typewriter_Loop_2	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\typewriter_loop-002_EC71D09E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Typewriter_Loops\Typewriter_Loop_2		148328
+	551756399	Typewriter_Loop_6	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\typewriter_loop-006_391CBACA.wem		\Actor-Mixer Hierarchy\Default Work Unit\Typewriter_Loops\Typewriter_Loop_6		131148
+	555626868	Typewriter_Loop_5	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\typewriter_loop-005_A0248854.wem		\Actor-Mixer Hierarchy\Default Work Unit\Typewriter_Loops\Typewriter_Loop_5		141680
+	619077475	kolyma_jail 2_4	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\kolyma_jail 2.4_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Jail\kolyma_jail 2_4		37888160
+	737968334	Typewriter_Loop_3	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\typewriter_loop-003_D44C8C1E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Typewriter_Loops\Typewriter_Loop_3		96240
+	912648772	Typewriter_Loop_4	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\typewriter_loop-004_95356AB5.wem		\Actor-Mixer Hierarchy\Default Work Unit\Typewriter_Loops\Typewriter_Loop_4		133920
 	927065734	Click3	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Menu Click2_EAD471C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Click3		83056
 

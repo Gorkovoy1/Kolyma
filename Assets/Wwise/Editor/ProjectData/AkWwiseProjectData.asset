@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8c4b0f5056a06a4a92d94e75a182e1ae
     GuidInternal: 
-    m_lastTime: -8584887113820683776
+    m_lastTime: -8584881099006005723
     List:
     - name: Main
       guid: f16c33554f83c140a4a6a74ed017dafb
@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584881935599049111
+    m_lastTime: -8584881100484663625
     List:
     - name: Play_Click
       guid: 3d2c2d295ada4048b2eb693b20a41deb
@@ -113,6 +113,40 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.47030303
       minDuration: 0.47030303
+    - name: Play_Music_Jail
+      guid: 58865e42cb6cd4478b0c38599caf8c19
+      id: 3643466302
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Play_Music_Jail
+        ObjectType: 3
+        guid: 58865e42cb6cd4478b0c38599caf8c19
+      Path: Events\Default Work Unit\Play_Music_Jail
+      maxAttenuation: 0
+      maxDuration: 197.33333
+      minDuration: 197.33333
+    - name: Play_Screen_Sfx
+      guid: 1aaa2966a3b44a4b91db2d799b805d35
+      id: 1112221790
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Play_Screen_Sfx
+        ObjectType: 3
+        guid: 1aaa2966a3b44a4b91db2d799b805d35
+      Path: Events\Default Work Unit\Play_Screen_Sfx
+      maxAttenuation: 0
+      maxDuration: 7.19264
+      minDuration: 7.19264
     - name: Play_Typewriter
       guid: 5e0e236cb18e67459def99af8593ebaa
       id: 57706899
@@ -128,8 +162,8 @@ MonoBehaviour:
         guid: 5e0e236cb18e67459def99af8593ebaa
       Path: Events\Default Work Unit\Play_Typewriter
       maxAttenuation: 0
-      maxDuration: 1.2109977
-      minDuration: 0.7928682
+      maxDuration: 1.1041912
+      minDuration: 0.5450275
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:

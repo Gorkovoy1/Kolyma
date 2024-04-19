@@ -28,15 +28,16 @@ public class LevelLoader : MonoBehaviour
     {
         //Play animation
         transition.SetTrigger("Start");
-
+        
 
         //Wait
         yield return new WaitForSeconds(transitionTime);
         //pauses coroutine for x amount of seconds
-
+        
         //Load scene
         SceneManager.LoadScene(levelIndex);
 
+        
     }
         
 }

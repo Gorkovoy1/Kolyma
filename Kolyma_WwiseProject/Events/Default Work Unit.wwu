@@ -25,6 +25,28 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Music_Jail" ID="{425E8658-6CCB-47D4-8B0C-38599CAF8C19}">
+					<ChildrenList>
+						<Action Name="" ID="{13025DA4-A5B8-4855-80E1-AC69438F06BB}" ShortID="224661410">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Jail" ID="{080CE5F5-1604-487F-8B6C-3D888AD6AB4C}" WorkUnitID="{01660F24-42EF-4118-9DAA-A2B4ACD5D295}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Screen_Sfx" ID="{6629AA1A-B4A3-4B4A-91DB-2D799B805D35}">
+					<ChildrenList>
+						<Action Name="" ID="{4E9560BC-FBB5-46C1-A5AF-611591A626D6}" ShortID="485226448">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Clocks_Chime" ID="{0F25D598-9ECE-4441-91BE-41FF126FA67E}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

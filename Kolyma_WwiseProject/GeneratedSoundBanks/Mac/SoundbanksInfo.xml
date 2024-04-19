@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{DA934E90-559B-4A2D-31A4-D13DC5E5F080}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{D326F752-7CA2-0A14-FDB1-63ECE89D0199}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -22,59 +22,57 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{E2401E35-AE5D-47AC-6D07-ACAB09C5D805}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{A545041F-28B2-51FF-C860-9AE23D7C12E0}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
-				<File Id="250322044" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>typewriter 3.wav</ShortName>
-					<CachePath>SFX/typewriter 3_818F3B66.wem</CachePath>
+				<File Id="355118563" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>typewriter_loop-001.wav</ShortName>
+					<CachePath>SFX/typewriter_loop-001_EE0BA48D.wem</CachePath>
 				</File>
-				<File Id="379890764" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>typewriter 1.wav</ShortName>
-					<CachePath>SFX/typewriter 1_818F3B66.wem</CachePath>
+				<File Id="543232325" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>typewriter_loop-002.wav</ShortName>
+					<CachePath>SFX/typewriter_loop-002_EC71D09E.wem</CachePath>
+				</File>
+				<File Id="551756399" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>typewriter_loop-006.wav</ShortName>
+					<CachePath>SFX/typewriter_loop-006_391CBACA.wem</CachePath>
+				</File>
+				<File Id="555626868" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>typewriter_loop-005.wav</ShortName>
+					<CachePath>SFX/typewriter_loop-005_A0248854.wem</CachePath>
+				</File>
+				<File Id="737968334" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>typewriter_loop-003.wav</ShortName>
+					<CachePath>SFX/typewriter_loop-003_D44C8C1E.wem</CachePath>
+				</File>
+				<File Id="912648772" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>typewriter_loop-004.wav</ShortName>
+					<CachePath>SFX/typewriter_loop-004_95356AB5.wem</CachePath>
 				</File>
 				<File Id="927065734" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Menu Click2.wav</ShortName>
 					<CachePath>SFX/Menu Click2_EAD471C1.wem</CachePath>
 				</File>
-				<File Id="946429198" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>typewriter 4.wav</ShortName>
-					<CachePath>SFX/typewriter 4_818F3B66.wem</CachePath>
-				</File>
-				<File Id="957449488" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>typewriter 2.wav</ShortName>
-					<CachePath>SFX/typewriter 2_818F3B66.wem</CachePath>
-				</File>
 			</Media>
-			<Plugins>
-				<Custom>
-					<Plugin Id="151008351" Name="Silence" LibName="Wwise Silence" LibId="6619138"/>
-					<Plugin Id="876393971" Name="Silence" LibName="Wwise Silence" LibId="6619138"/>
-				</Custom>
-			</Plugins>
 			<Events>
 				<Event Id="311910498" Name="Play_Click" DurationType="OneShot" DurationMin="0.47030303" DurationMax="0.47030303">
 					<MediaRefs>
 						<MediaRef Id="927065734"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="57706899" Name="Play_Typewriter" DurationType="OneShot" DurationMin="1" DurationMax="1.6464826">
+				<Event Id="57706899" Name="Play_Typewriter" DurationType="OneShot" DurationMin="0.5450275" DurationMax="1.1041912">
 					<MediaRefs>
-						<MediaRef Id="250322044"/>
-						<MediaRef Id="379890764"/>
-						<MediaRef Id="946429198"/>
-						<MediaRef Id="957449488"/>
+						<MediaRef Id="355118563"/>
+						<MediaRef Id="543232325"/>
+						<MediaRef Id="551756399"/>
+						<MediaRef Id="555626868"/>
+						<MediaRef Id="737968334"/>
+						<MediaRef Id="912648772"/>
 					</MediaRefs>
-					<PluginRefs>
-						<Custom>
-							<PluginRef Id="151008351"/>
-							<PluginRef Id="876393971"/>
-						</Custom>
-					</PluginRefs>
 				</Event>
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{7938DD3B-A8B4-CA86-6419-D8D9D3221C0C}</FileHash>
+	<FileHash>{064001AA-B524-C8C3-26F1-E82BD70E0F34}</FileHash>
 </SoundBanksInfo>

@@ -41,7 +41,7 @@
 					<PropertyList>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-13</Value>
+								<Value>-8</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -110,7 +110,7 @@
 					<PropertyList>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-10</Value>
+								<Value>-15</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -123,14 +123,7 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<Sound Name="Typewriter_Loop1" ID="{3CA598A0-E09B-488E-A6BE-B61D5429482F}" ShortID="317577609">
-							<PropertyList>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-8</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
+						<Sound Name="Typewriter_Loop_1" ID="{D0B516DB-C6C2-4981-8D2A-C8F4FC33E428}" ShortID="578668123">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -140,30 +133,24 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="typewriter loop1" ID="{46E7B087-62AB-4281-8A61-86BA5EA8D2A3}">
+								<AudioFileSource Name="typewriter_loop-001" ID="{F3751D62-6134-4C58-B8D4-100540F05BC6}">
 									<PropertyList>
-										<Property Name="FadeOutDuration" Type="Real64" Value="0.0391955400010024"/>
+										<Property Name="LoopBegin" Type="Real64" Value="0"/>
 										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="1.10419118793216"/>
 									</PropertyList>
 									<Language>SFX</Language>
-									<AudioFile>typewriter loop1.wav</AudioFile>
+									<AudioFile>typewriter_loop-001.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="457142352"/>
+										<MediaID ID="355118563"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="typewriter loop1" ID="{46E7B087-62AB-4281-8A61-86BA5EA8D2A3}" Platform="Linked"/>
+								<ActiveSource Name="typewriter_loop-001" ID="{F3751D62-6134-4C58-B8D4-100540F05BC6}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="Typewriter_Loop2" ID="{AB128409-C530-480D-AE8E-5CA20CB01BF0}" ShortID="124409233">
-							<PropertyList>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>4</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
+						<Sound Name="Typewriter_Loop_2" ID="{99B0F38C-B952-4B05-918E-AF7515791B85}" ShortID="909827482">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -173,11 +160,10 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="typewriter_loop-002" ID="{F37BAFFC-B29D-42D0-A043-C7D8E26B6D7A}">
+								<AudioFileSource Name="typewriter_loop-002" ID="{9C1D5962-B685-4A99-A0C2-E83825B75EE9}">
 									<PropertyList>
 										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-										<Property Name="TrimBegin" Type="Real64" Value="0.067058506355854"/>
-										<Property Name="TrimEnd" Type="Real64" Value="0.91515138085636"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.840316195652494"/>
 									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>typewriter_loop-002.wav</AudioFile>
@@ -187,17 +173,10 @@
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="typewriter_loop-002" ID="{F37BAFFC-B29D-42D0-A043-C7D8E26B6D7A}" Platform="Linked"/>
+								<ActiveSource Name="typewriter_loop-002" ID="{9C1D5962-B685-4A99-A0C2-E83825B75EE9}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="Typewriter_Loop3" ID="{ADE1ECFD-72FD-43C8-9168-EE44792B9142}" ShortID="369638961">
-							<PropertyList>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>5</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
+						<Sound Name="Typewriter_Loop_3" ID="{0C7AA005-1D84-44A9-8E18-AE67CC2C317A}" ShortID="580783166">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -207,12 +186,10 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="typewriter_loop-003" ID="{B28BCC32-AD8C-4BC9-84B7-70F4C9723DC8}">
+								<AudioFileSource Name="typewriter_loop-003" ID="{6B40FC89-7628-40B1-A90F-1ACC67F75B8E}">
 									<PropertyList>
-										<Property Name="FadeOutDuration" Type="Real64" Value="0.067058506355854"/>
 										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-										<Property Name="TrimBegin" Type="Real64" Value="0.0828369784395843"/>
-										<Property Name="TrimEnd" Type="Real64" Value="0.875705200647034"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.545027513815729"/>
 									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>typewriter_loop-003.wav</AudioFile>
@@ -222,11 +199,130 @@
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="typewriter_loop-003" ID="{B28BCC32-AD8C-4BC9-84B7-70F4C9723DC8}" Platform="Linked"/>
+								<ActiveSource Name="typewriter_loop-003" ID="{6B40FC89-7628-40B1-A90F-1ACC67F75B8E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Typewriter_Loop_4" ID="{ADC59AB2-C28C-4FEA-AAA9-D87CC6D7D6B7}" ShortID="1067707444">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="typewriter_loop-004" ID="{0367BCDD-9AB6-4F87-B91A-5D06C07BDF9E}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.133508180617686"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.758640602804027"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>typewriter_loop-004.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="912648772"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="typewriter_loop-004" ID="{0367BCDD-9AB6-4F87-B91A-5D06C07BDF9E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Typewriter_Loop_5" ID="{3AA008B5-386F-45FD-A155-B802A71179D3}" ShortID="71711842">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="typewriter_loop-005" ID="{2F3D5538-CC4C-4E08-8B5E-A5EE92A1109A}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.802619768183971"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>typewriter_loop-005.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="555626868"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="typewriter_loop-005" ID="{2F3D5538-CC4C-4E08-8B5E-A5EE92A1109A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Typewriter_Loop_6" ID="{2120D255-2AEB-4EF5-92FE-11A8BF4DC832}" ShortID="113446341">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="typewriter_loop-006" ID="{51662F59-9F2C-4075-9CB6-04FC813CB21B}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.742933758025476"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>typewriter_loop-006.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="551756399"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="typewriter_loop-006" ID="{51662F59-9F2C-4075-9CB6-04FC813CB21B}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
 				</RandomSequenceContainer>
+				<Sound Name="Clocks_Chime" ID="{0F25D598-9ECE-4441-91BE-41FF126FA67E}" ShortID="161734222">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>-1000</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-5</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Clocks, Chime, Metallic Wall Clock, Chime Ringing SND102458" ID="{7DFB6F4F-3B24-4FE7-B3D0-FE4558A9DB3B}">
+							<PropertyList>
+								<Property Name="FadeOutDuration" Type="Real64" Value="2.81677921101127"/>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+								<Property Name="TrimBegin" Type="Real64" Value="0.0929326675950742"/>
+								<Property Name="TrimEnd" Type="Real64" Value="4.12966514779586"/>
+							</PropertyList>
+							<Language>SFX</Language>
+							<AudioFile>Clocks, Chime, Metallic Wall Clock, Chime Ringing SND102458.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="90128117"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Clocks, Chime, Metallic Wall Clock, Chime Ringing SND102458" ID="{7DFB6F4F-3B24-4FE7-B3D0-FE4558A9DB3B}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

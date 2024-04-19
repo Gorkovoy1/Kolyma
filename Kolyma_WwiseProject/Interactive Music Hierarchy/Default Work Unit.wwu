@@ -1,6 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{01660F24-42EF-4118-9DAA-A2B4ACD5D295}" SchemaVersion="119">
 	<InteractiveMusic>
-		<WorkUnit Name="Default Work Unit" ID="{01660F24-42EF-4118-9DAA-A2B4ACD5D295}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{01660F24-42EF-4118-9DAA-A2B4ACD5D295}" PersistMode="Standalone">
+			<ChildrenList>
+				<MusicSegment Name="Jail" ID="{080CE5F5-1604-487F-8B6C-3D888AD6AB4C}" ShortID="1071455951">
+					<PropertyList>
+						<Property Name="EndPosition" Type="Real64" Value="197545.077967242"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicTrack Name="kolyma_jail 2_4" ID="{C28D79AC-944E-4DB3-BA9F-DAC25C52B85B}" ShortID="392486081">
+							<ReferenceList>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+								<Reference Name="TransitionRoot">
+									<Custom>
+										<MusicTransition Name="Root" ID="{8A378ABA-B746-4401-A248-C95500ED6BFA}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</Custom>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="kolyma_jail 2_4" ID="{BBA4D5C1-B456-45A9-BE61-28913EF72D8F}">
+									<Language>SFX</Language>
+									<AudioFile>kolyma_jail 2.4.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="619077475"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Sequences">
+									<Reference>
+										<Local>
+											<MusicTrackSequence Name="" ID="{801553ED-DC08-4D64-9E87-4FDF76223F26}">
+												<ObjectLists>
+													<ObjectList Name="Clips">
+														<Reference>
+															<Local>
+																<MusicClip Name="kolyma_jail 2_4" ID="{3C5797F2-BBC1-4D19-8FE4-5D28012AA056}">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="197333.333333333"/>
+																		<Property Name="FadeInMode" Type="int16" Value="0"/>
+																		<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																	</PropertyList>
+																	<AudioSourceRef Name="kolyma_jail 2_4" ID="{BBA4D5C1-B456-45A9-BE61-28913EF72D8F}"/>
+																</MusicClip>
+															</Local>
+														</Reference>
+													</ObjectList>
+												</ObjectLists>
+											</MusicTrackSequence>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</MusicTrack>
+					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="Cues">
+							<Reference>
+								<Local>
+									<MusicCue Name="Entry Cue" ID="{FEA8E982-7663-4A1E-925E-BF75E30A950A}"/>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<MusicCue Name="Exit Cue" ID="{C9B31E3E-2EE5-45E5-BDF6-2D4A6F6F1AC0}">
+										<PropertyList>
+											<Property Name="CueType" Type="int16" Value="1"/>
+											<Property Name="TimeMs" Type="Real64" Value="197292.161646336"/>
+										</PropertyList>
+									</MusicCue>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+				</MusicSegment>
+			</ChildrenList>
+		</WorkUnit>
 	</InteractiveMusic>
 </WwiseDocument>

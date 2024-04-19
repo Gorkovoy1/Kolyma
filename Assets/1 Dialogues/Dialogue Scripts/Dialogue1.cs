@@ -124,6 +124,8 @@ public class Dialogue1 : MonoBehaviour
     IEnumerator Intro()
     {
         yield return new WaitForSeconds(4.3f);
+        AkSoundEngine.PostEvent("Play_Music_Jail", gameObject);
+        Debug.Log("Music");
         textComponent.text = string.Empty;
         for(int i = 0; i < 5; i++)
         {
