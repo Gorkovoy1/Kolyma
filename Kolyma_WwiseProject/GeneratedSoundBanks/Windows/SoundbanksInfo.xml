@@ -22,29 +22,29 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{ED5CFBED-CB7F-9AFF-A069-CCBFE1047404}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{4D1CA1B3-1BD7-0EA5-23C9-2648AF21DC03}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
 				<File Id="90128117" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Clocks, Chime, Metallic Wall Clock, Chime Ringing SND102458.wav</ShortName>
-					<CachePath>SFX/Clocks, Chime, Metallic Wall Clock, Chime Ringing SND102458_126908D9.wem</CachePath>
+					<CachePath>SFX/Clocks, Chime, Metallic Wall Clock, Chime Ringing SND102458_D8B369E4.wem</CachePath>
 				</File>
 				<File Id="355118563" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-001.wav</ShortName>
-					<CachePath>SFX/typewriter_loop-001_EE0BA48D.wem</CachePath>
+					<CachePath>SFX/typewriter_loop-001_87EEB116.wem</CachePath>
 				</File>
 				<File Id="543232325" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-002.wav</ShortName>
-					<CachePath>SFX/typewriter_loop-002_EC71D09E.wem</CachePath>
+					<CachePath>SFX/typewriter_loop-002_0B6A3E05.wem</CachePath>
 				</File>
 				<File Id="551756399" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-006.wav</ShortName>
-					<CachePath>SFX/typewriter_loop-006_391CBACA.wem</CachePath>
+					<CachePath>SFX/typewriter_loop-006_4A5F658F.wem</CachePath>
 				</File>
 				<File Id="555626868" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-005.wav</ShortName>
-					<CachePath>SFX/typewriter_loop-005_A0248854.wem</CachePath>
+					<CachePath>SFX/typewriter_loop-005_1C724C78.wem</CachePath>
 				</File>
 				<File Id="619077475" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>kolyma_jail 2.4.wav</ShortName>
@@ -52,11 +52,11 @@
 				</File>
 				<File Id="737968334" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-003.wav</ShortName>
-					<CachePath>SFX/typewriter_loop-003_D44C8C1E.wem</CachePath>
+					<CachePath>SFX/typewriter_loop-003_48E21D1C.wem</CachePath>
 				</File>
 				<File Id="912648772" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-004.wav</ShortName>
-					<CachePath>SFX/typewriter_loop-004_95356AB5.wem</CachePath>
+					<CachePath>SFX/typewriter_loop-004_971CF5D3.wem</CachePath>
 				</File>
 				<File Id="927065734" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Menu Click2.wav</ShortName>
@@ -92,5 +92,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{35D7EF4A-E10B-E330-CAEC-EED014FA7024}</FileHash>
+	<FileHash>{211940AE-4696-BE7F-8D35-5D0C6AAD7DA5}</FileHash>
 </SoundBanksInfo>

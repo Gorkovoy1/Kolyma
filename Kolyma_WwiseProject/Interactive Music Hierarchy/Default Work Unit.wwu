@@ -6,6 +6,11 @@
 				<MusicSegment Name="Jail" ID="{080CE5F5-1604-487F-8B6C-3D888AD6AB4C}" ShortID="1071455951">
 					<PropertyList>
 						<Property Name="EndPosition" Type="Real64" Value="197545.077967242"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-10</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
