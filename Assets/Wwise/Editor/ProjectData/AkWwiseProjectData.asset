@@ -145,8 +145,8 @@ MonoBehaviour:
         guid: 1aaa2966a3b44a4b91db2d799b805d35
       Path: Events\Default Work Unit\Play_Screen_Sfx
       maxAttenuation: 0
-      maxDuration: 7.19264
-      minDuration: 7.19264
+      maxDuration: 7.69264
+      minDuration: 7.69264
     - name: Play_Typewriter
       guid: 5e0e236cb18e67459def99af8593ebaa
       id: 57706899

@@ -285,6 +285,11 @@
 				</RandomSequenceContainer>
 				<Sound Name="Clocks_Chime" ID="{0F25D598-9ECE-4441-91BE-41FF126FA67E}" ShortID="161734222">
 					<PropertyList>
+						<Property Name="InitialDelay" Type="Real64">
+							<ValueList>
+								<Value>0.3</Value>
+							</ValueList>
+						</Property>
 						<Property Name="Pitch" Type="int32">
 							<ValueList>
 								<Value>-1000</Value>
@@ -323,6 +328,340 @@
 						<ActiveSource Name="Clocks, Chime, Metallic Wall Clock, Chime Ringing SND102458" ID="{7DFB6F4F-3B24-4FE7-B3D0-FE4558A9DB3B}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
+				<ActorMixer Name="Cell_SFX" ID="{5DD64C33-9DA5-4EE4-954D-59B8F8883C8B}" ShortID="367741814">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<RandomSequenceContainer Name="Cell_Whisper" ID="{62DC50EB-BFCE-41CE-A0CD-751A907E95E6}" ShortID="151217173">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Cell_SFX_Whisper-001" ID="{056FFB42-B0BF-4229-BBAB-8FA4D0DC89FF}" ShortID="910617619">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Cell_SFX_Whisper-001" ID="{B31EF6A7-E096-4A32-93D0-7066616AA288}">
+											<Language>SFX</Language>
+											<AudioFile>Cell_SFX_Whisper-001.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="646806883"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Cell_SFX_Whisper-001" ID="{B31EF6A7-E096-4A32-93D0-7066616AA288}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Cell_SFX_Whisper-002" ID="{F1B81A82-68BF-483A-BA80-DDA3412F0DC3}" ShortID="825859721">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Cell_SFX_Whisper-002" ID="{778D5AC3-EA2B-4D33-88FA-5365117F4A22}">
+											<Language>SFX</Language>
+											<AudioFile>Cell_SFX_Whisper-002.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="891624205"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Cell_SFX_Whisper-002" ID="{778D5AC3-EA2B-4D33-88FA-5365117F4A22}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Cell_SFX_Whisper-003" ID="{FCFC8297-8C66-4784-8028-BD12E0D29662}" ShortID="143482114">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Cell_SFX_Whisper-003" ID="{786768E1-2693-4C35-8546-BEF8ACF860E6}">
+											<Language>SFX</Language>
+											<AudioFile>Cell_SFX_Whisper-003.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="169040873"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Cell_SFX_Whisper-003" ID="{786768E1-2693-4C35-8546-BEF8ACF860E6}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Cell_SFX_Whisper-004" ID="{C8F8BF13-A68C-45F8-837D-DFA5D0747DAC}" ShortID="320420109">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Cell_SFX_Whisper-004" ID="{68C62777-E801-4348-959C-BB6E288DF381}">
+											<Language>SFX</Language>
+											<AudioFile>Cell_SFX_Whisper-004.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="766949846"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Cell_SFX_Whisper-004" ID="{68C62777-E801-4348-959C-BB6E288DF381}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Cell_SFX_Whisper-005" ID="{E22E69B1-C66C-42ED-A320-F1F03BB930FC}" ShortID="7149018">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Cell_SFX_Whisper-005" ID="{CFD78250-2EDF-4760-AC6C-2763164B5FBB}">
+											<Language>SFX</Language>
+											<AudioFile>Cell_SFX_Whisper-005.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="158641502"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Cell_SFX_Whisper-005" ID="{CFD78250-2EDF-4760-AC6C-2763164B5FBB}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="Cell_Breath" ID="{1DC7E597-FCD5-4030-9E0C-1B59DF12600A}" ShortID="442112360">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Cell_SFX_Breath-001" ID="{FF569C39-0B77-4028-BA33-5A9DE3E926DC}" ShortID="497443591">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Cell_SFX_Breath-001" ID="{ACCB3374-F3B2-4DA4-A93C-B2B6DD68EA23}">
+											<Language>SFX</Language>
+											<AudioFile>Cell_SFX_Breath-001.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="471573529"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Cell_SFX_Breath-001" ID="{ACCB3374-F3B2-4DA4-A93C-B2B6DD68EA23}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Cell_SFX_Breath-002" ID="{91244A61-FE42-4223-9DAA-44A564D8C35E}" ShortID="591196204">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Cell_SFX_Breath-002" ID="{78AAB7DF-1075-4015-A9A0-8FCB9C2B2C95}">
+											<Language>SFX</Language>
+											<AudioFile>Cell_SFX_Breath-002.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="515368332"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Cell_SFX_Breath-002" ID="{78AAB7DF-1075-4015-A9A0-8FCB9C2B2C95}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Cell_SFX_Breath-003" ID="{61488BE8-46BC-4E84-A7EE-5E7C86447F96}" ShortID="885849176">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Cell_SFX_Breath-003" ID="{3CD1FCE6-4C11-4CD2-8083-6DFFF56676C0}">
+											<Language>SFX</Language>
+											<AudioFile>Cell_SFX_Breath-003.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="543919465"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Cell_SFX_Breath-003" ID="{3CD1FCE6-4C11-4CD2-8083-6DFFF56676C0}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Cell_SFX_Breath-004" ID="{E669690B-D37E-42A3-B762-D7D862A84EA4}" ShortID="184234579">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Cell_SFX_Breath-004" ID="{B7C30FD7-FB89-4D23-B390-7FEDA01BBCE5}">
+											<Language>SFX</Language>
+											<AudioFile>Cell_SFX_Breath-004.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="425736022"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Cell_SFX_Breath-004" ID="{B7C30FD7-FB89-4D23-B390-7FEDA01BBCE5}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Cell_SFX_Breath-005" ID="{5BA7FC09-9612-4ED8-9DD9-91621305E0F7}" ShortID="816466624">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Cell_SFX_Breath-005" ID="{E8D4303C-5772-4D10-ABC1-CD717A965D7F}">
+											<Language>SFX</Language>
+											<AudioFile>Cell_SFX_Breath-005.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="211078412"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Cell_SFX_Breath-005" ID="{E8D4303C-5772-4D10-ABC1-CD717A965D7F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="Cell_Cough" ID="{412D919F-415E-47F2-9149-3D6116DA9665}" ShortID="456018226">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Cell_SFX_Cough-001" ID="{7A0BFDB7-3D60-4134-954C-059BC8546221}" ShortID="839308015">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Cell_SFX_Cough-001" ID="{E7CDF517-F888-4D66-A8F0-86CCC2385993}">
+											<Language>SFX</Language>
+											<AudioFile>Cell_SFX_Cough-001.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="897836571"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Cell_SFX_Cough-001" ID="{E7CDF517-F888-4D66-A8F0-86CCC2385993}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Cell_SFX_Cough-002" ID="{55FC2963-C0FC-4C95-989E-A7861CF0AE33}" ShortID="40008034">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Cell_SFX_Cough-002" ID="{639E2F7E-1CE7-4D53-B3A2-BDCF65AABF18}">
+											<Language>SFX</Language>
+											<AudioFile>Cell_SFX_Cough-002.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="631340173"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Cell_SFX_Cough-002" ID="{639E2F7E-1CE7-4D53-B3A2-BDCF65AABF18}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Cell_SFX_Cough-003" ID="{3CA89312-81A1-40F5-9523-6E97ED31140C}" ShortID="1055704375">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Cell_SFX_Cough-003" ID="{461C6FA1-58FC-41EA-80E4-0D61210E47E0}">
+											<Language>SFX</Language>
+											<AudioFile>Cell_SFX_Cough-003.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="415365781"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Cell_SFX_Cough-003" ID="{461C6FA1-58FC-41EA-80E4-0D61210E47E0}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+					</ChildrenList>
+				</ActorMixer>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>
