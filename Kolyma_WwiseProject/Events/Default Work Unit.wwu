@@ -47,6 +47,39 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Cough" ID="{F032EAC0-900D-47CC-9F2D-E13E51F94076}">
+					<ChildrenList>
+						<Action Name="" ID="{DC928ECE-11DC-46D9-9F09-3DC4ABCC3F0D}" ShortID="243343283">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Cell_Cough" ID="{412D919F-415E-47F2-9149-3D6116DA9665}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Whisper" ID="{DFE82EAB-27EE-494C-BDCB-46D15021F84B}">
+					<ChildrenList>
+						<Action Name="" ID="{2DF9806C-3F93-428F-8CC0-342FE6014774}" ShortID="401377418">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Cell_Whisper" ID="{62DC50EB-BFCE-41CE-A0CD-751A907E95E6}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Breath" ID="{41E36353-7D1B-4192-8123-7A6774B48D4A}">
+					<ChildrenList>
+						<Action Name="" ID="{7135769E-35B9-4894-83F4-F8F236C94918}" ShortID="312600260">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Cell_Breath" ID="{1DC7E597-FCD5-4030-9E0C-1B59DF12600A}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

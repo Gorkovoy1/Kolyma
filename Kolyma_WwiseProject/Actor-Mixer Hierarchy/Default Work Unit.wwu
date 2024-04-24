@@ -339,6 +339,31 @@
 					</ReferenceList>
 					<ChildrenList>
 						<RandomSequenceContainer Name="Cell_Whisper" ID="{62DC50EB-BFCE-41CE-A0CD-751A907E95E6}" ShortID="151217173">
+							<PropertyList>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+								<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="3"/>
+								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="5">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{DDF0CF6A-0F5F-46D8-8C2F-F6EA78630C5A}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="15"/>
+													<Property Name="Min" Type="Real64" Value="-15"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -349,6 +374,10 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Cell_SFX_Whisper-001" ID="{056FFB42-B0BF-4229-BBAB-8FA4D0DC89FF}" ShortID="910617619">
+									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="1"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -366,11 +395,23 @@
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{997E10E2-28C1-4285-BFE8-677C85E09C1D}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="-83.7837837837838"/>
+												<Property Name="PanY" Type="Real64" Value="-18.4782608695652"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
 									<ActiveSourceList>
 										<ActiveSource Name="Cell_SFX_Whisper-001" ID="{B31EF6A7-E096-4A32-93D0-7066616AA288}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Cell_SFX_Whisper-002" ID="{F1B81A82-68BF-483A-BA80-DDA3412F0DC3}" ShortID="825859721">
+									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="1"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -388,11 +429,23 @@
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{9B85746F-B96B-493B-B8B3-F88F129E16F3}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="-18.2432432432432"/>
+												<Property Name="PanY" Type="Real64" Value="61.231884057971"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
 									<ActiveSourceList>
 										<ActiveSource Name="Cell_SFX_Whisper-002" ID="{778D5AC3-EA2B-4D33-88FA-5365117F4A22}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Cell_SFX_Whisper-003" ID="{FCFC8297-8C66-4784-8028-BD12E0D29662}" ShortID="143482114">
+									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="1"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -410,11 +463,23 @@
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{FC660FFF-581A-41B2-9F1A-741CA6AE1977}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="-77.3648648648649"/>
+												<Property Name="PanY" Type="Real64" Value="-24.6376811594203"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
 									<ActiveSourceList>
 										<ActiveSource Name="Cell_SFX_Whisper-003" ID="{786768E1-2693-4C35-8546-BEF8ACF860E6}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Cell_SFX_Whisper-004" ID="{C8F8BF13-A68C-45F8-837D-DFA5D0747DAC}" ShortID="320420109">
+									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="1"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -432,11 +497,23 @@
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{5611AAB7-AEEC-4DB5-BAE1-58A73D8233A1}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="-38.1756756756757"/>
+												<Property Name="PanY" Type="Real64" Value="-80.4347826086957"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
 									<ActiveSourceList>
 										<ActiveSource Name="Cell_SFX_Whisper-004" ID="{68C62777-E801-4348-959C-BB6E288DF381}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Cell_SFX_Whisper-005" ID="{E22E69B1-C66C-42ED-A320-F1F03BB930FC}" ShortID="7149018">
+									<PropertyList>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="1"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -454,13 +531,60 @@
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{7AC0C4A1-A6E8-40F4-93E7-D4939EB20DE8}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="-43.2432432432432"/>
+												<Property Name="PanY" Type="Real64" Value="-79.7101449275362"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
 									<ActiveSourceList>
 										<ActiveSource Name="Cell_SFX_Whisper-005" ID="{CFD78250-2EDF-4760-AC6C-2763164B5FBB}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
+							<PositioningInfo>
+								<Panner Name="" ID="{CF7E1FD6-D513-4920-9081-738E9464192E}">
+									<PropertyList>
+										<Property Name="PanX" Type="Real64" Value="-68.9189189189189"/>
+										<Property Name="PanY" Type="Real64" Value="-30.0724637681159"/>
+									</PropertyList>
+								</Panner>
+								<Position Name="" ID="{3374F8BF-B0FD-4DB4-A3C6-4792BA481F76}">
+									<PropertyList>
+										<Property Name="PlayMechanismRandomOrSequence" Type="int16" Value="1"/>
+										<Property Name="PlayMechanismTransitionTime" Type="Real64" Value="4"/>
+									</PropertyList>
+								</Position>
+							</PositioningInfo>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Cell_Breath" ID="{1DC7E597-FCD5-4030-9E0C-1B59DF12600A}" ShortID="442112360">
+							<PropertyList>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="3"/>
+								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="5">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{A16D3B44-2754-4982-A943-AE0BE7ABC73F}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="15"/>
+													<Property Name="Min" Type="Real64" Value="-15"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+								<Property Name="SpeakerPanning" Type="int16" Value="1"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -471,6 +595,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Cell_SFX_Breath-001" ID="{FF569C39-0B77-4028-BA33-5A9DE3E926DC}" ShortID="497443591">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -493,6 +624,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Cell_SFX_Breath-002" ID="{91244A61-FE42-4223-9DAA-44A564D8C35E}" ShortID="591196204">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-12</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -515,6 +653,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Cell_SFX_Breath-003" ID="{61488BE8-46BC-4E84-A7EE-5E7C86447F96}" ShortID="885849176">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-20</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -537,6 +682,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Cell_SFX_Breath-004" ID="{E669690B-D37E-42A3-B762-D7D862A84EA4}" ShortID="184234579">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-7</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -559,6 +711,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Cell_SFX_Breath-005" ID="{5BA7FC09-9612-4ED8-9DD9-91621305E0F7}" ShortID="816466624">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-7</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -581,8 +740,41 @@
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
+							<PositioningInfo>
+								<Panner Name="" ID="{11B90DD9-2083-4DB2-8CE3-3093B3BDB7E0}">
+									<PropertyList>
+										<Property Name="PanX" Type="Real64" Value="-57.4324324324324"/>
+										<Property Name="PanY" Type="Real64" Value="3.26086956521744"/>
+									</PropertyList>
+								</Panner>
+							</PositioningInfo>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Cell_Cough" ID="{412D919F-415E-47F2-9149-3D6116DA9665}" ShortID="456018226">
+							<PropertyList>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="3"/>
+								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="5">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{9BA56DEC-D062-4918-95CC-01EB4DBAA75A}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="15"/>
+													<Property Name="Min" Type="Real64" Value="-15"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+								<Property Name="SpeakerPanning" Type="int16" Value="1"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -593,6 +785,9 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Cell_SFX_Cough-001" ID="{7A0BFDB7-3D60-4134-954C-059BC8546221}" ShortID="839308015">
+									<PropertyList>
+										<Property Name="SpeakerPanning" Type="int16" Value="1"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -610,6 +805,14 @@
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{66DD5AEF-5124-4375-A3DD-B6724D6BC541}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="87.1621621621622"/>
+												<Property Name="PanY" Type="Real64" Value="73.1884057971015"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
 									<ActiveSourceList>
 										<ActiveSource Name="Cell_SFX_Cough-001" ID="{E7CDF517-F888-4D66-A8F0-86CCC2385993}" Platform="Linked"/>
 									</ActiveSourceList>
@@ -659,6 +862,14 @@
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
+							<PositioningInfo>
+								<Panner Name="" ID="{8EF4E774-B861-481D-AE19-56B5072633FE}">
+									<PropertyList>
+										<Property Name="PanX" Type="Real64" Value="85.1351351351351"/>
+										<Property Name="PanY" Type="Real64" Value="74.2753623188406"/>
+									</PropertyList>
+								</Panner>
+							</PositioningInfo>
 						</RandomSequenceContainer>
 					</ChildrenList>
 				</ActorMixer>
