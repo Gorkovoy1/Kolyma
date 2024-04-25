@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8c4b0f5056a06a4a92d94e75a182e1ae
     GuidInternal: 
-    m_lastTime: -8584876767774812806
+    m_lastTime: -8584875852903667186
     List:
     - name: Main
       guid: f16c33554f83c140a4a6a74ed017dafb
@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584876777687544658
+    m_lastTime: -8584875852903697094
     List:
     - name: Play_Breath
       guid: 5363e3411b7d924181237a6774b48d4a
@@ -111,8 +111,25 @@ MonoBehaviour:
         guid: 5363e3411b7d924181237a6774b48d4a
       Path: Events\Default Work Unit\Play_Breath
       maxAttenuation: 0
-      maxDuration: 84.992516
-      minDuration: 4.992517
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Cell_Men
+      guid: 11017d510f030243bb8508c728da6a4d
+      id: 1420083155
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Play_Cell_Men
+        ObjectType: 3
+        guid: 11017d510f030243bb8508c728da6a4d
+      Path: Events\Default Work Unit\Play_Cell_Men
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Play_Click
       guid: 3d2c2d295ada4048b2eb693b20a41deb
       id: 311910498
@@ -145,8 +162,8 @@ MonoBehaviour:
         guid: c0ea32f00d90cc479f2de13e51f94076
       Path: Events\Default Work Unit\Play_Cough
       maxAttenuation: 0
-      maxDuration: 43
-      minDuration: 3
+      maxDuration: -1
+      minDuration: -1
     - name: Play_Music_Jail
       guid: 58865e42cb6cd4478b0c38599caf8c19
       id: 3643466302
@@ -213,8 +230,8 @@ MonoBehaviour:
         guid: ab2ee8dfee274c49bdcb46d15021f84b
       Path: Events\Default Work Unit\Play_Whisper
       maxAttenuation: 0
-      maxDuration: 84.51
-      minDuration: 4.51
+      maxDuration: -1
+      minDuration: -1
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:

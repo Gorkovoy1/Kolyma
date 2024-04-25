@@ -6,6 +6,7 @@
 				<SoundBank Name="Main" ID="{55336CF1-834F-40C1-A4A6-A74ED017DAFB}">
 					<ObjectInclusionList>
 						<ObjectRef Name="Play_Breath" ID="{41E36353-7D1B-4192-8123-7A6774B48D4A}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Cell_Men" ID="{517D0111-030F-4302-BB85-08C728DA6A4D}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Typewriter" ID="{6C230E5E-8EB1-4567-9DEF-99AF8593EBAA}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Cough" ID="{F032EAC0-900D-47CC-9F2D-E13E51F94076}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Music_Jail" ID="{425E8658-6CCB-47D4-8B0C-38599CAF8C19}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>

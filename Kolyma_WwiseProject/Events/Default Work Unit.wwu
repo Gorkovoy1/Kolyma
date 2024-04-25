@@ -80,6 +80,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Cell_Men" ID="{517D0111-030F-4302-BB85-08C728DA6A4D}">
+					<ChildrenList>
+						<Action Name="" ID="{8489BDCC-D187-4075-9D3D-9B69F99F0A95}" ShortID="665561753">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Cell_Men" ID="{73B16147-39E2-4E6E-97AB-08D8829D02C6}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

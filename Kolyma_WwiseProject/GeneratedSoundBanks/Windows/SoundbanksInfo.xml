@@ -22,7 +22,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{CBB03B06-3F3A-CEDB-897C-C28359510131}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{2F72FAD8-2579-8EA4-6A5B-C72463AD09F0}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -40,7 +40,7 @@
 				</File>
 				<File Id="211078412" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Breath-005.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Breath-005_818F3B66.wem</CachePath>
+					<CachePath>SFX/Cell_SFX_Breath-005_DD112F00.wem</CachePath>
 				</File>
 				<File Id="355118563" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-001.wav</ShortName>
@@ -52,15 +52,19 @@
 				</File>
 				<File Id="425736022" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Breath-004.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Breath-004_818F3B66.wem</CachePath>
+					<CachePath>SFX/Cell_SFX_Breath-004_9439CA2C.wem</CachePath>
 				</File>
 				<File Id="471573529" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Breath-001.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Breath-001_818F3B66.wem</CachePath>
+					<CachePath>SFX/Cell_SFX_Breath-001_C1E1D030.wem</CachePath>
+				</File>
+				<File Id="499405862" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Cell_Men_Talk.wav</ShortName>
+					<CachePath>SFX/Cell_Men_Talk_FBC78EF0.wem</CachePath>
 				</File>
 				<File Id="515368332" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Breath-002.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Breath-002_818F3B66.wem</CachePath>
+					<CachePath>SFX/Cell_SFX_Breath-002_CEAC6A1D.wem</CachePath>
 				</File>
 				<File Id="543232325" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-002.wav</ShortName>
@@ -68,7 +72,7 @@
 				</File>
 				<File Id="543919465" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Breath-003.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Breath-003_818F3B66.wem</CachePath>
+					<CachePath>SFX/Cell_SFX_Breath-003_71AF48D5.wem</CachePath>
 				</File>
 				<File Id="551756399" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-006.wav</ShortName>
@@ -116,7 +120,7 @@
 				</File>
 			</Media>
 			<Events>
-				<Event Id="3698047240" Name="Play_Breath" DurationType="OneShot" DurationMin="4.992517" DurationMax="84.992516">
+				<Event Id="3698047240" Name="Play_Breath" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="211078412"/>
 						<MediaRef Id="425736022"/>
@@ -125,12 +129,17 @@
 						<MediaRef Id="543919465"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="1420083155" Name="Play_Cell_Men" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="499405862"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="311910498" Name="Play_Click" DurationType="OneShot" DurationMin="0.47030303" DurationMax="0.47030303">
 					<MediaRefs>
 						<MediaRef Id="927065734"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3234553616" Name="Play_Cough" DurationType="OneShot" DurationMin="3" DurationMax="43">
+				<Event Id="3234553616" Name="Play_Cough" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="415365781"/>
 						<MediaRef Id="631340173"/>
@@ -157,7 +166,7 @@
 						<MediaRef Id="912648772"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2541567472" Name="Play_Whisper" DurationType="OneShot" DurationMin="4.51" DurationMax="84.51">
+				<Event Id="2541567472" Name="Play_Whisper" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="158641502"/>
 						<MediaRef Id="169040873"/>
@@ -169,5 +178,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{6EB75CFC-BE41-E77B-937F-7FA1004E10C0}</FileHash>
+	<FileHash>{B2B41FDC-46F9-A170-6F0A-86FABC03A4C4}</FileHash>
 </SoundBanksInfo>
