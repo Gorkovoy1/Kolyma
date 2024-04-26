@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8c4b0f5056a06a4a92d94e75a182e1ae
     GuidInternal: 
-    m_lastTime: -8584875852903667186
+    m_lastTime: -8584875000469966555
     List:
     - name: Main
       guid: f16c33554f83c140a4a6a74ed017dafb
@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584875852903697094
+    m_lastTime: -8584875000469986555
     List:
     - name: Play_Breath
       guid: 5363e3411b7d924181237a6774b48d4a
@@ -113,6 +113,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Play_Cell_Door
+      guid: cb4834de18ec854e887f0bb7f1d694b3
+      id: 386574545
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Play_Cell_Door
+        ObjectType: 3
+        guid: cb4834de18ec854e887f0bb7f1d694b3
+      Path: Events\Default Work Unit\Play_Cell_Door
+      maxAttenuation: 0
+      maxDuration: 8.693547
+      minDuration: 8.693547
     - name: Play_Cell_Men
       guid: 11017d510f030243bb8508c728da6a4d
       id: 1420083155

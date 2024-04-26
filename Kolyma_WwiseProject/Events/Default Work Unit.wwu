@@ -91,6 +91,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Cell_Door" ID="{DE3448CB-EC18-4E85-887F-0BB7F1D694B3}">
+					<ChildrenList>
+						<Action Name="" ID="{39C3D804-E39C-4D47-925D-D9C681E5D177}" ShortID="492307278">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Cell_Door" ID="{A30CD968-156E-4C8B-9FD2-24BB398F57F8}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

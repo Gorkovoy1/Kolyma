@@ -22,7 +22,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{2F72FAD8-2579-8EA4-6A5B-C72463AD09F0}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{ECDA4778-9032-1869-440C-FC8C9CE233D7}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -38,10 +38,6 @@
 					<ShortName>Cell_SFX_Whisper-003.wav</ShortName>
 					<CachePath>SFX/Cell_SFX_Whisper-003_818F3B66.wem</CachePath>
 				</File>
-				<File Id="211078412" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Cell_SFX_Breath-005.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Breath-005_DD112F00.wem</CachePath>
-				</File>
 				<File Id="355118563" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-001.wav</ShortName>
 					<CachePath>SFX/typewriter_loop-001_87EEB116.wem</CachePath>
@@ -50,13 +46,9 @@
 					<ShortName>Cell_SFX_Cough-003.wav</ShortName>
 					<CachePath>SFX/Cell_SFX_Cough-003_818F3B66.wem</CachePath>
 				</File>
-				<File Id="425736022" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Cell_SFX_Breath-004.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Breath-004_9439CA2C.wem</CachePath>
-				</File>
 				<File Id="471573529" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Breath-001.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Breath-001_C1E1D030.wem</CachePath>
+					<CachePath>SFX/Cell_SFX_Breath-001_DE08C849.wem</CachePath>
 				</File>
 				<File Id="499405862" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_Men_Talk.wav</ShortName>
@@ -64,7 +56,7 @@
 				</File>
 				<File Id="515368332" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Breath-002.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Breath-002_CEAC6A1D.wem</CachePath>
+					<CachePath>SFX/Cell_SFX_Breath-002_8FE3A3E9.wem</CachePath>
 				</File>
 				<File Id="543232325" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-002.wav</ShortName>
@@ -72,7 +64,7 @@
 				</File>
 				<File Id="543919465" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Breath-003.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Breath-003_71AF48D5.wem</CachePath>
+					<CachePath>SFX/Cell_SFX_Breath-003_96297682.wem</CachePath>
 				</File>
 				<File Id="551756399" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-006.wav</ShortName>
@@ -81,6 +73,10 @@
 				<File Id="555626868" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-005.wav</ShortName>
 					<CachePath>SFX/typewriter_loop-005_1C724C78.wem</CachePath>
+				</File>
+				<File Id="570807466" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Doors, Dungeon, Stuck, Open, Long Reverb SND12490.wav</ShortName>
+					<CachePath>SFX/Doors, Dungeon, Stuck, Open, Long Reverb SND12490_817A5E3B.wem</CachePath>
 				</File>
 				<File Id="619077475" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>kolyma_jail 2.4.wav</ShortName>
@@ -122,11 +118,14 @@
 			<Events>
 				<Event Id="3698047240" Name="Play_Breath" DurationType="Infinite">
 					<MediaRefs>
-						<MediaRef Id="211078412"/>
-						<MediaRef Id="425736022"/>
 						<MediaRef Id="471573529"/>
 						<MediaRef Id="515368332"/>
 						<MediaRef Id="543919465"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="386574545" Name="Play_Cell_Door" DurationType="OneShot" DurationMin="8.693547" DurationMax="8.693547">
+					<MediaRefs>
+						<MediaRef Id="570807466"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="1420083155" Name="Play_Cell_Men" DurationType="Infinite">
@@ -178,5 +177,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{B2B41FDC-46F9-A170-6F0A-86FABC03A4C4}</FileHash>
+	<FileHash>{CE4E28FE-59A4-2A34-21C4-305C984E88A1}</FileHash>
 </SoundBanksInfo>

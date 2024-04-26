@@ -14,6 +14,7 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID PLAY_BREATH = 3698047240U;
+        static const AkUniqueID PLAY_CELL_DOOR = 386574545U;
         static const AkUniqueID PLAY_CELL_MEN = 1420083155U;
         static const AkUniqueID PLAY_CLICK = 311910498U;
         static const AkUniqueID PLAY_COUGH = 3234553616U;

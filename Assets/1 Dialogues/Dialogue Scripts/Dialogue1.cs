@@ -53,6 +53,9 @@ public class Dialogue1 : MonoBehaviour
     public AK.Wwise.Event soundEvent;
     [SerializeField] private ButtonScript choiceList;
 
+    public GameObject musicObj;
+    public GameObject ambientObj;
+
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +65,8 @@ public class Dialogue1 : MonoBehaviour
         choiceNumber = 0;
         choice = false;
         choiceList.gameObject.SetActive(false);
+        //musicObj.SetActive(false);
+        ambientObj.SetActive(false);
 
 
     //<i>italicized</i>
@@ -123,7 +128,9 @@ public class Dialogue1 : MonoBehaviour
 
     IEnumerator Intro()
     {
-        yield return new WaitForSeconds(4.3f);
+        yield return new WaitForSeconds(6f);
+        //musicObj.SetActive(true); 
+        ambientObj.SetActive(true);
         AkSoundEngine.PostEvent("Play_Music_Jail", gameObject);
         Debug.Log("Music");
         textComponent.text = string.Empty;
