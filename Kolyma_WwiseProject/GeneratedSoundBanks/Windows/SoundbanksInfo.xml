@@ -22,7 +22,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{ECDA4778-9032-1869-440C-FC8C9CE233D7}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{B62C6D6C-16F5-1EB0-E1AB-AA13DD1DCAC4}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -76,7 +76,7 @@
 				</File>
 				<File Id="570807466" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Doors, Dungeon, Stuck, Open, Long Reverb SND12490.wav</ShortName>
-					<CachePath>SFX/Doors, Dungeon, Stuck, Open, Long Reverb SND12490_817A5E3B.wem</CachePath>
+					<CachePath>SFX/Doors, Dungeon, Stuck, Open, Long Reverb SND12490_0575F480.wem</CachePath>
 				</File>
 				<File Id="619077475" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>kolyma_jail 2.4.wav</ShortName>
@@ -177,5 +177,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{CE4E28FE-59A4-2A34-21C4-305C984E88A1}</FileHash>
+	<FileHash>{63181EAC-2AE2-699A-EDD5-C73839624B05}</FileHash>
 </SoundBanksInfo>

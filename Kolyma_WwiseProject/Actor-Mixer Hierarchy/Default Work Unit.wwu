@@ -564,7 +564,7 @@
 							<PropertyList>
 								<Property Name="InitialDelay" Type="Real64">
 									<ValueList>
-										<Value>3</Value>
+										<Value>7</Value>
 									</ValueList>
 								</Property>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
