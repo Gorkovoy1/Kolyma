@@ -374,7 +374,7 @@ public class Dialogue1 : MonoBehaviour
     IEnumerator NextScene()
     {
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("Test");
+        //SceneManager.LoadScene("Test");
     }
 
     
