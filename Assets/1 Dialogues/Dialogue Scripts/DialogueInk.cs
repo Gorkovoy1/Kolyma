@@ -38,16 +38,34 @@ public class DialogueInk : MonoBehaviour
 
     public const string Dissolve = "_Dissolve";
 
+    public GameObject ambientObj;
+    public GameObject levelLoader;
+    public bool playSound;
+    public bool soundEnded;
+    public AK.Wwise.Event soundEvent;
+    
+
     // Start is called before the first frame update
     void Start()
     {
         inkStory = new Story(inkJSON.text);
+        GameObject levelLoader = GameObject.Find("LevelLoader");
+        PlayerPortrait.gameObject.SetActive(false);
+        NPCPortrait.gameObject.SetActive(false);
         StartCoroutine(ShowInkStory());
         startofDialogue = true;
+        soundEnded = true;
+        playSound = false;
+        ambientObj.SetActive(false);
     }
 
     IEnumerator ShowInkStory()
     {
+        yield return new WaitForSeconds(6f);
+        ambientObj.SetActive(true);
+        AkSoundEngine.PostEvent("Play_Music_Jail", gameObject);
+        Debug.Log("Music");
+
         int maxiterations = 999999;
         for (int i = 0; i < maxiterations; i++)
         {
@@ -118,6 +136,7 @@ public class DialogueInk : MonoBehaviour
             }
             foreach (char letter in text)
             {
+                playSound = true;
                 if (letter == ' ')
                 {
                     isItalic = false;
@@ -165,17 +184,41 @@ public class DialogueInk : MonoBehaviour
                     }
                 }
 
+                else if(tags[0] != "Narrator")
+                {
+                    textSpeed = 0.04f;
+                    dialogueText.text += letter;
+                }
                 else
                 {
+                    textSpeed = 0f;
                     dialogueText.text += letter;
                 }
 
                 yield return new WaitForSeconds(textSpeed); // Adjust the delay between letters as needed 
 
             }
+            playSound = false;
         }
         
     }
+
+    public void PlaySound() 
+    {
+        soundEvent.Post(gameObject, (uint)AkCallbackType.AK_EndOfEvent, SoundEndedCallback);
+    }
+
+    private void SoundEndedCallback(object in_cookie, AkCallbackType in_type, object in_info)
+    {
+        // Check if the callback type is EndOfEvent, indicating the sound has ended
+        if (in_type == AkCallbackType.AK_EndOfEvent)
+        {
+            Debug.Log("Sound has ended.");
+            soundEnded = true;
+        }
+    }
+
+
     void DisplayChoices()
 
     {
