@@ -42,6 +42,7 @@ public class DialogueInk : MonoBehaviour
     public GameObject levelLoader;
     public bool playSound;
     public bool soundEnded;
+    public bool startScene;
     public AK.Wwise.Event soundEvent;
     
 
@@ -52,6 +53,7 @@ public class DialogueInk : MonoBehaviour
         GameObject levelLoader = GameObject.Find("LevelLoader");
         PlayerPortrait.gameObject.SetActive(false);
         NPCPortrait.gameObject.SetActive(false);
+        startScene = true;
         StartCoroutine(ShowInkStory());
         startofDialogue = true;
         soundEnded = true;
@@ -61,10 +63,18 @@ public class DialogueInk : MonoBehaviour
 
     IEnumerator ShowInkStory()
     {
-        yield return new WaitForSeconds(6f);
-        ambientObj.SetActive(true);
-        AkSoundEngine.PostEvent("Play_Music_Jail", gameObject);
-        Debug.Log("Music");
+        if(startScene)
+        {
+            yield return new WaitForSeconds(6f);
+            ambientObj.SetActive(true);
+            AkSoundEngine.PostEvent("Play_Music_Jail", gameObject);
+            Debug.Log("Music");
+            
+            yield return new WaitForSeconds(3f);
+        }
+        
+
+        startScene = false;
 
         int maxiterations = 999999;
         for (int i = 0; i < maxiterations; i++)
@@ -83,6 +93,7 @@ public class DialogueInk : MonoBehaviour
             }
             else if (inkStory.currentChoices.Count > 0)
             {
+                
                 DisplayChoices();
                 //choiceSelected = true;
                 yield break;
@@ -110,9 +121,9 @@ public class DialogueInk : MonoBehaviour
                 {
                     NPCPortrait.gameObject.SetActive(true);
                     PlayerPortrait.gameObject.SetActive(true);
-                    NPCPortrait.GetComponent<Material>().SetFloat(Dissolve, -0.6f);
-                    NPCPortrait.GetComponent<Material>().SetFloat(Dissolve, 0f);
-                    NPCPortrait.GetComponent<Material>().SetFloat(Dissolve, 0.5f);
+                    //NPCPortrait.GetComponent<Material>().SetFloat(Dissolve, -0.6f);
+                    //NPCPortrait.GetComponent<Material>().SetFloat(Dissolve, 0f);
+                    //NPCPortrait.GetComponent<Material>().SetFloat(Dissolve, 0.5f);
                     HighlightNPC();
 
                 }
@@ -130,75 +141,89 @@ public class DialogueInk : MonoBehaviour
                 }
                 if (tags[0] == "Arkady")
                 {
-                
+                    HighlightPlayer();
 
                 }
             }
-            foreach (char letter in text)
+
+            if(tags[0] != "Narrator")
             {
-                playSound = true;
-                if (letter == ' ')
+                Debug.Log("foreach letter");
+                foreach (char letter in text)
                 {
-                    isItalic = false;
-                    isRed = false;
-                    arkadyTalking = false;
-                    NPCTalking = false;
-                }
-                if (letter == '$')  //the word No is red lol - mark with something else and make it skip - maybe a ~ before Numbers. Note by SillyGoose 
-                {
-                    isRed = true;
-                    continue;
-                }
-                if (letter == '<')
-                {
-                    isItalic = true;
-                    continue;
-                }
-                if (letter == '@')                     // add these tags in ink
-                {
-                    arkadyTalking = true;
-                    continue;
-                }
-                if (letter == '%')                     // add these tags in ink
-                {
-                    NPCTalking = true;
-                    continue;
-                }
+                    playSound = true;
+                    if (letter == ' ')
+                    {
+                        isItalic = false;
+                        isRed = false;
+                        arkadyTalking = false;
+                        NPCTalking = false;
+                    }
+                    if (letter == '$')  //the word No is red lol - mark with something else and make it skip - maybe a ~ before Numbers. Note by SillyGoose 
+                    {
+                        isRed = true;
+                        continue;
+                    }
+                    if (letter == '<')
+                    {
+                        isItalic = true;
+                        continue;
+                    }
+                    if (letter == '@')                     // add these tags in ink
+                    {
+                        arkadyTalking = true;
+                        continue;
+                    }
+                    if (letter == '%')                     // add these tags in ink
+                    {
+                        NPCTalking = true;
+                        continue;
+                    }
 
-                if (isItalic)
-                {
-                    dialogueText.text += "<i>" + letter + "</i>";
-                }
-                else if (isRed)
-                {
-                    if (letter == '.' || letter == ',' || letter == '!' || letter == '?' || letter == ':')
+                    if (isItalic)
+                    {
+                        dialogueText.text += "<i>" + letter + "</i>";
+                    }
+                    else if (isRed)
+                    {
+                        if (letter == '.' || letter == ',' || letter == '!' || letter == '?' || letter == ':')
 
+                        {
+                            dialogueText.text += letter;
+
+
+                        }
+                        else
+                        {
+                            dialogueText.text += "<color=red><font=\"" + numbersFont.name + "\">" + letter + "</font></color>";
+                        }
+                    }
+
+                    else 
                     {
                         dialogueText.text += letter;
-
-
                     }
-                    else
-                    {
-                        dialogueText.text += "<color=red><font=\"" + numbersFont.name + "\">" + letter + "</font></color>";
-                    }
-                }
+               
 
-                else if(tags[0] != "Narrator")
+                    yield return new WaitForSeconds(textSpeed); // Adjust the delay between letters as needed 
+
+                }
+            }
+            else
+            {
+                //its intro
+                dialogueText.text = text;
+                //make alpha increase with time
+                dialogueText.alpha = 0f;
+
+                while(dialogueText.alpha < 1f)
                 {
-                    textSpeed = 0.04f;
-                    dialogueText.text += letter;
+                    dialogueText.alpha += 0.3f * Time.deltaTime;
+                    yield return null;
                 }
-                else
-                {
-                    textSpeed = 0f;
-                    dialogueText.text += letter;
-                }
-
-                yield return new WaitForSeconds(textSpeed); // Adjust the delay between letters as needed 
-
             }
             playSound = false;
+            
         }
         
     }
@@ -230,9 +255,8 @@ public class DialogueInk : MonoBehaviour
             choiceButton.GetComponentInChildren<TextMeshProUGUI>().text = choice.text;
             choiceButton.onClick.AddListener(() => OnChoiceSelected(choice));
         }
-
-
     }
+
     void OnChoiceSelected(Choice choice)
     {
         choiceSelected = true;
@@ -244,10 +268,10 @@ public class DialogueInk : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !startScene)
         {
             textSpeed = 0.0006f;
-
+            dialogueText.alpha = 1f;
         }
     }
     void HighlightNPC()

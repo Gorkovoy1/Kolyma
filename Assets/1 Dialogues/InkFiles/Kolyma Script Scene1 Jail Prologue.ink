@@ -10,28 +10,28 @@ Don't worry, I know the rules. You were here first and the bed is yours. You kno
     *[Sure. You may sit down]#Arkady
  Oh, I am so grateful.#Andreyev
     *[You may sit down. But do not forget you're sleeping on the floor tonight]#Arkady
-Rules are rules. Although I really doubt anyone will be able to catch any sleep in such a packed cell.
+Rules are rules. Although I really doubt anyone will be able to catch any sleep in such a packed cell.#Andreyev
     *[Of course. Sit down here, it's hard to stand in such a crowded cell.]#Arkady
 Your heart is soft. Don't worry, it won't stay that way for too long.#Andreyev
 - Here we are. 45 days on a train, 2 days on a boat.#Andreyev
 - I've been to this part of Russia before, but never could I imagine I'd have to travel all the way to Magadan again.#Andreyev
 - I am Andreyev. Alexander Andreyev.#Andreyev
     **[I know you. You were a member of the Socialist Revolutionary Party]#Arkady
-Yes I was. A member since 1901#Andreyev
+Yes I was. A member since 1901.#Andreyev
     **[Former terrorist? I thought you left the country.]#Arkady
-I did. But as you can see they lured me into a trap. I have no regrets though, I'd rather die here than in France, among all those impotent immigrants.
+I did. But as you can see they lured me into a trap. I have no regrets though, I'd rather die here than in France, among all those impotent immigrants.#Andreyev
     **[I heard you were a spy. Was it another false accusation?]#Arkady
 It sure was. They need those spy cases for the Purge to happen.#Andreyev
 --It is quite ironic. The Imperial Okhrana came after me in 1907. The officer who interrogated me said I was a threat to the Tsarist government. And today, 30 years later, I am an enemy of the Soviet state. Things haven’t changed for me that much.#Andreyev 
 --All those sentimental idiots say that The Revolution was a dream that never came true.#Andreyev
 --The Revolution was first and foremost an opportunity. We had our chance and we blew it. What is your name?#Andreyev
     ***[Arkady Kojukh.]#Arkady
-If you don't mind me asking, was General Kojukh your father?
+If you don't mind me asking, was General Kojukh your father?#Andreyev
     ****[Yes. General Valentin Kojukh was my father.]#Arkady
-His trial was a joke, and you could tell how badly those miserable party clerks wanted to get rid of him
+His trial was a joke, and you could tell how badly those miserable party clerks wanted to get rid of him.#Andreyev
     ****[No. I don’t have a father.]#Arkady
     ***[No need to know my name.]#Arkady
-    As you wish. I have heard someone here call you Arkady. That's good enough for me.
+    As you wish. I have heard someone here call you Arkady. That's good enough for me.#Andreyev
 ---I am sorry. Let me give you some advice. Forget about your former self. You are a prisoner now. Focus on more important matters.#Andreyev
 Let's play a simple game. It's called $Numbers. The game is old and every prisoner is familiar with it, so you better remember the rules. It might even save your life one day so listen carefully.#Andreyev
     -> END
