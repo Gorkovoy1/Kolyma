@@ -79,7 +79,7 @@ public class DialogueInk : MonoBehaviour
             AkSoundEngine.PostEvent("Play_Music_Jail", gameObject);
             Debug.Log("Music");
             
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(7f);
             
 
             while(paper.color.a < 1f)
