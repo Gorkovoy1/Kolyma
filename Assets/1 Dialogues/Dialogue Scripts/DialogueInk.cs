@@ -36,6 +36,8 @@ public class DialogueInk : MonoBehaviour
     public float textSpeed;
     public TMP_FontAsset numbersFont;
 
+    public Image paper;
+
     public const string Dissolve = "_Dissolve";
 
     public GameObject ambientObj;
@@ -44,6 +46,8 @@ public class DialogueInk : MonoBehaviour
     public bool soundEnded;
     public bool startScene;
     public AK.Wwise.Event soundEvent;
+
+    public Color paperColor;
     
 
     // Start is called before the first frame update
@@ -59,7 +63,12 @@ public class DialogueInk : MonoBehaviour
         soundEnded = true;
         playSound = false;
         ambientObj.SetActive(false);
+        
+        paperColor = paper.color;
+        paper.color = new Color(paperColor.r, paperColor.g, paperColor.b, 0f);
     }
+
+    
 
     IEnumerator ShowInkStory()
     {
@@ -70,7 +79,15 @@ public class DialogueInk : MonoBehaviour
             AkSoundEngine.PostEvent("Play_Music_Jail", gameObject);
             Debug.Log("Music");
             
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(5f);
+            
+
+            while(paper.color.a < 1f)
+            {
+                paper.color = new Color(paperColor.r, paperColor.g, paperColor.b, paper.color.a + 0.3f * Time.deltaTime);
+                yield return null;
+            }
+            paper.color = new Color(paperColor.r, paperColor.g, paperColor.b, 1f);
         }
         
 
@@ -201,6 +218,7 @@ public class DialogueInk : MonoBehaviour
 
                     else 
                     {
+                        playSound = true;
                         dialogueText.text += letter;
                     }
                
@@ -260,6 +278,7 @@ public class DialogueInk : MonoBehaviour
     void OnChoiceSelected(Choice choice)
     {
         choiceSelected = true;
+        AkSoundEngine.PostEvent("Play_Click", gameObject);
         inkStory.ChooseChoiceIndex(choice.index);
         choicesContainer.ClearChildren();
         StartCoroutine(ShowInkStory());
@@ -273,6 +292,13 @@ public class DialogueInk : MonoBehaviour
             textSpeed = 0.0006f;
             dialogueText.alpha = 1f;
         }
+
+        if (playSound && soundEnded)
+        {
+            soundEnded = false;
+            PlaySound();
+        }
+
     }
     void HighlightNPC()
     {

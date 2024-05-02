@@ -761,6 +761,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelLoader
       objectReference: {fileID: 0}
+    - target: {fileID: 5733221822405243115, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5733221823016957224, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1459,14 +1463,17 @@ MonoBehaviour:
   NPCTalking: 0
   textSpeed: 0
   numbersFont: {fileID: 11400000, guid: c3c31f48d9654774897ef21c8f51b0c2, type: 2}
+  paper: {fileID: 112021737}
   ambientObj: {fileID: 990953662}
   levelLoader: {fileID: 274157213}
   playSound: 0
   soundEnded: 0
+  startScene: 0
   soundEvent:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 0}
+  paperColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &634617716 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3191542086940010076, guid: 42b182ca8a3cab245a2a6f4d44b4e27a, type: 3}
