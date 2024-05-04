@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584871562134003573
+    m_lastTime: -8584867523572384348
     List:
     - name: Play_Breath
       guid: 5363e3411b7d924181237a6774b48d4a
@@ -196,8 +196,8 @@ MonoBehaviour:
         guid: 58865e42cb6cd4478b0c38599caf8c19
       Path: Events\Default Work Unit\Play_Music_Jail
       maxAttenuation: 0
-      maxDuration: 197.33333
-      minDuration: 197.33333
+      maxDuration: -1
+      minDuration: -1
     - name: Play_Screen_Sfx
       guid: 1aaa2966a3b44a4b91db2d799b805d35
       id: 1112221790
