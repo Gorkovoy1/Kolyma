@@ -20,11 +20,12 @@ public static class TransformExtensions
 
 public class DialogueInk : MonoBehaviour
 {
-    public Image NPCPortrait;
-    public Image PlayerPortrait;
+    public GameObject NPCPortrait;
+    public GameObject PlayerPortrait;
     public TextAsset inkJSON;
     private Story inkStory;
     public TextMeshProUGUI dialogueText;
+    public TextMeshProUGUI introText;
     public Button choiceButtonPrefab;
     public Transform choicesContainer;
     public bool startofDialogue;
@@ -50,11 +51,13 @@ public class DialogueInk : MonoBehaviour
     public Color paperColor;
     
 
-    // Start is called before the first frame update
+   
     void Start()
     {
+        //create ink file and set level loader. deactivate everything while levelloader is active, reset bools and set paper to invisible
         inkStory = new Story(inkJSON.text);
         GameObject levelLoader = GameObject.Find("LevelLoader");
+        introText.text = "";
         PlayerPortrait.gameObject.SetActive(false);
         NPCPortrait.gameObject.SetActive(false);
         startScene = true;
@@ -71,17 +74,19 @@ public class DialogueInk : MonoBehaviour
     
 
     IEnumerator ShowInkStory()
-    {
+    {       
+        //dont start the dialogue until levelloader is gone, then start sounds and dialogue
         if(startScene)
         {
             yield return new WaitForSeconds(6f);
             ambientObj.SetActive(true);
             AkSoundEngine.PostEvent("Play_Music_Jail", gameObject);
             Debug.Log("Music");
-            
+
+            //pause as we look at the background
             yield return new WaitForSeconds(7f);
             
-
+            //paper fades in
             while(paper.color.a < 1f)
             {
                 paper.color = new Color(paperColor.r, paperColor.g, paperColor.b, paper.color.a + 0.3f * Time.deltaTime);
@@ -90,9 +95,11 @@ public class DialogueInk : MonoBehaviour
             paper.color = new Color(paperColor.r, paperColor.g, paperColor.b, 1f);
         }
         
-
+        //no longer intro
         startScene = false;
+        introText.text = "";
 
+        //for each line in ink, show it letter by letter unless its a choice 
         int maxiterations = 999999;
         for (int i = 0; i < maxiterations; i++)
         {
@@ -120,6 +127,8 @@ public class DialogueInk : MonoBehaviour
         }
 
     }
+
+    //display each line letter by letter
     IEnumerator LetterByLetter(string text)
     {
         dialogueText.text = "";
@@ -136,13 +145,8 @@ public class DialogueInk : MonoBehaviour
             {
                 if (tags[0] == "SetPortraitsActive")
                 {
-                    NPCPortrait.gameObject.SetActive(true);
-                    PlayerPortrait.gameObject.SetActive(true);
-                    //NPCPortrait.GetComponent<Material>().SetFloat(Dissolve, -0.6f);
-                    //NPCPortrait.GetComponent<Material>().SetFloat(Dissolve, 0f);
-                    //NPCPortrait.GetComponent<Material>().SetFloat(Dissolve, 0.5f);
+                    introText.text = "";
                     HighlightNPC();
-
                 }
 
 
@@ -230,13 +234,13 @@ public class DialogueInk : MonoBehaviour
             else
             {
                 //its intro
-                dialogueText.text = text;
+                introText.text = text;
                 //make alpha increase with time
-                dialogueText.alpha = 0f;
+                introText.alpha = 0f;
 
-                while(dialogueText.alpha < 1f)
+                while(introText.alpha < 1f)
                 {
-                    dialogueText.alpha += 0.3f * Time.deltaTime;
+                    introText.alpha += 0.3f * Time.deltaTime;
                     yield return null;
                 }
             }
@@ -290,7 +294,7 @@ public class DialogueInk : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !startScene)
         {
             textSpeed = 0.0006f;
-            dialogueText.alpha = 1f;
+            introText.alpha = 1f;
         }
 
         if (playSound && soundEnded)
@@ -302,22 +306,14 @@ public class DialogueInk : MonoBehaviour
     }
     void HighlightNPC()
     {
-        Color colorNPC = NPCPortrait.color;
-        Color colorArkady = PlayerPortrait.color;
-        colorNPC = new Color(colorNPC.r, colorNPC.g, colorNPC.b, 1f);
-        colorArkady = new Color(colorArkady.r, colorArkady.g, colorArkady.b, 0.6f);
-        NPCPortrait.color = colorNPC;
-        PlayerPortrait.color = colorArkady;
+        NPCPortrait.gameObject.SetActive(true);
+        PlayerPortrait.gameObject.SetActive(false);
     }
 
     void HighlightPlayer()
     {
-        Color colorNPC = NPCPortrait.color;
-        Color colorArkady = PlayerPortrait.color;
-        colorNPC = new Color(colorNPC.r, colorNPC.g, colorNPC.b, 0.6f);
-        colorArkady = new Color(colorArkady.r, colorArkady.g, colorArkady.b, 1f);
-        NPCPortrait.color = colorNPC;
-        PlayerPortrait.color = colorArkady;
+        PlayerPortrait.gameObject.SetActive(true);
+        NPCPortrait.gameObject.SetActive(false);
 
     }
 }

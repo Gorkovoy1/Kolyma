@@ -7,16 +7,16 @@ An old man approached his bed. The stranger had a strong presence. He was exhaus
 //Characters appear on screen and the dialogue begins.
 Don't worry, I know the rules. You were here first and the bed is yours. You know, I never ask for anything, but can I sit here? It's been a long and tiring journey.#SetPortraitsActive #Andreyev
 //different color for responses?
-    *[Sure. You may sit down]#Arkady
+    *[Sure. You may sit down.]#Arkady
  Oh, I am so grateful.#Andreyev
-    *[You may sit down. But do not forget you're sleeping on the floor tonight]#Arkady
+    *[You may sit down. But do not forget you're sleeping on the floor tonight.]#Arkady
 Rules are rules. Although I really doubt anyone will be able to catch any sleep in such a packed cell.#Andreyev
     *[Of course. Sit down here, it's hard to stand in such a crowded cell.]#Arkady
 Your heart is soft. Don't worry, it won't stay that way for too long.#Andreyev
 - Here we are. 45 days on a train, 2 days on a boat.#Andreyev
 - I've been to this part of Russia before, but never could I imagine I'd have to travel all the way to Magadan again.#Andreyev
 - I am Andreyev. Alexander Andreyev.#Andreyev
-    **[I know you. You were a member of the Socialist Revolutionary Party]#Arkady
+    **[I know you. You were a member of the Socialist Revolutionary Party.]#Arkady
 Yes I was. A member since 1901.#Andreyev
     **[Former terrorist? I thought you left the country.]#Arkady
 I did. But as you can see they lured me into a trap. I have no regrets though, I'd rather die here than in France, among all those impotent immigrants.#Andreyev
