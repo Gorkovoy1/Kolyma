@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/1 Dialogues/Dialogue 1 Ink.unity
+    guid: 93a32b32b524bef468b8cdaaede3d459
   m_configObjects: {}
