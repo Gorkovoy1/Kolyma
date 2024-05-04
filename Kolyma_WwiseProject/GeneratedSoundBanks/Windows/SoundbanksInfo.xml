@@ -22,7 +22,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{F8809B1F-CEC8-953D-D405-F1385B0E471B}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{2A9335AE-3CFF-BFCB-0DFF-01DFA994C3F4}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -145,7 +145,7 @@
 						<MediaRef Id="897836571"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3643466302" Name="Play_Music_Jail" DurationType="OneShot" DurationMin="197.33333" DurationMax="197.33333">
+				<Event Id="3643466302" Name="Play_Music_Jail" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="619077475"/>
 					</MediaRefs>
@@ -177,5 +177,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{444E33B5-7366-F24D-08FE-119F109A099C}</FileHash>
+	<FileHash>{4CBA0ECF-3234-52A5-9ECA-339EF372E9E1}</FileHash>
 </SoundBanksInfo>

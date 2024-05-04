@@ -27,10 +27,10 @@
 				</Event>
 				<Event Name="Play_Music_Jail" ID="{425E8658-6CCB-47D4-8B0C-38599CAF8C19}">
 					<ChildrenList>
-						<Action Name="" ID="{13025DA4-A5B8-4855-80E1-AC69438F06BB}" ShortID="224661410">
+						<Action Name="" ID="{FAFFD9B4-348E-4FDE-8E8A-8DAFDA2A1BB4}" ShortID="495218095">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Jail" ID="{080CE5F5-1604-487F-8B6C-3D888AD6AB4C}" WorkUnitID="{01660F24-42EF-4118-9DAA-A2B4ACD5D295}"/>
+									<ObjectRef Name="Jail" ID="{C2D76F21-7DDC-463D-AECD-9EDDD7629D7D}" WorkUnitID="{01660F24-42EF-4118-9DAA-A2B4ACD5D295}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
