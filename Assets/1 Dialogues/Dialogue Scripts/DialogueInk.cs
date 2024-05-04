@@ -50,7 +50,7 @@ public class DialogueInk : MonoBehaviour
 
     public Color paperColor;
     
-
+    public bool skip;
    
     void Start()
     {
@@ -66,6 +66,7 @@ public class DialogueInk : MonoBehaviour
         soundEnded = true;
         playSound = false;
         ambientObj.SetActive(false);
+        skip = false;
         
         paperColor = paper.color;
         paper.color = new Color(paperColor.r, paperColor.g, paperColor.b, 0f);
@@ -226,10 +227,13 @@ public class DialogueInk : MonoBehaviour
                         dialogueText.text += letter;
                     }
                
-
-                    yield return new WaitForSeconds(textSpeed); // Adjust the delay between letters as needed 
-
+                    if(!skip)
+                    {
+                        yield return new WaitForSeconds(textSpeed); // Adjust the delay between letters as needed 
+                    }
                 }
+                
+                skip = false;
             }
             else
             {
@@ -293,8 +297,12 @@ public class DialogueInk : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && !startScene)
         {
-            textSpeed = 0.0006f;
+            //textSpeed = 0.0006f;
             introText.alpha = 1f;
+            if(playSound)
+            {
+                skip = true;
+            }
         }
 
         if (playSound && soundEnded)
