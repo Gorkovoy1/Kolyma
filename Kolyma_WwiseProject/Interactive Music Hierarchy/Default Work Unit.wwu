@@ -39,11 +39,28 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="kolyma_jail 2_4" ID="{BBA4D5C1-B456-45A9-BE61-28913EF72D8F}">
+									<PropertyList>
+										<Property Name="MarkerInputMode" Type="int16" Value="2"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>kolyma_jail 2.4.wav</AudioFile>
 									<MediaIDList>
 										<MediaID ID="619077475"/>
 									</MediaIDList>
+									<ObjectLists>
+										<ObjectList Name="Markers">
+											<Reference>
+												<Local>
+													<Marker Name="" ID="{F9A4FA2E-9758-4198-AE94-242AD5C4C430}">
+														<PropertyList>
+															<Property Name="Label" Type="string" Value="Tempo: 90.0"/>
+															<Property Name="Time" Type="Real64" Value="33.3627921869997"/>
+														</PropertyList>
+													</Marker>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
 								</AudioFileSource>
 							</ChildrenList>
 							<ObjectLists>
