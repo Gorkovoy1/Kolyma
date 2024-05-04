@@ -15,7 +15,7 @@ Rules are rules. Although I really doubt anyone will be able to catch any sleep 
 Your heart is soft. Don't worry, it won't stay that way for too long.#Andreyev
 - Here we are. 45 days on a train, 2 days on a boat.#Andreyev
 - I've been to this part of Russia before, but never could I imagine I'd have to travel all the way to Magadan again.#Andreyev
-- I am Andreyev. Alexander Andreyev.#Andreyev
+- I am Andreyev. Alexander Andreyev.#ChangeName #Andreyev
     **[I know you. You were a member of the Socialist Revolutionary Party.]#Arkady
 Yes I was. A member since 1901.#Andreyev
     **[Former terrorist? I thought you left the country.]#Arkady

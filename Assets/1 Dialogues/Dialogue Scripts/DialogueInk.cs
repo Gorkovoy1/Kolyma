@@ -22,35 +22,42 @@ public class DialogueInk : MonoBehaviour
 {
     public GameObject NPCPortrait;
     public GameObject PlayerPortrait;
+
     public TextAsset inkJSON;
     private Story inkStory;
+
     public TextMeshProUGUI dialogueText;
     public TextMeshProUGUI introText;
+    public TextMeshProUGUI nameTag;
+    public Image paper;
+    public Color paperColor;
+    public TMP_FontAsset numbersFont;
+
     public Button choiceButtonPrefab;
     public Transform choicesContainer;
+
     public bool startofDialogue;
     public bool choiceSelected;
     public bool isItalic;
     public bool isRed;
     public bool arkadyTalking;
     public bool NPCTalking;
-    public float textSpeed;
-    public TMP_FontAsset numbersFont;
+    public bool playSound;
+    public bool soundEnded;
+    public bool startScene;
+    public bool skip;
 
-    public Image paper;
+    public float textSpeed;
 
     public const string Dissolve = "_Dissolve";
 
     public GameObject ambientObj;
     public GameObject levelLoader;
-    public bool playSound;
-    public bool soundEnded;
-    public bool startScene;
+
     public AK.Wwise.Event soundEvent;
 
-    public Color paperColor;
-    
-    public bool skip;
+    public List<string> tags;
+
    
     void Start()
     {
@@ -67,9 +74,13 @@ public class DialogueInk : MonoBehaviour
         playSound = false;
         ambientObj.SetActive(false);
         skip = false;
+        nameTag.text = "Old Man";
         
         paperColor = paper.color;
         paper.color = new Color(paperColor.r, paperColor.g, paperColor.b, 0f);
+
+        
+        
     }
 
     
@@ -133,8 +144,8 @@ public class DialogueInk : MonoBehaviour
     IEnumerator LetterByLetter(string text)
     {
         dialogueText.text = "";
+        tags = inkStory.currentTags;
         //Debug.Log(text);
-        List<string> tags = inkStory.currentTags;
         if(text == "\n")
         {
             choiceSelected = true;
@@ -150,7 +161,10 @@ public class DialogueInk : MonoBehaviour
                     HighlightNPC();
                 }
 
-
+                if(tags[0] == "ChangeName")
+                {
+                    nameTag.text = "Andreyev";
+                }
 
                 if (tags[0] == "Narrator")
                 {
