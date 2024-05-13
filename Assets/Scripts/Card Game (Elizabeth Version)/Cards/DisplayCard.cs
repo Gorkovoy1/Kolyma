@@ -18,10 +18,16 @@ public class DisplayCard : MonoBehaviour
     [SerializeField] private GameObject tooltip;
     public Transform NumberAnchor;
 
-    public NumberCardOrganizer NumberCardOrganizer; 
+    public NumberCardOrganizer NumberCardOrganizer;
+
+    public Transform Artwork;
+
+    public Button SelectButton;
 
     private float OGScale = 0.25f;
     private float OGWidth = 500f, OGHeight = 300f;
+
+    public Color OgColor, SelectedColor;
     void Start() {
         selectionEffect.SetActive(false);
         tooltip.SetActive(false);
@@ -51,6 +57,8 @@ public class DisplayCard : MonoBehaviour
         description.text = "";
         value = card.value;
         this.owner = owner;
+        SelectButton.onClick.RemoveAllListeners();
+        SelectButton.onClick.AddListener(delegate { CardGameManager.Instance.CardSelectionHandler.SelectCard(this);});
     }
 
     public void InitSpecialCard(SpecialDeckCard card, CharacterInstance owner)
@@ -61,6 +69,13 @@ public class DisplayCard : MonoBehaviour
         artwork.sprite = card.artwork;
         artwork.color = Color.white;
         this.owner = owner;
+        SelectButton.onClick.RemoveAllListeners();
+        SelectButton.onClick.AddListener(delegate { CardGameManager.Instance.CardSelectionHandler.SelectCard(this); });
+    }
+
+    public void ToggleSelectionColor(bool selected)
+    {
+        SelectButton.GetComponent<Image>().color = selected ? SelectedColor : OgColor;
     }
 
     /*private void Card(NumberCard card) {

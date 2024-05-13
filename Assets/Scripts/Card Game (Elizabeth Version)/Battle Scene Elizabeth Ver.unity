@@ -370,12 +370,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roundCount: 0
-  opponent: {fileID: 11400000, guid: e5ba35b38b6dca94db9d2bb034be4675, type: 2}
-  player: {fileID: 11400000, guid: c1a333ce412171141b36cb99536a9665, type: 2}
+  playerCharacter: {fileID: 11400000, guid: c1a333ce412171141b36cb99536a9665, type: 2}
+  opponentCharacter: {fileID: 11400000, guid: e5ba35b38b6dca94db9d2bb034be4675, type: 2}
+  player: {fileID: 0}
+  opponent: {fileID: 0}
   numberDeck:
   - {fileID: 11400000, guid: 5b1fe6d03fc95554b8200b334063d488, type: 2}
   - {fileID: 11400000, guid: 00fdddb7df6e13341a779cf222a7b02e, type: 2}
   - {fileID: 11400000, guid: b1bd48d69b286cb4d82bb9b65516af7c, type: 2}
+  - {fileID: 11400000, guid: e76f9af194e169545b3d426129e50744, type: 2}
+  - {fileID: 11400000, guid: 90b9c81b70ddb0d408a2e0f6d6f5b521, type: 2}
+  - {fileID: 11400000, guid: 5beb0bf378d053645a5164006f517373, type: 2}
+  - {fileID: 11400000, guid: 582e039500f49754288b53780be0d55c, type: 2}
+  - {fileID: 11400000, guid: d66e455a0c3980647b1effc53c70e95b, type: 2}
   - {fileID: 11400000, guid: 18c4e3cea1694ed409af12cc74a72e66, type: 2}
   - {fileID: 11400000, guid: 31abbc617fd136142a47a9eb68d89dd3, type: 2}
   - {fileID: 11400000, guid: 96c655e9d17589b44969aea44dadb4f9, type: 2}
@@ -386,18 +393,23 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 657149d27ba7912429eae4a3c961fb76, type: 2}
   isStoryBattle: 0
   bet: 5
+  targetValue: 0
   state: 0
   activeCardVisuals: []
   cardVisualPrefab: {fileID: 3906581684707951925, guid: 424ebd4fbf7bf8f49905494a81f5cb42, type: 3}
   endTurnButton: {fileID: 1129203472}
   selectConfirmButton: {fileID: 899873083}
+  OpponentCardZone: {fileID: 0}
+  PlayerCardZone: {fileID: 0}
+  OpponentNegativeCardZone: {fileID: 0}
+  PlayerNegativeCardZone: {fileID: 0}
   panelTransform: {fileID: 1631184922}
   playerHandTransform: {fileID: 553018432}
   opponentHandTransform: {fileID: 563015554}
   opponentSumText: {fileID: 1907661252}
   playerSumText: {fileID: 716944751}
   targetValueText: {fileID: 1005801580}
-  selectionAmountText: {fileID: 916433147}
+  selectionText: {fileID: 0}
   opponentNumberZone: {fileID: 558119045}
   playerNumberZone: {fileID: 1587265186}
   playerRoundToggle: {fileID: 226165763}
@@ -407,6 +419,11 @@ MonoBehaviour:
   offsetInteger: 100
   scaleInteger: 1
   scaleNumber: 0
+  FlipText: {fileID: 0}
+  SwapText: {fileID: 0}
+  FlipButton: {fileID: 0}
+  SwapButton: {fileID: 0}
+  CardSelectionHandler: {fileID: 0}
 --- !u!4 &502440818
 Transform:
   m_ObjectHideFlags: 0

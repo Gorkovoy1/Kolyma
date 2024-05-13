@@ -13,7 +13,7 @@ public class CardEffectChecker : MonoBehaviour
 
     public void ExecuteEffectStatement(EffectStatement statement, CharacterInstance playerOfCard, CharacterInstance opponentOfPlayer)
     {
-        Debug.Log("Execute statement: " + statement.name + " - " + statement.Condition.ToString());
+        //Debug.Log("Execute statement: " + statement.name + " - " + statement.Condition.ToString());
         bool success = true;
 
         if(statement.ConditonalTarget != TargetCharacter.None)
@@ -60,7 +60,7 @@ public class CardEffectChecker : MonoBehaviour
 
         if(success)
         {
-            Debug.Log("Successful statement: " + statement.name + " - " + statement.Condition.ToString());
+            //Debug.Log("Successful statement: " + statement.name + " - " + statement.Condition.ToString());
             for (int i = 0; i < statement.EffectsOnSuccess.Count; i++)
             {
                 DoEffect(statement.EffectsOnSuccess[i], statement.TargetsOnSuccess[i] == TargetCharacter.PlayerOfCard ? playerOfCard : opponentOfPlayer, statement.CardTypesOnSuccess[i], statement.ValuesOnSuccess[i]);
@@ -72,7 +72,7 @@ public class CardEffectChecker : MonoBehaviour
         }
         else
         {
-            Debug.Log("Failed statement: " + statement.name + " - " + statement.Condition.ToString());
+            //Debug.Log("Failed statement: " + statement.name + " - " + statement.Condition.ToString());
             for (int i = 0; i < statement.EffectsOnFail.Count; i++)
             {
                 DoEffect(statement.EffectsOnFail[i], statement.TargetsOnFail[i] == TargetCharacter.PlayerOfCard ? playerOfCard : opponentOfPlayer, statement.CardTypesOnFail[i], statement.ValuesOnFail[i]);
@@ -415,11 +415,11 @@ public class CardEffectChecker : MonoBehaviour
     {
         if (type == CardType.Special)
         {
-            for (int i = 0; i < target.hand.Count - 1; i++)
+            for (int i = 0; i < target.specialDisplayHand.Count - 1; i++)
             {
-                for (int j = i + 1; j < target.hand.Count; j++)
+                for (int j = i + 1; j < target.specialDisplayHand.Count; j++)
                 {
-                    if (target.hand[i].name == target.hand[j].name)
+                    if (target.specialDisplayHand[i].name == target.specialDisplayHand[j].name)
                     {
                         return true;
                     }
@@ -475,7 +475,7 @@ public class CardEffectChecker : MonoBehaviour
     {
         if (type == CardType.Special)
         {
-            return (target.hand.Count >= min && target.hand.Count <= max);
+            return (target.specialDisplayHand.Count >= min && target.specialDisplayHand.Count <= max);
         }
         else
         {

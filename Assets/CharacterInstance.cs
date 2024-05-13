@@ -9,10 +9,11 @@ public class CharacterInstance : MonoBehaviour
     public NumberCardOrganizer PositiveCardsZone, NegativeCardsZone;
 
     public List<SpecialDeckCard> deck; //the remaining special cards in the character's current deck (used during  an instance of gameplay)
-    public List<SpecialDeckCard> hand; //the current hand
+    //public List<SpecialDeckCard> hand; //the current hand
     //public List<NumberCard> numberHand; //the number cards the player has currently
+
+    public List<DisplayCard> specialDisplayHand;
     public List<DisplayCard> numberDisplayHand; //Using display cards to store values since values can change without changing the base number value i.e. Flip mechanic
-    public List<GameObject> test;
     public int currValue; //current total value
     public int addedValues; //Added from card effects
     public bool DiscardedThisTurn, SwappedThisTurn, GaveThisTurn, FlippedThisTurn, PlayedThisTurn; //flag booleans to be raised when certain card actions have been performed
@@ -20,11 +21,20 @@ public class CharacterInstance : MonoBehaviour
     public bool CurrentlySwapping, CurrentlyFlipping;
     public bool SwappingForced, FlippingForced;
 
-    public void Init(CardGameCharacter character, NumberCardOrganizer positiveCardZone, NumberCardOrganizer negativeCardZone)
+    public bool IsAI;
+    private CardGameAI AIScript;
+
+    public void Init(CardGameCharacter character, NumberCardOrganizer positiveCardZone, NumberCardOrganizer negativeCardZone, bool isAI)
     {
         this.character = character;
         PositiveCardsZone = positiveCardZone;
         NegativeCardsZone = negativeCardZone;
+        IsAI = isAI;
+        if(IsAI)
+        {
+            AIScript = gameObject.AddComponent<CardGameAI>();
+            AIScript.Init(this);
+        }
     }
 
     public void AddValue(int value)
@@ -54,13 +64,15 @@ public class CharacterInstance : MonoBehaviour
     public void FlushGameplayVariables()
     {
         deck = new List<SpecialDeckCard>();
-        hand = new List<SpecialDeckCard>();
+        //hand = new List<SpecialDeckCard>();
+        specialDisplayHand = new List<DisplayCard>();
         numberDisplayHand = new List<DisplayCard>();
-        test = new List<GameObject>();
+        //test = new List<GameObject>();
         deck.Clear();
-        hand.Clear();
+        //hand.Clear();
+        specialDisplayHand.Clear();
         numberDisplayHand.Clear();
-        test.Clear();
+        //test.Clear();
         currValue = 0;
         FlushFlags();
     }
