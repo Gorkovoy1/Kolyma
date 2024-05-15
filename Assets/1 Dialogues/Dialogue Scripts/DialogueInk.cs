@@ -58,6 +58,8 @@ public class DialogueInk : MonoBehaviour
 
     public List<string> tags;
 
+    public GameObject smoke;
+
    
     void Start()
     {
@@ -75,7 +77,7 @@ public class DialogueInk : MonoBehaviour
         ambientObj.SetActive(false);
         skip = false;
         nameTag.text = "Old Man";
-        
+        smoke.gameObject.SetActive(false);
         paperColor = paper.color;
         paper.color = new Color(paperColor.r, paperColor.g, paperColor.b, 0f);
 
@@ -96,7 +98,10 @@ public class DialogueInk : MonoBehaviour
             Debug.Log("Music");
 
             //pause as we look at the background
-            yield return new WaitForSeconds(7f);
+            yield return new WaitForSeconds(3f);
+            smoke.gameObject.SetActive(true);
+            yield return new WaitForSeconds(4f);
+            
             
             //paper fades in
             while(paper.color.a < 1f)
