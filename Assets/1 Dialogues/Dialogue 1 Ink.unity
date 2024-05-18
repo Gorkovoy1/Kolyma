@@ -533,8 +533,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -11.3}
-  m_SizeDelta: {x: 1869.6201, y: 1082.2}
+  m_AnchoredPosition: {x: 0, y: -16.06}
+  m_SizeDelta: {x: 1869.62, y: 1059.85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &112021737
 MonoBehaviour:
@@ -556,7 +556,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3dfb73d7e748d1844b7e436cf4c73257, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 88b6442451d7a1144bd5be8b4c776278, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2813,7 +2813,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 30.748514, y: -399}
+  m_AnchoredPosition: {x: 30.748514, y: -394}
   m_SizeDelta: {x: 1985.773, y: 285.2684}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1291252545
@@ -2983,7 +2983,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1424815068}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.273375, y: 1.2272869, z: 1.5382316}
   m_ConstrainProportionsScale: 0
@@ -2993,7 +2993,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 21.124931, y: -401.37375}
+  m_AnchoredPosition: {x: 21.124931, y: -393}
   m_SizeDelta: {x: 1985.773, y: 285.2684}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1424815070
@@ -3060,7 +3060,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: the textbox in the dialogue is bothering me, the text doesnt look like
+    its on the paper and they dont look as one, maybe because text is too straight
+    or perspective issue or something idk
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7e2447a1bbc55e94aa428d0d139b1653, type: 2}
   m_sharedMaterial: {fileID: -4730502537268128557, guid: 7e2447a1bbc55e94aa428d0d139b1653, type: 2}
@@ -3123,7 +3125,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 479.67416, y: -27.977386, z: 471.53262, w: 138.8834}
+  m_margin: {x: 475.19876, y: -27.977386, z: 471.53262, w: 138.8834}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
