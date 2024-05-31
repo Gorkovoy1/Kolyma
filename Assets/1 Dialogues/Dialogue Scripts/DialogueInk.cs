@@ -22,6 +22,7 @@ public class DialogueInk : MonoBehaviour
 {
     public GameObject NPCPortrait;
     public GameObject PlayerPortrait;
+    
 
     public TextAsset inkJSON;
     private Story inkStory;
@@ -29,8 +30,10 @@ public class DialogueInk : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public TextMeshProUGUI introText;
     public TextMeshProUGUI nameTag;
+    public GameObject narratorTag;
     public Image paper;
     public Color paperColor;
+    public Color tagColor;
     public TMP_FontAsset numbersFont;
 
     public Button choiceButtonPrefab;
@@ -80,6 +83,7 @@ public class DialogueInk : MonoBehaviour
         smoke.gameObject.SetActive(false);
         paperColor = paper.color;
         paper.color = new Color(paperColor.r, paperColor.g, paperColor.b, 0f);
+        narratorTag.gameObject.SetActive(false);
 
         
         
@@ -102,13 +106,14 @@ public class DialogueInk : MonoBehaviour
             smoke.gameObject.SetActive(true);
             yield return new WaitForSeconds(4f);
             
-            
+            narratorTag.gameObject.SetActive(true);
             //paper fades in
             while(paper.color.a < 1f)
             {
                 paper.color = new Color(paperColor.r, paperColor.g, paperColor.b, paper.color.a + 0.3f * Time.deltaTime);
                 yield return null;
             }
+            
             paper.color = new Color(paperColor.r, paperColor.g, paperColor.b, 1f);
         }
         
@@ -175,21 +180,24 @@ public class DialogueInk : MonoBehaviour
                 {
                     NPCPortrait.gameObject.SetActive(false);
                     PlayerPortrait.gameObject.SetActive(false);
+                    narratorTag.gameObject.SetActive(true);
                 }
                 if (tags[0] == "Andreyev")
                 {
                     HighlightNPC();
+                    narratorTag.gameObject.SetActive(false);
                 }
                 if (tags[0] == "Arkady")
                 {
                     HighlightPlayer();
-
+                    narratorTag.gameObject.SetActive(false);
                 }
             }
 
             if(tags[0] != "Narrator")
             {
                 Debug.Log("foreach letter");
+                introText.text = "";
                 foreach (char letter in text)
                 {
                     playSound = true;
