@@ -1,7 +1,7 @@
 //Narrator
 The Magadan Jail was full.#Narrator
 The air was stuffy. The smell of wet clothes emanated from the cells.#Narrator 
-Those prisoners who were fast or lucky, took the bunks. The less fortunate men occupied a few spots on the floor between and under the beds.#Narrator
+Those prisoners who were fast or lucky, took the bunks. The less fortunate men occupied few spots on the floor between and under the beds.#Narrator
 Every single person was exhausted, the journey to the North was long.#Narrator
 The prisoners were told to wait until morning. At the break of dawn, three old trucks would take them further North, to the Kolyma labor camps.#Narrator
 Arkady was shivering on his bottom bunk. He was about to turn on the side and try to fall asleep when suddenly he felt that someone was looking at him.#Narrator
@@ -31,7 +31,8 @@ Yes I was. A member since 1901.#Andreyev
  To be honest, I'd rather die here than in France, among all those impotent boring Russian immigrants.#Andreyev
     **[I heard you were a spy. Was it another false accusation?]#Arkady
 It sure was. They needed those spy cases for the Purge to happen.#Andreyev
---It is quite ironic. The Imperial Okhrana came after me in 1907. The officer who interrogated me said I was a threat to the Tsarist government. And today, 30 years later, I am an enemy of the Soviet state. Things haven’t changed for me that much.#Andreyev 
+--It is quite ironic. The Imperial Okhrana came after me in 1907. The officer who interrogated me said I was a threat to the Tsarist government.#Andreyev
+And today, 30 years later, I am an enemy of the Soviet state. Things haven’t changed for me that much.#Andreyev 
 --All those sentimental idiots say that The Revolution was a dream that never came true.#Andreyev
 --The Revolution was first and foremost an opportunity. We had our chance and we lost it. What is your name?#Andreyev
     ***[Arkady Kojukh.]#Arkady
@@ -43,7 +44,7 @@ His trial was a joke, and you could tell how badly those miserable party clerks 
     As you wish. I have heard someone here call you Arkady. That's good enough for me.#Andreyev
 ---Arkady turned his face to the wall. He wanted to hide his emotions. The stranger touched a wound that was still fresh.#Narrator
 ---Andreyev felt that too. For a minute the old revolutionary became silent, he was preoccupied with his thoughts. Then he gave Arkady a long look and said:#Narrator
----I am sorry. Let me give you some advice. Forget about your former self. You are a prisoner now. Focus on more important matters.#Andreyev
+---I am sorry.
 ---Let me give you some advice. Forget about your former self. You are a prisoner now. Focus on more important matters.#Andreyev
 ---Your body and your mind are about to go through one of the most terrible trials. You will experience life without freedom.#Andreyev
 ---Don’t think too much about the past or about the future, these thoughts will make you weak. All you have is present, here and now.#Andreyev
