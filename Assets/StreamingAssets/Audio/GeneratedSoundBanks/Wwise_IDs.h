@@ -22,6 +22,7 @@ namespace AK
         static const AkUniqueID PLAY_SCREEN_SFX = 1112221790U;
         static const AkUniqueID PLAY_TYPEWRITER = 57706899U;
         static const AkUniqueID PLAY_WHISPER = 2541567472U;
+        static const AkUniqueID PLAY_WOOSH_NARRATOR = 1714538498U;
     } // namespace EVENTS
 
     namespace BANKS

@@ -264,6 +264,7 @@ public class DialogueInk : MonoBehaviour
             }
             else
             {
+                AkSoundEngine.PostEvent("Play_Woosh_Narrator", gameObject);
                 //its intro
                 introText.text = text;
                 //make alpha increase with time

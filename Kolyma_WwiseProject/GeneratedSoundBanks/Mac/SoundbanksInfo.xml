@@ -22,7 +22,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{B62C6D6C-16F5-1EB0-E1AB-AA13DD1DCAC4}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{EB892AAD-6D49-F109-5707-290CB1E25DF8}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -98,6 +98,10 @@
 					<ShortName>Cell_SFX_Whisper-004.wav</ShortName>
 					<CachePath>SFX/Cell_SFX_Whisper-004_818F3B66.wem</CachePath>
 				</File>
+				<File Id="840013138" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>woosh narrator.wav</ShortName>
+					<CachePath>SFX/woosh narrator_818F3B66.wem</CachePath>
+				</File>
 				<File Id="891624205" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Whisper-002.wav</ShortName>
 					<CachePath>SFX/Cell_SFX_Whisper-002_818F3B66.wem</CachePath>
@@ -145,7 +149,7 @@
 						<MediaRef Id="897836571"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3643466302" Name="Play_Music_Jail" DurationType="OneShot" DurationMin="197.33333" DurationMax="197.33333">
+				<Event Id="3643466302" Name="Play_Music_Jail" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="619077475"/>
 					</MediaRefs>
@@ -174,8 +178,13 @@
 						<MediaRef Id="891624205"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="1714538498" Name="Play_Woosh_Narrator" DurationType="OneShot" DurationMin="5.02" DurationMax="5.02">
+					<MediaRefs>
+						<MediaRef Id="840013138"/>
+					</MediaRefs>
+				</Event>
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{738ABE31-DA2C-DD0B-22B1-F27F080D75A0}</FileHash>
+	<FileHash>{6D47D8F6-335B-50AD-4E4E-C14AD650AF41}</FileHash>
 </SoundBanksInfo>
