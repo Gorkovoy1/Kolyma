@@ -22,7 +22,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{EB892AAD-6D49-F109-5707-290CB1E25DF8}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{AA41C570-D576-D470-A6A7-AA632AD33058}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -49,6 +49,10 @@
 				<File Id="471573529" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Breath-001.wav</ShortName>
 					<CachePath>SFX/Cell_SFX_Breath-001_DE08C849.wem</CachePath>
+				</File>
+				<File Id="475682675" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>NARRATOR_WOOSH 2_3.wav</ShortName>
+					<CachePath>SFX/NARRATOR_WOOSH 2_3_818F3B66.wem</CachePath>
 				</File>
 				<File Id="499405862" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_Men_Talk.wav</ShortName>
@@ -97,10 +101,6 @@
 				<File Id="766949846" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Whisper-004.wav</ShortName>
 					<CachePath>SFX/Cell_SFX_Whisper-004_818F3B66.wem</CachePath>
-				</File>
-				<File Id="840013138" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>woosh narrator.wav</ShortName>
-					<CachePath>SFX/woosh narrator_818F3B66.wem</CachePath>
 				</File>
 				<File Id="891624205" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Whisper-002.wav</ShortName>
@@ -178,13 +178,13 @@
 						<MediaRef Id="891624205"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1714538498" Name="Play_Woosh_Narrator" DurationType="OneShot" DurationMin="5.02" DurationMax="5.02">
+				<Event Id="1714538498" Name="Play_Woosh_Narrator" DurationType="OneShot" DurationMin="56.145622" DurationMax="56.145622">
 					<MediaRefs>
-						<MediaRef Id="840013138"/>
+						<MediaRef Id="475682675"/>
 					</MediaRefs>
 				</Event>
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{A90396CA-4168-C812-11C7-73EA3C11EE55}</FileHash>
+	<FileHash>{93EA104D-B2AB-08E4-2AFE-681AE6AFF87B}</FileHash>
 </SoundBanksInfo>

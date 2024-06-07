@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584839586292096051
+    m_lastTime: -8584838722648851463
     List:
     - name: Play_Breath
       guid: 5363e3411b7d924181237a6774b48d4a
@@ -264,8 +264,8 @@ MonoBehaviour:
         guid: 3d84342e3b1142439bd2c9258471bcdf
       Path: Events\Default Work Unit\Play_Woosh_Narrator
       maxAttenuation: 0
-      maxDuration: 5.02
-      minDuration: 5.02
+      maxDuration: 56.145622
+      minDuration: 56.145622
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:

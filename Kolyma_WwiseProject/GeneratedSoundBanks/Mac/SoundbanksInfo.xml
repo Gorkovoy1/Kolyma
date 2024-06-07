@@ -22,10 +22,14 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{EB892AAD-6D49-F109-5707-290CB1E25DF8}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{974D7061-9317-D7EA-E725-E6C512CC7163}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
+				<File Id="28495376" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>NARRATOR_WOOSH2_2.wav</ShortName>
+					<CachePath>SFX/NARRATOR_WOOSH2_2_818F3B66.wem</CachePath>
+				</File>
 				<File Id="90128117" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Clocks, Chime, Metallic Wall Clock, Chime Ringing SND102458.wav</ShortName>
 					<CachePath>SFX/Clocks, Chime, Metallic Wall Clock, Chime Ringing SND102458_D8B369E4.wem</CachePath>
@@ -49,6 +53,10 @@
 				<File Id="471573529" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Breath-001.wav</ShortName>
 					<CachePath>SFX/Cell_SFX_Breath-001_DE08C849.wem</CachePath>
+				</File>
+				<File Id="475682675" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>NARRATOR_WOOSH 2_3.wav</ShortName>
+					<CachePath>SFX/NARRATOR_WOOSH 2_3_818F3B66.wem</CachePath>
 				</File>
 				<File Id="499405862" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_Men_Talk.wav</ShortName>
@@ -97,10 +105,6 @@
 				<File Id="766949846" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Whisper-004.wav</ShortName>
 					<CachePath>SFX/Cell_SFX_Whisper-004_818F3B66.wem</CachePath>
-				</File>
-				<File Id="840013138" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>woosh narrator.wav</ShortName>
-					<CachePath>SFX/woosh narrator_818F3B66.wem</CachePath>
 				</File>
 				<File Id="891624205" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Whisper-002.wav</ShortName>
@@ -178,13 +182,14 @@
 						<MediaRef Id="891624205"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1714538498" Name="Play_Woosh_Narrator" DurationType="OneShot" DurationMin="5.02" DurationMax="5.02">
+				<Event Id="1714538498" Name="Play_Woosh_Narrator" DurationType="OneShot" DurationMin="56.145622" DurationMax="56.145622">
 					<MediaRefs>
-						<MediaRef Id="840013138"/>
+						<MediaRef Id="28495376"/>
+						<MediaRef Id="475682675"/>
 					</MediaRefs>
 				</Event>
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{6D47D8F6-335B-50AD-4E4E-C14AD650AF41}</FileHash>
+	<FileHash>{DEB4AB7F-25B6-D847-6E89-62BDA8E8B321}</FileHash>
 </SoundBanksInfo>

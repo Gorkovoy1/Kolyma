@@ -108,6 +108,7 @@ public class DialogueInk : MonoBehaviour
             
             narratorTag.gameObject.SetActive(true);
             //paper fades in
+            AkSoundEngine.PostEvent("Play_Woosh_Narrator", gameObject);
             while(paper.color.a < 1f)
             {
                 paper.color = new Color(paperColor.r, paperColor.g, paperColor.b, paper.color.a + 0.3f * Time.deltaTime);
@@ -182,6 +183,13 @@ public class DialogueInk : MonoBehaviour
                     PlayerPortrait.gameObject.SetActive(false);
                     narratorTag.gameObject.SetActive(true);
                 }
+                if (tags[0] == "NarratorSound")
+                {
+                    NPCPortrait.gameObject.SetActive(false);
+                    AkSoundEngine.PostEvent("Play_Woosh_Narrator",gameObject);
+                    PlayerPortrait.gameObject.SetActive(false);
+                    narratorTag.gameObject.SetActive(true);
+                }
                 if (tags[0] == "Andreyev")
                 {
                     HighlightNPC();
@@ -194,7 +202,7 @@ public class DialogueInk : MonoBehaviour
                 }
             }
 
-            if(tags[0] != "Narrator")
+            if (tags[0] != "Narrator" && tags[0] != "NarratorSound")
             {
                 Debug.Log("foreach letter");
                 introText.text = "";
@@ -264,7 +272,7 @@ public class DialogueInk : MonoBehaviour
             }
             else
             {
-                AkSoundEngine.PostEvent("Play_Woosh_Narrator", gameObject);
+               
                 //its intro
                 introText.text = text;
                 //make alpha increase with time
@@ -342,12 +350,14 @@ public class DialogueInk : MonoBehaviour
     }
     void HighlightNPC()
     {
+        narratorTag.gameObject.SetActive(false);
         NPCPortrait.gameObject.SetActive(true);
         PlayerPortrait.gameObject.SetActive(false);
     }
 
     void HighlightPlayer()
     {
+        narratorTag.gameObject.SetActive(false);
         PlayerPortrait.gameObject.SetActive(true);
         NPCPortrait.gameObject.SetActive(false);
 

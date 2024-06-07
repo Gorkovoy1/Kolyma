@@ -921,11 +921,11 @@
 								<ActiveSource Name="Mechanical, Click, Door Code Enter, Button Press, Click, Hotel, Orleans, France SND92301" ID="{2DDD372F-82DB-4CDC-A4EC-F7DB2549D7AA}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="Woosh_Narrator" ID="{6438F21C-9A4E-4C1A-9ED0-8DE6A61E2949}" ShortID="196384680">
+						<Sound Name="NARRATOR_WOOSH2" ID="{94794E55-16AF-4D22-84C3-541332B2E3FE}" ShortID="429300450">
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-17</Value>
+										<Value>4</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -938,16 +938,16 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="woosh narrator" ID="{92BB6C2A-AFC4-494F-B87E-3B6239F586EA}">
+								<AudioFileSource Name="NARRATOR_WOOSH 2_3" ID="{70F4A67A-414B-464A-AFA8-3F91771CE426}">
 									<Language>SFX</Language>
-									<AudioFile>woosh narrator.wav</AudioFile>
+									<AudioFile>NARRATOR_WOOSH 2_3.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="840013138"/>
+										<MediaID ID="475682675"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="woosh narrator" ID="{92BB6C2A-AFC4-494F-B87E-3B6239F586EA}" Platform="Linked"/>
+								<ActiveSource Name="NARRATOR_WOOSH 2_3" ID="{70F4A67A-414B-464A-AFA8-3F91771CE426}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>

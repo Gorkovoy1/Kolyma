@@ -21,7 +21,7 @@ But rules are rules, there are limits. The floor is not the worst option, althou
     *[Of course. Sit down here, it's hard to stand in such a crowded cell.]#Arkady
 Ah! Your heart is soft. Don't worry, it won't stay that way for too long.#Andreyev
 - I am Andreyev. Alexander Andreyev.#ChangeName #Andreyev
-- Arkady knew that name. The name of a legendary revolutionary, who, as they say, took part in several assassinations of high rank Imperial officials thirty years ago.#Narrator
+- Arkady knew that name. The name of a legendary revolutionary, who, as they say, took part in several assassinations of high rank Imperial officials thirty years ago.#NarratorSound #Narrator
 - Here we are. 45 days on a train, 2 days on a boat.#Andreyev
 - I've been to this part of Russia before, but never could I imagine I'd have to travel all the way to Magadan again.#Andreyev
     **[I know you. You were a member of the Socialist Revolutionary Party.]#Arkady
@@ -42,7 +42,7 @@ His trial was a joke, and you could tell how badly those miserable party clerks 
     ****[No. I don’t have a father.]#Arkady
     ***[No need to know my name.]#Arkady
     As you wish. I have heard someone here call you Arkady. That's good enough for me.#Andreyev
----Arkady turned his face to the wall. He wanted to hide his emotions. The stranger touched a wound that was still fresh.#Narrator
+---Arkady turned his face to the wall. He wanted to hide his emotions. The stranger touched a wound that was still fresh.#NarratorSound #Narrator
 ---Andreyev felt that too. For a minute the old revolutionary became silent, he was preoccupied with his thoughts. Then he gave Arkady a long look and said:#Narrator
 ---I am sorry.
 ---Let me give you some advice. Forget about your former self. You are a prisoner now. Focus on more important matters.#Andreyev
