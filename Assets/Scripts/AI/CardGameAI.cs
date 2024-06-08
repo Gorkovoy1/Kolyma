@@ -65,7 +65,7 @@ public class CardGameAI : MonoBehaviour
 
         if (!CurrentCharacter.DidAnAction && ChosenAction == AIAction.None)
         {
-            int randAction = Random.Range(1, 2);
+            int randAction = Random.Range(0, 3);
 
             ChosenAction = (AIAction)randAction;
         }
