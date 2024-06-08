@@ -16,4 +16,5 @@ public class NumberCard : GenericCard
 
     public NumberClass cardClass;
     public int value;
+    public NumberCard oppositeCard;
 }

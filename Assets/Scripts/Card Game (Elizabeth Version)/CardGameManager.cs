@@ -1,9 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
-using TMPro;
 using UnityEngine.SceneManagement;
 
 public struct CardSelectSettings
@@ -36,7 +33,7 @@ public class CardGameManager : MonoBehaviour
         OPPONENTTURN, /*opponent AI takes their turn and plays cards. Will access the AI (NYI) and any particulars for this opponent via the opponent scriptableobject.
         The opponents AI will need to be coded too- look into Behavior Trees maybe?- and the AI will dictate an action, pass the action to this manager to be performed, animated, and completed.
         Once this manager completes the designated action, pass back to opponent AI to determine next move*/
-        SELECTCARDS, //selection mode to pick cards to swap or discard, etc etc
+        //SELECTCARDS, //selection mode to pick cards to swap or discard, etc etc
         ENDTURN, //tasks to complete at the end of a turn. eg draws a card for current turn, then flips to other person's turn. Could perhaps reorg this dep. on needs- states for OPPONENTEND and PLAYEREND maybe?
         ENDROUND, //tasks to complete at the end of each round. eg check round winner, add score, end game if there is a winner or start next round if not.
         ENDGAME, //tasks to complete ONCE when the game is over. eg cleanup vars from gameplay, record winner, transfer out of card game scene
@@ -53,92 +50,61 @@ public class CardGameManager : MonoBehaviour
 
     public CharacterInstance player, opponent;
 
+    public CharacterInstance SelectingCharacter;
     
     public List<NumberCard> numberDeck; //the numbers deck- assuming this is communal?
 
-    public bool isStoryBattle = false; //is this a one-round story battle or not? pass this var in from outside when triggering the battle. if not set defaults to normal 3 round battle.
-
     private int opponentPoints, playerPoints = 0; //rounds won score for each person
-
-    public int bet = 5; //amt bet on game
 
     public int targetValue; //target value to win a round
 
-    private bool roundOver = false; //becomes true when someone meets or exceeds target value.
-    public State state = State.INIT; //current state
-    private State prevState; //record which state we were in before we paused so we can go back to it
-    private bool opponentEndRound, playerEndRound;
+    public State GameState = State.INIT; //current state
 
     private List<GenericCard> discardPile = new List<GenericCard>();
 
     [HideInInspector] public List<DisplayCard> activeCardVisuals;
 
-    private bool printed = false;
-    private bool selectionConfirmation = false;
-    private bool enableSelectionConfirmButton = false;
-
-    //private List<GameObject> playerNegativeCards = new List<GameObject>();
-    //private List<GameObject> opponentNegativeCards = new List<GameObject>();
-    //private List<int> playerNegativeCardsValues = new List<int>();
-    //private List<int> opponentNegativeCardsValues = new List<int>();
-    private bool selectCoroutineRunning = false;
     public Stack<CardSelectSettings> cardSelectStack = new Stack<CardSelectSettings>();
 
-    [Header("UI References")] //references to all the UI elements in the scene
     public GameObject cardVisualPrefab;
-    public GameObject endTurnButton, selectConfirmButton;
-    public NumberCardOrganizer OpponentCardZone, PlayerCardZone, OpponentNegativeCardZone, PlayerNegativeCardZone;
-    public Transform panelTransform;
-    public Transform playerHandTransform;
-    public Transform opponentHandTransform;
-    public TextMeshProUGUI opponentSumText, playerSumText, targetValueText, selectionText;
-    public Transform opponentNumberZone;
-    public Transform playerNumberZone;
-    public Toggle playerRoundToggle;
-    public Toggle opponentRoundToggle;
-    public Transform board;
-    public int offset;
-    private float playerPos = 0f;
-    private float negPos;
-    private float opponentPos = 0f;
-    private float opponentNegPos;
-
-    public int offsetInteger;
-    public int scaleInteger;
-    public float scaleNumber;
 
     public static CardGameManager Instance;
 
-    public TextMeshProUGUI FlipText, SwapText;
-    public Button FlipButton, SwapButton;
-
     public CardSelectionHandler CardSelectionHandler;
 
-    public event OnCharacterChangeDelegate OnCharacterChange;
-    public delegate void OnCharacterChangeDelegate(CharacterInstance currCharacter);
-    private CharacterInstance CurrentPlayer;
+    public event OnTurnChangeDelegate OnCharacterChange;
+    public delegate void OnTurnChangeDelegate(CharacterInstance currCharacter);
+    public CharacterInstance CurrentCharacter;
+
+    public bool CharacterSelecting;
 
     void Awake()
     {
         Instance = this;
         CardSelectionHandler = gameObject.AddComponent<CardSelectionHandler>();
+        SetNewState(State.INIT);
     }
 
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
-        //update selection confirmation button
-        selectConfirmButton.SetActive(enableSelectionConfirmButton);
-
         //check if we need to be selecting cards because a selection event is queued
-        if (cardSelectStack.Count > 0 && state != State.SELECTCARDS) {
-            prevState = state;
-            state = State.SELECTCARDS;
+        if (cardSelectStack.Count > 0 && GameState != State.SELECTCARDS) {
+            //prevState = state;
+            SetNewState(State.SELECTCARDS);
+            //state = State.SELECTCARDS;
         }
+        if(CharacterSelecting)
+        {
+            CardGameUIManager.Instance.ToggleSelectConfirmButton(CardSelectionHandler.CheckConditionsMet());
+        }
+    }*/
 
-        //Ye Olde Turn Manager State Machine
-        /*Most of these probably shouldn't be in Update*/
-        switch (state) {
+    public void SetNewState(State newState, CharacterInstance triggeringCharacter = null)
+    {
+        GameState = newState;
+        switch (GameState)
+        {
             case State.INIT:
                 Init();
                 break;
@@ -162,9 +128,9 @@ public class CardGameManager : MonoBehaviour
             case State.ENDTURN:
                 EndTurn();
                 break;
-            case State.SELECTCARDS:
-                SelectCard();
-                break;
+            //case State.SELECTCARDS:
+            //    SelectingCards(triggeringCharacter);
+            //    break;
 
             case State.ENDROUND:
                 EndRound();
@@ -180,6 +146,11 @@ public class CardGameManager : MonoBehaviour
         }
     }
 
+    public void StartSelecting(CharacterInstance selectingCharacter)
+    {
+        CardSelectionHandler.Instance.ProcessSelect(selectingCharacter);
+    }
+
     public void RestartGame()
     {
         SceneManager.LoadScene(0);
@@ -187,20 +158,25 @@ public class CardGameManager : MonoBehaviour
 
     void Init()
     {
-        //loading tasks go here
-        player = gameObject.AddComponent<CharacterInstance>();
-        player.Init(playerCharacter, PlayerCardZone, PlayerNegativeCardZone, true);
-        opponent = gameObject.AddComponent<CharacterInstance>();
-        opponent.Init(opponentCharacter, OpponentCardZone, OpponentNegativeCardZone, true);
+        CardGameLog.Instance.ClearLog();
+        GameObject newPlayerObj = new GameObject();
+        newPlayerObj.name = "Player";
+        player = newPlayerObj.AddComponent<CharacterInstance>();
+        player.Init(playerCharacter, CardGameUIManager.Instance.PlayerPositiveCardZone, CardGameUIManager.Instance.PlayerNegativeCardZone, false);
+        GameObject newOppObj = new GameObject();
+        newOppObj.name = "Opponent";
+        opponent = newOppObj.AddComponent<CharacterInstance>();
+        opponent.Init(opponentCharacter, CardGameUIManager.Instance.OpponentPositiveCardZone, CardGameUIManager.Instance.OpponentNegativeCardZone, true);
+        CardGameUIManager.Instance.Init(player, opponent);
         player.FlushGameplayVariables();
         opponent.FlushGameplayVariables();
-        opponentRoundToggle.isOn = false;
-        playerRoundToggle.isOn = false;
-        state = State.STARTGAME;
+        SetNewState(State.STARTGAME);
+        //state = State.STARTGAME;
     }
 
     void StartGame()
     {
+        CardGameLog.Instance.AddToLog("Game Start!");
         foreach (SpecialDeckCard card in player.character.deckList)
         {
             player.deck.Add(card);
@@ -209,13 +185,17 @@ public class CardGameManager : MonoBehaviour
         {
             opponent.deck.Add(card);
         }
-        state = State.STARTROUND;
+        SetNewState(State.STARTROUND);
+        //state = State.STARTROUND;
+    }
+
+    private void Update()
+    {
+        UpdateValues();
     }
 
     void StartRound()
     {
-        playerEndRound = false;
-        opponentEndRound = false;
         discardPile.Clear();
         ShuffleCards(player.deck);
         ShuffleCards(opponent.deck);
@@ -226,25 +206,9 @@ public class CardGameManager : MonoBehaviour
         DrawNumberCards(player, 4);
         roundCount += 1;
         targetValue = Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7) + Random.Range(1, 7);
-        targetValueText.text = "" + targetValue; //"TARGET VALUE: " + 
-        selectionConfirmation = false;
-        state = State.PLAYERTURN;
-    }
-
-    public void UpdateValues()
-    {
-        opponent.currValue = opponent.addedValues;
-        foreach(DisplayCard card in opponent.numberDisplayHand)
-        {
-            opponent.currValue += card.value;
-        }
-        player.currValue = player.addedValues;
-        foreach (DisplayCard card in player.numberDisplayHand)
-        {
-            player.currValue += card.value;
-        }
-        opponentSumText.text = opponent.character.name + ":\n" + opponent.currValue;//CURR VALUE
-        playerSumText.text = player.character.name + ":\n" + player.currValue;//CURR VALUE
+        CardGameUIManager.Instance.targetValueText.text = "" + targetValue; //"TARGET VALUE: " + 
+        SetNewState(State.PLAYERTURN);
+        //state = State.PLAYERTURN;
     }
 
     public void ToggleFlipSelectionMode(bool on, bool forced = false)
@@ -263,103 +227,116 @@ public class CardGameManager : MonoBehaviour
 
     public void SetFlip(bool newFlip)
     {
-        player.CurrentlyFlipping = newFlip;
+        CurrentCharacter.CurrentlyFlipping = newFlip;
 
-        FlipText.text = player.CurrentlyFlipping ? "FLIPPING..." : "FLIP";
-        if (player.CurrentlyFlipping)
+        //FlipText.text = player.CurrentlyFlipping ? "FLIPPING..." : "FLIP";
+        if (CurrentCharacter.CurrentlyFlipping)
         {
             //CardSelectSettings drawSettings = new CardSelectSettings(1, SpecialKeyword.TYPE_SPECIAL, SpecialKeyword.EFFECT_DRAW, true);
             //cardSelectStack.Push(drawSettings);
-            CardSelectSettings flipSettings = new CardSelectSettings(1, CardType.Number, Effect.Flip, player, true);
+            CardSelectSettings flipSettings = new CardSelectSettings(1, CardType.Number, Effect.Flip, CurrentCharacter, true);
             cardSelectStack.Push(flipSettings);
+            CardSelectionHandler.ProcessSelect(CurrentCharacter);
         }
         else
         {
             CardSelectionHandler.EndSelectingCards();
         }
+        CardGameUIManager.Instance.ToggleFlipping(CurrentCharacter.CurrentlyFlipping);
     }
 
     public void EndFlip()
     {
-        FlipText.text = "FLIPPED";
+        //FlipText.text = "FLIPPED";
         player.FlippedThisTurn = true;
         player.CurrentlyFlipping = false;
-        FlipButton.interactable = false;
+        player.DidAnAction = true;
+        CardGameUIManager.Instance.ToggleFlipping(false);
+        //FlipButton.interactable = false;
     }
 
     public void ToggleSwap()
     {
-        if(!player.CurrentlyFlipping)
+        if(!CurrentCharacter.CurrentlyFlipping)
         {
-            SetSwap(!player.CurrentlySwapping);
+            SetSwap(!CurrentCharacter.CurrentlySwapping);
         }
     }
 
     public void SetSwap(bool newSwap)
     {
-        if(!player.CurrentlyFlipping)
+        if(!CurrentCharacter.CurrentlyFlipping)
         {
-            player.CurrentlySwapping = newSwap;
+            CurrentCharacter.CurrentlySwapping = newSwap;
 
-            SwapText.text = player.CurrentlySwapping ? "SWAPPING..." : "SWAP";
+            //CardGameUIManager.Instance.ChangeSwapMode(SwapState.);
+            //SwapText.text = player.CurrentlySwapping ? "SWAPPING..." : "SWAP";
 
-            if (player.CurrentlySwapping)
+            if (CurrentCharacter.CurrentlySwapping)
             {
-                CardSelectSettings swapSettings = new CardSelectSettings(1, CardType.Number, Effect.Swap, player, true);
+                CardSelectSettings swapSettings = new CardSelectSettings(1, CardType.Number, Effect.Swap, CurrentCharacter, true);
                 cardSelectStack.Push(swapSettings);
+                CardSelectionHandler.ProcessSelect(CurrentCharacter);
             }
             else
             {
                 CardSelectionHandler.EndSelectingCards();
             }
+
+            if(CurrentCharacter == player)
+                CardGameUIManager.Instance.ToggleSwapping(CurrentCharacter.CurrentlySwapping);
         }
     }
 
     public void EndSwap()
     {
-        SwapText.text = "SWAPPED";
+        //SwapText.text = "SWAPPED";
         player.SwappedThisTurn = true;
         player.CurrentlySwapping = false;
-        SwapButton.interactable = false;
+        player.DidAnAction = true;
+        //SwapButton.interactable = false;
+        CardGameUIManager.Instance.ToggleSwapping(false);
     }
 
     void PlayerTurn()
     {
-        /*NYI
-        Take input and perform actions for player turn. swap to end turn when clicking end turn button.
-        */
-        //player plays one special card OR uses their action AND may swap out one of their cards from their hand - they can also pass
-        //playerEndRound = playerRoundToggle.isOn;
-        //opponentEndRound = opponentRoundToggle.isOn;
-        CurrentPlayer = player;
+        CardGameLog.Instance.AddToLog("Player Turn!");
+        CurrentCharacter = player;
+        SelectingCharacter = player;
         OnCharacterChange(player);
+        CardGameUIManager.Instance.ChangeUIMode(UIMode.PlayerTurn);
+
+        CardGameUIManager.Instance.ResetUI();
+
+        player.FlushFlags();
     }
 
     void OpponentTurn()
     {
-        //use AI to choose best action - sift through if opp closer or player closer, if better to attack or defend
-        //ButtonEndTurn(); //AI NYI so just skip turn for now.
-        CurrentPlayer = opponent;
+        CardGameLog.Instance.AddToLog("Opponent Turn!");
+        CurrentCharacter = opponent;
+        SelectingCharacter = opponent;
         OnCharacterChange(opponent);
+        CardGameUIManager.Instance.ChangeUIMode(UIMode.OpponentTurn);
+        opponent.FlushFlags();
     }
 
     public void EndTurn()
     {
-        Debug.Log(CurrentPlayer.character.name + " ends turn!");
-        /*if (playerEndRound && opponentEndRound)
+        CardGameLog.Instance.AddToLog(CurrentCharacter.character.name + " ends turn!");
+        if(CurrentCharacter == player)
         {
-            state = State.ENDROUND;
-        }*/
-
-        if(CurrentPlayer == player)
-        {
-            state = State.OPPONENTTURN;
+            SetNewState(State.OPPONENTTURN);
+            //state = State.OPPONENTTURN;
             DrawSpecialCards(opponent, 3);
+            player.DidAnAction = false;
         }
-        else if(CurrentPlayer == opponent)
+        else if(CurrentCharacter == opponent)
         {
-            state = State.PLAYERTURN;
+            SetNewState(State.PLAYERTURN);
+            //state = State.PLAYERTURN;
             DrawSpecialCards(player, 3);
+            opponent.DidAnAction = false;
         }
 
         /*if (prevState == State.PLAYERTURN)// && !opponentEndRound)
@@ -380,7 +357,7 @@ public class CardGameManager : MonoBehaviour
     {
         if(!CardSelectionHandler.Instance.SelectingCards)
         {
-            return CurrentPlayer.specialDisplayHand;
+            return CurrentCharacter.specialDisplayHand;
         }
         else
         {
@@ -388,8 +365,11 @@ public class CardGameManager : MonoBehaviour
         }
     }
 
-    void SelectCard()
+    /*void SelectingCards(CharacterInstance selectingCharacter)
     {
+        Debug.Log(selectingCharacter.character.name + " is selecting!");
+        CardGameUIManager.Instance.ChangeUIMode(UIMode.PlayerSelecting);
+        SelectingCharacter = selectingCharacter;
         //this state mostly exists to lock the player out of performing unwanted actions and acknowledge to the rest of the system that the player is in the
         //middle of picking a card for some purpose.   
         if (!CardSelectionHandler.SelectingCards && cardSelectStack.Count > 0)
@@ -398,34 +378,46 @@ public class CardGameManager : MonoBehaviour
             CardSelectionHandler.StartSelectingCards(curr);
             //StartCoroutine(SelectCardState(curr.numCards, curr.cardType, curr.selectionPurpose, curr.targetCharacter, curr.setupPlayerUI));
         }
-    }
+
+        if(cardSelectStack.Count <= 0)
+        {
+            if(CurrentCharacter == player)
+            {
+                SetNewState(State.PLAYERTURN);
+            }
+            else
+            {
+                SetNewState(State.OPPONENTTURN);
+            }
+            Debug.Log(selectingCharacter.character.name + " is done selecting!");
+        }
+    }*/
 
     void EndRound()
     {
-        Debug.Log("End round");
+        CardGameLog.Instance.AddToLog("Round Over!");
         if (Mathf.Abs(targetValue - player.currValue) < Mathf.Abs(targetValue - opponent.currValue))
         {
-            Debug.Log(player.character.name + " won this round");
+            CardGameLog.Instance.AddToLog(player.character.name + " won this round");
             playerPoints += 1;
         }
         else if (Mathf.Abs(targetValue - player.currValue) > Mathf.Abs(targetValue - opponent.currValue))
         {
-            Debug.Log(opponent.character.name + " won this round");
+            CardGameLog.Instance.AddToLog(opponent.character.name + " won this round");
             opponentPoints += 1;
         }
         else
         {
-            Debug.Log("This round was a tie with no victor");
+            CardGameLog.Instance.AddToLog("This round was a tie with no victor");
         }
 
         if (playerPoints >= 2 || opponentPoints >= 2 || roundCount >= 3)
         {
-            state = State.ENDGAME;
+            SetNewState(State.ENDGAME);
+            //state = State.ENDGAME;
         }
         else
         {
-            playerPos = 0f;
-            opponentPos = 0f;
             foreach (DisplayCard card in activeCardVisuals)
             {
                 if (card.baseCard is NumberCard)
@@ -446,16 +438,16 @@ public class CardGameManager : MonoBehaviour
             {
                 opponent.deck.Add(card);
             }
-            playerRoundToggle.isOn = false;
-            opponentRoundToggle.isOn = false;
-            Debug.Log("New Round");
-            state = State.STARTROUND;
+            CardGameLog.Instance.ClearLog();
+            CardGameLog.Instance.AddToLog("New Round");
+            SetNewState(State.STARTROUND);
+            //state = State.STARTROUND;
         }
     }
 
     void EndGame()
     {
-        Debug.Log("Game over!");
+        CardGameLog.Instance.AddToLog("Game over!");
     }
 
     void Paused()
@@ -464,23 +456,60 @@ public class CardGameManager : MonoBehaviour
     }
 
     public void DrawNumberCards(CharacterInstance target, int numberCards) {
-        for(int i = 0; i < numberCards; i++) {
+        for(int i = 0; i < numberCards; i++) 
+        {
             if(numberDeck.Count == 0) {
                 Debug.Log("Number Deck is Empty");
                 break;
             }
             NumberCard newCard = numberDeck[0];
             numberDeck.Remove(newCard);
-            GameObject newCardVisual = Instantiate(cardVisualPrefab);
-            DisplayCard newCardDisplay = newCardVisual.GetComponent<DisplayCard>();
-            target.numberDisplayHand.Add(newCardDisplay);
-            newCardDisplay.InitNumberCard(newCard, target);
-            PlaceCard(newCardVisual, target, newCard.value);
             target.currValue += newCard.value;
             //Debug.Log("New Number Card for " + target.character.name + ": " + newCard.value);
-            activeCardVisuals.Add(newCardDisplay);
-       }
+            activeCardVisuals.Add(CreateNewDisplayNumberCard(target, newCard).GetComponent<DisplayCard>());
+        }
         UpdateValues();
+    }
+
+    public GameObject CreateNewDisplayNumberCard(CharacterInstance target, NumberCard newCard)
+    {
+        GameObject newCardVisual = Instantiate(cardVisualPrefab);
+        DisplayCard newCardDisplay = newCardVisual.GetComponent<DisplayCard>();
+        target.numberDisplayHand.Add(newCardDisplay);
+        newCardDisplay.InitNumberCard(newCard, target);
+        PlaceCard(newCardVisual, target, newCard.value);
+        return newCardVisual;
+    }
+
+    public void RemoveCardFromPlay(DisplayCard card, bool discard)
+    {
+        activeCardVisuals.Remove(card); 
+        if (card.baseCard is NumberCard)
+        {
+            card.NumberCardOrganizer.RemoveCard(card.gameObject);
+            card.owner.numberDisplayHand.Remove(card);
+        }
+        else
+        {
+            card.owner.specialDisplayHand.Remove(card);
+        }
+
+        if(discard)
+        {
+            discardPile.Add(card.baseCard);
+        }
+        Destroy(card.gameObject);
+    }
+
+    public void UpdateValues()
+    {
+        StartCoroutine(UpdateValuesDelay());
+    }
+
+    IEnumerator UpdateValuesDelay()
+    {
+        yield return new WaitForEndOfFrame();
+        CardGameUIManager.Instance.UpdateValues();
     }
 
     void PlaceCard(GameObject card, CharacterInstance target, int value)
@@ -489,22 +518,22 @@ public class CardGameManager : MonoBehaviour
         {
             if(value <=0)
             {
-                PlayerNegativeCardZone.PlaceCard(card);
+                CardGameUIManager.Instance.PlayerNegativeCardZone.PlaceCard(card);
             }
             else
             {
-                PlayerCardZone.PlaceCard(card);
+                CardGameUIManager.Instance.PlayerPositiveCardZone.PlaceCard(card);
             }
         } 
         else
         {
             if(value <= 0)
             {
-                OpponentNegativeCardZone.PlaceCard(card);
+                CardGameUIManager.Instance.OpponentNegativeCardZone.PlaceCard(card);
             }
             else
             {
-                OpponentCardZone.PlaceCard(card);
+                CardGameUIManager.Instance.OpponentPositiveCardZone.PlaceCard(card);
             }
         }
     }
@@ -524,22 +553,19 @@ public class CardGameManager : MonoBehaviour
             newCardDisplay.baseCard = newCard;
             target.specialDisplayHand.Add(newCardDisplay);
             if (target == player) {
-                newCardVisual.transform.SetParent(playerHandTransform);
+                newCardVisual.transform.SetParent(CardGameUIManager.Instance.PlayerHandTransform);
             }
             else {
-                newCardVisual.transform.SetParent(opponentHandTransform);
+                newCardVisual.transform.SetParent(CardGameUIManager.Instance.OpponentHandTransform);
             }
             activeCardVisuals.Add(newCardDisplay);
         }
     }
 
     public void PlayCard(DisplayCard display) {
-        Debug.Log(display.owner.character.name + " played " + display.baseCard.name);
+        CardGameLog.Instance.AddToLog(display.owner.character.name + " played " + display.baseCard.name + "\nCard Effect: " + display.description.text);
+        display.owner.DidAnAction = true;
         SpecialDeckCard card = (SpecialDeckCard) display.baseCard;
-        discardPile.Add(display.baseCard);
-        display.owner.specialDisplayHand.Remove(display);
-        activeCardVisuals.Remove(display);
-        Destroy(display.gameObject);
 
         CharacterInstance playerTarget = display.owner;
         CharacterInstance opponentTarget;
@@ -551,26 +577,16 @@ public class CardGameManager : MonoBehaviour
         }
         CardEffectChecker.Instance.ExecuteEffectStatement(card.InitialEffectStatement, playerTarget, opponentTarget);
 
+        RemoveCardFromPlay(display, true);
         UpdateValues();
     }
 
     public void DiscardCard(DisplayCard display) 
     {
-        Debug.Log(display.owner.character.name + " discarded " + display.baseCard.name);
-        if(display.baseCard is SpecialDeckCard) {
-            display.owner.specialDisplayHand.Remove(display);
-        }
-        else {
-            display.owner.numberDisplayHand.Remove(display);
-        }
+        CardGameLog.Instance.AddToLog(display.owner.character.name + " discarded " + display.baseCard.name);
+        
         display.owner.DiscardedThisTurn = true;
-        discardPile.Add(display.baseCard);
-        activeCardVisuals.Remove(display);
-        if(display.baseCard is NumberCard)
-        {
-            display.NumberCardOrganizer.RemoveCard(display.gameObject);
-            display.gameObject.SetActive(false);
-        }
+        RemoveCardFromPlay(display, true);
         UpdateValues();
     }
 
@@ -578,34 +594,23 @@ public class CardGameManager : MonoBehaviour
     {
         if (display.baseCard is SpecialDeckCard)
         {
-            display.owner.specialDisplayHand.Remove(display);
             DrawSpecialCards(display.owner, 1);
+            display.owner.deck.Add(display.SpecialCard);
         }
         else
         {
-            display.owner.numberDisplayHand.Remove(display);
             DrawNumberCards(display.owner, 1);
+            numberDeck.Add((NumberCard)display.baseCard);
         }
         display.owner.SwappedThisTurn = true;
-        numberDeck.Add((NumberCard)display.baseCard);
-        activeCardVisuals.Remove(display);
-        display.gameObject.SetActive(false);
+        RemoveCardFromPlay(display, false);
         UpdateValues();
     }
 
     public void FlipCard(DisplayCard display)
     {
-        display.value *= -1;
-        if(display.value <= 0)
-        {
-            display.owner.PositiveCardsZone.RemoveCard(display.gameObject);
-            display.owner.NegativeCardsZone.PlaceCard(display.gameObject);
-        }
-        else
-        {
-            display.owner.NegativeCardsZone.RemoveCard(display.gameObject);
-            display.owner.PositiveCardsZone.PlaceCard(display.gameObject);
-        }
+        CreateNewDisplayNumberCard(display.owner, ((NumberCard)display.baseCard).oppositeCard);
+        RemoveCardFromPlay(display, false);
         UpdateValues();
     }
 
@@ -626,24 +631,24 @@ public class CardGameManager : MonoBehaviour
         }
     }
 
-    public void UIToggleSelectionMode(bool toggle)
+    public void EndSelection()
     {
-        endTurnButton.SetActive(!toggle);
-        selectConfirmButton.SetActive(toggle);
-        playerRoundToggle.gameObject.SetActive(!toggle);
-        opponentRoundToggle.gameObject.SetActive(!toggle);
-        selectionText.gameObject.SetActive(toggle);
-        enableSelectionConfirmButton = toggle;
-        if(toggle)
+        SelectingCharacter = CurrentCharacter;
+        if (SelectingCharacter == player)
         {
-            CardSelectSettings currSettings = CardSelectionHandler.CurrSettings;
-            selectionText.text = "Select " + currSettings.numCards + " " + currSettings.cardType.ToString() + " " + (currSettings.numCards > 1 ? "cards" : "card") + " to " + currSettings.selectionPurpose.ToString() + ".";
+            CardGameUIManager.Instance.ChangeUIMode(UIMode.PlayerTurn);
+        }
+        else
+        {
+            CardGameUIManager.Instance.ChangeUIMode(UIMode.OpponentTurn);
         }
     }
 
+
     public void ButtonEndTurn() {
-        prevState =  state;
-        state = State.ENDTURN;
+        //prevState =  GameState;
+        //state = State.ENDTURN;
+        SetNewState(State.ENDTURN);
     }
 
     public void ButtonConfirmSelection(){

@@ -19,7 +19,7 @@ public class CharacterInstance : MonoBehaviour
     public bool DiscardedThisTurn, SwappedThisTurn, GaveThisTurn, FlippedThisTurn, PlayedThisTurn; //flag booleans to be raised when certain card actions have been performed
 
     public bool CurrentlySwapping, CurrentlyFlipping;
-    public bool SwappingForced, FlippingForced;
+    public bool SwappingForced, FlippingForced, DidAnAction;
 
     public bool IsAI;
     private CardGameAI AIScript;
@@ -39,6 +39,16 @@ public class CharacterInstance : MonoBehaviour
 
     public void AddValue(int value)
     {
+        GameObject newCard = NumberCardPool.Instance.GetValue(value, this);
+        if(value < 0)
+        {
+            NegativeCardsZone.PlaceCard(newCard);
+        }
+        else
+        {
+            PositiveCardsZone.PlaceCard(newCard);
+        }
+        numberDisplayHand.Add(newCard.GetComponent<DisplayCard>());
         addedValues += value;
         CardGameManager.Instance.UpdateValues();
     }

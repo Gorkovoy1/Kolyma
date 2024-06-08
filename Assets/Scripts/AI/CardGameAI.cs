@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum AIAction {PlayCard, Flip, Swap, None}
+
 public class CardGameAI : MonoBehaviour
 {
     private CharacterInstance CurrentCharacter;
@@ -21,72 +23,175 @@ public class CardGameAI : MonoBehaviour
 
     public List<DisplayCard> CurrentSelectedCards;
 
+    private bool Waiting;
+
+    public AIAction ChosenAction;
+
     public void Init(CharacterInstance currCharacter)
     {
         CurrentCharacter = currCharacter;
         CardGameManager.Instance.OnCharacterChange += CheckActiveCharacter;
     }
 
+    private void Update()
+    {
+        if(Waiting && Active)
+        {
+            ChooseNextAction();
+        }
+        else if(CardGameManager.Instance.SelectingCharacter == CurrentCharacter && !Active)
+        {
+            SelectCards();
+        }
+    }
+
     public void CheckActiveCharacter(CharacterInstance character)
     {
         //Band-aid fix, should just change state method in game manager to outisde of Update.
         if (Active && character == CurrentCharacter) return;
-        Active = character == CurrentCharacter;
+        Active = character == CurrentCharacter && character.IsAI;
         if(Active)
         {
-            CardGameManager.Instance.state = CardGameManager.State.SELECTCARDS;
+            CardGameManager.Instance.StartSelecting(CurrentCharacter);
+            ChosenAction = AIAction.None;
             StartCoroutine(WaitForNextAction());
         }
     }
 
     void ChooseNextAction()
     {
+        if (CardGameManager.Instance.SelectingCharacter != CurrentCharacter)
+            return;
+
+        if (!CurrentCharacter.DidAnAction && ChosenAction == AIAction.None)
+        {
+            int randAction = Random.Range(1, 2);
+
+            ChosenAction = (AIAction)randAction;
+        }
+
+        if(CurrentCharacter.DidAnAction && !CardSelectionHandler.Instance.SelectingCards)
+        {
+            EndTurn();
+        }
+        else
+        {
+            switch (ChosenAction)
+            {
+                case AIAction.PlayCard:
+                    PlayingCard();
+                    CardGameLog.Instance.AddToLog(CurrentCharacter.character.name + " AI wants to play a card!");
+                    break;
+                case AIAction.Flip:
+                    CardGameLog.Instance.AddToLog(CurrentCharacter.character.name + " AI wants to flip a card!");
+                    FlippingCard();
+                    break;
+                case AIAction.Swap:
+                    CardGameLog.Instance.AddToLog(CurrentCharacter.character.name + " AI wants to swap a card!");
+                    SwappingCard();
+                    break;
+            }
+        }
+    }
+
+    void PlayingCard()
+    {
         SelectableCards = CardGameManager.Instance.GetSelectableCards();
         if (SelectableCards.Count > 0)
         {
-            if(!CardSelectionHandler.Instance.SelectingCards)
+            if (!CardSelectionHandler.Instance.SelectingCards)
             {
                 ChooseInitialCard();
             }
             else
             {
-                ChooseStackCards();
+                ChooseEffectCards();
             }
         }
         else
         {
-            CardGameManager.Instance.EndTurn();
+            EndTurn();
         }
     }
 
-    void ChooseInitialCard()
+    void FlippingCard()
     {
-        int selectedIndex = Random.Range(0, SelectableCards.Count);
-        CardGameManager.Instance.PlayCard(SelectableCards[selectedIndex]);
-        CardGameManager.Instance.state = CardGameManager.State.SELECTCARDS;
-        StartCoroutine(WaitForNextAction());
+        CardGameManager.Instance.SetFlip(true);
+        SelectableCards = CardGameManager.Instance.GetSelectableCards();
+        while (!CardSelectionHandler.Instance.CheckConditionsMet())
+        {
+            int selectedIndex = Random.Range(0, SelectableCards.Count);
+            CardSelectionHandler.Instance.SelectCard(SelectableCards[selectedIndex], CurrentCharacter);
+        }
+        CardSelectionHandler.Instance.ConfirmSelection();
+
+        EndTurn();
     }
 
-    void ChooseStackCards()
+    void SwappingCard()
+    {
+        CardGameManager.Instance.SetSwap(true);
+        SelectableCards = CardGameManager.Instance.GetSelectableCards();
+        while(!CardSelectionHandler.Instance.CheckConditionsMet())
+        {
+            int selectedIndex = Random.Range(0, SelectableCards.Count);
+            CardSelectionHandler.Instance.SelectCard(SelectableCards[selectedIndex], CurrentCharacter);
+        }
+        CardSelectionHandler.Instance.ConfirmSelection();
+
+        EndTurn();
+    }
+
+    void EndTurn()
+    {
+        CardGameManager.Instance.EndTurn();
+        Active = false;
+        Waiting = false;
+    }
+
+    void SelectCards()
+    {
+        SelectableCards = CardGameManager.Instance.GetSelectableCards();
+        if (SelectableCards.Count > 0)
+        {
+            ChooseEffectCards(false);
+        }
+    }
+
+    void ChooseInitialCard(bool nextAction = true)
     {
         int selectedIndex = Random.Range(0, SelectableCards.Count);
-        CardSelectionHandler.Instance.SelectCard(SelectableCards[selectedIndex]);
-        Debug.Log(CurrentCharacter.character.name + " selects card: " + SelectableCards[selectedIndex].baseCard.name);
+        CardGameManager.Instance.StartSelecting(CurrentCharacter);
+        CardGameManager.Instance.PlayCard(SelectableCards[selectedIndex]);
+        if(nextAction)
+            StartCoroutine(WaitForNextAction());
+    }
+
+    void ChooseEffectCards(bool nextAction = true)
+    {
+        int selectedIndex = Random.Range(0, SelectableCards.Count);
+        CardSelectionHandler.Instance.SelectCard(SelectableCards[selectedIndex], CurrentCharacter);
+        CardGameLog.Instance.AddToLog(CurrentCharacter.character.name + " selects card: " + SelectableCards[selectedIndex].baseCard.name);
         if (CardSelectionHandler.Instance.CheckConditionsMet())
         {
             CardSelectionHandler.Instance.ConfirmSelection();
-            StartCoroutine(WaitForNextAction());
+
+            if(nextAction)
+                EndTurn();
+            //if (nextAction)
+            //    StartCoroutine(WaitForNextAction());
         }
         else
         {
-            StartCoroutine(WaitForNextAction());
+            if (nextAction)
+                StartCoroutine(WaitForNextAction());
         }
     }
 
     IEnumerator WaitForNextAction()
     {
-        Debug.Log("Wait For Next Action!");
+        Waiting = false;
         yield return new WaitForSecondsRealtime(3f);
-        ChooseNextAction();
+        Waiting = true;
     }
 }

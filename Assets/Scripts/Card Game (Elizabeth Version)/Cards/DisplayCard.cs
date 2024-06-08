@@ -12,13 +12,15 @@ public class DisplayCard : MonoBehaviour
     //doing it this way allows there to be two instances of the In Cahoots card in play, for example, where the player owns one and the AI owns the other.
     [SerializeField] private Image artwork;
     [SerializeField] private TMP_Text name;
-    [SerializeField] private TMP_Text description;
+    [SerializeField] public TMP_Text description;
     [SerializeField] public int value;
     [SerializeField] private GameObject selectionEffect;
     [SerializeField] private GameObject tooltip;
     public Transform NumberAnchor;
 
     public NumberCardOrganizer NumberCardOrganizer;
+
+    public SpecialDeckCard SpecialCard;
 
     public Transform Artwork;
 
@@ -58,19 +60,20 @@ public class DisplayCard : MonoBehaviour
         value = card.value;
         this.owner = owner;
         SelectButton.onClick.RemoveAllListeners();
-        SelectButton.onClick.AddListener(delegate { CardGameManager.Instance.CardSelectionHandler.SelectCard(this);});
+        SelectButton.onClick.AddListener(delegate { CardGameManager.Instance.CardSelectionHandler.SelectCard(this, CardGameManager.Instance.player);});
     }
 
     public void InitSpecialCard(SpecialDeckCard card, CharacterInstance owner)
     {
         //baseCard = card;
+        SpecialCard = card;
         name.text = card.name;
         description.text = card.description;
         artwork.sprite = card.artwork;
         artwork.color = Color.white;
         this.owner = owner;
         SelectButton.onClick.RemoveAllListeners();
-        SelectButton.onClick.AddListener(delegate { CardGameManager.Instance.CardSelectionHandler.SelectCard(this); });
+        SelectButton.onClick.AddListener(delegate { CardGameManager.Instance.CardSelectionHandler.SelectCard(this, CardGameManager.Instance.player); });
     }
 
     public void ToggleSelectionColor(bool selected)

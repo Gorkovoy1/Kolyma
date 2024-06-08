@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: 6
   m_EditorClassIdentifier: 
   name: Lapdog
-  value: 6
   artwork: {fileID: 21300000, guid: 6803d889734617d4e8050b75d704cb5e, type: 3}
+  cardClass: 0
+  value: 6
+  oppositeCard: {fileID: 11400000, guid: 90b9c81b70ddb0d408a2e0f6d6f5b521, type: 2}

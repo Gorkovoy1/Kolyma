@@ -16,14 +16,30 @@ public class CardSelectionHandler : MonoBehaviour
 
     public static CardSelectionHandler Instance;
 
+    public CharacterInstance SelectingCharacter;
+
     private void Awake()
     {
         Instance = this;
     }
 
+
+    public void ProcessSelect(CharacterInstance selectingCharacter)
+    {
+        this.SelectingCharacter = selectingCharacter;
+        Debug.Log(SelectingCharacter.character.name + " is selecting!");
+        if(selectingCharacter == CardGameManager.Instance.player)
+            CardGameUIManager.Instance.ChangeUIMode(UIMode.PlayerSelecting);
+
+        if (!SelectingCards && CardGameManager.Instance.cardSelectStack.Count > 0)
+        {
+            CardSelectSettings curr = CardGameManager.Instance.cardSelectStack.Pop();
+            StartSelectingCards(curr);
+        }
+    }
+
     public void StartSelectingCards(CardSelectSettings cardSelectSettings)
     {
-        Debug.Log("START SELECTING CARDS!");
         SelectingCards = true;
         CurrSettings = cardSelectSettings;
 
@@ -39,20 +55,25 @@ public class CardSelectionHandler : MonoBehaviour
             SelectableCards = targetCharacter.specialDisplayHand;
         }
         SelectedCards = new List<DisplayCard>();
-        ToggleCardsSelectable(true);
-        CardGameManager.Instance.UIToggleSelectionMode(true);
+
+        if(SelectingCharacter == CardGameManager.Instance.player)
+            ToggleCardsSelectable(true);
+
+        Debug.Log(targetCharacter.character.name + " starts selecting cards!");
     }
 
-    public void SelectCard(DisplayCard card)
+    public void SelectCard(DisplayCard card, CharacterInstance selectingPlayer)
     {
         if(SelectedCards.Contains(card))
         {
+            CardGameLog.Instance.AddToLog(selectingPlayer.character.name + " unselects card: " + card.baseCard.name);
             //Debug.Log("Unselect Card: " + card.baseCard.name);
             SelectedCards.Remove(card);
             card.ToggleSelectionColor(false);
         }
         else if(SelectedCards.Count < CurrSettings.numCards)
         {
+            CardGameLog.Instance.AddToLog(selectingPlayer.character.name + " selects card: " + card.baseCard.name);
             //Debug.Log("Select Card: " + card.baseCard.name);
             SelectedCards.Add(card);
             card.ToggleSelectionColor(true);
@@ -61,14 +82,21 @@ public class CardSelectionHandler : MonoBehaviour
 
     public void EndSelectingCards()
     {
-        CardGameManager.Instance.UIToggleSelectionMode(false);
+        CardGameManager.Instance.EndSelection();
+        this.SelectingCharacter = null;
         SelectingCards = false;
         ToggleCardsSelectable(false);
+
+
+
     }
 
     public bool CheckConditionsMet()
     {
-        return SelectedCards.Count == CurrSettings.numCards;
+        bool conditionsMet = SelectedCards.Count == CurrSettings.numCards;
+        CardGameUIManager.Instance.ToggleSelectConfirmButton(conditionsMet);
+
+        return conditionsMet;
     }
 
     public int GetNumberOfCardsToSelect()

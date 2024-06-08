@@ -16,3 +16,4 @@ MonoBehaviour:
   artwork: {fileID: 21300000, guid: 8dad9399d32d661498340ec0a027fb3b, type: 3}
   cardClass: 3
   value: -7
+  oppositeCard: {fileID: 11400000, guid: 838417ba305d8f34b9a00b157a9d0d16, type: 2}

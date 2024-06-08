@@ -13,11 +13,6 @@ public class NumberCardOrganizer : MonoBehaviour
     public bool NegativeZone;
     public NumberCardOrganizer PairedZone;
 
-    private void Start()
-    {
-        cards = new List<GameObject>();
-    }
-
     public void Reorganize()
     {
         if(NegativeZone)
@@ -39,7 +34,7 @@ public class NumberCardOrganizer : MonoBehaviour
 
     public void ReorganizeCards(Vector2 startPos)
     {
-            float totalValue = 0f;
+        float totalValue = 0f;
         for (int i = 0; i < cards.Count; i++)
         {
             totalValue += Mathf.Abs(cards[i].GetComponent<DisplayCard>().value);
@@ -52,7 +47,14 @@ public class NumberCardOrganizer : MonoBehaviour
             Vector2 cardPos = lastCardPos - new Vector2(offsetValue * OffsetPerValue, 0f);
             cards[i].transform.localPosition = cardPos;
             lastCardPos = cards[i].transform.localPosition;
-            cards[i].transform.SetAsFirstSibling();
+            if(NegativeZone)
+            {
+                cards[i].transform.SetAsLastSibling();
+            }
+            else
+            {
+                cards[i].transform.SetAsFirstSibling();
+            }
         }
     }
 
@@ -62,7 +64,8 @@ public class NumberCardOrganizer : MonoBehaviour
         {
             Vector2 rightMostCardPos = positiveRightMostCard.transform.localPosition;
             DisplayCard card = positiveRightMostCard.gameObject.GetComponent<DisplayCard>();
-            Vector2 negativeStartPos = new Vector2(rightMostCardPos.x, 0) + new Vector2((card.value * OffsetPerValue) - (10 * OffsetPerValue) + Mathf.Abs(cards[0].GetComponent<DisplayCard>().value) * OffsetPerValue, 0);
+            float widthOfACard = 10 * OffsetPerValue;
+            Vector2 negativeStartPos = new Vector2(rightMostCardPos.x, 0) + new Vector2((card.value * OffsetPerValue) - widthOfACard + Mathf.Abs(cards[0].GetComponent<DisplayCard>().value) * OffsetPerValue, 0);
             ReorganizeCards(negativeStartPos);
         }
     }
@@ -71,6 +74,8 @@ public class NumberCardOrganizer : MonoBehaviour
     {
         newCard.transform.SetParent(transform);
         newCard.GetComponent<DisplayCard>().NumberCardOrganizer = this;
+        if (cards == null)
+            cards = new List<GameObject>();
         cards.Add(newCard);
         if(NegativeZone)
         {
@@ -87,17 +92,12 @@ public class NumberCardOrganizer : MonoBehaviour
     public void RemoveCard(GameObject removedCard)
     {
         cards.Remove(removedCard);
-        removedCard.GetComponent<DisplayCard>().NumberCardOrganizer = null; 
-        if (NegativeZone)
-        {
-            PairedZone.Reorganize();
-            Reorganize();
-        }
-        else
-        {
-            Reorganize();
-            PairedZone.Reorganize();
-        }
+        removedCard.GetComponent<DisplayCard>().NumberCardOrganizer = null;
+
+        Reorganize();
+        PairedZone.Reorganize();
+        Reorganize();
+        PairedZone.Reorganize();
     }
 }
 

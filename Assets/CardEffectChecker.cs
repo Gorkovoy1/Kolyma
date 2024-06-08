@@ -102,6 +102,7 @@ public class CardEffectChecker : MonoBehaviour
             case Effect.Discard:
                 CardSelectSettings newSettings = new CardSelectSettings(effectValue, cardType, effect, targetCharacter, true);
                 CardGameManager.Instance.cardSelectStack.Push(newSettings);
+                CardGameManager.Instance.StartSelecting(CardGameManager.Instance.CurrentCharacter);
                 break;
             case Effect.Swap:
                 CardGameManager.Instance.SetFlip(true);
