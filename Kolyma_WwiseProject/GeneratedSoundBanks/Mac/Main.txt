@@ -11,18 +11,16 @@ Event	ID	Name			Wwise Object Path	Notes
 	3698047240	Play_Breath			\Default Work Unit\Play_Breath	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	28495376	NARRATOR_WOOSH3	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Mac\SFX\NARRATOR_WOOSH2_2_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text_Box\Narrator_Wooshes\NARRATOR_WOOSH3		9904184
 	90128117	Clocks_Chime	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Mac\SFX\Clocks, Chime, Metallic Wall Clock, Chime Ringing SND102458_D8B369E4.wem		\Actor-Mixer Hierarchy\Default Work Unit\Clocks_Chime		775148
 	158641502	Cell_SFX_Whisper-005	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Mac\SFX\Cell_SFX_Whisper-005_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Whisper\Cell_SFX_Whisper-005		795660
 	169040873	Cell_SFX_Whisper-003	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Mac\SFX\Cell_SFX_Whisper-003_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Whisper\Cell_SFX_Whisper-003		795660
 	355118563	Typewriter_Loop_1	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Mac\SFX\typewriter_loop-001_87EEB116.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text_Box\Typewriter_Loops\Typewriter_Loop_1		194876
 	415365781	Cell_SFX_Cough-003	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Mac\SFX\Cell_SFX_Cough-003_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Cough\Cell_SFX_Cough-003		529296
-	471573529	Cell_SFX_Breath-001	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Mac\SFX\Cell_SFX_Breath-001_DE08C849.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Breath\Cell_SFX_Breath-001		794896
-	475682675	NARRATOR_WOOSH2	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Mac\SFX\NARRATOR_WOOSH 2_3_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text_Box\Narrator_Wooshes\NARRATOR_WOOSH2		9904184
+	471573529	Cell_SFX_Breath-001	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Mac\SFX\Cell_SFX_Breath-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Breath\Cell_SFX_Breath-001		880776
 	499405862	Cell_Men	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Mac\SFX\Cell_Men_Talk_FBC78EF0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Men		17400144
-	515368332	Cell_SFX_Breath-002	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Mac\SFX\Cell_SFX_Breath-002_8FE3A3E9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Breath\Cell_SFX_Breath-002		655132
+	515368332	Cell_SFX_Breath-002	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Mac\SFX\Cell_SFX_Breath-002_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Breath\Cell_SFX_Breath-002		880776
 	543232325	Typewriter_Loop_2	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Mac\SFX\typewriter_loop-002_0B6A3E05.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text_Box\Typewriter_Loops\Typewriter_Loop_2		148328
-	543919465	Cell_SFX_Breath-003	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Mac\SFX\Cell_SFX_Breath-003_96297682.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Breath\Cell_SFX_Breath-003		762904
+	543919465	Cell_SFX_Breath-003	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Mac\SFX\Cell_SFX_Breath-003_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Breath\Cell_SFX_Breath-003		880776
 	551756399	Typewriter_Loop_6	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Mac\SFX\typewriter_loop-006_4A5F658F.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text_Box\Typewriter_Loops\Typewriter_Loop_6		131148
 	555626868	Typewriter_Loop_5	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Mac\SFX\typewriter_loop-005_1C724C78.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text_Box\Typewriter_Loops\Typewriter_Loop_5		141680
 	570807466	Cell_Door	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Mac\SFX\Doors, Dungeon, Stuck, Open, Long Reverb SND12490_0575F480.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Door		709256
@@ -35,4 +33,5 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	897836571	Cell_SFX_Cough-001	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Mac\SFX\Cell_SFX_Cough-001_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Cough\Cell_SFX_Cough-001		529296
 	912648772	Typewriter_Loop_4	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Mac\SFX\typewriter_loop-004_971CF5D3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text_Box\Typewriter_Loops\Typewriter_Loop_4		133920
 	927065734	Click3	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Mac\SFX\Menu Click2_EAD471C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text_Box\Click3		83056
+	1069812879	Narrator	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Mac\SFX\SFX_NARRATOR_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text_Box\Narrator		672764
 

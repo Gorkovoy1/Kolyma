@@ -22,7 +22,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{AA41C570-D576-D470-A6A7-AA632AD33058}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{AB6DD135-8B58-5B43-75CA-E87611AF6311}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -48,11 +48,7 @@
 				</File>
 				<File Id="471573529" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Breath-001.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Breath-001_DE08C849.wem</CachePath>
-				</File>
-				<File Id="475682675" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>NARRATOR_WOOSH 2_3.wav</ShortName>
-					<CachePath>SFX/NARRATOR_WOOSH 2_3_818F3B66.wem</CachePath>
+					<CachePath>SFX/Cell_SFX_Breath-001_818F3B66.wem</CachePath>
 				</File>
 				<File Id="499405862" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_Men_Talk.wav</ShortName>
@@ -60,7 +56,7 @@
 				</File>
 				<File Id="515368332" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Breath-002.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Breath-002_8FE3A3E9.wem</CachePath>
+					<CachePath>SFX/Cell_SFX_Breath-002_818F3B66.wem</CachePath>
 				</File>
 				<File Id="543232325" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-002.wav</ShortName>
@@ -68,7 +64,7 @@
 				</File>
 				<File Id="543919465" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Breath-003.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Breath-003_96297682.wem</CachePath>
+					<CachePath>SFX/Cell_SFX_Breath-003_818F3B66.wem</CachePath>
 				</File>
 				<File Id="551756399" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-006.wav</ShortName>
@@ -117,6 +113,10 @@
 				<File Id="927065734" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Menu Click2.wav</ShortName>
 					<CachePath>SFX/Menu Click2_EAD471C1.wem</CachePath>
+				</File>
+				<File Id="1069812879" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX_NARRATOR.wav</ShortName>
+					<CachePath>SFX/SFX_NARRATOR_818F3B66.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
@@ -178,13 +178,13 @@
 						<MediaRef Id="891624205"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1714538498" Name="Play_Woosh_Narrator" DurationType="OneShot" DurationMin="56.145622" DurationMax="56.145622">
+				<Event Id="1714538498" Name="Play_Woosh_Narrator" DurationType="OneShot" DurationMin="3.8133106" DurationMax="3.8133106">
 					<MediaRefs>
-						<MediaRef Id="475682675"/>
+						<MediaRef Id="1069812879"/>
 					</MediaRefs>
 				</Event>
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{93EA104D-B2AB-08E4-2AFE-681AE6AFF87B}</FileHash>
+	<FileHash>{7F2B1F62-1836-CB1D-4137-D3AC8B5C80C8}</FileHash>
 </SoundBanksInfo>

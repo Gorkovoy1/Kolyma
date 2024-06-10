@@ -104,10 +104,10 @@
 				</Event>
 				<Event Name="Play_Woosh_Narrator" ID="{2E34843D-113B-4342-9BD2-C9258471BCDF}">
 					<ChildrenList>
-						<Action Name="" ID="{0638F1CE-671B-4F35-83EE-605802B61A74}" ShortID="758344845">
+						<Action Name="" ID="{449BE301-F3B9-4DE9-9F17-62B46EA808CF}" ShortID="1054379507">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="NARRATOR_WOOSH2" ID="{94794E55-16AF-4D22-84C3-541332B2E3FE}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+									<ObjectRef Name="Narrator" ID="{3B7892F8-7AE4-4DAF-B963-B274C394122F}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

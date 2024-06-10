@@ -291,11 +291,12 @@
 								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="3"/>
-								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="7">
+								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="10">
 									<ModifierList>
 										<ModifierInfo>
 											<Modifier Name="" ID="{A16D3B44-2754-4982-A943-AE0BE7ABC73F}">
 												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
 													<Property Name="Max" Type="Real64" Value="15"/>
 													<Property Name="Min" Type="Real64" Value="-15"/>
 												</PropertyList>
@@ -307,7 +308,7 @@
 								<Property Name="SpeakerPanning" Type="int16" Value="1"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-12</Value>
+										<Value>-24</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -320,11 +321,12 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<Sound Name="Cell_SFX_Breath-001" ID="{FF569C39-0B77-4028-BA33-5A9DE3E926DC}" ShortID="497443591">
+								<Sound Name="Cell_SFX_Breath-001" ID="{E5196A99-8A1F-4F7F-850B-9CEE1FF9C5F6}" ShortID="135387659">
 									<PropertyList>
+										<Property Name="OverrideOutput" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-2</Value>
+												<Value>12</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -337,11 +339,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Cell_SFX_Breath-001" ID="{ACCB3374-F3B2-4DA4-A93C-B2B6DD68EA23}">
-											<PropertyList>
-												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-												<Property Name="TrimEnd" Type="Real64" Value="4.50567500422731"/>
-											</PropertyList>
+										<AudioFileSource Name="Cell_SFX_Breath-001" ID="{1FF42368-485B-4A29-AEB6-ABC67356732F}">
 											<Language>SFX</Language>
 											<AudioFile>Cell_SFX_Breath-001.wav</AudioFile>
 											<MediaIDList>
@@ -350,17 +348,10 @@
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Cell_SFX_Breath-001" ID="{ACCB3374-F3B2-4DA4-A93C-B2B6DD68EA23}" Platform="Linked"/>
+										<ActiveSource Name="Cell_SFX_Breath-001" ID="{1FF42368-485B-4A29-AEB6-ABC67356732F}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Cell_SFX_Breath-002" ID="{91244A61-FE42-4223-9DAA-44A564D8C35E}" ShortID="591196204">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-20</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
+								<Sound Name="Cell_SFX_Breath-002" ID="{3A3E40C2-3959-45CC-9022-18CD2A0E675E}" ShortID="213798364">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -370,12 +361,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Cell_SFX_Breath-002" ID="{78AAB7DF-1075-4015-A9A0-8FCB9C2B2C95}">
-											<PropertyList>
-												<Property Name="LoopBegin" Type="Real64" Value="0"/>
-												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-												<Property Name="TrimEnd" Type="Real64" Value="3.7133635098399"/>
-											</PropertyList>
+										<AudioFileSource Name="Cell_SFX_Breath-002" ID="{41D2FDD9-0418-4D99-8ACF-F4E4C830D231}">
 											<Language>SFX</Language>
 											<AudioFile>Cell_SFX_Breath-002.wav</AudioFile>
 											<MediaIDList>
@@ -384,17 +370,10 @@
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Cell_SFX_Breath-002" ID="{78AAB7DF-1075-4015-A9A0-8FCB9C2B2C95}" Platform="Linked"/>
+										<ActiveSource Name="Cell_SFX_Breath-002" ID="{41D2FDD9-0418-4D99-8ACF-F4E4C830D231}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Cell_SFX_Breath-003" ID="{61488BE8-46BC-4E84-A7EE-5E7C86447F96}" ShortID="885849176">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-23</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
+								<Sound Name="Cell_SFX_Breath-003" ID="{63FBF840-89CA-42D7-991D-26B2AD96C1AF}" ShortID="561684537">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -404,12 +383,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Cell_SFX_Breath-003" ID="{3CD1FCE6-4C11-4CD2-8083-6DFFF56676C0}">
-											<PropertyList>
-												<Property Name="LoopBegin" Type="Real64" Value="0"/>
-												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-												<Property Name="TrimEnd" Type="Real64" Value="4.32430249346393"/>
-											</PropertyList>
+										<AudioFileSource Name="Cell_SFX_Breath-003" ID="{757B28DE-7B85-4A7A-B2B6-0DB98FDF50A8}">
 											<Language>SFX</Language>
 											<AudioFile>Cell_SFX_Breath-003.wav</AudioFile>
 											<MediaIDList>
@@ -418,7 +392,7 @@
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Cell_SFX_Breath-003" ID="{3CD1FCE6-4C11-4CD2-8083-6DFFF56676C0}" Platform="Linked"/>
+										<ActiveSource Name="Cell_SFX_Breath-003" ID="{757B28DE-7B85-4A7A-B2B6-0DB98FDF50A8}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -471,10 +445,7 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<Sound Name="Cell_SFX_Cough-001" ID="{7A0BFDB7-3D60-4134-954C-059BC8546221}" ShortID="839308015">
-									<PropertyList>
-										<Property Name="SpeakerPanning" Type="int16" Value="1"/>
-									</PropertyList>
+								<Sound Name="Cell_SFX_Cough-001" ID="{3CF75B86-CAA5-4FA4-A38D-603069F65D76}" ShortID="399126672">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -484,7 +455,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Cell_SFX_Cough-001" ID="{E7CDF517-F888-4D66-A8F0-86CCC2385993}">
+										<AudioFileSource Name="Cell_SFX_Cough-001" ID="{C2F5B977-EA06-45A1-8415-4299D6DC1E30}">
 											<Language>SFX</Language>
 											<AudioFile>Cell_SFX_Cough-001.wav</AudioFile>
 											<MediaIDList>
@@ -492,19 +463,11 @@
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
-									<PositioningInfo>
-										<Panner Name="" ID="{66DD5AEF-5124-4375-A3DD-B6724D6BC541}">
-											<PropertyList>
-												<Property Name="PanX" Type="Real64" Value="87.1621621621622"/>
-												<Property Name="PanY" Type="Real64" Value="73.1884057971015"/>
-											</PropertyList>
-										</Panner>
-									</PositioningInfo>
 									<ActiveSourceList>
-										<ActiveSource Name="Cell_SFX_Cough-001" ID="{E7CDF517-F888-4D66-A8F0-86CCC2385993}" Platform="Linked"/>
+										<ActiveSource Name="Cell_SFX_Cough-001" ID="{C2F5B977-EA06-45A1-8415-4299D6DC1E30}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Cell_SFX_Cough-002" ID="{55FC2963-C0FC-4C95-989E-A7861CF0AE33}" ShortID="40008034">
+								<Sound Name="Cell_SFX_Cough-002" ID="{E7AF8889-BDDF-4043-B3AC-CC534D47EB77}" ShortID="736687414">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -514,7 +477,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Cell_SFX_Cough-002" ID="{639E2F7E-1CE7-4D53-B3A2-BDCF65AABF18}">
+										<AudioFileSource Name="Cell_SFX_Cough-002" ID="{7E3F64EF-CF8C-49E6-98C8-8B9BF48E2C1C}">
 											<Language>SFX</Language>
 											<AudioFile>Cell_SFX_Cough-002.wav</AudioFile>
 											<MediaIDList>
@@ -523,10 +486,10 @@
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Cell_SFX_Cough-002" ID="{639E2F7E-1CE7-4D53-B3A2-BDCF65AABF18}" Platform="Linked"/>
+										<ActiveSource Name="Cell_SFX_Cough-002" ID="{7E3F64EF-CF8C-49E6-98C8-8B9BF48E2C1C}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Cell_SFX_Cough-003" ID="{3CA89312-81A1-40F5-9523-6E97ED31140C}" ShortID="1055704375">
+								<Sound Name="Cell_SFX_Cough-003" ID="{D8AA3815-3660-4CCB-AA49-A0628EB46025}" ShortID="749906182">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -536,7 +499,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Cell_SFX_Cough-003" ID="{461C6FA1-58FC-41EA-80E4-0D61210E47E0}">
+										<AudioFileSource Name="Cell_SFX_Cough-003" ID="{EC10D839-5BF0-4F71-8497-9275B7CC952B}">
 											<Language>SFX</Language>
 											<AudioFile>Cell_SFX_Cough-003.wav</AudioFile>
 											<MediaIDList>
@@ -545,7 +508,7 @@
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Cell_SFX_Cough-003" ID="{461C6FA1-58FC-41EA-80E4-0D61210E47E0}" Platform="Linked"/>
+										<ActiveSource Name="Cell_SFX_Cough-003" ID="{EC10D839-5BF0-4F71-8497-9275B7CC952B}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -921,14 +884,7 @@
 								<ActiveSource Name="Mechanical, Click, Door Code Enter, Button Press, Click, Hotel, Orleans, France SND92301" ID="{2DDD372F-82DB-4CDC-A4EC-F7DB2549D7AA}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="NARRATOR_WOOSH2" ID="{94794E55-16AF-4D22-84C3-541332B2E3FE}" ShortID="429300450">
-							<PropertyList>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>4</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
+						<Sound Name="Narrator" ID="{3B7892F8-7AE4-4DAF-B963-B274C394122F}" ShortID="853136915">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -938,16 +894,16 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="NARRATOR_WOOSH 2_3" ID="{70F4A67A-414B-464A-AFA8-3F91771CE426}">
+								<AudioFileSource Name="SFX_NARRATOR" ID="{307BCFA9-FFFE-4760-9278-A2FB4AE7D0B6}">
 									<Language>SFX</Language>
-									<AudioFile>NARRATOR_WOOSH 2_3.wav</AudioFile>
+									<AudioFile>SFX_NARRATOR.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="475682675"/>
+										<MediaID ID="1069812879"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="NARRATOR_WOOSH 2_3" ID="{70F4A67A-414B-464A-AFA8-3F91771CE426}" Platform="Linked"/>
+								<ActiveSource Name="SFX_NARRATOR" ID="{307BCFA9-FFFE-4760-9278-A2FB4AE7D0B6}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>

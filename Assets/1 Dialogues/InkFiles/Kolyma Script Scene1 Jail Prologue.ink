@@ -44,7 +44,7 @@ His trial was a joke, and you could tell how badly those miserable party clerks 
     As you wish. I have heard someone here call you Arkady. That's good enough for me.#Andreyev
 ---Arkady turned his face to the wall. He wanted to hide his emotions. The stranger touched a wound that was still fresh.#NarratorSound #Narrator
 ---Andreyev felt that too. For a minute the old revolutionary became silent, he was preoccupied with his thoughts. Then he gave Arkady a long look and said:#Narrator
----I am sorry.
+---I am sorry.#Andreyev
 ---Let me give you some advice. Forget about your former self. You are a prisoner now. Focus on more important matters.#Andreyev
 ---Your body and your mind are about to go through one of the most terrible trials. You will experience life without freedom.#Andreyev
 ---Don’t think too much about the past or about the future, these thoughts will make you weak. All you have is present, here and now.#Andreyev
