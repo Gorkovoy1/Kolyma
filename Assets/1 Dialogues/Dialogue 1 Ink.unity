@@ -1455,18 +1455,12 @@ MonoBehaviour:
   smoke: {fileID: 2039440116}
   dialogueNumber: 1
   background: {fileID: 1733045846}
-  bgd1: {fileID: 21300000, guid: 61b26ecf8a8644045853c96142eb8abb, type: 3}
-  bgd2: {fileID: 21300000, guid: 2e853d94237039c48a086af04d4c8a45, type: 3}
   musicName: 
-  inkd1: {fileID: 4900000, guid: 3934b32f015142e458520ba47dea4ce4, type: 3}
-  inkd2: {fileID: 4900000, guid: 1fcbdb4a41bc5394892bf097b65a491e, type: 3}
   NPCBlack: {fileID: 427078829}
   NPCColor: {fileID: 1104501502}
-  andreyevBlack: {fileID: 21300000, guid: 71c046761219e144cafd5de105047338, type: 3}
-  andreyevColor: {fileID: 21300000, guid: 0f1d7de65ab799343a0988cf6a3528da, type: 3}
-  rybakovBlack: {fileID: 21300000, guid: fd2e64f05f3e3074cbc1013691ab3747, type: 3}
-  rybakovColor: {fileID: 21300000, guid: 86c9d756996cf4d448119dd4c9bcf320, type: 3}
   loaderText: {fileID: 510357620}
+  dialogueObj1: {fileID: 11400000, guid: 8f054f46d0a215c4faf0f8c2625111f1, type: 2}
+  dialogueObj2: {fileID: 11400000, guid: 37f512111a594c74c963adf9a36f0bb7, type: 2}
 --- !u!114 &634617716 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3191542086940010076, guid: 42b182ca8a3cab245a2a6f4d44b4e27a, type: 3}

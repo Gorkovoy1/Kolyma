@@ -68,18 +68,14 @@ public class DialogueInk : MonoBehaviour
     //setting up scene objects
     public int dialogueNumber;
     public Image background;
-    public Sprite bgd1;
-    public Sprite bgd2;
     public string musicName;
-    public TextAsset inkd1;
-    public TextAsset inkd2;
     public SpriteRenderer NPCBlack;
     public SpriteRenderer NPCColor;
-    public Sprite andreyevBlack;
-    public Sprite andreyevColor;
-    public Sprite rybakovBlack;
-    public Sprite rybakovColor;
     public TextMeshProUGUI loaderText;
+
+    public DialogueScriptableObject dialogueObj1;
+    public DialogueScriptableObject dialogueObj2;
+
    
     void Start()
     {
@@ -120,43 +116,43 @@ public class DialogueInk : MonoBehaviour
 
     void DialogueSetUp()
     {
+        
         if(dialogueNumber == 1)
         {
             //set background
-            background.sprite = bgd1;
+            background.sprite = dialogueObj1.bg;
             //set NPCPortrait
-            NPCBlack.sprite = andreyevBlack;
-            NPCColor.sprite = andreyevColor;
+            NPCBlack.sprite = dialogueObj1.npcBlack;
+            NPCColor.sprite = dialogueObj1.npcColor;
             //set smoke/background animations
             //set loader text
-            loaderText.text = "Wednesday, November 30th, 1938" + 
-            Environment.NewLine + Environment.NewLine + 
-            "Magadan, City Jail, The Soviet Union";
+            loaderText.text = dialogueObj1.line1 + Environment.NewLine + Environment.NewLine + dialogueObj1.line2;
             //set Music
-            musicName = "Play_Music_Jail";
+            musicName = dialogueObj1.music;
             //set ambient sounds
-            //set opening sound (jail door)
+            //set opening sound (jail door sfx)
             //set ink file
-            inkJSON = inkd1;
+            inkJSON = dialogueObj1.inkfile;
             //set next scene to load
 
         }
-
-        else if(dialogueNumber == 2)
+        
+        else if (dialogueNumber == 2)
         {
             //set background
-            background.sprite = bgd2;
+            background.sprite = dialogueObj2.bg;
             //set NPCPortrait
-            NPCBlack.sprite = rybakovBlack;
-            NPCColor.sprite = rybakovColor;
+            NPCBlack.sprite = dialogueObj2.npcBlack;
+            NPCColor.sprite = dialogueObj2.npcColor;
             //set smoke/background animations
             //set loader text
-            loaderText.text = "New Text Here";
+            loaderText.text = dialogueObj2.line1 + Environment.NewLine + Environment.NewLine + dialogueObj2.line2;
             //set Music
+            musicName = dialogueObj2.music;
             //set ambient sounds
-            //set opening sound (jail door)
+            //set opening sound (jail door sfx)
             //set ink file
-            inkJSON = inkd2;
+            inkJSON = dialogueObj2.inkfile;
             //set next scene to load
         }
     }

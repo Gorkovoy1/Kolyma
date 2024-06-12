@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11707e34fe1eab24a9d5c0a2adcb42c5, type: 3}
+  m_Name: Dialogue1
+  m_EditorClassIdentifier: 
+  bg: {fileID: 21300000, guid: 61b26ecf8a8644045853c96142eb8abb, type: 3}
+  npcBlack: {fileID: 21300000, guid: 71c046761219e144cafd5de105047338, type: 3}
+  npcColor: {fileID: 21300000, guid: 0f1d7de65ab799343a0988cf6a3528da, type: 3}
+  line1: Wednesday, November 30th, 1938
+  line2: Magadan, City Jail, The Soviet Union
+  music: Play_Music_Jail
+  inkfile: {fileID: 4900000, guid: 3934b32f015142e458520ba47dea4ce4, type: 3}
+  nextScene: 0
