@@ -15,7 +15,7 @@ I know the rules. You were here first and the bed is yours. You know, I never as
 //different color for responses?
     *[Sure. You may sit down.]#Arkady
 Oh, I am so grateful. See? There’s always a chance of something good to happen even at such a miserable place like this jail.#Andreyev
-    *[You may sit down. But do not forget you're sleeping on the floor tonigh.]#Arkady
+    *[You may sit down. But do not forget you're sleeping on the floor tonight.]#Arkady
 Of course. See? There’s always a chance of something good to happen even at such a miserable place.#Andreyev 
 But rules are rules, there are limits. The floor is not the worst option, although I really doubt anyone will be able to catch any proper sleep in this cold cell.#Andreyev
     *[Of course. Sit down here, it's hard to stand in such a crowded cell.]#Arkady

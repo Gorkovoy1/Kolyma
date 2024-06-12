@@ -63,9 +63,31 @@ public class DialogueInk : MonoBehaviour
 
     public GameObject smoke;
 
+    
+
+    //setting up scene objects
+    public int dialogueNumber;
+    public Image background;
+    public Sprite bgd1;
+    public Sprite bgd2;
+    public string musicName;
+    public TextAsset inkd1;
+    public TextAsset inkd2;
+    public SpriteRenderer NPCBlack;
+    public SpriteRenderer NPCColor;
+    public Sprite andreyevBlack;
+    public Sprite andreyevColor;
+    public Sprite rybakovBlack;
+    public Sprite rybakovColor;
+    public TextMeshProUGUI loaderText;
    
     void Start()
     {
+        //retrieve which dialogue this is and set things up
+        //dialogueNumber = SceneData.DialogueNumber;
+
+        DialogueSetUp();
+
         //create ink file and set level loader. deactivate everything while levelloader is active, reset bools and set paper to invisible
         inkStory = new Story(inkJSON.text);
         GameObject levelLoader = GameObject.Find("LevelLoader");
@@ -79,17 +101,65 @@ public class DialogueInk : MonoBehaviour
         playSound = false;
         ambientObj.SetActive(false);
         skip = false;
-        nameTag.text = "Old Man";
-        smoke.gameObject.SetActive(false);
         paperColor = paper.color;
         paper.color = new Color(paperColor.r, paperColor.g, paperColor.b, 0f);
         narratorTag.gameObject.SetActive(false);
 
+        //dialogue1
+        if(dialogueNumber == 1){
+            nameTag.text = "Old Man";
+        }
         
-        
+
+        //change this object and position for each scene
+        smoke.gameObject.SetActive(false);
+
+
+
     }
 
-    
+    void DialogueSetUp()
+    {
+        if(dialogueNumber == 1)
+        {
+            //set background
+            background.sprite = bgd1;
+            //set NPCPortrait
+            NPCBlack.sprite = andreyevBlack;
+            NPCColor.sprite = andreyevColor;
+            //set smoke/background animations
+            //set loader text
+            loaderText.text = "Wednesday, November 30th, 1938" + 
+            Environment.NewLine + Environment.NewLine + 
+            "Magadan, City Jail, The Soviet Union";
+            //set Music
+            musicName = "Play_Music_Jail";
+            //set ambient sounds
+            //set opening sound (jail door)
+            //set ink file
+            inkJSON = inkd1;
+            //set next scene to load
+
+        }
+
+        else if(dialogueNumber == 2)
+        {
+            //set background
+            background.sprite = bgd2;
+            //set NPCPortrait
+            NPCBlack.sprite = rybakovBlack;
+            NPCColor.sprite = rybakovColor;
+            //set smoke/background animations
+            //set loader text
+            loaderText.text = "New Text Here";
+            //set Music
+            //set ambient sounds
+            //set opening sound (jail door)
+            //set ink file
+            inkJSON = inkd2;
+            //set next scene to load
+        }
+    }
 
     IEnumerator ShowInkStory()
     {       
@@ -98,24 +168,28 @@ public class DialogueInk : MonoBehaviour
         {
             yield return new WaitForSeconds(6f);
             ambientObj.SetActive(true);
-            AkSoundEngine.PostEvent("Play_Music_Jail", gameObject);
+            AkSoundEngine.PostEvent(musicName, gameObject);
             Debug.Log("Music");
 
             //pause as we look at the background
             yield return new WaitForSeconds(3f);
+
+
             smoke.gameObject.SetActive(true);
+            
+            
             yield return new WaitForSeconds(4f);
             
+            //fade paper in
             narratorTag.gameObject.SetActive(true);
-            //paper fades in
             AkSoundEngine.PostEvent("Play_Woosh_Narrator", gameObject);
             while(paper.color.a < 1f)
             {
                 paper.color = new Color(paperColor.r, paperColor.g, paperColor.b, paper.color.a + 0.3f * Time.deltaTime);
                 yield return null;
             }
-            
             paper.color = new Color(paperColor.r, paperColor.g, paperColor.b, 1f);
+            
         }
         
         //no longer intro
