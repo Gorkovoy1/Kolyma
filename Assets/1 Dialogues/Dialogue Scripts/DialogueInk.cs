@@ -74,6 +74,7 @@ public class DialogueInk : MonoBehaviour
     public TextMeshProUGUI loaderText;
     public GameObject backgroundAnim;
     public GameObject screenSFX;
+    public GameObject ambientReplace;
 
     public DialogueScriptableObject dialogueObj1;
     public DialogueScriptableObject dialogueObj2;
@@ -99,6 +100,7 @@ public class DialogueInk : MonoBehaviour
         soundEnded = true;
         playSound = false;
         ambientObj.SetActive(false);
+        Debug.Log("Ambient Off");
         skip = false;
         paperColor = paper.color;
         paper.color = new Color(paperColor.r, paperColor.g, paperColor.b, 0f);
@@ -134,7 +136,7 @@ public class DialogueInk : MonoBehaviour
             //set Music
             musicName = dialogueObj1.music;
             //set ambient sounds 
-            ambientObj = dialogueObj1.ambient;
+            ambientReplace = dialogueObj1.ambient;
             //set opening sound (jail door sfx)
             screenSFX = dialogueObj1.sfx;
             //set ink file
@@ -157,7 +159,7 @@ public class DialogueInk : MonoBehaviour
             //set Music
             musicName = dialogueObj2.music;
             //set ambient sounds
-            ambientObj = dialogueObj2.ambient;
+            ambientReplace = dialogueObj2.ambient;
             //set opening sound (jail door sfx)
             screenSFX = dialogueObj2.sfx;
             //set ink file
@@ -269,7 +271,7 @@ public class DialogueInk : MonoBehaviour
                     PlayerPortrait.gameObject.SetActive(false);
                     narratorTag.gameObject.SetActive(true);
                 }
-                if (tags[0] == "Andreyev")
+                if (tags[0] == "Andreyev" || tags[0] == "Rybakov")
                 {
                     HighlightNPC();
                     narratorTag.gameObject.SetActive(false);
