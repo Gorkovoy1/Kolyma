@@ -16,4 +16,7 @@ public class DialogueScriptableObject : ScriptableObject
     public string music;
     public TextAsset inkfile;
     public int nextScene;
+    public GameObject ambient;
+    public GameObject bganim;
+    public GameObject sfx;
 }

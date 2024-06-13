@@ -72,9 +72,12 @@ public class DialogueInk : MonoBehaviour
     public SpriteRenderer NPCBlack;
     public SpriteRenderer NPCColor;
     public TextMeshProUGUI loaderText;
+    public GameObject backgroundAnim;
+    public GameObject screenSFX;
 
     public DialogueScriptableObject dialogueObj1;
     public DialogueScriptableObject dialogueObj2;
+
 
    
     void Start()
@@ -125,12 +128,15 @@ public class DialogueInk : MonoBehaviour
             NPCBlack.sprite = dialogueObj1.npcBlack;
             NPCColor.sprite = dialogueObj1.npcColor;
             //set smoke/background animations
+            backgroundAnim = dialogueObj1.bganim;
             //set loader text
             loaderText.text = dialogueObj1.line1 + Environment.NewLine + Environment.NewLine + dialogueObj1.line2;
             //set Music
             musicName = dialogueObj1.music;
-            //set ambient sounds
+            //set ambient sounds 
+            ambientObj = dialogueObj1.ambient;
             //set opening sound (jail door sfx)
+            screenSFX = dialogueObj1.sfx;
             //set ink file
             inkJSON = dialogueObj1.inkfile;
             //set next scene to load
@@ -145,12 +151,15 @@ public class DialogueInk : MonoBehaviour
             NPCBlack.sprite = dialogueObj2.npcBlack;
             NPCColor.sprite = dialogueObj2.npcColor;
             //set smoke/background animations
+            backgroundAnim = dialogueObj2.bganim;
             //set loader text
             loaderText.text = dialogueObj2.line1 + Environment.NewLine + Environment.NewLine + dialogueObj2.line2;
             //set Music
             musicName = dialogueObj2.music;
             //set ambient sounds
+            ambientObj = dialogueObj2.ambient;
             //set opening sound (jail door sfx)
+            screenSFX = dialogueObj2.sfx;
             //set ink file
             inkJSON = dialogueObj2.inkfile;
             //set next scene to load
