@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11707e34fe1eab24a9d5c0a2adcb42c5, type: 3}
   m_Name: Dialogue1
   m_EditorClassIdentifier: 
-  bg: {fileID: 21300000, guid: 61b26ecf8a8644045853c96142eb8abb, type: 3}
+  bg: {fileID: 21300000, guid: 424f323d386b8b6449dac592b3a9256d, type: 3}
   npcBlack: {fileID: 21300000, guid: 71c046761219e144cafd5de105047338, type: 3}
   npcColor: {fileID: 21300000, guid: 0f1d7de65ab799343a0988cf6a3528da, type: 3}
   line1: Wednesday, November 30th, 1938
