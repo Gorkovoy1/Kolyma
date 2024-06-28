@@ -5,6 +5,7 @@ using Ink.Runtime;
 using TMPro;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
 
 public static class TransformExtensions
 {
@@ -79,42 +80,74 @@ public class DialogueInk : MonoBehaviour
     public DialogueScriptableObject dialogueObj1;
     public DialogueScriptableObject dialogueObj2;
 
-
+    public int nextSceneNumber;
    
     void Start()
     {
         //retrieve which dialogue this is and set things up
         //dialogueNumber = SceneData.DialogueNumber;
 
-        DialogueSetUp();
+        //load assets depending on scriptable object
+        DialogueSetUp(); 
 
-        //create ink file and set level loader. deactivate everything while levelloader is active, reset bools and set paper to invisible
-        inkStory = new Story(inkJSON.text);
-        GameObject levelLoader = GameObject.Find("LevelLoader");
-        introText.text = "";
-        PlayerPortrait.gameObject.SetActive(false);
-        NPCPortrait.gameObject.SetActive(false);
-        startScene = true;
-        StartCoroutine(ShowInkStory());
-        startofDialogue = true;
-        soundEnded = true;
-        playSound = false;
-        ambientObj.SetActive(false);
-        Debug.Log("Ambient Off");
-        skip = false;
-        paperColor = paper.color;
-        paper.color = new Color(paperColor.r, paperColor.g, paperColor.b, 0f);
-        narratorTag.gameObject.SetActive(false);
+        if (PlayerPrefs.HasKey("SavedInkState"))
+        { 
+            inkStory = new Story(inkJSON.text);
+            string savedState = PlayerPrefs.GetString("SavedInkState");
+            inkStory.state.LoadJson(savedState);
+            GameObject levelLoader = GameObject.Find("LevelLoader");
+            levelLoader.gameObject.SetActive(false);
+            introText.text = "";
+            PlayerPortrait.gameObject.SetActive(false);
+            NPCPortrait.gameObject.SetActive(false);
+            StartCoroutine(ShowInkStory());
+            //not sure if true or false
+            startofDialogue = true;
+            soundEnded = true;
+            playSound = false;
+            ambientObj.SetActive(true);
+            AkSoundEngine.PostEvent(musicName, gameObject);
+            skip = false;
+            paperColor = paper.color;
+            paper.color = new Color(paperColor.r, paperColor.g, paperColor.b, 1f);
+            narratorTag.gameObject.SetActive(false);
+            smoke = backgroundAnim;
+            smoke.gameObject.SetActive(true);
 
-        //dialogue1
-        if(dialogueNumber == 1){
-            nameTag.text = "Old Man";
         }
+
+        else
+        {
+            //create ink file and set level loader. deactivate everything while levelloader is active, reset bools and set paper to invisible
+            inkStory = new Story(inkJSON.text);
+            GameObject levelLoader = GameObject.Find("LevelLoader");
+            levelLoader.gameObject.SetActive(true);
+            introText.text = "";
+            PlayerPortrait.gameObject.SetActive(false);
+            NPCPortrait.gameObject.SetActive(false);
+            startScene = true;
+            StartCoroutine(ShowInkStory());
+            startofDialogue = true;
+            soundEnded = true;
+            playSound = false;
+            ambientObj.SetActive(false);
+            Debug.Log("Ambient Off");
+            skip = false;
+            paperColor = paper.color;
+            paper.color = new Color(paperColor.r, paperColor.g, paperColor.b, 0f);
+            narratorTag.gameObject.SetActive(false);
+
+            //dialogue1
+            if(dialogueNumber == 1){
+                nameTag.text = "Old Man";
+            }
         
 
-        //change this object and position for each scene
-        smoke.gameObject.SetActive(false);
-
+            //change this object and position for each scene
+            smoke = backgroundAnim;
+            smoke.gameObject.SetActive(false);
+        }
+        
 
 
     }
@@ -142,7 +175,7 @@ public class DialogueInk : MonoBehaviour
             //set ink file
             inkJSON = dialogueObj1.inkfile;
             //set next scene to load
-
+            nextSceneNumber = dialogueObj1.nextScene;
         }
         
         else if (dialogueNumber == 2)
@@ -165,6 +198,7 @@ public class DialogueInk : MonoBehaviour
             //set ink file
             inkJSON = dialogueObj2.inkfile;
             //set next scene to load
+            nextSceneNumber = dialogueObj2.nextScene;
         }
     }
 
@@ -209,13 +243,16 @@ public class DialogueInk : MonoBehaviour
         {
             if (inkStory.canContinue)
             {
+                
                 if (choiceSelected || Input.GetMouseButtonDown(0) || startofDialogue)
                 {
-                    choiceSelected = false;
-                    startofDialogue = false;
-                    string text = inkStory.Continue();
-                    textSpeed = 0.04f;
-                    yield return StartCoroutine(LetterByLetter(text));
+                    
+                        choiceSelected = false;
+                        startofDialogue = false;
+                        string text = inkStory.Continue();
+                        textSpeed = 0.04f;
+                        yield return StartCoroutine(LetterByLetter(text));
+                    
                 }
 
             }
@@ -280,6 +317,25 @@ public class DialogueInk : MonoBehaviour
                 {
                     HighlightPlayer();
                     narratorTag.gameObject.SetActive(false);
+                }
+                if (tags[0] == "Tutorial")
+                {
+                    HighlightNPC();
+                    narratorTag.gameObject.SetActive(false);
+
+                    //this executes before the line finishes
+                    //PauseScene();
+                }
+
+                if (tags[0] == "ReceiveItem")
+                {
+                    NPCPortrait.gameObject.SetActive(false);
+                    AkSoundEngine.PostEvent("Play_Woosh_Narrator",gameObject);
+                    PlayerPortrait.gameObject.SetActive(false);
+                    narratorTag.gameObject.SetActive(true);
+
+                    //this executes before the line finishes
+                    //LoadNextScene();
                 }
             }
 
@@ -350,6 +406,14 @@ public class DialogueInk : MonoBehaviour
                 }
                 
                 skip = false;
+                //this is a test
+                if(tags[0] == "Tutorial"){
+                        //pause this scene and temporarily swtich to other scene
+                        PauseScene();
+                }
+                else if(tags[0] == "ReceiveItem"){
+                        LoadNextScene();
+                }
             }
             else
             {
@@ -412,6 +476,7 @@ public class DialogueInk : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (Input.GetMouseButtonDown(0) && !startScene)
         {
             //textSpeed = 0.0006f;
@@ -443,4 +508,20 @@ public class DialogueInk : MonoBehaviour
         NPCPortrait.gameObject.SetActive(false);
 
     }
+
+    void PauseScene()
+    {
+        string savedState = inkStory.state.ToJson();
+        PlayerPrefs.SetString("SavedInkState", savedState);
+
+        SceneManager.LoadScene("TestScene");
+    }
+
+    //end of dialogue
+    void LoadNextScene()
+    {
+        PlayerPrefs.DeleteKey("SavedInkState");
+        SceneManager.LoadScene(nextSceneNumber);
+    }
+
 }

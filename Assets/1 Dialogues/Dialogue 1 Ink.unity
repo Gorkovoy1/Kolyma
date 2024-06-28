@@ -779,7 +779,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5733221822405243115, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5733221823016957224, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
       propertyPath: m_Pivot.x
@@ -1051,9 +1051,9 @@ RectTransform:
   m_Children:
   - {fileID: 64073940}
   - {fileID: 1733045845}
+  - {fileID: 2001691936}
   - {fileID: 334542730}
   - {fileID: 16569438}
-  - {fileID: 2001691936}
   - {fileID: 1094276334}
   - {fileID: 1541222494}
   - {fileID: 112021736}
@@ -1183,6 +1183,7 @@ MonoBehaviour:
   ambientReplace: {fileID: 990953662}
   dialogueObj1: {fileID: 11400000, guid: 8f054f46d0a215c4faf0f8c2625111f1, type: 2}
   dialogueObj2: {fileID: 11400000, guid: 37f512111a594c74c963adf9a36f0bb7, type: 2}
+  nextSceneNumber: 0
 --- !u!114 &634617716 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3191542086940010076, guid: 42b182ca8a3cab245a2a6f4d44b4e27a, type: 3}
@@ -2877,7 +2878,7 @@ Transform:
   - {fileID: 1791887981}
   - {fileID: 1836161383}
   m_Father: {fileID: 627447208}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2039440116 stripped
 GameObject:
@@ -2993,6 +2994,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 627447208}
     m_Modifications:
+    - target: {fileID: 3317727039056993491, guid: ec588030d25a2ef478a0cb38b07a865e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3317727039135840956, guid: ec588030d25a2ef478a0cb38b07a865e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3003,7 +3008,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3317727039135840956, guid: ec588030d25a2ef478a0cb38b07a865e, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3317727039135840956, guid: ec588030d25a2ef478a0cb38b07a865e, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3081,6 +3086,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: D2BackgroundAnimations
       objectReference: {fileID: 0}
+    - target: {fileID: 3317727039135840959, guid: ec588030d25a2ef478a0cb38b07a865e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec588030d25a2ef478a0cb38b07a865e, type: 3}
 --- !u!1001 &3393754126765776911
@@ -3151,6 +3160,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 6376301019813242698, guid: e357a923dd6c78147bb2df2aa5a6ef04, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6376301021518508597, guid: e357a923dd6c78147bb2df2aa5a6ef04, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3161,7 +3174,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6376301021518508597, guid: e357a923dd6c78147bb2df2aa5a6ef04, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6376301021518508597, guid: e357a923dd6c78147bb2df2aa5a6ef04, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3189,15 +3202,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6376301021518508597, guid: e357a923dd6c78147bb2df2aa5a6ef04, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.41659003
+      value: 0.41659006
       objectReference: {fileID: 0}
     - target: {fileID: 6376301021518508597, guid: e357a923dd6c78147bb2df2aa5a6ef04, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.41659003
+      value: 0.41659006
       objectReference: {fileID: 0}
     - target: {fileID: 6376301021518508597, guid: e357a923dd6c78147bb2df2aa5a6ef04, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.41659003
+      value: 0.41659006
       objectReference: {fileID: 0}
     - target: {fileID: 6376301021518508597, guid: e357a923dd6c78147bb2df2aa5a6ef04, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3250,6 +3263,10 @@ PrefabInstance:
     - target: {fileID: 6376301021518508598, guid: e357a923dd6c78147bb2df2aa5a6ef04, type: 3}
       propertyPath: m_Name
       value: D1BackgroundAnimations
+      objectReference: {fileID: 0}
+    - target: {fileID: 6376301021518508598, guid: e357a923dd6c78147bb2df2aa5a6ef04, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6376301021624188827, guid: e357a923dd6c78147bb2df2aa5a6ef04, type: 3}
       propertyPath: m_AnchoredPosition.y
