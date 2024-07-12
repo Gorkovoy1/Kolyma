@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8c4b0f5056a06a4a92d94e75a182e1ae
     GuidInternal: 
-    m_lastTime: -8584833485230300357
+    m_lastTime: -8584808512516029499
     List:
     - name: Main
       guid: f16c33554f83c140a4a6a74ed017dafb
@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584833485259044235
+    m_lastTime: -8584808512516057315
     List:
     - name: Play_Breath
       guid: 5363e3411b7d924181237a6774b48d4a
@@ -181,6 +181,40 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Play_Crows
+      guid: 64ef8c3e3bc6114c8e3de75cfb01ea6d
+      id: 639442158
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Play_Crows
+        ObjectType: 3
+        guid: 64ef8c3e3bc6114c8e3de75cfb01ea6d
+      Path: Events\Default Work Unit\Play_Crows
+      maxAttenuation: 0
+      maxDuration: 2.8153565
+      minDuration: 2.1705234
+    - name: Play_Dogs_Bark
+      guid: 2175ade8841a244cb5e4cba5416166f8
+      id: 1892391772
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Play_Dogs_Bark
+        ObjectType: 3
+        guid: 2175ade8841a244cb5e4cba5416166f8
+      Path: Events\Default Work Unit\Play_Dogs_Bark
+      maxAttenuation: 0
+      maxDuration: 3
+      minDuration: 2.487203
     - name: Play_Music_Jail
       guid: 58865e42cb6cd4478b0c38599caf8c19
       id: 3643466302
@@ -249,6 +283,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Play_Wind
+      guid: 0cea0077f2c2864f84d108ea7b6fc822
+      id: 1020223172
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Play_Wind
+        ObjectType: 3
+        guid: 0cea0077f2c2864f84d108ea7b6fc822
+      Path: Events\Default Work Unit\Play_Wind
+      maxAttenuation: 0
+      maxDuration: 230
+      minDuration: 230
     - name: Play_Woosh_Narrator
       guid: 3d84342e3b1142439bd2c9258471bcdf
       id: 1714538498

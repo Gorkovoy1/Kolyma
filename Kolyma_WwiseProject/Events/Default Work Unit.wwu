@@ -113,6 +113,39 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Wind" ID="{7700EA0C-C2F2-4F86-84D1-08EA7B6FC822}">
+					<ChildrenList>
+						<Action Name="" ID="{B2C81587-BFBF-4F0E-87CA-526608889959}" ShortID="800606041">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Wind" ID="{636FD1DF-4647-499B-8DF1-CFFABA7E7242}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Crows" ID="{3E8CEF64-C63B-4C11-8E3D-E75CFB01EA6D}">
+					<ChildrenList>
+						<Action Name="" ID="{41C91A10-58FD-481A-AC80-A063B10757F5}" ShortID="131943725">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Crows" ID="{B66276D2-C30F-45A3-A68A-494CF07550F5}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Dogs_Bark" ID="{E8AD7521-1A84-4C24-B5E4-CBA5416166F8}">
+					<ChildrenList>
+						<Action Name="" ID="{FFB46BFE-6D82-4CD4-BC60-239B3082AC41}" ShortID="720662485">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Dogs" ID="{6256354F-4CB4-4530-AE50-2BF35A1A2379}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

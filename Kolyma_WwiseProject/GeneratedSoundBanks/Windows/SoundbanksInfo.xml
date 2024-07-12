@@ -22,101 +22,129 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{AB6DD135-8B58-5B43-75CA-E87611AF6311}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{9DF20544-AD84-C94E-76AC-F96A15D61C79}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
+				<File Id="2774197" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Dogs_Bark-003.wav</ShortName>
+					<CachePath>SFX/Dogs_Bark-003_1762D68A.wem</CachePath>
+				</File>
 				<File Id="90128117" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Clocks, Chime, Metallic Wall Clock, Chime Ringing SND102458.wav</ShortName>
 					<CachePath>SFX/Clocks, Chime, Metallic Wall Clock, Chime Ringing SND102458_D8B369E4.wem</CachePath>
 				</File>
+				<File Id="111452232" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Dogs_Bark-002.wav</ShortName>
+					<CachePath>SFX/Dogs_Bark-002_818F3B66.wem</CachePath>
+				</File>
 				<File Id="158641502" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Whisper-005.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Whisper-005_818F3B66.wem</CachePath>
+					<CachePath>SFX/Cell_SFX_Whisper-005_8E324C96.wem</CachePath>
 				</File>
 				<File Id="169040873" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Whisper-003.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Whisper-003_818F3B66.wem</CachePath>
+					<CachePath>SFX/Cell_SFX_Whisper-003_8E324C96.wem</CachePath>
 				</File>
 				<File Id="355118563" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-001.wav</ShortName>
-					<CachePath>SFX/typewriter_loop-001_87EEB116.wem</CachePath>
+					<CachePath>SFX/typewriter_loop-001_F1969806.wem</CachePath>
+				</File>
+				<File Id="381664103" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Dogs_Bark-001.wav</ShortName>
+					<CachePath>SFX/Dogs_Bark-001_818F3B66.wem</CachePath>
 				</File>
 				<File Id="415365781" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Cough-003.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Cough-003_818F3B66.wem</CachePath>
+					<CachePath>SFX/Cell_SFX_Cough-003_8E324C96.wem</CachePath>
 				</File>
 				<File Id="471573529" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Breath-001.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Breath-001_818F3B66.wem</CachePath>
+					<CachePath>SFX/Cell_SFX_Breath-001_8E324C96.wem</CachePath>
 				</File>
 				<File Id="499405862" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_Men_Talk.wav</ShortName>
-					<CachePath>SFX/Cell_Men_Talk_FBC78EF0.wem</CachePath>
+					<CachePath>SFX/Cell_Men_Talk_56CEF360.wem</CachePath>
 				</File>
 				<File Id="515368332" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Breath-002.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Breath-002_818F3B66.wem</CachePath>
+					<CachePath>SFX/Cell_SFX_Breath-002_8E324C96.wem</CachePath>
 				</File>
 				<File Id="543232325" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-002.wav</ShortName>
-					<CachePath>SFX/typewriter_loop-002_0B6A3E05.wem</CachePath>
+					<CachePath>SFX/typewriter_loop-002_E3B2BE55.wem</CachePath>
 				</File>
 				<File Id="543919465" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Breath-003.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Breath-003_818F3B66.wem</CachePath>
+					<CachePath>SFX/Cell_SFX_Breath-003_8E324C96.wem</CachePath>
 				</File>
 				<File Id="551756399" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-006.wav</ShortName>
-					<CachePath>SFX/typewriter_loop-006_4A5F658F.wem</CachePath>
+					<CachePath>SFX/typewriter_loop-006_647F6CFF.wem</CachePath>
 				</File>
 				<File Id="555626868" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-005.wav</ShortName>
-					<CachePath>SFX/typewriter_loop-005_1C724C78.wem</CachePath>
+					<CachePath>SFX/typewriter_loop-005_59D74268.wem</CachePath>
 				</File>
 				<File Id="570807466" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Doors, Dungeon, Stuck, Open, Long Reverb SND12490.wav</ShortName>
-					<CachePath>SFX/Doors, Dungeon, Stuck, Open, Long Reverb SND12490_0575F480.wem</CachePath>
+					<CachePath>SFX/Doors, Dungeon, Stuck, Open, Long Reverb SND12490_80D97D70.wem</CachePath>
 				</File>
 				<File Id="619077475" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>kolyma_jail 2.4.wav</ShortName>
-					<CachePath>SFX/kolyma_jail 2.4_FBC78EF0.wem</CachePath>
+					<CachePath>SFX/kolyma_jail 2.4_56CEF360.wem</CachePath>
 				</File>
 				<File Id="631340173" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Cough-002.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Cough-002_818F3B66.wem</CachePath>
+					<CachePath>SFX/Cell_SFX_Cough-002_8E324C96.wem</CachePath>
 				</File>
 				<File Id="646806883" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Whisper-001.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Whisper-001_818F3B66.wem</CachePath>
+					<CachePath>SFX/Cell_SFX_Whisper-001_8E324C96.wem</CachePath>
 				</File>
 				<File Id="737968334" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-003.wav</ShortName>
-					<CachePath>SFX/typewriter_loop-003_48E21D1C.wem</CachePath>
+					<CachePath>SFX/typewriter_loop-003_507B088C.wem</CachePath>
+				</File>
+				<File Id="741442873" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>crows-001.wav</ShortName>
+					<CachePath>SFX/crows-001_F41B4F87.wem</CachePath>
 				</File>
 				<File Id="766949846" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Whisper-004.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Whisper-004_818F3B66.wem</CachePath>
+					<CachePath>SFX/Cell_SFX_Whisper-004_8E324C96.wem</CachePath>
+				</File>
+				<File Id="768703265" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Wind.wav</ShortName>
+					<CachePath>SFX/Wind_818F3B66.wem</CachePath>
 				</File>
 				<File Id="891624205" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Whisper-002.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Whisper-002_818F3B66.wem</CachePath>
+					<CachePath>SFX/Cell_SFX_Whisper-002_8E324C96.wem</CachePath>
 				</File>
 				<File Id="897836571" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Cough-001.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Cough-001_818F3B66.wem</CachePath>
+					<CachePath>SFX/Cell_SFX_Cough-001_8E324C96.wem</CachePath>
 				</File>
 				<File Id="912648772" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-004.wav</ShortName>
-					<CachePath>SFX/typewriter_loop-004_971CF5D3.wem</CachePath>
+					<CachePath>SFX/typewriter_loop-004_F031F9C3.wem</CachePath>
 				</File>
 				<File Id="927065734" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Menu Click2.wav</ShortName>
-					<CachePath>SFX/Menu Click2_EAD471C1.wem</CachePath>
+					<CachePath>SFX/Menu Click2_513CAFF1.wem</CachePath>
+				</File>
+				<File Id="934665564" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>crows-002.wav</ShortName>
+					<CachePath>SFX/crows-002_EC64EAEB.wem</CachePath>
+				</File>
+				<File Id="1005253697" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Dogs_Bark-004.wav</ShortName>
+					<CachePath>SFX/Dogs_Bark-004_62B222AC.wem</CachePath>
 				</File>
 				<File Id="1069812879" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX_NARRATOR.wav</ShortName>
-					<CachePath>SFX/SFX_NARRATOR_818F3B66.wem</CachePath>
+					<CachePath>SFX/SFX_NARRATOR_8E324C96.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
@@ -149,6 +177,20 @@
 						<MediaRef Id="897836571"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="639442158" Name="Play_Crows" DurationType="OneShot" DurationMin="2.1705234" DurationMax="2.8153565">
+					<MediaRefs>
+						<MediaRef Id="741442873"/>
+						<MediaRef Id="934665564"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1892391772" Name="Play_Dogs_Bark" DurationType="OneShot" DurationMin="2.487203" DurationMax="3">
+					<MediaRefs>
+						<MediaRef Id="2774197"/>
+						<MediaRef Id="111452232"/>
+						<MediaRef Id="381664103"/>
+						<MediaRef Id="1005253697"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3643466302" Name="Play_Music_Jail" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="619077475"/>
@@ -178,6 +220,11 @@
 						<MediaRef Id="891624205"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="1020223172" Name="Play_Wind" DurationType="OneShot" DurationMin="230" DurationMax="230">
+					<MediaRefs>
+						<MediaRef Id="768703265"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="1714538498" Name="Play_Woosh_Narrator" DurationType="OneShot" DurationMin="3.8133106" DurationMax="3.8133106">
 					<MediaRefs>
 						<MediaRef Id="1069812879"/>
@@ -186,5 +233,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{7F2B1F62-1836-CB1D-4137-D3AC8B5C80C8}</FileHash>
+	<FileHash>{33AAC9BF-9B65-E98D-9BA9-3847EA92D50D}</FileHash>
 </SoundBanksInfo>

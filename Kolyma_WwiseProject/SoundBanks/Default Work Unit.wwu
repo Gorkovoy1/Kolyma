@@ -12,9 +12,13 @@
 						<ObjectRef Name="Play_Cough" ID="{F032EAC0-900D-47CC-9F2D-E13E51F94076}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Music_Jail" ID="{425E8658-6CCB-47D4-8B0C-38599CAF8C19}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Click" ID="{292D2C3D-DA5A-4840-B2EB-693B20A41DEB}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Events" ID="{A69BF0FC-D84A-487C-ABDD-56F71CB2A126}" WorkUnitID="{A69BF0FC-D84A-487C-ABDD-56F71CB2A126}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Whisper" ID="{DFE82EAB-27EE-494C-BDCB-46D15021F84B}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Screen_Sfx" ID="{6629AA1A-B4A3-4B4A-91DB-2D799B805D35}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Crows" ID="{3E8CEF64-C63B-4C11-8E3D-E75CFB01EA6D}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Dogs_Bark" ID="{E8AD7521-1A84-4C24-B5E4-CBA5416166F8}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Cell_Door" ID="{DE3448CB-EC18-4E85-887F-0BB7F1D694B3}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Wind" ID="{7700EA0C-C2F2-4F86-84D1-08EA7B6FC822}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
