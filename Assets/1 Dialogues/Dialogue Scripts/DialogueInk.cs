@@ -73,9 +73,9 @@ public class DialogueInk : MonoBehaviour
     public SpriteRenderer NPCBlack;
     public SpriteRenderer NPCColor;
     public TextMeshProUGUI loaderText;
-    public GameObject backgroundAnim;
-    public GameObject screenSFX;
-    public GameObject ambientReplace;
+    public GameObject backgroundAnimParent;
+    public GameObject screenSFXParent;
+    public GameObject ambientParent;
 
     public DialogueScriptableObject dialogueObj1;
     public DialogueScriptableObject dialogueObj2;
@@ -111,7 +111,8 @@ public class DialogueInk : MonoBehaviour
             paperColor = paper.color;
             paper.color = new Color(paperColor.r, paperColor.g, paperColor.b, 1f);
             narratorTag.gameObject.SetActive(false);
-            smoke = backgroundAnim;
+            //??? change?
+            smoke = backgroundAnimParent;
             smoke.gameObject.SetActive(true);
 
         }
@@ -144,7 +145,7 @@ public class DialogueInk : MonoBehaviour
         
 
             //change this object and position for each scene
-            smoke = backgroundAnim;
+            smoke = backgroundAnimParent;
             smoke.gameObject.SetActive(false);
         }
         
@@ -163,15 +164,27 @@ public class DialogueInk : MonoBehaviour
             NPCBlack.sprite = dialogueObj1.npcBlack;
             NPCColor.sprite = dialogueObj1.npcColor;
             //set smoke/background animations
-            backgroundAnim = dialogueObj1.bganim;
+            foreach(Transform child in backgroundAnimParent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            GameObject newBgAnim = Instantiate(dialogueObj1.bganim, backgroundAnimParent.transform);
             //set loader text
             loaderText.text = dialogueObj1.line1 + Environment.NewLine + Environment.NewLine + dialogueObj1.line2;
             //set Music
             musicName = dialogueObj1.music;
-            //set ambient sounds 
-            ambientReplace = dialogueObj1.ambient;
+            //set ambient sounds, delete all children and instantiate teh correct new prefab 
+            foreach (Transform child in ambientParent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            GameObject newAmbient = Instantiate(dialogueObj1.ambient, ambientParent.transform);
             //set opening sound (jail door sfx)
-            screenSFX = dialogueObj1.sfx;
+            foreach(Transform child in screenSFXParent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            GameObject newSFX = Instantiate(dialogueObj1.sfx, screenSFXParent.transform);
             //set ink file
             inkJSON = dialogueObj1.inkfile;
             //set next scene to load
@@ -186,15 +199,27 @@ public class DialogueInk : MonoBehaviour
             NPCBlack.sprite = dialogueObj2.npcBlack;
             NPCColor.sprite = dialogueObj2.npcColor;
             //set smoke/background animations
-            backgroundAnim = dialogueObj2.bganim;
+            foreach(Transform child in backgroundAnimParent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            GameObject newBgAnim = Instantiate(dialogueObj2.bganim, backgroundAnimParent.transform);
             //set loader text
             loaderText.text = dialogueObj2.line1 + Environment.NewLine + Environment.NewLine + dialogueObj2.line2;
             //set Music
             musicName = dialogueObj2.music;
-            //set ambient sounds
-            ambientReplace = dialogueObj2.ambient;
+            //set ambient sounds, delete all children and instantiate teh correct new prefab 
+            foreach (Transform child in ambientParent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            GameObject newAmbient = Instantiate(dialogueObj2.ambient, ambientParent.transform);
             //set opening sound (jail door sfx)
-            screenSFX = dialogueObj2.sfx;
+            foreach(Transform child in screenSFXParent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            GameObject newSFX = Instantiate(dialogueObj1.sfx, screenSFXParent.transform);
             //set ink file
             inkJSON = dialogueObj2.inkfile;
             //set next scene to load
