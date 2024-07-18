@@ -146,6 +146,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Music_Camp_Day" ID="{C58169C9-01AD-436F-A815-A4D024B846BC}">
+					<ChildrenList>
+						<Action Name="" ID="{90B0789C-663D-4682-9D2F-102954CDD8AD}" ShortID="973600481">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Camp" ID="{4852A7B7-3CAE-4EEA-BD11-7970B7B049DD}" WorkUnitID="{01660F24-42EF-4118-9DAA-A2B4ACD5D295}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

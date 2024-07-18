@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584806266416505175
+    m_lastTime: -8584803365917260709
     List:
     - name: Play_Breath
       guid: 5363e3411b7d924181237a6774b48d4a
@@ -215,6 +215,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 3
       minDuration: 2.487203
+    - name: Play_Music_Camp_Day
+      guid: c96981c5ad016f43a815a4d024b846bc
+      id: 2741544670
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Play_Music_Camp_Day
+        ObjectType: 3
+        guid: c96981c5ad016f43a815a4d024b846bc
+      Path: Events\Default Work Unit\Play_Music_Camp_Day
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Play_Music_Jail
       guid: 58865e42cb6cd4478b0c38599caf8c19
       id: 3643466302

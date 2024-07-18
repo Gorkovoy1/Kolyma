@@ -22,13 +22,13 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{9DF20544-AD84-C94E-76AC-F96A15D61C79}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{36A3D8D8-A64E-2919-D057-574A7568168B}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
 				<File Id="2774197" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Dogs_Bark-003.wav</ShortName>
-					<CachePath>SFX/Dogs_Bark-003_1762D68A.wem</CachePath>
+					<CachePath>SFX/Dogs_Bark-003_57DD6703.wem</CachePath>
 				</File>
 				<File Id="90128117" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Clocks, Chime, Metallic Wall Clock, Chime Ringing SND102458.wav</ShortName>
@@ -36,7 +36,7 @@
 				</File>
 				<File Id="111452232" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Dogs_Bark-002.wav</ShortName>
-					<CachePath>SFX/Dogs_Bark-002_818F3B66.wem</CachePath>
+					<CachePath>SFX/Dogs_Bark-002_8E324C96.wem</CachePath>
 				</File>
 				<File Id="158641502" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Whisper-005.wav</ShortName>
@@ -46,13 +46,17 @@
 					<ShortName>Cell_SFX_Whisper-003.wav</ShortName>
 					<CachePath>SFX/Cell_SFX_Whisper-003_8E324C96.wem</CachePath>
 				</File>
+				<File Id="328403887" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>kolyma daytime 1.4.wav</ShortName>
+					<CachePath>SFX/kolyma daytime 1.4_FBC78EF0.wem</CachePath>
+				</File>
 				<File Id="355118563" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-001.wav</ShortName>
 					<CachePath>SFX/typewriter_loop-001_F1969806.wem</CachePath>
 				</File>
 				<File Id="381664103" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Dogs_Bark-001.wav</ShortName>
-					<CachePath>SFX/Dogs_Bark-001_818F3B66.wem</CachePath>
+					<CachePath>SFX/Dogs_Bark-001_8E324C96.wem</CachePath>
 				</File>
 				<File Id="415365781" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Cough-003.wav</ShortName>
@@ -108,7 +112,7 @@
 				</File>
 				<File Id="741442873" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>crows-001.wav</ShortName>
-					<CachePath>SFX/crows-001_F41B4F87.wem</CachePath>
+					<CachePath>SFX/crows-001_69362260.wem</CachePath>
 				</File>
 				<File Id="766949846" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Whisper-004.wav</ShortName>
@@ -116,7 +120,7 @@
 				</File>
 				<File Id="768703265" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Wind.wav</ShortName>
-					<CachePath>SFX/Wind_818F3B66.wem</CachePath>
+					<CachePath>SFX/Wind_8E324C96.wem</CachePath>
 				</File>
 				<File Id="891624205" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Whisper-002.wav</ShortName>
@@ -136,11 +140,11 @@
 				</File>
 				<File Id="934665564" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>crows-002.wav</ShortName>
-					<CachePath>SFX/crows-002_EC64EAEB.wem</CachePath>
+					<CachePath>SFX/crows-002_85CABCE8.wem</CachePath>
 				</File>
 				<File Id="1005253697" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Dogs_Bark-004.wav</ShortName>
-					<CachePath>SFX/Dogs_Bark-004_62B222AC.wem</CachePath>
+					<CachePath>SFX/Dogs_Bark-004_F9AC0766.wem</CachePath>
 				</File>
 				<File Id="1069812879" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX_NARRATOR.wav</ShortName>
@@ -191,6 +195,11 @@
 						<MediaRef Id="1005253697"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="2741544670" Name="Play_Music_Camp_Day" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="328403887"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3643466302" Name="Play_Music_Jail" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="619077475"/>
@@ -233,5 +242,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{33AAC9BF-9B65-E98D-9BA9-3847EA92D50D}</FileHash>
+	<FileHash>{9026EF35-59AA-8818-391A-C0B5E1E3C7EA}</FileHash>
 </SoundBanksInfo>
