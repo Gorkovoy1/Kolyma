@@ -17,7 +17,7 @@ MonoBehaviour:
   npcColor: {fileID: 21300000, guid: 1f0271b5e7f372f4cadb1fd442335385, type: 3}
   line1: Saturday, December 3rd, 1938
   line2: North East Labour Camp, Kolyma Region, The Soviet Union
-  music: Play_Music_Jail
+  music: Play_Music_Camp_Day
   inkfile: {fileID: 4900000, guid: d7b72d5111ddb1b4281902ec097761e8, type: 3}
   nextScene: 2
   ambient: {fileID: 262539234301657156, guid: 3b0569d671e60ff4998bf31c5bb440a2, type: 3}
