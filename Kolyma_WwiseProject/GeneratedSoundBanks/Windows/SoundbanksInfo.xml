@@ -22,7 +22,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{36A3D8D8-A64E-2919-D057-574A7568168B}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{1704C6C6-C293-A3E9-07E6-7854DB98986F}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -122,6 +122,10 @@
 					<ShortName>Wind.wav</ShortName>
 					<CachePath>SFX/Wind_8E324C96.wem</CachePath>
 				</File>
+				<File Id="850000760" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Truck_Arrives.wav</ShortName>
+					<CachePath>SFX/Truck_Arrives_8E324C96.wem</CachePath>
+				</File>
 				<File Id="891624205" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Whisper-002.wav</ShortName>
 					<CachePath>SFX/Cell_SFX_Whisper-002_8E324C96.wem</CachePath>
@@ -181,13 +185,13 @@
 						<MediaRef Id="897836571"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="639442158" Name="Play_Crows" DurationType="OneShot" DurationMin="2.1705234" DurationMax="2.8153565">
+				<Event Id="639442158" Name="Play_Crows" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="741442873"/>
 						<MediaRef Id="934665564"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1892391772" Name="Play_Dogs_Bark" DurationType="OneShot" DurationMin="2.487203" DurationMax="3">
+				<Event Id="1892391772" Name="Play_Dogs_Bark" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="2774197"/>
 						<MediaRef Id="111452232"/>
@@ -208,6 +212,11 @@
 				<Event Id="1112221790" Name="Play_Screen_Sfx" DurationType="OneShot" DurationMin="7.49264" DurationMax="7.49264">
 					<MediaRefs>
 						<MediaRef Id="90128117"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1064403750" Name="Play_Truck_Arrives" DurationType="OneShot" DurationMin="16.869999" DurationMax="16.869999">
+					<MediaRefs>
+						<MediaRef Id="850000760"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="57706899" Name="Play_Typewriter" DurationType="OneShot" DurationMin="0.5450275" DurationMax="1.1041912">
@@ -242,5 +251,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{9026EF35-59AA-8818-391A-C0B5E1E3C7EA}</FileHash>
+	<FileHash>{30805775-50BD-E34E-CB0C-0A605CB1879D}</FileHash>
 </SoundBanksInfo>

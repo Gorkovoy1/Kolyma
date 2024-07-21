@@ -22,4 +22,4 @@ MonoBehaviour:
   nextScene: 2
   ambient: {fileID: 262539234301657156, guid: 3b0569d671e60ff4998bf31c5bb440a2, type: 3}
   bganim: {fileID: 3317727039135840959, guid: ec588030d25a2ef478a0cb38b07a865e, type: 3}
-  sfx: {fileID: 3393754126600923965, guid: 26dca8aa7cf0da14a861bb78ff2b9097, type: 3}
+  sfx: {fileID: 1123221201544408172, guid: 914bcdc873a69ed4690103a07d2ab5dc, type: 3}

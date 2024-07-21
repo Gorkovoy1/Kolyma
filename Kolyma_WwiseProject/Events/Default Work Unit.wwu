@@ -157,6 +157,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Truck_Arrives" ID="{2962A1DE-AD5C-4C5C-9DAC-DF62D8BFAE9C}">
+					<ChildrenList>
+						<Action Name="" ID="{C7A3BAFC-42E9-443A-A96C-ED2BC3510F42}" ShortID="169880434">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Truck_Arrives" ID="{293EE730-78CB-4195-8546-3EDA33DCD695}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

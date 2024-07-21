@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3393754126600923960}
   - component: {fileID: 3393754126600923961}
   - component: {fileID: 3393754126600923962}
-  - component: {fileID: 3393754126600923963}
+  - component: {fileID: -8455361389957393070}
   m_Layer: 0
   m_Name: Sfx_Screen
   m_TagString: Untagged
@@ -107,7 +107,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3393754126600923963
+--- !u!114 &-8455361389957393070
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3393754126600923965}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da74a6682ef8cd34883626605922ffdb, type: 3}
+  m_Script: {fileID: 11500000, guid: 384aaf24ba9908b4ea476d44fba22ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   triggerList: f7e1664c
@@ -136,8 +136,3 @@ MonoBehaviour:
   eventIdInternal: 0
   valueGuidInternal: 
   m_callbackDataInternal: {fileID: 0}
-  MultiPositionType: 1
-  multiPositionTypeLabel: 0
-  attenuationSphereColor: {r: 1, g: 0, b: 0, a: 0.1}
-  LargeModePositions: []
-  multiPositionArray: []

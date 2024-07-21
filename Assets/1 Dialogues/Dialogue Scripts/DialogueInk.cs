@@ -89,6 +89,7 @@ public class DialogueInk : MonoBehaviour
 
         //load assets depending on scriptable object
         DialogueSetUp(); 
+        screenSFXParent.gameObject.SetActive(true);
 
         if (PlayerPrefs.HasKey("SavedInkState"))
         { 
@@ -219,7 +220,7 @@ public class DialogueInk : MonoBehaviour
             {
                 Destroy(child.gameObject);
             }
-            GameObject newSFX = Instantiate(dialogueObj1.sfx, screenSFXParent.transform);
+            GameObject newSFX = Instantiate(dialogueObj2.sfx, screenSFXParent.transform);
             //set ink file
             inkJSON = dialogueObj2.inkfile;
             //set next scene to load

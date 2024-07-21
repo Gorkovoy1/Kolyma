@@ -4,6 +4,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	386574545	Play_Cell_Door			\Default Work Unit\Play_Cell_Door	
 	639442158	Play_Crows			\Default Work Unit\Play_Crows	
 	1020223172	Play_Wind			\Default Work Unit\Play_Wind	
+	1064403750	Play_Truck_Arrives			\Default Work Unit\Play_Truck_Arrives	
 	1112221790	Play_Screen_Sfx			\Default Work Unit\Play_Screen_Sfx	
 	1420083155	Play_Cell_Men			\Default Work Unit\Play_Cell_Men	
 	1714538498	Play_Woosh_Narrator			\Default Work Unit\Play_Woosh_Narrator	
@@ -39,6 +40,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	741442873	Crow_01	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\crows-001_69362260.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camp_SFX\Crows\Crow_01		35386
 	766949846	Cell_SFX_Whisper-004	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_SFX_Whisper-004_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Whisper\Cell_SFX_Whisper-004		17716
 	768703265	Wind	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Wind_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camp_SFX\Wind		2996785
+	850000760	Truck_Arrives	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Truck_Arrives_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camp_SFX\Truck_Arrives		161197
 	891624205	Cell_SFX_Whisper-002	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_SFX_Whisper-002_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Whisper\Cell_SFX_Whisper-002		43719
 	897836571	Cell_SFX_Cough-001	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_SFX_Cough-001_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Cough\Cell_SFX_Cough-001		42999
 	912648772	Typewriter_Loop_4	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\typewriter_loop-004_F031F9C3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text_Box\Typewriter_Loops\Typewriter_Loop_4		12998
