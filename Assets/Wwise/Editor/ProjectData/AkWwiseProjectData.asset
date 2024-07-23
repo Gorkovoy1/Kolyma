@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8c4b0f5056a06a4a92d94e75a182e1ae
     GuidInternal: 
-    m_lastTime: -8584806266397978189
+    m_lastTime: -8584800089870336783
     List:
     - name: Main
       guid: f16c33554f83c140a4a6a74ed017dafb
@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584803364191722552
+    m_lastTime: -8584800089870306843
     List:
     - name: Play_Breath
       guid: 5363e3411b7d924181237a6774b48d4a
@@ -196,8 +196,8 @@ MonoBehaviour:
         guid: 64ef8c3e3bc6114c8e3de75cfb01ea6d
       Path: Events\Default Work Unit\Play_Crows
       maxAttenuation: 0
-      maxDuration: 2.8153565
-      minDuration: 2.1705234
+      maxDuration: -1
+      minDuration: -1
     - name: Play_Dogs_Bark
       guid: 2175ade8841a244cb5e4cba5416166f8
       id: 1892391772
@@ -213,8 +213,8 @@ MonoBehaviour:
         guid: 2175ade8841a244cb5e4cba5416166f8
       Path: Events\Default Work Unit\Play_Dogs_Bark
       maxAttenuation: 0
-      maxDuration: 3
-      minDuration: 2.487203
+      maxDuration: -1
+      minDuration: -1
     - name: Play_Music_Camp_Day
       guid: c96981c5ad016f43a815a4d024b846bc
       id: 2741544670
@@ -266,6 +266,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 7.49264
       minDuration: 7.49264
+    - name: Play_Truck_Arrives
+      guid: dea162295cad5c4c9dacdf62d8bfae9c
+      id: 1064403750
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Play_Truck_Arrives
+        ObjectType: 3
+        guid: dea162295cad5c4c9dacdf62d8bfae9c
+      Path: Events\Default Work Unit\Play_Truck_Arrives
+      maxAttenuation: 0
+      maxDuration: 14.57
+      minDuration: 14.57
     - name: Play_Typewriter
       guid: 5e0e236cb18e67459def99af8593ebaa
       id: 57706899
