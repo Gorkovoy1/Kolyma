@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96aad3be9edec2e44bd7bf51b7760e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  morningFog: {fileID: 1886955173559894290}
+  VFX: {fileID: 1886955173559894290}
   speed: 0.185
 --- !u!1 &1886955173559894303
 GameObject:
@@ -186,6 +186,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChimneySmoke
       objectReference: {fileID: 0}
+    - target: {fileID: 1130676521236565581, guid: f313cd1c63fcf814e9adfb99ab4c8005, type: 3}
+      propertyPath: VFX
+      value: 
+      objectReference: {fileID: 1886955173355315577}
     - target: {fileID: 1130676521236565584, guid: f313cd1c63fcf814e9adfb99ab4c8005, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -244,6 +248,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f313cd1c63fcf814e9adfb99ab4c8005, type: 3}
+--- !u!2083052967 &1886955173355315577 stripped
+VisualEffect:
+  m_CorrespondingSourceObject: {fileID: 1130676521236565587, guid: f313cd1c63fcf814e9adfb99ab4c8005, type: 3}
+  m_PrefabInstance: {fileID: 1558025524633399082}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1886955173355315578 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1130676521236565584, guid: f313cd1c63fcf814e9adfb99ab4c8005, type: 3}

@@ -141,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3191542086940010076, guid: 42b182ca8a3cab245a2a6f4d44b4e27a, type: 3}
       propertyPath: m_Colors.m_HighlightedColor.a
-      value: 1
+      value: 0.8156863
       objectReference: {fileID: 0}
     - target: {fileID: 3191542086940010076, guid: 42b182ca8a3cab245a2a6f4d44b4e27a, type: 3}
       propertyPath: m_Colors.m_HighlightedColor.b
@@ -779,7 +779,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5733221822405243115, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5733221823016957224, guid: f2a1acc2035ac8d448ba8e9cc770da30, type: 3}
       propertyPath: m_Pivot.x

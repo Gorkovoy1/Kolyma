@@ -123,5 +123,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96aad3be9edec2e44bd7bf51b7760e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  morningFog: {fileID: 0}
+  morningFog: {fileID: 1130676521236565587}
   speed: 0.55
