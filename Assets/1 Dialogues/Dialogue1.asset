@@ -15,6 +15,7 @@ MonoBehaviour:
   bg: {fileID: 21300000, guid: 424f323d386b8b6449dac592b3a9256d, type: 3}
   npcBlack: {fileID: 21300000, guid: 71c046761219e144cafd5de105047338, type: 3}
   npcColor: {fileID: 21300000, guid: 0f1d7de65ab799343a0988cf6a3528da, type: 3}
+  npcName: Andreyev
   line1: Wednesday, November 30th, 1938
   line2: Magadan, City Jail, The Soviet Union
   music: Play_Music_Jail

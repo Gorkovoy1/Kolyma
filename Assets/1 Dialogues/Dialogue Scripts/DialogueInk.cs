@@ -164,6 +164,8 @@ public class DialogueInk : MonoBehaviour
             //set NPCPortrait
             NPCBlack.sprite = dialogueObj1.npcBlack;
             NPCColor.sprite = dialogueObj1.npcColor;
+            //set NPC nameTag
+            nameTag.text = dialogueObj1.npcName;
             //set smoke/background animations
             foreach(Transform child in backgroundAnimParent.transform)
             {
@@ -199,6 +201,8 @@ public class DialogueInk : MonoBehaviour
             //set NPCPortrait
             NPCBlack.sprite = dialogueObj2.npcBlack;
             NPCColor.sprite = dialogueObj2.npcColor;
+            //set NPC nameTag
+            nameTag.text = dialogueObj2.npcName;
             //set smoke/background animations
             foreach(Transform child in backgroundAnimParent.transform)
             {
