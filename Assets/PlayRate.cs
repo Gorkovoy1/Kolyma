@@ -11,7 +11,7 @@ public class PlayRate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = 0.185f;
+        
     }
 
     // Update is called once per frame
