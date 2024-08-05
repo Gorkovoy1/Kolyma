@@ -24,7 +24,7 @@ public class CharacterInstance : MonoBehaviour
     public bool IsAI;
     private CardGameAI AIScript;
 
-    public void Init(CardGameCharacter character, NumberCardOrganizer positiveCardZone, NumberCardOrganizer negativeCardZone, bool isAI)
+    public void Init(CardGameCharacter character, NumberCardOrganizer positiveCardZone, NumberCardOrganizer negativeCardZone, bool isAI, CharacterInstance opponent)
     {
         this.character = character;
         PositiveCardsZone = positiveCardZone;
@@ -33,7 +33,7 @@ public class CharacterInstance : MonoBehaviour
         if(IsAI)
         {
             AIScript = gameObject.AddComponent<CardGameAI>();
-            AIScript.Init(this);
+            AIScript.Init(this, opponent);
         }
     }
 

@@ -42,23 +42,29 @@ public class CardSelectionHandler : MonoBehaviour
     {
         SelectingCards = true;
         CurrSettings = cardSelectSettings;
-
-        CardType cardType = cardSelectSettings.cardType;
         CharacterInstance targetCharacter = cardSelectSettings.targetCharacter;
 
-        if(cardType == CardType.Number)
+        if (cardSelectSettings.SpecificCards != null)
         {
-            SelectableCards = targetCharacter.numberDisplayHand;
+            SelectableCards = cardSelectSettings.SpecificCards;            
         }
-        else if(cardType == CardType.Special)
+        else
         {
-            SelectableCards = targetCharacter.specialDisplayHand;
+            CardType cardType = cardSelectSettings.cardType;
+            
+            if (cardType == CardType.Number)
+            {
+                SelectableCards = targetCharacter.numberDisplayHand;
+            }
+            else if (cardType == CardType.Special)
+            {
+                SelectableCards = targetCharacter.specialDisplayHand;
+            }
+            SelectedCards = new List<DisplayCard>();
+
+            if (SelectingCharacter == CardGameManager.Instance.player)
+                ToggleCardsSelectable(true);
         }
-        SelectedCards = new List<DisplayCard>();
-
-        if(SelectingCharacter == CardGameManager.Instance.player)
-            ToggleCardsSelectable(true);
-
         Debug.Log(targetCharacter.character.name + " starts selecting cards!");
     }
 
@@ -86,9 +92,6 @@ public class CardSelectionHandler : MonoBehaviour
         this.SelectingCharacter = null;
         SelectingCards = false;
         ToggleCardsSelectable(false);
-
-
-
     }
 
     public bool CheckConditionsMet()

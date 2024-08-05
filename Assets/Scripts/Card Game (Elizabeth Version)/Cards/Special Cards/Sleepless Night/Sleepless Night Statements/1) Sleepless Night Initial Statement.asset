@@ -10,20 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 327d55ff20d3ad245bf2bb59c393f897, type: 3}
-  m_Name: 1) Backstab Discard Initial Statement
+  m_Name: 1) Sleepless Night Initial Statement
   m_EditorClassIdentifier: 
-  Condition: 4
+  Condition: 5
   ConditonalTarget: 2
-  ConditionalCardType: 0
+  ConditionalCardType: 3
   ConditionalValues: 
   ConditionalNumberClass: 0
   StatementOnSuccess: {fileID: 0}
-  EffectsOnSuccess: 01000000
+  EffectsOnSuccess: 04000000
   TargetsOnSuccess: 02000000
-  CardTypesOnSuccess: 00000000
-  ValuesOnSuccess: 02000000
+  CardTypesOnSuccess: 03000000
+  CardClassOnSuccess: 
+  ValuesOnSuccess: 01000000
+  SecondaryValuesOnSuccess: 
   StatementOnFail: {fileID: 0}
   EffectsOnFail: 
   TargetsOnFail: 
   CardTypesOnFail: 
+  CardClassOnFail: 
   ValuesOnFail: 
+  SecondaryValuesOnFail: 

@@ -9,6 +9,8 @@ public class CardGameLog : MonoBehaviour
 
     public static CardGameLog Instance;
 
+    int logNumber;
+
     private void Awake()
     {
         Instance = this;
@@ -16,11 +18,14 @@ public class CardGameLog : MonoBehaviour
 
     public void AddToLog(string newText)
     {
-        Text.text = "-" + newText + "\n" + Text.text;
+        logNumber++;
+        Text.text = logNumber + ") " + newText + "\n" + Text.text;
+        Debug.Log(logNumber + ") " + newText);
     }
 
     public void ClearLog()
     {
+        logNumber = 0;
         Text.text = "";
     }
 }

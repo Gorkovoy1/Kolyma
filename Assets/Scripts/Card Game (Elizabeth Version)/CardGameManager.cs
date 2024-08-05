@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public struct CardSelectSettings
 {
+    public readonly List<DisplayCard> SpecificCards { get; }
+
     public readonly int numCards { get; }
     public readonly CardType cardType { get; }
     public readonly Effect selectionPurpose { get; }
@@ -12,11 +14,19 @@ public struct CardSelectSettings
     public readonly CharacterInstance targetCharacter; 
     public readonly bool setupPlayerUI { get; }
 
-    public CardSelectSettings(int number, CardType card, Effect effect, CharacterInstance character, bool playerUI)
+    public CardSelectSettings(int number, CardType card, Effect effect, CharacterInstance character, bool playerUI) : this()
     {
         numCards = number;
         cardType = card;
         selectionPurpose = effect;
+        targetCharacter = character;
+        setupPlayerUI = playerUI;
+    }
+
+    public CardSelectSettings(List<DisplayCard> specificCards, int number, CharacterInstance character, bool playerUI) : this()
+    {
+        SpecificCards = specificCards;
+        numCards = number;
         targetCharacter = character;
         setupPlayerUI = playerUI;
     }
@@ -78,27 +88,14 @@ public class CardGameManager : MonoBehaviour
 
     public bool CharacterSelecting;
 
+    public bool PlayerAI;
+
     void Awake()
     {
         Instance = this;
         CardSelectionHandler = gameObject.AddComponent<CardSelectionHandler>();
         SetNewState(State.INIT);
     }
-
-    // Update is called once per frame
-    /*void Update()
-    {
-        //check if we need to be selecting cards because a selection event is queued
-        if (cardSelectStack.Count > 0 && GameState != State.SELECTCARDS) {
-            //prevState = state;
-            SetNewState(State.SELECTCARDS);
-            //state = State.SELECTCARDS;
-        }
-        if(CharacterSelecting)
-        {
-            CardGameUIManager.Instance.ToggleSelectConfirmButton(CardSelectionHandler.CheckConditionsMet());
-        }
-    }*/
 
     public void SetNewState(State newState, CharacterInstance triggeringCharacter = null)
     {
@@ -162,11 +159,11 @@ public class CardGameManager : MonoBehaviour
         GameObject newPlayerObj = new GameObject();
         newPlayerObj.name = "Player";
         player = newPlayerObj.AddComponent<CharacterInstance>();
-        player.Init(playerCharacter, CardGameUIManager.Instance.PlayerPositiveCardZone, CardGameUIManager.Instance.PlayerNegativeCardZone, false);
         GameObject newOppObj = new GameObject();
-        newOppObj.name = "Opponent";
         opponent = newOppObj.AddComponent<CharacterInstance>();
-        opponent.Init(opponentCharacter, CardGameUIManager.Instance.OpponentPositiveCardZone, CardGameUIManager.Instance.OpponentNegativeCardZone, true);
+        player.Init(playerCharacter, CardGameUIManager.Instance.PlayerPositiveCardZone, CardGameUIManager.Instance.PlayerNegativeCardZone, PlayerAI, opponent);
+        newOppObj.name = "Opponent";
+        opponent.Init(opponentCharacter, CardGameUIManager.Instance.OpponentPositiveCardZone, CardGameUIManager.Instance.OpponentNegativeCardZone, true, player);
         CardGameUIManager.Instance.Init(player, opponent);
         player.FlushGameplayVariables();
         opponent.FlushGameplayVariables();
@@ -300,7 +297,7 @@ public class CardGameManager : MonoBehaviour
 
     void PlayerTurn()
     {
-        CardGameLog.Instance.AddToLog("Player Turn!");
+        //CardGameLog.Instance.AddToLog("Player Turn!");
         CurrentCharacter = player;
         SelectingCharacter = player;
         OnCharacterChange(player);
@@ -313,7 +310,7 @@ public class CardGameManager : MonoBehaviour
 
     void OpponentTurn()
     {
-        CardGameLog.Instance.AddToLog("Opponent Turn!");
+        //CardGameLog.Instance.AddToLog("Opponent Turn!");
         CurrentCharacter = opponent;
         SelectingCharacter = opponent;
         OnCharacterChange(opponent);
@@ -323,7 +320,7 @@ public class CardGameManager : MonoBehaviour
 
     public void EndTurn()
     {
-        CardGameLog.Instance.AddToLog(CurrentCharacter.character.name + " ends turn!");
+        //CardGameLog.Instance.AddToLog(CurrentCharacter.character.name + " ends turn!");
         if(CurrentCharacter == player)
         {
             SetNewState(State.OPPONENTTURN);
@@ -498,7 +495,8 @@ public class CardGameManager : MonoBehaviour
         {
             discardPile.Add(card.baseCard);
         }
-        Destroy(card.gameObject);
+        if(card != null)
+            Destroy(card.gameObject);
     }
 
     public void UpdateValues()
@@ -575,7 +573,7 @@ public class CardGameManager : MonoBehaviour
         else {
             opponentTarget = opponent;
         }
-        CardEffectChecker.Instance.ExecuteEffectStatement(card.InitialEffectStatement, playerTarget, opponentTarget);
+        CardEffectChecker.Instance.ExecuteEffectStatement(card.InitialEffectStatement, playerTarget, opponentTarget, false, true);
 
         RemoveCardFromPlay(display, true);
         UpdateValues();

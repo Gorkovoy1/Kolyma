@@ -21,9 +21,16 @@ MonoBehaviour:
   EffectsOnSuccess: 03000000
   TargetsOnSuccess: 02000000
   CardTypesOnSuccess: 01000000
+  CardClassOnSuccess: 
+  SelectingOnSuccess: 00000000
+  SelectingCharacter: 
   ValuesOnSuccess: 01000000
+  SecondaryValuesOnSuccess: 
   StatementOnFail: {fileID: 0}
   EffectsOnFail: 
   TargetsOnFail: 
   CardTypesOnFail: 
+  CardClassOnFail: 
+  SelectingOnFail: 
   ValuesOnFail: 
+  SecondaryValuesOnFail: 

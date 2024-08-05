@@ -10,20 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 327d55ff20d3ad245bf2bb59c393f897, type: 3}
-  m_Name: 2) Backstab Second Statement
+  m_Name: 1) Dirty Trick Initial Statement
   m_EditorClassIdentifier: 
-  Condition: 9
-  ConditonalTarget: 2
+  Condition: 0
+  ConditonalTarget: 0
   ConditionalCardType: 0
   ConditionalValues: 
   ConditionalNumberClass: 0
   StatementOnSuccess: {fileID: 0}
-  EffectsOnSuccess: 01000000
-  TargetsOnSuccess: 02000000
-  CardTypesOnSuccess: 00000000
-  ValuesOnSuccess: 02000000
+  EffectsOnSuccess: 07000000
+  TargetsOnSuccess: 03000000
+  CardTypesOnSuccess: 01000000
+  CardClassOnSuccess: 04000000
+  ValuesOnSuccess: 01000000
+  SecondaryValuesOnSuccess: 05000000
   StatementOnFail: {fileID: 0}
-  EffectsOnFail: 01000000
-  TargetsOnFail: 02000000
-  CardTypesOnFail: 00000000
-  ValuesOnFail: feffffff
+  EffectsOnFail: 
+  TargetsOnFail: 
+  CardTypesOnFail: 
+  CardClassOnFail: 
+  ValuesOnFail: 
+  SecondaryValuesOnFail: 

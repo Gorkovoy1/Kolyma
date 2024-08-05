@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AIAction {PlayCard, Flip, Swap, None}
+public enum AIAction {PlayCard, Flip, Swap, SelectCard, None}
+
+public enum AIState { Evaluating, Playing, Waiting }
 
 public class CardGameAI : MonoBehaviour
 {
-    private CharacterInstance CurrentCharacter;
+    private CharacterInstance CurrentCharacter, Opponent;
+
+    public int Difficulty;
+
     private bool Active;
 
     public List<DisplayCard> SelectableCards;
@@ -26,11 +31,20 @@ public class CardGameAI : MonoBehaviour
     private bool Waiting;
 
     public AIAction ChosenAction;
+    public DisplayCard ChosenCard;
 
-    public void Init(CharacterInstance currCharacter)
+    public List<CardSequence> CardSequences;
+    public CardSequence ChosenSequence;
+
+    //Lower value = Better
+    public int EvaluationValPlayerDraw = -1, EvaluationValPlayerDiscard = 2, EvaluationValOppDraw = 2, EvaluationValOppDiscard = -2;
+
+    public void Init(CharacterInstance currCharacter, CharacterInstance opponent)
     {
         CurrentCharacter = currCharacter;
+        Opponent = opponent;
         CardGameManager.Instance.OnCharacterChange += CheckActiveCharacter;
+        CardSequences = new List<CardSequence>();
     }
 
     private void Update()
@@ -54,43 +68,143 @@ public class CardGameAI : MonoBehaviour
         {
             CardGameManager.Instance.StartSelecting(CurrentCharacter);
             ChosenAction = AIAction.None;
-            StartCoroutine(WaitForNextAction());
+            Evaluate();
         }
     }
+
+    void Evaluate()
+    {
+        EvaluateSwapCardOptions();
+        EvaluateFlipCardOptions();
+        EvaluatePlayCardOptions();
+        SortCardSequences();
+        ChooseNextCardSequence();
+        StartCoroutine(WaitForNextAction());
+    }
+
+    void EvaluateSwapCardOptions()
+    {
+        for(int i = 0; i < CurrentCharacter.numberDisplayHand.Count; i++)
+        {
+            DisplayCard currentCard = CurrentCharacter.numberDisplayHand[i];
+            CardEffectChecker.Instance.ResetSimulatedValues(CurrentCharacter, Opponent);
+            CardEffectChecker.Instance.SimulateEffect(Effect.Swap, CurrentCharacter, CardType.Number, CurrentCharacter.numberDisplayHand[i].value);
+            Queue<AIAction> actions = new Queue<AIAction>();
+            Queue<DisplayCard> cards = new Queue<DisplayCard>();
+            actions.Enqueue(AIAction.Flip);
+            cards.Enqueue(currentCard);
+            AddNewSequence(actions, cards);
+        }
+    }
+
+    void EvaluateFlipCardOptions()
+    {
+        for(int i = 0; i < CurrentCharacter.numberDisplayHand.Count; i++)
+        {
+            DisplayCard currentCard = CurrentCharacter.numberDisplayHand[i];
+            CardEffectChecker.Instance.ResetSimulatedValues(CurrentCharacter, Opponent);
+            CardEffectChecker.Instance.SimulateEffect(Effect.Flip, CurrentCharacter, CardType.Number, currentCard.value);
+            Queue<AIAction> actions = new Queue<AIAction>();
+            Queue<DisplayCard> cards = new Queue<DisplayCard>();
+            actions.Enqueue(AIAction.Flip);
+            cards.Enqueue(currentCard);
+            AddNewSequence(actions, cards);
+        }
+    }
+
+    void EvaluatePlayCardOptions()
+    {
+        SelectableCards = CardGameManager.Instance.GetSelectableCards();
+        for (int i = 0; i < SelectableCards.Count; i++)
+        {
+            SpecialDeckCard currCard = (SpecialDeckCard)SelectableCards[i].baseCard;
+            CardEffectChecker.Instance.ExecuteEffectStatement(currCard.InitialEffectStatement, CurrentCharacter, Opponent, true, true);
+            Queue<AIAction> actions = new Queue<AIAction>();
+            Queue<DisplayCard> cards = new Queue<DisplayCard>();
+            actions.Enqueue(AIAction.PlayCard);
+            cards.Enqueue(SelectableCards[i]);
+            AddNewSequence(actions, cards);
+        }
+    }
+
+    void AddNewSequence(Queue<AIAction> actions, Queue<DisplayCard> cards)
+    {
+        int playerValue = CardEffectChecker.Instance.SimulatedPlayerValue;
+        int opponentValue = CardEffectChecker.Instance.SimulatedOpponentValue;
+        int distanceFromTarget = Mathf.Abs(CardGameManager.Instance.targetValue - playerValue) - Mathf.Abs(CardGameManager.Instance.targetValue - opponentValue);
+        int evaluationValue = distanceFromTarget;
+
+        if(CurrentCharacter == CardEffectChecker.Instance.Player)
+        {
+            evaluationValue += CardEffectChecker.Instance.PlayerDrawnCardsNum * EvaluationValPlayerDraw;
+            evaluationValue += CardEffectChecker.Instance.PlayerDiscardedCardsNum * EvaluationValPlayerDiscard;
+            evaluationValue += CardEffectChecker.Instance.OpponentDrawnCardsNum * EvaluationValOppDraw;
+            evaluationValue += CardEffectChecker.Instance.OpponentDiscardedCardsNum * EvaluationValOppDiscard;
+        }
+        else
+        {
+            evaluationValue += CardEffectChecker.Instance.PlayerDrawnCardsNum * EvaluationValOppDraw;
+            evaluationValue += CardEffectChecker.Instance.PlayerDiscardedCardsNum * EvaluationValOppDiscard;
+            evaluationValue += CardEffectChecker.Instance.OpponentDrawnCardsNum * EvaluationValPlayerDraw;
+            evaluationValue += CardEffectChecker.Instance.OpponentDiscardedCardsNum * EvaluationValPlayerDiscard;
+        }
+
+        CardSequences.Add(new CardSequence(playerValue, opponentValue, distanceFromTarget, actions, cards, evaluationValue));
+    }
+
+    void SortCardSequences()
+    {
+        CardSequences.Sort(delegate (CardSequence c1, CardSequence c2) { return c1.EvaluationValue.CompareTo(c2.EvaluationValue); });
+    }
+
+    void ChooseNextCardSequence()
+    {
+        float randChoice = 0f;
+
+        for(int i = 0; i < 100; i++)
+        {
+            randChoice += Random.Range(0, 100 / 10);
+        }
+        randChoice /= 100f;
+
+        if(randChoice >= CardSequences.Count)
+        {
+            randChoice = CardSequences.Count - 1;
+        }
+
+        ChosenSequence = CardSequences[Mathf.FloorToInt(randChoice)];
+    }
+
 
     void ChooseNextAction()
     {
         if (CardGameManager.Instance.SelectingCharacter != CurrentCharacter)
             return;
 
-        if (!CurrentCharacter.DidAnAction && ChosenAction == AIAction.None)
+        if (ChosenSequence.Actions.Count > 0)
         {
-            int randAction = Random.Range(0, 3);
-
-            ChosenAction = (AIAction)randAction;
-        }
-
-        if(CurrentCharacter.DidAnAction && !CardSelectionHandler.Instance.SelectingCards)
-        {
-            EndTurn();
+            ChosenAction = ChosenSequence.Actions.Dequeue();
+            ChosenCard = ChosenSequence.Cards.Dequeue();
         }
         else
         {
-            switch (ChosenAction)
-            {
-                case AIAction.PlayCard:
-                    PlayingCard();
-                    CardGameLog.Instance.AddToLog(CurrentCharacter.character.name + " AI wants to play a card!");
-                    break;
-                case AIAction.Flip:
-                    CardGameLog.Instance.AddToLog(CurrentCharacter.character.name + " AI wants to flip a card!");
-                    FlippingCard();
-                    break;
-                case AIAction.Swap:
-                    CardGameLog.Instance.AddToLog(CurrentCharacter.character.name + " AI wants to swap a card!");
-                    SwappingCard();
-                    break;
-            }
+            EndTurn();
+        }
+
+        switch (ChosenAction)
+        {
+            case AIAction.PlayCard:
+                PlayingCard();
+                CardGameLog.Instance.AddToLog(CurrentCharacter.character.name + " AI wants to play a card!");
+                break;
+            case AIAction.Flip:
+                CardGameLog.Instance.AddToLog(CurrentCharacter.character.name + " AI wants to flip a card!");
+                FlippingCard();
+                break;
+            case AIAction.Swap:
+                CardGameLog.Instance.AddToLog(CurrentCharacter.character.name + " AI wants to swap a card!");
+                SwappingCard();
+                break;
         }
     }
 
@@ -99,13 +213,13 @@ public class CardGameAI : MonoBehaviour
         SelectableCards = CardGameManager.Instance.GetSelectableCards();
         if (SelectableCards.Count > 0)
         {
-            if (!CardSelectionHandler.Instance.SelectingCards)
+            if (CardSelectionHandler.Instance.SelectingCards)
             {
-                ChooseInitialCard();
+                ChooseEffectCards();
             }
             else
             {
-                ChooseEffectCards();
+                ChooseInitialCard();
             }
         }
         else
@@ -120,8 +234,7 @@ public class CardGameAI : MonoBehaviour
         SelectableCards = CardGameManager.Instance.GetSelectableCards();
         while (!CardSelectionHandler.Instance.CheckConditionsMet())
         {
-            int selectedIndex = Random.Range(0, SelectableCards.Count);
-            CardSelectionHandler.Instance.SelectCard(SelectableCards[selectedIndex], CurrentCharacter);
+            CardSelectionHandler.Instance.SelectCard(ChosenCard, CurrentCharacter);
         }
         CardSelectionHandler.Instance.ConfirmSelection();
 
@@ -134,8 +247,7 @@ public class CardGameAI : MonoBehaviour
         SelectableCards = CardGameManager.Instance.GetSelectableCards();
         while(!CardSelectionHandler.Instance.CheckConditionsMet())
         {
-            int selectedIndex = Random.Range(0, SelectableCards.Count);
-            CardSelectionHandler.Instance.SelectCard(SelectableCards[selectedIndex], CurrentCharacter);
+            CardSelectionHandler.Instance.SelectCard(ChosenCard, CurrentCharacter);
         }
         CardSelectionHandler.Instance.ConfirmSelection();
 
@@ -160,9 +272,8 @@ public class CardGameAI : MonoBehaviour
 
     void ChooseInitialCard(bool nextAction = true)
     {
-        int selectedIndex = Random.Range(0, SelectableCards.Count);
         CardGameManager.Instance.StartSelecting(CurrentCharacter);
-        CardGameManager.Instance.PlayCard(SelectableCards[selectedIndex]);
+        CardGameManager.Instance.PlayCard(ChosenCard);
         if(nextAction)
             StartCoroutine(WaitForNextAction());
     }
