@@ -11,24 +11,31 @@ public struct CardSelectSettings
     public readonly CardType cardType { get; }
     public readonly Effect selectionPurpose { get; }
 
-    public readonly CharacterInstance targetCharacter; 
+    public readonly CharacterInstance selector;
+    public readonly TargetCharacter target; 
     public readonly bool setupPlayerUI { get; }
 
-    public CardSelectSettings(int number, CardType card, Effect effect, CharacterInstance character, bool playerUI) : this()
+    public readonly int miscValue { get; }
+
+    public CardSelectSettings(int number, CardType card, Effect effect, CharacterInstance selector, TargetCharacter target, bool playerUI, int miscValue) : this()
     {
         numCards = number;
         cardType = card;
         selectionPurpose = effect;
-        targetCharacter = character;
+        this.selector = selector;
+        this.target = target;
         setupPlayerUI = playerUI;
+        this.miscValue = miscValue;
     }
 
-    public CardSelectSettings(List<DisplayCard> specificCards, int number, CharacterInstance character, bool playerUI) : this()
+    public CardSelectSettings(List<DisplayCard> specificCards, int number, CharacterInstance selector, TargetCharacter target, bool playerUI, int miscValue) : this()
     {
         SpecificCards = specificCards;
         numCards = number;
-        targetCharacter = character;
+        this.selector = selector;
+        this.target = target;
         setupPlayerUI = playerUI;
+        this.miscValue = miscValue;
     }
 }
 
@@ -84,7 +91,7 @@ public class CardGameManager : MonoBehaviour
 
     public event OnTurnChangeDelegate OnCharacterChange;
     public delegate void OnTurnChangeDelegate(CharacterInstance currCharacter);
-    public CharacterInstance CurrentCharacter;
+    public CharacterInstance CurrentCharacter, WaitingCharacter;
 
     public bool CharacterSelecting;
 
@@ -231,7 +238,7 @@ public class CardGameManager : MonoBehaviour
         {
             //CardSelectSettings drawSettings = new CardSelectSettings(1, SpecialKeyword.TYPE_SPECIAL, SpecialKeyword.EFFECT_DRAW, true);
             //cardSelectStack.Push(drawSettings);
-            CardSelectSettings flipSettings = new CardSelectSettings(1, CardType.Number, Effect.Flip, CurrentCharacter, true);
+            CardSelectSettings flipSettings = new CardSelectSettings(1, CardType.Number, Effect.Flip, CurrentCharacter, TargetCharacter.PlayerOfCard, true, 0);
             cardSelectStack.Push(flipSettings);
             CardSelectionHandler.ProcessSelect(CurrentCharacter);
         }
@@ -271,7 +278,7 @@ public class CardGameManager : MonoBehaviour
 
             if (CurrentCharacter.CurrentlySwapping)
             {
-                CardSelectSettings swapSettings = new CardSelectSettings(1, CardType.Number, Effect.Swap, CurrentCharacter, true);
+                CardSelectSettings swapSettings = new CardSelectSettings(1, CardType.Number, Effect.Swap, CurrentCharacter, TargetCharacter.PlayerOfCard, true, 0);
                 cardSelectStack.Push(swapSettings);
                 CardSelectionHandler.ProcessSelect(CurrentCharacter);
             }
@@ -299,6 +306,7 @@ public class CardGameManager : MonoBehaviour
     {
         //CardGameLog.Instance.AddToLog("Player Turn!");
         CurrentCharacter = player;
+        WaitingCharacter = opponent;
         SelectingCharacter = player;
         OnCharacterChange(player);
         CardGameUIManager.Instance.ChangeUIMode(UIMode.PlayerTurn);
@@ -312,6 +320,7 @@ public class CardGameManager : MonoBehaviour
     {
         //CardGameLog.Instance.AddToLog("Opponent Turn!");
         CurrentCharacter = opponent;
+        WaitingCharacter = player;
         SelectingCharacter = opponent;
         OnCharacterChange(opponent);
         CardGameUIManager.Instance.ChangeUIMode(UIMode.OpponentTurn);

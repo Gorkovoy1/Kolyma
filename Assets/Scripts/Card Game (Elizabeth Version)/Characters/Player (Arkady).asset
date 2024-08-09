@@ -15,47 +15,6 @@ MonoBehaviour:
   name: Arkady Kojukh
   portrait: {fileID: 21300000, guid: 6c9dd7c5b1cb6be418a371796d96e9bb, type: 3}
   deckList:
-  - {fileID: 11400000, guid: 45c9a6effd41c334d974047b45ddc9bb, type: 2}
-  - {fileID: 11400000, guid: 6caa23b4299438f4aa2c78a85a11152c, type: 2}
-  - {fileID: 11400000, guid: b456b791f6c01fd4dbd154bfa3348c29, type: 2}
-  - {fileID: 11400000, guid: 5413ddb8f5f89004789ae65cbdb10246, type: 2}
-  - {fileID: 11400000, guid: f7fefeddb10fe2a4b8517f6576e58cc2, type: 2}
-  - {fileID: 11400000, guid: 3eb2f16ca56f6c24bb10f9f9ea480105, type: 2}
-  - {fileID: 11400000, guid: c162ae6f8df6d2c499c0028abfe15fcc, type: 2}
-  - {fileID: 11400000, guid: 3d023742fcc27534f8fbaeded2587358, type: 2}
-  - {fileID: 11400000, guid: e5076523054bc0741a8b63f783a929a1, type: 2}
-  - {fileID: 11400000, guid: 2bc64afc5322ed240bae10ccf3a94208, type: 2}
-  - {fileID: 11400000, guid: bd4167efe6fba4b4bb527aa02ad19b88, type: 2}
-  - {fileID: 11400000, guid: 6c7042eeb6d62434a892d1816f3b673c, type: 2}
-  - {fileID: 11400000, guid: 22f5687d564b96344a822f47c57b8975, type: 2}
-  - {fileID: 11400000, guid: 0cb3671d8d2a1c541bf3172b7dcf6aab, type: 2}
-  - {fileID: 11400000, guid: 81aa8321424ab4e489e0e7864285d6a2, type: 2}
-  deck:
-  - {fileID: 11400000, guid: 6c7042eeb6d62434a892d1816f3b673c, type: 2}
-  - {fileID: 11400000, guid: 3d023742fcc27534f8fbaeded2587358, type: 2}
-  - {fileID: 11400000, guid: 5413ddb8f5f89004789ae65cbdb10246, type: 2}
-  - {fileID: 11400000, guid: 6caa23b4299438f4aa2c78a85a11152c, type: 2}
-  - {fileID: 11400000, guid: b456b791f6c01fd4dbd154bfa3348c29, type: 2}
-  - {fileID: 11400000, guid: 0cb3671d8d2a1c541bf3172b7dcf6aab, type: 2}
-  - {fileID: 11400000, guid: 45c9a6effd41c334d974047b45ddc9bb, type: 2}
-  - {fileID: 11400000, guid: e5076523054bc0741a8b63f783a929a1, type: 2}
-  - {fileID: 11400000, guid: c162ae6f8df6d2c499c0028abfe15fcc, type: 2}
-  hand:
-  - {fileID: 11400000, guid: f7fefeddb10fe2a4b8517f6576e58cc2, type: 2}
-  - {fileID: 11400000, guid: 3eb2f16ca56f6c24bb10f9f9ea480105, type: 2}
-  - {fileID: 11400000, guid: 22f5687d564b96344a822f47c57b8975, type: 2}
-  - {fileID: 11400000, guid: 2bc64afc5322ed240bae10ccf3a94208, type: 2}
-  - {fileID: 11400000, guid: bd4167efe6fba4b4bb527aa02ad19b88, type: 2}
-  - {fileID: 11400000, guid: 81aa8321424ab4e489e0e7864285d6a2, type: 2}
-  numberDisplayHand:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  test: []
-  currValue: 0
-  discardFlag: 0
-  swapFlag: 0
-  transferFlag: 0
-  flipFlag: 0
-  playFlag: 0
+  - {fileID: 11400000, guid: acf2a2b9204885d4aba16f400472e35c, type: 2}
+  - {fileID: 11400000, guid: 39157faa34d4711488f8758e75d8a181, type: 2}
+  - {fileID: 11400000, guid: 39157faa34d4711488f8758e75d8a181, type: 2}

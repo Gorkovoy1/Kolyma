@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Scrawny
   artwork: {fileID: 21300000, guid: 89008d6c0b5273d4a97385b547751467, type: 3}
-  cardClass: 3
+  cardClass: 2
   value: -8
   oppositeCard: {fileID: 11400000, guid: dfcc622ec7dcee54398ae53fff1cb97e, type: 2}

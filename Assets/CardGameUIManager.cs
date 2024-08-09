@@ -37,14 +37,19 @@ public class CardGameUIManager : MonoBehaviour
         this.opponent = opponent;
     }
 
+    private void Update()
+    {
+        
+    }
+
     public void UpdateValues()
     {
-        opponent.currValue = opponent.addedValues;
+        opponent.currValue = 0;
         foreach (DisplayCard card in opponent.numberDisplayHand)
         {
             opponent.currValue += card.value;
         }
-        player.currValue = player.addedValues;
+        player.currValue = 0;
         foreach (DisplayCard card in player.numberDisplayHand)
         {
             player.currValue += card.value;

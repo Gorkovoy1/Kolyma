@@ -28,22 +28,20 @@ public class CardSelectionHandler : MonoBehaviour
     {
         this.SelectingCharacter = selectingCharacter;
         Debug.Log(SelectingCharacter.character.name + " is selecting!");
-        if(selectingCharacter == CardGameManager.Instance.player)
-            CardGameUIManager.Instance.ChangeUIMode(UIMode.PlayerSelecting);
 
         if (!SelectingCards && CardGameManager.Instance.cardSelectStack.Count > 0)
         {
             CardSelectSettings curr = CardGameManager.Instance.cardSelectStack.Pop();
             StartSelectingCards(curr);
         }
+        if (selectingCharacter == CardGameManager.Instance.player)
+            CardGameUIManager.Instance.ChangeUIMode(UIMode.PlayerSelecting);
     }
 
     public void StartSelectingCards(CardSelectSettings cardSelectSettings)
     {
         SelectingCards = true;
         CurrSettings = cardSelectSettings;
-        CharacterInstance targetCharacter = cardSelectSettings.targetCharacter;
-
         if (cardSelectSettings.SpecificCards != null)
         {
             SelectableCards = cardSelectSettings.SpecificCards;            
@@ -51,21 +49,50 @@ public class CardSelectionHandler : MonoBehaviour
         else
         {
             CardType cardType = cardSelectSettings.cardType;
-            
-            if (cardType == CardType.Number)
+            switch (cardSelectSettings.target)
             {
-                SelectableCards = targetCharacter.numberDisplayHand;
-            }
-            else if (cardType == CardType.Special)
-            {
-                SelectableCards = targetCharacter.specialDisplayHand;
+                case TargetCharacter.None:
+                    break;
+                case TargetCharacter.Anyone:
+                    if (cardType == CardType.Number)
+                    {
+                        SelectableCards = CardGameManager.Instance.CurrentCharacter.numberDisplayHand;
+                        SelectableCards.AddRange(CardGameManager.Instance.WaitingCharacter.numberDisplayHand);
+                    }
+                    else if (cardType == CardType.Special)
+                    {
+                        SelectableCards = CardGameManager.Instance.CurrentCharacter.specialDisplayHand;
+                        SelectableCards.AddRange(CardGameManager.Instance.WaitingCharacter.specialDisplayHand);
+                    }
+                    break;
+                case TargetCharacter.PlayerOfCard:
+                    CharacterInstance currentCharacter = CardGameManager.Instance.CurrentCharacter;
+                    if (cardType == CardType.Number)
+                    {
+                        SelectableCards = currentCharacter.numberDisplayHand;
+                    }
+                    else if (cardType == CardType.Special)
+                    {
+                        SelectableCards = currentCharacter.specialDisplayHand;
+                    }
+                    break;
+                case TargetCharacter.OpponentOfPlayer:
+                    CharacterInstance waitingCharacter = CardGameManager.Instance.WaitingCharacter;
+                    if (cardType == CardType.Number)
+                    {
+                        SelectableCards = waitingCharacter.numberDisplayHand;
+                    }
+                    else if (cardType == CardType.Special)
+                    {
+                        SelectableCards = waitingCharacter.specialDisplayHand;
+                    }
+                    break;
             }
             SelectedCards = new List<DisplayCard>();
 
             if (SelectingCharacter == CardGameManager.Instance.player)
                 ToggleCardsSelectable(true);
         }
-        Debug.Log(targetCharacter.character.name + " starts selecting cards!");
     }
 
     public void SelectCard(DisplayCard card, CharacterInstance selectingPlayer)
@@ -146,6 +173,20 @@ public class CardSelectionHandler : MonoBehaviour
                         CardGameManager.Instance.FlipCard(card);
                     }
                     CardGameManager.Instance.EndFlip();
+                    break;
+                case Effect.Change:
+                    foreach (DisplayCard card in SelectedCards)
+                    {
+                        CharacterInstance cardOwner = card.owner;
+                        CardGameManager.Instance.DiscardCard(card);
+                        cardOwner.AddValue(CurrSettings.miscValue);
+                    }
+                    break;
+                case Effect.Duplicate:
+                    foreach(DisplayCard card in SelectedCards)
+                    {
+                        card.owner.AddValue(card.value);
+                    }
                     break;
             }
             foreach(DisplayCard card in SelectedCards)

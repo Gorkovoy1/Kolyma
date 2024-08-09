@@ -15,7 +15,7 @@ public class CharacterInstance : MonoBehaviour
     public List<DisplayCard> specialDisplayHand;
     public List<DisplayCard> numberDisplayHand; //Using display cards to store values since values can change without changing the base number value i.e. Flip mechanic
     public int currValue; //current total value
-    public int addedValues; //Added from card effects
+    //public int addedValues; //Added from card effects
     public bool DiscardedThisTurn, SwappedThisTurn, GaveThisTurn, FlippedThisTurn, PlayedThisTurn; //flag booleans to be raised when certain card actions have been performed
 
     public bool CurrentlySwapping, CurrentlyFlipping;
@@ -39,6 +39,7 @@ public class CharacterInstance : MonoBehaviour
 
     public void AddValue(int value)
     {
+        Debug.Log("Add Value: " + value);
         GameObject newCard = NumberCardPool.Instance.GetValue(value, this);
         if(value < 0)
         {
@@ -49,7 +50,7 @@ public class CharacterInstance : MonoBehaviour
             PositiveCardsZone.PlaceCard(newCard);
         }
         numberDisplayHand.Add(newCard.GetComponent<DisplayCard>());
-        addedValues += value;
+        //addedValues += value;
         CardGameManager.Instance.UpdateValues();
     }
 
@@ -65,11 +66,11 @@ public class CharacterInstance : MonoBehaviour
 
     public void FlushFlags()
     {
-        DiscardedThisTurn = false;
-        SwappedThisTurn = false;
-        GaveThisTurn = false;
-        FlippedThisTurn = false;
-        PlayedThisTurn = false;
+        DiscardedThisTurn = true;
+        SwappedThisTurn = true;
+        GaveThisTurn = true;
+        FlippedThisTurn = true;
+        PlayedThisTurn = true;
     }
     public void FlushGameplayVariables()
     {

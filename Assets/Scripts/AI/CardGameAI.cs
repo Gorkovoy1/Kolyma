@@ -88,7 +88,7 @@ public class CardGameAI : MonoBehaviour
         {
             DisplayCard currentCard = CurrentCharacter.numberDisplayHand[i];
             CardEffectChecker.Instance.ResetSimulatedValues(CurrentCharacter, Opponent);
-            CardEffectChecker.Instance.SimulateEffect(Effect.Swap, CurrentCharacter, CardType.Number, CurrentCharacter.numberDisplayHand[i].value);
+            CardEffectChecker.Instance.SimulateEffect(Effect.Swap, CurrentCharacter, CardType.Number, 1, currentCard.value);
             Queue<AIAction> actions = new Queue<AIAction>();
             Queue<DisplayCard> cards = new Queue<DisplayCard>();
             actions.Enqueue(AIAction.Flip);
@@ -103,7 +103,7 @@ public class CardGameAI : MonoBehaviour
         {
             DisplayCard currentCard = CurrentCharacter.numberDisplayHand[i];
             CardEffectChecker.Instance.ResetSimulatedValues(CurrentCharacter, Opponent);
-            CardEffectChecker.Instance.SimulateEffect(Effect.Flip, CurrentCharacter, CardType.Number, currentCard.value);
+            CardEffectChecker.Instance.SimulateEffect(Effect.Flip, CurrentCharacter, CardType.Number, 1, currentCard.value);
             Queue<AIAction> actions = new Queue<AIAction>();
             Queue<DisplayCard> cards = new Queue<DisplayCard>();
             actions.Enqueue(AIAction.Flip);

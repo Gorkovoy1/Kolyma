@@ -8,6 +8,9 @@ public enum Condition
     None, IfHasClass, IfHasCards, IfHasDuplicate, IfDiscarded, IfSwapped, IfFlipped, IfGaveACard, IfHasQuantity, IfGreaterThanOrEqualToTarget, IfHasNegativeCard
 }
 
+
+//Current Player == Player of Card
+//Waiting Player == Other Player who is playing cards
 public enum TargetCharacter
 {
     None, PlayerOfCard, OpponentOfPlayer, Anyone, All
@@ -36,29 +39,32 @@ public class EffectStatement : ScriptableObject
     public Condition Condition;
     public TargetCharacter ConditonalTarget;
     public CardType ConditionalCardType;
-    public List<int> ConditionalValues;
+    public int ConditionalValue;
+    public int SecondaryConditionalValue;
     public NumberClass ConditionalNumberClass;
 
     [Header("S U C C E S S")]
     public EffectStatement StatementOnSuccess;
-    public List<Effect> EffectsOnSuccess;
-    public List<TargetCharacter> TargetsOnSuccess;
-    public List<CardType> CardTypesOnSuccess;
-    public List<NumberClass> CardClassOnSuccess;
-    public List<CardSelecting> SelectingOnSuccess;
-    public List<TargetCharacter> SelectingCharacter;
+    public Effect EffectOnSuccess;
+    public TargetCharacter TargetOnSuccess;
+    public CardType CardTypeOnSuccess;
+    public NumberClass CardClassOnSuccess;
+    public CardSelecting SelectingOnSuccess;
+    public TargetCharacter SelectingCharacterOnSuccess;
+    public int NumberOfCardsOnSuccess;
     //Values vary based on effect
-    public List<int> ValuesOnSuccess;
-    public List<int> SecondaryValuesOnSuccess;
+    public int MiscValueOnSuccess;
 
     [Header("F A I L")]
     public EffectStatement StatementOnFail;
-    public List<Effect> EffectsOnFail;
-    public List<TargetCharacter> TargetsOnFail;
-    public List<CardType> CardTypesOnFail;
-    public List<NumberClass> CardClassOnFail;
-    public List<CardSelecting> SelectingOnFail;
-    public List<int> ValuesOnFail;
-    public List<int> SecondaryValuesOnFail;
+    public Effect EffectOnFail;
+    public TargetCharacter TargetOnFail;
+    public CardType CardTypeOnFail;
+    public NumberClass CardClassOnFail;
+    public CardSelecting SelectingOnFail;
+    public TargetCharacter SelectingCharacterOnFail;
+    public int NumberOfCardsOnFail;
+    //Values vary based on effect
+    public int MiscValueOnFail;
 
 }

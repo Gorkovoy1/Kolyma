@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Father
   artwork: {fileID: 21300000, guid: 5ecb33fc2de6d734099b3454c1713652, type: 3}
-  cardClass: 0
+  cardClass: 1
   value: 9
   oppositeCard: {fileID: 11400000, guid: d66e455a0c3980647b1effc53c70e95b, type: 2}
