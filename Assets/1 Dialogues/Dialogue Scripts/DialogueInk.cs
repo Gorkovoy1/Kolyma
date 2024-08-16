@@ -79,6 +79,7 @@ public class DialogueInk : MonoBehaviour
 
     public DialogueScriptableObject dialogueObj1;
     public DialogueScriptableObject dialogueObj2;
+    public DialogueScriptableObject dialogueObj3;
 
     public int nextSceneNumber;
    
@@ -229,6 +230,43 @@ public class DialogueInk : MonoBehaviour
             inkJSON = dialogueObj2.inkfile;
             //set next scene to load
             nextSceneNumber = dialogueObj2.nextScene;
+        }
+
+        else if (dialogueNumber == 3)
+        {
+            //set background
+            background.sprite = dialogueObj3.bg;
+            //set NPCPortrait
+            NPCBlack.sprite = dialogueObj3.npcBlack;
+            NPCColor.sprite = dialogueObj3.npcColor;
+            //set NPC nameTag
+            nameTag.text = dialogueObj3.npcName;
+            //set smoke/background animations
+            foreach(Transform child in backgroundAnimParent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            GameObject newBgAnim = Instantiate(dialogueObj3.bganim, backgroundAnimParent.transform);
+            //set loader text
+            loaderText.text = dialogueObj3.line1 + Environment.NewLine + Environment.NewLine + dialogueObj3.line2;
+            //set Music
+            musicName = dialogueObj3.music;
+            //set ambient sounds, delete all children and instantiate teh correct new prefab 
+            foreach (Transform child in ambientParent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            GameObject newAmbient = Instantiate(dialogueObj3.ambient, ambientParent.transform);
+            //set opening sound (jail door sfx)
+            foreach(Transform child in screenSFXParent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            GameObject newSFX = Instantiate(dialogueObj3.sfx, screenSFXParent.transform);
+            //set ink file
+            inkJSON = dialogueObj3.inkfile;
+            //set next scene to load
+            nextSceneNumber = dialogueObj3.nextScene;
         }
     }
 
