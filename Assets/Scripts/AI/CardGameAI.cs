@@ -66,7 +66,7 @@ public class CardGameAI : MonoBehaviour
         Active = character == CurrentCharacter && character.IsAI;
         if(Active)
         {
-            CardGameManager.Instance.StartSelecting(CurrentCharacter);
+            CardGameManager.Instance.StartSelecting();
             ChosenAction = AIAction.None;
             Evaluate();
         }
@@ -272,7 +272,7 @@ public class CardGameAI : MonoBehaviour
 
     void ChooseInitialCard(bool nextAction = true)
     {
-        CardGameManager.Instance.StartSelecting(CurrentCharacter);
+        CardGameManager.Instance.StartSelecting();
         CardGameManager.Instance.PlayCard(ChosenCard);
         if(nextAction)
             StartCoroutine(WaitForNextAction());

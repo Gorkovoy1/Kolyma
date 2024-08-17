@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Lousy Deal
   m_EditorClassIdentifier: 
   name: Lousy Deal
-  artwork: {fileID: 21300000, guid: c984de9308a99934e8535dcd8c39211c, type: 3}
+  artwork: {fileID: 21300000, guid: ff7d88cc90fb7b04abb69aaef239a256, type: 3}
   description: Trade a number card with your opponent (your choice).
   InitialEffectStatement: {fileID: 11400000, guid: 0066febaef4368a41a6e5a7362e89cae, type: 2}

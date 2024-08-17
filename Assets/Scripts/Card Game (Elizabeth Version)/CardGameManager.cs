@@ -9,6 +9,7 @@ public struct CardSelectSettings
 
     public readonly int numCards { get; }
     public readonly CardType cardType { get; }
+    public readonly NumberClass cardClass { get; }
     public readonly Effect selectionPurpose { get; }
 
     public readonly CharacterInstance selector;
@@ -17,7 +18,7 @@ public struct CardSelectSettings
 
     public readonly int miscValue { get; }
 
-    public CardSelectSettings(int number, CardType card, Effect effect, CharacterInstance selector, TargetCharacter target, bool playerUI, int miscValue) : this()
+    public CardSelectSettings(int number, CardType card, Effect effect, CharacterInstance selector, TargetCharacter target, bool playerUI, int miscValue, NumberClass numberClass) : this()
     {
         numCards = number;
         cardType = card;
@@ -26,11 +27,13 @@ public struct CardSelectSettings
         this.target = target;
         setupPlayerUI = playerUI;
         this.miscValue = miscValue;
+        cardClass = numberClass;
     }
 
-    public CardSelectSettings(List<DisplayCard> specificCards, int number, CharacterInstance selector, TargetCharacter target, bool playerUI, int miscValue) : this()
+    public CardSelectSettings(List<DisplayCard> specificCards, int number, CharacterInstance selector, TargetCharacter target, bool playerUI, int miscValue, Effect effect) : this()
     {
         SpecificCards = specificCards;
+        selectionPurpose = effect;
         numCards = number;
         this.selector = selector;
         this.target = target;
@@ -150,9 +153,9 @@ public class CardGameManager : MonoBehaviour
         }
     }
 
-    public void StartSelecting(CharacterInstance selectingCharacter)
+    public void StartSelecting()
     {
-        CardSelectionHandler.Instance.ProcessSelect(selectingCharacter);
+        CardSelectionHandler.Instance.ProcessSelect();
     }
 
     public void RestartGame()
@@ -238,9 +241,9 @@ public class CardGameManager : MonoBehaviour
         {
             //CardSelectSettings drawSettings = new CardSelectSettings(1, SpecialKeyword.TYPE_SPECIAL, SpecialKeyword.EFFECT_DRAW, true);
             //cardSelectStack.Push(drawSettings);
-            CardSelectSettings flipSettings = new CardSelectSettings(1, CardType.Number, Effect.Flip, CurrentCharacter, TargetCharacter.PlayerOfCard, true, 0);
+            CardSelectSettings flipSettings = new CardSelectSettings(1, CardType.Number, Effect.Flip, CurrentCharacter, TargetCharacter.PlayerOfCard, true, 0, NumberClass.NONE);
             cardSelectStack.Push(flipSettings);
-            CardSelectionHandler.ProcessSelect(CurrentCharacter);
+            CardSelectionHandler.ProcessSelect();
         }
         else
         {
@@ -278,9 +281,9 @@ public class CardGameManager : MonoBehaviour
 
             if (CurrentCharacter.CurrentlySwapping)
             {
-                CardSelectSettings swapSettings = new CardSelectSettings(1, CardType.Number, Effect.Swap, CurrentCharacter, TargetCharacter.PlayerOfCard, true, 0);
+                CardSelectSettings swapSettings = new CardSelectSettings(1, CardType.Number, Effect.Swap, CurrentCharacter, TargetCharacter.PlayerOfCard, true, 0, NumberClass.NONE);
                 cardSelectStack.Push(swapSettings);
-                CardSelectionHandler.ProcessSelect(CurrentCharacter);
+                CardSelectionHandler.ProcessSelect();
             }
             else
             {
@@ -553,20 +556,27 @@ public class CardGameManager : MonoBehaviour
             }
             SpecialDeckCard newCard = target.deck[0];
             target.deck.Remove(newCard);
-            GameObject newCardVisual = Instantiate(cardVisualPrefab);
-            DisplayCard newCardDisplay = newCardVisual.GetComponent<DisplayCard>();
-            newCardDisplay.InitSpecialCard(newCard, target);
-            newCardDisplay.owner = target;
-            newCardDisplay.baseCard = newCard;
-            target.specialDisplayHand.Add(newCardDisplay);
-            if (target == player) {
-                newCardVisual.transform.SetParent(CardGameUIManager.Instance.PlayerHandTransform);
-            }
-            else {
-                newCardVisual.transform.SetParent(CardGameUIManager.Instance.OpponentHandTransform);
-            }
-            activeCardVisuals.Add(newCardDisplay);
+            AddSpecialCard(newCard, target);
         }
+    }
+
+    public void AddSpecialCard(SpecialDeckCard card, CharacterInstance target)
+    {
+        GameObject newCardVisual = Instantiate(cardVisualPrefab);
+        DisplayCard newCardDisplay = newCardVisual.GetComponent<DisplayCard>();
+        newCardDisplay.InitSpecialCard(card, target);
+        newCardDisplay.owner = target;
+        newCardDisplay.baseCard = card;
+        target.specialDisplayHand.Add(newCardDisplay);
+        if (target == player)
+        {
+            newCardVisual.transform.SetParent(CardGameUIManager.Instance.PlayerHandTransform);
+        }
+        else
+        {
+            newCardVisual.transform.SetParent(CardGameUIManager.Instance.OpponentHandTransform);
+        }
+        activeCardVisuals.Add(newCardDisplay);
     }
 
     public void PlayCard(DisplayCard display) {

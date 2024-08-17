@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Forgery
   m_EditorClassIdentifier: 
   name: Forgery
-  artwork: {fileID: 21300000, guid: c984de9308a99934e8535dcd8c39211c, type: 3}
+  artwork: {fileID: 21300000, guid: 814603bfce0c3b745af254659a1fa1e6, type: 3}
   description: Duplicate one of your numbers.
   InitialEffectStatement: {fileID: 11400000, guid: 483e592e66c478147a7ded26b4328ebe, type: 2}

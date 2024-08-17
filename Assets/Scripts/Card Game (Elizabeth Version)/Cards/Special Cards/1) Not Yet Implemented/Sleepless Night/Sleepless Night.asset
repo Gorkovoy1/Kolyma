@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Sleepless Night
   m_EditorClassIdentifier: 
   name: Sleepless Night
-  artwork: {fileID: 21300000, guid: c984de9308a99934e8535dcd8c39211c, type: 3}
+  artwork: {fileID: 21300000, guid: 34ffa46461a7fdb408cf18fe169ef71d, type: 3}
   description: If your opponent swapped out a card, swap that card out again.
   InitialEffectStatement: {fileID: 11400000, guid: 890bf47a4448fe342aec26b3ed7541ed, type: 2}

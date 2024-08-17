@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Pushover
   m_EditorClassIdentifier: 
   name: Pushover
-  artwork: {fileID: 21300000, guid: c984de9308a99934e8535dcd8c39211c, type: 3}
+  artwork: {fileID: 21300000, guid: 28ffcf217f45a2743b69b83b2cfe07bb, type: 3}
   description: Get rid of one of your number cards.
   InitialEffectStatement: {fileID: 11400000, guid: 4ea9a342693a06241b139c9aec795d90, type: 2}

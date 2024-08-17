@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Backstab Swap
   m_EditorClassIdentifier: 
   name: Backstab Swap
-  artwork: {fileID: 21300000, guid: c984de9308a99934e8535dcd8c39211c, type: 3}
+  artwork: {fileID: 21300000, guid: 262d6bb1a3e999f4ca08d8fda9e7b776, type: 3}
   description: If your opponent swapped out a card, give them -2 if they're under
     the target value, otherwise give them +2.
   InitialEffectStatement: {fileID: 11400000, guid: 0f8528d553038b34d8c787f2cd325cae, type: 2}

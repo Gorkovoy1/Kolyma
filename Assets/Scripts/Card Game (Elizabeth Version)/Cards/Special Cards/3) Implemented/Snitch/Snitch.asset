@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Snitch
   m_EditorClassIdentifier: 
   name: Snitch
-  artwork: {fileID: 21300000, guid: c984de9308a99934e8535dcd8c39211c, type: 3}
+  artwork: {fileID: 21300000, guid: ff41aae85d82fcd4e868be5864e8d2aa, type: 3}
   description: If they discarded a card, change any value on the board to 5
   InitialEffectStatement: {fileID: 11400000, guid: fb2c45ded3ec4fe4a96d6ab69ff98d79, type: 2}

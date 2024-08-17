@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Frostbite
   m_EditorClassIdentifier: 
   name: Frostbite
-  artwork: {fileID: 21300000, guid: c984de9308a99934e8535dcd8c39211c, type: 3}
+  artwork: {fileID: 21300000, guid: 880a047645346db4d9e2ca19db450740, type: 3}
   description: Change all +2s on the table into +4s - or change all -2s to -4s.
   InitialEffectStatement: {fileID: 11400000, guid: 6c7bdf9603c4a844fad3443b22a6aef0, type: 2}

@@ -24,7 +24,7 @@ MonoBehaviour:
   CardTypeOnSuccess: 1
   CardClassOnSuccess: 0
   SelectingOnSuccess: 2
-  SelectingCharacterOnSuccess: 0
+  SelectingCharacterOnSuccess: 1
   NumberOfCardsOnSuccess: 1
   MiscValueOnSuccess: 0
   StatementOnFail: {fileID: 0}

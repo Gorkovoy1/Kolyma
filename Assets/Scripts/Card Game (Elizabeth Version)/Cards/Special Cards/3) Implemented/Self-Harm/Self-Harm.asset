@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Self-Harm
   m_EditorClassIdentifier: 
   name: Self-Harm
-  artwork: {fileID: 21300000, guid: c984de9308a99934e8535dcd8c39211c, type: 3}
+  artwork: {fileID: 21300000, guid: 4827706fdde83074493c80e6cfe9a572, type: 3}
   description: Flip one of your number cards
   InitialEffectStatement: {fileID: 11400000, guid: db28d79dad5d38f46b1bbda607ed3d35, type: 2}

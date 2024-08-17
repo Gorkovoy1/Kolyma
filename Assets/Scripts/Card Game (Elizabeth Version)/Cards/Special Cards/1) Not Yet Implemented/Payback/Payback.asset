@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Payback
   m_EditorClassIdentifier: 
   name: Payback
-  artwork: {fileID: 21300000, guid: c984de9308a99934e8535dcd8c39211c, type: 3}
+  artwork: {fileID: 21300000, guid: ae14b614f8b43ca4899f4f2b77aaba99, type: 3}
   description: Give your opponent a copy of a number they gave to you.
   InitialEffectStatement: {fileID: 11400000, guid: 3cf27763565d9004293528615db57b3f, type: 2}

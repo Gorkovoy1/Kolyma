@@ -18,7 +18,7 @@ public enum TargetCharacter
 
 public enum Effect
 {
-    None, AddValue, Draw, Discard, Swap, Flip, Duplicate, Change, Give, Trade
+    None, AddValue, Draw, Discard, Swap, Flip, Duplicate, Change, Give, Trade, Steal
 }
 
 public enum CardSelecting

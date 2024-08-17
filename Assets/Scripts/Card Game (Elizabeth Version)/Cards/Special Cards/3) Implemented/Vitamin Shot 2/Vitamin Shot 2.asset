@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Vitamin Shot 2
   m_EditorClassIdentifier: 
   name: Vitamin Shot 2
-  artwork: {fileID: 21300000, guid: c984de9308a99934e8535dcd8c39211c, type: 3}
+  artwork: {fileID: 21300000, guid: d3cebce947f30b44996c11fd09414b50, type: 3}
   description: Give yourself +2
   InitialEffectStatement: {fileID: 11400000, guid: 0a7e64435d05f7a4e8c066c07cb92088, type: 2}
