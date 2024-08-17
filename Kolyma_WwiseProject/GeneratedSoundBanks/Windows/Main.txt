@@ -1,7 +1,9 @@
 Event	ID	Name			Wwise Object Path	Notes
 	57706899	Play_Typewriter			\Default Work Unit\Play_Typewriter	
+	238544951	Play_Music_Camp_Arrival			\Default Work Unit\Play_Music_Camp_Arrival	
 	311910498	Play_Click			\Default Work Unit\Play_Click	
 	386574545	Play_Cell_Door			\Default Work Unit\Play_Cell_Door	
+	455065390	Play_Barracks_Background_SFX			\Default Work Unit\Play_Barracks_Background_SFX	
 	639442158	Play_Crows			\Default Work Unit\Play_Crows	
 	1020223172	Play_Wind			\Default Work Unit\Play_Wind	
 	1064403750	Play_Truck_Arrives			\Default Work Unit\Play_Truck_Arrives	
@@ -17,10 +19,12 @@ Event	ID	Name			Wwise Object Path	Notes
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	2774197	Dogs_Bark_03	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Dogs_Bark-003_57DD6703.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camp_SFX\Dogs\Dogs_Bark_03		39227
+	7973089	Barracks_Background_SFX	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Barracks_Background_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Barracks_SFX\Barracks_Background_SFX		10313884
 	90128117	Clocks_Chime	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Clocks, Chime, Metallic Wall Clock, Chime Ringing SND102458_D8B369E4.wem		\Actor-Mixer Hierarchy\Default Work Unit\Clocks_Chime		775148
 	111452232	Dogs_Bark_02	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Dogs_Bark-002_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camp_SFX\Dogs\Dogs_Bark_02		39606
 	158641502	Cell_SFX_Whisper-005	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_SFX_Whisper-005_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Whisper\Cell_SFX_Whisper-005		16727
 	169040873	Cell_SFX_Whisper-003	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_SFX_Whisper-003_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Whisper\Cell_SFX_Whisper-003		28960
+	281998415	camp_arrival_1_1	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\camp_arrival_1.1_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Camp\Camp_Arrival\camp_arrival_1_1		11926748
 	328403887	kolyma daytime 1_4	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\kolyma daytime 1.4_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Camp\Camp_Day\kolyma daytime 1_4		32832160
 	355118563	Typewriter_Loop_1	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\typewriter_loop-001_F1969806.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text_Box\Typewriter_Loops\Typewriter_Loop_1		18804
 	381664103	Dogs_Bark_01	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Dogs_Bark-001_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camp_SFX\Dogs\Dogs_Bark_01		38800
