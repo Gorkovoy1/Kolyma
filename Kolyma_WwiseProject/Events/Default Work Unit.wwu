@@ -168,6 +168,50 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Music_Camp_Arrival" ID="{1A0A5CBE-54A0-499E-8A58-5D154449CEAD}">
+					<ChildrenList>
+						<Action Name="" ID="{A76FCB50-3458-432F-AEBD-8F964CDBC060}" ShortID="234895099">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Camp_Arrival" ID="{24E20EF2-96C2-4409-9C67-1EF0A86EAD59}" WorkUnitID="{01660F24-42EF-4118-9DAA-A2B4ACD5D295}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Barracks_Background_SFX" ID="{329EE090-6BD7-4207-91F4-9905E94A39A7}">
+					<ChildrenList>
+						<Action Name="" ID="{8DC7F5AC-2892-416B-832B-3A280F061921}" ShortID="925806566">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Barracks_Background_SFX" ID="{E3CF3E81-961E-4F64-A7D4-3CBA8AF8471D}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Barracks_Door" ID="{3D23045E-40B6-437B-AAA9-CB39B09B9CAF}">
+					<ChildrenList>
+						<Action Name="" ID="{B72F1B21-5D78-45C2-AF54-D4B0EA6E9614}" ShortID="482642821">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Barracks_Door" ID="{5FEBE486-FFF5-4583-9369-C988CFEF1171}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Silence" ID="{66E334A4-4EE7-492D-BDB4-C161F4758258}">
+					<ChildrenList>
+						<Action Name="" ID="{102630E3-999E-46A0-83B1-3E8980077567}" ShortID="99382621">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Barracks" ID="{36DA7518-3B90-44FD-87CE-E0E79DFEA300}" WorkUnitID="{01660F24-42EF-4118-9DAA-A2B4ACD5D295}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

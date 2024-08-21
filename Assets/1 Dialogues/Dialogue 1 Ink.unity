@@ -1203,7 +1203,7 @@ MonoBehaviour:
     WwiseObjectReference: {fileID: 11400000, guid: b703706f2482f0a43bb6e7f9392c384b, type: 2}
   tags: []
   smoke: {fileID: 2039440116}
-  dialogueNumber: 3
+  dialogueNumber: 2
   background: {fileID: 1733045846}
   musicName: 
   NPCBlack: {fileID: 427078829}

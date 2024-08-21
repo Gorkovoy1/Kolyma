@@ -6,14 +6,18 @@
 				<SoundBank Name="Main" ID="{55336CF1-834F-40C1-A4A6-A74ED017DAFB}">
 					<ObjectInclusionList>
 						<ObjectRef Name="Play_Breath" ID="{41E36353-7D1B-4192-8123-7A6774B48D4A}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Barracks_Background_SFX" ID="{329EE090-6BD7-4207-91F4-9905E94A39A7}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Cell_Men" ID="{517D0111-030F-4302-BB85-08C728DA6A4D}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Woosh_Narrator" ID="{2E34843D-113B-4342-9BD2-C9258471BCDF}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Barracks_Door" ID="{3D23045E-40B6-437B-AAA9-CB39B09B9CAF}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Typewriter" ID="{6C230E5E-8EB1-4567-9DEF-99AF8593EBAA}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Cough" ID="{F032EAC0-900D-47CC-9F2D-E13E51F94076}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Music_Jail" ID="{425E8658-6CCB-47D4-8B0C-38599CAF8C19}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Click" ID="{292D2C3D-DA5A-4840-B2EB-693B20A41DEB}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Events" ID="{A69BF0FC-D84A-487C-ABDD-56F71CB2A126}" WorkUnitID="{A69BF0FC-D84A-487C-ABDD-56F71CB2A126}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Silence" ID="{66E334A4-4EE7-492D-BDB4-C161F4758258}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Whisper" ID="{DFE82EAB-27EE-494C-BDCB-46D15021F84B}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Music_Camp_Arrival" ID="{1A0A5CBE-54A0-499E-8A58-5D154449CEAD}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Screen_Sfx" ID="{6629AA1A-B4A3-4B4A-91DB-2D799B805D35}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Crows" ID="{3E8CEF64-C63B-4C11-8E3D-E75CFB01EA6D}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Dogs_Bark" ID="{E8AD7521-1A84-4C24-B5E4-CBA5416166F8}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>

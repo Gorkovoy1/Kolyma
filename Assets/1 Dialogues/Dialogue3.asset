@@ -18,9 +18,9 @@ MonoBehaviour:
   npcName: Gangster
   line1: 
   line2: 
-  music: Play_Music_Camp_Arrival
+  music: Play_SIlence
   inkfile: {fileID: 4900000, guid: 3934b32f015142e458520ba47dea4ce4, type: 3}
   nextScene: 0
   ambient: {fileID: 4925410152361900339, guid: cc911a0777c28134b8d54a466e8a714d, type: 3}
   bganim: {fileID: 8768717230632645723, guid: 5c10576bdcb72e8428fa41a1be92868e, type: 3}
-  sfx: {fileID: 3393754126600923965, guid: 26dca8aa7cf0da14a861bb78ff2b9097, type: 3}
+  sfx: {fileID: 4326509118235825067, guid: 4c07bb8bd7e408f44a73158d1af7a38b, type: 3}

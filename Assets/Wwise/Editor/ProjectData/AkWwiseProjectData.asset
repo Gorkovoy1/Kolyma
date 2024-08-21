@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8c4b0f5056a06a4a92d94e75a182e1ae
     GuidInternal: 
-    m_lastTime: -8584774280241083669
+    m_lastTime: -8584773915650968405
     List:
     - name: Main
       guid: f16c33554f83c140a4a6a74ed017dafb
@@ -94,8 +94,42 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584774280280558922
+    m_lastTime: -8584773915650928530
     List:
+    - name: Play_Barracks_Background_SFX
+      guid: 90e09e32d76b074291f49905e94a39a7
+      id: 455065390
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Play_Barracks_Background_SFX
+        ObjectType: 3
+        guid: 90e09e32d76b074291f49905e94a39a7
+      Path: Events\Default Work Unit\Play_Barracks_Background_SFX
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Barracks_Door
+      guid: 5e04233db6407b43aaa9cb39b09b9caf
+      id: 3205279810
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Play_Barracks_Door
+        ObjectType: 3
+        guid: 5e04233db6407b43aaa9cb39b09b9caf
+      Path: Events\Default Work Unit\Play_Barracks_Door
+      maxAttenuation: 0
+      maxDuration: 4.2074957
+      minDuration: 4.2074957
     - name: Play_Breath
       guid: 5363e3411b7d924181237a6774b48d4a
       id: 3698047240
@@ -215,6 +249,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Play_Music_Camp_Arrival
+      guid: be5c0a1aa0549e498a585d154449cead
+      id: 238544951
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Play_Music_Camp_Arrival
+        ObjectType: 3
+        guid: be5c0a1aa0549e498a585d154449cead
+      Path: Events\Default Work Unit\Play_Music_Camp_Arrival
+      maxAttenuation: 0
+      maxDuration: 49.41175
+      minDuration: 49.41175
     - name: Play_Music_Camp_Day
       guid: c96981c5ad016f43a815a4d024b846bc
       id: 2741544670
@@ -266,6 +317,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 7.49264
       minDuration: 7.49264
+    - name: Play_Silence
+      guid: a434e366e74e2d49bdb4c161f4758258
+      id: 2807572219
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Play_Silence
+        ObjectType: 3
+        guid: a434e366e74e2d49bdb4c161f4758258
+      Path: Events\Default Work Unit\Play_Silence
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: Play_Truck_Arrives
       guid: dea162295cad5c4c9dacdf62d8bfae9c
       id: 1064403750

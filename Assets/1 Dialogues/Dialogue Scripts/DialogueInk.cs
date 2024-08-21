@@ -275,7 +275,8 @@ public class DialogueInk : MonoBehaviour
         //dont start the dialogue until levelloader is gone, then start sounds and dialogue
         if(startScene)
         {
-            yield return new WaitForSeconds(6f);
+            if (dialogueNumber != 3)
+            { yield return new WaitForSeconds(6f); }
             ambientObj.SetActive(true);
             AkSoundEngine.PostEvent(musicName, gameObject);
             Debug.Log("Music");

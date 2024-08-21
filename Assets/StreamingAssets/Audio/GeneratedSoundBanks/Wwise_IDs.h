@@ -14,6 +14,7 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID PLAY_BARRACKS_BACKGROUND_SFX = 455065390U;
+        static const AkUniqueID PLAY_BARRACKS_DOOR = 3205279810U;
         static const AkUniqueID PLAY_BREATH = 3698047240U;
         static const AkUniqueID PLAY_CELL_DOOR = 386574545U;
         static const AkUniqueID PLAY_CELL_MEN = 1420083155U;
@@ -25,6 +26,7 @@ namespace AK
         static const AkUniqueID PLAY_MUSIC_CAMP_DAY = 2741544670U;
         static const AkUniqueID PLAY_MUSIC_JAIL = 3643466302U;
         static const AkUniqueID PLAY_SCREEN_SFX = 1112221790U;
+        static const AkUniqueID PLAY_SILENCE = 2807572219U;
         static const AkUniqueID PLAY_TRUCK_ARRIVES = 1064403750U;
         static const AkUniqueID PLAY_TYPEWRITER = 57706899U;
         static const AkUniqueID PLAY_WHISPER = 2541567472U;

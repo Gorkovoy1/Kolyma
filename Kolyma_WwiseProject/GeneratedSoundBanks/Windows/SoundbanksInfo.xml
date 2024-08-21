@@ -22,7 +22,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{967C09AB-52E3-8F51-87FE-D0E292DBE9E4}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{EA2FD6DE-3D13-DA60-FCE1-DBCD0478D9B4}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -32,7 +32,11 @@
 				</File>
 				<File Id="7973089" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Barracks_Background.wav</ShortName>
-					<CachePath>SFX/Barracks_Background_818F3B66.wem</CachePath>
+					<CachePath>SFX/Barracks_Background_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="75083474" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>camp_arrival_no_intro.wav</ShortName>
+					<CachePath>SFX/camp_arrival_no_intro_FBC78EF0.wem</CachePath>
 				</File>
 				<File Id="90128117" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Clocks, Chime, Metallic Wall Clock, Chime Ringing SND102458.wav</ShortName>
@@ -49,10 +53,6 @@
 				<File Id="169040873" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Whisper-003.wav</ShortName>
 					<CachePath>SFX/Cell_SFX_Whisper-003_8E324C96.wem</CachePath>
-				</File>
-				<File Id="281998415" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>camp_arrival_1.1.wav</ShortName>
-					<CachePath>SFX/camp_arrival_1.1_FBC78EF0.wem</CachePath>
 				</File>
 				<File Id="328403887" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>kolyma daytime 1.4.wav</ShortName>
@@ -154,6 +154,10 @@
 					<ShortName>crows-002.wav</ShortName>
 					<CachePath>SFX/crows-002_85CABCE8.wem</CachePath>
 				</File>
+				<File Id="946766250" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>barracks_doors.wav</ShortName>
+					<CachePath>SFX/barracks_doors_2A2FC69D.wem</CachePath>
+				</File>
 				<File Id="1005253697" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Dogs_Bark-004.wav</ShortName>
 					<CachePath>SFX/Dogs_Bark-004_F9AC0766.wem</CachePath>
@@ -164,9 +168,14 @@
 				</File>
 			</Media>
 			<Events>
-				<Event Id="455065390" Name="Play_Barracks_Background_SFX" DurationType="OneShot" DurationMin="58.468185" DurationMax="58.468185">
+				<Event Id="455065390" Name="Play_Barracks_Background_SFX" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="7973089"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3205279810" Name="Play_Barracks_Door" DurationType="OneShot" DurationMin="4.2074957" DurationMax="4.2074957">
+					<MediaRefs>
+						<MediaRef Id="946766250"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3698047240" Name="Play_Breath" DurationType="Infinite">
@@ -212,14 +221,13 @@
 						<MediaRef Id="1005253697"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="238544951" Name="Play_Music_Camp_Arrival" DurationType="OneShot" DurationMin="62.117645" DurationMax="62.117645">
+				<Event Id="238544951" Name="Play_Music_Camp_Arrival" DurationType="OneShot" DurationMin="49.41175" DurationMax="49.41175">
 					<MediaRefs>
-						<MediaRef Id="281998415"/>
+						<MediaRef Id="75083474"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="2741544670" Name="Play_Music_Camp_Day" DurationType="Infinite">
 					<MediaRefs>
-						<MediaRef Id="281998415"/>
 						<MediaRef Id="328403887"/>
 					</MediaRefs>
 				</Event>
@@ -233,6 +241,7 @@
 						<MediaRef Id="90128117"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="2807572219" Name="Play_Silence" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="1064403750" Name="Play_Truck_Arrives" DurationType="OneShot" DurationMin="14.57" DurationMax="14.57">
 					<MediaRefs>
 						<MediaRef Id="850000760"/>
@@ -270,5 +279,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{A16DB932-D4F8-59B5-F56F-1D3520E90089}</FileHash>
+	<FileHash>{128066F9-E1F4-A72D-7EC9-BBA75AFC0854}</FileHash>
 </SoundBanksInfo>
