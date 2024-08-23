@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d6e0783477110740bbb3be39777204a, type: 3}
+  m_Name: Test Character
+  m_EditorClassIdentifier: 
+  name: Test Character
+  portrait: {fileID: 21300000, guid: 6c9dd7c5b1cb6be418a371796d96e9bb, type: 3}
+  deckList:
+  - {fileID: 11400000, guid: f1b1e9e9e92ce2e459584265a5771ce1, type: 2}
+  - {fileID: 11400000, guid: 2bc64afc5322ed240bae10ccf3a94208, type: 2}
+  - {fileID: 11400000, guid: 81aa8321424ab4e489e0e7864285d6a2, type: 2}
+  - {fileID: 11400000, guid: 81aa8321424ab4e489e0e7864285d6a2, type: 2}
+  - {fileID: 11400000, guid: 81aa8321424ab4e489e0e7864285d6a2, type: 2}

@@ -65,7 +65,7 @@ public class DisplayCard : MonoBehaviour
 
     public void InitSpecialCard(SpecialDeckCard card, CharacterInstance owner)
     {
-        //baseCard = card;
+        baseCard = card;
         SpecialCard = card;
         name.text = card.name;
         description.text = card.description;

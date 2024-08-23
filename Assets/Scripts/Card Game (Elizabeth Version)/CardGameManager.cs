@@ -631,6 +631,53 @@ public class CardGameManager : MonoBehaviour
         UpdateValues();
     }
 
+    public void ChangeCard(DisplayCard card, int newValue)
+    {
+        CharacterInstance cardOwner = card.owner;
+        CardGameManager.Instance.DiscardCard(card);
+        cardOwner.AddValue(newValue);
+    }
+
+    public void DuplicateCard(DisplayCard card)
+    {
+        if (card.baseCard is NumberCard)
+        {
+            card.owner.AddValue(card.value);
+        }
+        else
+        {
+            Instance.AddSpecialCard((SpecialDeckCard)card.baseCard, card.owner);
+        }
+    }
+
+    public void GiveCard(DisplayCard card)
+    {
+        CharacterInstance oppositeCharacter = card.owner == Instance.player ? Instance.opponent : Instance.player;
+        if (card.baseCard is NumberCard)
+        {
+            oppositeCharacter.AddValue(card.value);
+        }
+        else
+        {
+            Instance.AddSpecialCard((SpecialDeckCard)card.baseCard, oppositeCharacter);
+        }
+        Instance.DiscardCard(card);
+    }
+
+    public void StealCard(DisplayCard card)
+    {
+        CharacterInstance oppositeCharacter = card.owner == Instance.player ? Instance.opponent : Instance.player;
+        if (card.baseCard is NumberCard)
+        {
+            oppositeCharacter.AddValue(card.value);
+        }
+        else
+        {
+            Instance.AddSpecialCard((SpecialDeckCard)card.baseCard, oppositeCharacter);
+        }
+        Instance.DiscardCard(card);
+    }
+
     void ShuffleCards(List<SpecialDeckCard> shuffle) {
         for(int i = shuffle.Count - 1; i > 0; i--) {
             int j = Random.Range(0, i + 1) ;

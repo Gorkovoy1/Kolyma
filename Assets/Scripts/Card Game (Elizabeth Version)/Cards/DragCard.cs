@@ -60,5 +60,4 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             parentReturnTo = col.gameObject.transform;
         }
     }
-    
 }

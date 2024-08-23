@@ -198,10 +198,8 @@ public class CardSelectionHandler : MonoBehaviour
 
     void ToggleCardsSelectable(bool on)
     {
-        Debug.Log("Toggle Cards!");
         foreach (DisplayCard card in SelectableCards)
         {
-            Debug.Log("Toggle Card Selectable " + on.ToString() + ": " + card.baseCard.name);
             card.SelectButton.interactable = on;
         }
     }
@@ -214,6 +212,10 @@ public class CardSelectionHandler : MonoBehaviour
     public void ConfirmSelection(bool forced = false)
     {
         bool confirmed = false;
+
+        if (CardOptionsSelectionUI.Instance.Active)
+            CardOptionsSelectionUI.Instance.EndSelection();
+
         if(forced)
         {
             confirmed = true;
@@ -226,6 +228,12 @@ public class CardSelectionHandler : MonoBehaviour
         {
             switch (CurrSettings.selectionPurpose)
             {
+                case Effect.PlayCard:
+                    foreach (DisplayCard card in SelectedCards)
+                    {
+                        CardGameManager.Instance.PlayCard(card);
+                    }
+                    break;
                 case Effect.Discard:
                     foreach (DisplayCard card in SelectedCards)
                     {
@@ -235,7 +243,6 @@ public class CardSelectionHandler : MonoBehaviour
                 case Effect.Swap:
                     foreach (DisplayCard card in SelectedCards)
                     {
-                        Debug.Log("Swap: " + card.baseCard.name);
                         CardGameManager.Instance.SwapCard(card);
                     }
                     CardGameManager.Instance.EndSwap();
@@ -248,55 +255,27 @@ public class CardSelectionHandler : MonoBehaviour
                     CardGameManager.Instance.EndFlip();
                     break;
                 case Effect.Change:
-                    Debug.Log("Change!");
                     foreach (DisplayCard card in SelectedCards)
                     {
-                        CharacterInstance cardOwner = card.owner;
-                        CardGameManager.Instance.DiscardCard(card);
-                        cardOwner.AddValue(CurrSettings.miscValue);
+                        CardGameManager.Instance.ChangeCard(card, CurrSettings.miscValue);
                     }
                     break;
                 case Effect.Duplicate:
                     foreach (DisplayCard card in SelectedCards)
                     {
-                        if (card.baseCard is NumberCard)
-                        {
-                            card.owner.AddValue(card.value);
-                        }
-                        else
-                        {
-                            CardGameManager.Instance.AddSpecialCard((SpecialDeckCard)card.baseCard, card.owner);
-                        }
+                        CardGameManager.Instance.DuplicateCard(card);
                     }
                     break;
                 case Effect.Give:
                     foreach (DisplayCard card in SelectedCards)
                     {
-                        CharacterInstance oppositeCharacter = card.owner == CardGameManager.Instance.player ? CardGameManager.Instance.opponent : CardGameManager.Instance.player;
-                        if (card.baseCard is NumberCard)
-                        {
-                            oppositeCharacter.AddValue(card.value);
-                        }
-                        else
-                        {
-                            CardGameManager.Instance.AddSpecialCard((SpecialDeckCard)card.baseCard, oppositeCharacter);
-                        }
-                        CardGameManager.Instance.DiscardCard(card);
+                        CardGameManager.Instance.GiveCard(card);
                     }
                     break;
                 case Effect.Steal:
                     foreach (DisplayCard card in SelectedCards)
                     {
-                        CharacterInstance oppositeCharacter = card.owner == CardGameManager.Instance.player ? CardGameManager.Instance.opponent : CardGameManager.Instance.player;
-                        if (card.baseCard is NumberCard)
-                        {
-                            oppositeCharacter.AddValue(card.value);
-                        }
-                        else
-                        {
-                            CardGameManager.Instance.AddSpecialCard((SpecialDeckCard)card.baseCard, oppositeCharacter);
-                        }
-                        CardGameManager.Instance.DiscardCard(card);
+                        CardGameManager.Instance.StealCard(card);
                     }
                     break;
             }
@@ -305,6 +284,7 @@ public class CardSelectionHandler : MonoBehaviour
                 card.ToggleSelectionColor(false);
             }
             EndSelectingCards();
+            CardEffectChecker.Instance.DoNextStatement();
         }
     }
 }

@@ -18,12 +18,12 @@ public enum TargetCharacter
 
 public enum Effect
 {
-    None, AddValue, Draw, Discard, Swap, Flip, Duplicate, Change, Give, Trade, Steal
+    None, AddValue, Draw, Discard, Swap, Flip, Duplicate, Change, Give, Trade, Steal, PlayCard
 }
 
 public enum CardSelecting
 {
-    None, Random, Selected, Conditional, Given, All
+    None, Random, Selected, Conditional, Given, All, AllConditional
 }
 
 public enum CardType
@@ -54,6 +54,7 @@ public class EffectStatement : ScriptableObject
     public int NumberOfCardsOnSuccess;
     //Values vary based on effect
     public int MiscValueOnSuccess;
+    public List<SpecialDeckCard> CardOptionsOnSuccess;
 
     [Header("F A I L")]
     public EffectStatement StatementOnFail;
@@ -66,5 +67,6 @@ public class EffectStatement : ScriptableObject
     public int NumberOfCardsOnFail;
     //Values vary based on effect
     public int MiscValueOnFail;
+    public List<SpecialDeckCard> CardOptionsOnFail;
 
 }
