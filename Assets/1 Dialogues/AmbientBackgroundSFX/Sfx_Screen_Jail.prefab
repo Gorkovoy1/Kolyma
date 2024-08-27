@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3393754126600923962}
   - component: {fileID: -8455361389957393070}
   m_Layer: 0
-  m_Name: Sfx_Screen
+  m_Name: Sfx_Screen_Jail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

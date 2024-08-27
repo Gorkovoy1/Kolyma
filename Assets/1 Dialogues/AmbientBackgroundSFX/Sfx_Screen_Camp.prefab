@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1123221201544408166}
   - component: {fileID: 1123221201544408165}
   m_Layer: 0
-  m_Name: Sfx_Screen2
+  m_Name: Sfx_Screen_Camp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

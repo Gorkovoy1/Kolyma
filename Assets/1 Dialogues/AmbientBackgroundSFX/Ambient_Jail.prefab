@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1359792330407849186}
   - component: {fileID: 1359792330407849188}
   m_Layer: 0
-  m_Name: Ambient
+  m_Name: Ambient_Jail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11707e34fe1eab24a9d5c0a2adcb42c5, type: 3}
   m_Name: Dialogue3
   m_EditorClassIdentifier: 
+  blackScreen: {fileID: 6951113013818776585, guid: 9077cdf7abd75854cbf5e2f527751988, type: 3}
   bg: {fileID: 21300000, guid: 7fc39a025da054b489fc0b8b41684476, type: 3}
   npcBlack: {fileID: 21300000, guid: fd2e64f05f3e3074cbc1013691ab3747, type: 3}
   npcColor: {fileID: 21300000, guid: 1f0271b5e7f372f4cadb1fd442335385, type: 3}
@@ -19,7 +20,7 @@ MonoBehaviour:
   line1: 
   line2: 
   music: Play_SIlence
-  inkfile: {fileID: 4900000, guid: 3934b32f015142e458520ba47dea4ce4, type: 3}
+  inkfile: {fileID: 4900000, guid: d7b72d5111ddb1b4281902ec097761e8, type: 3}
   nextScene: 0
   ambient: {fileID: 4925410152361900339, guid: cc911a0777c28134b8d54a466e8a714d, type: 3}
   bganim: {fileID: 8768717230632645723, guid: 5c10576bdcb72e8428fa41a1be92868e, type: 3}

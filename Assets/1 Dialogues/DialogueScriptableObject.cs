@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class DialogueScriptableObject : ScriptableObject
 {
+    public GameObject blackScreen;
     public Sprite bg;
     public Sprite npcBlack;
     public Sprite npcColor;

@@ -51,7 +51,7 @@ His trial was a joke, and you could tell how badly those miserable party clerks 
 ---Distract your mind from counting seconds of the time you have to do in the North. Actually, I have an idea.#Andreyev
 ---Let's play a simple game. It's called $Numbers. The game is old and every prisoner is familiar with it, so you better remember the rules. It might even save your life one day so listen carefully.#Tutorial #Andreyev
 ---Well, now you know the $Numbers. #Andreyev
---- Take this deck, I have a spare one. Keep it close to your heart. Now if you don't mind, I want to close my eyes for a couple of minutes.#Andreyev
+---Take this deck, I have a spare one. Keep it close to your heart. Now if you don't mind, I want to close my eyes for a couple of minutes.#Andreyev
 ---For Andreyev a tiny corner of the bed was enough to feel comfortable. He put his head against the cold prison wall and his breath deepened. Arkady felt that his head had become heavy. The darkness of sleep once again became real.#NarratorSound #Narrator 
 ---A convoy officer woke everyone up in the middle of the night. He was calling the roll.#Narrator
 ---Prisoner Andreyev! Andreyev, show yourself! Grab your things, you are getting transferred!#ConvoyOfficer

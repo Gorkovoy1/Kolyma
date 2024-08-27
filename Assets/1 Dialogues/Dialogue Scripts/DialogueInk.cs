@@ -56,7 +56,7 @@ public class DialogueInk : MonoBehaviour
     public const string Dissolve = "_Dissolve";
 
     public GameObject ambientObj;
-    public GameObject levelLoader;
+    public GameObject levelLoaderParent;
 
     public AK.Wwise.Event soundEvent;
 
@@ -94,11 +94,13 @@ public class DialogueInk : MonoBehaviour
 
         if (PlayerPrefs.HasKey("SavedInkState"))
         { 
+            Debug.Log("hasplayerprefs");
             inkStory = new Story(inkJSON.text);
             string savedState = PlayerPrefs.GetString("SavedInkState");
             inkStory.state.LoadJson(savedState);
-            GameObject levelLoader = GameObject.Find("LevelLoader");
-            levelLoader.gameObject.SetActive(false);
+            GameObject levelLoaderParent = GameObject.Find("LevelLoaderParent");
+            levelLoaderParent.gameObject.SetActive(false);
+            screenSFXParent.gameObject.SetActive(false);
             introText.text = "";
             PlayerPortrait.gameObject.SetActive(false);
             NPCPortrait.gameObject.SetActive(false);
@@ -123,18 +125,18 @@ public class DialogueInk : MonoBehaviour
         {
             //create ink file and set level loader. deactivate everything while levelloader is active, reset bools and set paper to invisible
             inkStory = new Story(inkJSON.text);
-            GameObject levelLoader = GameObject.Find("LevelLoader");
-            levelLoader.gameObject.SetActive(true);
+            GameObject levelLoaderParent = GameObject.Find("LevelLoaderParent");
+            levelLoaderParent.gameObject.SetActive(true);
             introText.text = "";
             PlayerPortrait.gameObject.SetActive(false);
             NPCPortrait.gameObject.SetActive(false);
             startScene = true;
+            ambientObj.SetActive(false);
+            Debug.Log("Ambient Off");
             StartCoroutine(ShowInkStory());
             startofDialogue = true;
             soundEnded = true;
             playSound = false;
-            ambientObj.SetActive(false);
-            Debug.Log("Ambient Off");
             skip = false;
             paperColor = paper.color;
             paper.color = new Color(paperColor.r, paperColor.g, paperColor.b, 0f);
@@ -160,6 +162,16 @@ public class DialogueInk : MonoBehaviour
         
         if(dialogueNumber == 1)
         {
+            //set level loader and text
+            foreach (Transform child in levelLoaderParent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            GameObject newLoader = Instantiate(dialogueObj1.blackScreen, levelLoaderParent.transform);
+            if(dialogueObj1.line1 != "" && dialogueObj1.line2 != "")
+            {
+                newLoader.GetComponentInChildren<TextMeshProUGUI>().text = dialogueObj1.line1 + Environment.NewLine + Environment.NewLine + dialogueObj1.line2;
+            }
             //set background
             background.sprite = dialogueObj1.bg;
             //set NPCPortrait
@@ -173,8 +185,6 @@ public class DialogueInk : MonoBehaviour
                 Destroy(child.gameObject);
             }
             GameObject newBgAnim = Instantiate(dialogueObj1.bganim, backgroundAnimParent.transform);
-            //set loader text
-            loaderText.text = dialogueObj1.line1 + Environment.NewLine + Environment.NewLine + dialogueObj1.line2;
             //set Music
             musicName = dialogueObj1.music;
             //set ambient sounds, delete all children and instantiate teh correct new prefab 
@@ -197,6 +207,16 @@ public class DialogueInk : MonoBehaviour
         
         else if (dialogueNumber == 2)
         {
+            //set level loader
+            foreach (Transform child in levelLoaderParent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            GameObject newLoader = Instantiate(dialogueObj2.blackScreen, levelLoaderParent.transform);
+            if(dialogueObj2.line1 != "" && dialogueObj2.line2 != "")
+            {
+                newLoader.GetComponentInChildren<TextMeshProUGUI>().text = dialogueObj2.line1 + Environment.NewLine + Environment.NewLine + dialogueObj2.line2;
+            }
             //set background
             background.sprite = dialogueObj2.bg;
             //set NPCPortrait
@@ -210,8 +230,6 @@ public class DialogueInk : MonoBehaviour
                 Destroy(child.gameObject);
             }
             GameObject newBgAnim = Instantiate(dialogueObj2.bganim, backgroundAnimParent.transform);
-            //set loader text
-            loaderText.text = dialogueObj2.line1 + Environment.NewLine + Environment.NewLine + dialogueObj2.line2;
             //set Music
             musicName = dialogueObj2.music;
             //set ambient sounds, delete all children and instantiate teh correct new prefab 
@@ -234,6 +252,16 @@ public class DialogueInk : MonoBehaviour
 
         else if (dialogueNumber == 3)
         {
+            //set level loader
+            foreach (Transform child in levelLoaderParent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            GameObject newLoader = Instantiate(dialogueObj3.blackScreen, levelLoaderParent.transform);
+            if(dialogueObj3.line1 != "" && dialogueObj3.line2 != "")
+            {
+                newLoader.GetComponentInChildren<TextMeshProUGUI>().text = dialogueObj3.line1 + Environment.NewLine + Environment.NewLine + dialogueObj3.line2;
+            }
             //set background
             background.sprite = dialogueObj3.bg;
             //set NPCPortrait
@@ -247,8 +275,6 @@ public class DialogueInk : MonoBehaviour
                 Destroy(child.gameObject);
             }
             GameObject newBgAnim = Instantiate(dialogueObj3.bganim, backgroundAnimParent.transform);
-            //set loader text
-            loaderText.text = dialogueObj3.line1 + Environment.NewLine + Environment.NewLine + dialogueObj3.line2;
             //set Music
             musicName = dialogueObj3.music;
             //set ambient sounds, delete all children and instantiate teh correct new prefab 
@@ -276,8 +302,16 @@ public class DialogueInk : MonoBehaviour
         if(startScene)
         {
             if (dialogueNumber != 3)
-            { yield return new WaitForSeconds(6f); }
+            { 
+                yield return new WaitForSeconds(6f); 
+            }
+            else
+            {
+                yield return new WaitForSeconds(2f);
+            }
+
             ambientObj.SetActive(true);
+            Debug.Log("ambient active");
             AkSoundEngine.PostEvent(musicName, gameObject);
             Debug.Log("Music");
 
