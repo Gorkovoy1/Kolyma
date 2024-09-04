@@ -5,7 +5,7 @@ using UnityEngine;
 
 public enum Condition
 {
-    None, IfHasClass, IfHasCards, IfHasDuplicate, IfDiscarded, IfSwapped, IfFlipped, IfGaveACard, IfHasQuantity, IfGreaterThanOrEqualToTarget, IfHasNegativeCard
+    None, IfHasClass, IfHasCards, IfHasDuplicate, IfDiscarded, IfSwapped, IfFlipped, IfGaveACard, IfHasQuantity, IfGreaterThanOrEqualToTarget, IfHasNegativeCard, IfReceivedACard, IfNewlyDrawnCardsHasClass
 }
 
 
@@ -18,12 +18,12 @@ public enum TargetCharacter
 
 public enum Effect
 {
-    None, AddValue, Draw, Discard, Swap, Flip, Duplicate, Change, Give, Trade, Steal, PlayCard
+    None, AddValue, Draw, Discard, Swap, Flip, Duplicate, Change, Give, Steal, PlayCard, TradePart1, TradePart2, GiveCopy, DrawFromDiscard, DrawPerDiscarded
 }
 
 public enum CardSelecting
 {
-    None, Random, Selected, Conditional, Given, All, AllConditional
+    None, Random, Selected, Conditional, Given, All, AllConditional, SelectFromDiscard
 }
 
 public enum CardType
@@ -31,6 +31,10 @@ public enum CardType
     None, Number, Special, Any, PositiveNumber, NegativeNumber
 }
 
+public enum NumberOfCardsQuantifier
+{
+    EqualTo, LessThanOrEqualTo
+}
 
 [CreateAssetMenu(fileName = "New Effect Statement")]
 public class EffectStatement : ScriptableObject
@@ -52,6 +56,7 @@ public class EffectStatement : ScriptableObject
     public CardSelecting SelectingOnSuccess;
     public TargetCharacter SelectingCharacterOnSuccess;
     public int NumberOfCardsOnSuccess;
+    public NumberOfCardsQuantifier QuantifierOnSuccess;
     //Values vary based on effect
     public int MiscValueOnSuccess;
     public List<SpecialDeckCard> CardOptionsOnSuccess;
@@ -65,6 +70,7 @@ public class EffectStatement : ScriptableObject
     public CardSelecting SelectingOnFail;
     public TargetCharacter SelectingCharacterOnFail;
     public int NumberOfCardsOnFail;
+    public NumberOfCardsQuantifier QuantifierOnFail;
     //Values vary based on effect
     public int MiscValueOnFail;
     public List<SpecialDeckCard> CardOptionsOnFail;

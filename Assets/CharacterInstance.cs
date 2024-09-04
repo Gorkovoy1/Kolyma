@@ -21,6 +21,11 @@ public class CharacterInstance : MonoBehaviour
     public bool CurrentlySwapping, CurrentlyFlipping;
     public bool SwappingForced, FlippingForced, DidAnAction;
 
+    public List<DisplayCard> NewlyDrawnNumberCards, NewlyDrawnSpecialCards;
+
+    //Only used for Easy Day for now. Only coded for that specific instance
+    public int NumberOfNewlyDiscardCards;
+
     public bool IsAI;
     private CardGameAI AIScript;
 
@@ -37,7 +42,7 @@ public class CharacterInstance : MonoBehaviour
         }
     }
 
-    public void AddValue(int value)
+    public DisplayCard AddValue(int value)
     {
         Debug.Log("Add Value: " + value);
         GameObject newCard = NumberCardPool.Instance.GetValue(value, this);
@@ -52,6 +57,7 @@ public class CharacterInstance : MonoBehaviour
         numberDisplayHand.Add(newCard.GetComponent<DisplayCard>());
         //addedValues += value;
         CardGameManager.Instance.UpdateValues();
+        return newCard.GetComponent<DisplayCard>();
     }
 
     public void ToggleForcedSwap(bool on)

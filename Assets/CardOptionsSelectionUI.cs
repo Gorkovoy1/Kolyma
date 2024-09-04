@@ -18,9 +18,31 @@ public class CardOptionsSelectionUI : MonoBehaviour
         Instance = this;
     }
 
-    public void FillInCards(List<SpecialDeckCard> cards, CharacterInstance cardPlayer, int numberOfCards)
+    public void FillInCards(List<DisplayCard> cards, CharacterInstance cardPlayer, int numberOfCards, Effect effect, NumberOfCardsQuantifier quantifier)
     {
         Debug.Log("Fill In Cards!");
+        Active = true;
+        CardOrganizer.gameObject.SetActive(true);
+        FadeBG.gameObject.SetActive(true);
+
+        List<DisplayCard> cardList = new List<DisplayCard>();
+        for (int i = 0; i < cards.Count; i++)
+        {
+            if(cards[i].SpecialCard != null)
+            {
+                GameObject cardOption = Instantiate(DisplayCardPrefab, CardOrganizer);
+                cardList.Add(cardOption.GetComponent<DisplayCard>());
+                cardOption.GetComponent<DisplayCard>().InitSpecialCard(cards[i].SpecialCard, cardPlayer);
+            }
+        }
+
+        CardSelectSettings newSettings = new CardSelectSettings(cardList, numberOfCards, cardPlayer, TargetCharacter.None, true, 0, effect, quantifier);
+        CardGameManager.Instance.cardSelectStack.Push(newSettings);
+        CardGameManager.Instance.StartSelecting();
+    }
+
+    public void FillInCards(List<SpecialDeckCard> cards, CharacterInstance cardPlayer, int numberOfCards, Effect effect, NumberOfCardsQuantifier quantifier)
+    {
         Active = true;
         CardOrganizer.gameObject.SetActive(true);
         FadeBG.gameObject.SetActive(true);
@@ -33,7 +55,7 @@ public class CardOptionsSelectionUI : MonoBehaviour
             cardOption.GetComponent<DisplayCard>().InitSpecialCard(cards[i], cardPlayer);
         }
 
-        CardSelectSettings newSettings = new CardSelectSettings(cardList, numberOfCards, cardPlayer, TargetCharacter.None, true, 0, Effect.PlayCard);
+        CardSelectSettings newSettings = new CardSelectSettings(cardList, numberOfCards, cardPlayer, TargetCharacter.None, true, 0, effect, quantifier);
         CardGameManager.Instance.cardSelectStack.Push(newSettings);
         CardGameManager.Instance.StartSelecting();
     }

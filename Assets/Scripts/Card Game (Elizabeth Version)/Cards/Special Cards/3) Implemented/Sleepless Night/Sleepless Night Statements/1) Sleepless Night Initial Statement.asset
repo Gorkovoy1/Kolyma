@@ -15,19 +15,26 @@ MonoBehaviour:
   Condition: 5
   ConditonalTarget: 2
   ConditionalCardType: 3
-  ConditionalValues: 
+  ConditionalValue: 0
+  SecondaryConditionalValue: 0
   ConditionalNumberClass: 0
   StatementOnSuccess: {fileID: 0}
-  EffectsOnSuccess: 04000000
-  TargetsOnSuccess: 02000000
-  CardTypesOnSuccess: 03000000
-  CardClassOnSuccess: 
-  ValuesOnSuccess: 01000000
-  SecondaryValuesOnSuccess: 
+  EffectOnSuccess: 4
+  TargetOnSuccess: 2
+  CardTypeOnSuccess: 1
+  CardClassOnSuccess: 0
+  SelectingOnSuccess: 3
+  SelectingCharacterOnSuccess: 1
+  NumberOfCardsOnSuccess: 1
+  MiscValueOnSuccess: 0
+  CardOptionsOnSuccess: []
   StatementOnFail: {fileID: 0}
-  EffectsOnFail: 
-  TargetsOnFail: 
-  CardTypesOnFail: 
-  CardClassOnFail: 
-  ValuesOnFail: 
-  SecondaryValuesOnFail: 
+  EffectOnFail: 0
+  TargetOnFail: 0
+  CardTypeOnFail: 0
+  CardClassOnFail: 0
+  SelectingOnFail: 0
+  SelectingCharacterOnFail: 0
+  NumberOfCardsOnFail: 0
+  MiscValueOnFail: 0
+  CardOptionsOnFail: []

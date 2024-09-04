@@ -37,6 +37,7 @@ public class CardEffectChecker : MonoBehaviour
     {
         if(nextStatement != null)
         {
+            Debug.Log("Do next statement!");
             ExecuteEffectStatement(nextStatement, currentPlayerOfCard, currentOpponentOfPlayer, false, false);
         }
     }
@@ -64,44 +65,40 @@ public class CardEffectChecker : MonoBehaviour
                 case Condition.None:
                     break;
                 case Condition.IfHasClass:
-                    success = ConditionalHasClass(playerOfCard, statement.ConditionalNumberClass);
-                    success = ConditionalHasClass(opponentOfPlayer, statement.ConditionalNumberClass);
+                    success = ConditionalHasClass(playerOfCard, statement.ConditionalNumberClass) || ConditionalHasClass(opponentOfPlayer, statement.ConditionalNumberClass);
                     break;
                 case Condition.IfHasCards:
-                    success = ConditionalHasCard(playerOfCard, statement.ConditionalValue);
-                    success = ConditionalHasCard(opponentOfPlayer, statement.ConditionalValue);
+                    success = ConditionalHasCard(playerOfCard, statement.ConditionalValue) || ConditionalHasCard(opponentOfPlayer, statement.ConditionalValue);
                     break;
                 case Condition.IfHasDuplicate:
-                    success = ConditionalHasDuplicate(playerOfCard, statement.ConditionalCardType);
-                    success = ConditionalHasDuplicate(opponentOfPlayer, statement.ConditionalCardType);
+                    success = ConditionalHasDuplicate(playerOfCard, statement.ConditionalCardType) || ConditionalHasDuplicate(opponentOfPlayer, statement.ConditionalCardType);
                     break;
                 case Condition.IfDiscarded:
-                    success = ConditionalDiscardFlag(playerOfCard);
-                    success = ConditionalDiscardFlag(opponentOfPlayer);
+                    success = ConditionalDiscardFlag(playerOfCard) || ConditionalDiscardFlag(opponentOfPlayer);
                     break;
                 case Condition.IfSwapped:
-                    success = ConditionalSwapFlag(playerOfCard);
-                    success = ConditionalSwapFlag(opponentOfPlayer);
+                    success = ConditionalSwapFlag(playerOfCard) || ConditionalSwapFlag(opponentOfPlayer);
                     break;
                 case Condition.IfFlipped:
-                    success = ConditionalFlipFlag(playerOfCard);
-                    success = ConditionalFlipFlag(opponentOfPlayer);
+                    success = ConditionalFlipFlag(playerOfCard) || ConditionalFlipFlag(opponentOfPlayer);
                     break;
                 case Condition.IfGaveACard:
-                    success = ConditionalGaveACard(playerOfCard);
-                    success = ConditionalGaveACard(opponentOfPlayer);
+                    success = ConditionalGaveACard(playerOfCard) || ConditionalGaveACard(opponentOfPlayer);
                     break;
                 case Condition.IfHasQuantity:
-                    success = ConditionalAtLeastCardQuantity(playerOfCard, statement.ConditionalCardType, statement.ConditionalValue);
-                    success = ConditionalAtLeastCardQuantity(opponentOfPlayer, statement.ConditionalCardType, statement.ConditionalValue);
+                    success = ConditionalAtLeastCardQuantity(playerOfCard, statement.ConditionalCardType, statement.ConditionalValue) || ConditionalAtLeastCardQuantity(opponentOfPlayer, statement.ConditionalCardType, statement.ConditionalValue);
                     break;
                 case Condition.IfGreaterThanOrEqualToTarget:
-                    success = ConditionalGreaterThanOrEqualToTarget(playerOfCard);
-                    success = ConditionalGreaterThanOrEqualToTarget(opponentOfPlayer);
+                    success = ConditionalGreaterThanOrEqualToTarget(playerOfCard) || ConditionalGreaterThanOrEqualToTarget(opponentOfPlayer);
                     break;
                 case Condition.IfHasNegativeCard:
-                    success = ConditionalHasNegativeCard(playerOfCard);
-                    success = ConditionalHasNegativeCard(opponentOfPlayer);
+                    success = ConditionalHasNegativeCard(playerOfCard) || ConditionalHasNegativeCard(opponentOfPlayer);
+                    break;
+                case Condition.IfReceivedACard:
+                    success = ConditionalReceivedCard(playerOfCard) || ConditionalReceivedCard(opponentOfPlayer);
+                    break;
+                case Condition.IfNewlyDrawnCardsHasClass:
+                    success = ConditianalNewlyDrawnCardHasClass(playerOfCard, statement.ConditionalNumberClass) || ConditianalNewlyDrawnCardHasClass(opponentOfPlayer, statement.ConditionalNumberClass);
                     break;
                 default:
                     break;
@@ -144,6 +141,13 @@ public class CardEffectChecker : MonoBehaviour
                 case Condition.IfHasNegativeCard:
                     success = ConditionalHasNegativeCard(targetCharacter);
                     break;
+                case Condition.IfReceivedACard:
+                    success = ConditionalReceivedCard(targetCharacter);
+                    break;
+                case Condition.IfNewlyDrawnCardsHasClass:
+                    Debug.Log("HELLO!");
+                    success = ConditianalNewlyDrawnCardHasClass(targetCharacter, statement.ConditionalNumberClass);
+                    break;
                 default:
                     break;
             }
@@ -153,16 +157,16 @@ public class CardEffectChecker : MonoBehaviour
         {
             Debug.Log("Successful statement: " + statement.name + " - " + statement.Condition.ToString());
 
-            if(simulated)
+            nextStatement = statement.StatementOnSuccess;
+
+            if (simulated)
             {
                 SimulateEffect(statement.EffectOnSuccess, statement.TargetOnSuccess == TargetCharacter.PlayerOfCard ? playerOfCard : opponentOfPlayer, statement.CardTypeOnSuccess, statement.NumberOfCardsOnSuccess, statement.MiscValueOnSuccess);
             }
             else
             {
-                DoEffect(statement.EffectOnSuccess, statement.SelectingCharacterOnSuccess, statement.TargetOnSuccess, statement.CardTypeOnSuccess, statement.NumberOfCardsOnSuccess, statement.MiscValueOnSuccess, statement.SelectingOnSuccess, statement.CardClassOnSuccess, statement.CardOptionsOnSuccess);
+                DoEffect(statement.EffectOnSuccess, statement.SelectingCharacterOnSuccess, statement.TargetOnSuccess, statement.CardTypeOnSuccess, statement.NumberOfCardsOnSuccess, statement.MiscValueOnSuccess, statement.SelectingOnSuccess, statement.CardClassOnSuccess, statement.CardOptionsOnSuccess, statement.QuantifierOnSuccess);
             }
-
-            nextStatement = statement.StatementOnSuccess;
 
             //if(statement.StatementOnSuccess != null)
             //{
@@ -173,16 +177,16 @@ public class CardEffectChecker : MonoBehaviour
         {
             Debug.Log("Failed statement: " + statement.name + " - " + statement.Condition.ToString());
 
+            nextStatement = statement.StatementOnFail;
+
             if (simulated)
             {
                 SimulateEffect(statement.EffectOnFail, statement.TargetOnFail == TargetCharacter.PlayerOfCard ? playerOfCard : opponentOfPlayer, statement.CardTypeOnFail, statement.NumberOfCardsOnFail, statement.MiscValueOnFail);
             }
             else
             {
-                DoEffect(statement.EffectOnFail, statement.SelectingCharacterOnFail, statement.TargetOnFail, statement.CardTypeOnFail, statement.NumberOfCardsOnFail, statement.MiscValueOnFail, statement.SelectingOnFail, statement.CardClassOnFail, statement.CardOptionsOnFail);
+                DoEffect(statement.EffectOnFail, statement.SelectingCharacterOnFail, statement.TargetOnFail, statement.CardTypeOnFail, statement.NumberOfCardsOnFail, statement.MiscValueOnFail, statement.SelectingOnFail, statement.CardClassOnFail, statement.CardOptionsOnFail, statement.QuantifierOnFail);
             }
-
-            nextStatement = statement.StatementOnFail;
 
             /*if (statement.StatementOnFail != null)
             {
@@ -191,7 +195,7 @@ public class CardEffectChecker : MonoBehaviour
         }
     }
 
-    public void DoEffect(Effect effect, TargetCharacter selectingCharacter, TargetCharacter targetCharacter, CardType cardType, int numberOfCards, int miscValue, CardSelecting cardSelectingSettings, NumberClass numberClass, List<SpecialDeckCard> cardOptions)
+    public void DoEffect(Effect effect, TargetCharacter selectingCharacter, TargetCharacter targetCharacter, CardType cardType, int numberOfCards, int miscValue, CardSelecting cardSelectingSettings, NumberClass numberClass, List<SpecialDeckCard> cardOptions, NumberOfCardsQuantifier quantifier)
     {
         CharacterInstance selector;
         if (selectingCharacter != TargetCharacter.OpponentOfPlayer)
@@ -202,21 +206,25 @@ public class CardEffectChecker : MonoBehaviour
         {
             selector = CardGameManager.Instance.WaitingCharacter;
         }
-
-        if (cardOptions.Count > 0)
+        
+        if(cardSelectingSettings == CardSelecting.SelectFromDiscard)
         {
-            CardOptionsSelectionUI.Instance.FillInCards(cardOptions, selector, numberOfCards);
+            CardOptionsSelectionUI.Instance.FillInCards(CardGameManager.Instance.discardPile, selector, numberOfCards, effect, quantifier);
+        }
+        else if (cardOptions.Count > 0)
+        {
+            CardOptionsSelectionUI.Instance.FillInCards(cardOptions, selector, numberOfCards, effect, quantifier);
         }
         else if (cardSelectingSettings == CardSelecting.Selected || cardSelectingSettings == CardSelecting.Conditional)
         {
             CardSelectSettings newSettings;
             if (cardSelectingSettings == CardSelecting.Conditional)
             {
-                newSettings = new CardSelectSettings(ConditionalStack, numberOfCards, selector, targetCharacter, selector == CardGameManager.Instance.player, miscValue, effect);
+                newSettings = new CardSelectSettings(ConditionalStack, numberOfCards, selector, targetCharacter, selector == CardGameManager.Instance.player, miscValue, effect, quantifier);
             }
             else
             {
-                newSettings = new CardSelectSettings(numberOfCards, cardType, effect, selector, targetCharacter, selector == CardGameManager.Instance.player, miscValue, numberClass);
+                newSettings = new CardSelectSettings(numberOfCards, cardType, effect, selector, targetCharacter, selector == CardGameManager.Instance.player, miscValue, numberClass, quantifier);
             }
             CardGameManager.Instance.cardSelectStack.Push(newSettings);
             CardGameManager.Instance.StartSelecting();
@@ -261,7 +269,7 @@ public class CardEffectChecker : MonoBehaviour
                         CardGameManager.Instance.StealCard(card);
                     }
                 break;
-
+                DoNextStatement();
             }
         }
         else if(cardSelectingSettings == CardSelecting.Random)
@@ -300,8 +308,6 @@ public class CardEffectChecker : MonoBehaviour
                     target.ToggleForcedSwap(true);
                     break;
                 case Effect.Give:
-                    break;
-                case Effect.Trade:
                     break;
                 case Effect.Change:
                     break;
@@ -342,6 +348,7 @@ public class CardEffectChecker : MonoBehaviour
                     target.AddValue(miscValue);
                     break;
                 case Effect.Draw:
+                    Debug.Log("Card Effect Draw");
                     if (cardType == CardType.Special)
                         CardGameManager.Instance.DrawSpecialCards(target, numberOfCards);
                     else
@@ -359,9 +366,10 @@ public class CardEffectChecker : MonoBehaviour
                     break;
                 case Effect.Give:
                     break;
-                case Effect.Trade:
-                    break;
                 case Effect.Change:
+                    break;
+                case Effect.DrawPerDiscarded:
+                    CardGameManager.Instance.DrawSpecialCards(target, target.NumberOfNewlyDiscardCards);
                     break;
             }
             DoNextStatement();
@@ -513,14 +521,30 @@ public class CardEffectChecker : MonoBehaviour
     /*TARGET -> -1 (N/A)*/
     public bool ConditionalSwapFlag(CharacterInstance target)
     {
-        //NYI
-        return target.SwappedThisTurn;
+        List<DisplayCard> swappedCards = new List<DisplayCard>();
+        foreach(DisplayCard card in target.numberDisplayHand)
+        {
+            if(card.SwappedThisTurn)
+            {
+                swappedCards.Add(card);
+            }
+        }
+        ConditionalStack.AddRange(swappedCards);
+        return ConditionalStack.Count > 0;
     }
     /*TARGET -> -1 (N/A)*/
     public bool ConditionalFlipFlag(CharacterInstance target)
     {
-        //NYI
-        return target.FlippedThisTurn;
+        List<DisplayCard> flippedCards = new List<DisplayCard>();
+        foreach (DisplayCard card in target.numberDisplayHand)
+        {
+            if (card.FlippedThisTurn)
+            {
+                flippedCards.Add(card);
+            }
+        }
+        ConditionalStack.AddRange(flippedCards);
+        return ConditionalStack.Count > 0;
     }
     /*TARGET -> -1 (N/A)*/
     public bool ConditionalGaveACard(CharacterInstance target)
@@ -556,6 +580,38 @@ public class CardEffectChecker : MonoBehaviour
             NumberCard c = (NumberCard)d.baseCard;
             if (c.value < 0)
             {
+                tmpStack.Add(d);
+            }
+        }
+        ConditionalStack.AddRange(tmpStack);
+        return ConditionalStack.Count > 0;
+    }
+
+    public bool ConditionalReceivedCard(CharacterInstance target)
+    {
+        List<DisplayCard> tmpStack = new List<DisplayCard>();
+        foreach (DisplayCard card in target.numberDisplayHand)
+        {
+            if(card.Given)
+            {
+                tmpStack.Add(card);
+            }
+        }
+        ConditionalStack.AddRange(tmpStack);
+        return ConditionalStack.Count > 0;
+    }
+
+    public bool ConditianalNewlyDrawnCardHasClass(CharacterInstance target, NumberClass color)
+    {
+        List<DisplayCard> tmpStack = new List<DisplayCard>();
+        Debug.Log("Checking newly drawn!");
+        foreach (DisplayCard d in target.NewlyDrawnNumberCards)
+        {
+            Debug.Log("Checking card: " + d.baseCard.name);
+            NumberCard c = (NumberCard)d.baseCard;
+            if (c.cardClass == color)
+            {
+                Debug.Log("Card " + d.baseCard.name + " is of class " + color.ToString());
                 tmpStack.Add(d);
             }
         }

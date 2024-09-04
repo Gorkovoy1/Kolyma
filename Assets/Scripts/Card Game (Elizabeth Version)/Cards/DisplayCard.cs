@@ -30,6 +30,9 @@ public class DisplayCard : MonoBehaviour
     private float OGWidth = 500f, OGHeight = 300f;
 
     public Color OgColor, SelectedColor;
+
+    public bool SwappedThisTurn, FlippedThisTurn, Given;
+
     void Start() {
         selectionEffect.SetActive(false);
         tooltip.SetActive(false);
@@ -52,6 +55,7 @@ public class DisplayCard : MonoBehaviour
 
     public void InitNumberCard(NumberCard card, CharacterInstance owner)
     {
+        gameObject.name = card.name;
         baseCard = card;
         name.text = card.name;
         artwork.sprite = card.artwork;
@@ -65,6 +69,7 @@ public class DisplayCard : MonoBehaviour
 
     public void InitSpecialCard(SpecialDeckCard card, CharacterInstance owner)
     {
+        gameObject.name = card.name;
         baseCard = card;
         SpecialCard = card;
         name.text = card.name;
@@ -79,6 +84,13 @@ public class DisplayCard : MonoBehaviour
     public void ToggleSelectionColor(bool selected)
     {
         SelectButton.GetComponent<Image>().color = selected ? SelectedColor : OgColor;
+    }
+
+    public void ResetFlags()
+    {
+        FlippedThisTurn = false;
+        SwappedThisTurn = false;
+        Given = false;
     }
 
     /*private void Card(NumberCard card) {

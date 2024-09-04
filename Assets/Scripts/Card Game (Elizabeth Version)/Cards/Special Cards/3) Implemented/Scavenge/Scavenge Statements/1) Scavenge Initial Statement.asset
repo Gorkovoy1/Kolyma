@@ -10,24 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 327d55ff20d3ad245bf2bb59c393f897, type: 3}
-  m_Name: 1) Lousy Deal Initial Statement
+  m_Name: 1) Scavenge Initial Statement
   m_EditorClassIdentifier: 
   Condition: 0
   ConditonalTarget: 0
   ConditionalCardType: 0
-  ConditionalValues: 
+  ConditionalValue: 0
+  SecondaryConditionalValue: 0
   ConditionalNumberClass: 0
   StatementOnSuccess: {fileID: 0}
-  EffectsOnSuccess: 09000000
-  TargetsOnSuccess: 02000000
-  CardTypesOnSuccess: 01000000
-  CardClassOnSuccess: 00000000
-  ValuesOnSuccess: 01000000
-  SecondaryValuesOnSuccess: 
+  EffectOnSuccess: 14
+  TargetOnSuccess: 1
+  CardTypeOnSuccess: 2
+  CardClassOnSuccess: 0
+  SelectingOnSuccess: 7
+  SelectingCharacterOnSuccess: 1
+  NumberOfCardsOnSuccess: 1
+  MiscValueOnSuccess: 0
+  CardOptionsOnSuccess: []
   StatementOnFail: {fileID: 0}
-  EffectsOnFail: 
-  TargetsOnFail: 
-  CardTypesOnFail: 
-  CardClassOnFail: 
-  ValuesOnFail: 
-  SecondaryValuesOnFail: 
+  EffectOnFail: 0
+  TargetOnFail: 0
+  CardTypeOnFail: 0
+  CardClassOnFail: 0
+  SelectingOnFail: 0
+  SelectingCharacterOnFail: 0
+  NumberOfCardsOnFail: 0
+  MiscValueOnFail: 0
+  CardOptionsOnFail: []

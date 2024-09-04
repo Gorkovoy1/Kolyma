@@ -18,7 +18,9 @@ public struct CardSelectSettings
 
     public readonly int miscValue { get; }
 
-    public CardSelectSettings(int number, CardType card, Effect effect, CharacterInstance selector, TargetCharacter target, bool playerUI, int miscValue, NumberClass numberClass) : this()
+    public NumberOfCardsQuantifier quantifier;
+
+    public CardSelectSettings(int number, CardType card, Effect effect, CharacterInstance selector, TargetCharacter target, bool playerUI, int miscValue, NumberClass numberClass, NumberOfCardsQuantifier quantifier) : this()
     {
         numCards = number;
         cardType = card;
@@ -28,9 +30,10 @@ public struct CardSelectSettings
         setupPlayerUI = playerUI;
         this.miscValue = miscValue;
         cardClass = numberClass;
+        this.quantifier = quantifier;
     }
 
-    public CardSelectSettings(List<DisplayCard> specificCards, int number, CharacterInstance selector, TargetCharacter target, bool playerUI, int miscValue, Effect effect) : this()
+    public CardSelectSettings(List<DisplayCard> specificCards, int number, CharacterInstance selector, TargetCharacter target, bool playerUI, int miscValue, Effect effect, NumberOfCardsQuantifier quantifier) : this()
     {
         SpecificCards = specificCards;
         selectionPurpose = effect;
@@ -39,6 +42,7 @@ public struct CardSelectSettings
         this.target = target;
         setupPlayerUI = playerUI;
         this.miscValue = miscValue;
+        this.quantifier = quantifier;
     }
 }
 
@@ -80,7 +84,7 @@ public class CardGameManager : MonoBehaviour
 
     public State GameState = State.INIT; //current state
 
-    private List<GenericCard> discardPile = new List<GenericCard>();
+    public List<DisplayCard> discardPile = new List<DisplayCard>();
 
     [HideInInspector] public List<DisplayCard> activeCardVisuals;
 
@@ -241,7 +245,7 @@ public class CardGameManager : MonoBehaviour
         {
             //CardSelectSettings drawSettings = new CardSelectSettings(1, SpecialKeyword.TYPE_SPECIAL, SpecialKeyword.EFFECT_DRAW, true);
             //cardSelectStack.Push(drawSettings);
-            CardSelectSettings flipSettings = new CardSelectSettings(1, CardType.Number, Effect.Flip, CurrentCharacter, TargetCharacter.PlayerOfCard, true, 0, NumberClass.NONE);
+            CardSelectSettings flipSettings = new CardSelectSettings(1, CardType.Number, Effect.Flip, CurrentCharacter, TargetCharacter.PlayerOfCard, true, 0, NumberClass.NONE, NumberOfCardsQuantifier.EqualTo);
             cardSelectStack.Push(flipSettings);
             CardSelectionHandler.ProcessSelect();
         }
@@ -281,7 +285,7 @@ public class CardGameManager : MonoBehaviour
 
             if (CurrentCharacter.CurrentlySwapping)
             {
-                CardSelectSettings swapSettings = new CardSelectSettings(1, CardType.Number, Effect.Swap, CurrentCharacter, TargetCharacter.PlayerOfCard, true, 0, NumberClass.NONE);
+                CardSelectSettings swapSettings = new CardSelectSettings(1, CardType.Number, Effect.Swap, CurrentCharacter, TargetCharacter.PlayerOfCard, true, 0, NumberClass.NONE, NumberOfCardsQuantifier.EqualTo);
                 cardSelectStack.Push(swapSettings);
                 CardSelectionHandler.ProcessSelect();
             }
@@ -333,7 +337,15 @@ public class CardGameManager : MonoBehaviour
     public void EndTurn()
     {
         //CardGameLog.Instance.AddToLog(CurrentCharacter.character.name + " ends turn!");
-        if(CurrentCharacter == player)
+        foreach(DisplayCard card in player.numberDisplayHand)
+        {
+            card.ResetFlags();
+        }
+        foreach (DisplayCard card in opponent.numberDisplayHand)
+        {
+            card.ResetFlags();
+        }
+        if (CurrentCharacter == player)
         {
             SetNewState(State.OPPONENTTURN);
             //state = State.OPPONENTTURN;
@@ -464,7 +476,8 @@ public class CardGameManager : MonoBehaviour
         Debug.Log("Paused Not Yet Implemented!");
     }
 
-    public void DrawNumberCards(CharacterInstance target, int numberCards) {
+    public List<DisplayCard> DrawNumberCards(CharacterInstance target, int numberCards) {
+        List<DisplayCard> newCards = new List<DisplayCard>();
         for(int i = 0; i < numberCards; i++) 
         {
             if(numberDeck.Count == 0) {
@@ -475,9 +488,13 @@ public class CardGameManager : MonoBehaviour
             numberDeck.Remove(newCard);
             target.currValue += newCard.value;
             //Debug.Log("New Number Card for " + target.character.name + ": " + newCard.value);
-            activeCardVisuals.Add(CreateNewDisplayNumberCard(target, newCard).GetComponent<DisplayCard>());
+            GameObject newCardObj = CreateNewDisplayNumberCard(target, newCard);
+            newCards.Add(newCardObj.GetComponent<DisplayCard>());
+            activeCardVisuals.Add(newCardObj.GetComponent<DisplayCard>());
         }
         UpdateValues();
+        target.NewlyDrawnNumberCards = newCards;
+        return newCards;
     }
 
     public GameObject CreateNewDisplayNumberCard(CharacterInstance target, NumberCard newCard)
@@ -505,8 +522,9 @@ public class CardGameManager : MonoBehaviour
 
         if(discard)
         {
-            discardPile.Add(card.baseCard);
+            discardPile.Add(card);
         }
+
         if(card != null)
             Destroy(card.gameObject);
     }
@@ -549,6 +567,7 @@ public class CardGameManager : MonoBehaviour
     }
 
     public void DrawSpecialCards(CharacterInstance target, int specialCards) {
+        List<DisplayCard> newCards = new List<DisplayCard>();
         for(int i = 0; i < specialCards; i ++) {
             if(target.deck.Count == 0) {
                 Debug.Log(target.character.name + " is out of cards!");
@@ -556,11 +575,12 @@ public class CardGameManager : MonoBehaviour
             }
             SpecialDeckCard newCard = target.deck[0];
             target.deck.Remove(newCard);
-            AddSpecialCard(newCard, target);
+            newCards.Add(AddSpecialCard(newCard, target));
         }
+        target.NewlyDrawnSpecialCards = newCards;
     }
 
-    public void AddSpecialCard(SpecialDeckCard card, CharacterInstance target)
+    public DisplayCard AddSpecialCard(SpecialDeckCard card, CharacterInstance target)
     {
         GameObject newCardVisual = Instantiate(cardVisualPrefab);
         DisplayCard newCardDisplay = newCardVisual.GetComponent<DisplayCard>();
@@ -577,6 +597,33 @@ public class CardGameManager : MonoBehaviour
             newCardVisual.transform.SetParent(CardGameUIManager.Instance.OpponentHandTransform);
         }
         activeCardVisuals.Add(newCardDisplay);
+        return newCardDisplay;
+    }
+
+    public void DrawFromDiscardPile(DisplayCard card, CharacterInstance target)
+    {
+        discardPile.Remove(card);
+        activeCardVisuals.Add(card);
+        card.owner = target;
+        if(card.baseCard is SpecialDeckCard)
+        {
+            Debug.Log("Draw special from discard!");
+            target.specialDisplayHand.Add(card);
+
+            if (target == player)
+            {
+                card.transform.SetParent(CardGameUIManager.Instance.PlayerHandTransform);
+            }
+            else
+            {
+                card.transform.SetParent(CardGameUIManager.Instance.OpponentHandTransform);
+            }
+        }
+        else
+        {
+            Debug.Log("Draw number from discard!");
+            target.numberDisplayHand.Add(card);
+        }
     }
 
     public void PlayCard(DisplayCard display) {
@@ -616,17 +663,22 @@ public class CardGameManager : MonoBehaviour
         }
         else
         {
-            DrawNumberCards(display.owner, 1);
+            List<DisplayCard> newCards = DrawNumberCards(display.owner, 1);
+            foreach(DisplayCard card in newCards)
+            {
+                card.SwappedThisTurn = true;
+            }
             numberDeck.Add((NumberCard)display.baseCard);
         }
         display.owner.SwappedThisTurn = true;
-        RemoveCardFromPlay(display, false);
+        RemoveCardFromPlay(display, true);
         UpdateValues();
     }
 
     public void FlipCard(DisplayCard display)
     {
-        CreateNewDisplayNumberCard(display.owner, ((NumberCard)display.baseCard).oppositeCard);
+        GameObject newCard = CreateNewDisplayNumberCard(display.owner, ((NumberCard)display.baseCard).oppositeCard);
+        newCard.GetComponent<DisplayCard>().FlippedThisTurn = true;
         RemoveCardFromPlay(display, false);
         UpdateValues();
     }
@@ -646,22 +698,24 @@ public class CardGameManager : MonoBehaviour
         }
         else
         {
-            Instance.AddSpecialCard((SpecialDeckCard)card.baseCard, card.owner);
+            AddSpecialCard((SpecialDeckCard)card.baseCard, card.owner);
         }
     }
 
-    public void GiveCard(DisplayCard card)
+    public void GiveCard(DisplayCard card, bool copy = false)
     {
         CharacterInstance oppositeCharacter = card.owner == Instance.player ? Instance.opponent : Instance.player;
         if (card.baseCard is NumberCard)
         {
-            oppositeCharacter.AddValue(card.value);
+            DisplayCard newCard = oppositeCharacter.AddValue(card.value);
+            newCard.Given = true;
         }
         else
         {
-            Instance.AddSpecialCard((SpecialDeckCard)card.baseCard, oppositeCharacter);
+            AddSpecialCard((SpecialDeckCard)card.baseCard, oppositeCharacter);
         }
-        Instance.DiscardCard(card);
+        if(!copy)
+            DiscardCard(card);
     }
 
     public void StealCard(DisplayCard card)
@@ -673,9 +727,9 @@ public class CardGameManager : MonoBehaviour
         }
         else
         {
-            Instance.AddSpecialCard((SpecialDeckCard)card.baseCard, oppositeCharacter);
+            AddSpecialCard((SpecialDeckCard)card.baseCard, oppositeCharacter);
         }
-        Instance.DiscardCard(card);
+        DiscardCard(card);
     }
 
     void ShuffleCards(List<SpecialDeckCard> shuffle) {

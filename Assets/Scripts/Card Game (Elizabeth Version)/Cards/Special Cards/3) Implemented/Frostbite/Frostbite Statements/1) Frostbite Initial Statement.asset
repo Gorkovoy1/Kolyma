@@ -19,7 +19,7 @@ MonoBehaviour:
   SecondaryConditionalValue: 0
   ConditionalNumberClass: 0
   StatementOnSuccess: {fileID: 0}
-  EffectOnSuccess: 11
+  EffectOnSuccess: 10
   TargetOnSuccess: 0
   CardTypeOnSuccess: 0
   CardClassOnSuccess: 0
