@@ -372,7 +372,7 @@ public class DialogueInk : MonoBehaviour
 
     }
 
-    //display each line letter by letter
+    //display each line letter by letter. TAGS ARE HERE!
     IEnumerator LetterByLetter(string text)
     {
         dialogueText.text = "";
@@ -411,7 +411,7 @@ public class DialogueInk : MonoBehaviour
                     PlayerPortrait.gameObject.SetActive(false);
                     narratorTag.gameObject.SetActive(true);
                 }
-                if (tags[0] == "Andreyev" || tags[0] == "Rybakov")
+                if (tags[0] == "Andreyev" || tags[0] == "Rybakov"|| tags[0] == "Gangster")
                 {
                     HighlightNPC();
                     narratorTag.gameObject.SetActive(false);

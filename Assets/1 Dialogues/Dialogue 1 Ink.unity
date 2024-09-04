@@ -3015,6 +3015,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 361807745}
     m_Modifications:
+    - target: {fileID: 1696250396521154995, guid: 9077cdf7abd75854cbf5e2f527751988, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6608832531708262573, guid: 9077cdf7abd75854cbf5e2f527751988, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
