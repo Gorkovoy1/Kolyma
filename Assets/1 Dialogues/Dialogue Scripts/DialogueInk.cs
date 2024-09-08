@@ -318,7 +318,9 @@ public class DialogueInk : MonoBehaviour
             Debug.Log("Music");
 
             //pause as we look at the background
-            yield return new WaitForSeconds(3f);
+            if (dialogueNumber != 3)
+            { yield return new WaitForSeconds(3f); }
+            else { yield return new WaitForSeconds(1f); }
 
 
             smoke.gameObject.SetActive(true);
@@ -449,8 +451,8 @@ public class DialogueInk : MonoBehaviour
                     GameObject dark = Instantiate(darkPrefab, this.transform);
                     NPCPortrait.gameObject.SetActive(false);
                     backgroundAnimParent.gameObject.SetActive(false);
-                    dark.GetComponent<Dark>().duration = 3f;
-                    dark.GetComponent<Dark>().speed = 0.2f;
+                    dark.GetComponent<Dark>().duration = 1f;
+                    dark.GetComponent<Dark>().speed = 0.6f;
                     while(dark != null)
                     {
                         yield return null;

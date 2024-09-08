@@ -22,7 +22,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{EA2FD6DE-3D13-DA60-FCE1-DBCD0478D9B4}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{E6DAED65-C6DA-E761-BFC0-A2502D392F8F}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -32,7 +32,7 @@
 				</File>
 				<File Id="7973089" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Barracks_Background.wav</ShortName>
-					<CachePath>SFX/Barracks_Background_FBC78EF0.wem</CachePath>
+					<CachePath>SFX/Barracks_Background_2363378D.wem</CachePath>
 				</File>
 				<File Id="75083474" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>camp_arrival_no_intro.wav</ShortName>
@@ -156,7 +156,7 @@
 				</File>
 				<File Id="946766250" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>barracks_doors.wav</ShortName>
-					<CachePath>SFX/barracks_doors_2A2FC69D.wem</CachePath>
+					<CachePath>SFX/barracks_doors_705BC893.wem</CachePath>
 				</File>
 				<File Id="1005253697" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Dogs_Bark-004.wav</ShortName>
@@ -279,5 +279,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{128066F9-E1F4-A72D-7EC9-BBA75AFC0854}</FileHash>
+	<FileHash>{A95E1CD3-093E-AE56-AD80-492A2D6D8E5A}</FileHash>
 </SoundBanksInfo>

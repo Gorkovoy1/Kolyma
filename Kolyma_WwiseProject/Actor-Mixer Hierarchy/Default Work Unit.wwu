@@ -1315,6 +1315,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="Barracks_Background" ID="{7556668B-9242-4A4E-BC9C-CED720E00060}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.0393925844150673"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.0363923422763506"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.229790075754559"/>
+										<Property Name="TrimEnd" Type="Real64" Value="56.5385426695974"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>Barracks_Background.wav</AudioFile>
 									<MediaIDList>
