@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blackScreen: {fileID: 6951113013818776585, guid: 9077cdf7abd75854cbf5e2f527751988, type: 3}
   bg: {fileID: 21300000, guid: 7fc39a025da054b489fc0b8b41684476, type: 3}
-  npcBlack: {fileID: 21300000, guid: fd2e64f05f3e3074cbc1013691ab3747, type: 3}
-  npcColor: {fileID: 21300000, guid: 1f0271b5e7f372f4cadb1fd442335385, type: 3}
+  npcBlack: {fileID: 21300000, guid: bbefc7f5f31331e4594a8b01f5b15d75, type: 3}
+  npcColor: {fileID: 21300000, guid: bbefc7f5f31331e4594a8b01f5b15d75, type: 3}
   npcName: Gangster
   line1: 
   line2: 

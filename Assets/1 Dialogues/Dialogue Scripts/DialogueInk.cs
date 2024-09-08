@@ -64,6 +64,8 @@ public class DialogueInk : MonoBehaviour
 
     public GameObject smoke;
 
+    public GameObject darkPrefab;
+
     
 
     //setting up scene objects
@@ -325,7 +327,7 @@ public class DialogueInk : MonoBehaviour
             yield return new WaitForSeconds(4f);
             
             //fade paper in
-            narratorTag.gameObject.SetActive(true);
+            //narratorTag.gameObject.SetActive(true);
             AkSoundEngine.PostEvent("Play_Woosh_Narrator", gameObject);
             while(paper.color.a < 1f)
             {
@@ -440,6 +442,22 @@ public class DialogueInk : MonoBehaviour
                     //this executes before the line finishes
                     //LoadNextScene();
                 }
+
+                if(tags[0] == "Dark")
+                {
+                    //instantiate black screen with fadeout, control black screen seconds and fadeout speed
+                    GameObject dark = Instantiate(darkPrefab, this.transform);
+                    NPCPortrait.gameObject.SetActive(false);
+                    backgroundAnimParent.gameObject.SetActive(false);
+                    dark.GetComponent<Dark>().duration = 3f;
+                    dark.GetComponent<Dark>().speed = 0.2f;
+                    while(dark != null)
+                    {
+                        yield return null;
+                    }
+                    NPCPortrait.gameObject.SetActive(true);
+                    backgroundAnimParent.gameObject.SetActive(true);
+                }
             }
 
             if (tags[0] != "Narrator" && tags[0] != "NarratorSound")
@@ -449,7 +467,7 @@ public class DialogueInk : MonoBehaviour
                 foreach (char letter in text)
                 {
                     playSound = true;
-                    if (letter == ' ')
+                    if (letter == ' ' || letter == '.')
                     {
                         isItalic = false;
                         isRed = false;
