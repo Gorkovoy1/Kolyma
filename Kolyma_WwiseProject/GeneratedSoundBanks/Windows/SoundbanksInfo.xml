@@ -22,7 +22,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{E6DAED65-C6DA-E761-BFC0-A2502D392F8F}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{C39F445D-2E7D-D4BC-8DCF-1AD1904C7B75}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -32,7 +32,7 @@
 				</File>
 				<File Id="7973089" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Barracks_Background.wav</ShortName>
-					<CachePath>SFX/Barracks_Background_2363378D.wem</CachePath>
+					<CachePath>SFX/Barracks_Background_07646D92.wem</CachePath>
 				</File>
 				<File Id="75083474" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>camp_arrival_no_intro.wav</ShortName>
@@ -53,6 +53,10 @@
 				<File Id="169040873" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Whisper-003.wav</ShortName>
 					<CachePath>SFX/Cell_SFX_Whisper-003_8E324C96.wem</CachePath>
+				</File>
+				<File Id="272165377" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Punch1.2.wav</ShortName>
+					<CachePath>SFX/Punch1.2_A40B8120.wem</CachePath>
 				</File>
 				<File Id="328403887" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>kolyma daytime 1.4.wav</ShortName>
@@ -236,6 +240,11 @@
 						<MediaRef Id="619077475"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="3946911806" Name="Play_Punch" DurationType="OneShot" DurationMin="1.5851834" DurationMax="1.5851834">
+					<MediaRefs>
+						<MediaRef Id="272165377"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="1112221790" Name="Play_Screen_Sfx" DurationType="OneShot" DurationMin="7.49264" DurationMax="7.49264">
 					<MediaRefs>
 						<MediaRef Id="90128117"/>
@@ -279,5 +288,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{A95E1CD3-093E-AE56-AD80-492A2D6D8E5A}</FileHash>
+	<FileHash>{3CF6AA2B-4FAE-F37A-9422-BD064E0CEEB1}</FileHash>
 </SoundBanksInfo>

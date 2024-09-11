@@ -453,6 +453,7 @@ public class DialogueInk : MonoBehaviour
                     backgroundAnimParent.gameObject.SetActive(false);
                     dark.GetComponent<Dark>().duration = 1f;
                     dark.GetComponent<Dark>().speed = 0.6f;
+                    AkSoundEngine.PostEvent("Play_Punch", gameObject);
                     while(dark != null)
                     {
                         yield return null;
