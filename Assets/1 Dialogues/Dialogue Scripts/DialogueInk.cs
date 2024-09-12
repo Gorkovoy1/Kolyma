@@ -66,6 +66,7 @@ public class DialogueInk : MonoBehaviour
 
     public GameObject darkPrefab;
 
+    public GameObject bedObj;
     
 
     //setting up scene objects
@@ -132,6 +133,7 @@ public class DialogueInk : MonoBehaviour
             introText.text = "";
             PlayerPortrait.gameObject.SetActive(false);
             NPCPortrait.gameObject.SetActive(false);
+            bedObj.gameObject.SetActive(false);
             startScene = true;
             ambientObj.SetActive(false);
             Debug.Log("Ambient Off");
@@ -410,10 +412,7 @@ public class DialogueInk : MonoBehaviour
                 }
                 if (tags[0] == "NarratorSound")
                 {
-                    NPCPortrait.gameObject.SetActive(false);
-                    AkSoundEngine.PostEvent("Play_Woosh_Narrator",gameObject);
-                    PlayerPortrait.gameObject.SetActive(false);
-                    narratorTag.gameObject.SetActive(true);
+                    NarratorSound();
                 }
                 if (tags[0] == "Andreyev" || tags[0] == "Rybakov"|| tags[0] == "Gangster")
                 {
@@ -436,13 +435,19 @@ public class DialogueInk : MonoBehaviour
 
                 if (tags[0] == "ReceiveItem")
                 {
-                    NPCPortrait.gameObject.SetActive(false);
-                    AkSoundEngine.PostEvent("Play_Woosh_Narrator",gameObject);
-                    PlayerPortrait.gameObject.SetActive(false);
-                    narratorTag.gameObject.SetActive(true);
+                    NarratorSound();
 
                     //this executes before the line finishes
                     //LoadNextScene();
+                }
+
+                if(tags[0] == "ClickBed")
+                {
+                    NarratorSound();
+
+                    
+                    bedObj.gameObject.SetActive(true);
+
                 }
 
                 if(tags[0] == "Dark")
@@ -646,6 +651,14 @@ public class DialogueInk : MonoBehaviour
     {
         PlayerPrefs.DeleteKey("SavedInkState");
         SceneManager.LoadScene(nextSceneNumber);
+    }
+
+    void NarratorSound()
+    {
+        NPCPortrait.gameObject.SetActive(false);
+        AkSoundEngine.PostEvent("Play_Woosh_Narrator",gameObject);
+        PlayerPortrait.gameObject.SetActive(false);
+        narratorTag.gameObject.SetActive(true);
     }
 
 }

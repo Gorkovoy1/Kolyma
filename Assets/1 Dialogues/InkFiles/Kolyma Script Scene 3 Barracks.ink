@@ -12,4 +12,4 @@ Your bed is over there!#Gangster
     It sure is. Fresh Meat should stay cold. Such a smart young man should know this. Didn’t you go to school?#Gangster
     
 -You're lucky we already have a bucket bitch. But you always can take his place, so you better behave, fresh meat!#Gangster
--Click on your bed to finish your day.#NarratorSound #Narrator
+-Click on your bed to finish your day.#ClickBed #NarratorSound #Narrator
