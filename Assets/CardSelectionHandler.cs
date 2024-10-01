@@ -161,14 +161,14 @@ public class CardSelectionHandler : MonoBehaviour
     {
         if (SelectedCards.Contains(card))
         {
-            CardGameLog.Instance.AddToLog(selectingPlayer.character.name + " unselects card: " + card.baseCard.name);
+            //CardGameLog.Instance.AddToLog(selectingPlayer.character.name + " unselects card: " + card.baseCard.name);
             //Debug.Log("Unselect Card: " + card.baseCard.name);
             SelectedCards.Remove(card);
             card.ToggleSelectionColor(false);
         }
         else if (SelectedCards.Count < CurrSettings.numCards)
         {
-            CardGameLog.Instance.AddToLog(selectingPlayer.character.name + " selects card: " + card.baseCard.name);
+            //CardGameLog.Instance.AddToLog(selectingPlayer.character.name + " selects card: " + card.baseCard.name);
             //Debug.Log("Select Card: " + card.baseCard.name);
             SelectedCards.Add(card);
             card.ToggleSelectionColor(true);
@@ -185,7 +185,7 @@ public class CardSelectionHandler : MonoBehaviour
 
     public bool CheckConditionsMet()
     {
-        bool conditionsMet = false;
+        bool conditionsMet = true;
         switch(CurrSettings.quantifier)
         {
             case NumberOfCardsQuantifier.EqualTo:
@@ -316,13 +316,20 @@ public class CardSelectionHandler : MonoBehaviour
                         CardGameManager.Instance.DrawFromDiscardPile(card, CurrSettings.selector);
                     }
                     break;
+                case Effect.BuildDeck:
+                    foreach(DisplayCard card in SelectedCards)
+                    {
+                        CardGameManager.Instance.player.AddCardToDeck(card);
+                    }
+                    CardGameManager.Instance.StartRound();
+                    break;
             }
             foreach(DisplayCard card in SelectedCards)
             {
                 card.ToggleSelectionColor(false);
             }
             EndSelectingCards();
-            CardEffectChecker.Instance.DoNextStatement();
+            CardEffectChecker.Instance.DoNextStatement(CurrSettings.selectionPurpose != Effect.BuildDeck);
         }
     }
 }

@@ -7,11 +7,15 @@ public class CardOptionsSelectionUI : MonoBehaviour
 {
     public static CardOptionsSelectionUI Instance;
 
+    public GameObject MainObject;
     public GameObject DisplayCardPrefab;
     public RectTransform CardOrganizer;
     public GameObject FadeBG;
+    public GameObject HideButton;
 
     public bool Active;
+
+    public List<DisplayCard> CurrentCards;
 
     private void Awake()
     {
@@ -22,8 +26,11 @@ public class CardOptionsSelectionUI : MonoBehaviour
     {
         Debug.Log("Fill In Cards!");
         Active = true;
+        MainObject.SetActive(true);
         CardOrganizer.gameObject.SetActive(true);
         FadeBG.gameObject.SetActive(true);
+
+        HideButton.SetActive(true);
 
         List<DisplayCard> cardList = new List<DisplayCard>();
         for (int i = 0; i < cards.Count; i++)
@@ -35,6 +42,7 @@ public class CardOptionsSelectionUI : MonoBehaviour
                 cardOption.GetComponent<DisplayCard>().InitSpecialCard(cards[i].SpecialCard, cardPlayer);
             }
         }
+        CurrentCards = cardList;
 
         CardSelectSettings newSettings = new CardSelectSettings(cardList, numberOfCards, cardPlayer, TargetCharacter.None, true, 0, effect, quantifier);
         CardGameManager.Instance.cardSelectStack.Push(newSettings);
@@ -44,8 +52,11 @@ public class CardOptionsSelectionUI : MonoBehaviour
     public void FillInCards(List<SpecialDeckCard> cards, CharacterInstance cardPlayer, int numberOfCards, Effect effect, NumberOfCardsQuantifier quantifier)
     {
         Active = true;
+        MainObject.SetActive(true);
         CardOrganizer.gameObject.SetActive(true);
         FadeBG.gameObject.SetActive(true);
+
+        HideButton.SetActive(true);
 
         List<DisplayCard> cardList = new List<DisplayCard>();
         for (int i = 0; i < cards.Count; i++)
@@ -54,10 +65,16 @@ public class CardOptionsSelectionUI : MonoBehaviour
             cardList.Add(cardOption.GetComponent<DisplayCard>());
             cardOption.GetComponent<DisplayCard>().InitSpecialCard(cards[i], cardPlayer);
         }
+        CurrentCards = cardList;
 
         CardSelectSettings newSettings = new CardSelectSettings(cardList, numberOfCards, cardPlayer, TargetCharacter.None, true, 0, effect, quantifier);
         CardGameManager.Instance.cardSelectStack.Push(newSettings);
         CardGameManager.Instance.StartSelecting();
+    }
+
+    public void ToggleHide()
+    {
+        MainObject.SetActive(!MainObject.activeSelf);
     }
 
     public void EndSelection()
@@ -66,5 +83,12 @@ public class CardOptionsSelectionUI : MonoBehaviour
         Active = false;
         CardOrganizer.gameObject.SetActive(false);
         FadeBG.gameObject.SetActive(false);
+        MainObject.SetActive(false);
+        HideButton.SetActive(false);
+        for(int i = 0; i < CurrentCards.Count; i++)
+        {
+            CardGameManager.Instance.RemoveCardFromPlay(CurrentCards[i], false);
+        }
+        CurrentCards.Clear();
     }
 }

@@ -20,7 +20,7 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if(display.baseCard is SpecialDeckCard && (CardGameManager.Instance.GameState == CardGameManager.State.PLAYERTURN)) {
+        if(display.baseCard is SpecialDeckCard && (CardGameManager.Instance.GameState == CardGameManager.State.PLAYERTURN && !display.owner.DidAnAction) && display.Playable) {
             parentReturnTo = gameObject.transform.parent;
             dragActive = true;
         }

@@ -11,20 +11,22 @@ public class CardGameUIManager : MonoBehaviour
     public static CardGameUIManager Instance;
 
     private CharacterInstance player, opponent;
+    public Image PlayerPortrait, OpponentPortrait;
 
     public GameObject CardPlayZone, DiscardZone;
 
     public Button endTurnButton, selectConfirmButton;
     public NumberCardOrganizer OpponentPositiveCardZone, PlayerPositiveCardZone, OpponentNegativeCardZone, PlayerNegativeCardZone;
     public Transform PlayerHandTransform, OpponentHandTransform;
-    public TextMeshProUGUI opponentSumText, playerSumText, targetValueText, selectionText;
+    public TextMeshProUGUI opponentSumText, playerSumText, targetValueText, selectionText, EndTurnText;
+    public TextMeshProUGUI PlayerNameText, OpponentNameText;
 
-    public TextMeshProUGUI FlipText, SwapText; 
-    public Button FlipButton, SwapButton;
+    public TextMeshProUGUI FlipText, SwapText, MulliganText; 
+    public Button FlipButton, SwapButton, MulliganButton;
 
     private UIMode CurrentMode;
 
-    public bool Swapping, Flipping;
+    public bool Swapping, Flipping, Mulliganing;
 
     private void Awake()
     {
@@ -35,11 +37,11 @@ public class CardGameUIManager : MonoBehaviour
     {
         this.player = player;
         this.opponent = opponent;
-    }
-
-    private void Update()
-    {
-        
+        targetValueText.text = "" + 0;
+        PlayerNameText.text = player.character.name;
+        OpponentNameText.text = opponent.character.name;
+        PlayerPortrait.sprite = player.character.portrait;
+        OpponentPortrait.sprite = opponent.character.portrait;
     }
 
     public void UpdateValues()
@@ -54,12 +56,29 @@ public class CardGameUIManager : MonoBehaviour
         {
             player.currValue += card.value;
         }
-        opponentSumText.text = opponent.character.name + ":\n" + opponent.currValue;
-        playerSumText.text = player.character.name + ":\n" + player.currValue;
+        opponentSumText.text = "" + opponent.currValue;
+        playerSumText.text = "" + player.currValue;
         opponent.PositiveCardsZone.Reorganize();
         opponent.NegativeCardsZone.Reorganize();
         player.PositiveCardsZone.Reorganize();
         player.NegativeCardsZone.Reorganize();
+
+        //EndTurnText.text = player.DidAnAction ? "End Turn" : "Pass Turn";
+
+        bool playerTurn = CardGameManager.Instance.GameState == CardGameManager.State.PLAYERTURN;
+
+        FlipButton.gameObject.SetActive(playerTurn);
+        SwapButton.gameObject.SetActive(playerTurn);
+        MulliganButton.gameObject.SetActive(playerTurn);
+        endTurnButton.gameObject.SetActive(playerTurn);
+
+        endTurnButton.interactable = !player.DidAnAction;
+        FlipButton.interactable = !player.DidAnAction;
+        SwapButton.interactable = !player.DidAnAction;
+        MulliganButton.interactable = !player.DidAnAction;
+
+        PlayerNameText.color = CardGameManager.Instance.GameState == CardGameManager.State.PLAYERTURN ? Color.red : Color.white;
+        OpponentNameText.color = CardGameManager.Instance.GameState == CardGameManager.State.OPPONENTTURN ? Color.red : Color.white;
     }
 
     public void ChangeUIMode(UIMode newMode)
@@ -94,6 +113,9 @@ public class CardGameUIManager : MonoBehaviour
 
         SwapText.text = "SWAP";
         SwapButton.interactable = true;
+
+        MulliganText.text = "MULLIGAN";
+        MulliganButton.interactable = true;
     }
 
     public void ToggleFlipping(bool flipping)
@@ -102,7 +124,7 @@ public class CardGameUIManager : MonoBehaviour
 
         if (player.DidAnAction)
         {
-            FlipText.text = "Flipped";
+            FlipText.text = "FLIP";
             FlipButton.interactable = false;
         }
         else
@@ -117,12 +139,27 @@ public class CardGameUIManager : MonoBehaviour
 
         if(player.DidAnAction)
         {
-            SwapText.text = "Swapped";
+            SwapText.text = "SWAP";
             SwapButton.interactable = false;
         }
         else
         {
             SwapText.text = Swapping ? "SWAPPING..." : "SWAP";
+        }
+    }
+
+    public void ToggleMulliganing(bool mulliganing)
+    {
+        Mulliganing = mulliganing;
+
+        if (player.DidAnAction)
+        {
+            MulliganText.text = "MULLIGAN";
+            MulliganButton.interactable = false;
+        }
+        else
+        {
+            MulliganText.text = Mulliganing ? "Mulliganing..." : "MULLIGAN";
         }
     }
 

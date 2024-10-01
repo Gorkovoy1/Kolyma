@@ -14,24 +14,13 @@ public class Dice : MonoBehaviour
     private Image img;
 
 
-	public void Start () 
-    {
-
-        // Assign Image component
-        img = GetComponent<Image>();
-
-
-        StartCoroutine("RollTheDice");
-	}
-
     // Coroutine that rolls the dice
-    private IEnumerator RollTheDice()
+    public IEnumerator RollTheDice(float time)
     {
+        img = GetComponent<Image>();
         // Variable to contain random dice side number.
         // It needs to be assigned. Let it be 0 initially
         int randomDiceSide = 0;
-
-       
 
         // Loop to switch dice sides ramdomly
         // before final side appears. 20 itterations here.
@@ -44,15 +33,11 @@ public class Dice : MonoBehaviour
             img.sprite = diceSides[randomDiceSide];
 
             // Pause before next itteration
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(time/20f);
         }
 
         // Assigning final side so you can use this value later in your game
         // for player movement for example
         finalSide = randomDiceSide + 1;
-
-        // Show final dice value in Console
-        Debug.Log(finalSide);
-
     }
 }

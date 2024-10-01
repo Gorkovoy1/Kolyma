@@ -16,9 +16,10 @@ public class CharacterInstance : MonoBehaviour
     public List<DisplayCard> numberDisplayHand; //Using display cards to store values since values can change without changing the base number value i.e. Flip mechanic
     public int currValue; //current total value
     //public int addedValues; //Added from card effects
-    public bool DiscardedThisTurn, SwappedThisTurn, GaveThisTurn, FlippedThisTurn, PlayedThisTurn; //flag booleans to be raised when certain card actions have been performed
 
-    public bool CurrentlySwapping, CurrentlyFlipping;
+    public int DiscardedFlag, SwappedFlag, GaveFlag, FlippedFlag, PlayedFlag, MulliganedFlag; //flag booleans to be raised when certain card actions have been performed by self. Set to 2 to last a full turn cycle
+
+    public bool CurrentlySwapping, CurrentlyFlipping, CurrentlyMulliganing;
     public bool SwappingForced, FlippingForced, DidAnAction;
 
     public List<DisplayCard> NewlyDrawnNumberCards, NewlyDrawnSpecialCards;
@@ -28,6 +29,12 @@ public class CharacterInstance : MonoBehaviour
 
     public bool IsAI;
     private CardGameAI AIScript;
+
+    public int Dice1, Dice2;
+
+    public CharacterInstance Opponent;
+
+    public bool HadATurn;
 
     public void Init(CardGameCharacter character, NumberCardOrganizer positiveCardZone, NumberCardOrganizer negativeCardZone, bool isAI, CharacterInstance opponent)
     {
@@ -40,6 +47,23 @@ public class CharacterInstance : MonoBehaviour
             AIScript = gameObject.AddComponent<CardGameAI>();
             AIScript.Init(this, opponent);
         }
+        FlushGameplayVariables();
+    }
+
+    public void RandomlyChooseDeck()
+    {
+        List<SpecialDeckCard> possibleCards = new List<SpecialDeckCard>(character.deckList);
+        for(int i = 0; i < 15; i++)
+        {
+            int chosenCardIndex = Random.Range(0, possibleCards.Count);
+            deck.Add(possibleCards[chosenCardIndex]);
+            possibleCards.RemoveAt(chosenCardIndex);
+        }
+    }
+
+    public void AddCardToDeck(DisplayCard card)
+    {
+        deck.Add(card.SpecialCard);
     }
 
     public DisplayCard AddValue(int value)
@@ -70,14 +94,21 @@ public class CharacterInstance : MonoBehaviour
         FlippingForced = on;
     }
 
-    public void FlushFlags()
+    public void ApplyFlagsAtEndOfTurn()
     {
-        DiscardedThisTurn = true;
-        SwappedThisTurn = true;
-        GaveThisTurn = true;
-        FlippedThisTurn = true;
-        PlayedThisTurn = true;
+
     }
+
+    public void DecrementFlags()
+    {
+        if (DiscardedFlag > 0) DiscardedFlag--;
+        if (FlippedFlag > 0) FlippedFlag--;
+        if (GaveFlag > 0) GaveFlag--;
+        if (SwappedFlag > 0) SwappedFlag--;
+        if (PlayedFlag > 0) PlayedFlag--;
+        if (MulliganedFlag > 0) MulliganedFlag--;
+    }
+
     public void FlushGameplayVariables()
     {
         deck = new List<SpecialDeckCard>();
@@ -91,6 +122,7 @@ public class CharacterInstance : MonoBehaviour
         numberDisplayHand.Clear();
         //test.Clear();
         currValue = 0;
-        FlushFlags();
+        DecrementFlags();
+        DecrementFlags();
     }
 }

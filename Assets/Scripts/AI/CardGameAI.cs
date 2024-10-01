@@ -34,10 +34,14 @@ public class CardGameAI : MonoBehaviour
     public DisplayCard ChosenCard;
 
     public List<CardSequence> CardSequences;
+    public List<string> DebugCardSequenceActions;
+
     public CardSequence ChosenSequence;
 
     //Lower value = Better
     public int EvaluationValPlayerDraw = -1, EvaluationValPlayerDiscard = 2, EvaluationValOppDraw = 2, EvaluationValOppDiscard = -2;
+
+    private bool Evaluated;
 
     public void Init(CharacterInstance currCharacter, CharacterInstance opponent)
     {
@@ -49,11 +53,13 @@ public class CardGameAI : MonoBehaviour
 
     private void Update()
     {
-        if(Waiting && Active)
+        if (!Active) return;
+
+        if(Waiting && ChosenAction == AIAction.None && Evaluated)
         {
             ChooseNextAction();
         }
-        else if(CardGameManager.Instance.SelectingCharacter == CurrentCharacter && !Active)
+        else if(CardGameManager.Instance.SelectingCharacter == CurrentCharacter && CardGameManager.Instance.CurrentCharacter == CardGameManager.Instance.player)
         {
             SelectCards();
         }
@@ -61,25 +67,40 @@ public class CardGameAI : MonoBehaviour
 
     public void CheckActiveCharacter(CharacterInstance character)
     {
-        //Band-aid fix, should just change state method in game manager to outisde of Update.
+        Debug.Log("Check Active Character AI!");
         if (Active && character == CurrentCharacter) return;
-        Active = character == CurrentCharacter && character.IsAI;
+        Active = character == CurrentCharacter;
         if(Active)
         {
             CardGameManager.Instance.StartSelecting();
             ChosenAction = AIAction.None;
+            Evaluated = false;
+            CardSequences.Clear();
             Evaluate();
         }
     }
 
     void Evaluate()
     {
-        EvaluateSwapCardOptions();
+        EvaluatePass();
+        //EvaluateSwapCardOptions();
         EvaluateFlipCardOptions();
         EvaluatePlayCardOptions();
         SortCardSequences();
         ChooseNextCardSequence();
         StartCoroutine(WaitForNextAction());
+        Evaluated = true;
+    }
+
+    void EvaluatePass()
+    {
+        Queue<AIAction> actions = new Queue<AIAction>();
+        actions.Enqueue(AIAction.None);
+        Queue<DisplayCard> cards = new Queue<DisplayCard>();
+        cards.Enqueue(null);
+        CardEffectChecker.Instance.ResetSimulatedValues(CurrentCharacter, Opponent);
+        CardEffectChecker.Instance.SimulateEffect(Effect.None, CurrentCharacter, CardType.None, 0, 0);
+        AddNewSequence(actions, cards);
     }
 
     void EvaluateSwapCardOptions()
@@ -114,16 +135,19 @@ public class CardGameAI : MonoBehaviour
 
     void EvaluatePlayCardOptions()
     {
-        SelectableCards = CardGameManager.Instance.GetSelectableCards();
-        for (int i = 0; i < SelectableCards.Count; i++)
+        //SelectableCards = CardGameManager.Instance.GetSelectableCards();
+        for (int i = 0; i < CurrentCharacter.specialDisplayHand.Count; i++)
         {
-            SpecialDeckCard currCard = (SpecialDeckCard)SelectableCards[i].baseCard;
-            CardEffectChecker.Instance.ExecuteEffectStatement(currCard.InitialEffectStatement, CurrentCharacter, Opponent, true, true);
-            Queue<AIAction> actions = new Queue<AIAction>();
-            Queue<DisplayCard> cards = new Queue<DisplayCard>();
-            actions.Enqueue(AIAction.PlayCard);
-            cards.Enqueue(SelectableCards[i]);
-            AddNewSequence(actions, cards);
+            SpecialDeckCard currCard = (SpecialDeckCard)CurrentCharacter.specialDisplayHand[i].baseCard;
+            if (CardEffectChecker.Instance.CheckConditional(currCard.InitialEffectStatement, CurrentCharacter, CurrentCharacter.Opponent))
+            {
+                CardEffectChecker.Instance.ExecuteEffectStatement(currCard.InitialEffectStatement, CurrentCharacter, Opponent, true, true);
+                Queue<AIAction> actions = new Queue<AIAction>();
+                Queue<DisplayCard> cards = new Queue<DisplayCard>();
+                actions.Enqueue(AIAction.PlayCard);
+                cards.Enqueue(CurrentCharacter.specialDisplayHand[i]);
+                AddNewSequence(actions, cards);
+            }
         }
     }
 
@@ -131,10 +155,8 @@ public class CardGameAI : MonoBehaviour
     {
         int playerValue = CardEffectChecker.Instance.SimulatedPlayerValue;
         int opponentValue = CardEffectChecker.Instance.SimulatedOpponentValue;
-        int distanceFromTarget = Mathf.Abs(CardGameManager.Instance.targetValue - playerValue) - Mathf.Abs(CardGameManager.Instance.targetValue - opponentValue);
-        int evaluationValue = distanceFromTarget;
 
-        if(CurrentCharacter == CardEffectChecker.Instance.Player)
+        /*if(CurrentCharacter == CardEffectChecker.Instance.Player)
         {
             evaluationValue += CardEffectChecker.Instance.PlayerDrawnCardsNum * EvaluationValPlayerDraw;
             evaluationValue += CardEffectChecker.Instance.PlayerDiscardedCardsNum * EvaluationValPlayerDiscard;
@@ -147,19 +169,26 @@ public class CardGameAI : MonoBehaviour
             evaluationValue += CardEffectChecker.Instance.PlayerDiscardedCardsNum * EvaluationValOppDiscard;
             evaluationValue += CardEffectChecker.Instance.OpponentDrawnCardsNum * EvaluationValPlayerDraw;
             evaluationValue += CardEffectChecker.Instance.OpponentDiscardedCardsNum * EvaluationValPlayerDiscard;
-        }
+        }*/
 
-        CardSequences.Add(new CardSequence(playerValue, opponentValue, distanceFromTarget, actions, cards, evaluationValue));
+        CardSequences.Add(new CardSequence(playerValue, opponentValue, actions, cards));
     }
 
     void SortCardSequences()
     {
         CardSequences.Sort(delegate (CardSequence c1, CardSequence c2) { return c1.EvaluationValue.CompareTo(c2.EvaluationValue); });
+        DebugCardSequenceActions = new List<string>();
+
+        for(int i = 0; i < CardSequences.Count; i++)
+        {
+            string sequence = CardSequences[i].ToString();
+            DebugCardSequenceActions.Add(sequence);
+        }
     }
 
     void ChooseNextCardSequence()
     {
-        float randChoice = 0f;
+        /*float randChoice = 0f;
 
         for(int i = 0; i < 100; i++)
         {
@@ -170,9 +199,13 @@ public class CardGameAI : MonoBehaviour
         if(randChoice >= CardSequences.Count)
         {
             randChoice = CardSequences.Count - 1;
-        }
+        }*/
 
-        ChosenSequence = CardSequences[Mathf.FloorToInt(randChoice)];
+        //ChosenSequence = CardSequences[Mathf.FloorToInt(randChoice)];
+
+        ChosenSequence = CardSequences[0];
+
+        CardGameLog.Instance.AddToLog("Chosen Sequence: " + ChosenSequence.ToString());
     }
 
 
@@ -181,29 +214,38 @@ public class CardGameAI : MonoBehaviour
         if (CardGameManager.Instance.SelectingCharacter != CurrentCharacter)
             return;
 
+        /*if(Random.Range(0,2) == 0)
+        {
+            PassTurn();
+            return;
+        }*/
+
         if (ChosenSequence.Actions.Count > 0)
         {
             ChosenAction = ChosenSequence.Actions.Dequeue();
             ChosenCard = ChosenSequence.Cards.Dequeue();
         }
-        else
-        {
-            EndTurn();
-        }
+
+        //if(ChosenSequence.Actions.Count == 0)
+        //    EndTurn();
 
         switch (ChosenAction)
         {
             case AIAction.PlayCard:
                 PlayingCard();
-                CardGameLog.Instance.AddToLog(CurrentCharacter.character.name + " AI wants to play a card!");
+                CurrentCharacter.DidAnAction = true;
                 break;
             case AIAction.Flip:
-                CardGameLog.Instance.AddToLog(CurrentCharacter.character.name + " AI wants to flip a card!");
                 FlippingCard();
+                CurrentCharacter.DidAnAction = true;
                 break;
             case AIAction.Swap:
-                CardGameLog.Instance.AddToLog(CurrentCharacter.character.name + " AI wants to swap a card!");
                 SwappingCard();
+                CurrentCharacter.DidAnAction = true;
+                break;
+            case AIAction.None:
+                CardGameManager.Instance.CharacterEndTurn();
+                CurrentCharacter.DidAnAction = false;
                 break;
         }
     }
@@ -254,11 +296,19 @@ public class CardGameAI : MonoBehaviour
         EndTurn();
     }
 
+    public void PassTurn()
+    {
+        CardGameManager.Instance.CharacterEndTurn();
+        EndTurn();
+    }
+
     void EndTurn()
     {
-        CardGameManager.Instance.EndTurn();
-        Active = false;
-        Waiting = false;
+        if(Active)
+        {
+            Active = false;
+            Waiting = false;
+        }
     }
 
     void SelectCards()

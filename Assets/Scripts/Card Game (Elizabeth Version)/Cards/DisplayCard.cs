@@ -33,11 +33,23 @@ public class DisplayCard : MonoBehaviour
 
     public bool SwappedThisTurn, FlippedThisTurn, Given;
 
+    public bool Hidden;
+
+    public GenericCard CurrCard;
+
+    public bool Playable;
+    public GameObject PlayableIndicator;
+
     void Start() {
         selectionEffect.SetActive(false);
         tooltip.SetActive(false);
         transform.localScale = new Vector3(OGScale, OGScale, 1);
         GetComponent<RectTransform>().sizeDelta = new Vector2(OGWidth, OGHeight);
+    }
+
+    private void Update()
+    {
+        PlayableIndicator.SetActive(Playable);
     }
     /*void Update() {
         if(baseCard != null) {
@@ -55,6 +67,7 @@ public class DisplayCard : MonoBehaviour
 
     public void InitNumberCard(NumberCard card, CharacterInstance owner)
     {
+        CurrCard = card;
         gameObject.name = card.name;
         baseCard = card;
         name.text = card.name;
@@ -69,6 +82,7 @@ public class DisplayCard : MonoBehaviour
 
     public void InitSpecialCard(SpecialDeckCard card, CharacterInstance owner)
     {
+        CurrCard = card;
         gameObject.name = card.name;
         baseCard = card;
         SpecialCard = card;
@@ -79,6 +93,12 @@ public class DisplayCard : MonoBehaviour
         this.owner = owner;
         SelectButton.onClick.RemoveAllListeners();
         SelectButton.onClick.AddListener(delegate { CardGameManager.Instance.CardSelectionHandler.SelectCard(this, CardGameManager.Instance.player); });
+    }
+
+    public void SetHidden(bool hidden)
+    {
+        Hidden = hidden;
+        artwork.sprite = Hidden ? null : CurrCard.artwork;
     }
 
     public void ToggleSelectionColor(bool selected)
@@ -112,7 +132,7 @@ public class DisplayCard : MonoBehaviour
     public void ToggleSelected() {
         selectionEffect.SetActive(!selectionEffect.activeSelf);
     }
-    public void ToggleHover() {
-        tooltip.SetActive(!tooltip.activeSelf);
+    public void SetHover(bool hovered) {
+        tooltip.SetActive(hovered);
     }
 }
