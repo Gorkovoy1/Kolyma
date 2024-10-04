@@ -1,9 +1,9 @@
 Hey Mr. Fresh Meat!#Gangster
 Your bed is over there!#Gangster
 
-    *[Call me that again and you'll see what happens.] #Arkady
+    *[Call me that again and you'll see what happens.]#Arkady
     
-    What? What did you just say?#Gangster
+    What? What did you just say?#NegativeEvent#Gangster
     This will teach you some manners, fraer. Show some respect for the gentlemen around here.#Dark #Gangster
     It looks like you have just lost some energy. Pay attention to your Cold, Hunger and Weakness gauges to survive.#NarratorSound #Narrator
     

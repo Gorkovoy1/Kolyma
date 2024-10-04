@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8c4b0f5056a06a4a92d94e75a182e1ae
     GuidInternal: 
-    m_lastTime: -8584754914627786001
+    m_lastTime: -8584735282822447149
     List:
     - name: Main
       guid: f16c33554f83c140a4a6a74ed017dafb
@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584754914634320710
+    m_lastTime: -8584735282822457103
     List:
     - name: Play_Barracks_Background_SFX
       guid: 90e09e32d76b074291f49905e94a39a7
@@ -300,6 +300,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Play_Negative_Event
+      guid: b68dcea0cb82aa4f93affc2c79c4434b
+      id: 3413568250
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Play_Negative_Event
+        ObjectType: 3
+        guid: b68dcea0cb82aa4f93affc2c79c4434b
+      Path: Events\Default Work Unit\Play_Negative_Event
+      maxAttenuation: 0
+      maxDuration: 3.8876653
+      minDuration: 3.8876653
     - name: Play_Punch
       guid: da18ba05f34dd7428e9966bd0527ff26
       id: 3946911806
@@ -315,8 +332,8 @@ MonoBehaviour:
         guid: da18ba05f34dd7428e9966bd0527ff26
       Path: Events\Default Work Unit\Play_Punch
       maxAttenuation: 0
-      maxDuration: 1.5851834
-      minDuration: 1.5851834
+      maxDuration: 0.98797745
+      minDuration: 0.98797745
     - name: Play_Screen_Sfx
       guid: 1aaa2966a3b44a4b91db2d799b805d35
       id: 1112221790

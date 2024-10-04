@@ -906,6 +906,53 @@
 								<ActiveSource Name="SFX_NARRATOR" ID="{307BCFA9-FFFE-4760-9278-A2FB4AE7D0B6}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="Negative_Event" ID="{9A938BFC-A149-460F-AA2B-6751A21B5DD1}" ShortID="1072670584">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-17</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="negative_event" ID="{57A21C37-D334-4F96-A7FE-D0262401BEB1}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="3.88766520033513"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>negative_event.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="418369325"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="negative_event1_2" ID="{D2268C04-CE85-42F2-8B1B-3A4E17B56B82}">
+									<Language>SFX</Language>
+									<AudioFile>negative_event1.2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="778674395"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="negative_event1_01" ID="{E1EA3908-6829-4FDC-91B2-9B5E553AF987}">
+									<Language>SFX</Language>
+									<AudioFile>negative_event1.2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="778674395"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="negative_event1_01" ID="{E1EA3908-6829-4FDC-91B2-9B5E553AF987}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</ActorMixer>
 				<ActorMixer Name="Camp_SFX" ID="{0563CD7F-8BF5-43DA-BD2E-8FAAD2FE0B14}" ShortID="226086780">
@@ -1301,7 +1348,7 @@
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-10</Value>
+										<Value>-20</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1393,9 +1440,50 @@
 										<MediaID ID="272165377"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="Punch" ID="{B7FD8A46-ED5C-418A-A337-D4E6908DEBCB}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.98797744448175"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Punch.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="402054562"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="Punch1_2" ID="{AB755312-514F-4B13-9669-6F212A60DA1A}" Platform="Linked"/>
+								<ActiveSource Name="Punch" ID="{B7FD8A46-ED5C-418A-A337-D4E6908DEBCB}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Barracks_Ambience" ID="{503CE5E1-742A-4F36-B1DE-A730F9F9B10F}" ShortID="221202270">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-30</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Barracks_Ambience" ID="{2F7FEC2F-CF00-4C93-8BC7-39BB8E1B962C}">
+									<Language>SFX</Language>
+									<AudioFile>Barracks_Ambience.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="435260790"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Barracks_Ambience" ID="{2F7FEC2F-CF00-4C93-8BC7-39BB8E1B962C}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>

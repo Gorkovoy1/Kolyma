@@ -432,7 +432,12 @@ public class DialogueInk : MonoBehaviour
                     //this executes before the line finishes
                     //PauseScene();
                 }
-
+                if (tags[0] == "NegativeEvent")
+                {
+                    HighlightNPC();
+                    narratorTag.gameObject.SetActive(false);
+                    AkSoundEngine.PostEvent("Play_Negative_Event", gameObject); 
+                }
                 if (tags[0] == "ReceiveItem")
                 {
                     NarratorSound();

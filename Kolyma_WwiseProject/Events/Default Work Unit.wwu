@@ -223,6 +223,28 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Negative_Event" ID="{A0CE8DB6-82CB-4FAA-93AF-FC2C79C4434B}">
+					<ChildrenList>
+						<Action Name="" ID="{76DFEB2D-3532-4B20-B976-265140AF8B23}" ShortID="449888722">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Negative_Event" ID="{9A938BFC-A149-460F-AA2B-6751A21B5DD1}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Barracks_Ambience" ID="{C80F15DF-0B94-4E00-BCE5-937EC34F69D8}">
+					<ChildrenList>
+						<Action Name="" ID="{F4235342-0F7D-43D8-B86E-21F397C4F81E}" ShortID="1072260532">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Barracks_Ambience" ID="{503CE5E1-742A-4F36-B1DE-A730F9F9B10F}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
