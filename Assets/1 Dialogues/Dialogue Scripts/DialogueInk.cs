@@ -110,13 +110,13 @@ public class DialogueInk : MonoBehaviour
             NPCPortrait.gameObject.SetActive(false);
             StartCoroutine(ShowInkStory());
             //not sure if true or false
-            startScene = true;
+            startScene = false;
             startofDialogue = true;
             soundEnded = true;
             playSound = false;
-            //ambientObj.SetActive(true);
+            ambientObj.SetActive(true);
             Debug.Log("first ambient");
-            //AkSoundEngine.PostEvent(musicName, gameObject);
+            AkSoundEngine.PostEvent(musicName, gameObject);
             skip = false;
             paperColor = paper.color;
             paper.color = new Color(paperColor.r, paperColor.g, paperColor.b, 1f);
@@ -313,12 +313,7 @@ public class DialogueInk : MonoBehaviour
         //dont start the dialogue until levelloader is gone, then start sounds and dialogue
         if(startScene)
         {
-            if (isSaved)
-            {
-                //PlayerPrefs.DeleteKey("SavedInkState");
-            }
-            else
-            {
+            
                 if (dialogueNumber != 3)
                 {
                     yield return new WaitForSeconds(6f);
@@ -357,7 +352,7 @@ public class DialogueInk : MonoBehaviour
                 }
                 paper.color = new Color(paperColor.r, paperColor.g, paperColor.b, 1f);
 
-            }
+            
 
         }
         
@@ -666,7 +661,7 @@ public class DialogueInk : MonoBehaviour
     {
         string savedState = inkStory.state.ToJson();
         PlayerPrefs.SetString("SavedInkState", savedState);
-
+        AkSoundEngine.StopAll();
         SceneManager.LoadScene("TestScene");
     }
 

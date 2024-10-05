@@ -1167,6 +1167,7 @@ MonoBehaviour:
   soundEnded: 0
   startScene: 0
   skip: 0
+  isSaved: 0
   textSpeed: 0
   ambientObj: {fileID: 2102447466}
   levelLoaderParent: {fileID: 361807744}
@@ -3382,6 +3383,10 @@ PrefabInstance:
     - target: {fileID: 1359792330407849116, guid: 6394e4bec55cea1498fb68ef1e03c7bf, type: 3}
       propertyPath: m_Name
       value: Ambient
+      objectReference: {fileID: 0}
+    - target: {fileID: 1359792330407849185, guid: 6394e4bec55cea1498fb68ef1e03c7bf, type: 3}
+      propertyPath: enableActionOnEvent
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1359792330407849191, guid: 6394e4bec55cea1498fb68ef1e03c7bf, type: 3}
       propertyPath: m_RootOrder
