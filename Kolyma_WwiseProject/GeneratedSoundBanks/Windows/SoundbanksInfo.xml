@@ -22,7 +22,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{5E48C92C-9A42-140A-801C-9FD9D3B6D6E7}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{011B224D-A72A-5C94-AE22-7B31E6791A7A}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -68,7 +68,7 @@
 				</File>
 				<File Id="402054562" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Punch.wav</ShortName>
-					<CachePath>SFX/Punch_3551E8EE.wem</CachePath>
+					<CachePath>SFX/Punch_8CD53560.wem</CachePath>
 				</File>
 				<File Id="415365781" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Cough-003.wav</ShortName>
@@ -306,5 +306,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{A6E7FC75-4660-F265-06AD-E8A1D2C25FE6}</FileHash>
+	<FileHash>{AD69A491-097F-CAA2-DFE6-2FA2102228DB}</FileHash>
 </SoundBanksInfo>

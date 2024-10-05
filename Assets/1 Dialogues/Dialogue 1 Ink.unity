@@ -1178,7 +1178,7 @@ MonoBehaviour:
   smoke: {fileID: 2039440116}
   darkPrefab: {fileID: 6599969547959027016, guid: c7af16f7b0a1ac2409d365bd27e2f774, type: 3}
   bedObj: {fileID: 2113218634}
-  dialogueNumber: 3
+  dialogueNumber: 1
   background: {fileID: 1733045846}
   musicName: 
   NPCBlack: {fileID: 427078829}

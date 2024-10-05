@@ -214,7 +214,7 @@
 				</Event>
 				<Event Name="Play_Punch" ID="{05BA18DA-4DF3-42D7-8E99-66BD0527FF26}">
 					<ChildrenList>
-						<Action Name="" ID="{0B2A07A0-C8BB-4BFA-B4EC-717708678CF3}" ShortID="1072137066">
+						<Action Name="" ID="{BC3482C0-5940-42B2-93E7-3DE706F5D47A}" ShortID="825823504">
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Punch" ID="{DABEA537-BEEE-4A2F-8C39-4D8C5312481B}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>

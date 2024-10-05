@@ -23,7 +23,7 @@ public class DialogueInk : MonoBehaviour
 {
     public GameObject NPCPortrait;
     public GameObject PlayerPortrait;
-    
+
 
     public TextAsset inkJSON;
     private Story inkStory;
@@ -50,6 +50,7 @@ public class DialogueInk : MonoBehaviour
     public bool soundEnded;
     public bool startScene;
     public bool skip;
+    public bool isSaved = false;
 
     public float textSpeed;
 
@@ -109,11 +110,13 @@ public class DialogueInk : MonoBehaviour
             NPCPortrait.gameObject.SetActive(false);
             StartCoroutine(ShowInkStory());
             //not sure if true or false
+            startScene = true;
             startofDialogue = true;
             soundEnded = true;
             playSound = false;
-            ambientObj.SetActive(true);
-            AkSoundEngine.PostEvent(musicName, gameObject);
+            //ambientObj.SetActive(true);
+            Debug.Log("first ambient");
+            //AkSoundEngine.PostEvent(musicName, gameObject);
             skip = false;
             paperColor = paper.color;
             paper.color = new Color(paperColor.r, paperColor.g, paperColor.b, 1f);
@@ -121,7 +124,7 @@ public class DialogueInk : MonoBehaviour
             //??? change?
             smoke = backgroundAnimParent;
             smoke.gameObject.SetActive(true);
-
+            isSaved = true;
         }
 
         else
@@ -156,14 +159,19 @@ public class DialogueInk : MonoBehaviour
             smoke = backgroundAnimParent;
             smoke.gameObject.SetActive(false);
         }
-        
+
+        PlayerPrefs.DeleteKey("SavedInkState");
 
 
     }
 
     void DialogueSetUp()
     {
-        
+        if(dialogueNumber != 3)
+        {
+            bedObj.SetActive(false);
+        }
+
         if(dialogueNumber == 1)
         {
             //set level loader and text
@@ -305,41 +313,52 @@ public class DialogueInk : MonoBehaviour
         //dont start the dialogue until levelloader is gone, then start sounds and dialogue
         if(startScene)
         {
-            if (dialogueNumber != 3)
-            { 
-                yield return new WaitForSeconds(6f); 
+            if (isSaved)
+            {
+                //PlayerPrefs.DeleteKey("SavedInkState");
             }
             else
             {
-                yield return new WaitForSeconds(2f);
+                if (dialogueNumber != 3)
+                {
+                    yield return new WaitForSeconds(6f);
+                }
+                else
+                {
+                    yield return new WaitForSeconds(2f);
+                }
+
+
+                ambientObj.SetActive(true);
+                Debug.Log("second ambient");
+                AkSoundEngine.PostEvent(musicName, gameObject);
+                Debug.Log("Music");
+
+                //Debug.Log("ambient active");
+
+                //pause as we look at the background
+                if (dialogueNumber != 3)
+                { yield return new WaitForSeconds(3f); }
+                else { yield return new WaitForSeconds(1f); }
+
+
+                smoke.gameObject.SetActive(true);
+
+
+                yield return new WaitForSeconds(4f);
+
+                //fade paper in
+                //narratorTag.gameObject.SetActive(true);
+                AkSoundEngine.PostEvent("Play_Woosh_Narrator", gameObject);
+                while (paper.color.a < 1f)
+                {
+                    paper.color = new Color(paperColor.r, paperColor.g, paperColor.b, paper.color.a + 0.3f * Time.deltaTime);
+                    yield return null;
+                }
+                paper.color = new Color(paperColor.r, paperColor.g, paperColor.b, 1f);
+
             }
 
-            ambientObj.SetActive(true);
-            Debug.Log("ambient active");
-            AkSoundEngine.PostEvent(musicName, gameObject);
-            Debug.Log("Music");
-
-            //pause as we look at the background
-            if (dialogueNumber != 3)
-            { yield return new WaitForSeconds(3f); }
-            else { yield return new WaitForSeconds(1f); }
-
-
-            smoke.gameObject.SetActive(true);
-            
-            
-            yield return new WaitForSeconds(4f);
-            
-            //fade paper in
-            //narratorTag.gameObject.SetActive(true);
-            AkSoundEngine.PostEvent("Play_Woosh_Narrator", gameObject);
-            while(paper.color.a < 1f)
-            {
-                paper.color = new Color(paperColor.r, paperColor.g, paperColor.b, paper.color.a + 0.3f * Time.deltaTime);
-                yield return null;
-            }
-            paper.color = new Color(paperColor.r, paperColor.g, paperColor.b, 1f);
-            
         }
         
         //no longer intro
