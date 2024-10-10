@@ -35,6 +35,7 @@ public class DialogueInk : MonoBehaviour
     public Image paper;
     public Color paperColor;
     public Color tagColor;
+    public Color backgroundColor;
     public TMP_FontAsset numbersFont;
 
     public Button choiceButtonPrefab;
@@ -51,6 +52,7 @@ public class DialogueInk : MonoBehaviour
     public bool startScene;
     public bool skip;
     public bool isSaved = false;
+    public bool pause = false;
 
     public float textSpeed;
 
@@ -309,9 +311,13 @@ public class DialogueInk : MonoBehaviour
     }
 
     IEnumerator ShowInkStory()
-    {       
+    {
+        if (pause)
+        {
+            PauseScene();
+        }
         //dont start the dialogue until levelloader is gone, then start sounds and dialogue
-        if(startScene)
+        else if (startScene)
         {
             
                 if (dialogueNumber != 3)
@@ -387,6 +393,8 @@ public class DialogueInk : MonoBehaviour
                 yield break;
 
             }
+
+            
             yield return null;
         }
 
@@ -443,8 +451,8 @@ public class DialogueInk : MonoBehaviour
                     HighlightNPC();
                     narratorTag.gameObject.SetActive(false);
 
-                    //this executes before the line finishes
-                    //PauseScene();
+                    pause = true;
+
                 }
                 if (tags[0] == "NegativeEvent")
                 {
@@ -484,6 +492,39 @@ public class DialogueInk : MonoBehaviour
                     }
                     NPCPortrait.gameObject.SetActive(true);
                     backgroundAnimParent.gameObject.SetActive(true);
+                }
+
+                if (tags[0] == "CloseEyes")
+                {
+                    Debug.Log("line1");
+                    NarratorSound();
+                    //set background to black
+                    StartCoroutine(FadeBackground());
+                    //background.color = new Color(0f, 0f, 0f, 1f);
+                    NPCPortrait.gameObject.SetActive(false);
+                }
+
+                if (tags[0] == "ConvoyOfficer")
+                {
+                    //set npc to convoy officer - change this to right image
+                    NPCBlack.sprite = dialogueObj2.npcBlack;
+                    NPCColor.sprite = dialogueObj2.npcColor;
+                    nameTag.text = "Convoy Officer";
+
+                    HighlightNPC();
+                }
+                
+                if (tags[0] == "TakeAway")
+                {
+                    NPCPortrait.gameObject.SetActive(false);
+                    //set npc back to andreyev
+                    NPCBlack.sprite = dialogueObj1.npcBlack;
+                    NPCColor.sprite = dialogueObj1.npcColor;
+                    nameTag.text = dialogueObj1.npcName;
+
+                    StartCoroutine(FadeBackColor());
+                    HighlightNPC();
+                    
                 }
             }
 
@@ -555,11 +596,7 @@ public class DialogueInk : MonoBehaviour
                 
                 skip = false;
                 //this is a test
-                if(tags[0] == "Tutorial"){
-                        //pause this scene and temporarily swtich to other scene
-                        PauseScene();
-                }
-                else if(tags[0] == "ReceiveItem"){
+                if(tags[0] == "ReceiveItem"){
                         LoadNextScene();
                 }
             }
@@ -603,14 +640,18 @@ public class DialogueInk : MonoBehaviour
 
     {
         HighlightPlayer();
-
-        foreach (Choice choice in inkStory.currentChoices)
-        {
-            Button choiceButton = Instantiate(choiceButtonPrefab, choicesContainer);
-            choiceButton.GetComponentInChildren<TextMeshProUGUI>().text = choice.text;
-            choiceButton.onClick.AddListener(() => OnChoiceSelected(choice));
-        }
+        
+            foreach (Choice choice in inkStory.currentChoices)
+            {
+                Button choiceButton = Instantiate(choiceButtonPrefab, choicesContainer);
+                choiceButton.GetComponentInChildren<TextMeshProUGUI>().text = choice.text;
+                choiceButton.onClick.AddListener(() => OnChoiceSelected(choice));
+            }
+        
+        
+        
     }
+    
 
     void OnChoiceSelected(Choice choice)
     {
@@ -618,6 +659,8 @@ public class DialogueInk : MonoBehaviour
         AkSoundEngine.PostEvent("Play_Click", gameObject);
         inkStory.ChooseChoiceIndex(choice.index);
         choicesContainer.ClearChildren();
+
+        //pause = true;
         StartCoroutine(ShowInkStory());
     }
 
@@ -678,6 +721,59 @@ public class DialogueInk : MonoBehaviour
         AkSoundEngine.PostEvent("Play_Woosh_Narrator",gameObject);
         PlayerPortrait.gameObject.SetActive(false);
         narratorTag.gameObject.SetActive(true);
+    }
+
+    private IEnumerator FadeBackColor()
+    {
+        Color originalColor = backgroundColor; // Store original color
+        Color currentColor = background.color; // Get the current background color
+        float duration = 1f; // Set the desired fade duration
+        float elapsedTime = 0f;
+
+        // Fade from current color back to original color over the specified duration
+        while (elapsedTime < duration)
+        {
+            float t = elapsedTime / duration; // Calculate the interpolation factor
+            background.color = Color.Lerp(currentColor, originalColor, t); // Lerp to the original color
+            elapsedTime += Time.deltaTime; // Increase elapsed time
+
+            yield return null; // Wait for the next frame
+        }
+
+        // Ensure the final color is set to the original color
+        background.color = originalColor;
+
+        // Activate background animation parent after fading
+        backgroundAnimParent.gameObject.SetActive(true);
+    }
+
+    IEnumerator FadeBackground()
+    {
+        Debug.Log("startmethod");
+        backgroundColor = background.color;
+        backgroundAnimParent.gameObject.SetActive(false);
+
+
+        
+        float duration = 1f; // Set your desired fade duration
+        float elapsedTime = 0f;
+
+        // Loop until the specified duration has passed
+        while (elapsedTime < duration)
+        {
+            // Calculate the t value for Lerp
+            float t = elapsedTime / duration;
+            // Lerp to black
+            background.color = Color.Lerp(backgroundColor, Color.black, t);
+            elapsedTime += Time.deltaTime; // Increase elapsed time
+
+            // Wait for the next frame
+            yield return null;
+        }
+
+        // Ensure the final color is black
+        background.color = Color.black;
+        Debug.Log("End method");
     }
 
 }
