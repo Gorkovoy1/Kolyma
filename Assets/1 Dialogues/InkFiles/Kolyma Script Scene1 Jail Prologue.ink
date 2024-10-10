@@ -1,6 +1,6 @@
 //Narrator
 The Magadan Jail was full.#Narrator
-The air was stuffy. The smell of wet clothes emanated from the cells.#Narrator 
+The smell of wet clothes emanated from the cells.#Narrator 
 Those prisoners who were fast or lucky, took the bunks. The less fortunate men occupied few spots on the floor between and under the beds.#Narrator
 Every single person was exhausted, the journey to the North was long.#Narrator
 The prisoners were told to wait until morning. At the break of dawn, three old trucks would take them further North, to the Kolyma labor camps.#Narrator
@@ -25,27 +25,27 @@ Ah! Your heart is soft. Don't worry, it won't stay that way for too long.#Andrey
 - I am Andreyev. Alexander Andreyev.#ChangeName #Andreyev
 - Arkady knew that name.#NarratorSound #Narrator
 - The name of a legendary revolutionary, who, as they say, took part in several assassinations of high rank Imperial officials thirty years ago.#Narrator
-- Here we are. 45 days on a train, 2 days on a boat.#Andreyev
-- I've been to this part of Russia before, but never could I imagine I'd have to travel all the way to Magadan again.#Andreyev
     **[I know you. You were a member of the Socialist Revolutionary Party.]#Arkady
 Yes I was. A member since 1901.#Andreyev
     **[Former terrorist? I thought you left the country.]#Arkady
  I did. But they lured me into a trap. Those Soviet agents were quite good, I'll give them that.#Andreyev
- I have no regrets though. I wanted to come back and start working, I wanted to build another organization.#Andreyev 
+ I have no regrets though. No, I wasn't ready to retire yet.#Andreyev
+ I wanted to come back and start working, simply to do what I do best: builduing resistance against this oppressive state.#Andreyev 
  The chances were extremely slim, but I had to roll the dice again and push my luck. Otherwise I would never forgive myself.#Andreyev 
  To be honest, I'd rather die here than in France, among all those impotent boring Russian immigrants.#Andreyev
     **[I heard you were a spy. Was it another false accusation?]#Arkady
 It sure was. They needed those spy cases for the Purge to happen.#Andreyev
 --It is quite ironic. The Imperial Okhrana came after me in 1907.#Andreyev
 The officer who interrogated me said I was a threat to the Tsarist government.#Andreyev
-And look at me today! 30 years later, I am an enemy of the Soviet state. Things haven’t changed for me that much.#Andreyev 
+And look at me today! 30 years later, here I am again, doing time in the North for being an enemy of the Soviet state.#Andreyev 
 --All those sentimental idiots say that The Revolution was a dream that never came true.#Andreyev
---The Revolution was first and foremost an opportunity. We had our chance and we lost it. The luck was not on our side.#Andreyev
+--Our 1917, our Revolution was first and foremost an opportunity. We had our chance and we lost it. The luck was not on our side.#Andreyev
 What is your name?#Andreyev
     ***[Arkady Kojukh.]#Arkady
 If you don't mind my asking, was General Kojukh your father?#Andreyev
     ****[Yes. General Valentin Kojukh was my father.]#Arkady
-His trial was a joke, and you could tell how badly those miserable party clerks wanted to get rid of him.#Andreyev
+I followed his public trial. It was a joke.#Andreyev 
+You could tell how badly those miserable party clerks wanted to get rid of him.#Andreyev
     ****[No. I don’t have a father.]#Arkady
     ***[No need to know my name.]#Arkady
 As you wish. I have heard someone here call you Arkady. That's good enough for me.#Andreyev
@@ -65,11 +65,11 @@ Then he gave Arkady a long look#Narrator
 *****[Begin game.]#Arkady
 //begin game
 ----Well, now you know the $Numbers. #Andreyev
-----Take this deck, I have a spare one. Keep it close to your heart. Now if you don't mind, I want to close my eyes for a couple of minutes.#Andreyev
+----Take this deck, I have a spare one. Keep it close to your heart. Now if you don't mind, I need some rest...#Andreyev
 ----Andreyev closed his eyes and put his head against the cold prison wall. His breath deepened.#CloseEyes #NarratorSound #Narrator
 ----A convoy officer woke everyone up in the middle of the night. He was calling the roll.#Narrator
-----Prisoner Andreyev! Andreyev, show yourself! Grab your things, you are getting transferred!#ConvoyOfficer
-----They are taking me away. It is my turn now.#TakeAway #Andreyev
+----Prisoner Andreyev! Andreyev, show yourself!#ConvoyOfficer
+----They are taking me away.#TakeAway #Andreyev
 ----Accept this as a token of my gratitude for letting me spend some time on this bed.#Andreyev
 ----Keep it. Perhaps, you will meet someone who tried to make the world a better place, but failed. Just like me. Alright, time to go.#Andreyev 
 Good luck.#Andreyev
