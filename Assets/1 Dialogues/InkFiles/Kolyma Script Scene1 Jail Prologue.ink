@@ -1,11 +1,11 @@
 //Narrator
 The Magadan Jail was full.#Narrator
 The smell of wet clothes emanated from the cells.#Narrator 
-Those prisoners who were fast or lucky, took the bunks. The less fortunate men occupied few spots on the floor between and under the beds.#Narrator
+The prisoners who were fast or lucky took the bunks, while the less fortunate men occupied the few spots on the floor between the beds.#Narrator
 Every single person was exhausted, the journey to the North was long.#Narrator
 The prisoners were told to wait until morning. At the break of dawn, three old trucks would take them further North, to the Kolyma labor camps.#Narrator
 Arkady was shivering on his bottom bunk. He was about to turn on the side and try to fall asleep when suddenly he felt that someone was looking at him.#Narrator
-A man approached his bed. The stranger had a strong presence. He was exhausted like everyone else, and yet Arkady could tell that his spirit was not broken.#Narrator
+An older man approached his bed. The stranger had a strong presence. He was exhausted like everyone else, and yet Arkady could tell that his spirit was not broken.#Narrator
 //Characters appear on screen and the dialogue begins.
 There are rules, there are circumstances. We cannot ignore them, we always have to take them into account.#SetPortraitsActive #Andreyev
 But there is also luck.#Andreyev
@@ -22,9 +22,10 @@ Of course. See? There’s always a chance of something good to happen even at su
 But rules are rules, there are limits. The floor is not the worst option, although I really doubt anyone will be able to catch any proper sleep in this cold cell.#Andreyev
     *[Of course. Sit down here, it's hard to stand in such a crowded cell.]#Arkady
 Ah! Your heart is soft. Don't worry, it won't stay that way for too long.#Andreyev
-- I am Andreyev. Alexander Andreyev.#ChangeName #Andreyev
-- Arkady knew that name.#NarratorSound #Narrator
-- The name of a legendary revolutionary, who, as they say, took part in several assassinations of high rank Imperial officials thirty years ago.#Narrator
+- I am Andreyev. Aleksander Andreyev.#ChangeName #Andreyev
+- Arkady heard that name. Andreyev was a legend.#NarratorSound #Narrator
+- Thirty years ago he was one of the most famous terrorists in Russia. People say, he was behind several assassinations of high rank Imperial officials.#Narrator
+- #Arkady
     **[I know you. You were a member of the Socialist Revolutionary Party.]#Arkady
 Yes I was. A member since 1901.#Andreyev
     **[Former terrorist? I thought you left the country.]#Arkady
@@ -51,7 +52,7 @@ You could tell how badly those miserable party clerks wanted to get rid of him.#
 As you wish. I have heard someone here call you Arkady. That's good enough for me.#Andreyev
 ---Arkady turned his face to the wall. He wanted to hide his feelings. The stranger touched a wound that was still fresh.#NarratorSound #Narrator
 ---Andreyev felt that too. For a minute the old revolutionary became silent, he was preoccupied with his thoughts.#Narrator
-Then he gave Arkady a long look#Narrator
+Then he gave Arkady a long look.#Narrator
 ---I am sorry.#Andreyev
 ---Let me give you some advice. Forget about your former self.#Andreyev 
 ---You are a prisoner now. Focus on more important matters.#Andreyev

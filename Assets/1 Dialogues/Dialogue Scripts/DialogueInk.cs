@@ -528,7 +528,7 @@ public class DialogueInk : MonoBehaviour
                 }
             }
 
-            if (tags[0] != "Narrator" && tags[0] != "NarratorSound")
+            if (tags[0] != "Narrator" && tags[0] != "NarratorSound" && tags[0] != "CloseEyes")
             {
                 Debug.Log("foreach letter");
                 introText.text = "";
