@@ -15,25 +15,28 @@ Here’s an example. Let's give it a try...#Andreyev
 I know the unwritten prison rules very well. You were here first and the bed is yours.#Andreyev
 I never ask for anything, but can I sit here? You know, it's been a long and tiring journey.#Andreyev
 //different color for responses?
+#Arkady
     *[Sure. You may sit down.]#Arkady
-Oh, I am so grateful. See? There’s always a chance of something good to happen even at such a miserable place like this jail.#Andreyev
+Oh, I am so grateful.#Andreyev
+See? There’s always a chance of something good to happen even at such a miserable place like this jail.#Andreyev
     *[You may sit down. But do not forget you're sleeping on the floor tonight.]#Arkady
-Of course. See? There’s always a chance of something good to happen even at such a miserable place.#Andreyev 
+Of course. Thank you.#Andreyev
+See? There’s always a chance of something good to happen even at such a miserable place.#Andreyev 
 But rules are rules, there are limits. The floor is not the worst option, although I really doubt anyone will be able to catch any proper sleep in this cold cell.#Andreyev
     *[Of course. Sit down here, it's hard to stand in such a crowded cell.]#Arkady
 Ah! Your heart is soft. Don't worry, it won't stay that way for too long.#Andreyev
 - I am Andreyev. Aleksander Andreyev.#ChangeName #Andreyev
-- Arkady heard that name. Andreyev was a legend.#NarratorSound #Narrator
-- Thirty years ago he was one of the most famous terrorists in Russia. People say, he was behind several assassinations of high rank Imperial officials.#Narrator
+- Arkady heard that name.#NarratorSound #Narrator
+- Thirty years ago Andreyev was one of the most famous terrorists in Russia. People say, he was behind several assassinations of high rank Imperial officials.#Narrator
 - #Arkady
     **[I know you. You were a member of the Socialist Revolutionary Party.]#Arkady
 Yes I was. A member since 1901.#Andreyev
     **[Former terrorist? I thought you left the country.]#Arkady
- I did. But they lured me into a trap. Those Soviet agents were quite good, I'll give them that.#Andreyev
- I have no regrets though. No, I wasn't ready to retire yet.#Andreyev
- I wanted to come back and start working, simply to do what I do best: builduing resistance against this oppressive state.#Andreyev 
- The chances were extremely slim, but I had to roll the dice again and push my luck. Otherwise I would never forgive myself.#Andreyev 
- To be honest, I'd rather die here than in France, among all those impotent boring Russian immigrants.#Andreyev
+I did. But they lured me into a trap. Those Soviet agents were quite good, I'll give them that.#Andreyev
+I have no regrets though. No, I wasn't ready to retire yet.#Andreyev
+I wanted to come back and start working, simply to do what I do best: builduing resistance against this oppressive state.#Andreyev 
+The chances were extremely slim, but I had to roll the dice again and push my luck. Otherwise I would never forgive myself.#Andreyev 
+To be honest, I'd rather die here than in France, among all those impotent boring Russian immigrants.#Andreyev
     **[I heard you were a spy. Was it another false accusation?]#Arkady
 It sure was. They needed those spy cases for the Purge to happen.#Andreyev
 --It is quite ironic. The Imperial Okhrana came after me in 1907.#Andreyev
@@ -42,18 +45,24 @@ And look at me today! 30 years later, here I am again, doing time in the North f
 --All those sentimental idiots say that The Revolution was a dream that never came true.#Andreyev
 --Our 1917, our Revolution was first and foremost an opportunity. We had our chance and we lost it. The luck was not on our side.#Andreyev
 What is your name?#Andreyev
+#Arkady
     ***[Arkady Kojukh.]#Arkady
 If you don't mind my asking, was General Kojukh your father?#Andreyev
+#Arkady
     ****[Yes. General Valentin Kojukh was my father.]#Arkady
 I followed his public trial. It was a joke.#Andreyev 
-You could tell how badly those miserable party clerks wanted to get rid of him.#Andreyev
+You could tell how badly those vindictive party clerks wanted to get rid of him.#Andreyev
+Arkady turned his face to the wall. He wanted to hide his feelings. The stranger touched a wound that was still fresh.#NarratorSound #Narrator
+Andreyev felt that too. For a minute the old revolutionary became silent, he was preoccupied with his thoughts.#Narrator
+Then he gave Arkady a long look.#Narrator    
+I am sorry.#Andreyev
     ****[No. I don’t have a father.]#Arkady
+Arkady turned his face to the wall. He wanted to hide his feelings. The stranger touched a wound that was still fresh.#NarratorSound #Narrator
+Andreyev felt that too. For a minute the old revolutionary became silent, he was preoccupied with his thoughts.#Narrator
+Then he gave Arkady a long look.#Narrator    
+I am sorry.#Andreyev
     ***[No need to know my name.]#Arkady
 As you wish. I have heard someone here call you Arkady. That's good enough for me.#Andreyev
----Arkady turned his face to the wall. He wanted to hide his feelings. The stranger touched a wound that was still fresh.#NarratorSound #Narrator
----Andreyev felt that too. For a minute the old revolutionary became silent, he was preoccupied with his thoughts.#Narrator
-Then he gave Arkady a long look.#Narrator
----I am sorry.#Andreyev
 ---Let me give you some advice. Forget about your former self.#Andreyev 
 ---You are a prisoner now. Focus on more important matters.#Andreyev
 ---Your body and your mind are about to go through one of the most terrible trials. You will experience life without freedom.#Andreyev
@@ -62,7 +71,8 @@ Then he gave Arkady a long look.#Narrator
 ---Actually, I have an idea.#Andreyev
 ---Let's play a simple game. It's called $Numbers.#Andreyev 
 ---The game is old and every prisoner is familiar with it, so you better remember the rules.#Andreyev 
----This game might even save your life one day so listen carefully.#Tutorial
+---This game might even save your life one day so listen carefully.#Andreyev
+#Tutorial
 *****[Begin game.]#Arkady
 //begin game
 ----Well, now you know the $Numbers. #Andreyev

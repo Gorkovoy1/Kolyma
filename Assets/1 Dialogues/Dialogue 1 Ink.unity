@@ -189,7 +189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4011432507678317256, guid: 42b182ca8a3cab245a2a6f4d44b4e27a, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 26.16
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4011432507678317256, guid: 42b182ca8a3cab245a2a6f4d44b4e27a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1154,6 +1154,7 @@ MonoBehaviour:
   paper: {fileID: 112021737}
   paperColor: {r: 0, g: 0, b: 0, a: 0}
   tagColor: {r: 0, g: 0, b: 0, a: 0}
+  backgroundColor: {r: 0, g: 0, b: 0, a: 0}
   numbersFont: {fileID: 11400000, guid: c3c31f48d9654774897ef21c8f51b0c2, type: 2}
   choiceButtonPrefab: {fileID: 634617716}
   choicesContainer: {fileID: 1523919355}
@@ -1168,6 +1169,7 @@ MonoBehaviour:
   startScene: 0
   skip: 0
   isSaved: 0
+  pause: 0
   textSpeed: 0
   ambientObj: {fileID: 2102447466}
   levelLoaderParent: {fileID: 361807744}
@@ -2460,7 +2462,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 102, y: -188.7}
+  m_AnchoredPosition: {x: 102, y: -144.9}
   m_SizeDelta: {x: 446.29, y: 80.02}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1523919356
@@ -2480,7 +2482,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 1
+  m_ChildAlignment: 4
   m_Spacing: 0
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
