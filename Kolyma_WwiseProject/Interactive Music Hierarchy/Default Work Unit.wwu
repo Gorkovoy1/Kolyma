@@ -357,6 +357,9 @@
 						<Reference Name="PlaylistRoot">
 							<Custom>
 								<MusicPlaylistItem Name="" ID="{B7B49FEE-901D-4A35-9C3E-2137F1E6C325}" ShortID="942243788">
+									<PropertyList>
+										<Property Name="LoopCount" Type="int16" Value="0"/>
+									</PropertyList>
 									<ChildrenList>
 										<MusicPlaylistItem Name="" ID="{45681D1F-CAB3-40AB-AC09-6C5F1AD06E59}" ShortID="509148860">
 											<PropertyList>
@@ -394,7 +397,7 @@
 								<Property Name="EndPosition" Type="Real64" Value="50551.956216957"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-12</Value>
+										<Value>-20</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>

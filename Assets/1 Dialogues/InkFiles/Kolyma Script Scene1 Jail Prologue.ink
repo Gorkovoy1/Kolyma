@@ -1,11 +1,11 @@
 //Narrator
 The Magadan Jail was full.#Narrator
 The smell of wet clothes emanated from the cells.#Narrator 
-The prisoners who were fast or lucky took the bunks, while the less fortunate men occupied the few spots on the floor between the beds.#Narrator
+The prisoners who were fast or lucky claimed the bunks, while the less fortunate men occupied the few spots on the floor by the walls.#Narrator
 Every single person was exhausted, the journey to the North was long.#Narrator
 The prisoners were told to wait until morning. At the break of dawn, three old trucks would take them further North, to the Kolyma labor camps.#Narrator
 Arkady was shivering on his bottom bunk. He was about to turn on the side and try to fall asleep when suddenly he felt that someone was looking at him.#Narrator
-An older man approached his bed. The stranger had a strong presence. He was exhausted like everyone else, and yet Arkady could tell that his spirit was not broken.#Narrator
+An older man approached his bed. The stranger had a strong presence. He looked tired like everyone else, yet Arkady could see that his spirit remained unbroken.#Narrator
 //Characters appear on screen and the dialogue begins.
 There are rules, there are circumstances. We cannot ignore them, we always have to take them into account.#SetPortraitsActive #Andreyev
 But there is also luck.#Andreyev
@@ -26,7 +26,7 @@ But rules are rules, there are limits. The floor is not the worst option, althou
     *[Of course. Sit down here, it's hard to stand in such a crowded cell.]#Arkady
 Ah! Your heart is soft. Don't worry, it won't stay that way for too long.#Andreyev
 - I am Andreyev. Aleksander Andreyev.#ChangeName #Andreyev
-- Arkady heard that name.#NarratorSound #Narrator
+- Arkady heard that name before.#NarratorSound #Narrator
 - Thirty years ago Andreyev was one of the most famous terrorists in Russia. People say, he was behind several assassinations of high rank Imperial officials.#Narrator
 - #Arkady
     **[I know you. You were a member of the Socialist Revolutionary Party.]#Arkady

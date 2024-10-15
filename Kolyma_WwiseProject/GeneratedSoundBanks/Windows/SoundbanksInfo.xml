@@ -22,7 +22,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{011B224D-A72A-5C94-AE22-7B31E6791A7A}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{CC92F4B1-1CD3-12A2-25AC-7F9D0F724899}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -238,7 +238,7 @@
 						<MediaRef Id="1005253697"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="238544951" Name="Play_Music_Camp_Arrival" DurationType="OneShot" DurationMin="49.41175" DurationMax="49.41175">
+				<Event Id="238544951" Name="Play_Music_Camp_Arrival" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="75083474"/>
 					</MediaRefs>
@@ -306,5 +306,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{AD69A491-097F-CAA2-DFE6-2FA2102228DB}</FileHash>
+	<FileHash>{FE9D5785-1D13-BF23-5B49-4BA2C4323DE5}</FileHash>
 </SoundBanksInfo>
