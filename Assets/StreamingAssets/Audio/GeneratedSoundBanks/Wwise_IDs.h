@@ -13,6 +13,13 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID PLAY_ANDREYEV_CLEARS_THROAT = 2052887156U;
+        static const AkUniqueID PLAY_ANDREYEV_GOOD_LUCK = 675692170U;
+        static const AkUniqueID PLAY_ANDREYEV_QUESTION = 1883782041U;
+        static const AkUniqueID PLAY_ANDREYEV_SATISFIED = 1699492407U;
+        static const AkUniqueID PLAY_ANDREYEV_SCARED = 1701334921U;
+        static const AkUniqueID PLAY_ANDREYEV_SIGH = 1624799736U;
+        static const AkUniqueID PLAY_ANDREYEV_SNARKY = 4095833387U;
         static const AkUniqueID PLAY_BARRACKS_AMBIENCE = 1410640362U;
         static const AkUniqueID PLAY_BARRACKS_BACKGROUND_SFX = 455065390U;
         static const AkUniqueID PLAY_BARRACKS_DOOR = 3205279810U;

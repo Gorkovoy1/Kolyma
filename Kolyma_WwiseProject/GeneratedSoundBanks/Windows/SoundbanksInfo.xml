@@ -22,7 +22,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{CC92F4B1-1CD3-12A2-25AC-7F9D0F724899}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{41E1C4D8-F9E3-9AD9-161A-A2F3EE1E0382}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -54,6 +54,10 @@
 					<ShortName>Cell_SFX_Whisper-003.wav</ShortName>
 					<CachePath>SFX/Cell_SFX_Whisper-003_8E324C96.wem</CachePath>
 				</File>
+				<File Id="171785072" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Andreyev_Scared.wav</ShortName>
+					<CachePath>SFX/Andreyev_Scared_E406EA48.wem</CachePath>
+				</File>
 				<File Id="328403887" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>kolyma daytime 1.4.wav</ShortName>
 					<CachePath>SFX/kolyma daytime 1.4_FBC78EF0.wem</CachePath>
@@ -61,6 +65,10 @@
 				<File Id="355118563" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-001.wav</ShortName>
 					<CachePath>SFX/typewriter_loop-001_F1969806.wem</CachePath>
+				</File>
+				<File Id="355430885" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Andreyev_Question.wav</ShortName>
+					<CachePath>SFX/Andreyev_Question_CA6FFA65.wem</CachePath>
 				</File>
 				<File Id="381664103" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Dogs_Bark-001.wav</ShortName>
@@ -86,6 +94,10 @@
 					<ShortName>Cell_Men_Talk.wav</ShortName>
 					<CachePath>SFX/Cell_Men_Talk_56CEF360.wem</CachePath>
 				</File>
+				<File Id="508246985" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Andreyev_Good_Luck.wav</ShortName>
+					<CachePath>SFX/Andreyev_Good_Luck_EB122D62.wem</CachePath>
+				</File>
 				<File Id="515368332" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Breath-002.wav</ShortName>
 					<CachePath>SFX/Cell_SFX_Breath-002_8E324C96.wem</CachePath>
@@ -110,9 +122,17 @@
 					<ShortName>Doors, Dungeon, Stuck, Open, Long Reverb SND12490.wav</ShortName>
 					<CachePath>SFX/Doors, Dungeon, Stuck, Open, Long Reverb SND12490_80D97D70.wem</CachePath>
 				</File>
+				<File Id="594723613" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Andreyev_Clears_Throat.wav</ShortName>
+					<CachePath>SFX/Andreyev_Clears_Throat_0BAA50AF.wem</CachePath>
+				</File>
 				<File Id="619077475" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>kolyma_jail 2.4.wav</ShortName>
 					<CachePath>SFX/kolyma_jail 2.4_56CEF360.wem</CachePath>
+				</File>
+				<File Id="623432057" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Andreyev_Snarky.wav</ShortName>
+					<CachePath>SFX/Andreyev_Snarky_AB649E7C.wem</CachePath>
 				</File>
 				<File Id="631340173" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Cough-002.wav</ShortName>
@@ -142,6 +162,10 @@
 					<ShortName>negative_event1.2.wav</ShortName>
 					<CachePath>SFX/negative_event1.2_8E324C96.wem</CachePath>
 				</File>
+				<File Id="837605639" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Andreyev_Sigh.wav</ShortName>
+					<CachePath>SFX/Andreyev_Sigh_5A36C19D.wem</CachePath>
+				</File>
 				<File Id="850000760" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Truck_Arrives.wav</ShortName>
 					<CachePath>SFX/Truck_Arrives_8E324C96.wem</CachePath>
@@ -166,6 +190,10 @@
 					<ShortName>crows-002.wav</ShortName>
 					<CachePath>SFX/crows-002_85CABCE8.wem</CachePath>
 				</File>
+				<File Id="943318692" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Andreyev_Satisfied.wav</ShortName>
+					<CachePath>SFX/Andreyev_Satisfied_BF023D93.wem</CachePath>
+				</File>
 				<File Id="946766250" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>barracks_doors.wav</ShortName>
 					<CachePath>SFX/barracks_doors_705BC893.wem</CachePath>
@@ -180,6 +208,41 @@
 				</File>
 			</Media>
 			<Events>
+				<Event Id="2052887156" Name="Play_Andreyev_Clears_Throat" DurationType="OneShot" DurationMin="1.4883559" DurationMax="1.4883559">
+					<MediaRefs>
+						<MediaRef Id="594723613"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="675692170" Name="Play_Andreyev_Good_Luck" DurationType="OneShot" DurationMin="3.653551" DurationMax="3.653551">
+					<MediaRefs>
+						<MediaRef Id="508246985"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1883782041" Name="Play_Andreyev_Question" DurationType="OneShot" DurationMin="0.9841796" DurationMax="0.9841796">
+					<MediaRefs>
+						<MediaRef Id="355430885"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1699492407" Name="Play_Andreyev_Satisfied" DurationType="OneShot" DurationMin="1.0601513" DurationMax="1.0601513">
+					<MediaRefs>
+						<MediaRef Id="943318692"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1701334921" Name="Play_Andreyev_Scared" DurationType="OneShot" DurationMin="0.8736752" DurationMax="0.8736752">
+					<MediaRefs>
+						<MediaRef Id="171785072"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1624799736" Name="Play_Andreyev_Sigh" DurationType="OneShot" DurationMin="2.9318194" DurationMax="2.9318194">
+					<MediaRefs>
+						<MediaRef Id="837605639"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4095833387" Name="Play_Andreyev_Snarky" DurationType="OneShot" DurationMin="1.4987156" DurationMax="1.4987156">
+					<MediaRefs>
+						<MediaRef Id="623432057"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="1410640362" Name="Play_Barracks_Ambience" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="435260790"/>
@@ -306,5 +369,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{FE9D5785-1D13-BF23-5B49-4BA2C4323DE5}</FileHash>
+	<FileHash>{D0685CD1-D3E6-D0A4-0109-59A664FB61A6}</FileHash>
 </SoundBanksInfo>

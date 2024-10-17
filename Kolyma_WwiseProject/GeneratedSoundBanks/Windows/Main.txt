@@ -5,13 +5,19 @@ Event	ID	Name			Wwise Object Path	Notes
 	386574545	Play_Cell_Door			\Default Work Unit\Play_Cell_Door	
 	455065390	Play_Barracks_Background_SFX			\Default Work Unit\Play_Barracks_Background_SFX	
 	639442158	Play_Crows			\Default Work Unit\Play_Crows	
+	675692170	Play_Andreyev_Good_Luck			\Default Work Unit\Andreyev\Play_Andreyev_Good_Luck	
 	1020223172	Play_Wind			\Default Work Unit\Play_Wind	
 	1064403750	Play_Truck_Arrives			\Default Work Unit\Play_Truck_Arrives	
 	1112221790	Play_Screen_Sfx			\Default Work Unit\Play_Screen_Sfx	
 	1410640362	Play_Barracks_Ambience			\Default Work Unit\Play_Barracks_Ambience	
 	1420083155	Play_Cell_Men			\Default Work Unit\Play_Cell_Men	
+	1624799736	Play_Andreyev_Sigh			\Default Work Unit\Andreyev\Play_Andreyev_Sigh	
+	1699492407	Play_Andreyev_Satisfied			\Default Work Unit\Andreyev\Play_Andreyev_Satisfied	
+	1701334921	Play_Andreyev_Scared			\Default Work Unit\Andreyev\Play_Andreyev_Scared	
 	1714538498	Play_Woosh_Narrator			\Default Work Unit\Play_Woosh_Narrator	
+	1883782041	Play_Andreyev_Question			\Default Work Unit\Andreyev\Play_Andreyev_Question	
 	1892391772	Play_Dogs_Bark			\Default Work Unit\Play_Dogs_Bark	
+	2052887156	Play_Andreyev_Clears_Throat			\Default Work Unit\Andreyev\Play_Andreyev_Clears_Throat	
 	2541567472	Play_Whisper			\Default Work Unit\Play_Whisper	
 	2741544670	Play_Music_Camp_Day			\Default Work Unit\Play_Music_Camp_Day	
 	2807572219	Play_Silence			\Default Work Unit\Play_Silence	
@@ -21,6 +27,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	3643466302	Play_Music_Jail			\Default Work Unit\Play_Music_Jail	
 	3698047240	Play_Breath			\Default Work Unit\Play_Breath	
 	3946911806	Play_Punch			\Default Work Unit\Play_Punch	
+	4095833387	Play_Andreyev_Snarky			\Default Work Unit\Andreyev\Play_Andreyev_Snarky	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	2774197	Dogs_Bark_03	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Dogs_Bark-003_57DD6703.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camp_SFX\Dogs\Dogs_Bark_03		39227
@@ -30,21 +37,26 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	111452232	Dogs_Bark_02	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Dogs_Bark-002_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camp_SFX\Dogs\Dogs_Bark_02		39606
 	158641502	Cell_SFX_Whisper-005	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_SFX_Whisper-005_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Whisper\Cell_SFX_Whisper-005		16727
 	169040873	Cell_SFX_Whisper-003	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_SFX_Whisper-003_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Whisper\Cell_SFX_Whisper-003		28960
+	171785072	Andreyev_Scared	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Andreyev_Scared_E406EA48.wem		\Actor-Mixer Hierarchy\Default Work Unit\NPCs\Andreyev\Andreyev_Scared		154212
 	328403887	kolyma daytime 1_4	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\kolyma daytime 1.4_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Camp\Camp_Day\kolyma daytime 1_4		32832160
 	355118563	Typewriter_Loop_1	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\typewriter_loop-001_F1969806.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text_Box\Typewriter_Loops\Typewriter_Loop_1		18804
+	355430885	Andreyev_Question	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Andreyev_Question_CA6FFA65.wem		\Actor-Mixer Hierarchy\Default Work Unit\NPCs\Andreyev\Andreyev_Question		173704
 	381664103	Dogs_Bark_01	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Dogs_Bark-001_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camp_SFX\Dogs\Dogs_Bark_01		38800
 	402054562	Punch	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Punch_8CD53560.wem		\Actor-Mixer Hierarchy\Default Work Unit\Barracks_SFX\Punch		174376
 	415365781	Cell_SFX_Cough-003	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_SFX_Cough-003_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Cough\Cell_SFX_Cough-003		40623
 	435260790	Barracks_Ambience	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Barracks_Ambience_FBC78EF0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Barracks_SFX\Barracks_Ambience		7244120
 	471573529	Cell_SFX_Breath-001	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_SFX_Breath-001_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Breath\Cell_SFX_Breath-001		67783
 	499405862	Cell_Men	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_Men_Talk_56CEF360.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Men		1202700
+	508246985	Andreyev_Good_Luck	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Andreyev_Good_Luck_EB122D62.wem		\Actor-Mixer Hierarchy\Default Work Unit\NPCs\Andreyev\Andreyev_Good_Luck		644584
 	515368332	Cell_SFX_Breath-002	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_SFX_Breath-002_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Breath\Cell_SFX_Breath-002		64445
 	543232325	Typewriter_Loop_2	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\typewriter_loop-002_E3B2BE55.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text_Box\Typewriter_Loops\Typewriter_Loop_2		14027
 	543919465	Cell_SFX_Breath-003	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_SFX_Breath-003_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Breath\Cell_SFX_Breath-003		68071
 	551756399	Typewriter_Loop_6	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\typewriter_loop-006_647F6CFF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text_Box\Typewriter_Loops\Typewriter_Loop_6		13683
 	555626868	Typewriter_Loop_5	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\typewriter_loop-005_59D74268.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text_Box\Typewriter_Loops\Typewriter_Loop_5		13569
 	570807466	Cell_Door	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Doors, Dungeon, Stuck, Open, Long Reverb SND12490_80D97D70.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Door		53315
+	594723613	Andreyev_Clears_Throat	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Andreyev_Clears_Throat_0BAA50AF.wem		\Actor-Mixer Hierarchy\Default Work Unit\NPCs\Andreyev\Andreyev_Clears_Throat		262640
 	619077475	kolyma_jail 2_4	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\kolyma_jail 2.4_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Jail\Jail\kolyma_jail 2_4		2708106
+	623432057	Andreyev_Snarky	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Andreyev_Snarky_AB649E7C.wem		\Actor-Mixer Hierarchy\Default Work Unit\NPCs\Andreyev\Andreyev_Snarky		264468
 	631340173	Cell_SFX_Cough-002	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_SFX_Cough-002_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Cough\Cell_SFX_Cough-002		40781
 	646806883	Cell_SFX_Whisper-001	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_SFX_Whisper-001_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Whisper\Cell_SFX_Whisper-001		38122
 	737968334	Typewriter_Loop_3	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\typewriter_loop-003_507B088C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text_Box\Typewriter_Loops\Typewriter_Loop_3		10037
@@ -52,12 +64,14 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	766949846	Cell_SFX_Whisper-004	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_SFX_Whisper-004_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Whisper\Cell_SFX_Whisper-004		17716
 	768703265	Wind	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Wind_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camp_SFX\Wind		2996785
 	778674395	Negative_Event	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\negative_event1.2_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text_Box\Negative_Event		41907
+	837605639	Andreyev_Sigh	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Andreyev_Sigh_5A36C19D.wem		\Actor-Mixer Hierarchy\Default Work Unit\NPCs\Andreyev\Andreyev_Sigh		517268
 	850000760	Truck_Arrives	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Truck_Arrives_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camp_SFX\Truck_Arrives		161197
 	891624205	Cell_SFX_Whisper-002	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_SFX_Whisper-002_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Whisper\Cell_SFX_Whisper-002		43719
 	897836571	Cell_SFX_Cough-001	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_SFX_Cough-001_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Cough\Cell_SFX_Cough-001		42999
 	912648772	Typewriter_Loop_4	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\typewriter_loop-004_F031F9C3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text_Box\Typewriter_Loops\Typewriter_Loop_4		12998
 	927065734	Click3	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Menu Click2_513CAFF1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text_Box\Click3		8174
 	934665564	Crow_02	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\crows-002_85CABCE8.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camp_SFX\Crows\Crow_02		45162
+	943318692	Andreyev_Satisfied	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Andreyev_Satisfied_BF023D93.wem		\Actor-Mixer Hierarchy\Default Work Unit\NPCs\Andreyev\Andreyev_Satisfied		187108
 	946766250	Barracks_Door	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\barracks_doors_705BC893.wem		\Actor-Mixer Hierarchy\Default Work Unit\Barracks_SFX\Barracks_Door		389500
 	1005253697	Dogs_Bark_04	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Dogs_Bark-004_F9AC0766.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camp_SFX\Dogs\Dogs_Bark_04		32954
 	1069812879	Narrator	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\SFX_NARRATOR_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text_Box\Narrator		50771

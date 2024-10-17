@@ -419,6 +419,7 @@ public class DialogueInk : MonoBehaviour
                 {
                     introText.text = "";
                     HighlightNPC();
+                    AkSoundEngine.PostEvent("Play_Andreyev_Clears_Throat", gameObject);
                 }
 
                 if(tags[0] == "ChangeName")
@@ -454,6 +455,50 @@ public class DialogueInk : MonoBehaviour
                     pause = true;
 
                 }
+                //andreyev utterances
+                if (tags[0] == "Andreyev_Clears_Throat")
+                {
+                    HighlightNPC();
+                    narratorTag.gameObject.SetActive(false);
+                    AkSoundEngine.PostEvent("Play_Andreyev_Clears_Throat", gameObject);
+                }
+                if (tags[0] == "Andreyev_Satisfied")
+                {
+                    HighlightNPC();
+                    narratorTag.gameObject.SetActive(false);
+                    AkSoundEngine.PostEvent("Play_Andreyev_Satisfied", gameObject);
+                }
+                if (tags[0] == "Andreyev_Scared")
+                {
+                    HighlightNPC();
+                    narratorTag.gameObject.SetActive(false);
+                    AkSoundEngine.PostEvent("Play_Andreyev_Scared", gameObject);
+                }
+                if (tags[0] == "Andreyev_Good_Luck")
+                {
+                    HighlightNPC();
+                    narratorTag.gameObject.SetActive(false);
+                    AkSoundEngine.PostEvent("Play_Andreyev_Good_Luck", gameObject);
+                }
+                if (tags[0] == "Andreyev_Sigh")
+                {
+                    HighlightNPC();
+                    narratorTag.gameObject.SetActive(false);
+                    AkSoundEngine.PostEvent("Play_Andreyev_Sigh", gameObject);
+                }
+                if (tags[0] == "Andreyev_Snarky")
+                {
+                    HighlightNPC();
+                    narratorTag.gameObject.SetActive(false);
+                    AkSoundEngine.PostEvent("Play_Andreyev_Snarky", gameObject);
+                }
+                if (tags[0] == "Andreyev_Question")
+                {
+                    HighlightNPC();
+                    narratorTag.gameObject.SetActive(false);
+                    AkSoundEngine.PostEvent("Play_Andreyev_Question", gameObject);
+                }
+                //end of utterances
                 if (tags[0] == "NegativeEvent")
                 {
                     HighlightNPC();
@@ -521,6 +566,7 @@ public class DialogueInk : MonoBehaviour
                     NPCBlack.sprite = dialogueObj1.npcBlack;
                     NPCColor.sprite = dialogueObj1.npcColor;
                     nameTag.text = dialogueObj1.npcName;
+                    AkSoundEngine.PostEvent("Play_Andreyev_Scared", gameObject);
 
                     StartCoroutine(FadeBackColor());
                     HighlightNPC();

@@ -20,6 +20,7 @@
 						<ObjectRef Name="Play_Whisper" ID="{DFE82EAB-27EE-494C-BDCB-46D15021F84B}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Music_Camp_Arrival" ID="{1A0A5CBE-54A0-499E-8A58-5D154449CEAD}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Screen_Sfx" ID="{6629AA1A-B4A3-4B4A-91DB-2D799B805D35}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Andreyev" ID="{1FEBC0A6-CEF2-4C02-96AE-B202FA8B346A}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Crows" ID="{3E8CEF64-C63B-4C11-8E3D-E75CFB01EA6D}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Dogs_Bark" ID="{E8AD7521-1A84-4C24-B5E4-CBA5416166F8}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Truck_Arrives" ID="{2962A1DE-AD5C-4C5C-9DAC-DF62D8BFAE9C}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
