@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8c4b0f5056a06a4a92d94e75a182e1ae
     GuidInternal: 
-    m_lastTime: -8584734438739439768
+    m_lastTime: -8584724680465121320
     List:
     - name: Main
       guid: f16c33554f83c140a4a6a74ed017dafb
@@ -94,8 +94,165 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584734438746038610
+    m_lastTime: -8584724680465140219
     List:
+    - name: Andreyev
+      guid: a6c0eb1ff2ce024c96aeb202fa8b346a
+      id: 2078572689
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Andreyev
+        ObjectType: 4
+        guid: a6c0eb1ff2ce024c96aeb202fa8b346a
+      Path: Events\Default Work Unit\Andreyev
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Andreyev_Clears_Throat
+      guid: b6e91d400fd25a4898434b87449de4f5
+      id: 2052887156
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Andreyev
+        ObjectType: 4
+        guid: a6c0eb1ff2ce024c96aeb202fa8b346a
+      - ElementName: Play_Andreyev_Clears_Throat
+        ObjectType: 3
+        guid: b6e91d400fd25a4898434b87449de4f5
+      Path: Events\Default Work Unit\Andreyev\Play_Andreyev_Clears_Throat
+      maxAttenuation: 0
+      maxDuration: 1.4883559
+      minDuration: 1.4883559
+    - name: Play_Andreyev_Good_Luck
+      guid: 0330c6bca14fa64b9700a219b398fd5c
+      id: 675692170
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Andreyev
+        ObjectType: 4
+        guid: a6c0eb1ff2ce024c96aeb202fa8b346a
+      - ElementName: Play_Andreyev_Good_Luck
+        ObjectType: 3
+        guid: 0330c6bca14fa64b9700a219b398fd5c
+      Path: Events\Default Work Unit\Andreyev\Play_Andreyev_Good_Luck
+      maxAttenuation: 0
+      maxDuration: 3.653551
+      minDuration: 3.653551
+    - name: Play_Andreyev_Question
+      guid: a213e6e688575647b575520de1cb37c6
+      id: 1883782041
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Andreyev
+        ObjectType: 4
+        guid: a6c0eb1ff2ce024c96aeb202fa8b346a
+      - ElementName: Play_Andreyev_Question
+        ObjectType: 3
+        guid: a213e6e688575647b575520de1cb37c6
+      Path: Events\Default Work Unit\Andreyev\Play_Andreyev_Question
+      maxAttenuation: 0
+      maxDuration: 0.9841796
+      minDuration: 0.9841796
+    - name: Play_Andreyev_Satisfied
+      guid: e1cb55ecb3e68548879c8e274a2347c3
+      id: 1699492407
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Andreyev
+        ObjectType: 4
+        guid: a6c0eb1ff2ce024c96aeb202fa8b346a
+      - ElementName: Play_Andreyev_Satisfied
+        ObjectType: 3
+        guid: e1cb55ecb3e68548879c8e274a2347c3
+      Path: Events\Default Work Unit\Andreyev\Play_Andreyev_Satisfied
+      maxAttenuation: 0
+      maxDuration: 1.0601513
+      minDuration: 1.0601513
+    - name: Play_Andreyev_Scared
+      guid: c457ec387d757648ba3e63384b264f8e
+      id: 1701334921
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Andreyev
+        ObjectType: 4
+        guid: a6c0eb1ff2ce024c96aeb202fa8b346a
+      - ElementName: Play_Andreyev_Scared
+        ObjectType: 3
+        guid: c457ec387d757648ba3e63384b264f8e
+      Path: Events\Default Work Unit\Andreyev\Play_Andreyev_Scared
+      maxAttenuation: 0
+      maxDuration: 1.2736752
+      minDuration: 1.2736752
+    - name: Play_Andreyev_Sigh
+      guid: 9624a565a0aabf408e6b5bdb8dc47f57
+      id: 1624799736
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Andreyev
+        ObjectType: 4
+        guid: a6c0eb1ff2ce024c96aeb202fa8b346a
+      - ElementName: Play_Andreyev_Sigh
+        ObjectType: 3
+        guid: 9624a565a0aabf408e6b5bdb8dc47f57
+      Path: Events\Default Work Unit\Andreyev\Play_Andreyev_Sigh
+      maxAttenuation: 0
+      maxDuration: 2.8800204
+      minDuration: 2.8800204
+    - name: Play_Andreyev_Snarky
+      guid: 8498dee809cd0348ac7ec0526b3d23df
+      id: 4095833387
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Andreyev
+        ObjectType: 4
+        guid: a6c0eb1ff2ce024c96aeb202fa8b346a
+      - ElementName: Play_Andreyev_Snarky
+        ObjectType: 3
+        guid: 8498dee809cd0348ac7ec0526b3d23df
+      Path: Events\Default Work Unit\Andreyev\Play_Andreyev_Snarky
+      maxAttenuation: 0
+      maxDuration: 1.7987156
+      minDuration: 1.7987156
     - name: Play_Barracks_Ambience
       guid: df150fc8940b004ebce5937ec34f69d8
       id: 1410640362
@@ -281,8 +438,8 @@ MonoBehaviour:
         guid: be5c0a1aa0549e498a585d154449cead
       Path: Events\Default Work Unit\Play_Music_Camp_Arrival
       maxAttenuation: 0
-      maxDuration: 49.41175
-      minDuration: 49.41175
+      maxDuration: -1
+      minDuration: -1
     - name: Play_Music_Camp_Day
       guid: c96981c5ad016f43a815a4d024b846bc
       id: 2741544670

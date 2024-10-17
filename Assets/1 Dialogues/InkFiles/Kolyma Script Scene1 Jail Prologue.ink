@@ -13,7 +13,8 @@ People often forget about luck; they don’t believe in it.#Andreyev
 However, sometimes Fortuna appears out of nowhere and makes things right.#Andreyev
 Here’s an example. Let's give it a try...#Andreyev 
 I know the unwritten prison rules very well. You were here first and the bed is yours.#Andreyev
-I never ask for anything, but can I sit here? You know, it's been a long and tiring journey.#Andreyev_Question #Andreyev 
+I never ask for anything, but can I sit here?#Andreyev_Question #Andreyev 
+You know, it's been a long and tiring journey.#Andreyev 
 //different color for responses?
 #Arkady
     *[Sure. You may sit down.]#Arkady
@@ -47,7 +48,7 @@ And look at me today! 30 years later, here I am again, doing time in the North f
 What is your name?#Andreyev_Question #Andreyev 
 #Arkady
     ***[Arkady Kojukh.]#Arkady
-If you don't mind my asking, was General Kojukh your father?#Andreyev_Question #Andreyev 
+If you don't mind my asking, was General Kojukh your father?#Andreyev_Scared #Andreyev 
 #Arkady 
     ****[Yes. General Valentin Kojukh was my father.]#Arkady
 I followed his public trial. It was a joke.#Andreyev 
@@ -76,7 +77,8 @@ As you wish. I have heard someone here call you Arkady. That's good enough for m
 *****[Begin game.]#Arkady
 //begin game
 ----Well, now you know the $Numbers. #Andreyev_Satisfied #Andreyev 
-----Take this deck, I have a spare one. Keep it close to your heart. Now if you don't mind, I need some rest...#Andreyev_Sigh #Andreyev 
+----Take this deck, I have a spare one. Keep it close to your heart.#Andreyev 
+----Now, if you don't mind, I need some rest...#Andreyev_Sigh #Andreyev 
 ----Andreyev closed his eyes and put his head against the cold prison wall. His breath deepened.#CloseEyes #NarratorSound #Narrator
 ----A convoy officer woke everyone up in the middle of the night. He was calling the roll.#Narrator
 ----Prisoner Andreyev! Andreyev, show yourself!#ConvoyOfficer

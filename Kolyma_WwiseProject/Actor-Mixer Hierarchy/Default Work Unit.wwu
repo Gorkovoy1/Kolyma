@@ -1507,7 +1507,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-10</Value>
+										<Value>-5</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1548,6 +1548,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Andreyev_Good_Luck" ID="{6BE7C100-8B8D-4F10-BBB5-DB6E3E4E9392}" ShortID="750244621">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -1626,6 +1633,18 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Andreyev_Scared" ID="{BAA71FCB-4FE6-4E10-BB82-0A2E493315D4}" ShortID="920747254">
+									<PropertyList>
+										<Property Name="InitialDelay" Type="Real64">
+											<ValueList>
+												<Value>0.4</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>2</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -1652,6 +1671,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Andreyev_Sigh" ID="{9C786335-F726-4D10-9070-848DA6ABA61C}" ShortID="648261924">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -1664,6 +1690,7 @@
 										<AudioFileSource Name="Andreyev_Sigh" ID="{828D9DFC-D46E-4FDD-8C5F-3F9A0D7ECA4E}">
 											<PropertyList>
 												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.0517989279806987"/>
 												<Property Name="TrimEnd" Type="Real64" Value="2.93181932370754"/>
 											</PropertyList>
 											<Language>SFX</Language>
@@ -1678,6 +1705,23 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Andreyev_Snarky" ID="{AEB7BB36-5230-428F-AA95-6459D7B1116D}" ShortID="18907512">
+									<PropertyList>
+										<Property Name="InitialDelay" Type="Real64">
+											<ValueList>
+												<Value>0.3</Value>
+											</ValueList>
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{85C6C634-9A0F-45D5-A67B-56D06E78FBD3}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>2</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>

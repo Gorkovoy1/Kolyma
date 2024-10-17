@@ -22,7 +22,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{41E1C4D8-F9E3-9AD9-161A-A2F3EE1E0382}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{9CDDA1DE-EBDD-479A-8B85-F3EAD8D72A83}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -56,7 +56,7 @@
 				</File>
 				<File Id="171785072" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Andreyev_Scared.wav</ShortName>
-					<CachePath>SFX/Andreyev_Scared_E406EA48.wem</CachePath>
+					<CachePath>SFX/Andreyev_Scared_80FE5A8E.wem</CachePath>
 				</File>
 				<File Id="328403887" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>kolyma daytime 1.4.wav</ShortName>
@@ -96,7 +96,7 @@
 				</File>
 				<File Id="508246985" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Andreyev_Good_Luck.wav</ShortName>
-					<CachePath>SFX/Andreyev_Good_Luck_EB122D62.wem</CachePath>
+					<CachePath>SFX/Andreyev_Good_Luck_9962DC21.wem</CachePath>
 				</File>
 				<File Id="515368332" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Breath-002.wav</ShortName>
@@ -124,7 +124,7 @@
 				</File>
 				<File Id="594723613" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Andreyev_Clears_Throat.wav</ShortName>
-					<CachePath>SFX/Andreyev_Clears_Throat_0BAA50AF.wem</CachePath>
+					<CachePath>SFX/Andreyev_Clears_Throat_4D39B397.wem</CachePath>
 				</File>
 				<File Id="619077475" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>kolyma_jail 2.4.wav</ShortName>
@@ -132,7 +132,7 @@
 				</File>
 				<File Id="623432057" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Andreyev_Snarky.wav</ShortName>
-					<CachePath>SFX/Andreyev_Snarky_AB649E7C.wem</CachePath>
+					<CachePath>SFX/Andreyev_Snarky_802ACBA4.wem</CachePath>
 				</File>
 				<File Id="631340173" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Cough-002.wav</ShortName>
@@ -164,7 +164,7 @@
 				</File>
 				<File Id="837605639" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Andreyev_Sigh.wav</ShortName>
-					<CachePath>SFX/Andreyev_Sigh_5A36C19D.wem</CachePath>
+					<CachePath>SFX/Andreyev_Sigh_CE20AE8C.wem</CachePath>
 				</File>
 				<File Id="850000760" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Truck_Arrives.wav</ShortName>
@@ -192,7 +192,7 @@
 				</File>
 				<File Id="943318692" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Andreyev_Satisfied.wav</ShortName>
-					<CachePath>SFX/Andreyev_Satisfied_BF023D93.wem</CachePath>
+					<CachePath>SFX/Andreyev_Satisfied_74B6C6FE.wem</CachePath>
 				</File>
 				<File Id="946766250" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>barracks_doors.wav</ShortName>
@@ -228,17 +228,17 @@
 						<MediaRef Id="943318692"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1701334921" Name="Play_Andreyev_Scared" DurationType="OneShot" DurationMin="0.8736752" DurationMax="0.8736752">
+				<Event Id="1701334921" Name="Play_Andreyev_Scared" DurationType="OneShot" DurationMin="1.2736752" DurationMax="1.2736752">
 					<MediaRefs>
 						<MediaRef Id="171785072"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1624799736" Name="Play_Andreyev_Sigh" DurationType="OneShot" DurationMin="2.9318194" DurationMax="2.9318194">
+				<Event Id="1624799736" Name="Play_Andreyev_Sigh" DurationType="OneShot" DurationMin="2.8800204" DurationMax="2.8800204">
 					<MediaRefs>
 						<MediaRef Id="837605639"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="4095833387" Name="Play_Andreyev_Snarky" DurationType="OneShot" DurationMin="1.4987156" DurationMax="1.4987156">
+				<Event Id="4095833387" Name="Play_Andreyev_Snarky" DurationType="OneShot" DurationMin="1.7987156" DurationMax="1.7987156">
 					<MediaRefs>
 						<MediaRef Id="623432057"/>
 					</MediaRefs>
@@ -369,5 +369,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{D0685CD1-D3E6-D0A4-0109-59A664FB61A6}</FileHash>
+	<FileHash>{CF4A3257-4C0D-242C-C08C-3CE8EEA9CF73}</FileHash>
 </SoundBanksInfo>
