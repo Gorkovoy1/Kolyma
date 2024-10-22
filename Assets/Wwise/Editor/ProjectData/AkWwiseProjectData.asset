@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8c4b0f5056a06a4a92d94e75a182e1ae
     GuidInternal: 
-    m_lastTime: -8584724680465121320
+    m_lastTime: -8584720500767893664
     List:
     - name: Main
       guid: f16c33554f83c140a4a6a74ed017dafb
@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584724680465140219
+    m_lastTime: -8584720500767903671
     List:
     - name: Andreyev
       guid: a6c0eb1ff2ce024c96aeb202fa8b346a
@@ -338,6 +338,40 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 8.693547
       minDuration: 8.693547
+    - name: Play_Cell_Door_Open
+      guid: 06f27133168e024b82970302393c0841
+      id: 2237368892
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Play_Cell_Door_Open
+        ObjectType: 3
+        guid: 06f27133168e024b82970302393c0841
+      Path: Events\Default Work Unit\Play_Cell_Door_Open
+      maxAttenuation: 0
+      maxDuration: 5
+      minDuration: 5
+    - name: Play_Cell_Guard_Roll_Call
+      guid: 3f62f0812743c74c841c54977ff32c32
+      id: 3877743401
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Play_Cell_Guard_Roll_Call
+        ObjectType: 3
+        guid: 3f62f0812743c74c841c54977ff32c32
+      Path: Events\Default Work Unit\Play_Cell_Guard_Roll_Call
+      maxAttenuation: 0
+      maxDuration: 2.485591
+      minDuration: 2.485591
     - name: Play_Cell_Men
       guid: 11017d510f030243bb8508c728da6a4d
       id: 1420083155
