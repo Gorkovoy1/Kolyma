@@ -592,6 +592,84 @@
 								<ActiveSource Name="Doors, Dungeon, Stuck, Open, Long Reverb SND12490" ID="{9D80A237-3C3A-4686-8903-ECE664D86E1F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="Cell_Door_Open" ID="{C74683C6-CB2E-4FC6-95EF-77612A95762F}" ShortID="387474132">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Cell_SFX_Door_Open" ID="{956AB0FF-2A3F-4515-A066-A75DFF76BC16}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.353143841515935"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Cell_SFX_Door_Open.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="121851638"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Cell_SFX_Door_Open" ID="{956AB0FF-2A3F-4515-A066-A75DFF76BC16}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Cell_Guard_Roll_Call" ID="{8F83763A-2477-4A0F-B3A9-C68B3F41D533}" ShortID="678634063">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Cell_SXF_Guard_Roll_Call" ID="{FA7B2559-69F7-4688-A22C-A60D408971A2}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.139731953648528"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Cell_SXF_Guard_Roll_Call.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="623316721"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="Guard_Roll_Call" ID="{D7146199-D51A-40DF-A728-CAA1712BB6CB}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.0870116452179688"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.0174023290435937"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Guard_Roll_Call.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="163322872"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Guard_Roll_Call" ID="{D7146199-D51A-40DF-A728-CAA1712BB6CB}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</ActorMixer>
 				<ActorMixer Name="Text_Box" ID="{962D18B5-D613-4150-99DA-11771D5B71CB}" ShortID="1002194423">

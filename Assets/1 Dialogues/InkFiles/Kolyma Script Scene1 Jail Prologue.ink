@@ -79,11 +79,12 @@ As you wish. I have heard someone here call you Arkady. That's good enough for m
 ----Well, now you know the $Numbers. #Andreyev_Satisfied #Andreyev 
 ----Take this deck, I have a spare one. Keep it close to your heart.#Andreyev 
 ----Now, if you don't mind, I need some rest...#Andreyev_Sigh #Andreyev 
-----Andreyev closed his eyes and put his head against the cold prison wall. His breath deepened.#CloseEyes #NarratorSound #Narrator
+----Andreyev closed his eyes and put his head against the cold prison wall. His breath deepened.#NarratorSound #Narrator
+----Arkady suddenly felt lonely, and the heavy, uncomfortable dreams of a tired man took over his consciousness#CloseEyes #Narrator 
 ----A convoy officer woke everyone up in the middle of the night. He was calling the roll.#Narrator
-----Prisoner Andreyev! Andreyev, show yourself!#ConvoyOfficer
-----They are taking me away.#TakeAway #Andreyev #Andreyev_Scared
-----Accept this as a token of my gratitude for letting me spend some time on this bed.#Andreyev
+----Prisoner Andreyev! Andreyev, show yourself!#ConvoyOfficer #Cell_Guard_Roll_Call
+----They are taking me away.#TakeAway #Andreyev #Cell_Door_Open
+----Accept this as a token of my gratitude for letting me spend some time on this bed.#Andreyev #Andreyev_Scared
 ----Keep it. Perhaps, you will meet someone who tried to make the world a better place, but failed. Just like me. Alright, time to go.#Andreyev 
 Good luck.#Andreyev_Good_Luck #Andreyev 
 //next line should be changed. Instead of UI it's the narrator

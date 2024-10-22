@@ -326,6 +326,28 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
+				<Event Name="Play_Cell_Door_Open" ID="{3371F206-8E16-4B02-8297-0302393C0841}">
+					<ChildrenList>
+						<Action Name="" ID="{AEECF57C-5FC0-4643-9E50-7B0AB000D2AE}" ShortID="258458611">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Cell_Door_Open" ID="{C74683C6-CB2E-4FC6-95EF-77612A95762F}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Cell_Guard_Roll_Call" ID="{81F0623F-4327-4CC7-841C-54977FF32C32}">
+					<ChildrenList>
+						<Action Name="" ID="{75C784F7-E9FA-4EB1-95C8-D2B941351E9D}" ShortID="234123536">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Cell_Guard_Roll_Call" ID="{8F83763A-2477-4A0F-B3A9-C68B3F41D533}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

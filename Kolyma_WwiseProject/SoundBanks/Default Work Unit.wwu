@@ -19,11 +19,13 @@
 						<ObjectRef Name="Play_Silence" ID="{66E334A4-4EE7-492D-BDB4-C161F4758258}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Whisper" ID="{DFE82EAB-27EE-494C-BDCB-46D15021F84B}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Music_Camp_Arrival" ID="{1A0A5CBE-54A0-499E-8A58-5D154449CEAD}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Cell_Door_Open" ID="{3371F206-8E16-4B02-8297-0302393C0841}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Screen_Sfx" ID="{6629AA1A-B4A3-4B4A-91DB-2D799B805D35}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Andreyev" ID="{1FEBC0A6-CEF2-4C02-96AE-B202FA8B346A}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Crows" ID="{3E8CEF64-C63B-4C11-8E3D-E75CFB01EA6D}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Dogs_Bark" ID="{E8AD7521-1A84-4C24-B5E4-CBA5416166F8}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Truck_Arrives" ID="{2962A1DE-AD5C-4C5C-9DAC-DF62D8BFAE9C}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Cell_Guard_Roll_Call" ID="{81F0623F-4327-4CC7-841C-54977FF32C32}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Barracks_Ambience" ID="{C80F15DF-0B94-4E00-BCE5-937EC34F69D8}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Cell_Door" ID="{DE3448CB-EC18-4E85-887F-0BB7F1D694B3}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Wind" ID="{7700EA0C-C2F2-4F86-84D1-08EA7B6FC822}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>

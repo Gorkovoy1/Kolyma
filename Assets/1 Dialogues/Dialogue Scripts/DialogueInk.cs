@@ -542,7 +542,6 @@ public class DialogueInk : MonoBehaviour
                 if (tags[0] == "CloseEyes")
                 {
                     Debug.Log("line1");
-                    NarratorSound();
                     //set background to black
                     StartCoroutine(FadeBackground());
                     //background.color = new Color(0f, 0f, 0f, 1f);
@@ -557,6 +556,7 @@ public class DialogueInk : MonoBehaviour
                     nameTag.text = "Convoy Officer";
 
                     HighlightNPC();
+                    AkSoundEngine.PostEvent("Play_Cell_Guard_Roll_Call", gameObject);
                 }
                 
                 if (tags[0] == "TakeAway")
@@ -566,6 +566,7 @@ public class DialogueInk : MonoBehaviour
                     NPCBlack.sprite = dialogueObj1.npcBlack;
                     NPCColor.sprite = dialogueObj1.npcColor;
                     nameTag.text = dialogueObj1.npcName;
+                    AkSoundEngine.PostEvent("Play_Cell_Door_Open", gameObject);
                     AkSoundEngine.PostEvent("Play_Andreyev_Scared", gameObject);
 
                     StartCoroutine(FadeBackColor());
