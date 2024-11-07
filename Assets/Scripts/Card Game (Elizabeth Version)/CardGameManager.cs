@@ -49,8 +49,6 @@ public struct CardSelectSettings
 
 public class CardGameManager : MonoBehaviour
 {
-    public AIEvaluationValues AIEvaluationValues;
-
     public enum State {
         DEFAULT,
         INIT, //tasks to complete ONCE as the scene loads in, before anything starts. Use for technical behind the scenes stuff, eg loading art and sound

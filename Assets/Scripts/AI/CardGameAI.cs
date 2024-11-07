@@ -67,7 +67,6 @@ public class CardGameAI : MonoBehaviour
 
     public void CheckActiveCharacter(CharacterInstance character)
     {
-        Debug.Log("Check Active Character AI!");
         if (Active && character == CurrentCharacter) return;
         Active = character == CurrentCharacter;
         if(Active)
@@ -83,7 +82,7 @@ public class CardGameAI : MonoBehaviour
     void Evaluate()
     {
         EvaluatePass();
-        //EvaluateSwapCardOptions();
+        EvaluateSwapCardOptions();
         EvaluateFlipCardOptions();
         EvaluatePlayCardOptions();
         SortCardSequences();
@@ -153,8 +152,8 @@ public class CardGameAI : MonoBehaviour
 
     void AddNewSequence(Queue<AIAction> actions, Queue<DisplayCard> cards)
     {
-        int playerValue = CardEffectChecker.Instance.SimulatedPlayerValue;
-        int opponentValue = CardEffectChecker.Instance.SimulatedOpponentValue;
+        //int playerValue = CardEffectChecker.Instance.SimulatedPlayerValue;
+        //int opponentValue = CardEffectChecker.Instance.SimulatedOpponentValue;
 
         /*if(CurrentCharacter == CardEffectChecker.Instance.Player)
         {
@@ -171,7 +170,7 @@ public class CardGameAI : MonoBehaviour
             evaluationValue += CardEffectChecker.Instance.OpponentDiscardedCardsNum * EvaluationValPlayerDiscard;
         }*/
 
-        CardSequences.Add(new CardSequence(playerValue, opponentValue, actions, cards));
+        CardSequences.Add(new CardSequence(actions, cards, CurrentCharacter.character.AIPersonality));
     }
 
     void SortCardSequences()
@@ -203,7 +202,9 @@ public class CardGameAI : MonoBehaviour
 
         //ChosenSequence = CardSequences[Mathf.FloorToInt(randChoice)];
 
-        ChosenSequence = CardSequences[0];
+
+
+        ChosenSequence = CardSequences[Random.Range(0, (int)CurrentCharacter.character.AIPersonality.AIDifficulty + 1)];
 
         CardGameLog.Instance.AddToLog("Chosen Sequence: " + ChosenSequence.ToString());
     }

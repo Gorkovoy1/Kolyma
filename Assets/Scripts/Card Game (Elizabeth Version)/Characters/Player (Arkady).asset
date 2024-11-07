@@ -54,3 +54,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 81aa8321424ab4e489e0e7864285d6a2, type: 2}
   - {fileID: 11400000, guid: 39157faa34d4711488f8758e75d8a181, type: 2}
   - {fileID: 11400000, guid: 825789f5f21c5554e8d013dea6a71675, type: 2}
+  AIEvaluationValues: {fileID: 11400000, guid: 9be06bc37055e0541b7d7ed03caf2164, type: 2}

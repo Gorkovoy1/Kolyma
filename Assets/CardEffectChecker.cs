@@ -9,7 +9,7 @@ public class CardEffectChecker : MonoBehaviour
 
     public CharacterInstance Player, Opponent;
     public int SimulatedPlayerValue, SimulatedOpponentValue;
-    public int PlayerDrawnCardsNum, PlayerDiscardedCardsNum, OpponentDrawnCardsNum, OpponentDiscardedCardsNum;
+    public int SimulatedPlayerDrawnCardsNum, SimulatedPlayerDiscardedCardsNum, SimulatedPlayerSwapCardsNum, SimulatedPlayerFlipCardsNum, SimulatedOpponentDrawnCardsNum, SimulatedOpponentDiscardedCardsNum, SimulatedOpponentSwapCardsNum, SimulatedOpponentFlipCardsNum;
 
     public EffectStatement currentStatement, nextStatement;
     private CharacterInstance currentPlayerOfCard, currentOpponentOfPlayer;
@@ -27,10 +27,10 @@ public class CardEffectChecker : MonoBehaviour
         SimulatedOpponentValue = opponentOfPlayer.currValue;
         Player = playerOfCard;
         Opponent = opponentOfPlayer;
-        PlayerDiscardedCardsNum = 0;
-        PlayerDrawnCardsNum = 0;
-        OpponentDrawnCardsNum = 0;
-        OpponentDiscardedCardsNum = 0;
+        SimulatedPlayerDiscardedCardsNum = 0;
+        SimulatedPlayerDrawnCardsNum = 0;
+        SimulatedOpponentDrawnCardsNum = 0;
+        SimulatedOpponentDiscardedCardsNum = 0;
     }
 
     public void DoNextStatement(bool checksEndTurn = true)
@@ -398,23 +398,23 @@ public class CardEffectChecker : MonoBehaviour
                 newValue += miscValue;
                 break;
             case Effect.Draw:
-                if(targetCharacter == Player)
+                if (targetCharacter == Player)
                 {
-                    PlayerDrawnCardsNum++;
+                    SimulatedPlayerDrawnCardsNum++;
                 }
                 else
                 {
-                    OpponentDrawnCardsNum++;
+                    SimulatedOpponentDrawnCardsNum++;
                 }
                 break;
             case Effect.Discard:
                 if (targetCharacter == Player)
                 {
-                    PlayerDiscardedCardsNum++;
+                    SimulatedPlayerDiscardedCardsNum++;
                 }
                 else
                 {
-                    OpponentDiscardedCardsNum++;
+                    SimulatedOpponentDiscardedCardsNum++;
                 }
                 break;
             case Effect.Swap:
@@ -426,9 +426,25 @@ public class CardEffectChecker : MonoBehaviour
                 }
                 averageOutcome /= possibleSwaps.Count;
                 newValue = averageOutcome;
+                if (targetCharacter == Player)
+                {
+                    SimulatedPlayerSwapCardsNum++;
+                }
+                else
+                {
+                    SimulatedOpponentSwapCardsNum++;
+                }
                 break;
             case Effect.Flip:
-                newValue -= (miscValue * 2);
+                newValue -= (miscValue * 2); 
+                if (targetCharacter == Player)
+                {
+                    SimulatedPlayerFlipCardsNum++;
+                }
+                else
+                {
+                    SimulatedOpponentFlipCardsNum++;
+                }
                 break;
         }
         if(targetCharacter == Player)

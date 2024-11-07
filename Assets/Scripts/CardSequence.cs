@@ -16,17 +16,31 @@ public class CardSequence : MonoBehaviour
 
     //Lower the better
     public int EvaluationValue;
+    public int PlayerDrawnCardsNum, PlayerDiscardedCardsNum, PlayerSwapCardsNum, PlayerFlipCardsNum;
+    public int OpponentDrawnCardsNum, OpponentDiscardedCardsNum, OpponentSwapCardsNum, OpponentFlipCardsNum;
+
+    private AIPersonality aiPersonality;
 
 
-    public CardSequence(int playerValue, int opponentValue, Queue<AIAction> actions, Queue<DisplayCard> cards)
+    public CardSequence(Queue<AIAction> actions, Queue<DisplayCard> cards, AIPersonality aiPersonality)
     {
-        PlayerValue = playerValue;
-        OpponentValue = opponentValue;
+        PlayerValue = CardEffectChecker.Instance.SimulatedPlayerValue;
+        OpponentValue = CardEffectChecker.Instance.SimulatedOpponentValue;
+        PlayerDrawnCardsNum = CardEffectChecker.Instance.SimulatedPlayerDrawnCardsNum;
+        PlayerDiscardedCardsNum = CardEffectChecker.Instance.SimulatedPlayerDiscardedCardsNum;
+        PlayerSwapCardsNum = CardEffectChecker.Instance.SimulatedPlayerSwapCardsNum;
+        PlayerFlipCardsNum = CardEffectChecker.Instance.SimulatedPlayerFlipCardsNum;
+        OpponentDrawnCardsNum = CardEffectChecker.Instance.SimulatedOpponentDrawnCardsNum;
+        OpponentDiscardedCardsNum = CardEffectChecker.Instance.SimulatedOpponentDiscardedCardsNum;
+        OpponentSwapCardsNum = CardEffectChecker.Instance.SimulatedPlayerSwapCardsNum;
+        OpponentFlipCardsNum = CardEffectChecker.Instance.SimulatedOpponentFlipCardsNum;
+
         Actions = actions;
         Cards = cards;
         actions.CopyTo(Actions.ToArray(), 0);
         cards.CopyTo(Cards.ToArray(), 0);
         CalculateDistanceFromTarget();
+        this.aiPersonality = aiPersonality;
         Evaluate();
         Debug.Log("New Card Sequence: " + actions.Count);
     }
@@ -38,27 +52,63 @@ public class CardSequence : MonoBehaviour
 
     public void Evaluate()
     {
-        AIEvaluationValues evaluationValues = CardGameManager.Instance.AIEvaluationValues;
         EvaluationValue = DistanceFromTarget;
         if (PlayerValue == CardGameManager.Instance.targetValue)
         {
             //If Player Value is equal to target, it's really good
-            EvaluationValue += evaluationValues.PlayerAtTarget;
+            EvaluationValue += AIPersonality.GetPriorityValue(aiPersonality.AIAtTarget);
         }
-        else if(OpponentValue == CardGameManager.Instance.targetValue)
+        
+        if(OpponentValue == CardGameManager.Instance.targetValue)
         {
             //If Opponent Value is equal to target, it's really bad
-            EvaluationValue += evaluationValues.OpponentAtTarget;
+            EvaluationValue += AIPersonality.GetPriorityValue(aiPersonality.OpponentAtTarget);
         }
-        else if (PlayerValue > CardGameManager.Instance.targetValue)
+        
+        if (PlayerValue > CardGameManager.Instance.targetValue)
         {
             //If Player Value is greater than target, it's bad
-            EvaluationValue += evaluationValues.PlayerOverTarget;
+            EvaluationValue += AIPersonality.GetPriorityValue(aiPersonality.AIOverTarget);
         }
-        else if (OpponentValue > CardGameManager.Instance.targetValue)
+        
+        if (OpponentValue > CardGameManager.Instance.targetValue)
         {
             //If Opponent Value is greater than target, it's good
-            EvaluationValue += evaluationValues.OpponentOverTarget;
+            EvaluationValue += AIPersonality.GetPriorityValue(aiPersonality.OpponentOverTarget);
+        }
+
+        if (PlayerDrawnCardsNum > 0)
+        {
+            EvaluationValue += AIPersonality.GetPriorityValue(aiPersonality.AIDrawsACard);
+        }
+        if (OpponentDrawnCardsNum > 0)
+        {
+            EvaluationValue += AIPersonality.GetPriorityValue(aiPersonality.OpponentDrawsACard);
+        }
+
+        if (PlayerDiscardedCardsNum > 0)
+        {
+            EvaluationValue += AIPersonality.GetPriorityValue(aiPersonality.AIDiscardsACard);
+        }
+        if (OpponentDiscardedCardsNum > 0)
+        {
+            EvaluationValue += AIPersonality.GetPriorityValue(aiPersonality.OpponentDiscardsACard);
+        }
+        if (PlayerSwapCardsNum > 0)
+        {
+            EvaluationValue += AIPersonality.GetPriorityValue(aiPersonality.AISwapsACard);
+        }
+        if (OpponentSwapCardsNum > 0)
+        {
+            EvaluationValue += AIPersonality.GetPriorityValue(aiPersonality.OpponentSwapsACard);
+        }
+        if (PlayerFlipCardsNum > 0)
+        {
+            EvaluationValue += AIPersonality.GetPriorityValue(aiPersonality.AIFlipsACard);
+        }
+        if (OpponentFlipCardsNum > 0)
+        {
+            EvaluationValue += AIPersonality.GetPriorityValue(aiPersonality.OpponentFlipsACard);
         }
     }
 

@@ -35,3 +35,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 39157faa34d4711488f8758e75d8a181, type: 2}
   - {fileID: 11400000, guid: 3eb2f16ca56f6c24bb10f9f9ea480105, type: 2}
   - {fileID: 11400000, guid: 3eb2f16ca56f6c24bb10f9f9ea480105, type: 2}
+  AIPersonality: {fileID: 11400000, guid: 9be06bc37055e0541b7d7ed03caf2164, type: 2}
