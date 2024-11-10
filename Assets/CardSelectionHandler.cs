@@ -49,9 +49,18 @@ public class CardSelectionHandler : MonoBehaviour
         {
             CardSelectSettings curr = CardGameManager.Instance.cardSelectStack.Pop();
             StartSelectingCards(curr);
-            this.SelectingCharacter = curr.selector;
-            if (this.SelectingCharacter == CardGameManager.Instance.player)
+            SelectingCharacter = curr.selector;
+            if (SelectingCharacter == CardGameManager.Instance.player)
                 CardGameUIManager.Instance.ChangeUIMode(UIMode.PlayerSelecting);
+            if (SelectingCharacter.IsAI)
+            {
+                SelectingCharacter.AIScript.SetState(AIState.SelectingCard);
+            }
+
+            if(SelectingCharacter.Opponent.IsAI)
+            {
+                SelectingCharacter.Opponent.AIScript.SetState(AIState.WaitingForOpponent);
+            }
         }
     }
 

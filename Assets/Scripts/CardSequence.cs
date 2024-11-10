@@ -4,21 +4,18 @@ using UnityEngine;
 
 public class CardSequence : MonoBehaviour
 {
-    public Queue<AIAction> Actions;
-
-    public Queue<DisplayCard> Cards;
-
-    public List<Effect> effects;
-
+    /// <summary>
+    /// Lower evaluation value is more favorable
+    /// </summary>
+    public int EvaluationValue;
     public int PlayerValue, OpponentValue;
 
-    public int DistanceFromTarget;
+    public Queue<AIAction> Actions;
+    public Queue<DisplayCard> Cards;
 
-    //Lower the better
-    public int EvaluationValue;
-    public int PlayerDrawnCardsNum, PlayerDiscardedCardsNum, PlayerSwapCardsNum, PlayerFlipCardsNum;
-    public int OpponentDrawnCardsNum, OpponentDiscardedCardsNum, OpponentSwapCardsNum, OpponentFlipCardsNum;
-
+    private int DistanceFromTargetComparedToOpponent;
+    private int PlayerDrawnCardsNum, PlayerDiscardedCardsNum, PlayerSwapCardsNum, PlayerFlipCardsNum;
+    private int OpponentDrawnCardsNum, OpponentDiscardedCardsNum, OpponentSwapCardsNum, OpponentFlipCardsNum;
     private AIPersonality aiPersonality;
 
 
@@ -41,39 +38,35 @@ public class CardSequence : MonoBehaviour
         cards.CopyTo(Cards.ToArray(), 0);
         CalculateDistanceFromTarget();
         this.aiPersonality = aiPersonality;
+
         Evaluate();
-        Debug.Log("New Card Sequence: " + actions.Count);
     }
 
     void CalculateDistanceFromTarget()
     {
-        DistanceFromTarget = Mathf.Abs(CardGameManager.Instance.targetValue - PlayerValue) - Mathf.Abs(CardGameManager.Instance.targetValue - OpponentValue);
+        DistanceFromTargetComparedToOpponent = Mathf.Abs(CardGameManager.Instance.targetValue - PlayerValue) - Mathf.Abs(CardGameManager.Instance.targetValue - OpponentValue);
     }
 
     public void Evaluate()
     {
-        EvaluationValue = DistanceFromTarget;
+        EvaluationValue = DistanceFromTargetComparedToOpponent;
         if (PlayerValue == CardGameManager.Instance.targetValue)
         {
-            //If Player Value is equal to target, it's really good
             EvaluationValue += AIPersonality.GetPriorityValue(aiPersonality.AIAtTarget);
         }
         
         if(OpponentValue == CardGameManager.Instance.targetValue)
         {
-            //If Opponent Value is equal to target, it's really bad
             EvaluationValue += AIPersonality.GetPriorityValue(aiPersonality.OpponentAtTarget);
         }
         
         if (PlayerValue > CardGameManager.Instance.targetValue)
         {
-            //If Player Value is greater than target, it's bad
             EvaluationValue += AIPersonality.GetPriorityValue(aiPersonality.AIOverTarget);
         }
         
         if (OpponentValue > CardGameManager.Instance.targetValue)
         {
-            //If Opponent Value is greater than target, it's good
             EvaluationValue += AIPersonality.GetPriorityValue(aiPersonality.OpponentOverTarget);
         }
 

@@ -28,7 +28,7 @@ public class CharacterInstance : MonoBehaviour
     public int NumberOfNewlyDiscardCards;
 
     public bool IsAI;
-    private CardGameAI AIScript;
+    public CardGameAI AIScript;
 
     public int Dice1, Dice2;
 

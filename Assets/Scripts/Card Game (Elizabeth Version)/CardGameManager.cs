@@ -571,9 +571,10 @@ public class CardGameManager : MonoBehaviour
         }
     }
 
-    public void CharacterEndTurn()
+    public void CharacterEndTurn(CharacterInstance characterEndingTurn)
     {
-        SetNewState(State.ENDTURN);
+        if(characterEndingTurn == CurrentCharacter)
+            SetNewState(State.ENDTURN);
     }
 
     public List<DisplayCard> GetSelectableCards()
