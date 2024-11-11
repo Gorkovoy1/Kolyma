@@ -22,7 +22,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{1F09D635-0561-8670-5A75-D8D48BA406C4}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{D1AFBA20-E99C-5B61-F03A-C191A0CC496B}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -48,7 +48,7 @@
 				</File>
 				<File Id="121851638" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Door_Open.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Door_Open_5F7A5E60.wem</CachePath>
+					<CachePath>SFX/Cell_SFX_Door_Open_BB949EDF.wem</CachePath>
 				</File>
 				<File Id="158641502" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Whisper-005.wav</ShortName>
@@ -56,7 +56,7 @@
 				</File>
 				<File Id="163322872" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Guard_Roll_Call.wav</ShortName>
-					<CachePath>SFX/Guard_Roll_Call_A29617BC.wem</CachePath>
+					<CachePath>SFX/Guard_Roll_Call_6C0AF96F.wem</CachePath>
 				</File>
 				<File Id="169040873" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Whisper-003.wav</ShortName>
@@ -387,5 +387,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{29248128-B287-65E3-6BFD-DFBB07642D3E}</FileHash>
+	<FileHash>{00C8DBB9-3F5F-7728-E28C-138EF79FFA5A}</FileHash>
 </SoundBanksInfo>
