@@ -324,6 +324,8 @@ MonoBehaviour:
   target: {fileID: 1121373174}
   cardImage: {fileID: 75748409}
   lerpSpeed: 15
+  min: 0
+  max: 0
 --- !u!114 &75748412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -708,6 +710,8 @@ MonoBehaviour:
   target: {fileID: 95670785}
   cardImage: {fileID: 98431055}
   lerpSpeed: 15
+  min: 0
+  max: 0
 --- !u!114 &98431058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -946,6 +950,8 @@ MonoBehaviour:
   target: {fileID: 1970005464}
   cardImage: {fileID: 148716652}
   lerpSpeed: 15
+  min: 0
+  max: 0
 --- !u!114 &148716655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1024,7 +1030,7 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 14.242493, y: 100}
-  m_Pivot: {x: 2.55, y: 0.5}
+  m_Pivot: {x: -1.5, y: 0.5}
 --- !u!114 &280369639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1184,6 +1190,8 @@ MonoBehaviour:
   target: {fileID: 383280139}
   cardImage: {fileID: 287806517}
   lerpSpeed: 15
+  min: 0
+  max: 0
 --- !u!114 &287806520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1262,7 +1270,7 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 67.00531, y: 100}
-  m_Pivot: {x: 0.55, y: 0.5}
+  m_Pivot: {x: 0.45, y: 0.5}
 --- !u!114 &383280140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1408,7 +1416,7 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 37.23181, y: 100}
-  m_Pivot: {x: 0.95, y: 0.5}
+  m_Pivot: {x: 0.05, y: 0.5}
 --- !u!114 &402333587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1714,6 +1722,8 @@ MonoBehaviour:
   target: {fileID: 732326372}
   cardImage: {fileID: 499988129}
   lerpSpeed: 15
+  min: 0
+  max: 0
 --- !u!114 &499988132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1952,6 +1962,8 @@ MonoBehaviour:
   target: {fileID: 910513450}
   cardImage: {fileID: 541805624}
   lerpSpeed: 15
+  min: 0
+  max: 0
 --- !u!114 &541805627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2044,6 +2056,8 @@ MonoBehaviour:
   target: {fileID: 412861997}
   cardImage: {fileID: 597991848}
   lerpSpeed: 15
+  min: 0
+  max: 0
 --- !u!114 &597991851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2136,6 +2150,8 @@ MonoBehaviour:
   target: {fileID: 402333586}
   cardImage: {fileID: 690519712}
   lerpSpeed: 15
+  min: 0
+  max: 0
 --- !u!114 &690519715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2374,6 +2390,8 @@ MonoBehaviour:
   target: {fileID: 1530432289}
   cardImage: {fileID: 789622654}
   lerpSpeed: 15
+  min: 0
+  max: 0
 --- !u!114 &789622657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2466,6 +2484,8 @@ MonoBehaviour:
   target: {fileID: 533972398}
   cardImage: {fileID: 859950477}
   lerpSpeed: 15
+  min: 0
+  max: 0
 --- !u!114 &859950480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2748,6 +2768,8 @@ MonoBehaviour:
   target: {fileID: 1104995764}
   cardImage: {fileID: 985574158}
   lerpSpeed: 15
+  min: 0
+  max: 0
 --- !u!114 &985574161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2826,7 +2848,7 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 52.245087, y: 100}
-  m_Pivot: {x: 0.7, y: 0.5}
+  m_Pivot: {x: 0.32, y: 0.5}
 --- !u!114 &1104995765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2972,7 +2994,7 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 44.972992, y: 100}
-  m_Pivot: {x: 0.82, y: 0.5}
+  m_Pivot: {x: 0.22, y: 0.5}
 --- !u!114 &1121373175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3243,6 +3265,8 @@ MonoBehaviour:
   target: {fileID: 128081356}
   cardImage: {fileID: 1196266491}
   lerpSpeed: 15
+  min: 0
+  max: 0
 --- !u!114 &1196266494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3325,7 +3349,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -169.3, y: 66}
+  m_AnchoredPosition: {x: -169.3, y: 47.8}
   m_SizeDelta: {x: -344.6, y: -357.2996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1376063244
@@ -3353,7 +3377,7 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 1
-  m_ReverseArrangement: 0
+  m_ReverseArrangement: 1
 --- !u!114 &1376063245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3446,6 +3470,8 @@ MonoBehaviour:
   target: {fileID: 1636147544}
   cardImage: {fileID: 1428845185}
   lerpSpeed: 15
+  min: 0
+  max: 0
 --- !u!114 &1428845188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3538,6 +3564,8 @@ MonoBehaviour:
   target: {fileID: 82519942}
   cardImage: {fileID: 1509166114}
   lerpSpeed: 15
+  min: 0
+  max: 0
 --- !u!114 &1509166117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3616,7 +3644,7 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 29.490509, y: 100}
-  m_Pivot: {x: 1.25, y: 0.5}
+  m_Pivot: {x: -0.25, y: 0.5}
 --- !u!114 &1530432290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3833,6 +3861,8 @@ MonoBehaviour:
   target: {fileID: 2104429706}
   cardImage: {fileID: 1614387017}
   lerpSpeed: 15
+  min: 0
+  max: 0
 --- !u!114 &1614387020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3911,7 +3941,7 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 59.517212, y: 100}
-  m_Pivot: {x: 0.62, y: 0.5}
+  m_Pivot: {x: 0.4, y: 0.5}
 --- !u!114 &1636147545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4396,6 +4426,8 @@ MonoBehaviour:
   target: {fileID: 280369638}
   cardImage: {fileID: 2055320939}
   lerpSpeed: 15
+  min: 0
+  max: 0
 --- !u!114 &2055320942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4474,7 +4506,7 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 21.983795, y: 100}
-  m_Pivot: {x: 1.65, y: 0.5}
+  m_Pivot: {x: -0.65, y: 0.5}
 --- !u!114 &2104429707
 MonoBehaviour:
   m_ObjectHideFlags: 0
