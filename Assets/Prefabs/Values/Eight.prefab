@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -4391982156582589239}
   - component: {fileID: -5928530599898636531}
   m_Layer: 6
-  m_Name: eight
+  m_Name: Eight
   m_TagString: Destroyable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
