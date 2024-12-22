@@ -31,7 +31,7 @@ public class CardPlace : MonoBehaviour,
             //{
             parentReturnTo = this.transform.parent;
             
-
+            this.transform.SetParent(parentReturnTo.transform.parent);
             
 
             GetComponent<CanvasGroup>().blocksRaycasts = false;

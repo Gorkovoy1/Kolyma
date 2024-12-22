@@ -26,18 +26,18 @@ public class MenuManager : MonoBehaviour
 
     public void SetMusic(float volume)
     {
-        audioMixer.SetFloat("MusicVolume", volume);
+        audioMixer.SetFloat("MusicVolume", Mathf.Log10(volume)*20);
     }
 
     public void SetMaster(float volume)
     {
-        audioMixer.SetFloat("MasterVolume", volume);
+        audioMixer.SetFloat("MasterVolume", Mathf.Log10(volume)*20);
         Debug.Log(volume);
     }
 
     public void SetSFX(float volume)
     {
-        audioMixer.SetFloat("SFXVolume", volume);
+        audioMixer.SetFloat("SFXVolume", Mathf.Log10(volume)*20);
     }
 
     public void QuitGame()
