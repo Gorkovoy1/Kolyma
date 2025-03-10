@@ -28,7 +28,26 @@ public class MarkerController : MonoBehaviour
         }
         else
         {
-            index++;
+            StartCoroutine(Advance());
         }
+    }
+
+    IEnumerator Advance()
+    {
+        index++;
+        yield return new WaitForSeconds(0.2f);
+        if (!dates[index].GetComponent<DateInfo>().weekend)
+        {
+            StartCoroutine(Advance());
+        }
+        
+        
+        /*
+        for(int i = 0; i < 7; i++)
+        {
+            index++;
+            yield return new WaitForSeconds(0.2f);
+        }
+        */
     }
 }
