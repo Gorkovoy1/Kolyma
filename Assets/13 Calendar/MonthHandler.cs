@@ -5,12 +5,11 @@ using TMPro;
 
 public class MonthHandler : MonoBehaviour
 {
-    public GameObject[] week1;
-    public GameObject[] week2;
-    public GameObject[] week3;
-    public GameObject[] week4;
-    public GameObject[] week5;
-    public GameObject[][] month;
+
+    public GameObject[][] totalMonths;
+    public GameObject[] month1;
+    public GameObject[] month2;
+    public GameObject[] month3;
     public int date;
     public int max;
     public int min;
@@ -18,35 +17,38 @@ public class MonthHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        month = new GameObject[5][];
-        month[0] = week1;
-        month[1] = week2;   
-        month[2] = week3;   
-        month[3] = week4;
-        month[4] = week5;
-
+        //attach 3 months to total months
+        totalMonths = new GameObject[3][];
+        totalMonths[0] = month1;
+        totalMonths[1] = month2;
+        totalMonths[2] = month3;
+        //attach 4 weeks to each month
+        
 
         date = min;
 
-        foreach(var week in month)
+        foreach(var month in totalMonths)
         {
-            foreach(var day in week)
+            foreach (var week in month)
             {
-                day.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "" + date;
-
-                date++;
-
-                if(date > max)
+                foreach (Transform child in week.transform)
                 {
-                    date = 1;
+                    child.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "" + date;
 
-                    if(max == 30)
+                    date++;
+
+                    if (date > max)
                     {
-                        max = 31;
-                    }
-                    else
-                    {
-                        max = 30;
+                        date = 1;
+
+                        if (max == 30)
+                        {
+                            max = 31;
+                        }
+                        else
+                        {
+                            max = 30;
+                        }
                     }
                 }
             }
