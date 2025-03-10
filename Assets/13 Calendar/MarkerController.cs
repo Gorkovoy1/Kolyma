@@ -17,7 +17,10 @@ public class MarkerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //reset index
         index = 0;
+
+        //assign all date objects
         dates = new List<GameObject>();
 
         Transform[] children = months.transform.GetComponentsInChildren<Transform>();
@@ -53,10 +56,43 @@ public class MarkerController : MonoBehaviour
     {
         if (dates[index].GetComponent<DateInfo>().lastDateInMonth)
         {
+            ShiftCalendar(); //check for last date in month, then shift calendar
+        }
+
+        if (dates[index].GetComponent<DateInfo>().endOfWeek)
+        {
+            UpdateGauge();
+        }
+
+        //advance
+        index++;
+        yield return new WaitForSeconds(0.2f);
+
+        
+        //advance until weekend
+        if (!dates[index].GetComponent<DateInfo>().weekend)
+        {
+            StartCoroutine(Advance());
+        }
+        
+        
+    }
+
+    void UpdateGauge()
+    {
+        GaugeController.instance.AddCold();
+        GaugeController.instance.AddHunger();
+        GaugeController.instance.AddWeakness();
+    }
+
+    void ShiftCalendar()
+    {
+        
+        
             //shift month to the left
             CalendarObj.transform.position = new Vector2(CalendarObj.transform.position.x + shift, CalendarObj.transform.position.y);
 
-            if(monthText.text == "December")
+            if (monthText.text == "December")
             {
                 monthText.text = "January";
             }
@@ -67,26 +103,7 @@ public class MarkerController : MonoBehaviour
 
             Debug.Log(monthText.text);
 
-        }
-
-
-        index++;
-        yield return new WaitForSeconds(0.2f);
-
         
 
-        if (!dates[index].GetComponent<DateInfo>().weekend)
-        {
-            StartCoroutine(Advance());
-        }
-        
-        
-        /*
-        for(int i = 0; i < 7; i++)
-        {
-            index++;
-            yield return new WaitForSeconds(0.2f);
-        }
-        */
     }
 }

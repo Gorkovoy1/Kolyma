@@ -6,6 +6,7 @@ public class DateInfo : MonoBehaviour
 {
     public bool weekend;
     public bool lastDateInMonth;
+    public bool endOfWeek;
 
 
 
