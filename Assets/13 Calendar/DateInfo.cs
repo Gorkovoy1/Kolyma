@@ -5,6 +5,7 @@ using UnityEngine;
 public class DateInfo : MonoBehaviour
 {
     public bool weekend;
+    public bool lastDateInMonth;
 
 
 

@@ -1548,6 +1548,10 @@ PrefabInstance:
       propertyPath: weekend
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5877894447986134863, guid: fdcebe184ba2bdd4f9e24dd31c6bbabe, type: 3}
+      propertyPath: lastDateInMonth
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdcebe184ba2bdd4f9e24dd31c6bbabe, type: 3}
 --- !u!224 &163831940 stripped
@@ -5989,6 +5993,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5877894447986134863, guid: fdcebe184ba2bdd4f9e24dd31c6bbabe, type: 3}
       propertyPath: weekend
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877894447986134863, guid: fdcebe184ba2bdd4f9e24dd31c6bbabe, type: 3}
+      propertyPath: lastDateInMonth
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -10520,9 +10528,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'December
-
-'
+  m_text: December
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -14967,7 +14973,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -7.732422, y: -67.44301}
+  m_AnchoredPosition: {x: -95, y: -71}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1862625077
@@ -15023,6 +15029,9 @@ MonoBehaviour:
   index: 0
   dates: []
   months: {fileID: 1910913280}
+  CalendarObj: {fileID: 1910913280}
+  shift: -1108
+  monthText: {fileID: 1237727197}
 --- !u!210 &1862625080
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -15310,7 +15319,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 369, y: 0}
+  m_AnchoredPosition: {x: 370, y: 0}
   m_SizeDelta: {x: 1609, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1910913282

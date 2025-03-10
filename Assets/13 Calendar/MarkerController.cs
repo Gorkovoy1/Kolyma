@@ -2,12 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class MarkerController : MonoBehaviour
 {
     public int index;
     public List<GameObject> dates;
     public GameObject months;
+    public GameObject CalendarObj;
+
+    public int shift;
+    public TextMeshProUGUI monthText;
 
     // Start is called before the first frame update
     void Start()
@@ -46,8 +51,30 @@ public class MarkerController : MonoBehaviour
 
     IEnumerator Advance()
     {
+        if (dates[index].GetComponent<DateInfo>().lastDateInMonth)
+        {
+            //shift month to the left
+            CalendarObj.transform.position = new Vector2(CalendarObj.transform.position.x + shift, CalendarObj.transform.position.y);
+
+            if(monthText.text == "December")
+            {
+                monthText.text = "January";
+            }
+            else if (monthText.text == "January")
+            {
+                monthText.text = "February";
+            }
+
+            Debug.Log(monthText.text);
+
+        }
+
+
         index++;
         yield return new WaitForSeconds(0.2f);
+
+        
+
         if (!dates[index].GetComponent<DateInfo>().weekend)
         {
             StartCoroutine(Advance());
