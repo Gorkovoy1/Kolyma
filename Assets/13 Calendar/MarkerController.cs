@@ -6,12 +6,24 @@ using UnityEngine.UI;
 public class MarkerController : MonoBehaviour
 {
     public int index;
-    public GameObject[] dates;
+    public List<GameObject> dates;
+    public GameObject months;
 
     // Start is called before the first frame update
     void Start()
     {
         index = 0;
+        dates = new List<GameObject>();
+
+        Transform[] children = months.transform.GetComponentsInChildren<Transform>();
+
+        foreach(var child in children)
+        {
+            if(child.gameObject.TryGetComponent(out DateInfo otherIsDate))
+            {
+                dates.Add(otherIsDate.gameObject);
+            }
+        }
     }
 
     // Update is called once per frame
@@ -22,7 +34,7 @@ public class MarkerController : MonoBehaviour
 
     public void GoNext()
     {
-        if(index == dates.Length-1)
+        if(index == dates.Count-1)
         {
             Debug.Log("last date");
         }
