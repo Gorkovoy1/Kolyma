@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f285773746e5a1408265e7bea23ef6b, type: 3}
+  m_Name: Andreyev AI Personality
+  m_EditorClassIdentifier: 
+  AIDifficulty: 3
+  AIAtTarget: 1
+  OpponentAtTarget: 6
+  AIOverTarget: 6
+  OpponentOverTarget: 2
+  AIDrawsACard: 3
+  OpponentDrawsACard: 5
+  AIDiscardsACard: 2
+  OpponentDiscardsACard: 1
+  AISwapsACard: 4
+  OpponentSwapsACard: 3
+  AIFlipsACard: 5
+  OpponentFlipsACard: 4
+  AIPlayedACard: 3

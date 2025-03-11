@@ -6,24 +6,21 @@ using System.Linq;
 
 public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-
     private GameObject discard, playZone;
     private Transform parentReturnTo;
-    private CardGameManager manager;
     private DisplayCard display;
 
     private bool dragActive = false;
 
     void Start() {
         display = gameObject.GetComponent<DisplayCard>();
-        discard = GameObject.Find("Canvas/Discard");
-        playZone = GameObject.Find("Canvas/Card Play Zone");
-        manager = GameObject.Find("Game Manager").GetComponent<CardGameManager>();    
+        discard = CardGameUIManager.Instance.DiscardZone;
+        playZone = CardGameUIManager.Instance.CardPlayZone;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if(display.baseCard is SpecialDeckCard && manager.state == CardGameManager.State.PLAYERTURN) {
+        if(display.baseCard is SpecialDeckCard && (CardGameManager.Instance.GameState == CardGameManager.State.PLAYERTURN && !display.owner.DidAnAction) && display.Playable) {
             parentReturnTo = gameObject.transform.parent;
             dragActive = true;
         }
@@ -43,15 +40,16 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if(dragActive && display.baseCard is SpecialDeckCard && display.owner == manager.player){
+        if(dragActive && display.baseCard is SpecialDeckCard && (CardGameManager.Instance.GameState == CardGameManager.State.PLAYERTURN || CardSelectionHandler.Instance.SelectingCharacter != null))
+        {
             dragActive = false;
             gameObject.transform.SetParent(parentReturnTo);
 
             if(gameObject.transform.parent == playZone.transform) {
-                manager.PlayCard(display);
+                CardGameManager.Instance.PlayCard(display);
             }
             else if(gameObject.transform.parent == discard.transform) {
-                manager.DiscardCard(display);
+                CardGameManager.Instance.DiscardCard(display);
             }
         }
 
@@ -62,5 +60,4 @@ public class DragCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             parentReturnTo = col.gameObject.transform;
         }
     }
-    
 }

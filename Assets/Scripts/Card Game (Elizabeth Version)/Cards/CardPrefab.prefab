@@ -499,7 +499,7 @@ RectTransform:
   m_GameObject: {fileID: 3906581684707951925}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8518511996357355667}
@@ -512,7 +512,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -520, y: -289}
-  m_SizeDelta: {x: 450, y: 675}
+  m_SizeDelta: {x: 500, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7052331601866011239
 MonoBehaviour:
@@ -535,6 +535,17 @@ MonoBehaviour:
   selectionEffect: {fileID: 5538872607382078507}
   tooltip: {fileID: 1169176874230243149}
   NumberAnchor: {fileID: 681315694519025690}
+  NumberCardOrganizer: {fileID: 0}
+  SpecialCard: {fileID: 0}
+  Artwork: {fileID: 0}
+  SelectButton: {fileID: 0}
+  OgColor: {r: 0, g: 0, b: 0, a: 0}
+  SelectedColor: {r: 0, g: 0, b: 0, a: 0}
+  SwappedThisTurn: 0
+  FlippedThisTurn: 0
+  Given: 0
+  Hidden: 0
+  CurrCard: {fileID: 0}
 --- !u!114 &3906581684707951929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,7 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c9ffd0a41f0d54449687218d3736b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gm: {fileID: 0}
+  artwork: {fileID: 0}
 --- !u!114 &3906581684707951930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,7 +658,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 3
 --- !u!1 &5538872607382078507
 GameObject:
   m_ObjectHideFlags: 0

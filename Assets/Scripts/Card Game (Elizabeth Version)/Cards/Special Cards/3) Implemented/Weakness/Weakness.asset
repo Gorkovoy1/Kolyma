@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed1ca1c77e5dbee41bef96edb6e284ca, type: 3}
+  m_Name: Weakness
+  m_EditorClassIdentifier: 
+  name: Weakness
+  artwork: {fileID: 21300000, guid: a67aa0980be3d6147b7814a5bd1351eb, type: 3}
+  description: If your opponent has a 2, draw an additional special card
+  InitialEffectStatement: {fileID: 11400000, guid: 7379514d28dcc6942bfd6cf354a7696a, type: 2}

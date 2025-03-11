@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed1ca1c77e5dbee41bef96edb6e284ca, type: 3}
+  m_Name: Burden
+  m_EditorClassIdentifier: 
+  name: Burden
+  artwork: {fileID: 21300000, guid: 8149f61fe5f71d145b2f859eeb892da0, type: 3}
+  description: If your opponent has a 7, give them +3
+  InitialEffectStatement: {fileID: 11400000, guid: 661c494f699b367439747f1dd599855c, type: 2}
