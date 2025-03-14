@@ -1000,7 +1000,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -122.24997, y: -97.999985}
+  m_AnchoredPosition: {x: -122.25, y: -97.99997}
   m_SizeDelta: {x: -244.51, y: -283.54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &645052551
@@ -1324,17 +1324,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 716013748099744337, guid: bbb49261822aaa6469e2b2281ec4a717, type: 3}
   m_PrefabInstance: {fileID: 1074118819}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &837281907 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 716013748099744339, guid: bbb49261822aaa6469e2b2281ec4a717, type: 3}
-  m_PrefabInstance: {fileID: 1074118819}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 837281902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &837281909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1348,8 +1337,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2127173772}
-  cardImage: {fileID: 837281907}
-  speed: 1
+  cardImage: {fileID: 0}
+  lerpSpeed: 2
+  min: 0
+  max: 0
 --- !u!224 &851032447 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 716013748099744336, guid: bbb49261822aaa6469e2b2281ec4a717, type: 3}
@@ -1415,8 +1406,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1433208818}
-  cardImage: {fileID: 957138082}
-  speed: 1
+  cardImage: {fileID: 0}
+  lerpSpeed: 2
+  min: 0
+  max: 0
 --- !u!1001 &1074118819
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1751,7 +1744,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -122.25375, y: 94}
+  m_AnchoredPosition: {x: -122.253784, y: 94}
   m_SizeDelta: {x: -244.5074, y: -283.54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1406633567
@@ -2127,17 +2120,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 716013748099744336, guid: bbb49261822aaa6469e2b2281ec4a717, type: 3}
   m_PrefabInstance: {fileID: 1224062433}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1634284805 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 716013748099744339, guid: bbb49261822aaa6469e2b2281ec4a717, type: 3}
-  m_PrefabInstance: {fileID: 1224062433}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1403742486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1634284807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2145,14 +2127,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1403742486}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c50d758188a596a438bc47ba87dce36c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 366521067}
-  cardImage: {fileID: 1634284805}
-  speed: 1
+  cardImage: {fileID: 0}
+  lerpSpeed: 2
+  min: 0
+  max: 0
 --- !u!1001 &1648003095
 PrefabInstance:
   m_ObjectHideFlags: 0
