@@ -51,6 +51,7 @@ public class AnimatorScript : MonoBehaviour
         //flipping
         if(cardWorldPosition.y > 400)
         {
+
             flipAngle = 0f;
             
             //upright horizontal tilt

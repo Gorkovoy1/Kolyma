@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: 3
   m_EditorClassIdentifier: 
   name: Hooker
-  value: 3
   artwork: {fileID: 21300000, guid: 20c60bf28a0cc3c4c815b92cc329ef58, type: 3}
+  cardClass: 4
+  value: 3
+  oppositeCard: {fileID: 11400000, guid: 00fdddb7df6e13341a779cf222a7b02e, type: 2}

@@ -11,13 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/old/Hub.unity
     guid: d74aaaf81d200af4daae2d660536d9f8
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/1 Dialogues/Dialogue 1 Ink.unity
-    guid: 93a32b32b524bef468b8cdaaede3d459
-  - enabled: 1
-    path: Assets/5 MenuScreen/MainMenu.unity
-    guid: 7de5770330a29e7488c5ff489ba555d7
-  - enabled: 1
-    path: Assets/1 Dialogues/TestScene.unity
-    guid: ffca2bcd7e575734e968d134a46783d0
+    path: Assets/Scenes/Mark Scene.unity
+    guid: 54740de9a73b71845acced6a0f2e436c
   m_configObjects: {}

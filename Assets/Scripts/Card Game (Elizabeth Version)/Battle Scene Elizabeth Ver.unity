@@ -349,6 +349,7 @@ GameObject:
   m_Component:
   - component: {fileID: 502440818}
   - component: {fileID: 502440817}
+  - component: {fileID: 502440819}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -369,12 +370,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roundCount: 0
-  opponent: {fileID: 11400000, guid: e5ba35b38b6dca94db9d2bb034be4675, type: 2}
-  player: {fileID: 11400000, guid: c1a333ce412171141b36cb99536a9665, type: 2}
+  playerCharacter: {fileID: 11400000, guid: c1a333ce412171141b36cb99536a9665, type: 2}
+  opponentCharacter: {fileID: 11400000, guid: e5ba35b38b6dca94db9d2bb034be4675, type: 2}
+  player: {fileID: 0}
+  opponent: {fileID: 0}
   numberDeck:
   - {fileID: 11400000, guid: 5b1fe6d03fc95554b8200b334063d488, type: 2}
   - {fileID: 11400000, guid: 00fdddb7df6e13341a779cf222a7b02e, type: 2}
   - {fileID: 11400000, guid: b1bd48d69b286cb4d82bb9b65516af7c, type: 2}
+  - {fileID: 11400000, guid: e76f9af194e169545b3d426129e50744, type: 2}
+  - {fileID: 11400000, guid: 90b9c81b70ddb0d408a2e0f6d6f5b521, type: 2}
+  - {fileID: 11400000, guid: 5beb0bf378d053645a5164006f517373, type: 2}
+  - {fileID: 11400000, guid: 582e039500f49754288b53780be0d55c, type: 2}
+  - {fileID: 11400000, guid: d66e455a0c3980647b1effc53c70e95b, type: 2}
   - {fileID: 11400000, guid: 18c4e3cea1694ed409af12cc74a72e66, type: 2}
   - {fileID: 11400000, guid: 31abbc617fd136142a47a9eb68d89dd3, type: 2}
   - {fileID: 11400000, guid: 96c655e9d17589b44969aea44dadb4f9, type: 2}
@@ -385,18 +393,23 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 657149d27ba7912429eae4a3c961fb76, type: 2}
   isStoryBattle: 0
   bet: 5
+  targetValue: 0
   state: 0
   activeCardVisuals: []
   cardVisualPrefab: {fileID: 3906581684707951925, guid: 424ebd4fbf7bf8f49905494a81f5cb42, type: 3}
   endTurnButton: {fileID: 1129203472}
   selectConfirmButton: {fileID: 899873083}
+  OpponentCardZone: {fileID: 0}
+  PlayerCardZone: {fileID: 0}
+  OpponentNegativeCardZone: {fileID: 0}
+  PlayerNegativeCardZone: {fileID: 0}
   panelTransform: {fileID: 1631184922}
   playerHandTransform: {fileID: 553018432}
   opponentHandTransform: {fileID: 563015554}
   opponentSumText: {fileID: 1907661252}
   playerSumText: {fileID: 716944751}
   targetValueText: {fileID: 1005801580}
-  selectionAmountText: {fileID: 916433147}
+  selectionText: {fileID: 0}
   opponentNumberZone: {fileID: 558119045}
   playerNumberZone: {fileID: 1587265186}
   playerRoundToggle: {fileID: 226165763}
@@ -406,6 +419,11 @@ MonoBehaviour:
   offsetInteger: 100
   scaleInteger: 1
   scaleNumber: 0
+  FlipText: {fileID: 0}
+  SwapText: {fileID: 0}
+  FlipButton: {fileID: 0}
+  SwapButton: {fileID: 0}
+  CardSelectionHandler: {fileID: 0}
 --- !u!4 &502440818
 Transform:
   m_ObjectHideFlags: 0
@@ -421,6 +439,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &502440819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502440816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b27441d4b12d9e4eb2ca3b88444c112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,9 +461,8 @@ GameObject:
   m_Component:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
+  - component: {fileID: 519420029}
   - component: {fileID: 519420033}
-  - component: {fileID: 519420035}
-  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -441,6 +470,14 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!81 &519420029
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -511,63 +548,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
-  m_Cameras: []
-  m_RendererIndex: -1
-  m_VolumeLayerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  m_VolumeTrigger: {fileID: 0}
-  m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
-  m_AntialiasingQuality: 2
-  m_StopNaN: 0
-  m_Dithering: 0
-  m_ClearDepth: 1
-  m_AllowXRRendering: 1
-  m_RequiresDepthTexture: 0
-  m_RequiresColorTexture: 0
-  m_Version: 2
---- !u!114 &519420034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad28791e0a3909a4684d71dc8bb9eccb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDefaultListener: 1
-  listenerId: 0
---- !u!114 &519420035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ae9ff37d027082449c8f5bd316981a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_listeners:
-    initialListenerList: []
-    useDefaultListeners: 1
-  isEnvironmentAware: 0
-  isStaticObject: 0
-  m_positionOffsetData:
-    KeepMe: 0
-    positionOffset: {x: 0, y: 0, z: 0}
-  m_posOffsetData: {fileID: 0}
-  listenerMask: 1
 --- !u!1 &553018431
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,7 +714,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 6.286743, y: 123.79999}
+  m_AnchoredPosition: {x: 6.286621, y: 123.79999}
   m_SizeDelta: {x: 1441.3574, y: -325.0884}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &558119046
@@ -2169,63 +2149,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1393806727}
   m_CullTransparentMesh: 1
---- !u!1 &1481202837
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1481202839}
-  - component: {fileID: 1481202838}
-  m_Layer: 0
-  m_Name: WwiseGlobal
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1481202838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1481202837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86bd1dcc8ea9d124c8fb6810c19c17d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InitializationSettings: {fileID: 11400000, guid: 1db8f8d69463b8d44b18163346731fa5, type: 2}
-  basePath: 
-  language: 
-  defaultPoolSize: 0
-  lowerPoolSize: 0
-  streamingPoolSize: 0
-  memoryCutoffThreshold: 0
-  monitorPoolSize: 0
-  monitorQueuePoolSize: 0
-  callbackManagerBufferSize: 0
-  spatialAudioPoolSize: 0
-  maxSoundPropagationDepth: 0
-  engineLogging: 0
---- !u!4 &1481202839
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1481202837}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1492726604
 GameObject:
   m_ObjectHideFlags: 0

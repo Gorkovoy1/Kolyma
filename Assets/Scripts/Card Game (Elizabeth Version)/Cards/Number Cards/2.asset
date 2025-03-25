@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Fresh Meat
   artwork: {fileID: 21300000, guid: 8c4d67b9513e0fd4fa7b41cba13161e1, type: 3}
-  cardClass: 3
+  cardClass: 4
   value: 2
+  oppositeCard: {fileID: 11400000, guid: 5b1fe6d03fc95554b8200b334063d488, type: 2}

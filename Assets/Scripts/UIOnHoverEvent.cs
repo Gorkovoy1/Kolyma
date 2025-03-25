@@ -6,38 +6,34 @@ using UnityEngine.EventSystems;
 
 public class UIOnHoverEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    private Canvas tempCanvas;
-    private GraphicRaycaster tempRaycaster;
-    public CardGameManager gm;
+    public GameObject artwork;
+
     private DisplayCard card;
     Vector3 cachedPosition;
     Vector3 cachedScale;
-
     
 
     void Start()
     {
-        gm = GameObject.Find("Game Manager").GetComponent<CardGameManager>();
-        cachedScale = transform.localScale;
-        cachedPosition = transform.localPosition;
+        if(artwork)
+        {
+            cachedScale = artwork.transform.localScale;
+            cachedPosition = artwork.transform.localPosition;
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         card = gameObject.GetComponent<DisplayCard>();
         
-        if(card != null && card.baseCard is SpecialDeckCard && card.owner == gm.player) 
+        if(card != null && card.baseCard is SpecialDeckCard && card.owner == CardGameManager.Instance.player) 
         {
-            tempCanvas = gameObject.AddComponent<Canvas>();
-            tempCanvas.overrideSorting = true;
-            tempCanvas.sortingOrder = 1;
-            tempRaycaster = gameObject.AddComponent<GraphicRaycaster>();
-            cachedScale = transform.localScale;
-            cachedPosition = transform.localPosition;
+            ShowInfo();
+        }
 
-            transform.localScale = new Vector3(0.2f, 0.2f, 0.5f);
-            transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + 60, transform.localPosition.z);
-            gameObject.GetComponent<DisplayCard>().ToggleHover();
+        if(GetComponent<DeckUI>())
+        {
+            ShowInfo();
         }
         //Debug.Log("enter");
     }
@@ -48,19 +44,49 @@ public class UIOnHoverEvent : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public void OnPointerExit(PointerEventData eventData)
     {
 
-         if(card != null && card.baseCard is SpecialDeckCard && card.owner == gm.player) {
-            Destroy(tempRaycaster);
-            Destroy(tempCanvas);
-            
-
-            transform.localScale = cachedScale;
-            transform.localPosition = cachedPosition;
-            gameObject.GetComponent<DisplayCard>().ToggleHover();
+         if(card != null && card.baseCard is SpecialDeckCard && card.owner == CardGameManager.Instance.player) {
+            HideInfo();
         }
-        
-        //Debug.Log("exit");
+
+        if (GetComponent<DeckUI>())
+        {
+            HideInfo();
+        }
     }
 
-    
-    
+    public void ShowInfo()
+    {
+        if(artwork)
+        {
+            cachedPosition = artwork.transform.localPosition;
+            artwork.transform.localPosition = new Vector3(artwork.transform.localPosition.x, artwork.transform.localPosition.y + 100, artwork.transform.localPosition.z);
+        }
+
+        if (gameObject.TryGetComponent(out DisplayCard displayCard))
+        {
+            displayCard.SetHover(true);
+        }
+        else if (gameObject.TryGetComponent(out DeckUI deckUI))
+        {
+            deckUI.ShowInfo();
+        }
+    }
+
+    public void HideInfo()
+    {
+        if (artwork)
+        {
+            artwork.transform.localScale = cachedScale;
+            artwork.transform.localPosition = cachedPosition;
+        }
+
+        if (gameObject.TryGetComponent(out DisplayCard displayCard))
+        {
+            displayCard.SetHover(false);
+        }
+        else if(gameObject.TryGetComponent(out DeckUI deckUI))
+        {
+            deckUI.HideInfo();
+        }
+    }
 }

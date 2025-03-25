@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Huckster
   artwork: {fileID: 21300000, guid: f7f30d652142f08408549c5bc5cbfe93, type: 3}
-  cardClass: 1
+  cardClass: 4
   value: 4
+  oppositeCard: {fileID: 11400000, guid: b1bd48d69b286cb4d82bb9b65516af7c, type: 2}
