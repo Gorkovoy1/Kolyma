@@ -36,12 +36,21 @@ public class OrderOrganizer : MonoBehaviour
         // Sort children by X position (left to right)
         children.Sort((a, b) => a.anchoredPosition.x.CompareTo(b.anchoredPosition.x));
 
+
         // Assign sorting order based on position
         for (int i = 0; i < children.Count; i++)
         {
-            // Access SortingGroup in parent of each child
-            children[i].gameObject.transform.SetSiblingIndex(i);
-            //children[i].GetComponent<SortingGroup>().sortingOrder = i; // Leftmost has the lowest order
+            if(children[i].anchoredPosition.y < -300)
+            {
+                children[i].gameObject.transform.SetSiblingIndex(children.Count - i);
+            }
+            else if(children[i].anchoredPosition.y < -200)
+            {
+               
+                children[i].gameObject.transform.SetSiblingIndex(i);
+                
+            }
+
 
 
         }

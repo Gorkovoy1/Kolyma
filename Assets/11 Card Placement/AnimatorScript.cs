@@ -12,8 +12,9 @@ public class AnimatorScript : MonoBehaviour
     private RectTransform targetRectTransform;
 
 
-    public float min;
-    public float max;
+    public float tiltAngle;
+    public Quaternion targetRotation;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,14 +27,14 @@ public class AnimatorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float flipAngle = 0f;
+        
         float tiltAngle = 0;
         float rotationSpeed = 0.5f;  // Speed for rotation interpolation
 
         // Current world position of the card
         Vector3 cardWorldPosition = cardRectTransform.position;
 
-        Vector3 targetRotation = new Vector3(0,0,0);
+        
 
         // Target world position
         Vector3 targetWorldPosition = targetRectTransform.position;
@@ -46,62 +47,64 @@ public class AnimatorScript : MonoBehaviour
         Debug.Log(deltaX);
 
         
-        /*
+        
 
-        //flipping
-        if(cardWorldPosition.y > 400)
+        if(targetRectTransform.gameObject.GetComponent<NumberStats>().positive)
         {
+            tiltAngle = 0f; // Default tilt angle
 
-            flipAngle = 0f;
-            
-            //upright horizontal tilt
-            if(deltaX > 0)
+            if (deltaX > 0)
             {
                 Debug.Log("tilt right");
-                tiltAngle = -deltaX * rotationSpeed;
+                tiltAngle = -deltaX * rotationSpeed; // Tilt right (negative Z rotation)
             }
-            else if(deltaX < 0)
+            else if (deltaX < 0)
             {
                 Debug.Log("tilt left");
-                tiltAngle = deltaX * -rotationSpeed;
-            }
-            else
-            {
-                Debug.Log("no tilt");
-            }
-            float combinedRotation = Mathf.Clamp(flipAngle + tiltAngle, min, max);
-            targetRotation = new Vector3(0,0, combinedRotation);
-            
-
-            cardRectTransform.eulerAngles = Vector3.Lerp(cardRectTransform.eulerAngles, targetRotation, Time.deltaTime * 5f);
-        }
-        else if(cardWorldPosition.y < 400)
-        {
-            //flip upside down
-            flipAngle = 180f;
-            cardRectTransform.eulerAngles = Vector3.Lerp(cardRectTransform.eulerAngles, targetRotation, Time.deltaTime * 5f);
-            
-            if(deltaX > 0)
-            {
-                Debug.Log("tilt right");
-                tiltAngle = 180 + (-deltaX * rotationSpeed);
-            }
-            else if(deltaX < 0)
-            {
-                Debug.Log("tilt left");
-                tiltAngle = 180 + (deltaX * -rotationSpeed);
+                tiltAngle = deltaX * -rotationSpeed; // Tilt left (positive Z rotation)
             }
             else
             {
                 Debug.Log("no tilt");
             }
 
-            targetRotation = new Vector3(0,0, flipAngle + tiltAngle);
+            // Create target rotation as a Quaternion (avoids issues with Euler angles)
+            targetRotation = Quaternion.Euler(0, 0, tiltAngle);
 
-            cardRectTransform.eulerAngles = Vector3.Lerp(cardRectTransform.eulerAngles, targetRotation, Time.deltaTime * 5f);
-            
+            // Smoothly interpolate using Lerp
+            cardRectTransform.rotation = Quaternion.Lerp(cardRectTransform.rotation, targetRotation, Time.deltaTime * 8f);
         }
-        */
+        
+        else if(targetRectTransform.gameObject.GetComponent<NumberStats>().negative)
+        {
+            cardRectTransform.localScale = new Vector3(0.081f, 0.081f, 0.081f);
+
+            tiltAngle = 0f; // Default tilt angle
+
+            if (deltaX > 0)
+            {
+                Debug.Log("tilt right");
+                tiltAngle = -deltaX * rotationSpeed; // Tilt right (negative Z rotation)
+            }
+            else if (deltaX < 0)
+            {
+                Debug.Log("tilt left");
+                tiltAngle = deltaX * -rotationSpeed; // Tilt left (positive Z rotation)
+            }
+            else
+            {
+                Debug.Log("no tilt");
+            }
+
+            // Create target rotation as a Quaternion (avoids issues with Euler angles)
+            targetRotation = Quaternion.Euler(0, 0, tiltAngle);
+
+            // Smoothly interpolate using Lerp
+            cardRectTransform.rotation = Quaternion.Lerp(cardRectTransform.rotation, targetRotation, Time.deltaTime * 8f);
+
+        }
+        
+        
     }
 
 

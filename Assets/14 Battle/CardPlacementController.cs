@@ -67,6 +67,10 @@ public class CardPlacementController : MonoBehaviour
             {
                 Instantiate(numberDeck[i], playerPositiveArea);
             }
+            else if(numberDeck[i].GetComponent<NumberStats>().negative)
+            {
+                Instantiate(numberDeck[i], playerNegativeArea);
+            }
 
             //Delay between cards
             yield return new WaitForSeconds(1f);
