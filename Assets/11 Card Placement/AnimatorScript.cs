@@ -46,7 +46,7 @@ public class AnimatorScript : MonoBehaviour
         Debug.Log(deltaX);
 
         
-
+        /*
 
         //flipping
         if(cardWorldPosition.y > 400)
@@ -101,6 +101,7 @@ public class AnimatorScript : MonoBehaviour
             cardRectTransform.eulerAngles = Vector3.Lerp(cardRectTransform.eulerAngles, targetRotation, Time.deltaTime * 5f);
             
         }
+        */
     }
 
 
