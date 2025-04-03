@@ -34,7 +34,7 @@ public class CardPlacementController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DealNumbers();
+        StartCoroutine(DealNumbers());
     }
 
     // Update is called once per frame
@@ -43,11 +43,11 @@ public class CardPlacementController : MonoBehaviour
         
     }
 
-    public void DealNumbers()
+    IEnumerator DealNumbers()
     {
         ShuffleNumbers();
-        //DealOpponentNumbers();
-        StartCoroutine(DealPlayerNumbers());
+        yield return StartCoroutine(DealPlayerNumbers());  
+        yield return StartCoroutine(DealOpponentNumbers()); 
 
     }
 
@@ -55,6 +55,12 @@ public class CardPlacementController : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
+            if (numberDeck.Count == 0)
+            {
+                Debug.LogWarning("numberDeck is empty, stopping coroutine.");
+                yield break; // Stop the coroutine if there are no more numbers
+            }
+
             //give each number appropriate tag, then search for tags in scene for conditionals
             //or check each gameobj for stats
 
@@ -63,13 +69,15 @@ public class CardPlacementController : MonoBehaviour
             //on start instantiate space to parent opponent or player, show image, then move to space
             //will know which by parent 
             //deck of spaces
-            if (numberDeck[i].GetComponent<NumberStats>().positive)
+            if (numberDeck[0].GetComponent<NumberStats>().positive)
             {
-                Instantiate(numberDeck[i], playerPositiveArea);
+                Instantiate(numberDeck[0], playerPositiveArea);
+                numberDeck.RemoveAt(0);
             }
-            else if(numberDeck[i].GetComponent<NumberStats>().negative)
+            else if(numberDeck[0].GetComponent<NumberStats>().negative)
             {
-                Instantiate(numberDeck[i], playerNegativeArea);
+                Instantiate(numberDeck[0], playerNegativeArea);
+                numberDeck.RemoveAt(0);
             }
 
             //Delay between cards
@@ -77,9 +85,38 @@ public class CardPlacementController : MonoBehaviour
         }
     }
 
-    void DealOpponentNumbers()
+    IEnumerator DealOpponentNumbers()
     {
+        for (int i = 0; i < 4; i++)
+        {
+            if (numberDeck.Count == 0)
+            {
+                Debug.LogWarning("numberDeck is empty, stopping coroutine.");
+                yield break; // Stop the coroutine if there are no more numbers
+            }
 
+            //give each number appropriate tag, then search for tags in scene for conditionals
+            //or check each gameobj for stats
+
+            //instantiate the space and then the image
+            //the image is the one that is clickable
+            //on start instantiate space to parent opponent or player, show image, then move to space
+            //will know which by parent 
+            //deck of spaces
+            if (numberDeck[0].GetComponent<NumberStats>().positive)
+            {
+                Instantiate(numberDeck[0], opponentPositiveArea);
+                numberDeck.RemoveAt(0);
+            }
+            else if (numberDeck[0].GetComponent<NumberStats>().negative)
+            {
+                Instantiate(numberDeck[0], opponentNegativeArea);
+                numberDeck.RemoveAt(0);
+            }
+
+            //Delay between cards
+            yield return new WaitForSeconds(1f);
+        }
     }
 
 

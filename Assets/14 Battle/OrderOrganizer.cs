@@ -40,15 +40,25 @@ public class OrderOrganizer : MonoBehaviour
         // Assign sorting order based on position
         for (int i = 0; i < children.Count; i++)
         {
-            if(children[i].anchoredPosition.y < -300)
+            if(children[i].anchoredPosition.y < -300) //player neg
             {
                 children[i].gameObject.transform.SetSiblingIndex(children.Count - i);
             }
-            else if(children[i].anchoredPosition.y < -200)
+            else if(children[i].anchoredPosition.y < -200) //player pos
             {
                
                 children[i].gameObject.transform.SetSiblingIndex(i);
                 
+            }
+            else if (children[i].anchoredPosition.y < -100) //opp neg
+            {
+
+                children[i].gameObject.transform.SetSiblingIndex(children.Count - i);
+
+            }
+            else //opp pos
+            {
+                children[i].gameObject.transform.SetSiblingIndex(i);
             }
 
 
