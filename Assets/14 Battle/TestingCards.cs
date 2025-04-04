@@ -19,7 +19,7 @@ public class TestingCards : MonoBehaviour
         
     }
 
-    public void Test()
+    public void TestGive()
     {
         SpecialCardManager.instance.Give(value, target);
     }
