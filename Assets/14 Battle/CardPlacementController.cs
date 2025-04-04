@@ -29,7 +29,21 @@ public class CardPlacementController : MonoBehaviour
 
     public List<GameObject> numberDeck;
 
+    public static CardPlacementController instance;
 
+    void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            Destroy(this);
+        }
+        
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -117,6 +131,35 @@ public class CardPlacementController : MonoBehaviour
             //Delay between cards
             yield return new WaitForSeconds(1f);
         }
+    }
+
+    public void DealOneCard()
+    {
+
+
+        //give each number appropriate tag, then search for tags in scene for conditionals
+        //or check each gameobj for stats
+
+        //instantiate the space and then the image
+        //the image is the one that is clickable
+        //on start instantiate space to parent opponent or player, show image, then move to space
+        //will know which by parent 
+        //deck of spaces
+
+        if (numberDeck.Count != 0)
+        {
+            if (numberDeck[0].GetComponent<NumberStats>().positive)
+            {
+                Instantiate(numberDeck[0], opponentPositiveArea);
+                numberDeck.RemoveAt(0);
+            }
+            else if (numberDeck[0].GetComponent<NumberStats>().negative)
+            {
+                Instantiate(numberDeck[0], opponentNegativeArea);
+                numberDeck.RemoveAt(0);
+            }
+        }
+
     }
 
 
