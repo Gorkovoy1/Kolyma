@@ -41,6 +41,7 @@ public class CardPlace : MonoBehaviour,
         Debug.Log ("OnBeginDrag");
         dragging = true;
         
+        
             //if(conditionMet == true)
             //{
             parentReturnTo = this.transform.parent;

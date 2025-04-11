@@ -2017,6 +2017,7 @@ GameObject:
   - component: {fileID: 890806062}
   - component: {fileID: 890806061}
   - component: {fileID: 890806060}
+  - component: {fileID: 890806063}
   m_Layer: 5
   m_Name: PlayerHand
   m_TagString: Untagged
@@ -2047,7 +2048,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -15}
+  m_AnchoredPosition: {x: 0, y: 38.1}
   m_SizeDelta: {x: 400, y: 100.08}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &890806060
@@ -2114,6 +2115,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 890806058}
   m_CullTransparentMesh: 1
+--- !u!114 &890806063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890806058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85e6c1e6fff480640bbc310a6fd954e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fanHand: 0
 --- !u!1 &957836326
 GameObject:
   m_ObjectHideFlags: 0
