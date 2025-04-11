@@ -235,6 +235,9 @@ MonoBehaviour:
   imagePrefab: {fileID: 5131980721129536295, guid: ce2d55eaa7404e94ab7bb8d0904d1f3b, type: 3}
   correspondingImage: {fileID: 0}
   imagesParent: {fileID: 1425571759}
+  hoverOffset: 100
+  hovering: 0
+  dragging: 0
 --- !u!114 &11163255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,6 +408,9 @@ MonoBehaviour:
   imagePrefab: {fileID: 5131980721129536295, guid: ce2d55eaa7404e94ab7bb8d0904d1f3b, type: 3}
   correspondingImage: {fileID: 0}
   imagesParent: {fileID: 1425571759}
+  hoverOffset: 100
+  hovering: 0
+  dragging: 0
 --- !u!114 &115970363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1470,6 +1476,9 @@ MonoBehaviour:
   imagePrefab: {fileID: 5131980721129536295, guid: ce2d55eaa7404e94ab7bb8d0904d1f3b, type: 3}
   correspondingImage: {fileID: 0}
   imagesParent: {fileID: 1425571759}
+  hoverOffset: 100
+  hovering: 0
+  dragging: 0
 --- !u!114 &765650485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1935,6 +1944,9 @@ MonoBehaviour:
   imagePrefab: {fileID: 5131980721129536295, guid: ce2d55eaa7404e94ab7bb8d0904d1f3b, type: 3}
   correspondingImage: {fileID: 0}
   imagesParent: {fileID: 1425571759}
+  hoverOffset: 100
+  hovering: 0
+  dragging: 0
 --- !u!114 &854012556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2078,7 +2090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2822,6 +2834,9 @@ MonoBehaviour:
   imagePrefab: {fileID: 5131980721129536295, guid: ce2d55eaa7404e94ab7bb8d0904d1f3b, type: 3}
   correspondingImage: {fileID: 0}
   imagesParent: {fileID: 1425571759}
+  hoverOffset: 100
+  hovering: 0
+  dragging: 0
 --- !u!114 &1512990399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3248,6 +3263,9 @@ MonoBehaviour:
   imagePrefab: {fileID: 5131980721129536295, guid: ce2d55eaa7404e94ab7bb8d0904d1f3b, type: 3}
   correspondingImage: {fileID: 0}
   imagesParent: {fileID: 1425571759}
+  hoverOffset: 100
+  hovering: 0
+  dragging: 0
 --- !u!114 &1978915613
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,6 +14,10 @@ public class CardPlace : MonoBehaviour,
     public GameObject imagePrefab;
     public GameObject correspondingImage;
     public Transform imagesParent;
+
+    public float hoverOffset;
+    public bool hovering;
+    public bool dragging;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +39,7 @@ public class CardPlace : MonoBehaviour,
     public void OnBeginDrag(PointerEventData eventData)
     {
         Debug.Log ("OnBeginDrag");
-
+        dragging = true;
         
             //if(conditionMet == true)
             //{
@@ -51,8 +55,8 @@ public class CardPlace : MonoBehaviour,
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        
 
+        dragging = false;
             this.transform.SetParent(parentReturnTo);
             //this.transform.position = new Vector3(0,0,0);
 
@@ -73,15 +77,27 @@ public class CardPlace : MonoBehaviour,
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Hovered over card!");
-        // Add hover effect (e.g., scale, change color)
+        if(!dragging)
+        {
+            hovering = true;
+        }
+        if(correspondingImage != null)
+        {
+            correspondingImage.transform.SetSiblingIndex(5);
+            correspondingImage.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
+            correspondingImage.transform.position += new Vector3(0f, hoverOffset, 0f);
+        }
     }
 
-    // On hover out
+    
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("Hover exited!");
-        // Revert hover effect (e.g., reset scale, color)
+        hovering = false;
+        if(correspondingImage != null)
+        {
+            correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            correspondingImage.transform.position -= new Vector3(0f, hoverOffset, 0f);
+        }
     }
 
 
