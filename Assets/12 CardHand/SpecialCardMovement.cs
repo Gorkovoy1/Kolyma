@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class SpecialCardMovement : MonoBehaviour
 {
     public RectTransform target;       // Target UI element's RectTransform
-    public GameObject cardImage;            // Image to animate
+    //public GameObject cardImage;            // Image to animate
     public float lerpSpeed = 5f;       // Speed of movement in UI units (e.g., pixels per second)
     private RectTransform cardRectTransform; // RectTransform of the cardImage
-    private RectTransform targetRectTransform;
+    //private RectTransform targetRectTransform;
 
 
     public float min;
@@ -18,9 +18,9 @@ public class SpecialCardMovement : MonoBehaviour
     void Start()
     {
         // Get the RectTransform of the card image
-        cardRectTransform = cardImage.GetComponent<RectTransform>();
+        cardRectTransform = GetComponent<RectTransform>();
 
-        targetRectTransform = target.GetComponent<RectTransform>();
+        //targetRectTransform = target;
     }
 
     // Update is called once per frame
@@ -33,7 +33,7 @@ public class SpecialCardMovement : MonoBehaviour
 
 
         // Target world position
-        Vector3 targetWorldPosition = targetRectTransform.position;
+        Vector3 targetWorldPosition = target.position;
 
         // Smoothly interpolate the card's position towards the target position
         cardRectTransform.position = Vector3.Lerp(cardWorldPosition, targetWorldPosition, Time.deltaTime * lerpSpeed);
@@ -45,17 +45,17 @@ public class SpecialCardMovement : MonoBehaviour
         //upright horizontal tilt
         if(deltaX > 0)
         {
-            Debug.Log("tilt right");
+            //Debug.Log("tilt right");
             cardRectTransform.eulerAngles = new Vector3(0, 0, (-deltaX * rotationSpeed));
         }
         else if(deltaX < 0)
         {
-            Debug.Log("tilt left");
+            //Debug.Log("tilt left");
             cardRectTransform.eulerAngles = new Vector3(0, 0, (deltaX * -rotationSpeed));
         }
         else
         {
-            Debug.Log("no tilt");
+            //Debug.Log("no tilt");
             cardRectTransform.eulerAngles = new Vector3(0,0,0);
         }
         

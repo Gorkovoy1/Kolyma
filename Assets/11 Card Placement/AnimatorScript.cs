@@ -44,7 +44,7 @@ public class AnimatorScript : MonoBehaviour
 
         float deltaX = targetWorldPosition.x - cardWorldPosition.x;
         
-        Debug.Log(deltaX);
+        //Debug.Log(deltaX);
 
         
         
@@ -55,17 +55,17 @@ public class AnimatorScript : MonoBehaviour
 
             if (deltaX > 0)
             {
-                Debug.Log("tilt right");
+                //Debug.Log("tilt right");
                 tiltAngle = -deltaX * rotationSpeed; // Tilt right (negative Z rotation)
             }
             else if (deltaX < 0)
             {
-                Debug.Log("tilt left");
+                //Debug.Log("tilt left");
                 tiltAngle = deltaX * -rotationSpeed; // Tilt left (positive Z rotation)
             }
             else
             {
-                Debug.Log("no tilt");
+                //Debug.Log("no tilt");
             }
 
             // Create target rotation as a Quaternion (avoids issues with Euler angles)
@@ -83,17 +83,17 @@ public class AnimatorScript : MonoBehaviour
 
             if (deltaX > 0)
             {
-                Debug.Log("tilt right");
+                //Debug.Log("tilt right");
                 tiltAngle = -deltaX * rotationSpeed; // Tilt right (negative Z rotation)
             }
             else if (deltaX < 0)
             {
-                Debug.Log("tilt left");
+                //Debug.Log("tilt left");
                 tiltAngle = deltaX * -rotationSpeed; // Tilt left (positive Z rotation)
             }
             else
             {
-                Debug.Log("no tilt");
+                //Debug.Log("no tilt");
             }
 
             // Create target rotation as a Quaternion (avoids issues with Euler angles)

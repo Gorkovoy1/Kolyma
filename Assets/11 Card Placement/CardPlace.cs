@@ -5,14 +5,24 @@ using UnityEngine.EventSystems;
 using System.Linq;
 
 public class CardPlace : MonoBehaviour,
-    IDragHandler, IBeginDragHandler, IEndDragHandler
+    IDragHandler, IBeginDragHandler, IEndDragHandler,
+    IPointerEnterHandler, IPointerExitHandler
 
 {
     public bool isDragging;
     public Transform parentReturnTo = null;
+    public GameObject imagePrefab;
+    public GameObject correspondingImage;
+    public Transform imagesParent;
     // Start is called before the first frame update
     void Start()
     {
+        if(imagePrefab != null)
+        {
+            //this means its a special card
+            correspondingImage = Instantiate(imagePrefab, imagesParent);
+            correspondingImage.GetComponent<SpecialCardMovement>().target = this.gameObject.GetComponent<RectTransform>();
+        }
         
     }
 
@@ -56,7 +66,22 @@ public class CardPlace : MonoBehaviour,
         
             //if(conditionMet==true)
             this.transform.position = eventData.position;
+            this.correspondingImage.transform.SetSiblingIndex(5);
+            //set as last index in array of specila cards (special number of cards)
 
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        Debug.Log("Hovered over card!");
+        // Add hover effect (e.g., scale, change color)
+    }
+
+    // On hover out
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        Debug.Log("Hover exited!");
+        // Revert hover effect (e.g., reset scale, color)
     }
 
 
