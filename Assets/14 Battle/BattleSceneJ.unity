@@ -239,8 +239,7 @@ MonoBehaviour:
   hovering: 0
   dragging: 0
   beingPlayed: 0
-  testX: 400
-  testY: 0
+  playerDiscardZone: {fileID: 1317641049}
   playerHand: {fileID: 0}
 --- !u!114 &11163255
 MonoBehaviour:
@@ -416,8 +415,7 @@ MonoBehaviour:
   hovering: 0
   dragging: 0
   beingPlayed: 0
-  testX: 400
-  testY: 0
+  playerDiscardZone: {fileID: 1317641049}
   playerHand: {fileID: 0}
 --- !u!114 &115970363
 MonoBehaviour:
@@ -1488,8 +1486,7 @@ MonoBehaviour:
   hovering: 0
   dragging: 0
   beingPlayed: 0
-  testX: 400
-  testY: 0
+  playerDiscardZone: {fileID: 1317641049}
   playerHand: {fileID: 0}
 --- !u!114 &765650485
 MonoBehaviour:
@@ -1974,8 +1971,7 @@ MonoBehaviour:
   hovering: 0
   dragging: 0
   beingPlayed: 0
-  testX: 400
-  testY: 0
+  playerDiscardZone: {fileID: 1317641049}
   playerHand: {fileID: 0}
 --- !u!114 &854012556
 MonoBehaviour:
@@ -2883,8 +2879,7 @@ MonoBehaviour:
   hovering: 0
   dragging: 0
   beingPlayed: 0
-  testX: 400
-  testY: 0
+  playerDiscardZone: {fileID: 1317641049}
   playerHand: {fileID: 0}
 --- !u!114 &1512990399
 MonoBehaviour:
@@ -3316,8 +3311,7 @@ MonoBehaviour:
   hovering: 0
   dragging: 0
   beingPlayed: 0
-  testX: 400
-  testY: 0
+  playerDiscardZone: {fileID: 1317641049}
   playerHand: {fileID: 0}
 --- !u!114 &1978915613
 MonoBehaviour:

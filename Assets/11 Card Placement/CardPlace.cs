@@ -20,12 +20,13 @@ public class CardPlace : MonoBehaviour,
     public bool dragging;
     public bool beingPlayed;
 
-    public float testX;
-    public float testY;
+    public GameObject playerDiscardZone;
 
     public Transform playerHand;
 
     private bool numberCard;
+
+    public int childCount;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +60,9 @@ public class CardPlace : MonoBehaviour,
             //if(conditionMet == true)
             //{
             parentReturnTo = this.transform.parent;
+
+            //
+            this.correspondingImage.transform.SetAsLastSibling();
 
             this.transform.SetParent(parentReturnTo.transform.parent);
 
@@ -102,9 +106,16 @@ public class CardPlace : MonoBehaviour,
 
             //if(conditionMet==true)
             this.transform.position = eventData.position;
-            this.correspondingImage.transform.SetSiblingIndex(5);
+            this.correspondingImage.transform.SetAsLastSibling();
             //set as last index in array of specila cards (special number of cards)
             playerHand.GetComponent<HandFanController>().dragging = true;
+
+
+
+            correspondingImage.transform.SetAsLastSibling();
+            correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            //correspondingImage.transform.position += new Vector3(0f, hoverOffset, 0f);
+            
         }
             
 
@@ -125,7 +136,7 @@ public class CardPlace : MonoBehaviour,
                 {
                     if (!playerHand.GetComponent<HandFanController>().dragging)
                     {
-                        correspondingImage.transform.SetSiblingIndex(5);
+                        correspondingImage.transform.SetAsLastSibling();
                         correspondingImage.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
                         correspondingImage.transform.position += new Vector3(0f, hoverOffset, 0f);
                     }
@@ -165,7 +176,18 @@ public class CardPlace : MonoBehaviour,
 
     public void AnimateBeingPlayed()
     {
-        this.GetComponent<RectTransform>().anchoredPosition = new Vector3(testX, testY, 0);
+        StartCoroutine(BeingPlayed());
+        
+    }
+
+    IEnumerator BeingPlayed()
+    {
+        this.GetComponent<RectTransform>().anchoredPosition = new Vector3(400f, 0f, 0);
         correspondingImage.transform.localScale = new Vector3(0.17f, 0.17f, 0.17f);
+        yield return new WaitForSeconds(1f);
+
+        correspondingImage.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
+        this.transform.SetParent(playerDiscardZone.transform);
+        this.transform.position = playerDiscardZone.transform.position;
     }
 }
