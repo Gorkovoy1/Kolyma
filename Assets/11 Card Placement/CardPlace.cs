@@ -18,9 +18,17 @@ public class CardPlace : MonoBehaviour,
     public float hoverOffset;
     public bool hovering;
     public bool dragging;
+    public bool beingPlayed;
+
+    public float testX;
+    public float testY;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        //playerDiscardZone = GameObject.FindWithTag
+
         if(imagePrefab != null)
         {
             //this means its a special card
@@ -58,11 +66,20 @@ public class CardPlace : MonoBehaviour,
     {
 
         dragging = false;
+        GetComponent<CanvasGroup>().blocksRaycasts = true;
+
+        if (!beingPlayed)
+        {
             this.transform.SetParent(parentReturnTo);
             //this.transform.position = new Vector3(0,0,0);
 
-            GetComponent<CanvasGroup>().blocksRaycasts = true;
+        }
+        else
+        {
             
+            AnimateBeingPlayed();
+        }
+
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -78,28 +95,38 @@ public class CardPlace : MonoBehaviour,
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if(!dragging)
+        if(!beingPlayed)
         {
-            hovering = true;
-        }
-        if(correspondingImage != null)
-        {
-            correspondingImage.transform.SetSiblingIndex(5);
-            correspondingImage.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
-            correspondingImage.transform.position += new Vector3(0f, hoverOffset, 0f);
+            if (!dragging)
+            {
+                hovering = true;
+            }
+            if (correspondingImage != null)
+            {
+                correspondingImage.transform.SetSiblingIndex(5);
+                correspondingImage.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
+                correspondingImage.transform.position += new Vector3(0f, hoverOffset, 0f);
+            }
         }
     }
 
     
     public void OnPointerExit(PointerEventData eventData)
     {
-        hovering = false;
-        if(correspondingImage != null)
+        if(!beingPlayed)
         {
-            correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-            correspondingImage.transform.position -= new Vector3(0f, hoverOffset, 0f);
+            hovering = false;
+            if (correspondingImage != null)
+            {
+                correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                correspondingImage.transform.position -= new Vector3(0f, hoverOffset, 0f);
+            }
         }
     }
 
-
+    public void AnimateBeingPlayed()
+    {
+        this.transform.position = new Vector3(testX, testY, 0);
+        correspondingImage.transform.localScale = new Vector3(0.17f, 0.17f, 0.17f);
+    }
 }

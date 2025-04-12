@@ -154,7 +154,7 @@ RectTransform:
   m_GameObject: {fileID: 11163250}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.10000354, y: 0.10000354, z: 0.10000354}
+  m_LocalScale: {x: 0.10000353, y: 0.10000353, z: 0.10000353}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 890806059}
@@ -238,6 +238,9 @@ MonoBehaviour:
   hoverOffset: 100
   hovering: 0
   dragging: 0
+  beingPlayed: 0
+  testX: 525
+  testY: 285
 --- !u!114 &11163255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -411,6 +414,9 @@ MonoBehaviour:
   hoverOffset: 100
   hovering: 0
   dragging: 0
+  beingPlayed: 0
+  testX: 525
+  testY: 285
 --- !u!114 &115970363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,12 +618,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1966559229}
-  m_RootOrder: 0
+  m_Father: {fileID: 638265589}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -31.61084, y: 47.36255}
+  m_AnchoredPosition: {x: -31.61084, y: 47.43286}
   m_SizeDelta: {x: 63.22162, y: 94.7251}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &419033358
@@ -1104,8 +1110,8 @@ RectTransform:
   - {fileID: 774490063}
   - {fileID: 2055654394}
   - {fileID: 1611033725}
+  - {fileID: 419033357}
   - {fileID: 1966559229}
-  - {fileID: 1124721410}
   - {fileID: 798738050}
   - {fileID: 435298108}
   - {fileID: 984533470}
@@ -1479,6 +1485,9 @@ MonoBehaviour:
   hoverOffset: 100
   hovering: 0
   dragging: 0
+  beingPlayed: 0
+  testX: 525
+  testY: 285
 --- !u!114 &765650485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1665,8 +1674,9 @@ GameObject:
   - component: {fileID: 774490066}
   - component: {fileID: 774490065}
   - component: {fileID: 774490064}
+  - component: {fileID: 774490067}
   m_Layer: 5
-  m_Name: DropBox
+  m_Name: DropZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1756,6 +1766,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 774490062}
   m_CullTransparentMesh: 1
+--- !u!114 &774490067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774490062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71d9d2142e829094281cf1e95246a430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerDiscardZone: {fileID: 1317641049}
 --- !u!1 &798738049
 GameObject:
   m_ObjectHideFlags: 0
@@ -1947,6 +1970,9 @@ MonoBehaviour:
   hoverOffset: 100
   hovering: 0
   dragging: 0
+  beingPlayed: 0
+  testX: 525
+  testY: 285
 --- !u!114 &854012556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2322,17 +2348,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1124721409}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 638265589}
-  m_RootOrder: 5
+  m_Father: {fileID: 1966559229}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 31.61084, y: 46.8}
+  m_AnchoredPosition: {x: 31.61084, y: 159.00764}
   m_SizeDelta: {x: 63.22162, y: 94.7251}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1124721411
@@ -2539,7 +2565,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1966559229}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -2851,6 +2877,9 @@ MonoBehaviour:
   hoverOffset: 100
   hovering: 0
   dragging: 0
+  beingPlayed: 0
+  testX: 525
+  testY: 285
 --- !u!114 &1512990399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3155,10 +3184,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 419033357}
   - {fileID: 1317641050}
+  - {fileID: 1124721410}
   m_Father: {fileID: 638265589}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3280,6 +3309,9 @@ MonoBehaviour:
   hoverOffset: 100
   hovering: 0
   dragging: 0
+  beingPlayed: 0
+  testX: 525
+  testY: 285
 --- !u!114 &1978915613
 MonoBehaviour:
   m_ObjectHideFlags: 0
