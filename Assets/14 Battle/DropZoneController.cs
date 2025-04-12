@@ -12,11 +12,15 @@ public class DropZoneController : MonoBehaviour, IDropHandler
         GameObject droppedCard = eventData.pointerDrag;
         if (droppedCard != null)
         {
-            droppedCard.GetComponent<CardPlace>().beingPlayed = true;
-            droppedCard.transform.SetParent(playerDiscardZone.transform);
+            if (!droppedCard.TryGetComponent<NumberStats>(out var component))
+            {
+                droppedCard.GetComponent<CardPlace>().beingPlayed = true;
+                droppedCard.transform.SetParent(playerDiscardZone.transform);
 
-            //call script to animate card and carry out effect
-            //droppedCard.GetComponent
+                //call script to animate card and carry out effect
+                //droppedCard.GetComponent
+            }
+
         }
     }
 }

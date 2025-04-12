@@ -239,8 +239,9 @@ MonoBehaviour:
   hovering: 0
   dragging: 0
   beingPlayed: 0
-  testX: 525
-  testY: 285
+  testX: 400
+  testY: 100
+  playerHand: {fileID: 0}
 --- !u!114 &11163255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,8 +416,9 @@ MonoBehaviour:
   hovering: 0
   dragging: 0
   beingPlayed: 0
-  testX: 525
-  testY: 285
+  testX: 400
+  testY: 100
+  playerHand: {fileID: 0}
 --- !u!114 &115970363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1486,8 +1488,9 @@ MonoBehaviour:
   hovering: 0
   dragging: 0
   beingPlayed: 0
-  testX: 525
-  testY: 285
+  testX: 400
+  testY: 100
+  playerHand: {fileID: 0}
 --- !u!114 &765650485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1971,8 +1974,9 @@ MonoBehaviour:
   hovering: 0
   dragging: 0
   beingPlayed: 0
-  testX: 525
-  testY: 285
+  testX: 400
+  testY: 100
+  playerHand: {fileID: 0}
 --- !u!114 &854012556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2154,6 +2158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fanHand: 0
+  dragging: 0
 --- !u!1 &957836326
 GameObject:
   m_ObjectHideFlags: 0
@@ -2878,8 +2883,9 @@ MonoBehaviour:
   hovering: 0
   dragging: 0
   beingPlayed: 0
-  testX: 525
-  testY: 285
+  testX: 400
+  testY: 100
+  playerHand: {fileID: 0}
 --- !u!114 &1512990399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3310,8 +3316,9 @@ MonoBehaviour:
   hovering: 0
   dragging: 0
   beingPlayed: 0
-  testX: 525
-  testY: 285
+  testX: 400
+  testY: 100
+  playerHand: {fileID: 0}
 --- !u!114 &1978915613
 MonoBehaviour:
   m_ObjectHideFlags: 0

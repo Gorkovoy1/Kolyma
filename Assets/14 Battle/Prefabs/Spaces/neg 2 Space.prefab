@@ -86,7 +86,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8081401923800990640}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a98125502f715b4b83cfb77b434e436, type: 3}
   m_Name: 
@@ -129,7 +129,7 @@ CanvasGroup:
   m_GameObject: {fileID: 8081401923800990640}
   m_Enabled: 1
   m_Alpha: 1
-  m_Interactable: 1
+  m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &8081401923800990642
@@ -146,3 +146,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDragging: 0
   parentReturnTo: {fileID: 0}
+  imagePrefab: {fileID: 0}
+  correspondingImage: {fileID: 0}
+  imagesParent: {fileID: 0}
+  hoverOffset: 0
+  hovering: 0
+  dragging: 0
+  beingPlayed: 0
+  testX: 0
+  testY: 0
+  playerHand: {fileID: 0}

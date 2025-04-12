@@ -25,11 +25,11 @@ public class CardPlace : MonoBehaviour,
 
     public Transform playerHand;
 
-
+    private bool numberCard;
     // Start is called before the first frame update
     void Start()
     {
-
+        
         playerHand = this.transform.parent;
 
 
@@ -50,103 +50,122 @@ public class CardPlace : MonoBehaviour,
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log ("OnBeginDrag");
-        dragging = true;
-        
-        
+        if (!gameObject.TryGetComponent<NumberStats>(out var component))
+        {
+            Debug.Log("OnBeginDrag");
+            dragging = true;
+
+
             //if(conditionMet == true)
             //{
             parentReturnTo = this.transform.parent;
-            
+
             this.transform.SetParent(parentReturnTo.transform.parent);
-            
+
 
             GetComponent<CanvasGroup>().blocksRaycasts = false;
             //}
-        
+        }
+
+
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-
-        dragging = false;
-        GetComponent<CanvasGroup>().blocksRaycasts = true;
-        playerHand.GetComponent<HandFanController>().dragging = false;
-
-        if (!beingPlayed)
+        if (!gameObject.TryGetComponent<NumberStats>(out var component))
         {
-            this.transform.SetParent(parentReturnTo);
-            //this.transform.position = new Vector3(0,0,0);
+            dragging = false;
+            GetComponent<CanvasGroup>().blocksRaycasts = true;
+            playerHand.GetComponent<HandFanController>().dragging = false;
 
+            if (!beingPlayed)
+            {
+                this.transform.SetParent(parentReturnTo);
+                //this.transform.position = new Vector3(0,0,0);
+
+            }
+            else
+            {
+
+                AnimateBeingPlayed();
+            }
         }
-        else
-        {
-            
-            AnimateBeingPlayed();
-        }
+        
 
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        //Debug.Log("OnDrag");
-        
+        if (!gameObject.TryGetComponent<NumberStats>(out var component))
+        {
+            //Debug.Log("OnDrag");
+
             //if(conditionMet==true)
             this.transform.position = eventData.position;
             this.correspondingImage.transform.SetSiblingIndex(5);
             //set as last index in array of specila cards (special number of cards)
             playerHand.GetComponent<HandFanController>().dragging = true;
+        }
+            
 
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if(!beingPlayed)
+        if (!gameObject.TryGetComponent<NumberStats>(out var component))
         {
-            if (!dragging)
+            if (!beingPlayed)
             {
-                hovering = true;
-                
-            }
-            if (correspondingImage != null)
-            {
-                if (!playerHand.GetComponent<HandFanController>().dragging)
+                if (!dragging)
                 {
-                    correspondingImage.transform.SetSiblingIndex(5);
-                    correspondingImage.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
-                    correspondingImage.transform.position += new Vector3(0f, hoverOffset, 0f);
+                    hovering = true;
+
                 }
-                
+                if (correspondingImage != null)
+                {
+                    if (!playerHand.GetComponent<HandFanController>().dragging)
+                    {
+                        correspondingImage.transform.SetSiblingIndex(5);
+                        correspondingImage.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
+                        correspondingImage.transform.position += new Vector3(0f, hoverOffset, 0f);
+                    }
+
+                }
+
             }
-            
         }
+        
     }
 
     
     public void OnPointerExit(PointerEventData eventData)
     {
-        if(!beingPlayed)
+        if (!gameObject.TryGetComponent<NumberStats>(out var component))
         {
-            hovering = false;
-
-            if (correspondingImage != null)
+            if (!beingPlayed)
             {
-                if (!playerHand.GetComponent<HandFanController>().dragging)
+                hovering = false;
+
+                if (correspondingImage != null)
                 {
-                    correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                    correspondingImage.transform.position -= new Vector3(0f, hoverOffset, 0f);
+                    if (!playerHand.GetComponent<HandFanController>().dragging)
+                    {
+                        correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                        correspondingImage.transform.position -= new Vector3(0f, hoverOffset, 0f);
+                    }
+
                 }
 
+
+
             }
-
-
-
         }
+        
     }
 
     public void AnimateBeingPlayed()
     {
-        this.transform.position = new Vector3(testX, testY, 0);
+        this.GetComponent<RectTransform>().anchoredPosition = new Vector3(testX, testY, 0);
         correspondingImage.transform.localScale = new Vector3(0.17f, 0.17f, 0.17f);
     }
 }
