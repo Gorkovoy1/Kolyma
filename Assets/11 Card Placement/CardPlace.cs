@@ -23,11 +23,15 @@ public class CardPlace : MonoBehaviour,
     public float testX;
     public float testY;
 
+    public Transform playerHand;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        //playerDiscardZone = GameObject.FindWithTag
+
+        playerHand = this.transform.parent;
+
 
         if(imagePrefab != null)
         {
@@ -67,6 +71,7 @@ public class CardPlace : MonoBehaviour,
 
         dragging = false;
         GetComponent<CanvasGroup>().blocksRaycasts = true;
+        playerHand.GetComponent<HandFanController>().dragging = false;
 
         if (!beingPlayed)
         {
@@ -90,6 +95,7 @@ public class CardPlace : MonoBehaviour,
             this.transform.position = eventData.position;
             this.correspondingImage.transform.SetSiblingIndex(5);
             //set as last index in array of specila cards (special number of cards)
+            playerHand.GetComponent<HandFanController>().dragging = true;
 
     }
 
@@ -100,13 +106,19 @@ public class CardPlace : MonoBehaviour,
             if (!dragging)
             {
                 hovering = true;
+                
             }
             if (correspondingImage != null)
             {
-                correspondingImage.transform.SetSiblingIndex(5);
-                correspondingImage.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
-                correspondingImage.transform.position += new Vector3(0f, hoverOffset, 0f);
+                if (!playerHand.GetComponent<HandFanController>().dragging)
+                {
+                    correspondingImage.transform.SetSiblingIndex(5);
+                    correspondingImage.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
+                    correspondingImage.transform.position += new Vector3(0f, hoverOffset, 0f);
+                }
+                
             }
+            
         }
     }
 
@@ -116,11 +128,19 @@ public class CardPlace : MonoBehaviour,
         if(!beingPlayed)
         {
             hovering = false;
+
             if (correspondingImage != null)
             {
-                correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                correspondingImage.transform.position -= new Vector3(0f, hoverOffset, 0f);
+                if (!playerHand.GetComponent<HandFanController>().dragging)
+                {
+                    correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                    correspondingImage.transform.position -= new Vector3(0f, hoverOffset, 0f);
+                }
+
             }
+
+
+
         }
     }
 

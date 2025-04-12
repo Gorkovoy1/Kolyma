@@ -7,6 +7,7 @@ public class HandFanController : MonoBehaviour
     public bool fanHand;
     private RectTransform rect;
     private float yPos;
+    public bool dragging;
 
     // Start is called before the first frame update
     void Start()
