@@ -38,7 +38,13 @@ public class ChoiceController : MonoBehaviour
 
     public void ShowChoice(int x)
     {
-        if(x == 2)
+        //delete all children
+        foreach (Transform child in choiceObject.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        //show correct buttons
+        if (x == 2)
         {
             GameObject buttonObjOne = Instantiate(buttonPrefab, choiceObject.transform);
             Button buttonOne = buttonObjOne.GetComponent<Button>();
