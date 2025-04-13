@@ -30,6 +30,7 @@ public class CardPlace : MonoBehaviour,
 
     public SpecialCardType specialCardType;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -242,7 +243,7 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.ThickWoolenCoat)
         {
-
+            ActivateChoice(2);
 
         }
         else if (specialCardType == SpecialCardType.Setup)
@@ -473,6 +474,14 @@ public class CardPlace : MonoBehaviour,
             }
 
         }
+
+    }
+
+    public void ActivateChoice(int x)
+    {
+        //show two buttons, choice one and choice two
+        //on click instantiate right card for right target depending on pos or neg
+        ChoiceController.instance.ShowChoice(x);
 
     }
 
