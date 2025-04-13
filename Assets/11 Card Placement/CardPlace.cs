@@ -27,6 +27,9 @@ public class CardPlace : MonoBehaviour,
     private bool numberCard;
 
     public int childCount;
+
+    public SpecialCardType specialCardType;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -189,5 +192,340 @@ public class CardPlace : MonoBehaviour,
         correspondingImage.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
         this.transform.SetParent(playerDiscardZone.transform);
         this.transform.position = playerDiscardZone.transform.position;
+
+        StartCoroutine(PlayCorrespondingAction());
+    }
+
+    public void CheckPlayable()
+    {
+        //pick condition
+        //if condition then highlight card
+    }
+
+    IEnumerator PlayCorrespondingAction()
+    {
+        //
+        yield return new WaitForSeconds(0.5f);
+
+        if(specialCardType == SpecialCardType.CaughtRedHanded)
+        {
+            //check is done in checkplayable
+            //highlight all number cards, access a highlighter obj that highlights all red, blue, yellow, centrally controlled
+            //allow player to select those yellow cards
+            //destroy it, discard, and deal new number
+            
+        }
+        else if (specialCardType == SpecialCardType.EmptyPockets)
+        {
+            
+
+        }
+        else if (specialCardType == SpecialCardType.Burden)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.RifleButt)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.SmokeBreak)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.Weakness)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.ThickWoolenCoat)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.Setup)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.Bribe)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.Fist)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.CondensedMilk)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.InCahoots)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.Search)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.Poison)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.BackstabDiscard)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.Scam)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.GiveItUp)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.Rotation)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.DirtyTrickIV)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.BaitAndSwitch)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.SelfHarm)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.BackstabSwap)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.ThereThere)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.NotMyProblem)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.Frostbite)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.DirtyTrickI)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.DirtyTrickII)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.DirtyTrickIII)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.LousyDeal)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.FindersKeepers)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.Gossip)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.FairShare)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.SleeplessNight)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.Payback)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.Knife)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.ExtraWork)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.Scratch)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.Leftovers)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.Glare)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.Snitch)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.GoodDeal)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.EasyDay)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.GoodFeeling)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.Forgery)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.Pushover)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.Scavenge)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.Overwhelmed)
+        {
+
+
+        }
+        else if (specialCardType == SpecialCardType.VitaminShotII)
+        {
+            //if current turn is player
+            if (TurnManager.instance.isPlayerTurn)
+            {
+                SpecialCardManager.instance.Give(2, "player");
+            }
+            else if (!TurnManager.instance.isPlayerTurn)
+            {
+                //if current turn is opponent
+                SpecialCardManager.instance.Give(2, "opponent");
+            }
+
+        }
+        else if (specialCardType == SpecialCardType.VitaminShotV)
+        {
+            //if current turn is player
+            if(TurnManager.instance.isPlayerTurn)
+            {
+                SpecialCardManager.instance.Give(5, "player");
+            }
+            else if(!TurnManager.instance.isPlayerTurn)
+            {
+                //if current turn is opponent
+                SpecialCardManager.instance.Give(5, "opponent");
+            }
+
+        }
+
+    }
+
+    public enum SpecialCardType
+    {
+        CaughtRedHanded,
+        EmptyPockets,
+        Burden,
+        RifleButt,
+        SmokeBreak,
+        Weakness,
+        ThickWoolenCoat,
+        Setup,
+        Bribe,
+        Fist,
+        CondensedMilk,
+        InCahoots,
+        Search,
+        Poison,
+        BackstabDiscard,
+        Scam,
+        GiveItUp,
+        Rotation,
+        DirtyTrickIV,
+        BaitAndSwitch,
+        SelfHarm,
+        BackstabSwap,
+        ThereThere,
+        NotMyProblem,
+        Frostbite,
+        DirtyTrickI,
+        DirtyTrickII,
+        DirtyTrickIII,
+        LousyDeal,
+        FindersKeepers,
+        Gossip,
+        FairShare,
+        SleeplessNight,
+        Payback,
+        Knife,
+        ExtraWork,
+        Scratch,
+        Leftovers,
+        Glare,
+        Snitch,
+        GoodDeal,
+        EasyDay,
+        GoodFeeling,
+        Forgery,
+        Pushover,
+        Scavenge,
+        Overwhelmed,
+        VitaminShotII,
+        VitaminShotV
     }
 }
