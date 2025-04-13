@@ -94,7 +94,7 @@ public class CardPlace : MonoBehaviour,
             }
             else
             {
-
+                //ADD IF CONDITION MET CHECK
                 AnimateBeingPlayed();
             }
         }
@@ -206,7 +206,9 @@ public class CardPlace : MonoBehaviour,
     IEnumerator PlayCorrespondingAction()
     {
         //
+        NumberManager.instance.recalculate = true;
         yield return new WaitForSeconds(0.5f);
+
 
         if(specialCardType == SpecialCardType.CaughtRedHanded)
         {
@@ -223,8 +225,17 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.Burden)
         {
+            if (TurnManager.instance.isPlayerTurn)
+            {
+                if (NumberManager.instance.OPPreds.Count > 0)
+                {
+                    ActivateChoice(4);
+                }
+            }
 
-
+            //else ai logic
+            //if under target then negative
+            //if over target then positive
         }
         else if (specialCardType == SpecialCardType.RifleButt)
         {
@@ -243,7 +254,14 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.ThickWoolenCoat)
         {
-            ActivateChoice(2);
+            if (TurnManager.instance.isPlayerTurn)
+            {
+                ActivateChoice(2);
+            }
+            
+            //else AI logic
+            //if under target then negative
+            //if over target then positive
 
         }
         else if (specialCardType == SpecialCardType.Setup)
