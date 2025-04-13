@@ -27,83 +27,92 @@ public class AnimatorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        float tiltAngle = 0;
-        float rotationSpeed = 0.5f;  // Speed for rotation interpolation
-
-        // Current world position of the card
-        Vector3 cardWorldPosition = cardRectTransform.position;
-
-        
-
-        // Target world position
-        Vector3 targetWorldPosition = targetRectTransform.position;
-
-        // Smoothly interpolate the card's position towards the target position
-        cardRectTransform.position = Vector3.Lerp(cardWorldPosition, targetWorldPosition, Time.deltaTime * lerpSpeed);
-
-        float deltaX = targetWorldPosition.x - cardWorldPosition.x;
-        
-        //Debug.Log(deltaX);
-
-        
-        
-
-        if(targetRectTransform.gameObject.GetComponent<NumberStats>().positive)
+        if (target == null)
         {
-            tiltAngle = 0f; // Default tilt angle
-
-            if (deltaX > 0)
-            {
-                //Debug.Log("tilt right");
-                tiltAngle = -deltaX * rotationSpeed; // Tilt right (negative Z rotation)
-            }
-            else if (deltaX < 0)
-            {
-                //Debug.Log("tilt left");
-                tiltAngle = deltaX * -rotationSpeed; // Tilt left (positive Z rotation)
-            }
-            else
-            {
-                //Debug.Log("no tilt");
-            }
-
-            // Create target rotation as a Quaternion (avoids issues with Euler angles)
-            targetRotation = Quaternion.Euler(0, 0, tiltAngle);
-
-            // Smoothly interpolate using Lerp
-            cardRectTransform.rotation = Quaternion.Lerp(cardRectTransform.rotation, targetRotation, Time.deltaTime * 8f);
+            Destroy(this.gameObject);
         }
-        
-        else if(targetRectTransform.gameObject.GetComponent<NumberStats>().negative)
+        else
         {
-            cardRectTransform.localScale = new Vector3(0.081f, 0.081f, 0.081f);
 
-            tiltAngle = 0f; // Default tilt angle
 
-            if (deltaX > 0)
+
+
+            float tiltAngle = 0;
+            float rotationSpeed = 0.5f;  // Speed for rotation interpolation
+
+            // Current world position of the card
+            Vector3 cardWorldPosition = cardRectTransform.position;
+
+
+
+            // Target world position
+            Vector3 targetWorldPosition = targetRectTransform.position;
+
+            // Smoothly interpolate the card's position towards the target position
+            cardRectTransform.position = Vector3.Lerp(cardWorldPosition, targetWorldPosition, Time.deltaTime * lerpSpeed);
+
+            float deltaX = targetWorldPosition.x - cardWorldPosition.x;
+
+            //Debug.Log(deltaX);
+
+
+
+
+            if (targetRectTransform.gameObject.GetComponent<NumberStats>().positive)
             {
-                //Debug.Log("tilt right");
-                tiltAngle = -deltaX * rotationSpeed; // Tilt right (negative Z rotation)
+                tiltAngle = 0f; // Default tilt angle
+
+                if (deltaX > 0)
+                {
+                    //Debug.Log("tilt right");
+                    tiltAngle = -deltaX * rotationSpeed; // Tilt right (negative Z rotation)
+                }
+                else if (deltaX < 0)
+                {
+                    //Debug.Log("tilt left");
+                    tiltAngle = deltaX * -rotationSpeed; // Tilt left (positive Z rotation)
+                }
+                else
+                {
+                    //Debug.Log("no tilt");
+                }
+
+                // Create target rotation as a Quaternion (avoids issues with Euler angles)
+                targetRotation = Quaternion.Euler(0, 0, tiltAngle);
+
+                // Smoothly interpolate using Lerp
+                cardRectTransform.rotation = Quaternion.Lerp(cardRectTransform.rotation, targetRotation, Time.deltaTime * 8f);
             }
-            else if (deltaX < 0)
+
+            else if (targetRectTransform.gameObject.GetComponent<NumberStats>().negative)
             {
-                //Debug.Log("tilt left");
-                tiltAngle = deltaX * -rotationSpeed; // Tilt left (positive Z rotation)
+                cardRectTransform.localScale = new Vector3(0.081f, 0.081f, 0.081f);
+
+                tiltAngle = 0f; // Default tilt angle
+
+                if (deltaX > 0)
+                {
+                    //Debug.Log("tilt right");
+                    tiltAngle = -deltaX * rotationSpeed; // Tilt right (negative Z rotation)
+                }
+                else if (deltaX < 0)
+                {
+                    //Debug.Log("tilt left");
+                    tiltAngle = deltaX * -rotationSpeed; // Tilt left (positive Z rotation)
+                }
+                else
+                {
+                    //Debug.Log("no tilt");
+                }
+
+                // Create target rotation as a Quaternion (avoids issues with Euler angles)
+                targetRotation = Quaternion.Euler(0, 0, tiltAngle);
+
+                // Smoothly interpolate using Lerp
+                cardRectTransform.rotation = Quaternion.Lerp(cardRectTransform.rotation, targetRotation, Time.deltaTime * 8f);
+
             }
-            else
-            {
-                //Debug.Log("no tilt");
-            }
-
-            // Create target rotation as a Quaternion (avoids issues with Euler angles)
-            targetRotation = Quaternion.Euler(0, 0, tiltAngle);
-
-            // Smoothly interpolate using Lerp
-            cardRectTransform.rotation = Quaternion.Lerp(cardRectTransform.rotation, targetRotation, Time.deltaTime * 8f);
-
         }
-        
         
     }
 

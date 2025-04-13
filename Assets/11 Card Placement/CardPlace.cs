@@ -276,7 +276,26 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.Fist)
         {
+            if(NumberManager.instance.OPPblues.Count > 0 || NumberManager.instance.blues.Count > 0)
+            {
+                foreach(GameObject g in NumberManager.instance.OPPblues)
+                {
+                    Destroy(g.GetComponent<CardPlace>().correspondingImage);
+                    Destroy(g);
+                    yield return new WaitForSeconds(0.7f);
+                    CardPlacementController.instance.DealOneCard("opponent");
+                    yield return new WaitForSeconds(0.7f);
+                }
 
+                foreach(GameObject g in NumberManager.instance.blues)
+                {
+                    Destroy(g.GetComponent<CardPlace>().correspondingImage);
+                    Destroy(g);
+                    yield return new WaitForSeconds(0.7f);
+                    CardPlacementController.instance.DealOneCard("player");
+                    yield return new WaitForSeconds(0.7f);
+                }
+            }
 
         }
         else if (specialCardType == SpecialCardType.CondensedMilk)
@@ -286,8 +305,8 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.InCahoots)
         {
-
-
+            SpecialCardManager.instance.Give(4, "player");
+            SpecialCardManager.instance.Give(4, "opponent");
         }
         else if (specialCardType == SpecialCardType.Search)
         {
@@ -441,6 +460,35 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.GoodFeeling)
         {
+            if(TurnManager.instance.isPlayerTurn)
+            {
+                if(CardPlacementController.instance.numberDeck[0].GetComponent<NumberStats>().yellow)
+                {
+                    CardPlacementController.instance.DealOneCard("player");
+                    yield return new WaitForSeconds(0.7f);
+                    CardPlacementController.instance.DealOneCard("opponent");
+                }
+                else
+                {
+                    CardPlacementController.instance.DealOneCard("player");
+                }
+                
+            }
+
+            if (!TurnManager.instance.isPlayerTurn)
+            {
+                if (CardPlacementController.instance.numberDeck[0].GetComponent<NumberStats>().yellow)
+                {
+                    CardPlacementController.instance.DealOneCard("opponent");
+                    yield return new WaitForSeconds(0.7f);
+                    CardPlacementController.instance.DealOneCard("player");
+                }
+                else
+                {
+                    CardPlacementController.instance.DealOneCard("opponent");
+                }
+
+            }
 
 
         }

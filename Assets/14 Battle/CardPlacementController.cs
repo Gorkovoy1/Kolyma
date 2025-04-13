@@ -133,32 +133,43 @@ public class CardPlacementController : MonoBehaviour
         }
     }
 
-    public void DealOneCard()
+    public void DealOneCard(string target)
     {
 
-
-        //give each number appropriate tag, then search for tags in scene for conditionals
-        //or check each gameobj for stats
-
-        //instantiate the space and then the image
-        //the image is the one that is clickable
-        //on start instantiate space to parent opponent or player, show image, then move to space
-        //will know which by parent 
-        //deck of spaces
-
-        if (numberDeck.Count != 0)
+        if(target == "player")
         {
-            if (numberDeck[0].GetComponent<NumberStats>().positive)
+            if (numberDeck.Count != 0)
             {
-                Instantiate(numberDeck[0], opponentPositiveArea);
-                numberDeck.RemoveAt(0);
-            }
-            else if (numberDeck[0].GetComponent<NumberStats>().negative)
-            {
-                Instantiate(numberDeck[0], opponentNegativeArea);
-                numberDeck.RemoveAt(0);
+                if (numberDeck[0].GetComponent<NumberStats>().positive)
+                {
+                    Instantiate(numberDeck[0], playerPositiveArea);
+                    numberDeck.RemoveAt(0);
+                }
+                else if (numberDeck[0].GetComponent<NumberStats>().negative)
+                {
+                    Instantiate(numberDeck[0], playerNegativeArea);
+                    numberDeck.RemoveAt(0);
+                }
             }
         }
+        else if(target == "opponent")
+        {
+            if (numberDeck.Count != 0)
+            {
+                if (numberDeck[0].GetComponent<NumberStats>().positive)
+                {
+                    Instantiate(numberDeck[0], opponentPositiveArea);
+                    numberDeck.RemoveAt(0);
+                }
+                else if (numberDeck[0].GetComponent<NumberStats>().negative)
+                {
+                    Instantiate(numberDeck[0], opponentNegativeArea);
+                    numberDeck.RemoveAt(0);
+                }
+            }
+        }
+        
+        
 
     }
 
