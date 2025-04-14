@@ -22,6 +22,8 @@ public class AnimatorScript : MonoBehaviour
         cardRectTransform = cardImage.GetComponent<RectTransform>();
 
         targetRectTransform = target.GetComponent<RectTransform>();
+
+        target.gameObject.GetComponent<CardPlace>().correspondingImage = this.gameObject;
     }
 
     // Update is called once per frame

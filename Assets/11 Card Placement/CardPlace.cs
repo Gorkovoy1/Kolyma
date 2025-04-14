@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Linq;
+using UnityEngine.UI;
 
 public class CardPlace : MonoBehaviour,
     IDragHandler, IBeginDragHandler, IEndDragHandler,
@@ -29,6 +30,8 @@ public class CardPlace : MonoBehaviour,
     public int childCount;
 
     public SpecialCardType specialCardType;
+
+    private float duration = 1f;
 
 
     // Start is called before the first frame update
@@ -184,6 +187,29 @@ public class CardPlace : MonoBehaviour,
         
     }
 
+    IEnumerator BurnShader(GameObject g)
+    {
+        RawImage rawImage = g.GetComponent<CardPlace>().correspondingImage.GetComponent<RawImage>();
+
+        Material mat = new Material(rawImage.materialForRendering); 
+
+        rawImage.material = mat;
+
+        float startFade = mat.GetFloat("_Fade");
+        float endFade = 0f;
+
+        for (float t = 0; t < duration; t += Time.deltaTime)
+        {
+            float lerpVal = Mathf.Lerp(startFade, endFade, t / duration);
+            mat.SetFloat("_Fade", lerpVal);
+            yield return null;
+        }
+
+        mat.SetFloat("_Fade", endFade);
+
+        yield return new WaitForSeconds(0.5f);
+    }
+
     IEnumerator BeingPlayed()
     {
         this.GetComponent<RectTransform>().anchoredPosition = new Vector3(400f, 0f, 0);
@@ -280,6 +306,9 @@ public class CardPlace : MonoBehaviour,
             {
                 foreach(GameObject g in NumberManager.instance.OPPblues)
                 {
+                    StartCoroutine(BurnShader(g));
+                    yield return new WaitForSeconds(1f);
+
                     Destroy(g.GetComponent<CardPlace>().correspondingImage);
                     Destroy(g);
                     yield return new WaitForSeconds(0.7f);
@@ -289,6 +318,10 @@ public class CardPlace : MonoBehaviour,
 
                 foreach(GameObject g in NumberManager.instance.blues)
                 {
+                    StartCoroutine(BurnShader(g));
+                    yield return new WaitForSeconds(1f);
+
+
                     Destroy(g.GetComponent<CardPlace>().correspondingImage);
                     Destroy(g);
                     yield return new WaitForSeconds(0.7f);
