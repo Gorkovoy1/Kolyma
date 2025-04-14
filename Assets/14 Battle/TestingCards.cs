@@ -19,6 +19,11 @@ public class TestingCards : MonoBehaviour
         
     }
 
+    public void TestDeal()
+    {
+        CardPlacementController.instance.DealOneCard(target);
+    }
+
     public void TestGive()
     {
         SpecialCardManager.instance.Give(value, target);
