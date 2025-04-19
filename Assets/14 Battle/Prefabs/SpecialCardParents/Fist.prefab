@@ -105,6 +105,9 @@ MonoBehaviour:
   playerHand: {fileID: 0}
   childCount: 0
   specialCardType: 9
+  isPlayable: 0
+  defaultMat: {fileID: 0}
+  playableMat: {fileID: 2100000, guid: d872faa1aa03b3043ada6d7ff912f653, type: 2}
 --- !u!114 &8132540026265061464
 MonoBehaviour:
   m_ObjectHideFlags: 0

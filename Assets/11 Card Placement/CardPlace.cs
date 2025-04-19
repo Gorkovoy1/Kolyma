@@ -33,19 +33,25 @@ public class CardPlace : MonoBehaviour,
 
     private float duration = 1f;
 
+    public bool isPlayable; //for the player
+
+
+    public Material defaultMat;
+    public Material playableMat;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         
         playerHand = this.transform.parent;
-
+        
 
         if(imagePrefab != null)
         {
             //this means its a special card
             correspondingImage = Instantiate(imagePrefab, imagesParent);
             correspondingImage.GetComponent<SpecialCardMovement>().target = this.gameObject.GetComponent<RectTransform>();
+            defaultMat = correspondingImage.GetComponent<Image>().material;
         }
         
     }
@@ -53,6 +59,28 @@ public class CardPlace : MonoBehaviour,
     // Update is called once per frame
     void Update()
     {
+        
+        if (imagePrefab != null)
+        {
+            //this means its a special card
+            if (TurnManager.instance.isPlayerTurn && this.transform.parent == playerHand) //check parent is hand
+            {
+                NumberManager.instance.recalculate = true;
+                CheckPlayable();
+                if(isPlayable)
+                {
+                    //outline card in green
+                    //change material to outline shader
+                    //change back when playing card
+                    correspondingImage.GetComponent<Image>().material = playableMat;
+                }
+                else
+                {
+                    isPlayable = false;
+                }
+            }
+            
+        }
         
     }
 
@@ -97,8 +125,16 @@ public class CardPlace : MonoBehaviour,
             }
             else
             {
-                //ADD IF CONDITION MET CHECK
-                AnimateBeingPlayed();
+                CheckPlayable();
+                if(isPlayable)
+                {
+                    AnimateBeingPlayed();
+                }
+                else
+                {
+                    this.transform.SetParent(parentReturnTo);
+                }
+                
             }
         }
         
@@ -183,6 +219,8 @@ public class CardPlace : MonoBehaviour,
 
     public void AnimateBeingPlayed()
     {
+        isPlayable = false;
+        correspondingImage.GetComponent<Image>().material = defaultMat;
         StartCoroutine(BeingPlayed());
         
     }
@@ -225,8 +263,319 @@ public class CardPlace : MonoBehaviour,
 
     public void CheckPlayable()
     {
-        //pick condition
-        //if condition then highlight card
+        //Debug.Log("checkingplayable");
+        if (specialCardType == SpecialCardType.CaughtRedHanded)
+        {
+            if (NumberManager.instance.OPPyellows.Count > 0)
+            {
+                isPlayable = true;
+            }
+        }
+        else if (specialCardType == SpecialCardType.EmptyPockets)
+        {
+            if (NumberManager.instance.OPPblues.Count > 0)
+            {
+                isPlayable = true;
+            }
+
+        }
+        else if (specialCardType == SpecialCardType.Burden)
+        {
+            if (NumberManager.instance.OPPreds.Count > 0)
+            {
+                isPlayable = true;
+            }
+        }
+        else if (specialCardType == SpecialCardType.RifleButt)
+        {
+            if (NumberManager.instance.OPPreds.Count > 0)
+            {
+                isPlayable = true;
+            }
+        }
+        else if (specialCardType == SpecialCardType.SmokeBreak)
+        {
+            //draw 2 random specials from discard
+            isPlayable = true;
+
+        }
+        else if (specialCardType == SpecialCardType.Weakness)
+        {
+            foreach(GameObject g in NumberManager.instance.OPPpositives)
+            {
+                if(g.GetComponent<NumberStats>().value == 2)
+                {
+                    isPlayable = true;
+                    break;
+                }
+            }
+
+        }
+        else if (specialCardType == SpecialCardType.ThickWoolenCoat)
+        {
+            isPlayable = true;
+
+        }
+        else if (specialCardType == SpecialCardType.Setup)
+        {
+            if (NumberManager.instance.OPPnegatives.Count > 0)
+            {
+                isPlayable = true;
+            }
+
+        }
+        else if (specialCardType == SpecialCardType.Bribe) //in process
+        {
+            
+            List<GameObject> duplicates = NumberManager.instance.OPPallNumbers.GroupBy(obj => obj.GetComponent<NumberStats>().value)
+                .Where (g => g.Count() > 1)
+                .SelectMany(g => g)
+                .ToList();
+            
+
+            foreach (GameObject go in duplicates)
+            {
+                Debug.Log("Duplicate GameObject: " + go.name);
+            }
+            
+        }
+        else if (specialCardType == SpecialCardType.Fist)
+        {
+            if (NumberManager.instance.OPPblues.Count > 0 || NumberManager.instance.blues.Count > 0)
+            {
+                isPlayable = true;
+            }
+
+        }
+        else if (specialCardType == SpecialCardType.CondensedMilk)
+        {
+            isPlayable = true;
+
+        }
+        else if (specialCardType == SpecialCardType.InCahoots)
+        {
+             isPlayable = true;
+        }
+        else if (specialCardType == SpecialCardType.Search)
+        {
+            isPlayable = true;
+
+        }
+        else if (specialCardType == SpecialCardType.Poison)
+        {
+            isPlayable = true;
+
+        }
+        else if (specialCardType == SpecialCardType.BackstabDiscard)
+        {
+            //if opponent discarded then true
+
+        }
+        else if (specialCardType == SpecialCardType.Scam)
+        {
+            isPlayable = true;
+
+        }
+        else if (specialCardType == SpecialCardType.GiveItUp)
+        {
+            if(NumberManager.instance.negatives.Count > 0)
+            {
+                isPlayable = true;
+            }
+
+        }
+        else if (specialCardType == SpecialCardType.Rotation)
+        {
+            if (NumberManager.instance.negatives.Count > 0)
+            {
+                isPlayable = true;
+            }
+
+        }
+        else if (specialCardType == SpecialCardType.DirtyTrickIV)
+        {
+            if (NumberManager.instance.OPPyellows.Count > 0)
+            {
+                isPlayable = true;
+            }
+
+        }
+        else if (specialCardType == SpecialCardType.BaitAndSwitch)
+        {
+            isPlayable = true;
+
+        }
+        else if (specialCardType == SpecialCardType.SelfHarm)
+        {
+            isPlayable = true;
+
+        }
+        else if (specialCardType == SpecialCardType.BackstabSwap)
+        {
+            //if opp swapped then playable
+
+        }
+        else if (specialCardType == SpecialCardType.ThereThere)
+        {
+            List<GameObject> duplicates = NumberManager.instance.allNumbers.GroupBy(obj => obj.GetComponent<NumberStats>().value)
+                .Where(g => g.Count() > 1)
+                .SelectMany(g => g)
+                .ToList();
+
+
+            foreach (GameObject go in duplicates)
+            {
+                Debug.Log("Duplicate GameObject: " + go.name);
+            }
+
+        }
+        else if (specialCardType == SpecialCardType.NotMyProblem)
+        {
+            isPlayable = true;
+
+        }
+        else if (specialCardType == SpecialCardType.Frostbite)
+        {
+            //if ahve 2 or -2
+
+        }
+        else if (specialCardType == SpecialCardType.DirtyTrickI)
+        {
+            if(NumberManager.instance.OPPreds.Count > 0 || NumberManager.instance.reds.Count > 0)
+            {
+                isPlayable = true;
+            }
+
+        }
+        else if (specialCardType == SpecialCardType.DirtyTrickII)
+        {
+            if (NumberManager.instance.OPPyellows.Count > 0 || NumberManager.instance.yellows.Count > 0)
+            {
+                isPlayable = true;
+            }
+
+        }
+        else if (specialCardType == SpecialCardType.DirtyTrickIII)
+        {
+            if (NumberManager.instance.OPPblues.Count > 0 || NumberManager.instance.blues.Count > 0)
+            {
+                isPlayable = true;
+            }
+
+        }
+        else if (specialCardType == SpecialCardType.LousyDeal)
+        {
+            isPlayable = true;
+
+        }
+        else if (specialCardType == SpecialCardType.FindersKeepers)
+        {
+            if (NumberManager.instance.reds.Count > 0)
+            {
+                isPlayable = true;
+            }
+
+        }
+        else if (specialCardType == SpecialCardType.Gossip)
+        {
+            isPlayable = true;
+
+        }
+        else if (specialCardType == SpecialCardType.FairShare)
+        {
+            if(NumberManager.instance.OPPnegatives.Count > 0)
+            {
+                isPlayable = true;
+            }
+
+        }
+        else if (specialCardType == SpecialCardType.SleeplessNight)
+        {
+            //if opp swapped
+
+        }
+        else if (specialCardType == SpecialCardType.Payback)
+        {
+            //if opp gave u something
+
+        }
+        else if (specialCardType == SpecialCardType.Knife)
+        {
+            isPlayable = true;
+
+        }
+        else if (specialCardType == SpecialCardType.ExtraWork)
+        {
+            //if opp flipped
+
+        }
+        else if (specialCardType == SpecialCardType.Scratch)
+        {
+            //if opp gave u something
+
+        }
+        else if (specialCardType == SpecialCardType.Leftovers)
+        {
+            //if opp discarded
+
+        }
+        else if (specialCardType == SpecialCardType.Glare)
+        {
+            isPlayable = true;
+
+        }
+        else if (specialCardType == SpecialCardType.Snitch)
+        {
+            //if opp discarded
+
+        }
+        else if (specialCardType == SpecialCardType.GoodDeal)
+        {
+            isPlayable = true;
+
+        }
+        else if (specialCardType == SpecialCardType.EasyDay)
+        {
+            isPlayable = true;
+
+        }
+        else if (specialCardType == SpecialCardType.GoodFeeling)
+        {
+             isPlayable = true;
+
+        }
+        else if (specialCardType == SpecialCardType.Forgery)
+        {
+            isPlayable = true;
+
+        }
+        else if (specialCardType == SpecialCardType.Pushover)
+        {
+            isPlayable = true;
+
+        }
+        else if (specialCardType == SpecialCardType.Scavenge)
+        {
+            isPlayable = true;
+
+        }
+        else if (specialCardType == SpecialCardType.Overwhelmed)
+        {
+            if(NumberManager.instance.allNumbers.Count > 5)
+            {
+                isPlayable = true;
+            }
+
+        }
+        else if (specialCardType == SpecialCardType.VitaminShotII)
+        {
+            isPlayable = true;
+
+        }
+        else if (specialCardType == SpecialCardType.VitaminShotV)
+        {
+            isPlayable = true;
+        }
     }
 
     IEnumerator PlayCorrespondingAction()

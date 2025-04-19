@@ -131,6 +131,9 @@ public class CardPlacementController : MonoBehaviour
             //Delay between cards
             yield return new WaitForSeconds(1f);
         }
+
+        //if value is higher
+        TurnManager.instance.isPlayerTurn = true;
     }
 
     public void DealOneCard(string target)

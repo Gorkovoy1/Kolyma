@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class DropZoneController : MonoBehaviour, IDropHandler
 {
@@ -14,11 +15,21 @@ public class DropZoneController : MonoBehaviour, IDropHandler
         {
             if (!droppedCard.TryGetComponent<NumberStats>(out var component))
             {
-                droppedCard.GetComponent<CardPlace>().beingPlayed = true;
-                droppedCard.transform.SetParent(playerDiscardZone.transform);
+                if(droppedCard.GetComponent<CardPlace>().isPlayable == true)
+                {
+                    Debug.Log("set being played");
+                    droppedCard.GetComponent<CardPlace>().beingPlayed = true;
+                    droppedCard.GetComponent<CardPlace>().correspondingImage.GetComponent<Image>().material = droppedCard.GetComponent<CardPlace>().defaultMat;
+                    droppedCard.transform.SetParent(playerDiscardZone.transform);
 
-                //call script to animate card and carry out effect
-                //droppedCard.GetComponent
+
+                    //call script to animate card and carry out effect
+                    //droppedCard.GetComponent
+                }
+                else
+                {
+                    droppedCard.GetComponent<CardPlace>().beingPlayed = false;
+                }
             }
 
         }
