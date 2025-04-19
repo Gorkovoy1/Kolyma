@@ -64,7 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8117648, g: 0.8078432, b: 0.3647059, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -148,6 +148,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDragging: 0
   parentReturnTo: {fileID: 0}
+  imagePrefab: {fileID: 0}
+  correspondingImage: {fileID: 0}
+  imagesParent: {fileID: 0}
+  hoverOffset: 0
+  hovering: 0
+  dragging: 0
+  beingPlayed: 0
+  playerDiscardZone: {fileID: 0}
+  playerHand: {fileID: 0}
+  childCount: 0
+  specialCardType: 0
+  isPlayable: 0
+  defaultMat: {fileID: 0}
+  playableMat: {fileID: 0}
 --- !u!114 &6651661951633736023
 MonoBehaviour:
   m_ObjectHideFlags: 0

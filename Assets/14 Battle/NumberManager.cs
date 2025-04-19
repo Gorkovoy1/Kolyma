@@ -41,6 +41,9 @@ public class NumberManager : MonoBehaviour
 
     public static NumberManager instance;
 
+    public int playerVal;
+    public int oppVal;
+
 
     void Awake()
     {
@@ -77,6 +80,26 @@ public class NumberManager : MonoBehaviour
         RecalculateAllBlues();
         RecalculateAllReds();
         RecalculateAllYellows();
+        RecalculateValues();
+    }
+
+    void RecalculateValues()
+    {
+        int i = 0;
+        int j = 0;
+
+        foreach(var v in allNumbers)
+        {
+            i += v.GetComponent<NumberStats>().value;
+        }
+
+        foreach(var v in OPPallNumbers)
+        {
+            j += v.GetComponent<NumberStats>().value;
+        }
+
+        playerVal = i;
+        oppVal = j;
     }
 
     void RecalculateAllYellows()
