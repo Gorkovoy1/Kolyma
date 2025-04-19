@@ -181,7 +181,7 @@ public class CardPlace : MonoBehaviour,
                     {
                         correspondingImage.transform.SetAsLastSibling();
                         correspondingImage.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
-                        correspondingImage.transform.position += new Vector3(0f, hoverOffset, 0f);
+                        correspondingImage.GetComponent<RectTransform>().anchoredPosition = new Vector3(correspondingImage.GetComponent<RectTransform>().anchoredPosition.x, correspondingImage.GetComponent<RectTransform>().anchoredPosition.y + hoverOffset, 0f);
                     }
 
                 }

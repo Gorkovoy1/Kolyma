@@ -97,7 +97,7 @@ MonoBehaviour:
   imagePrefab: {fileID: 3263320937072015900, guid: 4a3f27477d6ef2d41b9057dd70f0ae2d, type: 3}
   correspondingImage: {fileID: 0}
   imagesParent: {fileID: 0}
-  hoverOffset: 100
+  hoverOffset: 75
   hovering: 0
   dragging: 0
   beingPlayed: 0
