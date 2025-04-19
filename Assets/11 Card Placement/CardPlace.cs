@@ -44,9 +44,11 @@ public class CardPlace : MonoBehaviour,
     {
         
         playerHand = this.transform.parent;
-        
+        parentReturnTo = playerHand;
+        //set images parent
+        //set discard zone obj
 
-        if(imagePrefab != null)
+        if (imagePrefab != null)
         {
             //this means its a special card
             correspondingImage = Instantiate(imagePrefab, imagesParent);
