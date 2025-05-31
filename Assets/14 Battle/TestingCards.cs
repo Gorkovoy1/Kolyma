@@ -28,4 +28,19 @@ public class TestingCards : MonoBehaviour
     {
         SpecialCardManager.instance.Give(value, target);
     }
+
+    public void RandomGive()
+    {
+        int random = Random.Range(0, 2);
+        if(random == 0)
+        {
+            CardPlacementController.instance.DealOneCard("player");
+        }
+        else
+        {
+            CardPlacementController.instance.DealOneCard("opponent");
+        }
+        
+        
+    }
 }
