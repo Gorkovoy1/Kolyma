@@ -170,7 +170,7 @@ public class CardPlace : MonoBehaviour,
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (!gameObject.TryGetComponent<NumberStats>(out var component))
+        if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name == "PlayerHand")
         {
             if (!beingPlayed)
             {
@@ -199,7 +199,7 @@ public class CardPlace : MonoBehaviour,
     
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (!gameObject.TryGetComponent<NumberStats>(out var component))
+        if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name == "PlayerHand")
         {
             if (!beingPlayed)
             {
