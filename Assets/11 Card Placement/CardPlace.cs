@@ -41,7 +41,7 @@ public class CardPlace : MonoBehaviour,
     public Material playableMat;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         
         playerHand = this.transform.parent;
@@ -52,6 +52,7 @@ public class CardPlace : MonoBehaviour,
         if (imagePrefab != null)
         {
             //this means its a special card
+            imagesParent = this.GetComponentInParent<HandController>().imagesParent;
             correspondingImage = Instantiate(imagePrefab, imagesParent);
             correspondingImage.GetComponent<SpecialCardMovement>().target = this.gameObject.GetComponent<RectTransform>();
             defaultMat = correspondingImage.GetComponent<Image>().material;
