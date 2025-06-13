@@ -14,6 +14,8 @@ public class NumberStats : MonoBehaviour
 
     public int value;
 
+    public bool selectable;
+
     // Start is called before the first frame update
     void Start()
     {

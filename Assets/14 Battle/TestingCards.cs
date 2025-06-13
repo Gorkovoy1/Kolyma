@@ -43,4 +43,21 @@ public class TestingCards : MonoBehaviour
         
         
     }
+
+    public void CurrentTest()
+    {
+        //insert current testing call 
+
+        foreach(GameObject g in NumberManager.instance.reds)
+        {
+            g.GetComponent<NumberStats>().selectable = true;
+        }
+
+        foreach (GameObject g in NumberManager.instance.OPPreds)
+        {
+            g.GetComponent<NumberStats>().selectable = true;
+        }
+
+        CardSelectionController.instance.CallButtons();
+    }
 }
