@@ -23,6 +23,7 @@ public class CardPlace : MonoBehaviour,
     public bool beingPlayed;
 
     public GameObject playerDiscardZone;
+    public GameObject opponentDiscardZone;
 
     public Transform playerHand;
 
@@ -48,6 +49,8 @@ public class CardPlace : MonoBehaviour,
         parentReturnTo = playerHand;
         //set images parent
         //set discard zone obj
+        playerDiscardZone = GameObject.FindWithTag("PlayerDiscard");
+        opponentDiscardZone = GameObject.FindWithTag("OpponentDiscard");
 
         if (imagePrefab != null)
         {
@@ -92,6 +95,7 @@ public class CardPlace : MonoBehaviour,
     {
         if (!gameObject.TryGetComponent<NumberStats>(out var component))
         {
+            hovering = false;
             Debug.Log("OnBeginDrag");
             dragging = true;
 
@@ -170,7 +174,7 @@ public class CardPlace : MonoBehaviour,
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name == "PlayerHand")
+        if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name != "OpponentHand")
         {
             if (!beingPlayed)
             {
