@@ -92,6 +92,10 @@ public class CardSelectionController : MonoBehaviour
                     {
                         StartCoroutine(SwapOut(g, target));
                     }
+                    else if(toDo == "discard")
+                    {
+                        StartCoroutine(DiscardNumber(g));
+                    }
 
                     Debug.Log("execute action");
                     choiceObj.SetActive(false);
@@ -111,9 +115,20 @@ public class CardSelectionController : MonoBehaviour
 
     }
 
+    IEnumerator DiscardNumber(GameObject g)
+    {
+        StartCoroutine(DeleteShader(g));
+        yield return new WaitForSeconds(1f);
+
+        Destroy(g.GetComponent<CardPlace>().correspondingImage);
+        Destroy(g);
+        yield return new WaitForSeconds(0.7f);
+    }
+
+
     IEnumerator SwapOut(GameObject g, string target)
     {
-        StartCoroutine(SwapShader(g));
+        StartCoroutine(DeleteShader(g));
         yield return new WaitForSeconds(1f);
 
 
@@ -124,7 +139,7 @@ public class CardSelectionController : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
     }
 
-    IEnumerator SwapShader(GameObject g)
+    IEnumerator DeleteShader(GameObject g)
     {
         RawImage rawImage = g.GetComponent<CardPlace>().correspondingImage.GetComponent<RawImage>();
 

@@ -58,6 +58,6 @@ public class TestingCards : MonoBehaviour
             g.GetComponent<NumberStats>().selectable = true;
         }
 
-        CardSelectionController.instance.CallButtons("swap", "opponent");
+        CardSelectionController.instance.CallButtons("discard", "opponent");
     }
 }
