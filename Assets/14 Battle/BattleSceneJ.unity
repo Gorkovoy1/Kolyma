@@ -3501,6 +3501,8 @@ MonoBehaviour:
   - {fileID: 1086059024571131941, guid: 3c86dd04a38b3e347970849d43f6b7f1, type: 3}
   - {fileID: 4852111069550977221, guid: 333256ad30117ef458a8e660c0b7faea, type: 3}
   - {fileID: 5990009992433413227, guid: 708cb0a337bf55f4282e2bc9968a39dc, type: 3}
+  - {fileID: 4274500267536811359, guid: b2ed7cf41e5a4694d9e6d2bf0ceda570, type: 3}
+  - {fileID: 4274500267536811359, guid: b2ed7cf41e5a4694d9e6d2bf0ceda570, type: 3}
   opponentSpecialDeck:
   - {fileID: 3412380488477333467, guid: 6185afe4de0b17a438f0ead9e3e51b82, type: 3}
   - {fileID: 8132540026265061471, guid: 5c0fd5aa7df383a4c84310131b31c79f, type: 3}
@@ -3514,6 +3516,8 @@ MonoBehaviour:
   - {fileID: 1086059024571131941, guid: 3c86dd04a38b3e347970849d43f6b7f1, type: 3}
   - {fileID: 4852111069550977221, guid: 333256ad30117ef458a8e660c0b7faea, type: 3}
   - {fileID: 5990009992433413227, guid: 708cb0a337bf55f4282e2bc9968a39dc, type: 3}
+  - {fileID: 4274500267536811359, guid: b2ed7cf41e5a4694d9e6d2bf0ceda570, type: 3}
+  - {fileID: 4274500267536811359, guid: b2ed7cf41e5a4694d9e6d2bf0ceda570, type: 3}
   playerHand: {fileID: 890806058}
   opponentHand: {fileID: 2137599024}
   imagesParent: {fileID: 1425571759}

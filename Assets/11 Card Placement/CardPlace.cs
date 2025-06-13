@@ -597,11 +597,16 @@ public class CardPlace : MonoBehaviour,
 
         if(specialCardType == SpecialCardType.CaughtRedHanded)
         {
-            //check is done in checkplayable
-            //highlight all number cards, access a highlighter obj that highlights all red, blue, yellow, centrally controlled
-            //allow player to select those yellow cards
-            //destroy it, discard, and deal new number
-            
+            //set all yellow opponent selectable
+            //on click swap out click
+
+            foreach (GameObject g in NumberManager.instance.OPPyellows)
+            {
+                g.GetComponent<NumberStats>().selectable = true;
+            }
+
+            CardSelectionController.instance.CallButtons("swap", "opponent");
+
         }
         else if (specialCardType == SpecialCardType.EmptyPockets)
         {

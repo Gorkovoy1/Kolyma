@@ -37,7 +37,7 @@ public class CardSelectionController : MonoBehaviour
         
     }
 
-    public void CallButtons()
+    public void CallButtons(string toDo, string target)
     {
         foreach (Transform child in choiceObj.transform)
         {
@@ -88,13 +88,62 @@ public class CardSelectionController : MonoBehaviour
                 buttonObj.onClick.AddListener(() =>
                 {
                     //the action that happens
+                    if(toDo == "swap")
+                    {
+                        StartCoroutine(SwapOut(g, target));
+                    }
+
                     Debug.Log("execute action");
                     choiceObj.SetActive(false);
                 });
 
+
+
             }
         }
+
+        //reset all selectable
+        foreach(GameObject g in combined)
+        {
+            g.GetComponent<NumberStats>().selectable = false;
+        }
+
+
     }
 
+    IEnumerator SwapOut(GameObject g, string target)
+    {
+        StartCoroutine(SwapShader(g));
+        yield return new WaitForSeconds(1f);
 
+
+        Destroy(g.GetComponent<CardPlace>().correspondingImage);
+        Destroy(g);
+        yield return new WaitForSeconds(0.7f);
+        CardPlacementController.instance.DealOneCard(target);
+        yield return new WaitForSeconds(0.7f);
+    }
+
+    IEnumerator SwapShader(GameObject g)
+    {
+        RawImage rawImage = g.GetComponent<CardPlace>().correspondingImage.GetComponent<RawImage>();
+
+        Material mat = new Material(rawImage.materialForRendering);
+
+        rawImage.material = mat;
+
+        float startFade = mat.GetFloat("_Fade");
+        float endFade = 0f;
+
+        for (float t = 0; t < 1f; t += Time.deltaTime)
+        {
+            float lerpVal = Mathf.Lerp(startFade, endFade, t / 1f);
+            mat.SetFloat("_Fade", lerpVal);
+            yield return null;
+        }
+
+        mat.SetFloat("_Fade", endFade);
+
+        yield return new WaitForSeconds(0.5f);
+    }
 }
