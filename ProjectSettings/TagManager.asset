@@ -9,6 +9,8 @@ TagManager:
   - Undefined
   - Destroyable
   - Panel
+  - PlayerDiscard
+  - OpponentDiscard
   layers:
   - Default
   - TransparentFX

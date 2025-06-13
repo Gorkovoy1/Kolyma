@@ -2018,7 +2018,7 @@ GameObject:
   - component: {fileID: 1124721411}
   m_Layer: 5
   m_Name: OpponentDiscard
-  m_TagString: Untagged
+  m_TagString: OpponentDiscard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2040,7 +2040,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 31.61084, y: 159.00764}
+  m_AnchoredPosition: {x: -282, y: 166}
   m_SizeDelta: {x: 63.22162, y: 94.7251}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1124721411
@@ -2361,7 +2361,7 @@ GameObject:
   - component: {fileID: 1317641051}
   m_Layer: 5
   m_Name: PlayerDiscard
-  m_TagString: Untagged
+  m_TagString: PlayerDiscard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2383,7 +2383,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 31.610853, y: 65.40765}
+  m_AnchoredPosition: {x: -282, y: 64}
   m_SizeDelta: {x: 63.22162, y: 94.7251}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1317641051
