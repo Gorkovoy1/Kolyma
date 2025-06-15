@@ -41,10 +41,14 @@ public class CardPlace : MonoBehaviour,
     public Material defaultMat;
     public Material playableMat;
 
+    public List<GameObject> discardedCards;
+    public bool discardUpdated;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        discardUpdated = false;
+
         playerHand = this.transform.parent;
         parentReturnTo = playerHand;
         //set images parent
@@ -88,7 +92,20 @@ public class CardPlace : MonoBehaviour,
             }
             
         }
-        
+
+        //track discarded cards, update whenever becomes player turn
+        if (TurnManager.instance.isPlayerTurn /*&& !discardUpdated*/)          //uncomment when have turns
+        {
+            discardedCards = new List<GameObject>();
+
+            foreach (Transform child in playerDiscardZone.transform)
+            {
+                discardedCards.Add(child.gameObject);
+            }
+
+            discardUpdated = true;
+        }
+
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -307,6 +324,7 @@ public class CardPlace : MonoBehaviour,
         {
             //draw 2 random specials from discard
             isPlayable = true;
+            
 
         }
         else if (specialCardType == SpecialCardType.Weakness)
@@ -634,7 +652,33 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.SmokeBreak)
         {
+            //find children of player discard zone
+            //get 2 random cards and add back to hand
+            
+            //exclude smoke break 
 
+            if(discardedCards.Count > 0)
+            {
+                int randomIndex = Random.Range(0, discardedCards.Count);
+                GameObject chosenCard = discardedCards[randomIndex];
+                discardedCards.RemoveAt(randomIndex);
+                chosenCard.GetComponent<CardPlace>().beingPlayed = false;
+                chosenCard.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                chosenCard.transform.SetParent(playerHand);
+            }
+            if (playerDiscardZone.transform.childCount > 0)
+            {
+                int randomIndex = Random.Range(0, discardedCards.Count);
+                GameObject chosenCard = discardedCards[randomIndex];
+                discardedCards.RemoveAt(randomIndex);
+                chosenCard.GetComponent<CardPlace>().beingPlayed = false;
+                chosenCard.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                chosenCard.transform.SetParent(playerHand);
+            }
+            else
+            {
+                Debug.Log("not enough cards!");
+            }
 
         }
         else if (specialCardType == SpecialCardType.Weakness)
