@@ -776,7 +776,12 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.Scam)
         {
+            foreach (GameObject g in NumberManager.instance.OPPallNumbers)
+            {
+                g.GetComponent<NumberStats>().selectable = true;
+            }
 
+            CardSelectionController.instance.CallButtons("duplicate", "opponent");
 
         }
         else if (specialCardType == SpecialCardType.GiveItUp)

@@ -96,6 +96,18 @@ public class CardSelectionController : MonoBehaviour
                     {
                         StartCoroutine(DiscardNumber(g));
                     }
+                    else if (toDo == "duplicate")
+                    {
+                        if(g.GetComponent<NumberStats>().positive)
+                        {
+                            Instantiate(g, CardPlacementController.instance.opponentPositiveArea);
+                        }
+                        else
+                        {
+                            Instantiate(g, CardPlacementController.instance.opponentNegativeArea);
+                        }
+                        
+                    }
 
                     Debug.Log("execute action");
                     choiceObj.SetActive(false);
