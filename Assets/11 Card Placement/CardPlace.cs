@@ -791,7 +791,12 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.Rotation)
         {
+            foreach (GameObject g in NumberManager.instance.negatives)
+            {
+                g.GetComponent<NumberStats>().selectable = true;
+            }
 
+            CardSelectionController.instance.CallButtons("swap", "player");
 
         }
         else if (specialCardType == SpecialCardType.DirtyTrickIV)
