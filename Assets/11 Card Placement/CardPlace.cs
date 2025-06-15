@@ -756,7 +756,12 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.Search)
         {
+            foreach (GameObject g in NumberManager.instance.OPPallNumbers)
+            {
+                g.GetComponent<NumberStats>().selectable = true;
+            }
 
+            CardSelectionController.instance.CallButtons("discard", "opponent");
 
         }
         else if (specialCardType == SpecialCardType.Poison)

@@ -3748,9 +3748,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 890806059}
     m_Modifications:
+    - target: {fileID: 6365766544314711016, guid: c9dc738e4b8bf63429198f31012a7926, type: 3}
+      propertyPath: imagePrefab
+      value: 
+      objectReference: {fileID: 704969582746997283, guid: fd01a49dbcde6524d9939654c42fe7d2, type: 3}
+    - target: {fileID: 6365766544314711016, guid: c9dc738e4b8bf63429198f31012a7926, type: 3}
+      propertyPath: specialCardType
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6365766544314711016, guid: c9dc738e4b8bf63429198f31012a7926, type: 3}
+      propertyPath: correspondingImage
+      value: 
+      objectReference: {fileID: 704969582746997283, guid: fd01a49dbcde6524d9939654c42fe7d2, type: 3}
     - target: {fileID: 6365766544314711020, guid: c9dc738e4b8bf63429198f31012a7926, type: 3}
       propertyPath: m_Name
-      value: SmokeBreak
+      value: Search
       objectReference: {fileID: 0}
     - target: {fileID: 6365766544314711021, guid: c9dc738e4b8bf63429198f31012a7926, type: 3}
       propertyPath: m_Pivot.x
