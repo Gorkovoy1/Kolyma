@@ -851,12 +851,30 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.DirtyTrickII)
         {
+            foreach (GameObject g in NumberManager.instance.yellows)
+            {
+                g.GetComponent<NumberStats>().selectable = true;
+            }
+            foreach (GameObject g in NumberManager.instance.OPPyellows)
+            {
+                g.GetComponent<NumberStats>().selectable = true;
+            }
 
+            CardSelectionController.instance.CallButtons("change", "player", 4);
 
         }
         else if (specialCardType == SpecialCardType.DirtyTrickIII)
         {
+            foreach (GameObject g in NumberManager.instance.blues)
+            {
+                g.GetComponent<NumberStats>().selectable = true;
+            }
+            foreach (GameObject g in NumberManager.instance.OPPblues)
+            {
+                g.GetComponent<NumberStats>().selectable = true;
+            }
 
+            CardSelectionController.instance.CallButtons("change", "player", 9);
 
         }
         else if (specialCardType == SpecialCardType.LousyDeal)
