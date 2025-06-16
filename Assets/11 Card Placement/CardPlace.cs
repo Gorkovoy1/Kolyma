@@ -836,6 +836,16 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.DirtyTrickI)
         {
+            foreach (GameObject g in NumberManager.instance.reds)
+            {
+                g.GetComponent<NumberStats>().selectable = true;
+            }
+            foreach (GameObject g in NumberManager.instance.OPPreds)
+            {
+                g.GetComponent<NumberStats>().selectable = true;
+            }
+
+            CardSelectionController.instance.CallButtons("change", "player", 2);
 
 
         }

@@ -37,7 +37,7 @@ public class CardSelectionController : MonoBehaviour
         
     }
 
-    public void CallButtons(string toDo, string target)
+    public void CallButtons(string toDo, string target, int x = 0)
     {
         foreach (Transform child in choiceObj.transform)
         {
@@ -120,8 +120,19 @@ public class CardSelectionController : MonoBehaviour
                                 Instantiate(g, CardPlacementController.instance.playerNegativeArea);
                             }
                         }
-                        
-                        
+                    }
+                    else if(toDo == "change")
+                    {
+                        if(g.transform.parent == CardPlacementController.instance.playerPositiveArea || g.transform.parent == CardPlacementController.instance.playerNegativeArea)
+                        {
+                            StartCoroutine(ChangeNumber(g, x, "player"));
+                            
+                        }
+                        else
+                        {
+                            StartCoroutine(ChangeNumber(g, x, "opponent"));
+                            
+                        }
                     }
 
                     Debug.Log("execute action");
@@ -142,6 +153,17 @@ public class CardSelectionController : MonoBehaviour
 
     }
 
+    IEnumerator ChangeNumber(GameObject g, int x, string target)
+    {
+        StartCoroutine(DeleteShader(g));
+        yield return new WaitForSeconds(1f);
+
+        Destroy(g.GetComponent<CardPlace>().correspondingImage);
+        Destroy(g);
+        yield return new WaitForSeconds(0.7f);
+        SpecialCardManager.instance.Give(x, target);
+    }
+
     IEnumerator DiscardNumber(GameObject g)
     {
         StartCoroutine(DeleteShader(g));
@@ -151,6 +173,7 @@ public class CardSelectionController : MonoBehaviour
         Destroy(g);
         yield return new WaitForSeconds(0.7f);
     }
+
 
 
     IEnumerator SwapOut(GameObject g, string target)
