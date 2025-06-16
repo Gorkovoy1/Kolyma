@@ -98,14 +98,29 @@ public class CardSelectionController : MonoBehaviour
                     }
                     else if (toDo == "duplicate")
                     {
-                        if(g.GetComponent<NumberStats>().positive)
+                        if(target == "opponent")
                         {
-                            Instantiate(g, CardPlacementController.instance.opponentPositiveArea);
+                            if (g.GetComponent<NumberStats>().positive)
+                            {
+                                Instantiate(g, CardPlacementController.instance.opponentPositiveArea);
+                            }
+                            else
+                            {
+                                Instantiate(g, CardPlacementController.instance.opponentNegativeArea);
+                            }
                         }
-                        else
+                        else if(target == "player")
                         {
-                            Instantiate(g, CardPlacementController.instance.opponentNegativeArea);
+                            if (g.GetComponent<NumberStats>().positive)
+                            {
+                                Instantiate(g, CardPlacementController.instance.playerPositiveArea);
+                            }
+                            else
+                            {
+                                Instantiate(g, CardPlacementController.instance.playerNegativeArea);
+                            }
                         }
+                        
                         
                     }
 

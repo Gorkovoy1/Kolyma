@@ -110,7 +110,7 @@ public class CardPlace : MonoBehaviour,
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (!gameObject.TryGetComponent<NumberStats>(out var component))
+        if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name != "OpponentHand")
         {
             hovering = false;
             Debug.Log("OnBeginDrag");
@@ -136,7 +136,7 @@ public class CardPlace : MonoBehaviour,
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (!gameObject.TryGetComponent<NumberStats>(out var component))
+        if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name != "OpponentHand")
         {
             dragging = false;
             GetComponent<CanvasGroup>().blocksRaycasts = true;
@@ -168,7 +168,7 @@ public class CardPlace : MonoBehaviour,
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (!gameObject.TryGetComponent<NumberStats>(out var component))
+        if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name != "OpponentHand")
         {
             //Debug.Log("OnDrag");
 
@@ -955,12 +955,22 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.Forgery)
         {
+            foreach (GameObject g in NumberManager.instance.allNumbers)
+            {
+                g.GetComponent<NumberStats>().selectable = true;
+            }
 
+            CardSelectionController.instance.CallButtons("duplicate", "player");
 
         }
         else if (specialCardType == SpecialCardType.Pushover)
         {
+            foreach (GameObject g in NumberManager.instance.allNumbers)
+            {
+                g.GetComponent<NumberStats>().selectable = true;
+            }
 
+            CardSelectionController.instance.CallButtons("discard", "player");
 
         }
         else if (specialCardType == SpecialCardType.Scavenge)
