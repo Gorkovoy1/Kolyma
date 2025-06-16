@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ChoiceController : MonoBehaviour
 {
@@ -109,10 +110,57 @@ public class ChoiceController : MonoBehaviour
             });
 
         }
+        
 
 
 
         choiceObject.SetActive(true);
+    }
+
+    public void ShowDiscardedCards(List<GameObject> discardedCards, Transform playerHand)
+    {
+        foreach (Transform child in choiceObject.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+
+        foreach (GameObject card in discardedCards)
+        {
+            GameObject chosenCard = card;
+            GameObject buttonObjTwo = Instantiate(buttonPrefab, choiceObject.transform);
+            Button buttonTwo = buttonObjTwo.GetComponent<Button>();
+            Image buttonTwoImage = buttonObjTwo.GetComponent<Image>();
+            buttonTwoImage.sprite = chosenCard.GetComponent<CardPlace>().imagePrefab.transform.Find("Image").GetComponent<Image>().sprite;
+            TextMeshProUGUI buttonText = buttonTwo.GetComponentInChildren<TextMeshProUGUI>();
+            Transform[] allChildren = chosenCard.GetComponent<CardPlace>().imagePrefab.GetComponentsInChildren<Transform>(true);
+            foreach (Transform child in allChildren)
+            {
+                if (child.name == "Text (TMP) (1)")
+                {
+                    buttonText.text = child.GetComponent<TextMeshProUGUI>().text;
+                    buttonText.color = Color.red;
+                    break;
+                }
+            }
+            
+
+            buttonTwo.onClick.AddListener(() =>
+            {
+                discardedCards.Remove(card);
+                chosenCard.GetComponent<CardPlace>().beingPlayed = false;
+                chosenCard.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                chosenCard.transform.SetParent(playerHand);
+                choiceObject.SetActive(false);
+            });
+
+        }
+
+
+
+        choiceObject.SetActive(true);
+
+
     }
 }
 

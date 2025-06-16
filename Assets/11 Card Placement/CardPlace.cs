@@ -975,7 +975,11 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.Scavenge)
         {
+            if (discardedCards.Count > 0)
+            {
+                ChoiceController.instance.ShowDiscardedCards(discardedCards, playerHand);
 
+            }
 
         }
         else if (specialCardType == SpecialCardType.Overwhelmed)
