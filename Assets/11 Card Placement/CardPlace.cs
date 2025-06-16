@@ -683,7 +683,19 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.Weakness)
         {
-
+            if (playerDiscardZone.transform.childCount > 0)
+            {
+                int randomIndex = Random.Range(0, discardedCards.Count);
+                GameObject chosenCard = discardedCards[randomIndex];
+                discardedCards.RemoveAt(randomIndex);
+                chosenCard.GetComponent<CardPlace>().beingPlayed = false;
+                chosenCard.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                chosenCard.transform.SetParent(playerHand);
+            }
+            else
+            {
+                Debug.Log("not enough cards!");
+            }
 
         }
         else if (specialCardType == SpecialCardType.ThickWoolenCoat)
