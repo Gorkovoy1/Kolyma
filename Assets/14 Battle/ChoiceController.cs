@@ -8,8 +8,10 @@ public class ChoiceController : MonoBehaviour
 {
 
     public GameObject choiceObject;
+    public GameObject discardChoiceObject;
 
     public GameObject buttonPrefab;
+    public GameObject buttonPrefabCard;
 
     public Sprite negFour;
     public Sprite posFour;
@@ -119,7 +121,7 @@ public class ChoiceController : MonoBehaviour
 
     public void ShowDiscardedCards(List<GameObject> discardedCards, Transform playerHand)
     {
-        foreach (Transform child in choiceObject.transform)
+        foreach (Transform child in discardChoiceObject.transform)
         {
             Destroy(child.gameObject);
         }
@@ -128,7 +130,7 @@ public class ChoiceController : MonoBehaviour
         foreach (GameObject card in discardedCards)
         {
             GameObject chosenCard = card;
-            GameObject buttonObjTwo = Instantiate(buttonPrefab, choiceObject.transform);
+            GameObject buttonObjTwo = Instantiate(buttonPrefabCard, discardChoiceObject.transform);
             Button buttonTwo = buttonObjTwo.GetComponent<Button>();
             Image buttonTwoImage = buttonObjTwo.GetComponent<Image>();
             buttonTwoImage.sprite = chosenCard.GetComponent<CardPlace>().imagePrefab.transform.Find("Image").GetComponent<Image>().sprite;
@@ -139,7 +141,7 @@ public class ChoiceController : MonoBehaviour
                 if (child.name == "Text (TMP) (1)")
                 {
                     buttonText.text = child.GetComponent<TextMeshProUGUI>().text;
-                    buttonText.color = Color.red;
+                    buttonText.color = Color.white;
                     break;
                 }
             }
@@ -151,14 +153,14 @@ public class ChoiceController : MonoBehaviour
                 chosenCard.GetComponent<CardPlace>().beingPlayed = false;
                 chosenCard.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                 chosenCard.transform.SetParent(playerHand);
-                choiceObject.SetActive(false);
+                discardChoiceObject.SetActive(false);
             });
 
         }
 
 
 
-        choiceObject.SetActive(true);
+        discardChoiceObject.SetActive(true);
 
 
     }
