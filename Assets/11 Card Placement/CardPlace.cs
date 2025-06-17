@@ -846,7 +846,12 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.NotMyProblem)
         {
+            foreach(GameObject g in NumberManager.instance.allNumbers)
+            {
+                g.GetComponent<NumberStats>().selectable = true;
+            }
 
+            CardSelectionController.instance.CallButtons("give", "opponent");
 
         }
         else if (specialCardType == SpecialCardType.Frostbite)
