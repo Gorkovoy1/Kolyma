@@ -1139,6 +1139,10 @@ public class CardPlace : MonoBehaviour,
 
     IEnumerator DiscardAnimation(GameObject g, string target)
     {
+
+        //opponent special cards upside down with card back
+        //discard animation -goes down, upside down, and then turns around and goes away
+
         g.GetComponent<CardPlace>().isPlayable = false;
         //show description
         g.GetComponent<CardPlace>().correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(true);
