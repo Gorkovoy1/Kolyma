@@ -355,15 +355,9 @@ public class CardPlace : MonoBehaviour,
         else if (specialCardType == SpecialCardType.Bribe) //in process
         {
             
-            List<GameObject> duplicates = NumberManager.instance.OPPallNumbers.GroupBy(obj => obj.GetComponent<NumberStats>().value)
-                .Where (g => g.Count() > 1)
-                .SelectMany(g => g)
-                .ToList();
-            
-
-            foreach (GameObject go in duplicates)
+            if(NumberManager.instance.duplicates.Count > 0)
             {
-                Debug.Log("Duplicate GameObject: " + go.name);
+                isPlayable = true;
             }
             
         }
@@ -722,7 +716,12 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.Bribe)
         {
+            foreach(GameObject g in NumberManager.instance.duplicates)
+            {
+                g.GetComponent<NumberStats>().selectable = true;
+            }
 
+            CardSelectionController.instance.CallButtons("give", "opponent");
 
         }
         else if (specialCardType == SpecialCardType.Fist)
@@ -758,7 +757,16 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.CondensedMilk)
         {
+            foreach(GameObject g in NumberManager.instance.allNumbers)
+            {
+                g.GetComponent<NumberStats>().selectable = true;
+            }
+            foreach(GameObject g in NumberManager.instance.OPPallNumbers)
+            {
+                g.GetComponent<NumberStats>().selectable = true;
+            }
 
+            CardSelectionController.instance.CallButtons("swap", "opponent");
 
         }
         else if (specialCardType == SpecialCardType.InCahoots)

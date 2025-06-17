@@ -90,6 +90,17 @@ public class CardSelectionController : MonoBehaviour
                     //the action that happens
                     if(toDo == "swap")
                     {
+                        if (g.transform.parent == CardPlacementController.instance.playerPositiveArea || g.transform.parent == CardPlacementController.instance.playerNegativeArea)
+                        {
+                            target = "player";
+
+                        }
+                        else
+                        {
+                            target = "opponent";
+
+                        }
+
                         StartCoroutine(SwapOut(g, target));
                     }
                     else if(toDo == "discard")
@@ -134,6 +145,12 @@ public class CardSelectionController : MonoBehaviour
                             
                         }
                     }
+                    else if(toDo == "give")
+                    {
+                        StartCoroutine(GiveNumber(g, target));
+
+                        
+                    }
 
                     Debug.Log("execute action");
                     choiceObj.SetActive(false);
@@ -151,6 +168,42 @@ public class CardSelectionController : MonoBehaviour
         }
 
 
+    }
+
+    IEnumerator GiveNumber(GameObject g, string target)
+    {
+        StartCoroutine(DeleteShader(g));
+        yield return new WaitForSeconds(1f);
+
+        Destroy(g.GetComponent<CardPlace>().correspondingImage);
+        
+
+
+        if (target == "opponent")
+        {
+            if (g.GetComponent<NumberStats>().positive)
+            {
+                Instantiate(g, CardPlacementController.instance.opponentPositiveArea);
+            }
+            else
+            {
+                Instantiate(g, CardPlacementController.instance.opponentNegativeArea);
+            }
+        }
+        else if (target == "player")
+        {
+            if (g.GetComponent<NumberStats>().positive)
+            {
+                Instantiate(g, CardPlacementController.instance.playerPositiveArea);
+            }
+            else
+            {
+                Instantiate(g, CardPlacementController.instance.playerNegativeArea);
+            }
+        }
+
+        Destroy(g);
+        yield return new WaitForSeconds(0.7f);
     }
 
     IEnumerator ChangeNumber(GameObject g, int x, string target)

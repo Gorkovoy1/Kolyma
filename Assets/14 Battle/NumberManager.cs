@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class NumberManager : MonoBehaviour
 {
@@ -81,6 +82,36 @@ public class NumberManager : MonoBehaviour
         RecalculateAllReds();
         RecalculateAllYellows();
         RecalculateValues();
+        RecalculateDuplicates();
+    }
+
+    void RecalculateDuplicates()
+    {
+        duplicates = new List<GameObject>();
+        OPPduplicates = new List<GameObject>();
+
+        List<GameObject> duplicateList = NumberManager.instance.allNumbers.GroupBy(obj => obj.GetComponent<NumberStats>().value)
+                .Where(g => g.Count() > 1)
+                .SelectMany(g => g)
+                .ToList();
+
+
+        foreach (GameObject g in duplicateList)
+        {
+            duplicates.Add(g);
+        }
+
+
+        List<GameObject> duplicateList2 = NumberManager.instance.OPPallNumbers.GroupBy(obj => obj.GetComponent<NumberStats>().value)
+                .Where(g => g.Count() > 1)
+                .SelectMany(g => g)
+                .ToList();
+
+
+        foreach (GameObject g in duplicateList2)
+        {
+            OPPduplicates.Add(g);
+        }
     }
 
     void RecalculateValues()
