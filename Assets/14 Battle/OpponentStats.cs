@@ -10,6 +10,8 @@ public class OpponentStats : MonoBehaviour
 
     public bool action;
 
+    public static OpponentStats instance;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,5 +22,13 @@ public class OpponentStats : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
     }
 }

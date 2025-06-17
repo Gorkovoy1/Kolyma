@@ -33,10 +33,6 @@ public class SpecialCardManager : MonoBehaviour
         
     }
 
-    public void DiscardSpecialCard()
-    {
-        //
-    }
 
     public void Give(int value, string target)            //testing with random values
     {

@@ -206,7 +206,7 @@ public class CardSelectionController : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
     }
 
-    IEnumerator ChangeNumber(GameObject g, int x, string target)
+    public IEnumerator ChangeNumber(GameObject g, int x, string target)
     {
         StartCoroutine(DeleteShader(g));
         yield return new WaitForSeconds(1f);
@@ -217,7 +217,7 @@ public class CardSelectionController : MonoBehaviour
         SpecialCardManager.instance.Give(x, target);
     }
 
-    IEnumerator DiscardNumber(GameObject g)
+    public IEnumerator DiscardNumber(GameObject g)
     {
         StartCoroutine(DeleteShader(g));
         yield return new WaitForSeconds(1f);

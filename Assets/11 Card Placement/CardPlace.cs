@@ -26,6 +26,7 @@ public class CardPlace : MonoBehaviour,
     public GameObject opponentDiscardZone;
 
     public Transform playerHand;
+    public Transform opponentHand;
 
     private bool numberCard;
 
@@ -50,6 +51,7 @@ public class CardPlace : MonoBehaviour,
         discardUpdated = false;
 
         playerHand = this.transform.parent;
+        opponentHand = playerHand.parent.Find("OpponentHand");
         parentReturnTo = playerHand;
         //set images parent
         //set discard zone obj
@@ -459,6 +461,22 @@ public class CardPlace : MonoBehaviour,
         else if (specialCardType == SpecialCardType.Frostbite)
         {
             //if ahve 2 or -2
+            foreach(GameObject g in NumberManager.instance.allNumbers)
+            {
+                if (g.GetComponent<NumberStats>().value == 2 || g.GetComponent<NumberStats>().value == -2)
+                {
+                    isPlayable = true;
+                    break;
+                }
+            }
+            foreach (GameObject g in NumberManager.instance.OPPallNumbers)
+            {
+                if (g.GetComponent<NumberStats>().value == 2 || g.GetComponent<NumberStats>().value == -2)
+                {
+                    isPlayable = true;
+                    break;
+                }
+            }
 
         }
         else if (specialCardType == SpecialCardType.DirtyTrickI)
@@ -622,7 +640,10 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.EmptyPockets)
         {
-            
+            //get random special card
+            GameObject randomSpecial = opponentHand.GetChild(Random.Range(0, opponentHand.childCount)).gameObject;
+            //DiscardSpecial(randomSpecial, "opponent");
+            StartCoroutine(DiscardAnimation(randomSpecial, "opponent"));
 
         }
         else if (specialCardType == SpecialCardType.Burden)
@@ -856,7 +877,32 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.Frostbite)
         {
-
+            foreach(GameObject g in NumberManager.instance.allNumbers)
+            {
+                if(g.GetComponent<NumberStats>().value == 2)
+                {
+                    //remove 2 and add 4
+                    StartCoroutine(CardSelectionController.instance.ChangeNumber(g, 4, "player"));
+                }
+                if(g.GetComponent<NumberStats>().value == -2)
+                {
+                    //remove -2 and add -4
+                    StartCoroutine(CardSelectionController.instance.ChangeNumber(g, -4, "player"));
+                }
+            }
+            foreach(GameObject g in NumberManager.instance.OPPallNumbers)
+            {
+                if (g.GetComponent<NumberStats>().value == 2)
+                {
+                    //remove 2 and add 4
+                    StartCoroutine(CardSelectionController.instance.ChangeNumber(g, 4, "opponent"));
+                }
+                if (g.GetComponent<NumberStats>().value == -2)
+                {
+                    //remove -2 and add -4
+                    StartCoroutine(CardSelectionController.instance.ChangeNumber(g, -4, "opponent"));
+                }
+            }
 
         }
         else if (specialCardType == SpecialCardType.DirtyTrickI)
@@ -1074,6 +1120,50 @@ public class CardPlace : MonoBehaviour,
 
         }
 
+    }
+
+    public void DiscardSpecial(GameObject g, string target)
+    {
+        if(target == "player")
+        {
+            g.transform.SetParent(playerDiscardZone.transform);
+            g.transform.position = playerDiscardZone.transform.position;
+        }
+        else
+        {
+            g.transform.SetParent(opponentDiscardZone.transform);
+            g.transform.position = opponentDiscardZone.transform.position;
+        }
+        
+    }
+
+    IEnumerator DiscardAnimation(GameObject g, string target)
+    {
+        g.GetComponent<CardPlace>().isPlayable = false;
+        //show description
+        g.GetComponent<CardPlace>().correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(true);
+
+        if (target == "player")
+        {
+            g.GetComponent<RectTransform>().anchoredPosition = new Vector3(400f, 0f, 0);
+            g.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.17f, 0.17f, 0.17f);
+            yield return new WaitForSeconds(1f);
+
+            g.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
+            g.transform.SetParent(playerDiscardZone.transform);
+            g.transform.position = playerDiscardZone.transform.position;
+        }
+        else
+        {
+            g.GetComponent<RectTransform>().anchoredPosition = new Vector3(200f, -300f, 0);
+            g.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.17f, 0.17f, 0.17f);
+            yield return new WaitForSeconds(1f);
+
+            g.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
+            g.transform.SetParent(opponentDiscardZone.transform);
+            g.transform.position = opponentDiscardZone.transform.position;
+        }
+        
     }
 
     public void ActivateChoice(int x)
