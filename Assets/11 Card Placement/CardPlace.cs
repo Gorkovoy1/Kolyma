@@ -45,6 +45,9 @@ public class CardPlace : MonoBehaviour,
     public List<GameObject> discardedCards;
     public bool discardUpdated;
 
+    public Sprite cardBack;
+    public Sprite grey;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +68,14 @@ public class CardPlace : MonoBehaviour,
             correspondingImage = Instantiate(imagePrefab, imagesParent);
             correspondingImage.GetComponent<SpecialCardMovement>().target = this.gameObject.GetComponent<RectTransform>();
             defaultMat = correspondingImage.GetComponent<Image>().material;
+
+            //start flipped
+            if(this.transform.parent == opponentHand)
+            {
+                grey = correspondingImage.GetComponent<Image>().sprite;
+                correspondingImage.GetComponent<Image>().sprite = cardBack;
+                correspondingImage.transform.Find("Image").GetComponent<Image>().enabled = false;
+            }
         }
         
     }
@@ -85,13 +96,17 @@ public class CardPlace : MonoBehaviour,
                     //outline card in green
                     //change material to outline shader
                     //change back when playing card
+                    
+                    //note this is happening for opponent cards for some reason
                     correspondingImage.GetComponent<Image>().material = playableMat;
                 }
                 else
                 {
                     isPlayable = false;
+                    correspondingImage.GetComponent<Image>().material = defaultMat;
                 }
             }
+            
             
         }
 
@@ -1145,10 +1160,11 @@ public class CardPlace : MonoBehaviour,
 
         g.GetComponent<CardPlace>().isPlayable = false;
         //show description
-        g.GetComponent<CardPlace>().correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(true);
+        
 
         if (target == "player")
         {
+            g.GetComponent<CardPlace>().correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(true);
             g.GetComponent<RectTransform>().anchoredPosition = new Vector3(400f, 0f, 0);
             g.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.17f, 0.17f, 0.17f);
             yield return new WaitForSeconds(1f);
@@ -1159,8 +1175,14 @@ public class CardPlace : MonoBehaviour,
         }
         else
         {
+            //is card back
+            //squeeze to 0 then stretch back
+            //when 0, hide cardback and show card image
+
             g.GetComponent<RectTransform>().anchoredPosition = new Vector3(200f, -300f, 0);
             g.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.17f, 0.17f, 0.17f);
+            yield return new WaitForSeconds(1f);
+            StartCoroutine(FlipCard(g));
             yield return new WaitForSeconds(1f);
 
             g.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
@@ -1168,6 +1190,34 @@ public class CardPlace : MonoBehaviour,
             g.transform.position = opponentDiscardZone.transform.position;
         }
         
+    }
+
+    IEnumerator FlipCard(GameObject g)
+    {
+        float timer = 0f;
+        float halfTime = 0.15f;
+
+        float originalScaleX = g.GetComponent<CardPlace>().correspondingImage.transform.localScale.x;
+
+        for (timer = 0; timer < halfTime; timer += Time.deltaTime)
+        {
+            float scaleX = Mathf.Lerp(originalScaleX, 0f, timer/halfTime);
+            g.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(scaleX, g.GetComponent<CardPlace>().correspondingImage.transform.localScale.y, g.GetComponent<CardPlace>().correspondingImage.transform.localScale.z);
+            yield return null;
+        }
+
+        g.GetComponent<CardPlace>().correspondingImage.GetComponent<Image>().sprite = grey;
+        g.GetComponent<CardPlace>().correspondingImage.transform.Find("Image").GetComponent<Image>().enabled = true;
+        g.GetComponent<CardPlace>().correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(true);
+
+        for (timer = 0; timer < halfTime; timer += Time.deltaTime)
+        {
+            float scaleX = Mathf.Lerp(0f, originalScaleX, timer/halfTime);
+            g.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(scaleX, g.GetComponent<CardPlace>().correspondingImage.transform.localScale.y, g.GetComponent<CardPlace>().correspondingImage.transform.localScale.z);
+            yield return null;
+        }
+
+        g.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(originalScaleX, g.GetComponent<CardPlace>().correspondingImage.transform.localScale.y, g.GetComponent<CardPlace>().correspondingImage.transform.localScale.z);
     }
 
     public void ActivateChoice(int x)

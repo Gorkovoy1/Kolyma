@@ -102,12 +102,17 @@ MonoBehaviour:
   dragging: 0
   beingPlayed: 0
   playerDiscardZone: {fileID: 0}
+  opponentDiscardZone: {fileID: 0}
   playerHand: {fileID: 0}
+  opponentHand: {fileID: 0}
   childCount: 0
   specialCardType: 47
   isPlayable: 0
   defaultMat: {fileID: 0}
   playableMat: {fileID: 2100000, guid: d872faa1aa03b3043ada6d7ff912f653, type: 2}
+  discardedCards: []
+  discardUpdated: 0
+  cardBack: {fileID: 21300000, guid: 5681a74c470359848acdb34ed992ba17, type: 3}
 --- !u!114 &4852111069550977222
 MonoBehaviour:
   m_ObjectHideFlags: 0
