@@ -1195,7 +1195,7 @@ public class CardPlace : MonoBehaviour,
     IEnumerator FlipCard(GameObject g)
     {
         float timer = 0f;
-        float halfTime = 0.15f;
+        float halfTime = 0.1f;
 
         float originalScaleX = g.GetComponent<CardPlace>().correspondingImage.transform.localScale.x;
 
