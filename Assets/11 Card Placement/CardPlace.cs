@@ -441,7 +441,14 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.BaitAndSwitch)
         {
-            isPlayable = true;
+            foreach (GameObject g in NumberManager.instance.OPPallNumbers)
+            {
+                if (g.GetComponent<NumberStats>().value == 2 || g.GetComponent<NumberStats>().value == -2)
+                {
+                    isPlayable = true;
+                    break;
+                }
+            }
 
         }
         else if (specialCardType == SpecialCardType.SelfHarm)
@@ -867,7 +874,14 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.BaitAndSwitch)
         {
-
+            foreach (GameObject g in NumberManager.instance.OPPallNumbers)
+            {
+                if (g.GetComponent<NumberStats>().value == 2 || g.GetComponent<NumberStats>().value == -2)
+                {
+                    g.GetComponent<NumberStats>().selectable = true;
+                }
+            }
+            CardSelectionController.instance.CallButtons("changeBait", "opponent", 2);
 
         }
         else if (specialCardType == SpecialCardType.SelfHarm)

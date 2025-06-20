@@ -145,6 +145,18 @@ public class CardSelectionController : MonoBehaviour
                             
                         }
                     }
+                    else if(toDo == "changeBait")
+                    {
+                        if(g.GetComponent<NumberStats>().value == 2)
+                        {
+                            StartCoroutine(ChangeNumber(g, -2, "opponent"));
+
+                        }
+                        else
+                        {
+                            StartCoroutine(ChangeNumber(g, 2, "opponent"));
+                        }
+                    }
                     else if(toDo == "give")
                     {
                         StartCoroutine(GiveNumber(g, target));
