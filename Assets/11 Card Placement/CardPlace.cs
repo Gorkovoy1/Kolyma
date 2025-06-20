@@ -369,7 +369,7 @@ public class CardPlace : MonoBehaviour,
             }
 
         }
-        else if (specialCardType == SpecialCardType.Bribe) //in process
+        else if (specialCardType == SpecialCardType.Bribe) 
         {
             
             if(NumberManager.instance.duplicates.Count > 0)
@@ -456,15 +456,9 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.ThereThere)
         {
-            List<GameObject> duplicates = NumberManager.instance.allNumbers.GroupBy(obj => obj.GetComponent<NumberStats>().value)
-                .Where(g => g.Count() > 1)
-                .SelectMany(g => g)
-                .ToList();
-
-
-            foreach (GameObject go in duplicates)
+            if (NumberManager.instance.duplicates.Count > 0)
             {
-                Debug.Log("Duplicate GameObject: " + go.name);
+                isPlayable = true;
             }
 
         }
@@ -882,7 +876,7 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.ThereThere)
         {
-
+            ActivateChoice(2);
 
         }
         else if (specialCardType == SpecialCardType.NotMyProblem)
