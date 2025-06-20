@@ -822,7 +822,10 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.Poison)
         {
-
+            //get random special card
+            GameObject randomSpecial = opponentHand.GetChild(Random.Range(0, opponentHand.childCount)).gameObject;
+            //DiscardSpecial(randomSpecial, "opponent");
+            StartCoroutine(DiscardAnimation(randomSpecial, "opponent"));
 
         }
         else if (specialCardType == SpecialCardType.BackstabDiscard)
@@ -1179,8 +1182,8 @@ public class CardPlace : MonoBehaviour,
             //squeeze to 0 then stretch back
             //when 0, hide cardback and show card image
 
-            g.GetComponent<RectTransform>().anchoredPosition = new Vector3(200f, -300f, 0);
-            g.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.17f, 0.17f, 0.17f);
+            g.GetComponent<RectTransform>().anchoredPosition = new Vector3(200f, -320f, 0);
+            g.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.14f, 0.14f, 0.14f);
             yield return new WaitForSeconds(1f);
             StartCoroutine(FlipCard(g));
             yield return new WaitForSeconds(1f);

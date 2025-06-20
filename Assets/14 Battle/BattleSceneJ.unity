@@ -3964,6 +3964,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 890806059}
     m_Modifications:
+    - target: {fileID: 3956694315904718947, guid: cef48fb0ff02386449a623caaafd2251, type: 3}
+      propertyPath: imagePrefab
+      value: 
+      objectReference: {fileID: 2071081210890140877, guid: e29476f3959f1674baba1be7ace084e1, type: 3}
+    - target: {fileID: 3956694315904718947, guid: cef48fb0ff02386449a623caaafd2251, type: 3}
+      propertyPath: specialCardType
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3956694315904718947, guid: cef48fb0ff02386449a623caaafd2251, type: 3}
+      propertyPath: correspondingImage
+      value: 
+      objectReference: {fileID: 2071081210890140877, guid: e29476f3959f1674baba1be7ace084e1, type: 3}
     - target: {fileID: 3956694315904718950, guid: cef48fb0ff02386449a623caaafd2251, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4050,7 +4062,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3956694315904718951, guid: cef48fb0ff02386449a623caaafd2251, type: 3}
       propertyPath: m_Name
-      value: EmptyPockets
+      value: Poison
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cef48fb0ff02386449a623caaafd2251, type: 3}
