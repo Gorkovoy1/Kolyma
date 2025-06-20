@@ -845,7 +845,9 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.GiveItUp)
         {
-
+            
+            GameObject randomSpecial = opponentHand.GetChild(Random.Range(0, opponentHand.childCount)).gameObject;
+            StartCoroutine(DiscardAnimation(randomSpecial, "opponent"));
 
         }
         else if (specialCardType == SpecialCardType.Rotation)
