@@ -5,8 +5,10 @@ using UnityEngine;
 public class OpponentStats : MonoBehaviour
 {
     public int value;
-    public bool discard;
+    public bool discarded;
     public bool flipped;
+    public bool swapped;
+    public bool gave;
 
     public bool action;
 

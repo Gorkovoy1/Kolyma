@@ -93,12 +93,12 @@ public class CardSelectionController : MonoBehaviour
                         if (g.transform.parent == CardPlacementController.instance.playerPositiveArea || g.transform.parent == CardPlacementController.instance.playerNegativeArea)
                         {
                             target = "player";
-
+                            PlayerStats.instance.swapped = true;
                         }
                         else
                         {
                             target = "opponent";
-
+                            OpponentStats.instance.swapped = true;
                         }
 
                         StartCoroutine(SwapOut(g, target));

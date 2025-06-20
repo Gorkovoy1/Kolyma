@@ -452,6 +452,10 @@ public class CardPlace : MonoBehaviour,
         else if (specialCardType == SpecialCardType.BackstabSwap)
         {
             //if opp swapped then playable
+            if(OpponentStats.instance.swapped)
+            {
+                isPlayable = true;
+            }
 
         }
         else if (specialCardType == SpecialCardType.ThereThere)
@@ -768,6 +772,7 @@ public class CardPlace : MonoBehaviour,
                     yield return new WaitForSeconds(0.7f);
                     CardPlacementController.instance.DealOneCard("opponent");
                     yield return new WaitForSeconds(0.7f);
+                    OpponentStats.instance.swapped = true;
                 }
 
                 foreach(GameObject g in NumberManager.instance.blues)
@@ -797,6 +802,7 @@ public class CardPlace : MonoBehaviour,
             }
 
             CardSelectionController.instance.CallButtons("swap", "opponent");
+            
 
         }
         else if (specialCardType == SpecialCardType.InCahoots)
@@ -871,7 +877,7 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.BackstabSwap)
         {
-
+            ActivateChoice(2);
 
         }
         else if (specialCardType == SpecialCardType.ThereThere)
