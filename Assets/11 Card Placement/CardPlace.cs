@@ -408,6 +408,10 @@ public class CardPlace : MonoBehaviour,
         else if (specialCardType == SpecialCardType.BackstabDiscard)
         {
             //if opponent discarded then true
+            if(OpponentStats.instance.discarded)
+            {
+                isPlayable = true;
+            }
 
         }
         else if (specialCardType == SpecialCardType.Scam)
@@ -577,6 +581,10 @@ public class CardPlace : MonoBehaviour,
         else if (specialCardType == SpecialCardType.Leftovers)
         {
             //if opp discarded
+            if(OpponentStats.instance.discarded)
+            {
+                isPlayable = true;
+            }
 
         }
         else if (specialCardType == SpecialCardType.Glare)
@@ -587,6 +595,10 @@ public class CardPlace : MonoBehaviour,
         else if (specialCardType == SpecialCardType.Snitch)
         {
             //if opp discarded
+            if(OpponentStats.instance.discarded)
+            {
+                isPlayable = true;
+            }
 
         }
         else if (specialCardType == SpecialCardType.GoodDeal)
@@ -689,48 +701,16 @@ public class CardPlace : MonoBehaviour,
         {
             //find children of player discard zone
             //get 2 random cards and add back to hand
-            
+
             //exclude smoke break 
 
-            if(discardedCards.Count > 0)
-            {
-                int randomIndex = Random.Range(0, discardedCards.Count);
-                GameObject chosenCard = discardedCards[randomIndex];
-                discardedCards.RemoveAt(randomIndex);
-                chosenCard.GetComponent<CardPlace>().beingPlayed = false;
-                chosenCard.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                chosenCard.transform.SetParent(playerHand);
-            }
-            if (playerDiscardZone.transform.childCount > 0)
-            {
-                int randomIndex = Random.Range(0, discardedCards.Count);
-                GameObject chosenCard = discardedCards[randomIndex];
-                discardedCards.RemoveAt(randomIndex);
-                chosenCard.GetComponent<CardPlace>().beingPlayed = false;
-                chosenCard.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                chosenCard.transform.SetParent(playerHand);
-            }
-            else
-            {
-                Debug.Log("not enough cards!");
-            }
+            DrawSpecialFromDiscard();
+            DrawSpecialFromDiscard();
 
         }
         else if (specialCardType == SpecialCardType.Weakness)
         {
-            if (playerDiscardZone.transform.childCount > 0)
-            {
-                int randomIndex = Random.Range(0, discardedCards.Count);
-                GameObject chosenCard = discardedCards[randomIndex];
-                discardedCards.RemoveAt(randomIndex);
-                chosenCard.GetComponent<CardPlace>().beingPlayed = false;
-                chosenCard.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                chosenCard.transform.SetParent(playerHand);
-            }
-            else
-            {
-                Debug.Log("not enough cards!");
-            }
+            DrawSpecialFromDiscard();
 
         }
         else if (specialCardType == SpecialCardType.ThickWoolenCoat)
@@ -837,7 +817,7 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.BackstabDiscard)
         {
-
+            ActivateChoice(2);
 
         }
         else if (specialCardType == SpecialCardType.Scam)
@@ -1029,7 +1009,7 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.Leftovers)
         {
-
+            DrawSpecialFromDiscard();
 
         }
         else if (specialCardType == SpecialCardType.Glare)
@@ -1039,7 +1019,16 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.Snitch)
         {
+            foreach(GameObject g in NumberManager.instance.allNumbers)
+            {
+                g.GetComponent<NumberStats>().selectable = true;
+            }
+            foreach(GameObject g in NumberManager.instance.OPPallNumbers)
+            {
+                g.GetComponent<NumberStats>().selectable = true;
+            }
 
+            CardSelectionController.instance.CallButtons("change", "opponent", 5);
 
         }
         else if (specialCardType == SpecialCardType.GoodDeal)
@@ -1160,11 +1149,13 @@ public class CardPlace : MonoBehaviour,
     {
         if(target == "player")
         {
+            PlayerStats.instance.discarded = true;
             g.transform.SetParent(playerDiscardZone.transform);
             g.transform.position = playerDiscardZone.transform.position;
         }
         else
         {
+            OpponentStats.instance.discarded = true;
             g.transform.SetParent(opponentDiscardZone.transform);
             g.transform.position = opponentDiscardZone.transform.position;
         }
@@ -1191,6 +1182,8 @@ public class CardPlace : MonoBehaviour,
             g.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
             g.transform.SetParent(playerDiscardZone.transform);
             g.transform.position = playerDiscardZone.transform.position;
+
+            PlayerStats.instance.discarded = true;
         }
         else
         {
@@ -1201,17 +1194,19 @@ public class CardPlace : MonoBehaviour,
             g.GetComponent<RectTransform>().anchoredPosition = new Vector3(200f, -320f, 0);
             g.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.14f, 0.14f, 0.14f);
             yield return new WaitForSeconds(1f);
-            StartCoroutine(FlipCard(g));
+            StartCoroutine(FlipOverCard(g));
             yield return new WaitForSeconds(1f);
 
             g.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
             g.transform.SetParent(opponentDiscardZone.transform);
             g.transform.position = opponentDiscardZone.transform.position;
+
+            OpponentStats.instance.discarded = true;
         }
         
     }
 
-    IEnumerator FlipCard(GameObject g)
+    IEnumerator FlipOverCard(GameObject g)
     {
         float timer = 0f;
         float halfTime = 0.1f;
@@ -1237,6 +1232,23 @@ public class CardPlace : MonoBehaviour,
         }
 
         g.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(originalScaleX, g.GetComponent<CardPlace>().correspondingImage.transform.localScale.y, g.GetComponent<CardPlace>().correspondingImage.transform.localScale.z);
+    }
+
+    public void DrawSpecialFromDiscard()
+    {
+        if (discardedCards.Count > 0)
+        {
+            int randomIndex = Random.Range(0, discardedCards.Count);
+            GameObject chosenCard = discardedCards[randomIndex];
+            discardedCards.RemoveAt(randomIndex);
+            chosenCard.GetComponent<CardPlace>().beingPlayed = false;
+            chosenCard.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            chosenCard.transform.SetParent(playerHand);
+        }
+        else
+        {
+            Debug.Log("not enough cards!");
+        }
     }
 
     public void ActivateChoice(int x)
