@@ -30,7 +30,32 @@ public class TutorialController : MonoBehaviour
                 message = "The Number deck has number cards, they can be positive or negative. The number on the left side of the screen is your number. The number on the right side of the screen is your opponent’s number.\r\n",
                 requireContinue = true,
 
+            },
+            new TutorialStep
+            {
+                message = "Let’s roll the dice. The sum of the four dice will set the target.",
+                requireContinue = true,
+                
+            },
+            new TutorialStep
+            {
+                message = "You have to make your number reach the target or get as close as possible.",
+                requireContinue = true,
+
+            },
+            new TutorialStep
+            {
+                message = "But be careful! If you go busted, you will lose the game.",
+                requireContinue = true,
+                afterContinue = () =>
+                {
+                    //roll the dice
+                },
+                //waitUntil = () => doneRolling
             }
+            
+
+
 
 
         };

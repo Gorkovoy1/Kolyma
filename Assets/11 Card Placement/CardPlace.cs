@@ -48,10 +48,14 @@ public class CardPlace : MonoBehaviour,
     public Sprite cardBack;
     public Sprite grey;
 
+    //public bool isFlipping;
+    public bool isFlipped;
+
     // Start is called before the first frame update
     void Start()
     {
         discardUpdated = false;
+        isFlipped = false;
 
         playerHand = this.transform.parent;
         opponentHand = playerHand.parent.Find("OpponentHand");
