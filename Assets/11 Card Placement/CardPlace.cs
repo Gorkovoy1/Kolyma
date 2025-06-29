@@ -698,7 +698,12 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.RifleButt)
         {
+            foreach(GameObject g in NumberManager.instance.OPPallNumbers)
+            {
+                g.GetComponent<NumberStats>().selectable = true;
+            }
 
+            CardSelectionController.instance.CallButtons("flip", "opponent");
 
         }
         else if (specialCardType == SpecialCardType.SmokeBreak)
@@ -1262,6 +1267,8 @@ public class CardPlace : MonoBehaviour,
         ChoiceController.instance.ShowChoice(x);
 
     }
+
+
 
     public enum SpecialCardType
     {

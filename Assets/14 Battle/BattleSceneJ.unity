@@ -4068,7 +4068,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1662731002319642626, guid: cbe9193561013cc45beab5011ac82e7e, type: 3}
       propertyPath: m_Name
-      value: Snitch
+      value: Rifle Butt
       objectReference: {fileID: 0}
     - target: {fileID: 1662731002319642627, guid: cbe9193561013cc45beab5011ac82e7e, type: 3}
       propertyPath: m_Pivot.x
@@ -4154,6 +4154,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1662731002319642630, guid: cbe9193561013cc45beab5011ac82e7e, type: 3}
+      propertyPath: imagePrefab
+      value: 
+      objectReference: {fileID: 7084355783655531635, guid: 9de09764e0ac5c445a33480ef8c804bc, type: 3}
+    - target: {fileID: 1662731002319642630, guid: cbe9193561013cc45beab5011ac82e7e, type: 3}
+      propertyPath: specialCardType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662731002319642630, guid: cbe9193561013cc45beab5011ac82e7e, type: 3}
+      propertyPath: correspondingImage
+      value: 
+      objectReference: {fileID: 7084355783655531635, guid: 9de09764e0ac5c445a33480ef8c804bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbe9193561013cc45beab5011ac82e7e, type: 3}
 --- !u!224 &5990009993848057439 stripped

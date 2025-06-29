@@ -13,6 +13,7 @@ public class NumberStats : MonoBehaviour
     public bool flip;
 
     public int value;
+    public int originalValue;
 
     public bool selectable;
 
@@ -20,6 +21,7 @@ public class NumberStats : MonoBehaviour
     void Start()
     {
         flip = false;
+        originalValue = value;
     }
 
     // Update is called once per frame
@@ -28,5 +30,13 @@ public class NumberStats : MonoBehaviour
         //if positive but parent is negative 
         //if negative but parent is positive
         //then flip = true
+        if(this.gameObject.GetComponent<CardPlace>().isFlipped)
+        {
+            value = -originalValue;
+        }
+        else
+        {
+            value = originalValue;
+        }
     }
 }
