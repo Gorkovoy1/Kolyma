@@ -875,7 +875,12 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.SelfHarm)
         {
+            foreach(GameObject g in NumberManager.instance.allNumbers)
+            {
+                g.GetComponent<NumberStats>().selectable = true;
+            }
 
+            CardSelectionController.instance.CallButtons("flip", "player");
 
         }
         else if (specialCardType == SpecialCardType.BackstabSwap)
