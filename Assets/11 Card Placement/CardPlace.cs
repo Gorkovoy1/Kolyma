@@ -705,6 +705,7 @@ public class CardPlace : MonoBehaviour,
 
             CardSelectionController.instance.CallButtons("flip", "opponent");
 
+            OpponentStats.instance.flipped = true;
         }
         else if (specialCardType == SpecialCardType.SmokeBreak)
         {
@@ -882,6 +883,8 @@ public class CardPlace : MonoBehaviour,
 
             CardSelectionController.instance.CallButtons("flip", "player");
 
+            PlayerStats.instance.flipped = true;
+
         }
         else if (specialCardType == SpecialCardType.BackstabSwap)
         {
@@ -1008,7 +1011,14 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.Knife)
         {
+            foreach(GameObject g in NumberManager.instance.OPPallNumbers)
+            {
+                g.GetComponent<NumberStats>().selectable = true;
+            }
 
+            CardSelectionController.instance.CallButtons("flip", "opponent");
+
+            OpponentStats.instance.flipped = true;
 
         }
         else if (specialCardType == SpecialCardType.ExtraWork)

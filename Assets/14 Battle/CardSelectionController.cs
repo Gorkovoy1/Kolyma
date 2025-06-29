@@ -192,7 +192,7 @@ public class CardSelectionController : MonoBehaviour
         g.gameObject.GetComponent<CardPlace>().isFlipped = !g.gameObject.GetComponent<CardPlace>().isFlipped;
         UpdatePivot(g);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.8f);
 
         if(g.transform.parent == NumberManager.instance.oppPositiveArea.transform)
         {
