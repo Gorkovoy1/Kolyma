@@ -575,6 +575,10 @@ public class CardPlace : MonoBehaviour,
         else if (specialCardType == SpecialCardType.ExtraWork)
         {
             //if opp flipped
+            if(OpponentStats.instance.flipped)
+            {
+                isPlayable = true;
+            }
 
         }
         else if (specialCardType == SpecialCardType.Scratch)
@@ -1023,7 +1027,7 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.ExtraWork)
         {
-
+            CardPlacementController.instance.DealOneCard("opponent");
 
         }
         else if (specialCardType == SpecialCardType.Scratch)
