@@ -21,7 +21,7 @@ namespace TutorialScripts
         // Start is called before the first frame update
         void Start()
         {
-            
+            playerSpecialDeck = CardInventoryController.instance.playerDeck;
 
         }
 
