@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1615446008998647013
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7329630469545081234, guid: 0d5080cf8b9f17640971f6f53be22b2a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 621cfadb359923045b2e7b6f8838eaf8, type: 3}
+    - target: {fileID: 7329630469545081244, guid: 0d5080cf8b9f17640971f6f53be22b2a, type: 3}
+      propertyPath: cardDesc
+      value: Swap out any number on the table
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329630469545081244, guid: 0d5080cf8b9f17640971f6f53be22b2a, type: 3}
+      propertyPath: cardName
+      value: Condensed Milk
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329630469545081244, guid: 0d5080cf8b9f17640971f6f53be22b2a, type: 3}
+      propertyPath: specialCardPrefab
+      value: 
+      objectReference: {fileID: 3620195004621663235, guid: 87827df9fd4fc7442b91542cf18af8d2, type: 3}
+    - target: {fileID: 7329630469545081246, guid: 0d5080cf8b9f17640971f6f53be22b2a, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329630469545081246, guid: 0d5080cf8b9f17640971f6f53be22b2a, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329630469545081246, guid: 0d5080cf8b9f17640971f6f53be22b2a, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329630469545081246, guid: 0d5080cf8b9f17640971f6f53be22b2a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329630469545081246, guid: 0d5080cf8b9f17640971f6f53be22b2a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329630469545081246, guid: 0d5080cf8b9f17640971f6f53be22b2a, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329630469545081246, guid: 0d5080cf8b9f17640971f6f53be22b2a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329630469545081246, guid: 0d5080cf8b9f17640971f6f53be22b2a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329630469545081246, guid: 0d5080cf8b9f17640971f6f53be22b2a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329630469545081246, guid: 0d5080cf8b9f17640971f6f53be22b2a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329630469545081246, guid: 0d5080cf8b9f17640971f6f53be22b2a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329630469545081246, guid: 0d5080cf8b9f17640971f6f53be22b2a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329630469545081246, guid: 0d5080cf8b9f17640971f6f53be22b2a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329630469545081246, guid: 0d5080cf8b9f17640971f6f53be22b2a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329630469545081246, guid: 0d5080cf8b9f17640971f6f53be22b2a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329630469545081246, guid: 0d5080cf8b9f17640971f6f53be22b2a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329630469545081246, guid: 0d5080cf8b9f17640971f6f53be22b2a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329630469545081246, guid: 0d5080cf8b9f17640971f6f53be22b2a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329630469545081246, guid: 0d5080cf8b9f17640971f6f53be22b2a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329630469545081246, guid: 0d5080cf8b9f17640971f6f53be22b2a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329630469545081246, guid: 0d5080cf8b9f17640971f6f53be22b2a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329630469545081247, guid: 0d5080cf8b9f17640971f6f53be22b2a, type: 3}
+      propertyPath: m_Name
+      value: Condensed Milk
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0d5080cf8b9f17640971f6f53be22b2a, type: 3}
