@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class TutorialStep : MonoBehaviour
+public class TutorialStepData 
 {
     public string message;
     public Action afterContinue;

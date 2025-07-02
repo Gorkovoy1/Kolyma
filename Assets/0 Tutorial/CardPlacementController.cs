@@ -33,7 +33,7 @@ namespace TutorialScripts
 
         public static CardPlacementController instance;
 
-        public bool doneDealing = false;
+        public bool doneDealing;
 
         void Awake()
         {
@@ -52,7 +52,7 @@ namespace TutorialScripts
         // Start is called before the first frame update
         void Start()
         {
-            
+            doneDealing = false;
         }
 
         // Update is called once per frame
@@ -64,7 +64,6 @@ namespace TutorialScripts
         public IEnumerator DealNumbers()
         {
             yield return StartCoroutine(DealPlayerNumbers());
-            yield return StartCoroutine(DealOpponentNumbers());
 
         }
 
@@ -100,6 +99,8 @@ namespace TutorialScripts
                 //Delay between cards
                 yield return new WaitForSeconds(1f);
             }
+
+            yield return StartCoroutine(DealOpponentNumbers());
         }
 
         IEnumerator DealOpponentNumbers()
