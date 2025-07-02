@@ -15,7 +15,7 @@ public class TutorialController : MonoBehaviour
 
     private void Start()
     {
-        DeckManagerCanvas.gameObject.SetActive(false);
+        
         steps = new List<TutorialStepData>
         {
             new TutorialStepData
@@ -84,7 +84,7 @@ public class TutorialController : MonoBehaviour
                 afterContinue = () =>
                 {
                     //activate deck manager
-                    DeckManagerCanvas.gameObject.SetActive(true);
+                    DeckManagerCanvas.GetComponentInChildren<DeckManagerController>().ShowCanvas();
                 },
                 //wait until finish deck button clicked
                 //then deactivate canvas and go to next step

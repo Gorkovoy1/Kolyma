@@ -9,12 +9,15 @@ public class DeckManagerController : MonoBehaviour
 
     public TextMeshProUGUI cardCount;
     public RectTransform deckManagerPanel;
-    public Button expandButton;
+
+    private Vector2 startPos;
+    private Vector2 endPos;
 
     // Start is called before the first frame update
     void Start()
     {
         CardInventoryController.instance.ManageDeck();
+        startPos = deckManagerPanel.anchoredPosition;
     }
 
     // Update is called once per frame
@@ -22,18 +25,31 @@ public class DeckManagerController : MonoBehaviour
     {
         cardCount.text = "" + CardInventoryController.instance.playerDeck.Count + " /15";
     }
-
-    public void PullCanvas()
+    
+    public void ShowCanvas()
     {
-        if(deckManagerPanel.anchoredPosition.y > 0)
+        //lerp deckmanagerpanel from -450 to 0 and back
+        StartCoroutine(LerpPullPanel());
+    }
+
+    public IEnumerator LerpPullPanel()
+    {
+        if(deckManagerPanel.anchoredPosition.y < 0)
         {
-            deckManagerPanel.anchoredPosition = new Vector2(deckManagerPanel.anchoredPosition.x, deckManagerPanel.anchoredPosition.y - 400f);
-            expandButton.GetComponentInChildren<TextMeshProUGUI>().text = "^";
+            endPos = new Vector2(startPos.x, 0f);
         }
         else
         {
-            deckManagerPanel.anchoredPosition = new Vector2(deckManagerPanel.anchoredPosition.x, deckManagerPanel.anchoredPosition.y + 400f);
-            expandButton.GetComponentInChildren<TextMeshProUGUI>().text = "V";
+            endPos = new Vector2(startPos.x, -450f);
         }
+
+        for (float t = 0; t < 0.45f; t += Time.deltaTime)
+        {
+            float progress = t / 0.45f;
+            deckManagerPanel.anchoredPosition = Vector2.Lerp(deckManagerPanel.anchoredPosition, endPos, progress);
+            yield return null;
+        }
+        deckManagerPanel.anchoredPosition = endPos;
     }
+    
 }
