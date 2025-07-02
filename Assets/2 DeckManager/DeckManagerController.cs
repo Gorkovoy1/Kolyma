@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class DeckManagerController : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class DeckManagerController : MonoBehaviour
 
     private Vector2 startPos;
     private Vector2 endPos;
+
+    public bool finishDeck;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +33,22 @@ public class DeckManagerController : MonoBehaviour
     {
         //lerp deckmanagerpanel from -450 to 0 and back
         StartCoroutine(LerpPullPanel());
+    }
+
+    public void TutorialFinishDeck()
+    {
+        if(CardInventoryController.instance.playerDeck.Count == 6)
+        {
+            ShowCanvas();
+            finishDeck = true;
+        }
+    }
+
+    public void FinishDeck()
+    {
+        ShowCanvas();
+        finishDeck = true;
+        //prevent changes to deck mid game
     }
 
     public IEnumerator LerpPullPanel()

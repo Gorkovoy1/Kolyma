@@ -15,7 +15,7 @@ public class TutorialController : MonoBehaviour
 
     private void Start()
     {
-        
+
         steps = new List<TutorialStepData>
         {
             new TutorialStepData
@@ -39,7 +39,7 @@ public class TutorialController : MonoBehaviour
             {
                 message = "Let’s roll the dice. The sum of the four dice will set the target.",
                 requireContinue = true,
-                
+
             },
             new TutorialStepData
             {
@@ -88,8 +88,18 @@ public class TutorialController : MonoBehaviour
                 },
                 //wait until finish deck button clicked
                 //then deactivate canvas and go to next step
+                waitUntil = () => DeckManagerCanvas.GetComponent<DeckManagerController>().finishDeck,
+            },
+            new TutorialStepData
+            {
+                message = "My dice number is bigger, so I make the first move.",
+                requireContinue = true,
+                afterContinue = () =>
+                {
+                    //play Andreyev's turn
+                    
+                },
             }
-
 
 
 
