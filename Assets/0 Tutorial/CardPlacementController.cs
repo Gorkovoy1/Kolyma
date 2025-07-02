@@ -137,9 +137,10 @@ namespace TutorialScripts
             }
 
             //if value is higher
-            TurnManager.instance.isPlayerTurn = true;
+            TurnManager.instance.isPlayerTurn = false;
 
             doneDealing = true;
+            NumberManager.instance.recalculate = true;
         }
 
         public void DealOneCard(string target)
