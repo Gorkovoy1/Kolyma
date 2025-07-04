@@ -167,7 +167,7 @@ using AILogic;
 
             IEnumerator BeingPlayed()
             {
-                this.GetComponent<RectTransform>().anchoredPosition = new Vector3(400f, 0f, 0);
+                this.GetComponent<RectTransform>().anchoredPosition = new Vector3(100f, -80f, 0);
                 correspondingImage.transform.localScale = new Vector3(0.17f, 0.17f, 0.17f);
                 yield return new WaitForSeconds(1f);
 
