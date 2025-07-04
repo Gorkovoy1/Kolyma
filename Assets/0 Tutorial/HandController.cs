@@ -18,9 +18,12 @@ namespace TutorialScripts
 
         public Transform imagesParent;
 
+        public bool doneDealing;
+
         // Start is called before the first frame update
         void Start()
         {
+            doneDealing = false;
             playerSpecialDeck = CardInventoryController.instance.playerDeck;
 
         }
@@ -31,8 +34,9 @@ namespace TutorialScripts
 
         }
 
-        void ShuffleSpecials()
+        public void ShuffleSpecials()
         {
+            /*
             for (int i = playerSpecialDeck.Count - 1; i > 0; i--)
             {
                 int j = Random.Range(0, i + 1);
@@ -48,7 +52,7 @@ namespace TutorialScripts
                 opponentSpecialDeck[i] = opponentSpecialDeck[j];
                 opponentSpecialDeck[j] = temp;
             }
-
+            */
 
             //start draw
             StartCoroutine(InitialPlayerDraw());
@@ -145,6 +149,8 @@ namespace TutorialScripts
                 yield return new WaitForSeconds(1f);
             }
             UpdateHands();
+
+            doneDealing = true;
         }
 
     }

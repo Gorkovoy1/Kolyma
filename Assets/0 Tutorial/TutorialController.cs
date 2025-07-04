@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using TutorialScripts;
 
 
 public class TutorialController : MonoBehaviour
@@ -11,10 +12,15 @@ public class TutorialController : MonoBehaviour
     public GameObject blockerPanel;
     public List<TutorialStepData> steps;
 
+    public GameObject opponentHand;
+
     public Canvas DeckManagerCanvas;
+
+    public GameObject tutorialObj;
 
     private void Start()
     {
+        tutorialObj = this.gameObject;
 
         steps = new List<TutorialStepData>
         {
@@ -92,11 +98,25 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
+                message = "We start with 6 cards in your hand at the beginning of every game. Let's draw those.",
+                requireContinue = true,
+                afterContinue = () =>
+                {
+                    //draw cards
+                    opponentHand.GetComponentInParent<TutorialScripts.HandController>().ShuffleSpecials();
+                },
+                waitUntil = () => opponentHand.GetComponentInParent<TutorialScripts.HandController>().doneDealing,
+
+            },
+            new TutorialStepData
+            {
                 message = "My dice number is bigger, so I make the first move.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
                     //play Andreyev's turn
+                    tutorialObj.GetComponent<TutorialScripts.AIController>().selectedCardToPlay = opponentHand.transform.GetChild(0).gameObject;
+                    tutorialObj.GetComponent<TutorialScripts.AIController>().PlayCard();
                     
                 },
             }

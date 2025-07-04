@@ -6,13 +6,11 @@ using System.Linq;
 using UnityEngine.UI;
 using TMPro;
 
-namespace AILogic
+namespace TutorialScripts
 {
-    
-
-    public class AICardManager : MonoBehaviour,
-        IDragHandler, IBeginDragHandler, IEndDragHandler,
-        IPointerEnterHandler, IPointerExitHandler //AICardPlace
+    public class CardPlace : MonoBehaviour,
+    IDragHandler, IBeginDragHandler, IEndDragHandler,
+    IPointerEnterHandler, IPointerExitHandler
 
     {
         public bool isDragging;
@@ -119,11 +117,11 @@ namespace AILogic
             }
 
             //track discarded cards, update whenever becomes player turn
-            if (!TurnManager.instance.isPlayerTurn /*&& !discardUpdated*/)          //uncomment when have turns
+            if (TurnManager.instance.isPlayerTurn /*&& !discardUpdated*/)          //uncomment when have turns
             {
                 discardedCards = new List<GameObject>();
 
-                foreach (Transform child in opponentDiscardZone.transform)
+                foreach (Transform child in playerDiscardZone.transform)
                 {
                     discardedCards.Add(child.gameObject);
                 }
@@ -133,12 +131,146 @@ namespace AILogic
 
         }
 
-        //AnimateBeingPlayed(g);
-
-        public void AnimateBeingPlayed(GameObject g)
+        public void OnBeginDrag(PointerEventData eventData)
         {
-            g.GetComponent<AICardManager>().isPlayable = false;
-            g.GetComponent<AICardManager>().correspondingImage.GetComponent<Image>().material = defaultMat;
+            if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name != "OpponentHand")
+            {
+                hovering = false;
+                Debug.Log("OnBeginDrag");
+                dragging = true;
+
+
+                //if(conditionMet == true)
+                //{
+                parentReturnTo = this.transform.parent;
+
+                //
+                this.correspondingImage.transform.SetAsLastSibling();
+
+                this.transform.SetParent(parentReturnTo.transform.parent);
+
+
+                GetComponent<CanvasGroup>().blocksRaycasts = false;
+                //}
+            }
+
+
+        }
+
+        public void OnEndDrag(PointerEventData eventData)
+        {
+            if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name != "OpponentHand")
+            {
+                dragging = false;
+                GetComponent<CanvasGroup>().blocksRaycasts = true;
+                playerHand.GetComponent<HandFanController>().dragging = false;
+
+                if (!beingPlayed)
+                {
+                    this.transform.SetParent(parentReturnTo);
+                    //this.transform.position = new Vector3(0,0,0);
+
+                }
+                else
+                {
+                    CheckPlayable();
+                    if (isPlayable)
+                    {
+                        AnimateBeingPlayed();
+                    }
+                    else
+                    {
+                        this.transform.SetParent(parentReturnTo);
+                    }
+
+                }
+            }
+
+
+        }
+
+        public void OnDrag(PointerEventData eventData)
+        {
+            if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name != "OpponentHand")
+            {
+                //Debug.Log("OnDrag");
+
+                //if(conditionMet==true)
+                this.transform.position = eventData.position;
+                this.correspondingImage.transform.SetAsLastSibling();
+                //set as last index in array of specila cards (special number of cards)
+                playerHand.GetComponent<HandFanController>().dragging = true;
+
+
+
+                correspondingImage.transform.SetAsLastSibling();
+                correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                //correspondingImage.transform.position += new Vector3(0f, hoverOffset, 0f);
+
+            }
+
+
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name != "OpponentHand")
+            {
+                if (!beingPlayed)
+                {
+                    if (!dragging)
+                    {
+                        hovering = true;
+
+                    }
+                    if (correspondingImage != null)
+                    {
+                        if (!playerHand.GetComponent<HandFanController>().dragging)
+                        {
+                            correspondingImage.transform.SetAsLastSibling();
+                            correspondingImage.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
+                            correspondingImage.GetComponent<RectTransform>().anchoredPosition = new Vector3(correspondingImage.GetComponent<RectTransform>().anchoredPosition.x, correspondingImage.GetComponent<RectTransform>().anchoredPosition.y + hoverOffset, 0f);
+                            correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(true);
+                        }
+
+                    }
+
+                }
+            }
+
+        }
+
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name == "PlayerHand")
+            {
+                if (!beingPlayed)
+                {
+                    hovering = false;
+
+                    if (correspondingImage != null)
+                    {
+                        if (!playerHand.GetComponent<HandFanController>().dragging)
+                        {
+                            correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                            correspondingImage.transform.position -= new Vector3(0f, hoverOffset, 0f);
+                            correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(false);
+                        }
+
+                    }
+
+
+
+                }
+            }
+
+        }
+
+        public void AnimateBeingPlayed()
+        {
+            isPlayable = false;
+            correspondingImage.GetComponent<Image>().material = defaultMat;
             StartCoroutine(BeingPlayed());
 
         }
@@ -166,17 +298,17 @@ namespace AILogic
             yield return new WaitForSeconds(0.5f);
         }
 
-        IEnumerator BeingPlayed(GameObject g)
+        IEnumerator BeingPlayed()
         {
-            g.GetComponent<RectTransform>().anchoredPosition = new Vector3(400f, 0f, 0);
-            g.GetComponent<AICardManager>().correspondingImage.transform.localScale = new Vector3(0.17f, 0.17f, 0.17f);
+            this.GetComponent<RectTransform>().anchoredPosition = new Vector3(400f, 0f, 0);
+            correspondingImage.transform.localScale = new Vector3(0.17f, 0.17f, 0.17f);
             yield return new WaitForSeconds(1f);
 
-            g.GetComponent<AICardManager>().correspondingImage.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
-            g.transform.SetParent(playerDiscardZone.transform);
-            g.transform.position = playerDiscardZone.transform.position;
+            correspondingImage.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
+            this.transform.SetParent(playerDiscardZone.transform);
+            this.transform.position = playerDiscardZone.transform.position;
 
-            StartCoroutine(PlayCorrespondingAction(g));
+            StartCoroutine(PlayCorrespondingAction());
         }
 
         public void CheckPlayable()
@@ -184,14 +316,14 @@ namespace AILogic
             //Debug.Log("checkingplayable");
             if (specialCardType == SpecialCardType.CaughtRedHanded)
             {
-                if (NumberManager.instance.yellows.Count > 0)
+                if (NumberManager.instance.OPPyellows.Count > 0)
                 {
                     isPlayable = true;
                 }
             }
             else if (specialCardType == SpecialCardType.EmptyPockets)
             {
-                if (NumberManager.instance.blues.Count > 0)
+                if (NumberManager.instance.OPPblues.Count > 0)
                 {
                     isPlayable = true;
                 }
@@ -199,14 +331,14 @@ namespace AILogic
             }
             else if (specialCardType == SpecialCardType.Burden)
             {
-                if (NumberManager.instance.reds.Count > 0)
+                if (NumberManager.instance.OPPreds.Count > 0)
                 {
                     isPlayable = true;
                 }
             }
             else if (specialCardType == SpecialCardType.RifleButt)
             {
-                if (NumberManager.instance.reds.Count > 0)
+                if (NumberManager.instance.OPPreds.Count > 0)
                 {
                     isPlayable = true;
                 }
@@ -220,7 +352,7 @@ namespace AILogic
             }
             else if (specialCardType == SpecialCardType.Weakness)
             {
-                foreach (GameObject g in NumberManager.instance.positives)
+                foreach (GameObject g in NumberManager.instance.OPPpositives)
                 {
                     if (g.GetComponent<NumberStats>().value == 2)
                     {
@@ -237,7 +369,7 @@ namespace AILogic
             }
             else if (specialCardType == SpecialCardType.Setup)
             {
-                if (NumberManager.instance.negatives.Count > 0)
+                if (NumberManager.instance.OPPnegatives.Count > 0)
                 {
                     isPlayable = true;
                 }
@@ -246,7 +378,7 @@ namespace AILogic
             else if (specialCardType == SpecialCardType.Bribe)
             {
 
-                if (NumberManager.instance.OPPduplicates.Count > 0)
+                if (NumberManager.instance.duplicates.Count > 0)
                 {
                     isPlayable = true;
                 }
@@ -282,7 +414,7 @@ namespace AILogic
             else if (specialCardType == SpecialCardType.BackstabDiscard)
             {
                 //if opponent discarded then true
-                if (PlayerStats.instance.discarded)
+                if (OpponentStats.instance.discarded)
                 {
                     isPlayable = true;
                 }
@@ -295,7 +427,7 @@ namespace AILogic
             }
             else if (specialCardType == SpecialCardType.GiveItUp)
             {
-                if (NumberManager.instance.OPPnegatives.Count > 0)
+                if (NumberManager.instance.negatives.Count > 0)
                 {
                     isPlayable = true;
                 }
@@ -303,7 +435,7 @@ namespace AILogic
             }
             else if (specialCardType == SpecialCardType.Rotation)
             {
-                if (NumberManager.instance.OPPnegatives.Count > 0)
+                if (NumberManager.instance.negatives.Count > 0)
                 {
                     isPlayable = true;
                 }
@@ -311,7 +443,7 @@ namespace AILogic
             }
             else if (specialCardType == SpecialCardType.DirtyTrickIV)
             {
-                if (NumberManager.instance.yellows.Count > 0)
+                if (NumberManager.instance.OPPyellows.Count > 0)
                 {
                     isPlayable = true;
                 }
@@ -319,7 +451,7 @@ namespace AILogic
             }
             else if (specialCardType == SpecialCardType.BaitAndSwitch)
             {
-                foreach (GameObject g in NumberManager.instance.allNumbers)
+                foreach (GameObject g in NumberManager.instance.OPPallNumbers)
                 {
                     if (g.GetComponent<NumberStats>().value == 2 || g.GetComponent<NumberStats>().value == -2)
                     {
@@ -337,7 +469,7 @@ namespace AILogic
             else if (specialCardType == SpecialCardType.BackstabSwap)
             {
                 //if opp swapped then playable
-                if (PlayerStats.instance.swapped)
+                if (OpponentStats.instance.swapped)
                 {
                     isPlayable = true;
                 }
@@ -345,7 +477,7 @@ namespace AILogic
             }
             else if (specialCardType == SpecialCardType.ThereThere)
             {
-                if (NumberManager.instance.OPPduplicates.Count > 0)
+                if (NumberManager.instance.duplicates.Count > 0)
                 {
                     isPlayable = true;
                 }
@@ -408,7 +540,7 @@ namespace AILogic
             }
             else if (specialCardType == SpecialCardType.FindersKeepers)
             {
-                if (NumberManager.instance.OPPreds.Count > 0)
+                if (NumberManager.instance.reds.Count > 0)
                 {
                     isPlayable = true;
                 }
@@ -421,7 +553,7 @@ namespace AILogic
             }
             else if (specialCardType == SpecialCardType.FairShare)
             {
-                if (NumberManager.instance.negatives.Count > 0)
+                if (NumberManager.instance.OPPnegatives.Count > 0)
                 {
                     isPlayable = true;
                 }
@@ -429,18 +561,12 @@ namespace AILogic
             }
             else if (specialCardType == SpecialCardType.SleeplessNight)
             {
-                if(PlayerStats.instance.swapped = true)
-                {
-                    isPlayable = true;
-                }
+                //if opp swapped
 
             }
             else if (specialCardType == SpecialCardType.Payback)
             {
-                if(PlayerStats.instance.gave = true)
-                {
-                    isPlayable = true;
-                }
+                //if opp gave u something
 
             }
             else if (specialCardType == SpecialCardType.Knife)
@@ -451,7 +577,7 @@ namespace AILogic
             else if (specialCardType == SpecialCardType.ExtraWork)
             {
                 //if opp flipped
-                if (PlayerStats.instance.flipped)
+                if (OpponentStats.instance.flipped)
                 {
                     isPlayable = true;
                 }
@@ -459,16 +585,13 @@ namespace AILogic
             }
             else if (specialCardType == SpecialCardType.Scratch)
             {
-                if (PlayerStats.instance.gave = true)
-                {
-                    isPlayable = true;
-                }
+                //if opp gave u something
 
             }
             else if (specialCardType == SpecialCardType.Leftovers)
             {
                 //if opp discarded
-                if (PlayerStats.instance.discarded)
+                if (OpponentStats.instance.discarded)
                 {
                     isPlayable = true;
                 }
@@ -482,7 +605,7 @@ namespace AILogic
             else if (specialCardType == SpecialCardType.Snitch)
             {
                 //if opp discarded
-                if (PlayerStats.instance.discarded)
+                if (OpponentStats.instance.discarded)
                 {
                     isPlayable = true;
                 }
@@ -520,7 +643,7 @@ namespace AILogic
             }
             else if (specialCardType == SpecialCardType.Overwhelmed)
             {
-                if (NumberManager.instance.OPPallNumbers.Count > 5)
+                if (NumberManager.instance.allNumbers.Count > 5)
                 {
                     isPlayable = true;
                 }
@@ -537,66 +660,65 @@ namespace AILogic
             }
         }
 
-        IEnumerator PlayCorrespondingAction(GameObject g)
+        IEnumerator PlayCorrespondingAction()
         {
             //
             NumberManager.instance.recalculate = true;
             yield return new WaitForSeconds(0.5f);
 
 
-            if (g.GetComponent<AICardManager>().specialCardType == SpecialCardType.CaughtRedHanded)
+            if (specialCardType == SpecialCardType.CaughtRedHanded)
             {
-                //find all yellow cards
-                //determine which is best to swap out (smallest or largest number)
-                //if player is over or close to value, swap out smallest
-                //if player is under or far from value, swap out largest
+                //set all yellow opponent selectable
+                //on click swap out click
 
-                //thats ideal 
+                foreach (GameObject g in NumberManager.instance.OPPyellows)
+                {
+                    g.GetComponent<NumberStats>().selectable = true;
+                }
 
-                //mid tier is always largest
-                //always smallest
+                CardSelectionController.instance.CallButtons("swap", "opponent");
 
-                //low tier is random
             }
             else if (specialCardType == SpecialCardType.EmptyPockets)
             {
                 //get random special card
-                GameObject randomSpecial = playerHand.GetChild(Random.Range(0, playerHand.childCount)).gameObject;
+                GameObject randomSpecial = opponentHand.GetChild(Random.Range(0, opponentHand.childCount)).gameObject;
                 //DiscardSpecial(randomSpecial, "opponent");
-                StartCoroutine(DiscardAnimation(randomSpecial, "player"));
+                StartCoroutine(DiscardAnimation(randomSpecial, "opponent"));
 
             }
             else if (specialCardType == SpecialCardType.Burden)
             {
-                if (NumberManager.instance.reds.Count > 0)
+                if (TurnManager.instance.isPlayerTurn)
                 {
-                    //give player +4 if over
-                    //give player -4 if under
-                    if (NumberManager.instance.playerVal > NumberManager.instance.targetVal - 4)
+                    if (NumberManager.instance.OPPreds.Count > 0)
                     {
-                        SpecialCardManager.instance.Give(4, "player");
+                        ActivateChoice(4);
                     }
-                    else
-                    {
-                        SpecialCardManager.instance.Give(-4, "player");
-                    }
-
-
                 }
 
+                //else ai logic
+                //if under target then negative
+                //if over target then positive
             }
             else if (specialCardType == SpecialCardType.RifleButt)
             {
-                //determine best card to flip from player, flip it (any number) (largest impact is large number)
+                foreach (GameObject g in NumberManager.instance.OPPallNumbers)
+                {
+                    g.GetComponent<NumberStats>().selectable = true;
+                }
 
-                //flip the largest number
+                CardSelectionController.instance.CallButtons("flip", "opponent");
 
-                PlayerStats.instance.flipped = true;
+                OpponentStats.instance.flipped = true;
             }
             else if (specialCardType == SpecialCardType.SmokeBreak)
             {
                 //find children of player discard zone
                 //get 2 random cards and add back to hand
+
+                //exclude smoke break 
 
                 DrawSpecialFromDiscard();
                 DrawSpecialFromDiscard();
@@ -609,34 +731,34 @@ namespace AILogic
             }
             else if (specialCardType == SpecialCardType.ThickWoolenCoat)
             {
-                
-                if (NumberManager.instance.playerVal > NumberManager.instance.targetVal - 2)
+                if (TurnManager.instance.isPlayerTurn)
                 {
-                    SpecialCardManager.instance.Give(2, "player");
-                }
-                else
-                {
-                    SpecialCardManager.instance.Give(-2, "player");
+                    ActivateChoice(2);
                 }
 
+                //else AI logic
+                //if under target then negative
+                //if over target then positive
 
             }
             else if (specialCardType == SpecialCardType.Setup)
             {
-                foreach (GameObject g in NumberManager.instance.OallNumbers)
+                foreach (GameObject g in NumberManager.instance.OPPallNumbers)
                 {
-                    //if under,
-                    //find the largest number and discard it 
-
-                    //if bust, discard the negative number
-                    //or dont discard
+                    g.GetComponent<NumberStats>().selectable = true;
                 }
 
+                CardSelectionController.instance.CallButtons("discard", "opponent");
 
             }
             else if (specialCardType == SpecialCardType.Bribe)
             {
-                //give player largest or negative number depending on under or over
+                foreach (GameObject g in NumberManager.instance.duplicates)
+                {
+                    g.GetComponent<NumberStats>().selectable = true;
+                }
+
+                CardSelectionController.instance.CallButtons("give", "opponent");
 
             }
             else if (specialCardType == SpecialCardType.Fist)
@@ -673,7 +795,17 @@ namespace AILogic
             }
             else if (specialCardType == SpecialCardType.CondensedMilk)
             {
-                //determine best card to swap out
+                foreach (GameObject g in NumberManager.instance.allNumbers)
+                {
+                    g.GetComponent<NumberStats>().selectable = true;
+                }
+                foreach (GameObject g in NumberManager.instance.OPPallNumbers)
+                {
+                    g.GetComponent<NumberStats>().selectable = true;
+                }
+
+                CardSelectionController.instance.CallButtons("swap", "opponent");
+
 
             }
             else if (specialCardType == SpecialCardType.InCahoots)
@@ -683,59 +815,52 @@ namespace AILogic
             }
             else if (specialCardType == SpecialCardType.Search)
             {
-                foreach (GameObject g in NumberManager.instance.allNumbers)
+                foreach (GameObject g in NumberManager.instance.OPPallNumbers)
                 {
-                    //find best number to remove (largest, or negative)
+                    g.GetComponent<NumberStats>().selectable = true;
                 }
 
-                //CardSelectionController.instance.CallButtons("discard", "opponent");
+                CardSelectionController.instance.CallButtons("discard", "opponent");
 
             }
             else if (specialCardType == SpecialCardType.Poison)
             {
                 //get random special card
-                GameObject randomSpecial = playerHand.GetChild(Random.Range(0, playerHand.childCount)).gameObject;
+                GameObject randomSpecial = opponentHand.GetChild(Random.Range(0, opponentHand.childCount)).gameObject;
                 //DiscardSpecial(randomSpecial, "opponent");
-                StartCoroutine(DiscardAnimation(randomSpecial, "player"));
+                StartCoroutine(DiscardAnimation(randomSpecial, "opponent"));
 
             }
             else if (specialCardType == SpecialCardType.BackstabDiscard)
             {
-                if (NumberManager.instance.playerVal > NumberManager.instance.targetVal - 2)
-                {
-                    SpecialCardManager.instance.Give(2, "player");
-                }
-                else
-                {
-                    SpecialCardManager.instance.Give(-2, "player");
-                }
+                ActivateChoice(2);
 
             }
             else if (specialCardType == SpecialCardType.Scam)
             {
-                foreach (GameObject g in NumberManager.instance.allNumbers)
+                foreach (GameObject g in NumberManager.instance.OPPallNumbers)
                 {
-                    //find best number to duplicate (largest or negative)
+                    g.GetComponent<NumberStats>().selectable = true;
                 }
 
-                //CardSelectionController.instance.CallButtons("duplicate", "opponent");
+                CardSelectionController.instance.CallButtons("duplicate", "opponent");
 
             }
             else if (specialCardType == SpecialCardType.GiveItUp)
             {
 
-                GameObject randomSpecial = playerHand.GetChild(Random.Range(0, playerHand.childCount)).gameObject;
-                StartCoroutine(DiscardAnimation(randomSpecial, "player"));
+                GameObject randomSpecial = opponentHand.GetChild(Random.Range(0, opponentHand.childCount)).gameObject;
+                StartCoroutine(DiscardAnimation(randomSpecial, "opponent"));
 
             }
             else if (specialCardType == SpecialCardType.Rotation)
             {
-                foreach (GameObject g in NumberManager.instance.OPPnegatives)
+                foreach (GameObject g in NumberManager.instance.negatives)
                 {
-                    //find which number best to swap - know the next card in deck?
+                    g.GetComponent<NumberStats>().selectable = true;
                 }
 
-                //CardSelectionController.instance.CallButtons("swap", "player");
+                CardSelectionController.instance.CallButtons("swap", "player");
 
             }
             else if (specialCardType == SpecialCardType.DirtyTrickIV)
@@ -745,14 +870,18 @@ namespace AILogic
             }
             else if (specialCardType == SpecialCardType.BaitAndSwitch)
             {
-                //if under, change 2 to -2
-                //if over, change -2 to 2
+                foreach (GameObject g in NumberManager.instance.OPPallNumbers)
+                {
+                    if (g.GetComponent<NumberStats>().value == 2 || g.GetComponent<NumberStats>().value == -2)
+                    {
+                        g.GetComponent<NumberStats>().selectable = true;
+                    }
+                }
+                CardSelectionController.instance.CallButtons("changeBait", "opponent", 2);
 
-                //if close to busting change -2 to 2
             }
             else if (specialCardType == SpecialCardType.SelfHarm)
             {
-                /*
                 foreach (GameObject g in NumberManager.instance.allNumbers)
                 {
                     g.GetComponent<NumberStats>().selectable = true;
@@ -761,42 +890,27 @@ namespace AILogic
                 CardSelectionController.instance.CallButtons("flip", "player");
 
                 PlayerStats.instance.flipped = true;
-                */
+
             }
             else if (specialCardType == SpecialCardType.BackstabSwap)
             {
-                if (NumberManager.instance.playerVal > NumberManager.instance.targetVal - 2)
-                {
-                    SpecialCardManager.instance.Give(2, "player");
-                }
-                else
-                {
-                    SpecialCardManager.instance.Give(-2, "player");
-                }
+                ActivateChoice(2);
 
             }
             else if (specialCardType == SpecialCardType.ThereThere)
             {
-                if (NumberManager.instance.playerVal > NumberManager.instance.targetVal - 2)
-                {
-                    SpecialCardManager.instance.Give(2, "player");
-                }
-                else
-                {
-                    SpecialCardManager.instance.Give(-2, "player");
-                }
+                ActivateChoice(2);
 
             }
             else if (specialCardType == SpecialCardType.NotMyProblem)
             {
-                /*
                 foreach (GameObject g in NumberManager.instance.allNumbers)
                 {
                     g.GetComponent<NumberStats>().selectable = true;
                 }
 
                 CardSelectionController.instance.CallButtons("give", "opponent");
-                */
+
             }
             else if (specialCardType == SpecialCardType.Frostbite)
             {
@@ -830,16 +944,46 @@ namespace AILogic
             }
             else if (specialCardType == SpecialCardType.DirtyTrickI)
             {
-                
+                foreach (GameObject g in NumberManager.instance.reds)
+                {
+                    g.GetComponent<NumberStats>().selectable = true;
+                }
+                foreach (GameObject g in NumberManager.instance.OPPreds)
+                {
+                    g.GetComponent<NumberStats>().selectable = true;
+                }
+
+                CardSelectionController.instance.CallButtons("change", "player", 2);
+
 
             }
             else if (specialCardType == SpecialCardType.DirtyTrickII)
             {
-                
+                foreach (GameObject g in NumberManager.instance.yellows)
+                {
+                    g.GetComponent<NumberStats>().selectable = true;
+                }
+                foreach (GameObject g in NumberManager.instance.OPPyellows)
+                {
+                    g.GetComponent<NumberStats>().selectable = true;
+                }
+
+                CardSelectionController.instance.CallButtons("change", "player", 4);
+
             }
             else if (specialCardType == SpecialCardType.DirtyTrickIII)
             {
-                
+                foreach (GameObject g in NumberManager.instance.blues)
+                {
+                    g.GetComponent<NumberStats>().selectable = true;
+                }
+                foreach (GameObject g in NumberManager.instance.OPPblues)
+                {
+                    g.GetComponent<NumberStats>().selectable = true;
+                }
+
+                CardSelectionController.instance.CallButtons("change", "player", 9);
+
             }
             else if (specialCardType == SpecialCardType.LousyDeal)
             {
@@ -873,19 +1017,19 @@ namespace AILogic
             }
             else if (specialCardType == SpecialCardType.Knife)
             {
-                foreach (GameObject g in NumberManager.instance.allNumbers)
+                foreach (GameObject g in NumberManager.instance.OPPallNumbers)
                 {
-                    //find best number to flip
+                    g.GetComponent<NumberStats>().selectable = true;
                 }
 
-                //CardSelectionController.instance.CallButtons("flip", "player");
+                CardSelectionController.instance.CallButtons("flip", "opponent");
 
-                //PlayerStats.instance.flipped = true;
+                OpponentStats.instance.flipped = true;
 
             }
             else if (specialCardType == SpecialCardType.ExtraWork)
             {
-                CardPlacementController.instance.DealOneCard("player");
+                CardPlacementController.instance.DealOneCard("opponent");
 
             }
             else if (specialCardType == SpecialCardType.Scratch)
@@ -905,7 +1049,6 @@ namespace AILogic
             }
             else if (specialCardType == SpecialCardType.Snitch)
             {
-                /*
                 foreach (GameObject g in NumberManager.instance.allNumbers)
                 {
                     g.GetComponent<NumberStats>().selectable = true;
@@ -916,7 +1059,7 @@ namespace AILogic
                 }
 
                 CardSelectionController.instance.CallButtons("change", "opponent", 5);
-                */
+
             }
             else if (specialCardType == SpecialCardType.GoodDeal)
             {
@@ -930,69 +1073,104 @@ namespace AILogic
             }
             else if (specialCardType == SpecialCardType.GoodFeeling)
             {
-                if (CardPlacementController.instance.numberDeck[0].GetComponent<NumberStats>().yellow)
+                if (TurnManager.instance.isPlayerTurn)
                 {
-                    CardPlacementController.instance.DealOneCard("opponent");
-                    yield return new WaitForSeconds(0.7f);
-                    CardPlacementController.instance.DealOneCard("player");
+                    if (CardPlacementController.instance.numberDeck[0].GetComponent<NumberStats>().yellow)
+                    {
+                        CardPlacementController.instance.DealOneCard("player");
+                        yield return new WaitForSeconds(0.7f);
+                        CardPlacementController.instance.DealOneCard("opponent");
+                    }
+                    else
+                    {
+                        CardPlacementController.instance.DealOneCard("player");
+                    }
+
                 }
-                else
+
+                if (!TurnManager.instance.isPlayerTurn)
                 {
-                    CardPlacementController.instance.DealOneCard("opponent");
+                    if (CardPlacementController.instance.numberDeck[0].GetComponent<NumberStats>().yellow)
+                    {
+                        CardPlacementController.instance.DealOneCard("opponent");
+                        yield return new WaitForSeconds(0.7f);
+                        CardPlacementController.instance.DealOneCard("player");
+                    }
+                    else
+                    {
+                        CardPlacementController.instance.DealOneCard("opponent");
+                    }
+
                 }
 
 
             }
             else if (specialCardType == SpecialCardType.Forgery)
             {
-                /*
                 foreach (GameObject g in NumberManager.instance.allNumbers)
                 {
                     g.GetComponent<NumberStats>().selectable = true;
                 }
 
                 CardSelectionController.instance.CallButtons("duplicate", "player");
-                */
+
             }
             else if (specialCardType == SpecialCardType.Pushover)
             {
-                /*
                 foreach (GameObject g in NumberManager.instance.allNumbers)
                 {
                     g.GetComponent<NumberStats>().selectable = true;
                 }
 
                 CardSelectionController.instance.CallButtons("discard", "player");
-                */
 
-                //calculate which number to remove to be closest to target
             }
             else if (specialCardType == SpecialCardType.Scavenge)
             {
                 if (discardedCards.Count > 0)
                 {
-                    //add best special card to hand
+                    ChoiceController.instance.ShowDiscardedCards(discardedCards, playerHand);
+
                 }
 
             }
             else if (specialCardType == SpecialCardType.Overwhelmed)
             {
-                foreach (GameObject g in NumberManager.instance.OPPallNumbers)
+                foreach (GameObject g in NumberManager.instance.allNumbers)
                 {
-                    //pick best number to remove to be closest to target
+                    g.GetComponent<NumberStats>().selectable = true;
                 }
 
-                
+                CardSelectionController.instance.CallButtons("discard", "player");
 
             }
             else if (specialCardType == SpecialCardType.VitaminShotII)
             {
-                SpecialCardManager.instance.Give(2, "opponent");
+                //if current turn is player
+                if (TurnManager.instance.isPlayerTurn)
+                {
+                    SpecialCardManager.instance.Give(2, "player");
+                }
+                else if (!TurnManager.instance.isPlayerTurn)
+                {
+                    //if current turn is opponent
+                    SpecialCardManager.instance.Give(2, "opponent");
+                }
 
             }
             else if (specialCardType == SpecialCardType.VitaminShotV)
             {
-                SpecialCardManager.instance.Give(5, "opponent");
+                //if current turn is player
+                if (TurnManager.instance.isPlayerTurn)
+                {
+                    SpecialCardManager.instance.Give(5, "player");
+                }
+                else if (!TurnManager.instance.isPlayerTurn)
+                {
+                    //if current turn is opponent
+                    SpecialCardManager.instance.Give(5, "opponent");
+                }
+
             }
 
         }
@@ -1094,8 +1272,8 @@ namespace AILogic
                 GameObject chosenCard = discardedCards[randomIndex];
                 discardedCards.RemoveAt(randomIndex);
                 chosenCard.GetComponent<CardPlace>().beingPlayed = false;
-                //chosenCard.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                chosenCard.transform.SetParent(opponentHand);
+                chosenCard.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                chosenCard.transform.SetParent(playerHand);
             }
             else
             {

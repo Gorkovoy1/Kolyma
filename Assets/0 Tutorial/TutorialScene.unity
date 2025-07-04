@@ -489,6 +489,7 @@ GameObject:
   m_Component:
   - component: {fileID: 154296535}
   - component: {fileID: 154296536}
+  - component: {fileID: 154296537}
   m_Layer: 5
   m_Name: TutorialObj
   m_TagString: Untagged
@@ -531,7 +532,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialText: {fileID: 1590734118}
   blockerPanel: {fileID: 2012516802}
+  opponentHand: {fileID: 2137599024}
   DeckManagerCanvas: {fileID: 975778168}
+  tutorialObj: {fileID: 154296534}
+--- !u!114 &154296537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154296534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6286cc3dd4e000c49bec5be914110729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedCardToPlay: {fileID: 0}
 --- !u!224 &208641658 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3799540867299708776, guid: f1007e58f1982e948874dc8132c324d4, type: 3}
@@ -1814,6 +1830,7 @@ MonoBehaviour:
   - {fileID: 7552451446090856819, guid: 8ab31a64d82e58a43945d03aae832d19, type: 3}
   - {fileID: 514954980831254118, guid: 76e9f358ba6f9dc49869c750f6a0caaf, type: 3}
   - {fileID: 1905454823871813243, guid: 9236e952a9a6f744eb7c089845f5b046, type: 3}
+  - {fileID: 2494119314469739859, guid: 3f3e8a094e056fd40bb08ea0d0560f8e, type: 3}
   doneDealing: 1
 --- !u!210 &638265595
 SortingGroup:
@@ -2336,7 +2353,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 774490062}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71d9d2142e829094281cf1e95246a430, type: 3}
+  m_Script: {fileID: 11500000, guid: c3481c1c9df59ee479be4c5b7a459531, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerDiscardZone: {fileID: 1317641049}
@@ -2742,6 +2759,7 @@ MonoBehaviour:
   recalculate: 0
   playerVal: 0
   oppVal: 0
+  targetVal: 0
 --- !u!1 &938998339
 GameObject:
   m_ObjectHideFlags: 0
@@ -3035,12 +3053,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerDeck: []
   cardInventory:
-  - {fileID: 7329630469545081247, guid: 0d5080cf8b9f17640971f6f53be22b2a, type: 3}
-  - {fileID: 8580508824025752925, guid: 43ccb6589a71d3b49baec4a43fe963bc, type: 3}
-  - {fileID: 4309277989975084539, guid: a6e234c0fd98b0a40949064aa2caa79a, type: 3}
-  - {fileID: 7890025832511907233, guid: afd63be64fbf6d645917d7cf14982a78, type: 3}
-  - {fileID: 7693267126269467024, guid: e8178dd65939c954884a7c588f9d5626, type: 3}
-  - {fileID: 5616304533076947711, guid: c00c6ac809906e244b34cbe66f30f13e, type: 3}
+  - {fileID: 7329630469545081247, guid: 0f505ee9ac9b4284c957991b5c77f1c0, type: 3}
+  - {fileID: 8580508824025752925, guid: c833ee8ff2c9b494e96d5f5b3ada7d34, type: 3}
+  - {fileID: 4309277989975084539, guid: 783cd8b7926754148bdddd215d129520, type: 3}
+  - {fileID: 7890025832511907233, guid: 4c6a26db3d81bde4db62ac37db9ad533, type: 3}
+  - {fileID: 7693267126269467024, guid: f6a6ea507c4d03d4b98aa08ec18c559a, type: 3}
+  - {fileID: 5616304533076947711, guid: 6fa4721a39bd8064b9d457d186306756, type: 3}
   rowList:
   - {fileID: 1185516585}
   - {fileID: 644173512}
@@ -3063,7 +3081,7 @@ GameObject:
   - component: {fileID: 977553273}
   - component: {fileID: 977553272}
   - component: {fileID: 977553271}
-  - component: {fileID: 977553270}
+  - component: {fileID: 977553275}
   m_Layer: 5
   m_Name: CardSelectionCanvas
   m_TagString: Untagged
@@ -3092,22 +3110,6 @@ RectTransform:
   m_AnchoredPosition: {x: 400, y: 224.97787}
   m_SizeDelta: {x: 800, y: 449.95572}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &977553270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 977553268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ec98fcb93f701f4f9553a2e8a7fc6f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectable: 0
-  selected: 0
-  buttonPrefab: {fileID: 1634184321075820668, guid: 73b2e4c9263a4ac4ea5dcc97065117d3, type: 3}
-  choiceObj: {fileID: 1250807829}
 --- !u!210 &977553271
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -3180,6 +3182,22 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &977553275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977553268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c412a95fdf59246bd78d5303469c8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectable: 0
+  selected: 0
+  buttonPrefab: {fileID: 1634184321075820668, guid: 73b2e4c9263a4ac4ea5dcc97065117d3, type: 3}
+  choiceObj: {fileID: 1250807829}
 --- !u!1 &984533469
 GameObject:
   m_ObjectHideFlags: 0
@@ -3618,7 +3636,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1185516587
@@ -6119,22 +6137,23 @@ MonoBehaviour:
   playerSpecialHand: []
   opponentSpecialHand: []
   playerSpecialDeck:
-  - {fileID: 1086059024571131941, guid: 3c86dd04a38b3e347970849d43f6b7f1, type: 3}
-  - {fileID: 8438558763316495119, guid: 274035e762198814ab2601176bf0105d, type: 3}
-  - {fileID: 4823398007544072123, guid: d95ffe55f4b9d2642826231d3492eaac, type: 3}
-  - {fileID: 3956694315904718951, guid: cef48fb0ff02386449a623caaafd2251, type: 3}
-  - {fileID: 7893227083927215349, guid: 6db808cc857b7604085d086d5eb941ec, type: 3}
-  - {fileID: 4274500267536811359, guid: b2ed7cf41e5a4694d9e6d2bf0ceda570, type: 3}
+  - {fileID: 1086059024571131941, guid: 5949f82984f6741458ab9ee0fd170e79, type: 3}
+  - {fileID: 8438558763316495119, guid: 98ea89d0b9029ec4aa516103745bdfcf, type: 3}
+  - {fileID: 4823398007544072123, guid: 118ce8c05336fb744bd7302188e4d6dd, type: 3}
+  - {fileID: 3956694315904718951, guid: d20913fdf58b5864bbae46f06dc5c25b, type: 3}
+  - {fileID: 7893227083927215349, guid: c2b4d9fdba863c74f829795a9e2d0a67, type: 3}
+  - {fileID: 4274500267536811359, guid: 4175e417406e419469588512e6402f54, type: 3}
   opponentSpecialDeck:
-  - {fileID: 4274500267536811359, guid: b2ed7cf41e5a4694d9e6d2bf0ceda570, type: 3}
-  - {fileID: 5037316117958828536, guid: 0fec2f751bc95be44b76b5af81d7a4bd, type: 3}
-  - {fileID: 3956694315904718951, guid: cef48fb0ff02386449a623caaafd2251, type: 3}
-  - {fileID: 3412380488477333467, guid: 6185afe4de0b17a438f0ead9e3e51b82, type: 3}
-  - {fileID: 3620195004621663235, guid: 87827df9fd4fc7442b91542cf18af8d2, type: 3}
-  - {fileID: 5958794422760229440, guid: 60c6e7caa1e88a44389009e7b8c5cb39, type: 3}
+  - {fileID: 4274500267536811359, guid: 7ed6644cc692d00488b85c369a71a8ba, type: 3}
+  - {fileID: 3956694315904718951, guid: 36c358bbb68ffbc48ad1b38b409b33b8, type: 3}
+  - {fileID: 3412380488477333467, guid: b30d757ba06b643489246d936eae7bfe, type: 3}
+  - {fileID: 5958794422760229440, guid: 673f9ee880dc8cc478df202de48ff15e, type: 3}
+  - {fileID: 5037316117958828536, guid: f308567c85470344b8b768b2c23aee33, type: 3}
+  - {fileID: 3620195004621663235, guid: 8797ae31364d64644aa3f3fecac9768a, type: 3}
   playerHand: {fileID: 890806058}
   opponentHand: {fileID: 2137599024}
   imagesParent: {fileID: 1425571759}
+  doneDealing: 0
 --- !u!1 &2032156875
 GameObject:
   m_ObjectHideFlags: 0

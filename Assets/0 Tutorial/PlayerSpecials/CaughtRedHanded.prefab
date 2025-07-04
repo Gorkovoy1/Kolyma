@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4274500267536811346}
   - component: {fileID: 4274500267536811345}
   - component: {fileID: 4274500267536811350}
-  - component: {fileID: 1164859234994421111}
+  - component: {fileID: -3614552040832913639}
   m_Layer: 5
   m_Name: CaughtRedHanded
   m_TagString: Untagged
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &1164859234994421111
+--- !u!114 &-3614552040832913639
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4274500267536811359}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3891ca529bf00454799b7724d22e57cf, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b2d5af88a6da324286cb07033660e2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isDragging: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
   imagePrefab: {fileID: 5131980721129536295, guid: fc860d4a3358f8d4695e1c7b01af9be7, type: 3}
   correspondingImage: {fileID: 5131980721129536295, guid: fc860d4a3358f8d4695e1c7b01af9be7, type: 3}
   imagesParent: {fileID: 0}
-  hoverOffset: 75
+  hoverOffset: 0
   hovering: 0
   dragging: 0
   beingPlayed: 0
@@ -182,9 +182,9 @@ MonoBehaviour:
   specialCardType: 0
   isPlayable: 0
   defaultMat: {fileID: 0}
-  playableMat: {fileID: 2100000, guid: d872faa1aa03b3043ada6d7ff912f653, type: 2}
+  playableMat: {fileID: 0}
   discardedCards: []
   discardUpdated: 0
-  cardBack: {fileID: 21300000, guid: 5681a74c470359848acdb34ed992ba17, type: 3}
+  cardBack: {fileID: 0}
   grey: {fileID: 0}
   isFlipped: 0

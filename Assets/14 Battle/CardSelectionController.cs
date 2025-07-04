@@ -381,7 +381,7 @@ public class CardSelectionController : MonoBehaviour
 
 
 
-    IEnumerator SwapOut(GameObject g, string target)
+    public IEnumerator SwapOut(GameObject g, string target)
     {
         StartCoroutine(DeleteShader(g));
         yield return new WaitForSeconds(1f);
