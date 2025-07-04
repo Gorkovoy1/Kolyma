@@ -44,6 +44,7 @@ public class NumberManager : MonoBehaviour
 
     public int playerVal;
     public int oppVal;
+    public int targetVal;
 
 
     void Awake()
