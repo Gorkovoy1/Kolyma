@@ -3477,7 +3477,7 @@ GameObject:
   - component: {fileID: 1169435207}
   - component: {fileID: 1169435206}
   - component: {fileID: 1169435205}
-  - component: {fileID: 1169435204}
+  - component: {fileID: 1169435209}
   m_Layer: 5
   m_Name: ChoiceCanvas
   m_TagString: Untagged
@@ -3507,26 +3507,6 @@ RectTransform:
   m_AnchoredPosition: {x: 400, y: 224.97787}
   m_SizeDelta: {x: 800, y: 449.95572}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1169435204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1169435202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5bd1a8733295584891966931bc3a5c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  choiceObject: {fileID: 1728635635}
-  discardChoiceObject: {fileID: 1482625255}
-  buttonPrefab: {fileID: 1713187366844617050, guid: 46a1b9cf140fb6b4982768a59f67a668, type: 3}
-  buttonPrefabCard: {fileID: 8629640060813487760, guid: f1007e58f1982e948874dc8132c324d4, type: 3}
-  negFour: {fileID: 21300000, guid: 6e254b1631bba4c4b851a2e95358038b, type: 3}
-  posFour: {fileID: 21300000, guid: 037d4c96875a9fa449beddfac77e43c6, type: 3}
-  negTwo: {fileID: 21300000, guid: 1ab6a03728a6bbf44ba9530f3a397636, type: 3}
-  posTwo: {fileID: 21300000, guid: 52ddfd344bc946d47ae70df890686555, type: 3}
 --- !u!210 &1169435205
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -3599,6 +3579,26 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1169435209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169435202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 614f615d3908aab4ab787ffe4e67ef6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  choiceObject: {fileID: 1728635635}
+  discardChoiceObject: {fileID: 1482625255}
+  buttonPrefab: {fileID: 1713187366844617050, guid: 46a1b9cf140fb6b4982768a59f67a668, type: 3}
+  buttonPrefabCard: {fileID: 8629640060813487760, guid: f1007e58f1982e948874dc8132c324d4, type: 3}
+  negFour: {fileID: 21300000, guid: 6e254b1631bba4c4b851a2e95358038b, type: 3}
+  posFour: {fileID: 21300000, guid: 037d4c96875a9fa449beddfac77e43c6, type: 3}
+  negTwo: {fileID: 21300000, guid: 1ab6a03728a6bbf44ba9530f3a397636, type: 3}
+  posTwo: {fileID: 21300000, guid: 52ddfd344bc946d47ae70df890686555, type: 3}
 --- !u!1 &1185516585
 GameObject:
   m_ObjectHideFlags: 0
