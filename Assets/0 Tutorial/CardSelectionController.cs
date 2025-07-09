@@ -394,6 +394,9 @@ namespace TutorialScripts
             yield return new WaitForSeconds(0.7f);
             CardPlacementController.instance.DealOneCard(target);
             yield return new WaitForSeconds(0.7f);
+
+            //TurnManager.instance.isPlayerTurn = !TurnManager.instance.isPlayerTurn;
+            NumberManager.instance.recalculate = true;
         }
 
         IEnumerator DeleteShader(GameObject g)

@@ -61,7 +61,7 @@ using AILogic;
                 isFlipped = false;
 
                 playerHand = this.transform.parent;
-                opponentHand = playerHand.parent.Find("OpponentHand");
+                opponentHand = playerHand.parent.Find("PlayerHand");
                 parentReturnTo = playerHand;
                 //set images parent
                 //set discard zone obj
@@ -77,7 +77,7 @@ using AILogic;
                     defaultMat = correspondingImage.GetComponent<Image>().material;
 
                     //start flipped
-                    if (this.transform.parent == opponentHand)
+                    if (this.transform.parent == playerHand)
                     {
                         grey = correspondingImage.GetComponent<Image>().sprite;
                         correspondingImage.GetComponent<Image>().sprite = cardBack;
@@ -580,7 +580,7 @@ using AILogic;
                 else if (specialCardType == SpecialCardType.EmptyPockets)
                 {
                     //get random special card
-                    GameObject randomSpecial = playerHand.GetChild(Random.Range(0, playerHand.childCount)).gameObject;
+                    GameObject randomSpecial = opponentHand.transform.Find("EmptyPockets(Clone)").gameObject;
                     //DiscardSpecial(randomSpecial, "opponent");
                     StartCoroutine(DiscardAnimation(randomSpecial, "player"));
 

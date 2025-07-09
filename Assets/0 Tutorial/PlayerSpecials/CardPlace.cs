@@ -397,7 +397,11 @@ namespace TutorialScripts
             {
                 foreach (GameObject g in NumberManager.instance.OPPallNumbers)
                 {
-                    g.GetComponent<NumberStats>().selectable = true;
+                    if(g.GetComponent<NumberStats>().value == -4)
+                    {
+                        g.GetComponent<NumberStats>().selectable = true;
+                    }
+                    
                 }
 
                 CardSelectionController.instance.CallButtons("discard", "opponent");

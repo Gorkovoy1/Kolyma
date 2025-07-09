@@ -534,6 +534,7 @@ MonoBehaviour:
   blockerPanel: {fileID: 2012516802}
   opponentHand: {fileID: 2137599024}
   playerHand: {fileID: 890806058}
+  playerDiscard: {fileID: 1317641049}
   DeckManagerCanvas: {fileID: 975778168}
   tutorialObj: {fileID: 154296534}
 --- !u!114 &154296537

@@ -78,8 +78,8 @@ namespace TutorialScripts
 
                 buttonOne.onClick.AddListener(() =>
                 {
-                    SpecialCardManager.instance.Give(-2, "opponent");
-                    choiceObject.SetActive(false);
+                    //play error noise
+                    Debug.Log("give 2!");
                 });
             }
             else if (x == 4)
