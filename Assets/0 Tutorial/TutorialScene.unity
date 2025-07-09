@@ -533,6 +533,7 @@ MonoBehaviour:
   tutorialText: {fileID: 1590734118}
   blockerPanel: {fileID: 2012516802}
   opponentHand: {fileID: 2137599024}
+  playerHand: {fileID: 890806058}
   DeckManagerCanvas: {fileID: 975778168}
   tutorialObj: {fileID: 154296534}
 --- !u!114 &154296537
@@ -1792,18 +1793,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9921bfad47e7a0b4b9942ca246e881e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  twoSpace: {fileID: 9041085088217329704, guid: e51051aecea29a84b8fd42f4dfb69bf3, type: 3}
-  threeSpace: {fileID: 1869368454400129227, guid: 608063f380c40084ba912f5b5249b814, type: 3}
-  fourSpace: {fileID: 2159823087992540808, guid: 0e24652952af70b4a801c4ed02f5bc04, type: 3}
-  fiveSpace: {fileID: 9195353847011657978, guid: 4b85d2b0870883048b550b1b1bfda215, type: 3}
-  sixSpace: {fileID: 5345580580768251407, guid: 0ca05ec09176c5e44aa2e90734544dcc, type: 3}
-  sevenSpace: {fileID: 7552451446090856819, guid: e4c40613320e87f4fbceb66c30ad8a37, type: 3}
-  eightSpace: {fileID: 2494119314469739859, guid: b02c3cbee5d18704292d4ddd1a76c4b3, type: 3}
-  nineSpace: {fileID: 2309320822461123950, guid: e0fc1a126afef5241b8609e8ff481b0b, type: 3}
-  negTwoSpace: {fileID: 8081401923800990640, guid: 0374ecbb93fdae04292cec653094934c, type: 3}
-  negThreeSpace: {fileID: 514954980831254118, guid: 26f411a2b0cfc7c4f9223794bc3a0a53, type: 3}
-  negFourSpace: {fileID: 1905454823871813243, guid: 5af5558adb2322e4d9fcd3bda1ee47fd, type: 3}
-  negFiveSpace: {fileID: 2596179335335313814, guid: 3d134e8eb78c5a541998b9d9a86f2c7a, type: 3}
+  twoSpace: {fileID: 9041085088217329704, guid: 860cd88524da6724d8f77fb96ab56c38, type: 3}
+  threeSpace: {fileID: 1869368454400129227, guid: 0549c904aeb83ae4880c565917bfd115, type: 3}
+  fourSpace: {fileID: 2159823087992540808, guid: cd737e99c3eab4c41b54305efcaefc84, type: 3}
+  fiveSpace: {fileID: 9195353847011657978, guid: e7343cc4b6d3c7e45984d47c50b168b3, type: 3}
+  sixSpace: {fileID: 5345580580768251407, guid: b3d56a88c11f56a4194789a3644888cf, type: 3}
+  sevenSpace: {fileID: 7552451446090856819, guid: 8ab31a64d82e58a43945d03aae832d19, type: 3}
+  eightSpace: {fileID: 2494119314469739859, guid: 3f3e8a094e056fd40bb08ea0d0560f8e, type: 3}
+  nineSpace: {fileID: 2309320822461123950, guid: 38bbddcf2623f5d489de91ee010f36c7, type: 3}
+  negTwoSpace: {fileID: 8081401923800990640, guid: 47a5ea83a31125646beec8bb6abf9d72, type: 3}
+  negThreeSpace: {fileID: 514954980831254118, guid: 76e9f358ba6f9dc49869c750f6a0caaf, type: 3}
+  negFourSpace: {fileID: 1905454823871813243, guid: 9236e952a9a6f744eb7c089845f5b046, type: 3}
+  negFiveSpace: {fileID: 2596179335335313814, guid: 36f3d9feda3e87b47839215b6dd3dca6, type: 3}
   opponentPositiveArea: {fileID: 1412833108}
   opponentNegativeArea: {fileID: 773447979}
   playerPositiveArea: {fileID: 1735816424}

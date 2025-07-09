@@ -170,7 +170,7 @@ MonoBehaviour:
   imagePrefab: {fileID: 8517531851131246620, guid: 02c37e45dc841724cafd0033f77cf3de, type: 3}
   correspondingImage: {fileID: 8517531851131246620, guid: 02c37e45dc841724cafd0033f77cf3de, type: 3}
   imagesParent: {fileID: 0}
-  hoverOffset: 0
+  hoverOffset: 75
   hovering: 0
   dragging: 0
   beingPlayed: 0
@@ -182,7 +182,7 @@ MonoBehaviour:
   specialCardType: 6
   isPlayable: 0
   defaultMat: {fileID: 0}
-  playableMat: {fileID: 0}
+  playableMat: {fileID: 2100000, guid: d872faa1aa03b3043ada6d7ff912f653, type: 2}
   discardedCards: []
   discardUpdated: 0
   cardBack: {fileID: 0}

@@ -13,6 +13,7 @@ public class TutorialController : MonoBehaviour
     public List<TutorialStepData> steps;
 
     public GameObject opponentHand;
+    public GameObject playerHand;
 
     public Canvas DeckManagerCanvas;
 
@@ -119,6 +120,33 @@ public class TutorialController : MonoBehaviour
                     tutorialObj.GetComponent<TutorialScripts.AIController>().PlayCard();
                     
                 },
+                //wait until card has been played and 2 is swapped for 8
+            },
+            new TutorialStepData
+            {
+                message = "Now it's your turn. Select Thick Woolen Coat and give your opponent +2.",
+                requireContinue = true,
+                afterContinue = () =>
+                {
+                    TurnManager.instance.isPlayerTurn = true;
+                    //set everything as unplayable
+                    foreach(Transform child in playerHand.transform)
+                    {
+                        if(child.gameObject.name == "ThickWoolenCoat(Clone)")
+                        {
+                            child.gameObject.GetComponent<TutorialScripts.CardPlace>().isPlayable = true;
+                        }
+                        else
+                        {
+                            child.gameObject.GetComponent<TutorialScripts.CardPlace>().isPlayable = false;
+                        }
+                    }
+                    //set thick woolen coat as playable
+                    
+                    
+
+                },
+                //wait until thick woolen coat is played
             }
 
 

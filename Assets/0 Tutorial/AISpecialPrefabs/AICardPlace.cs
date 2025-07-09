@@ -167,11 +167,13 @@ using AILogic;
 
             IEnumerator BeingPlayed()
             {
-                this.GetComponent<RectTransform>().anchoredPosition = new Vector3(-80f, -300f, 0);
+                this.GetComponent<RectTransform>().anchoredPosition = new Vector3(-80f, -350f, 0);
                 correspondingImage.transform.localScale = new Vector3(0.17f, 0.17f, 0.17f);
                 yield return new WaitForSeconds(1f);
+                StartCoroutine(FlipOverCard(this.gameObject));
+                yield return new WaitForSeconds(1f);
 
-                correspondingImage.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
+            correspondingImage.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
                 this.transform.SetParent(opponentDiscardZone.transform);
                 this.transform.position = opponentDiscardZone.transform.position;
 
@@ -1080,27 +1082,27 @@ using AILogic;
                 float timer = 0f;
                 float halfTime = 0.1f;
 
-                float originalScaleX = g.GetComponent<CardPlace>().correspondingImage.transform.localScale.x;
+                float originalScaleX = g.GetComponent<AICardPlace>().correspondingImage.transform.localScale.x;
 
                 for (timer = 0; timer < halfTime; timer += Time.deltaTime)
                 {
                     float scaleX = Mathf.Lerp(originalScaleX, 0f, timer / halfTime);
-                    g.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(scaleX, g.GetComponent<CardPlace>().correspondingImage.transform.localScale.y, g.GetComponent<CardPlace>().correspondingImage.transform.localScale.z);
+                    g.GetComponent<AICardPlace>().correspondingImage.transform.localScale = new Vector3(scaleX, g.GetComponent<AICardPlace>().correspondingImage.transform.localScale.y, g.GetComponent<AICardPlace>().correspondingImage.transform.localScale.z);
                     yield return null;
                 }
 
-                g.GetComponent<CardPlace>().correspondingImage.GetComponent<Image>().sprite = grey;
-                g.GetComponent<CardPlace>().correspondingImage.transform.Find("Image").GetComponent<Image>().enabled = true;
-                g.GetComponent<CardPlace>().correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(true);
+                g.GetComponent<AICardPlace>().correspondingImage.GetComponent<Image>().sprite = grey;
+                g.GetComponent<AICardPlace>().correspondingImage.transform.Find("Image").GetComponent<Image>().enabled = true;
+                g.GetComponent<AICardPlace>().correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(true);
 
                 for (timer = 0; timer < halfTime; timer += Time.deltaTime)
                 {
                     float scaleX = Mathf.Lerp(0f, originalScaleX, timer / halfTime);
-                    g.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(scaleX, g.GetComponent<CardPlace>().correspondingImage.transform.localScale.y, g.GetComponent<CardPlace>().correspondingImage.transform.localScale.z);
+                    g.GetComponent<AICardPlace>().correspondingImage.transform.localScale = new Vector3(scaleX, g.GetComponent<AICardPlace>().correspondingImage.transform.localScale.y, g.GetComponent<AICardPlace>().correspondingImage.transform.localScale.z);
                     yield return null;
                 }
 
-                g.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(originalScaleX, g.GetComponent<CardPlace>().correspondingImage.transform.localScale.y, g.GetComponent<CardPlace>().correspondingImage.transform.localScale.z);
+                g.GetComponent<AICardPlace>().correspondingImage.transform.localScale = new Vector3(originalScaleX, g.GetComponent<AICardPlace>().correspondingImage.transform.localScale.y, g.GetComponent<AICardPlace>().correspondingImage.transform.localScale.z);
             }
 
             public void DrawSpecialFromDiscard()
