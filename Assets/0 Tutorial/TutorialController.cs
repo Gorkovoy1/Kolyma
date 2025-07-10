@@ -330,6 +330,39 @@ public class TutorialController : MonoBehaviour
                 requireContinue = true,
 
             },
+            new TutorialStepData
+            {
+                message = "Use your last trick. I hope the numbers are on your side.",
+                requireContinue = true,
+                afterContinue = () =>
+                {
+                    TurnManager.instance.isPlayerTurn = true;
+                    foreach(Transform child in playerHand.transform)
+                    {
+                        if(child.gameObject.name == "CaughtRedHanded(Clone)")
+                        {
+                            child.gameObject.GetComponent<TutorialScripts.CardPlace>().isPlayable = true;
+                        }
+                        else
+                        {
+                            child.gameObject.GetComponent<TutorialScripts.CardPlace>().isPlayable = false;
+                        }
+                    }
+                },
+                //wait until one more pos
+                waitUntil = () => NumberManager.instance.oppVal == 20,
+            },
+            new TutorialStepData
+            {
+                message = "Now use your action. Flip your 4 to secure the victory.",
+                requireContinue = true,
+                afterContinue = () =>
+                {
+                    TurnManager.instance.isPlayerTurn = true;
+                    //
+                },
+                //
+            },
 
         };
 

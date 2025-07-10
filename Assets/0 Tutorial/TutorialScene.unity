@@ -537,6 +537,7 @@ MonoBehaviour:
   playerDiscard: {fileID: 1317641049}
   DeckManagerCanvas: {fileID: 975778168}
   tutorialObj: {fileID: 154296534}
+  weaknessCard: {fileID: 0}
 --- !u!114 &154296537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1821,6 +1822,7 @@ MonoBehaviour:
   - {fileID: 514954980831254118, guid: 76e9f358ba6f9dc49869c750f6a0caaf, type: 3}
   - {fileID: 1905454823871813243, guid: 9236e952a9a6f744eb7c089845f5b046, type: 3}
   - {fileID: 2494119314469739859, guid: 3f3e8a094e056fd40bb08ea0d0560f8e, type: 3}
+  - {fileID: 2309320822461123950, guid: 38bbddcf2623f5d489de91ee010f36c7, type: 3}
   doneDealing: 1
 --- !u!210 &638265595
 SortingGroup:
@@ -4602,7 +4604,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 16
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
