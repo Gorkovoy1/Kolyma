@@ -168,13 +168,17 @@ public class CardSelectionController : MonoBehaviour
                         StartCoroutine(FlipNumber(g));
                         
                     }
+                    else if(toDo == "gift")
+                    {
+                        GiftNumber(g);
+                    }
 
                     Debug.Log("execute action");
                     choiceObj.SetActive(false);
                 });
 
 
-
+                NumberManager.instance.recalculate = true;
             }
         }
 
@@ -211,7 +215,29 @@ public class CardSelectionController : MonoBehaviour
             g.transform.SetParent(NumberManager.instance.playerNegativeArea.transform);
         }
 
+        NumberManager.instance.recalculate = true;
+    }
 
+    public void GiftNumber(GameObject g)
+    {
+        if(g.transform.parent.transform == NumberManager.instance.playerPositiveArea.transform)
+        {
+            g.transform.SetParent(NumberManager.instance.oppPositiveArea.transform);
+        }
+        else if(g.transform.parent.transform == NumberManager.instance.playerNegativeArea.transform)
+        {
+            g.transform.SetParent(NumberManager.instance.oppNegativeArea.transform);
+        }
+        else if (g.transform.parent.transform == NumberManager.instance.oppNegativeArea.transform)
+        {
+            g.transform.SetParent(NumberManager.instance.playerNegativeArea.transform);
+        }
+        else
+        {
+            g.transform.SetParent(NumberManager.instance.playerPositiveArea.transform);
+        }
+
+        NumberManager.instance.recalculate = true;
     }
 
     void UpdatePivot(GameObject g)
@@ -356,6 +382,8 @@ public class CardSelectionController : MonoBehaviour
 
         Destroy(g);
         yield return new WaitForSeconds(0.7f);
+
+        NumberManager.instance.recalculate = true;
     }
 
     public IEnumerator ChangeNumber(GameObject g, int x, string target)
@@ -367,6 +395,8 @@ public class CardSelectionController : MonoBehaviour
         Destroy(g);
         yield return new WaitForSeconds(0.7f);
         SpecialCardManager.instance.Give(x, target);
+
+        NumberManager.instance.recalculate = true;
     }
 
     public IEnumerator DiscardNumber(GameObject g)
@@ -377,6 +407,8 @@ public class CardSelectionController : MonoBehaviour
         Destroy(g.GetComponent<CardPlace>().correspondingImage);
         Destroy(g);
         yield return new WaitForSeconds(0.7f);
+
+        NumberManager.instance.recalculate = true;
     }
 
 
@@ -392,6 +424,8 @@ public class CardSelectionController : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
         CardPlacementController.instance.DealOneCard(target);
         yield return new WaitForSeconds(0.7f);
+
+        NumberManager.instance.recalculate = true;
     }
 
     IEnumerator DeleteShader(GameObject g)

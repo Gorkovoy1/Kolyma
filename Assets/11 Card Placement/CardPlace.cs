@@ -756,7 +756,7 @@ public class CardPlace : MonoBehaviour,
                 g.GetComponent<NumberStats>().selectable = true;
             }
 
-            CardSelectionController.instance.CallButtons("give", "opponent");
+            CardSelectionController.instance.CallButtons("gift", "opponent");
 
         }
         else if (specialCardType == SpecialCardType.Fist)
@@ -907,7 +907,7 @@ public class CardPlace : MonoBehaviour,
                 g.GetComponent<NumberStats>().selectable = true;
             }
 
-            CardSelectionController.instance.CallButtons("give", "opponent");
+            CardSelectionController.instance.CallButtons("gift", "opponent");
 
         }
         else if (specialCardType == SpecialCardType.Frostbite)
