@@ -191,7 +191,15 @@ namespace TutorialScripts
 
         public IEnumerator FlipNumber(GameObject g)
         {
-            g.gameObject.GetComponent<global::CardPlace>().isFlipped = !g.gameObject.GetComponent<global::CardPlace>().isFlipped;
+            if(g.transform.parent.transform == NumberManager.instance.oppPositiveArea.transform || g.transform.parent.transform == NumberManager.instance.oppNegativeArea.transform)
+            {
+                g.gameObject.GetComponent<global::CardPlace>().isFlipped = !g.gameObject.GetComponent<global::CardPlace>().isFlipped;
+            }
+            else
+            {
+                g.gameObject.GetComponent<global::CardPlace>().isFlipped = !g.gameObject.GetComponent<global::CardPlace>().isFlipped;
+            }
+            
             UpdatePivot(g);
 
             yield return new WaitForSeconds(0.8f);
@@ -213,7 +221,7 @@ namespace TutorialScripts
                 g.transform.SetParent(NumberManager.instance.playerNegativeArea.transform);
             }
 
-
+            NumberManager.instance.recalculate = true;
         }
 
         void UpdatePivot(GameObject g)
@@ -324,7 +332,7 @@ namespace TutorialScripts
         }
 
 
-        IEnumerator GiveNumber(GameObject g, string target)
+        public IEnumerator GiveNumber(GameObject g, string target)
         {
             StartCoroutine(DeleteShader(g));
             yield return new WaitForSeconds(1f);
@@ -379,6 +387,8 @@ namespace TutorialScripts
             Destroy(g.GetComponent<global::CardPlace>().correspondingImage);
             Destroy(g);
             yield return new WaitForSeconds(0.7f);
+
+            NumberManager.instance.recalculate = true;
         }
 
 

@@ -2686,7 +2686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85e6c1e6fff480640bbc310a6fd954e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fanHand: 1
+  fanHand: 0
   dragging: 0
 --- !u!1 &915968977
 GameObject:

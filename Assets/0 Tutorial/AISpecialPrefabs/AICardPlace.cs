@@ -603,6 +603,8 @@ using AILogic;
 
                     }
 
+                NumberManager.instance.recalculate = true;
+
                 }
                 else if (specialCardType == SpecialCardType.RifleButt)
                 {
@@ -642,22 +644,26 @@ using AILogic;
                 }
                 else if (specialCardType == SpecialCardType.Setup)
                 {
-                    foreach (GameObject g in NumberManager.instance.allNumbers)
-                    {
-                        //if under,
-                        //find the largest number and discard it 
-
-                        //if bust, discard the negative number
-                        //or dont discard
-                    }
+                    
 
 
                 }
                 else if (specialCardType == SpecialCardType.Bribe)
                 {
-                    //give player largest or negative number depending on under or over
+                    foreach (GameObject g in NumberManager.instance.OPPduplicates)
+                    {
+                        if(g.GetComponent<NumberStats>().value == 2)
+                        {
+                        //StartCoroutine(CardSelectionController.instance.GiveNumber(g, "player"));
+                            g.transform.SetParent(NumberManager.instance.playerPositiveArea.transform);
+                            NumberManager.instance.recalculate = true;
+                        }
+                        break;
+                    }
 
-                }
+                    
+
+            }
                 else if (specialCardType == SpecialCardType.Fist)
                 {
                     if (NumberManager.instance.OPPblues.Count > 0 || NumberManager.instance.blues.Count > 0)
@@ -704,10 +710,12 @@ using AILogic;
                 {
                     foreach (GameObject g in NumberManager.instance.allNumbers)
                     {
-                        //find best number to remove (largest, or negative)
+                        if (g.GetComponent<NumberStats>().value == -3)
+                        {
+                            //remove g and break
+                            StartCoroutine(CardSelectionController.instance.DiscardNumber(g));
+                        }
                     }
-
-                    //CardSelectionController.instance.CallButtons("discard", "opponent");
 
                 }
                 else if (specialCardType == SpecialCardType.Poison)

@@ -21,6 +21,8 @@ public class TutorialController : MonoBehaviour
 
     public GameObject tutorialObj;
 
+    public GameObject weaknessCard;
+
     private async void Start()
     {
         tutorialObj = this.gameObject;
@@ -33,6 +35,7 @@ public class TutorialController : MonoBehaviour
                 requireContinue = true,
                 afterContinue = () =>
                 {
+                    
                     StartCoroutine(TutorialScripts.CardPlacementController.instance.DealNumbers());
                 },
                 waitUntil = () => TutorialScripts.CardPlacementController.instance.doneDealing,
@@ -106,6 +109,7 @@ public class TutorialController : MonoBehaviour
                 afterContinue = () =>
                 {
                     //draw cards
+                    TurnManager.instance.isPlayerTurn = true;
                     opponentHand.GetComponentInParent<TutorialScripts.HandController>().ShuffleSpecials();
                 },
                 waitUntil = () => opponentHand.GetComponentInParent<TutorialScripts.HandController>().doneDealing,
@@ -118,6 +122,7 @@ public class TutorialController : MonoBehaviour
                 afterContinue = () =>
                 {
                     //play Andreyev's turn
+                    TurnManager.instance.isPlayerTurn = false;
                     tutorialObj.GetComponent<TutorialScripts.AIController>().selectedCardToPlay = opponentHand.transform.GetChild(0).gameObject;
                     tutorialObj.GetComponent<TutorialScripts.AIController>().PlayCard();
                     
@@ -137,6 +142,7 @@ public class TutorialController : MonoBehaviour
                     {
                         if(child.gameObject.name == "ThickWoolenCoat(Clone)")
                         {
+                            weaknessCard = child.gameObject;
                             child.gameObject.GetComponent<TutorialScripts.CardPlace>().isPlayable = true;
                         }
                         else
@@ -187,15 +193,161 @@ public class TutorialController : MonoBehaviour
                     }
                 },
                 //wait until one less number
-            }
+                //wait until andreyev only ahs 1 negative
+                waitUntil = () => NumberManager.instance.OPPnegatives.Count == 1,
+            },
+            new TutorialStepData
+            {
+                message = "One of your numbers is red, which allows me to use this trick.",
+                requireContinue = true,
+                afterContinue = () =>
+                {
+                    TurnManager.instance.isPlayerTurn = false;
+                    //play Andreyev's turn
+                    tutorialObj.GetComponent<TutorialScripts.AIController>().selectedCardToPlay = opponentHand.transform.GetChild(0).gameObject;
+                    tutorialObj.GetComponent<TutorialScripts.AIController>().PlayCard();
+                },
+                //wait until one more number
+                waitUntil = () => NumberManager.instance.positives.Count == 4,
+            },
+            new TutorialStepData
+            {
+                message = "You gave Andreyev a yellow card before. Time to use it to your advantage. Play Weakness.",
+                requireContinue = true,
+                afterContinue = () =>
+                {
+                    TurnManager.instance.isPlayerTurn = true;
+                    foreach(Transform child in playerHand.transform)
+                    {
+                        if(child.gameObject.name == "Weakness(Clone)")
+                        {
+                            
+                            child.gameObject.GetComponent<TutorialScripts.CardPlace>().isPlayable = true;
+                        }
+                        else
+                        {
+                            child.gameObject.GetComponent<TutorialScripts.CardPlace>().isPlayable = false;
+                        }
+                    }
+                },
+                //wait until one less card in discard pile
+                waitUntil = () => weaknessCard.transform.parent.transform == playerHand.transform,
+            },
+            new TutorialStepData
+            {
+                message = "Let's see if you can solve this problem.",
+                requireContinue = true,
+                afterContinue = () =>
+                {
+                    TurnManager.instance.isPlayerTurn = false;
+                    tutorialObj.GetComponent<TutorialScripts.AIController>().selectedCardToPlay = opponentHand.transform.GetChild(0).gameObject;
+                    tutorialObj.GetComponent<TutorialScripts.AIController>().PlayCard();
+                },
+                //wait until one less negative card
+                waitUntil = () => NumberManager.instance.negatives.Count == 0,
+            },
+            new TutorialStepData
+            {
+                message = "Time to give your opponent another 2.",
+                requireContinue = true,
+                afterContinue = () =>
+                {
+                    TurnManager.instance.isPlayerTurn = true;
+                    foreach(Transform child in playerHand.transform)
+                    {
+                        if(child.gameObject.name == "ThickWoolenCoat(Clone)")
+                        {
+                            child.gameObject.GetComponent<TutorialScripts.CardPlace>().isPlayable = true;
+                        }
+                        else
+                        {
+                            child.gameObject.GetComponent<TutorialScripts.CardPlace>().isPlayable = false;
+                        }
+                    }
+                },
+                //wait until one more pos
+                waitUntil = () => NumberManager.instance.OPPpositives.Count == 4,
+            },
+            new TutorialStepData
+            {
+                message = "Too many 2's on my board, I think I can give one of them back to you.",
+                requireContinue = true,
+                afterContinue = () =>
+                {
+                    TurnManager.instance.isPlayerTurn = false;
+                    tutorialObj.GetComponent<TutorialScripts.AIController>().selectedCardToPlay = opponentHand.transform.GetChild(0).gameObject;
+                    tutorialObj.GetComponent<TutorialScripts.AIController>().PlayCard();
+                },
+                //wait until one less negative card
+                waitUntil = () => NumberManager.instance.positives.Count == 5,
+            },
+            new TutorialStepData
+            {
+                message = "Your opponent has only one trick left. Make sure he cannot use it - play Poison.",
+                requireContinue = true,
+                afterContinue = () =>
+                {
+                    TurnManager.instance.isPlayerTurn = true;
+                    foreach(Transform child in playerHand.transform)
+                    {
+                        if(child.gameObject.name == "Poison(Clone)")
+                        {
+                            child.gameObject.GetComponent<TutorialScripts.CardPlace>().isPlayable = true;
+                        }
+                        else
+                        {
+                            child.gameObject.GetComponent<TutorialScripts.CardPlace>().isPlayable = false;
+                        }
+                    }
+                },
+                //wait until one more pos
+                waitUntil = () => opponentHand.transform.childCount == 0,
+            },
+            new TutorialStepData
+            {
+                message = "Good! I ran out of tricks. However, I still can flip or swap any of my Numbers on the table.",
+                requireContinue = true,
+                afterContinue = () =>
+                {
+                    TurnManager.instance.isPlayerTurn = false;
+                    //flip 2 for opponent
+                    foreach(GameObject g in NumberManager.instance.OPPpositives)
+                    {
+                        if(g.GetComponent<NumberStats>().value == 2)
+                        {
+                            StartCoroutine(TutorialScripts.CardSelectionController.instance.FlipNumber(g));
+                            break;
+                        }
+                    }
+                },
+                //wait until flip
+                waitUntil = () => NumberManager.instance.OPPnegatives.Count == 2,
 
+            },
+            new TutorialStepData
+            {
+                message = "Each player has one action they can use during the Game of Numbers. They can either swap or flip any of the numbers they have. Andreyev chose to flip his 2.",
+                requireContinue = true,
 
-
+            },
 
         };
 
 
         StartCoroutine(RunTutorial());
+    }
+
+    void Update()
+    {
+        
+        if(TurnManager.instance.isPlayerTurn)
+        {
+            playerHand.GetComponent<HandFanController>().fanHand = true;
+        }
+        else //if any cards are "being played"
+        {
+            playerHand.GetComponent<HandFanController>().fanHand = false;
+        }
     }
 
     IEnumerator RunTutorial()
