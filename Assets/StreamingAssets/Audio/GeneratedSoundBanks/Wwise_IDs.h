@@ -40,6 +40,7 @@ namespace AK
         static const AkUniqueID PLAY_PUNCH = 3946911806U;
         static const AkUniqueID PLAY_SCREEN_SFX = 1112221790U;
         static const AkUniqueID PLAY_SILENCE = 2807572219U;
+        static const AkUniqueID PLAY_TRICK_CARD = 137383996U;
         static const AkUniqueID PLAY_TRUCK_ARRIVES = 1064403750U;
         static const AkUniqueID PLAY_TYPEWRITER = 57706899U;
         static const AkUniqueID PLAY_WHISPER = 2541567472U;
