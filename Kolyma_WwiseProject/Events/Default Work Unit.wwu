@@ -348,6 +348,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Number_Card" ID="{B16E697F-4ABF-4B6B-8531-8C513E96B0E3}">
+					<ChildrenList>
+						<Action Name="" ID="{6F7CB5BE-3881-4F0F-B7E9-38EA6DB3416D}" ShortID="153553267">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Number_Cards" ID="{B409D6DD-3EDF-456E-BE09-73B069158BE2}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
