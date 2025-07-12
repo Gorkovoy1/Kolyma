@@ -123,7 +123,7 @@ namespace TutorialScripts
 
                 Instantiate(opponentSpecialDeck[0], opponentHand.transform);
                 opponentSpecialDeck.RemoveAt(0);
-
+                
 
                 //Delay between cards
                 yield return new WaitForSeconds(1f);
@@ -143,7 +143,7 @@ namespace TutorialScripts
 
                 Instantiate(playerSpecialDeck[0], playerHand.transform);
                 playerSpecialDeck.RemoveAt(0);
-
+                
 
                 //Delay between cards
                 yield return new WaitForSeconds(1f);

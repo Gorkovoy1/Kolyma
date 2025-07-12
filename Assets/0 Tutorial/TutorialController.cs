@@ -23,6 +23,8 @@ public class TutorialController : MonoBehaviour
 
     public GameObject weaknessCard;
 
+    public GameObject sfxObj;
+
     private async void Start()
     {
         tutorialObj = this.gameObject;

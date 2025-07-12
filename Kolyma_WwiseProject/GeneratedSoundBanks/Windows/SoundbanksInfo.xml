@@ -22,7 +22,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{D1AFBA20-E99C-5B61-F03A-C191A0CC496B}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{D74315D8-76AF-9922-6F5E-50D8FB9CE27C}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -65,6 +65,10 @@
 				<File Id="171785072" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Andreyev_Scared.wav</ShortName>
 					<CachePath>SFX/Andreyev_Scared_80FE5A8E.wem</CachePath>
+				</File>
+				<File Id="302096407" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>NumberCard1.wav</ShortName>
+					<CachePath>SFX/NumberCard1_818F3B66.wem</CachePath>
 				</File>
 				<File Id="328403887" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>kolyma daytime 1.4.wav</ShortName>
@@ -134,6 +138,10 @@
 					<ShortName>Andreyev_Clears_Throat.wav</ShortName>
 					<CachePath>SFX/Andreyev_Clears_Throat_4D39B397.wem</CachePath>
 				</File>
+				<File Id="613591171" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>NumberCard2.wav</ShortName>
+					<CachePath>SFX/NumberCard2_818F3B66.wem</CachePath>
+				</File>
 				<File Id="619077475" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>kolyma_jail 2.4.wav</ShortName>
 					<CachePath>SFX/kolyma_jail 2.4_56CEF360.wem</CachePath>
@@ -149,6 +157,10 @@
 				<File Id="646806883" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Whisper-001.wav</ShortName>
 					<CachePath>SFX/Cell_SFX_Whisper-001_8E324C96.wem</CachePath>
+				</File>
+				<File Id="736547814" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>NumberCard4.wav</ShortName>
+					<CachePath>SFX/NumberCard4_818F3B66.wem</CachePath>
 				</File>
 				<File Id="737968334" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-003.wav</ShortName>
@@ -209,6 +221,10 @@
 				<File Id="1005253697" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Dogs_Bark-004.wav</ShortName>
 					<CachePath>SFX/Dogs_Bark-004_F9AC0766.wem</CachePath>
+				</File>
+				<File Id="1043577720" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>NumberCard3.wav</ShortName>
+					<CachePath>SFX/NumberCard3_818F3B66.wem</CachePath>
 				</File>
 				<File Id="1069812879" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX_NARRATOR.wav</ShortName>
@@ -339,6 +355,14 @@
 						<MediaRef Id="778674395"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="2304369006" Name="Play_Number_Card" DurationType="OneShot" DurationMin="1.4757823" DurationMax="1.4757823">
+					<MediaRefs>
+						<MediaRef Id="302096407"/>
+						<MediaRef Id="613591171"/>
+						<MediaRef Id="736547814"/>
+						<MediaRef Id="1043577720"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3946911806" Name="Play_Punch" DurationType="OneShot" DurationMin="0.98797745" DurationMax="0.98797745">
 					<MediaRefs>
 						<MediaRef Id="402054562"/>
@@ -387,5 +411,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{00C8DBB9-3F5F-7728-E28C-138EF79FFA5A}</FileHash>
+	<FileHash>{8758BC47-9908-8946-222A-A64B08F56D84}</FileHash>
 </SoundBanksInfo>

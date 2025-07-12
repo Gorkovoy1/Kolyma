@@ -33,6 +33,8 @@ namespace TutorialScripts
 
         public static CardPlacementController instance;
 
+        public GameObject tutorialObj;
+
         public bool doneDealing;
 
         void Awake()
@@ -95,7 +97,7 @@ namespace TutorialScripts
                     Instantiate(numberDeck[0], playerNegativeArea);
                     numberDeck.RemoveAt(0);
                 }
-
+                AkSoundEngine.PostEvent("Play_Number_Card", tutorialObj.GetComponent<TutorialController>().sfxObj);
                 //Delay between cards
                 yield return new WaitForSeconds(1f);
             }
@@ -131,7 +133,7 @@ namespace TutorialScripts
                     Instantiate(numberDeck[0], opponentNegativeArea);
                     numberDeck.RemoveAt(0);
                 }
-
+                AkSoundEngine.PostEvent("Play_Number_Card", tutorialObj.GetComponent<TutorialController>().sfxObj);
                 //Delay between cards
                 yield return new WaitForSeconds(1f);
             }
