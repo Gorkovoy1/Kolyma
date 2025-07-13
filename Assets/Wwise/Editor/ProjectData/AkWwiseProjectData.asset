@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8c4b0f5056a06a4a92d94e75a182e1ae
     GuidInternal: 
-    m_lastTime: -8584599412431219580
+    m_lastTime: -8584493050964021391
     List:
     - name: Main
       guid: f16c33554f83c140a4a6a74ed017dafb
@@ -735,7 +735,7 @@ MonoBehaviour:
     m_lastTime: -8584599412431199582
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 01000000050000000600000007000000090000000a0000002300000024000000
+  ExpandedWaapiItemIds: 0100000005000000060000000700000008000000090000000a0000002300000024000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

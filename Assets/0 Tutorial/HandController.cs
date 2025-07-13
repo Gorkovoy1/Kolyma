@@ -20,6 +20,8 @@ namespace TutorialScripts
 
         public bool doneDealing;
 
+        public GameObject sfxObj;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -88,6 +90,7 @@ namespace TutorialScripts
                 {
                     Instantiate(playerSpecialDeck[0], playerHand.transform);
                     playerSpecialDeck.RemoveAt(0);
+                    AkSoundEngine.PostEvent("Play_Trick_Card", sfxObj);
                 }
 
 
@@ -123,7 +126,7 @@ namespace TutorialScripts
 
                 Instantiate(opponentSpecialDeck[0], opponentHand.transform);
                 opponentSpecialDeck.RemoveAt(0);
-                
+                //AkSoundEngine.PostEvent("Play_Trick_Card", sfxObj); //MAYBE REMOVE
 
                 //Delay between cards
                 yield return new WaitForSeconds(1f);
@@ -143,7 +146,7 @@ namespace TutorialScripts
 
                 Instantiate(playerSpecialDeck[0], playerHand.transform);
                 playerSpecialDeck.RemoveAt(0);
-                
+                AkSoundEngine.PostEvent("Play_Trick_Card", sfxObj);
 
                 //Delay between cards
                 yield return new WaitForSeconds(1f);

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f1ce1d7e4c88743aa103fb294af8f1, type: 3}
+  m_Name: 73BB7F88-993E-42FB-9DEF-1871A77DD4B3
+  m_EditorClassIdentifier: 
+  objectName: Play_Trick_Card
+  id: 137383996
+  guid: 73BB7F88-993E-42FB-9DEF-1871A77DD4B3

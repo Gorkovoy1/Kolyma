@@ -3272,6 +3272,7 @@ GameObject:
   - component: {fileID: 1097769623}
   - component: {fileID: 1097769622}
   - component: {fileID: 1097769621}
+  - component: {fileID: 1097769626}
   m_Layer: 0
   m_Name: SFX
   m_TagString: Untagged
@@ -3386,6 +3387,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1097769626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097769620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 384aaf24ba9908b4ea476d44fba22ea7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: 
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: ca121b3868ed4ee47b0dddc2c9f0d6a8, type: 2}
+  useCallbacks: 0
+  Callbacks: []
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  eventIdInternal: 0
+  valueGuidInternal: 
+  m_callbackDataInternal: {fileID: 0}
 --- !u!1 &1124721409
 GameObject:
   m_ObjectHideFlags: 0
@@ -6287,6 +6317,7 @@ MonoBehaviour:
   opponentHand: {fileID: 2137599024}
   imagesParent: {fileID: 1425571759}
   doneDealing: 0
+  sfxObj: {fileID: 1097769620}
 --- !u!1 &2032156875
 GameObject:
   m_ObjectHideFlags: 0
