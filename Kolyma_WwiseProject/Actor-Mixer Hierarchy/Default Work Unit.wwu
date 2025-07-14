@@ -1830,14 +1830,7 @@
 						</ActorMixer>
 					</ChildrenList>
 				</ActorMixer>
-				<RandomSequenceContainer Name="Number_Cards" ID="{B409D6DD-3EDF-456E-BE09-73B069158BE2}" ShortID="773444782">
-					<PropertyList>
-						<Property Name="Volume" Type="Real64">
-							<ValueList>
-								<Value>-10</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
+				<ActorMixer Name="Battle" ID="{627F01AD-03FF-4F3E-9190-4E1DFDA9323B}" ShortID="942046302">
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -1847,7 +1840,14 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<Sound Name="NumberCard1" ID="{0D8BF0EB-A066-4F33-892B-36669711CABB}" ShortID="128520852">
+						<RandomSequenceContainer Name="Number_Cards" ID="{B409D6DD-3EDF-456E-BE09-73B069158BE2}" ShortID="773444782">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -1857,22 +1857,107 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="NumberCard1" ID="{0BD749C9-47DE-4CD1-A6B4-D4EB751FA40A}">
-									<PropertyList>
-										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-									</PropertyList>
-									<Language>SFX</Language>
-									<AudioFile>NumberCard1.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="302096407"/>
-									</MediaIDList>
-								</AudioFileSource>
+								<Sound Name="NumberCard1" ID="{0D8BF0EB-A066-4F33-892B-36669711CABB}" ShortID="128520852">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="NumberCard1" ID="{0BD749C9-47DE-4CD1-A6B4-D4EB751FA40A}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>NumberCard1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="302096407"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="NumberCard1" ID="{0BD749C9-47DE-4CD1-A6B4-D4EB751FA40A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="NumberCard2" ID="{AE2A7D45-434E-4EE6-BC8A-4E70694E287F}" ShortID="893950974">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="NumberCard2" ID="{A2DC346E-D132-4471-B216-801559285ED0}">
+											<Language>SFX</Language>
+											<AudioFile>NumberCard2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="613591171"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="NumberCard2" ID="{A2DC346E-D132-4471-B216-801559285ED0}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="NumberCard3" ID="{4F38426E-3BB3-4D85-9B57-DCFFA2220E4B}" ShortID="139989302">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="NumberCard3" ID="{5570E720-9471-4FBF-B560-B0545F6EB468}">
+											<Language>SFX</Language>
+											<AudioFile>NumberCard3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1043577720"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="NumberCard3" ID="{5570E720-9471-4FBF-B560-B0545F6EB468}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="NumberCard4" ID="{09E91989-90CE-440C-8118-2AC5B4F4F455}" ShortID="247526989">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="NumberCard4" ID="{B6053DFA-56AE-4AB0-AF33-2801D2C3A2B7}">
+											<Language>SFX</Language>
+											<AudioFile>NumberCard4.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="736547814"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="NumberCard4" ID="{B6053DFA-56AE-4AB0-AF33-2801D2C3A2B7}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="NumberCard1" ID="{0BD749C9-47DE-4CD1-A6B4-D4EB751FA40A}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="NumberCard2" ID="{AE2A7D45-434E-4EE6-BC8A-4E70694E287F}" ShortID="893950974">
+						</RandomSequenceContainer>
+						<Sound Name="Open_Trick_Collection" ID="{7DDB39A6-C9C7-4C73-9FC1-8599002DA1FE}" ShortID="1029316196">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-7</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -1882,19 +1967,26 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="NumberCard2" ID="{A2DC346E-D132-4471-B216-801559285ED0}">
+								<AudioFileSource Name="OpenTrickCollection" ID="{B934BAE9-3D62-46CF-BD15-385CFEDB5042}">
 									<Language>SFX</Language>
-									<AudioFile>NumberCard2.wav</AudioFile>
+									<AudioFile>OpenTrickCollection.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="613591171"/>
+										<MediaID ID="127805243"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="NumberCard2" ID="{A2DC346E-D132-4471-B216-801559285ED0}" Platform="Linked"/>
+								<ActiveSource Name="OpenTrickCollection" ID="{B934BAE9-3D62-46CF-BD15-385CFEDB5042}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="NumberCard3" ID="{4F38426E-3BB3-4D85-9B57-DCFFA2220E4B}" ShortID="139989302">
+						<Sound Name="Close_Trick_Collection" ID="{7A2D9D49-6B66-42A9-B136-E7FECEAB9B53}" ShortID="860760279">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -1904,19 +1996,26 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="NumberCard3" ID="{5570E720-9471-4FBF-B560-B0545F6EB468}">
+								<AudioFileSource Name="CloseTrickCollection" ID="{7E1B8BDC-ADB1-4ED4-A62E-86F078F2CF1E}">
 									<Language>SFX</Language>
-									<AudioFile>NumberCard3.wav</AudioFile>
+									<AudioFile>CloseTrickCollection.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="1043577720"/>
+										<MediaID ID="267717470"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="NumberCard3" ID="{5570E720-9471-4FBF-B560-B0545F6EB468}" Platform="Linked"/>
+								<ActiveSource Name="CloseTrickCollection" ID="{7E1B8BDC-ADB1-4ED4-A62E-86F078F2CF1E}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="NumberCard4" ID="{09E91989-90CE-440C-8118-2AC5B4F4F455}" ShortID="247526989">
+						<RandomSequenceContainer Name="Trick_Cards" ID="{E3196547-946C-4A8E-A56B-1E427A0487AA}" ShortID="758796">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -1926,20 +2025,98 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="NumberCard4" ID="{B6053DFA-56AE-4AB0-AF33-2801D2C3A2B7}">
-									<Language>SFX</Language>
-									<AudioFile>NumberCard4.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="736547814"/>
-									</MediaIDList>
-								</AudioFileSource>
+								<Sound Name="TrickCard1" ID="{A5FA5F56-87E2-4A67-A84C-2F64CBC3DFCE}" ShortID="988829913">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="TrickCard1" ID="{0C4E4638-B649-4399-B4CD-A5981625DFEC}">
+											<Language>SFX</Language>
+											<AudioFile>TrickCard1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="427725917"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="TrickCard1" ID="{0C4E4638-B649-4399-B4CD-A5981625DFEC}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="TrickCard2" ID="{7BEB1138-8D2D-4E3F-891C-545F576DA451}" ShortID="373946125">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="TrickCard2" ID="{506EF212-8DFB-46FA-B84E-A06F201CDEA7}">
+											<Language>SFX</Language>
+											<AudioFile>TrickCard2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1051682366"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="TrickCard2" ID="{506EF212-8DFB-46FA-B84E-A06F201CDEA7}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="TrickCard3" ID="{96C93AF4-BBAA-48B2-9EE4-2914E7BBE7B2}" ShortID="57183945">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="TrickCard3" ID="{7BFFF39C-B889-48C4-8D4B-3B45CACB16DC}">
+											<Language>SFX</Language>
+											<AudioFile>TrickCard3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1027008973"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="TrickCard3" ID="{7BFFF39C-B889-48C4-8D4B-3B45CACB16DC}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="TrickCard4" ID="{4B4E9307-0EA5-4ED1-BE55-5CB9AEC0A803}" ShortID="791566871">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="TrickCard4" ID="{61081469-D948-4A90-8C0C-5356F03C7F65}">
+											<Language>SFX</Language>
+											<AudioFile>TrickCard4.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="212902976"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="TrickCard4" ID="{61081469-D948-4A90-8C0C-5356F03C7F65}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="NumberCard4" ID="{B6053DFA-56AE-4AB0-AF33-2801D2C3A2B7}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
+						</RandomSequenceContainer>
 					</ChildrenList>
-				</RandomSequenceContainer>
+				</ActorMixer>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

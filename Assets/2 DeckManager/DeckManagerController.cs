@@ -15,6 +15,7 @@ public class DeckManagerController : MonoBehaviour
     private Vector2 endPos;
 
     public bool finishDeck;
+    public GameObject sfxObj;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,7 @@ public class DeckManagerController : MonoBehaviour
     public void ShowCanvas()
     {
         //lerp deckmanagerpanel from -450 to 0 and back
+        
         StartCoroutine(LerpPullPanel());
     }
 
@@ -56,10 +58,12 @@ public class DeckManagerController : MonoBehaviour
         if(deckManagerPanel.anchoredPosition.y < 0)
         {
             endPos = new Vector2(startPos.x, 0f);
+            AkSoundEngine.PostEvent("Play_Open_Trick_Collection", sfxObj);
         }
         else
         {
             endPos = new Vector2(startPos.x, -450f);
+            AkSoundEngine.PostEvent("Play_Close_Trick_Collection", sfxObj);
         }
 
         for (float t = 0; t < 0.45f; t += Time.deltaTime)

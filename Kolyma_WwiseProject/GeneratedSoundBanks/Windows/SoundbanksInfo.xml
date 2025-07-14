@@ -22,7 +22,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{8F944FAA-D800-01F9-A472-82EB21AB7443}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{EE3B12B4-9DF9-288F-6368-D0DE9A1C10D4}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -50,6 +50,10 @@
 					<ShortName>Cell_SFX_Door_Open.wav</ShortName>
 					<CachePath>SFX/Cell_SFX_Door_Open_BB949EDF.wem</CachePath>
 				</File>
+				<File Id="127805243" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>OpenTrickCollection.wav</ShortName>
+					<CachePath>SFX/OpenTrickCollection_818F3B66.wem</CachePath>
+				</File>
 				<File Id="158641502" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Whisper-005.wav</ShortName>
 					<CachePath>SFX/Cell_SFX_Whisper-005_8E324C96.wem</CachePath>
@@ -65,6 +69,14 @@
 				<File Id="171785072" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Andreyev_Scared.wav</ShortName>
 					<CachePath>SFX/Andreyev_Scared_80FE5A8E.wem</CachePath>
+				</File>
+				<File Id="212902976" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>TrickCard4.wav</ShortName>
+					<CachePath>SFX/TrickCard4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="267717470" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>CloseTrickCollection.wav</ShortName>
+					<CachePath>SFX/CloseTrickCollection_818F3B66.wem</CachePath>
 				</File>
 				<File Id="302096407" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>NumberCard1.wav</ShortName>
@@ -94,6 +106,10 @@
 					<ShortName>Cell_SFX_Cough-003.wav</ShortName>
 					<CachePath>SFX/Cell_SFX_Cough-003_8E324C96.wem</CachePath>
 				</File>
+				<File Id="427725917" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>TrickCard1.wav</ShortName>
+					<CachePath>SFX/TrickCard1_818F3B66.wem</CachePath>
+				</File>
 				<File Id="435260790" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Barracks_Ambience.wav</ShortName>
 					<CachePath>SFX/Barracks_Ambience_FBC78EF0.wem</CachePath>
@@ -113,14 +129,6 @@
 				<File Id="515368332" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Breath-002.wav</ShortName>
 					<CachePath>SFX/Cell_SFX_Breath-002_8E324C96.wem</CachePath>
-				</File>
-				<File Id="515999248" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>TrickCard2.wav</ShortName>
-					<CachePath>SFX/TrickCard2_818F3B66.wem</CachePath>
-				</File>
-				<File Id="538481692" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>TrickCard4.wav</ShortName>
-					<CachePath>SFX/TrickCard4_818F3B66.wem</CachePath>
 				</File>
 				<File Id="543232325" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-002.wav</ShortName>
@@ -166,10 +174,6 @@
 					<ShortName>Cell_SFX_Whisper-001.wav</ShortName>
 					<CachePath>SFX/Cell_SFX_Whisper-001_8E324C96.wem</CachePath>
 				</File>
-				<File Id="716469846" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>TrickCard1.wav</ShortName>
-					<CachePath>SFX/TrickCard1_818F3B66.wem</CachePath>
-				</File>
 				<File Id="736547814" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>NumberCard4.wav</ShortName>
 					<CachePath>SFX/NumberCard4_818F3B66.wem</CachePath>
@@ -193,10 +197,6 @@
 				<File Id="778674395" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>negative_event1.2.wav</ShortName>
 					<CachePath>SFX/negative_event1.2_8E324C96.wem</CachePath>
-				</File>
-				<File Id="823192111" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>TrickCard3.wav</ShortName>
-					<CachePath>SFX/TrickCard3_818F3B66.wem</CachePath>
 				</File>
 				<File Id="837605639" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Andreyev_Sigh.wav</ShortName>
@@ -238,9 +238,17 @@
 					<ShortName>Dogs_Bark-004.wav</ShortName>
 					<CachePath>SFX/Dogs_Bark-004_F9AC0766.wem</CachePath>
 				</File>
+				<File Id="1027008973" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>TrickCard3.wav</ShortName>
+					<CachePath>SFX/TrickCard3_818F3B66.wem</CachePath>
+				</File>
 				<File Id="1043577720" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>NumberCard3.wav</ShortName>
 					<CachePath>SFX/NumberCard3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1051682366" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>TrickCard2.wav</ShortName>
+					<CachePath>SFX/TrickCard2_818F3B66.wem</CachePath>
 				</File>
 				<File Id="1069812879" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX_NARRATOR.wav</ShortName>
@@ -330,6 +338,11 @@
 						<MediaRef Id="927065734"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="776203257" Name="Play_Close_Trick_Collection" DurationType="OneShot" DurationMin="1.4744898" DurationMax="1.4744898">
+					<MediaRefs>
+						<MediaRef Id="267717470"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3234553616" Name="Play_Cough" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="415365781"/>
@@ -379,6 +392,11 @@
 						<MediaRef Id="1043577720"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="1007146461" Name="Play_Open_Trick_Collection" DurationType="OneShot" DurationMin="1.5683674" DurationMax="1.5683674">
+					<MediaRefs>
+						<MediaRef Id="127805243"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3946911806" Name="Play_Punch" DurationType="OneShot" DurationMin="0.98797745" DurationMax="0.98797745">
 					<MediaRefs>
 						<MediaRef Id="402054562"/>
@@ -392,10 +410,10 @@
 				<Event Id="2807572219" Name="Play_Silence" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="137383996" Name="Play_Trick_Card" DurationType="OneShot" DurationMin="1.2870069" DurationMax="1.2870069">
 					<MediaRefs>
-						<MediaRef Id="515999248"/>
-						<MediaRef Id="538481692"/>
-						<MediaRef Id="716469846"/>
-						<MediaRef Id="823192111"/>
+						<MediaRef Id="212902976"/>
+						<MediaRef Id="427725917"/>
+						<MediaRef Id="1027008973"/>
+						<MediaRef Id="1051682366"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="1064403750" Name="Play_Truck_Arrives" DurationType="OneShot" DurationMin="14.57" DurationMax="14.57">
@@ -435,5 +453,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{3F14D4B9-AE90-75C5-B14F-E285BF4F3DB3}</FileHash>
+	<FileHash>{C4FA1498-BD76-57B9-48F1-2B727F836077}</FileHash>
 </SoundBanksInfo>

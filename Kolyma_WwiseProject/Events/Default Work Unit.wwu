@@ -348,17 +348,54 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Play_Number_Card" ID="{B16E697F-4ABF-4B6B-8531-8C513E96B0E3}">
+				<Folder Name="Battle" ID="{50ECEEBD-F670-4459-895C-732B68BD80B2}" ShortID="705510331">
 					<ChildrenList>
-						<Action Name="" ID="{6F7CB5BE-3881-4F0F-B7E9-38EA6DB3416D}" ShortID="153553267">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Number_Cards" ID="{B409D6DD-3EDF-456E-BE09-73B069158BE2}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
+						<Event Name="Play_Number_Card" ID="{B16E697F-4ABF-4B6B-8531-8C513E96B0E3}">
+							<ChildrenList>
+								<Action Name="" ID="{6F7CB5BE-3881-4F0F-B7E9-38EA6DB3416D}" ShortID="153553267">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Number_Cards" ID="{B409D6DD-3EDF-456E-BE09-73B069158BE2}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Close_Trick_Collection" ID="{BE208E2D-4A56-4473-B591-6CEA3F96FFE6}">
+							<ChildrenList>
+								<Action Name="" ID="{667F320E-F05D-4F83-9011-38D61BB7228E}" ShortID="1041749220">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Close_Trick_Collection" ID="{7A2D9D49-6B66-42A9-B136-E7FECEAB9B53}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Open_Trick_Collection" ID="{059BE923-37CF-48D1-A9DB-CFD300348F3D}">
+							<ChildrenList>
+								<Action Name="" ID="{AEE71C38-3BDF-4C6A-ABB1-BD6C7AD25183}" ShortID="54498743">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Open_Trick_Collection" ID="{7DDB39A6-C9C7-4C73-9FC1-8599002DA1FE}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Trick_Card" ID="{221AE855-EB37-4BB1-848A-0FEC4C9A62FE}">
+							<ChildrenList>
+								<Action Name="" ID="{495C4B1F-5BF3-4608-AB52-4E9936E8041B}" ShortID="508048152">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Trick_Cards" ID="{E3196547-946C-4A8E-A56B-1E427A0487AA}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
-				</Event>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

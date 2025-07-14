@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8c4b0f5056a06a4a92d94e75a182e1ae
     GuidInternal: 
-    m_lastTime: -8584493050964021391
+    m_lastTime: -8584491358991341447
     List:
     - name: Main
       guid: f16c33554f83c140a4a6a74ed017dafb
@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584493083969094576
+    m_lastTime: -8584491539712878934
     List:
     - name: Andreyev
       guid: a6c0eb1ff2ce024c96aeb202fa8b346a
@@ -110,6 +110,23 @@ MonoBehaviour:
         ObjectType: 4
         guid: a6c0eb1ff2ce024c96aeb202fa8b346a
       Path: Events\Default Work Unit\Andreyev
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Battle
+      guid: bdeeec5070f65944895c732b68bd80b2
+      id: 2937832959
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Battle
+        ObjectType: 4
+        guid: bdeeec5070f65944895c732b68bd80b2
+      Path: Events\Default Work Unit\Battle
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -406,6 +423,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.47030303
       minDuration: 0.47030303
+    - name: Play_Close_Trick_Collection
+      guid: 2d8e20be564a7344b5916cea3f96ffe6
+      id: 776203257
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Battle
+        ObjectType: 4
+        guid: bdeeec5070f65944895c732b68bd80b2
+      - ElementName: Play_Close_Trick_Collection
+        ObjectType: 3
+        guid: 2d8e20be564a7344b5916cea3f96ffe6
+      Path: Events\Default Work Unit\Battle\Play_Close_Trick_Collection
+      maxAttenuation: 0
+      maxDuration: 1.4744898
+      minDuration: 1.4744898
     - name: Play_Cough
       guid: c0ea32f00d90cc479f2de13e51f94076
       id: 3234553616
@@ -535,13 +572,36 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Battle
+        ObjectType: 4
+        guid: bdeeec5070f65944895c732b68bd80b2
       - ElementName: Play_Number_Card
         ObjectType: 3
         guid: 7f696eb1bf4a6b4b85318c513e96b0e3
-      Path: Events\Default Work Unit\Play_Number_Card
+      Path: Events\Default Work Unit\Battle\Play_Number_Card
       maxAttenuation: 0
       maxDuration: 1.4757823
       minDuration: 1.4757823
+    - name: Play_Open_Trick_Collection
+      guid: 23e99b05cf37d148a9dbcfd300348f3d
+      id: 1007146461
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Battle
+        ObjectType: 4
+        guid: bdeeec5070f65944895c732b68bd80b2
+      - ElementName: Play_Open_Trick_Collection
+        ObjectType: 3
+        guid: 23e99b05cf37d148a9dbcfd300348f3d
+      Path: Events\Default Work Unit\Battle\Play_Open_Trick_Collection
+      maxAttenuation: 0
+      maxDuration: 1.5683674
+      minDuration: 1.5683674
     - name: Play_Punch
       guid: da18ba05f34dd7428e9966bd0527ff26
       id: 3946911806
@@ -593,6 +653,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: Play_Trick_Card
+      guid: 55e81a2237ebb14b848a0fec4c9a62fe
+      id: 137383996
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Battle
+        ObjectType: 4
+        guid: bdeeec5070f65944895c732b68bd80b2
+      - ElementName: Play_Trick_Card
+        ObjectType: 3
+        guid: 55e81a2237ebb14b848a0fec4c9a62fe
+      Path: Events\Default Work Unit\Battle\Play_Trick_Card
+      maxAttenuation: 0
+      maxDuration: 1.2870069
+      minDuration: 1.2870069
     - name: Play_Truck_Arrives
       guid: dea162295cad5c4c9dacdf62d8bfae9c
       id: 1064403750
@@ -735,7 +815,7 @@ MonoBehaviour:
     m_lastTime: -8584599412431199582
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0100000005000000060000000700000008000000090000000a0000002300000024000000
+  ExpandedWaapiItemIds: 0100000005000000060000000700000008000000090000000a00000023000000240000002e000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
