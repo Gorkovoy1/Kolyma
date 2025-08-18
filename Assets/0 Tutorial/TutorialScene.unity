@@ -539,6 +539,7 @@ MonoBehaviour:
   tutorialObj: {fileID: 154296534}
   weaknessCard: {fileID: 0}
   sfxObj: {fileID: 1097769620}
+  flipButton: {fileID: 1537993268}
 --- !u!114 &154296537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1820,8 +1821,8 @@ MonoBehaviour:
   - {fileID: 2159823087992540808, guid: cd737e99c3eab4c41b54305efcaefc84, type: 3}
   - {fileID: 514954980831254118, guid: 76e9f358ba6f9dc49869c750f6a0caaf, type: 3}
   - {fileID: 2309320822461123950, guid: 38bbddcf2623f5d489de91ee010f36c7, type: 3}
-  - {fileID: 7552451446090856819, guid: 8ab31a64d82e58a43945d03aae832d19, type: 3}
-  - {fileID: 514954980831254118, guid: 76e9f358ba6f9dc49869c750f6a0caaf, type: 3}
+  - {fileID: 2494119314469739859, guid: 3f3e8a094e056fd40bb08ea0d0560f8e, type: 3}
+  - {fileID: 8081401923800990640, guid: 47a5ea83a31125646beec8bb6abf9d72, type: 3}
   - {fileID: 1905454823871813243, guid: 9236e952a9a6f744eb7c089845f5b046, type: 3}
   - {fileID: 2494119314469739859, guid: 3f3e8a094e056fd40bb08ea0d0560f8e, type: 3}
   - {fileID: 2309320822461123950, guid: 38bbddcf2623f5d489de91ee010f36c7, type: 3}
@@ -2025,6 +2026,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &687394370 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4620840407863286087, guid: abb363a6218e8944185220c1a955b523, type: 3}
+  m_PrefabInstance: {fileID: 4620840407576047854}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &701484521
 GameObject:
   m_ObjectHideFlags: 0
@@ -2580,6 +2586,20 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4620840407863286084, guid: abb363a6218e8944185220c1a955b523, type: 3}
   m_PrefabInstance: {fileID: 4620840407576047854}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &857811375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687394370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32cb74be5968e374c88b0c783b3aa911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swapButton: {fileID: 1527209910}
+  flipButton: {fileID: 1537993268}
 --- !u!1 &890806058
 GameObject:
   m_ObjectHideFlags: 0
@@ -2772,6 +2792,8 @@ MonoBehaviour:
   playerVal: 0
   oppVal: 0
   targetVal: 0
+  oppAction: 0
+  playerAction: 0
 --- !u!1 &938998339
 GameObject:
   m_ObjectHideFlags: 0
@@ -4907,6 +4929,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1526408355}
   m_CullTransparentMesh: 1
+--- !u!114 &1527209910 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4620840407864420513, guid: abb363a6218e8944185220c1a955b523, type: 3}
+  m_PrefabInstance: {fileID: 4620840407576047854}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1537993268 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4620840407217251837, guid: abb363a6218e8944185220c1a955b523, type: 3}
+  m_PrefabInstance: {fileID: 4620840407576047854}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1590734115
 GameObject:
   m_ObjectHideFlags: 0
@@ -6954,6 +6998,50 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 638265589}
     m_Modifications:
+    - target: {fileID: 4620840406441157397, guid: abb363a6218e8944185220c1a955b523, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4620840406441157397, guid: abb363a6218e8944185220c1a955b523, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4620840406574164783, guid: abb363a6218e8944185220c1a955b523, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4620840406574164783, guid: abb363a6218e8944185220c1a955b523, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4620840406581053409, guid: abb363a6218e8944185220c1a955b523, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4620840406581053409, guid: abb363a6218e8944185220c1a955b523, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4620840407217251837, guid: abb363a6218e8944185220c1a955b523, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4620840407217251837, guid: abb363a6218e8944185220c1a955b523, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 857811375}
+    - target: {fileID: 4620840407217251837, guid: abb363a6218e8944185220c1a955b523, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ActivateFlip
+      objectReference: {fileID: 0}
+    - target: {fileID: 4620840407217251837, guid: abb363a6218e8944185220c1a955b523, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TutorialScripts.ActionController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4620840407217251839, guid: abb363a6218e8944185220c1a955b523, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4620840407863286084, guid: abb363a6218e8944185220c1a955b523, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6991,6 +7079,10 @@ PrefabInstance:
       value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 4620840407863286084, guid: abb363a6218e8944185220c1a955b523, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1.917874
+      objectReference: {fileID: 0}
+    - target: {fileID: 4620840407863286084, guid: abb363a6218e8944185220c1a955b523, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -7020,11 +7112,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4620840407863286084, guid: abb363a6218e8944185220c1a955b523, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -350.92578
+      value: 343
       objectReference: {fileID: 0}
     - target: {fileID: 4620840407863286084, guid: abb363a6218e8944185220c1a955b523, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -15.6
+      value: -32
       objectReference: {fileID: 0}
     - target: {fileID: 4620840407863286084, guid: abb363a6218e8944185220c1a955b523, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7038,9 +7130,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4620840407863286085, guid: abb363a6218e8944185220c1a955b523, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4620840407863286085, guid: abb363a6218e8944185220c1a955b523, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4620840407863286085, guid: abb363a6218e8944185220c1a955b523, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4620840407863286085, guid: abb363a6218e8944185220c1a955b523, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4620840407863286087, guid: abb363a6218e8944185220c1a955b523, type: 3}
       propertyPath: m_Name
       value: Action
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4620840407864420513, guid: abb363a6218e8944185220c1a955b523, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4620840407864420513, guid: abb363a6218e8944185220c1a955b523, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 857811375}
+    - target: {fileID: 4620840407864420513, guid: abb363a6218e8944185220c1a955b523, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ActivateSwap
+      objectReference: {fileID: 0}
+    - target: {fileID: 4620840407864420513, guid: abb363a6218e8944185220c1a955b523, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TutorialScripts.ActionController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4620840407864420515, guid: abb363a6218e8944185220c1a955b523, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4620840407863286080, guid: abb363a6218e8944185220c1a955b523, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: abb363a6218e8944185220c1a955b523, type: 3}

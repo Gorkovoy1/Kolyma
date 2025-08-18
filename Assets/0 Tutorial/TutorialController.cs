@@ -25,6 +25,8 @@ public class TutorialController : MonoBehaviour
 
     public GameObject sfxObj;
 
+    public Button flipButton;
+
     private async void Start()
     {
         tutorialObj = this.gameObject;
@@ -37,7 +39,7 @@ public class TutorialController : MonoBehaviour
                 requireContinue = true,
                 afterContinue = () =>
                 {
-                    
+
                     StartCoroutine(TutorialScripts.CardPlacementController.instance.DealNumbers());
                 },
                 waitUntil = () => TutorialScripts.CardPlacementController.instance.doneDealing,
@@ -127,7 +129,7 @@ public class TutorialController : MonoBehaviour
                     TurnManager.instance.isPlayerTurn = false;
                     tutorialObj.GetComponent<TutorialScripts.AIController>().selectedCardToPlay = opponentHand.transform.GetChild(0).gameObject;
                     tutorialObj.GetComponent<TutorialScripts.AIController>().PlayCard();
-                    
+
                 },
                 //wait until card has been played and 2 is swapped for 8
                 waitUntil = () => NumberManager.instance.playerVal == 14,
@@ -158,7 +160,7 @@ public class TutorialController : MonoBehaviour
 
                 },
                 //wait until thick woolen coat is played
-                waitUntil = () => NumberManager.instance.oppVal == 11,
+                waitUntil = () => NumberManager.instance.oppVal == 13,
             },
             new TutorialStepData
             {
@@ -223,7 +225,7 @@ public class TutorialController : MonoBehaviour
                     {
                         if(child.gameObject.name == "Weakness(Clone)")
                         {
-                            
+
                             child.gameObject.GetComponent<TutorialScripts.CardPlace>().isPlayable = true;
                         }
                         else
@@ -352,7 +354,7 @@ public class TutorialController : MonoBehaviour
                     }
                 },
                 //wait until one more pos
-                waitUntil = () => NumberManager.instance.oppVal == 20,
+                waitUntil = () => NumberManager.instance.oppVal == 24,
             },
             new TutorialStepData
             {
@@ -361,9 +363,10 @@ public class TutorialController : MonoBehaviour
                 afterContinue = () =>
                 {
                     TurnManager.instance.isPlayerTurn = true;
-                    //
+                    flipButton.GetComponent<Button>().enabled = true;
                 },
                 //
+                waitUntil = () => NumberManager.instance.playerAction
             },
 
         };

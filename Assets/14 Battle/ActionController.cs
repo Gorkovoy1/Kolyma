@@ -41,6 +41,7 @@ public class ActionController : MonoBehaviour, IPointerEnterHandler, IPointerExi
         }
 
         CardSelectionController.instance.CallButtons("swap", "player");
+        NumberManager.instance.playerAction = true;
         this.gameObject.SetActive(false);
     }
 
@@ -52,6 +53,7 @@ public class ActionController : MonoBehaviour, IPointerEnterHandler, IPointerExi
         }
 
         CardSelectionController.instance.CallButtons("flip", "player");
+        NumberManager.instance.playerAction = true;
         this.gameObject.SetActive(false);
     }
 
