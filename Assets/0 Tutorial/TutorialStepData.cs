@@ -10,4 +10,5 @@ public class TutorialStepData
     public Func<bool> waitUntil;
     public float autoAdvanceDelay = 0.8f;
     public bool requireContinue = true;
+    public Vector2 setPosition;
 }

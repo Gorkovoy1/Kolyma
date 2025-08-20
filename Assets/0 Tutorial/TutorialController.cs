@@ -35,6 +35,7 @@ public class TutorialController : MonoBehaviour
         {
             new TutorialStepData
             {
+                setPosition = new Vector2(242, -167), //484, 333
                 message = "First, draw four cards from the Number Deck. And I will do the same.",
                 requireContinue = true,
                 afterContinue = () =>
@@ -47,6 +48,7 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
+                setPosition = new Vector2(242, -167),
                 message = "The Number deck has number cards, they can be positive or negative. The number on the left side of the screen is your number. The number on the right side of the screen is your opponent’s number.",
                 requireContinue = true,
 
@@ -394,6 +396,8 @@ public class TutorialController : MonoBehaviour
         {
             Debug.Log("Tutorial step: " + step.message);
             blockerPanel.SetActive(true);
+            RectTransform parentRect = tutorialText.transform.parent as RectTransform;
+            parentRect.anchoredPosition = step.setPosition;
             tutorialText.text = step.message;
 
             if (step.requireContinue)
