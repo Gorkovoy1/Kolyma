@@ -886,20 +886,86 @@ using UnityEngine.SceneManagement;
                 }
                 else if (specialCardType == SpecialCardType.Bribe)
                 {
-                    foreach (GameObject g in NumberManager.instance.OPPduplicates)
+                    if(difficulty == Difficulty.Random)
                     {
-                        if(g.GetComponent<NumberStats>().value == 2)
+                        int randomInt = Random.Range(0, NumberManager.instance.OPPduplicates.Count);
+                        NumberManager.instance.OPPduplicates[randomInt].transform.SetParent(NumberManager.instance.playerPositiveArea.transform);
+                        NumberManager.instance.recalculate = true;
+                    }
+                    else if(difficulty == Difficulty.AlwaysLargest)
+                    {
+                        int val = 0;
+                        GameObject chosenCard = null;
+                        foreach (GameObject g in NumberManager.instance.OPPduplicates)
                         {
-                        //StartCoroutine(CardSelectionController.instance.GiveNumber(g, "player"));
-                            g.transform.SetParent(NumberManager.instance.playerPositiveArea.transform);
+                            if (g.GetComponent<NumberStats>().value > val)
+                            {
+                                val = g.GetComponent<NumberStats>().value;
+                                chosenCard = g;
+                        
+                            }
+                            chosenCard.transform.SetParent(NumberManager.instance.playerPositiveArea.transform);
                             NumberManager.instance.recalculate = true;
                         }
-                        break;
+                    }
+                    else if(difficulty == Difficulty.AlwaysSmallest)
+                    {
+                        int val = 9;
+                        GameObject chosenCard = null;
+                        foreach (GameObject g in NumberManager.instance.OPPduplicates)
+                        {
+                            if (g.GetComponent<NumberStats>().value < val)
+                            {
+                                val = g.GetComponent<NumberStats>().value;
+                                chosenCard = g;
+
+                            }
+                            chosenCard.transform.SetParent(NumberManager.instance.playerPositiveArea.transform);
+                            NumberManager.instance.recalculate = true;
+                        }
+                    }
+                    else if (difficulty == Difficulty.Ideal)
+                    {
+                        //if you are over, give away large card
+                        if(NumberManager.instance.oppVal > NumberManager.instance.targetVal)
+                        {
+                            int val = 0;
+                            GameObject chosenCard = null;
+                            foreach (GameObject g in NumberManager.instance.OPPduplicates)
+                            {
+                                if (g.GetComponent<NumberStats>().value > val)
+                                {
+                                    val = g.GetComponent<NumberStats>().value;
+                                    chosenCard = g;
+
+                                }
+                                chosenCard.transform.SetParent(NumberManager.instance.playerPositiveArea.transform);
+                                NumberManager.instance.recalculate = true;
+                            }
+                        }
+                        //if you are under, give away small card
+                        else
+                        {
+                            int val = 9;
+                            GameObject chosenCard = null;
+                            foreach (GameObject g in NumberManager.instance.OPPduplicates)
+                            {
+                                if (g.GetComponent<NumberStats>().value < val)
+                                {
+                                    val = g.GetComponent<NumberStats>().value;
+                                    chosenCard = g;
+
+                                }
+                                chosenCard.transform.SetParent(NumberManager.instance.playerPositiveArea.transform);
+                                NumberManager.instance.recalculate = true;
+                            }
+                        }
                     }
 
-                    
 
-            }
+
+
+                }
                 else if (specialCardType == SpecialCardType.Fist)
                 {
                     if (NumberManager.instance.OPPblues.Count > 0 || NumberManager.instance.blues.Count > 0)
