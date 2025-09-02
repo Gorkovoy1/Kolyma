@@ -216,20 +216,27 @@ using UnityEngine.SceneManagement;
                 else if (specialCardType == SpecialCardType.SmokeBreak)
                 {
                     //draw 2 random specials from discard
-                    isPlayable = true;
+                    if(discardedCards.Count > 0)
+                    {
+                        isPlayable = true;
+                    }
 
 
                 }
                 else if (specialCardType == SpecialCardType.Weakness)
                 {
-                    foreach (GameObject g in NumberManager.instance.positives)
+                    if(discardedCards.Count > 0)
                     {
-                        if (g.GetComponent<NumberStats>().value == 2)
+                        foreach (GameObject g in NumberManager.instance.positives)
                         {
-                            isPlayable = true;
-                            break;
+                            if (g.GetComponent<NumberStats>().value == 2)
+                            {
+                                isPlayable = true;
+                                break;
+                            }
                         }
                     }
+                    
 
                 }
                 else if (specialCardType == SpecialCardType.ThickWoolenCoat)
@@ -765,15 +772,41 @@ using UnityEngine.SceneManagement;
                 }
                 else if (specialCardType == SpecialCardType.ThickWoolenCoat)
                 {
+                    if (difficulty == Difficulty.Ideal)
+                    {
+                        if(NumberManager.instance.playerVal >= NumberManager.instance.targetVal - 1)
+                        {
+                            SpecialCardManager.instance.Give(2, "player");
+                        }
+                        else if(NumberManager.instance.playerVal < NumberManager.instance.targetVal - 1)
+                        {
+                            SpecialCardManager.instance.Give(-2, "player");
+                        }
 
-                    if (NumberManager.instance.playerVal > NumberManager.instance.targetVal - 2)
+                    }
+                    else if (difficulty == Difficulty.AlwaysLargest)
                     {
                         SpecialCardManager.instance.Give(2, "player");
                     }
-                    else
+                    else if (difficulty == Difficulty.AlwaysSmallest)
                     {
                         SpecialCardManager.instance.Give(-2, "player");
                     }
+                    else if (difficulty == Difficulty.Random)
+                    {
+                        int randomInt = Random.Range(0, 2);
+                        if(randomInt == 0)
+                        {
+                            SpecialCardManager.instance.Give(-2, "player");
+                        }
+                        else
+                        {
+                            SpecialCardManager.instance.Give(2, "player");
+                        }
+                    }
+
+                    NumberManager.instance.recalculate = true;
+            
 
 
                 }
