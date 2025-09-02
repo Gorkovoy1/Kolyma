@@ -653,16 +653,40 @@ using UnityEngine.SceneManagement;
                 {
                     if (NumberManager.instance.reds.Count > 0)
                     {
-                        //give player +4 if over
-                        //give player -4 if under
-                        if (NumberManager.instance.playerVal > NumberManager.instance.targetVal - 4)
+                        if(difficulty == Difficulty.Ideal)
+                        {
+                            //give player +4 if over
+                            //give player -4 if under
+                            if (NumberManager.instance.playerVal > NumberManager.instance.targetVal - 4)
+                            {
+                                SpecialCardManager.instance.Give(4, "player");
+                            }
+                            else
+                            {
+                                SpecialCardManager.instance.Give(-4, "player");
+                            }
+                        }
+                        else if(difficulty == Difficulty.AlwaysLargest)
                         {
                             SpecialCardManager.instance.Give(4, "player");
                         }
-                        else
+                        else if(difficulty == Difficulty.AlwaysSmallest)
                         {
                             SpecialCardManager.instance.Give(-4, "player");
                         }
+                        else if(difficulty == Difficulty.Random)
+                        {
+                            int randomInt = Random.Range(0, 2);
+                            if(randomInt == 0)
+                            {
+                                SpecialCardManager.instance.Give(-4, "player");
+                            }
+                            else
+                            {
+                                SpecialCardManager.instance.Give(4, "player");
+                            }
+                        }
+                        
 
 
                     }
