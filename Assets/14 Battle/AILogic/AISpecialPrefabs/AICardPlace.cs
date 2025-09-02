@@ -812,7 +812,75 @@ using UnityEngine.SceneManagement;
                 }
                 else if (specialCardType == SpecialCardType.Setup)
                 {
-                    
+                    GameObject chosenCard = null;
+                    int val = 0;
+
+                    if (difficulty == Difficulty.Ideal)
+                    {
+                        //if they are over, remove a negative or the smallest
+                        if(NumberManager.instance.playerVal >= NumberManager.instance.targetVal)
+                        {
+                            val = 9;
+                            foreach(GameObject g in NumberManager.instance.allNumbers)
+                            {
+                                if(g.GetComponent<NumberStats>().value < val)
+                                {
+                                    chosenCard = g;
+                                    val = g.GetComponent<NumberStats>().value;
+                                }
+                            }
+                            StartCoroutine(CardSelectionController.instance.DiscardNumber(chosenCard));
+                        }
+                        //if they are under, remove largest
+                        else if(NumberManager.instance.playerVal < NumberManager.instance.targetVal)
+                        {
+                            val = 0;
+                            foreach(GameObject g in NumberManager.instance.allNumbers)
+                            {
+                                if(g.GetComponent<NumberStats>().value > val)
+                                {
+                                    chosenCard = g;
+                                    val = g.GetComponent<NumberStats>().value;
+                                }
+                            }
+                            StartCoroutine(CardSelectionController.instance.DiscardNumber(chosenCard));
+                        }
+                    }
+                    else if (difficulty == Difficulty.AlwaysLargest)
+                    {
+                        //remove smallest
+                        val = 9;
+                        foreach (GameObject g in NumberManager.instance.allNumbers)
+                        {
+                            if (g.GetComponent<NumberStats>().value < val)
+                            {
+                                chosenCard = g;
+                                val = g.GetComponent<NumberStats>().value;
+                            }
+                        }
+                        StartCoroutine(CardSelectionController.instance.DiscardNumber(chosenCard));
+                    }
+                    else if (difficulty == Difficulty.AlwaysSmallest)
+                    {
+                        //remove largest
+                        val = 0;
+                        foreach (GameObject g in NumberManager.instance.allNumbers)
+                        {
+                            if (g.GetComponent<NumberStats>().value > val)
+                            {
+                                chosenCard = g;
+                                val = g.GetComponent<NumberStats>().value;
+                            }
+                        }
+                        StartCoroutine(CardSelectionController.instance.DiscardNumber(chosenCard));
+                    }
+                    else if (difficulty == Difficulty.Random)
+                    {
+                        //remove random
+                        int randomInt = Random.Range(0, NumberManager.instance.allNumbers.Count);
+                        StartCoroutine(CardSelectionController.instance.DiscardNumber(NumberManager.instance.allNumbers[randomInt]));
+                    }
+            
 
 
                 }
