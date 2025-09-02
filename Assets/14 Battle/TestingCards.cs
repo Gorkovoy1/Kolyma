@@ -6,6 +6,7 @@ public class TestingCards : MonoBehaviour
 {
     public int value;
     public string target;
+    public GameObject AIHandler;
 
     // Start is called before the first frame update
     void Start()
@@ -59,5 +60,10 @@ public class TestingCards : MonoBehaviour
         }
 
         CardSelectionController.instance.CallButtons("discard", "opponent");
+    }
+
+    public void PlayAICard()
+    {
+        AIHandler.GetComponent<AIController>().PlayCard();
     }
 }
