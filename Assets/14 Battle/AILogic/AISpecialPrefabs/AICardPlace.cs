@@ -696,11 +696,58 @@ using UnityEngine.SceneManagement;
                 }
                 else if (specialCardType == SpecialCardType.RifleButt)
                 {
-                    //determine best card to flip from player, flip it (any number) (largest impact is large number)
-
-                    //flip the largest number
+                    GameObject chosenCard = null;
+                    int val = 0;
+                    if (difficulty == Difficulty.Ideal)
+                    {
+                        //biggest difference, flip biggest abs value
+                        foreach(GameObject g in NumberManager.instance.allNumbers)
+                        {
+                            if(Mathf.Abs(g.GetComponent<NumberStats>().value) > val)
+                            {
+                                chosenCard = g;
+                                val = Mathf.Abs(g.GetComponent<NumberStats>().value);
+                            }
+                        }
+                        StartCoroutine(CardSelectionController.instance.FlipNumber(chosenCard));
+                        
+                    }
+                    else if (difficulty == Difficulty.AlwaysLargest)
+                    {
+                        //flip smallest
+                        val = 9;
+                        foreach(GameObject g in NumberManager.instance.allNumbers)
+                        {
+                            if(g.GetComponent<NumberStats>().value < val)
+                            {
+                                val = g.GetComponent<NumberStats>().value;
+                                chosenCard = g;
+                            }
+                        }
+                        StartCoroutine(CardSelectionController.instance.FlipNumber(chosenCard));
+                    }
+                    else if (difficulty == Difficulty.AlwaysSmallest)
+                    {
+                        //flip largest
+                        val = 0;
+                        foreach (GameObject g in NumberManager.instance.allNumbers)
+                        {
+                            if (g.GetComponent<NumberStats>().value > val)
+                            {
+                                val = g.GetComponent<NumberStats>().value;
+                                chosenCard = g;
+                            }
+                        }
+                        StartCoroutine(CardSelectionController.instance.FlipNumber(chosenCard));
+            }
+                    else if (difficulty == Difficulty.Random)
+                    {
+                        int randomInt = Random.Range(0, NumberManager.instance.allNumbers.Count);
+                        StartCoroutine(CardSelectionController.instance.FlipNumber(NumberManager.instance.allNumbers[randomInt]));
+                    }
 
                     PlayerStats.instance.flipped = true;
+                    NumberManager.instance.recalculate = true;
                 }
                 else if (specialCardType == SpecialCardType.SmokeBreak)
                 {
