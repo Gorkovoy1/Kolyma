@@ -710,10 +710,10 @@ using UnityEngine.SceneManagement;
                         //biggest difference, flip biggest abs value
                         foreach(GameObject g in NumberManager.instance.allNumbers)
                         {
-                            if(Mathf.Abs(g.GetComponent<NumberStats>().value) > val)
+                            if(Mathf.Abs(NumberManager.instance.targetVal - (NumberManager.instance.playerVal - g.GetComponent<NumberStats>().value - g.GetComponent<NumberStats>().value)) > val)
                             {
                                 chosenCard = g;
-                                val = Mathf.Abs(g.GetComponent<NumberStats>().value);
+                                val = Mathf.Abs(NumberManager.instance.targetVal - (NumberManager.instance.playerVal - g.GetComponent<NumberStats>().value - g.GetComponent<NumberStats>().value));
                             }
                         }
                         StartCoroutine(CardSelectionController.instance.FlipNumber(chosenCard));
@@ -817,34 +817,16 @@ using UnityEngine.SceneManagement;
 
                     if (difficulty == Difficulty.Ideal)
                     {
-                        //if they are over, remove a negative or the smallest
-                        if(NumberManager.instance.playerVal >= NumberManager.instance.targetVal)
+                        foreach (GameObject g in NumberManager.instance.allNumbers)
                         {
-                            val = 9;
-                            foreach(GameObject g in NumberManager.instance.allNumbers)
+                            if (Mathf.Abs(NumberManager.instance.targetVal - (NumberManager.instance.playerVal - g.GetComponent<NumberStats>().value)) > val)
                             {
-                                if(g.GetComponent<NumberStats>().value < val)
-                                {
-                                    chosenCard = g;
-                                    val = g.GetComponent<NumberStats>().value;
-                                }
+                                chosenCard = g;
+                                val = Mathf.Abs(NumberManager.instance.targetVal - (NumberManager.instance.playerVal - g.GetComponent<NumberStats>().value));
                             }
-                            StartCoroutine(CardSelectionController.instance.DiscardNumber(chosenCard));
                         }
-                        //if they are under, remove largest
-                        else if(NumberManager.instance.playerVal < NumberManager.instance.targetVal)
-                        {
-                            val = 0;
-                            foreach(GameObject g in NumberManager.instance.allNumbers)
-                            {
-                                if(g.GetComponent<NumberStats>().value > val)
-                                {
-                                    chosenCard = g;
-                                    val = g.GetComponent<NumberStats>().value;
-                                }
-                            }
-                            StartCoroutine(CardSelectionController.instance.DiscardNumber(chosenCard));
-                        }
+                        StartCoroutine(CardSelectionController.instance.DiscardNumber(chosenCard));
+                        
                     }
                     else if (difficulty == Difficulty.AlwaysLargest)
                     {
@@ -926,6 +908,21 @@ using UnityEngine.SceneManagement;
                     }
                     else if (difficulty == Difficulty.Ideal)
                     {
+                        int val = 20;
+                        GameObject chosenCard = NumberManager.instance.OPPduplicates[0];
+                        //give away card that will put you closest to the target
+                        foreach (GameObject g in NumberManager.instance.OPPduplicates)
+                        {
+                            
+                            if(Mathf.Abs(NumberManager.instance.targetVal - (NumberManager.instance.playerVal - g.GetComponent<NumberStats>().value)) < val)
+                            {
+                                chosenCard = g;
+                                val = Mathf.Abs(NumberManager.instance.targetVal - (NumberManager.instance.playerVal - g.GetComponent<NumberStats>().value));
+                            }
+                            chosenCard.transform.SetParent(NumberManager.instance.playerPositiveArea.transform);
+                            NumberManager.instance.recalculate = true;
+                        }
+                        /*
                         //if you are over, give away large card
                         if(NumberManager.instance.oppVal > NumberManager.instance.targetVal)
                         {
@@ -960,6 +957,7 @@ using UnityEngine.SceneManagement;
                                 NumberManager.instance.recalculate = true;
                             }
                         }
+                        */
                     }
 
 
@@ -1001,8 +999,117 @@ using UnityEngine.SceneManagement;
                 else if (specialCardType == SpecialCardType.CondensedMilk)
                 {
                     //determine best card to swap out
+                    GameObject chosenCard = null;
+                    int val = 0;
 
-                }
+                    if (difficulty == Difficulty.Random)
+                    {
+                        int randomIntOne = Random.Range(0, 2);
+                        if(randomIntOne == 0)
+                        {
+                            int randomInt = Random.Range(0, NumberManager.instance.allNumbers.Count);
+                            chosenCard = NumberManager.instance.allNumbers[randomInt];
+                        }
+                        else
+                        {
+                            int randomInt = Random.Range(0, NumberManager.instance.OPPallNumbers.Count);
+                            chosenCard = NumberManager.instance.OPPallNumbers[randomInt];
+                        }
+                        
+                        
+                    }
+                    else if (difficulty == Difficulty.AlwaysLargest)
+                    {
+                        val = 9;
+                        foreach (GameObject g in NumberManager.instance.allNumbers)
+                        {
+                            if (g.GetComponent<NumberStats>().value < val)
+                            {
+                                val = g.GetComponent<NumberStats>().value;
+                                chosenCard = g;
+
+                            }
+                        }
+                    }
+                    else if (difficulty == Difficulty.AlwaysSmallest)
+                    {
+                        val = 0;
+                        foreach (GameObject g in NumberManager.instance.allNumbers)
+                        {
+                            if (g.GetComponent<NumberStats>().value > val)
+                            {
+                                val = g.GetComponent<NumberStats>().value;
+                                chosenCard = g;
+
+                            }
+                        }
+                    }
+                    else if (difficulty == Difficulty.Ideal)
+                    {
+                        //if you are over, swap large card
+                        if(NumberManager.instance.oppVal > NumberManager.instance.targetVal)
+                        {
+                            val = 0;
+                            foreach (GameObject g in NumberManager.instance.OPPallNumbers)
+                            {
+                                if (g.GetComponent<NumberStats>().value > val)
+                                {
+                                    val = g.GetComponent<NumberStats>().value;
+                                    chosenCard = g;
+
+                                }
+                            }
+                        }
+                        
+                        //if you are under, swap small card
+                        else if(NumberManager.instance.oppVal < NumberManager.instance.targetVal - 3)
+                        {
+                            val = 9;
+                            foreach (GameObject g in NumberManager.instance.OPPallNumbers)
+                            {
+                                if (g.GetComponent<NumberStats>().value < val)
+                                {
+                                    val = g.GetComponent<NumberStats>().value;
+                                    chosenCard = g;
+
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if(NumberManager.instance.playerVal >= NumberManager.instance.targetVal - 3)
+                            {
+                                val = 9;
+                                foreach (GameObject g in NumberManager.instance.allNumbers)
+                                {
+                                    if (g.GetComponent<NumberStats>().value < val)
+                                    {
+                                        val = g.GetComponent<NumberStats>().value;
+                                        chosenCard = g;
+
+                                    }
+                                }
+                            }
+                            else 
+                            {
+                                val = 0;
+                                foreach (GameObject g in NumberManager.instance.allNumbers)
+                                {
+                                    if (g.GetComponent<NumberStats>().value > val)
+                                    {
+                                        val = g.GetComponent<NumberStats>().value;
+                                        chosenCard = g;
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    StartCoroutine(CardSelectionController.instance.SwapOut(chosenCard, "player"));
+                    PlayerStats.instance.swapped = true;
+
+        }
                 else if (specialCardType == SpecialCardType.InCahoots)
                 {
                     SpecialCardManager.instance.Give(4, "player");
@@ -1010,14 +1117,101 @@ using UnityEngine.SceneManagement;
                 }
                 else if (specialCardType == SpecialCardType.Search)
                 {
-                    foreach (GameObject g in NumberManager.instance.allNumbers)
+                    GameObject chosenCard = null;
+                    int val = 0;
+
+                    if (difficulty == Difficulty.AlwaysLargest)
                     {
-                        if (g.GetComponent<NumberStats>().value == -3)
+                        //remove smallest
+                        val = 9;
+
+                        foreach (GameObject g in NumberManager.instance.allNumbers)
                         {
-                            //remove g and break
-                            StartCoroutine(CardSelectionController.instance.DiscardNumber(g));
+                            if(g.GetComponent<NumberStats>().value < val)
+                            {
+                                chosenCard = g;
+                                val = g.GetComponent<NumberStats>().value;
+                            }
+
+                        }
+
+
+                    }
+                    else if (difficulty == Difficulty.AlwaysSmallest)
+                    {
+                        //remove largest
+                        val = 0;
+
+                        foreach (GameObject g in NumberManager.instance.allNumbers)
+                        {
+                            if (g.GetComponent<NumberStats>().value > val)
+                            {
+                                chosenCard = g;
+                                val = g.GetComponent<NumberStats>().value;
+                            }
+
+                        }
+
+
+                    }
+                    else if (difficulty == Difficulty.Random)
+                    {
+                        //remove random
+                        int randomInt = Random.Range(0, NumberManager.instance.allNumbers.Count);
+                        chosenCard = NumberManager.instance.allNumbers[randomInt];
+
+                        
+
+                    }
+                    else if(difficulty == Difficulty.Ideal)
+                    {
+                        /*
+                        //if player is under or at value, remove biggest card
+                        if(NumberManager.instance.playerVal <= NumberManager.instance.targetVal)
+                        {
+                            val = 0;
+
+                            foreach (GameObject g in NumberManager.instance.allNumbers)
+                            {
+                                if (g.GetComponent<NumberStats>().value > val)
+                                {
+                                    chosenCard = g;
+                                    val = g.GetComponent<NumberStats>().value;
+                                }
+
+                            }
+                        }
+                        //if player is over value, remove smallest card
+                        else if(NumberManager.instance.playerVal > NumberManager.instance.targetVal)
+                        {
+                            val = 9;
+
+                            foreach (GameObject g in NumberManager.instance.allNumbers)
+                            {
+                                if (g.GetComponent<NumberStats>().value < val)
+                                {
+                                    chosenCard = g;
+                                    val = g.GetComponent<NumberStats>().value;
+                                }
+
+                            }
+                        }
+                        */
+
+                        //for each number, if remove (targetval - value), see how far from target, target - this value, absolute value, and if its larger set it as the new card
+                        val = 0;        
+                        foreach(GameObject g in NumberManager.instance.allNumbers)
+                        {
+                            if(Mathf.Abs(NumberManager.instance.targetVal - (NumberManager.instance.playerVal - g.GetComponent<NumberStats>().value)) > val)
+                            {
+                                chosenCard = g;
+                                val = Mathf.Abs(NumberManager.instance.targetVal - (NumberManager.instance.playerVal - g.GetComponent<NumberStats>().value));
+                            }
                         }
                     }
+
+
+                    StartCoroutine(CardSelectionController.instance.DiscardNumber(chosenCard));
 
                 }
                 else if (specialCardType == SpecialCardType.Poison)
@@ -1030,24 +1224,99 @@ using UnityEngine.SceneManagement;
                 }
                 else if (specialCardType == SpecialCardType.BackstabDiscard)
                 {
-                    if (NumberManager.instance.playerVal > NumberManager.instance.targetVal - 2)
+                    if (difficulty == Difficulty.Ideal)
+                    {
+                        if (NumberManager.instance.playerVal >= NumberManager.instance.targetVal - 1)
+                        {
+                            SpecialCardManager.instance.Give(2, "player");
+                        }
+                        else if (NumberManager.instance.playerVal < NumberManager.instance.targetVal - 1)
+                        {
+                            SpecialCardManager.instance.Give(-2, "player");
+                        }
+
+                    }
+                    else if (difficulty == Difficulty.AlwaysLargest)
                     {
                         SpecialCardManager.instance.Give(2, "player");
                     }
-                    else
+                    else if (difficulty == Difficulty.AlwaysSmallest)
                     {
                         SpecialCardManager.instance.Give(-2, "player");
                     }
+                    else if (difficulty == Difficulty.Random)
+                    {
+                        int randomInt = Random.Range(0, 2);
+                        if (randomInt == 0)
+                        {
+                            SpecialCardManager.instance.Give(-2, "player");
+                        }
+                        else
+                        {
+                            SpecialCardManager.instance.Give(2, "player");
+                        }
+                    }
+
+                    NumberManager.instance.recalculate = true;
+
+
+
 
                 }
                 else if (specialCardType == SpecialCardType.Scam)
                 {
-                    foreach (GameObject g in NumberManager.instance.allNumbers)
+                    int val = 0;
+                    GameObject chosenCard = null;
+                    if(difficulty == Difficulty.AlwaysLargest)
                     {
-                        //find best number to duplicate (largest or negative)
+                        foreach (GameObject g in NumberManager.instance.allNumbers)
+                        {
+                            if(g.GetComponent<NumberStats>().value > val)
+                            {
+                                chosenCard = g;
+                                val = g.GetComponent<NumberStats>().value;
+                            }
+                        }
                     }
-
-                    //CardSelectionController.instance.CallButtons("duplicate", "opponent");
+                    else if(difficulty == Difficulty.AlwaysSmallest)
+                    {
+                        val = 9;
+                        foreach (GameObject g in NumberManager.instance.allNumbers)
+                        {
+                            if (g.GetComponent<NumberStats>().value < val)
+                            {
+                                chosenCard = g;
+                                val = g.GetComponent<NumberStats>().value;
+                            }
+                        }
+                    }
+                    else if(difficulty == Difficulty.Random)
+                    {
+                        int randomInt = Random.Range(0, NumberManager.instance.allNumbers.Count);
+                        chosenCard = NumberManager.instance.allNumbers[randomInt];
+                    }
+                    else if(difficulty == Difficulty.Ideal)
+                    {
+                        val = 0;
+                        foreach(GameObject g in NumberManager.instance.allNumbers)
+                        {
+                            if(Mathf.Abs(NumberManager.instance.targetVal - (NumberManager.instance.playerVal + g.GetComponent<NumberStats>().value)) > val)
+                            {
+                                chosenCard = g;
+                                val = Mathf.Abs(NumberManager.instance.targetVal - (NumberManager.instance.playerVal + g.GetComponent<NumberStats>().value));
+                            }
+                        }
+                    }
+                    
+                    if(chosenCard.GetComponent<NumberStats>().value > 0)
+                    {
+                        Instantiate(chosenCard, CardPlacementController.instance.playerPositiveArea);
+                    }
+                    else if(chosenCard.GetComponent<NumberStats>().value < 0)
+                    {
+                        Instantiate(chosenCard, CardPlacementController.instance.playerNegativeArea);
+                    }
+                    
 
                 }
                 else if (specialCardType == SpecialCardType.GiveItUp)
@@ -1059,12 +1328,14 @@ using UnityEngine.SceneManagement;
                 }
                 else if (specialCardType == SpecialCardType.Rotation)
                 {
+                    int val = 0;
+                    GameObject chosenCard = null;
                     foreach (GameObject g in NumberManager.instance.OPPnegatives)
                     {
                         //find which number best to swap - know the next card in deck?
                     }
 
-                    //CardSelectionController.instance.CallButtons("swap", "player");
+                    StartCoroutine(CardSelectionController.instance.SwapOut(chosenCard, "opponent"));
 
                 }
                 else if (specialCardType == SpecialCardType.DirtyTrickIV)
@@ -1094,26 +1365,79 @@ using UnityEngine.SceneManagement;
                 }
                 else if (specialCardType == SpecialCardType.BackstabSwap)
                 {
-                    if (NumberManager.instance.playerVal > NumberManager.instance.targetVal - 2)
+                    if (difficulty == Difficulty.Ideal)
+                    {
+                        if(NumberManager.instance.playerVal >= NumberManager.instance.targetVal - 1)
+                        {
+                            SpecialCardManager.instance.Give(2, "player");
+                        }
+                        else if(NumberManager.instance.playerVal < NumberManager.instance.targetVal - 1)
+                        {
+                            SpecialCardManager.instance.Give(-2, "player");
+                        }
+
+                    }
+                    else if (difficulty == Difficulty.AlwaysLargest)
                     {
                         SpecialCardManager.instance.Give(2, "player");
                     }
-                    else
+                    else if (difficulty == Difficulty.AlwaysSmallest)
                     {
                         SpecialCardManager.instance.Give(-2, "player");
                     }
+                    else if (difficulty == Difficulty.Random)
+                    {
+                        int randomInt = Random.Range(0, 2);
+                        if(randomInt == 0)
+                        {
+                            SpecialCardManager.instance.Give(-2, "player");
+                        }
+                        else
+                        {
+                            SpecialCardManager.instance.Give(2, "player");
+                        }
+                    }
+
+                    NumberManager.instance.recalculate = true;
 
                 }
                 else if (specialCardType == SpecialCardType.ThereThere)
                 {
-                    if (NumberManager.instance.playerVal > NumberManager.instance.targetVal - 2)
+                    
+                    if (difficulty == Difficulty.Ideal)
+                    {
+                        if(NumberManager.instance.playerVal >= NumberManager.instance.targetVal - 1)
+                        {
+                            SpecialCardManager.instance.Give(2, "player");
+                        }
+                        else if(NumberManager.instance.playerVal < NumberManager.instance.targetVal - 1)
+                        {
+                            SpecialCardManager.instance.Give(-2, "player");
+                        }
+
+                    }
+                    else if (difficulty == Difficulty.AlwaysLargest)
                     {
                         SpecialCardManager.instance.Give(2, "player");
                     }
-                    else
+                    else if (difficulty == Difficulty.AlwaysSmallest)
                     {
                         SpecialCardManager.instance.Give(-2, "player");
                     }
+                    else if (difficulty == Difficulty.Random)
+                    {
+                        int randomInt = Random.Range(0, 2);
+                        if(randomInt == 0)
+                        {
+                            SpecialCardManager.instance.Give(-2, "player");
+                        }
+                        else
+                        {
+                            SpecialCardManager.instance.Give(2, "player");
+                        }
+                    }
+
+                    NumberManager.instance.recalculate = true;
 
                 }
                 else if (specialCardType == SpecialCardType.NotMyProblem)
