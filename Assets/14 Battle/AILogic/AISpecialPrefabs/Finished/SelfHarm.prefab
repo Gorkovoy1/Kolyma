@@ -167,8 +167,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDragging: 0
   parentReturnTo: {fileID: 0}
-  imagePrefab: {fileID: 6929833209509321174}
-  correspondingImage: {fileID: 6929833209509321174}
+  imagePrefab: {fileID: 7049988666130344411, guid: 12a0c1f6cb708e4468449b138876c38c, type: 3}
+  correspondingImage: {fileID: 7049988666130344411, guid: 12a0c1f6cb708e4468449b138876c38c, type: 3}
   imagesParent: {fileID: 0}
   hoverOffset: 75
   hovering: 0
@@ -188,3 +188,5 @@ MonoBehaviour:
   cardBack: {fileID: 21300000, guid: 5681a74c470359848acdb34ed992ba17, type: 3}
   grey: {fileID: 0}
   isFlipped: 0
+  difficulty: 0
+  personalityType: 0

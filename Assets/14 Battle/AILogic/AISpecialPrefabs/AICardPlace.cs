@@ -1330,13 +1330,27 @@ using UnityEngine.SceneManagement;
                 {
                     int val = 0;
                     GameObject chosenCard = null;
-                    foreach (GameObject g in NumberManager.instance.OPPnegatives)
+                    if(difficulty == Difficulty.AlwaysLargest || difficulty == Difficulty.AlwaysSmallest || difficulty == Difficulty.Random)
                     {
-                        //find which number best to swap - know the next card in deck?
+                        int randomInt = Random.Range(0, NumberManager.instance.OPPnegatives.Count);
+                        chosenCard = NumberManager.instance.OPPnegatives[randomInt];
+                    }
+                    else if(difficulty == Difficulty.Ideal)
+                    {
+                        val = 9;
+                        chosenCard = NumberManager.instance.OPPnegatives[0];
+                        foreach (GameObject g in NumberManager.instance.OPPnegatives)
+                        {
+                            if (Mathf.Abs(NumberManager.instance.targetVal - (NumberManager.instance.oppVal - g.GetComponent<NumberStats>().value + CardPlacementController.instance.numberDeck[0].GetComponent<NumberStats>().value)) < val)
+                            {
+                                val = Mathf.Abs(NumberManager.instance.targetVal - (NumberManager.instance.oppVal - g.GetComponent<NumberStats>().value + CardPlacementController.instance.numberDeck[0].GetComponent<NumberStats>().value));
+                                chosenCard = g;
+                            }
+                        }
                     }
 
                     StartCoroutine(CardSelectionController.instance.SwapOut(chosenCard, "opponent"));
-
+            
                 }
                 else if (specialCardType == SpecialCardType.DirtyTrickIV)
                 {
@@ -1349,19 +1363,191 @@ using UnityEngine.SceneManagement;
                     //if over, change -2 to 2
 
                     //if close to busting change -2 to 2
+
+                    bool notFound = true;
+                    if(difficulty == Difficulty.AlwaysLargest)
+                    {
+                        //change -2 to 2
+                        foreach(GameObject g in NumberManager.instance.allNumbers)
+                        {
+                            if(g.GetComponent<NumberStats>().value == -2)
+                            {
+                                StartCoroutine(CardSelectionController.instance.ChangeNumber(g, 2, "player"));
+                                notFound = false;
+                                break;
+                            }
+                        }
+                        if(notFound)
+                        {
+                            foreach(GameObject g in NumberManager.instance.allNumbers)
+                            {
+                                if(g.GetComponent<NumberStats>().value == 2)
+                                {
+                                    StartCoroutine(CardSelectionController.instance.ChangeNumber(g, -2, "player"));
+                                    notFound = false;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    else if (difficulty == Difficulty.AlwaysSmallest)
+                    {
+                        //change -2 to 2
+                        foreach (GameObject g in NumberManager.instance.allNumbers)
+                        {
+                            if (g.GetComponent<NumberStats>().value == 2)
+                            {
+                                StartCoroutine(CardSelectionController.instance.ChangeNumber(g, -2, "player"));
+                                notFound = false;
+                                break;
+                            }
+                        }
+                        if (notFound)
+                        {
+                            foreach (GameObject g in NumberManager.instance.allNumbers)
+                            {
+                                if (g.GetComponent<NumberStats>().value == -2)
+                                {
+                                    StartCoroutine(CardSelectionController.instance.ChangeNumber(g, 2, "player"));
+                                    notFound = false;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    else if (difficulty == Difficulty.Random)
+                    {
+                        int randomInt = Random.Range(0, 2);
+                        if(randomInt == 0)
+                        {
+                            foreach (GameObject g in NumberManager.instance.allNumbers)
+                            {
+                                if (g.GetComponent<NumberStats>().value == -2)
+                                {
+                                    StartCoroutine(CardSelectionController.instance.ChangeNumber(g, 2, "player"));
+                                    notFound = false;
+                                    break;
+                                }
+                            }
+                            if(notFound)
+                            {
+                                foreach(GameObject g in NumberManager.instance.allNumbers)
+                                {
+                                    if(g.GetComponent<NumberStats>().value == 2)
+                                    {
+                                        StartCoroutine(CardSelectionController.instance.ChangeNumber(g, -2, "player"));
+                                        notFound = false;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            foreach (GameObject g in NumberManager.instance.allNumbers)
+                            {
+                                if (g.GetComponent<NumberStats>().value == 2)
+                                {
+                                    StartCoroutine(CardSelectionController.instance.ChangeNumber(g, -2, "player"));
+                                    notFound = false;
+                                    break;
+                                }
+                            }
+                            if(notFound)
+                            {
+                                foreach(GameObject g in NumberManager.instance.allNumbers)
+                                {
+                                    if(g.GetComponent<NumberStats>().value == -2)
+                                    {
+                                        StartCoroutine(CardSelectionController.instance.ChangeNumber(g, 2, "player"));
+                                        notFound = false;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                
+                    }
+                    else if(difficulty == Difficulty.Ideal) //change to magnitude (abs val)
+                    {
+                        if(NumberManager.instance.playerVal >= NumberManager.instance.targetVal - 3)
+                        {
+                            foreach (GameObject g in NumberManager.instance.allNumbers)
+                            {
+                                if (g.GetComponent<NumberStats>().value == -2)
+                                {
+                                    StartCoroutine(CardSelectionController.instance.ChangeNumber(g, 2, "player"));
+                                    notFound = false;
+                                    break;
+                                }
+                            }
+                            if(notFound)
+                            {
+                                foreach(GameObject g in NumberManager.instance.allNumbers)
+                                {
+                                    if(g.GetComponent<NumberStats>().value == 2)
+                                    {
+                                        StartCoroutine(CardSelectionController.instance.ChangeNumber(g, -2, "player"));
+                                        notFound = false;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            foreach (GameObject g in NumberManager.instance.allNumbers)
+                            {
+                                if (g.GetComponent<NumberStats>().value == 2)
+                                {
+                                    StartCoroutine(CardSelectionController.instance.ChangeNumber(g, -2, "player"));
+                                    notFound = false;
+                                    break;
+                                }
+                            }
+                            if(notFound)
+                            {
+                                foreach(GameObject g in NumberManager.instance.allNumbers)
+                                {
+                                    if(g.GetComponent<NumberStats>().value == -2)
+                                    {
+                                        StartCoroutine(CardSelectionController.instance.ChangeNumber(g, 2, "player"));
+                                        notFound = false;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+
+
                 }
                 else if (specialCardType == SpecialCardType.SelfHarm)
                 {
-                    /*
-                    foreach (GameObject g in NumberManager.instance.allNumbers)
+                    GameObject chosenCard = null;
+                    int val = 0;
+                    if(difficulty == Difficulty.Random)
                     {
-                        g.GetComponent<NumberStats>().selectable = true;
+                        int randomInt = Random.Range(0, NumberManager.instance.OPPallNumbers.Count);
+                        chosenCard = NumberManager.instance.OPPallNumbers[randomInt];
+                        StartCoroutine(CardSelectionController.instance.FlipNumber(chosenCard));
+                
                     }
-
-                    CardSelectionController.instance.CallButtons("flip", "player");
-
-                    PlayerStats.instance.flipped = true;
-                    */
+                    else
+                    {
+                        val = 9;
+                        chosenCard = NumberManager.instance.OPPallNumbers[0];
+                        foreach (GameObject g in NumberManager.instance.OPPallNumbers)
+                        {
+                            if (Mathf.Abs(NumberManager.instance.targetVal - (NumberManager.instance.oppVal - g.GetComponent<NumberStats>().value - g.GetComponent<NumberStats>().value)) < val)
+                            {
+                                chosenCard = g;
+                                val = Mathf.Abs(NumberManager.instance.targetVal - (NumberManager.instance.oppVal - g.GetComponent<NumberStats>().value - g.GetComponent<NumberStats>().value));
+                            }
+                        }
+                        StartCoroutine(CardSelectionController.instance.FlipNumber(chosenCard));
+                    }
                 }
                 else if (specialCardType == SpecialCardType.BackstabSwap)
                 {
@@ -1442,14 +1628,52 @@ using UnityEngine.SceneManagement;
                 }
                 else if (specialCardType == SpecialCardType.NotMyProblem)
                 {
-                    /*
-                    foreach (GameObject g in NumberManager.instance.allNumbers)
+                    GameObject chosenCard = null;
+                    int val = 0;
+                    if(difficulty == Difficulty.AlwaysLargest)
                     {
-                        g.GetComponent<NumberStats>().selectable = true;
+                        foreach(GameObject g in NumberManager.instance.OPPallNumbers)
+                        {
+                            if(g.GetComponent<NumberStats>().value > val)
+                            {
+                                val = g.GetComponent<NumberStats>().value;
+                                chosenCard = g;
+                            }
+                        }
+                    }
+                    else if(difficulty == Difficulty.AlwaysSmallest)
+                    {
+                        val = 9;
+                        foreach (GameObject g in NumberManager.instance.OPPallNumbers)
+                        {
+                            if (g.GetComponent<NumberStats>().value < val)
+                            {
+                                val = g.GetComponent<NumberStats>().value;
+                                chosenCard = g;
+                            }
+                        }
+                    }
+                    else if(difficulty == Difficulty.Random)
+                    {
+                        int randomInt = Random.Range(0, NumberManager.instance.OPPallNumbers.Count);
+                        chosenCard = NumberManager.instance.OPPallNumbers[randomInt];
+                    }
+                    else if(difficulty == Difficulty.Ideal)
+                    {
+                        //find number to get rid of that will put opp closest to value
+                        val = 10;
+                        chosenCard = NumberManager.instance.OPPallNumbers[0];
+                        foreach(GameObject g in NumberManager.instance.OPPallNumbers)
+                        {
+                            if (Mathf.Abs(NumberManager.instance.targetVal - (NumberManager.instance.oppVal - g.GetComponent<NumberStats>().value)) < val)
+                            {
+                                val = Mathf.Abs(NumberManager.instance.targetVal - (NumberManager.instance.oppVal - g.GetComponent<NumberStats>().value));
+                                chosenCard = g;
+                            }
+                        }
                     }
 
-                    CardSelectionController.instance.CallButtons("give", "opponent");
-                    */
+                    CardSelectionController.instance.GiftNumber(chosenCard);
                 }
                 else if (specialCardType == SpecialCardType.Frostbite)
                 {
