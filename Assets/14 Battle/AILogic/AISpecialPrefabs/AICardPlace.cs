@@ -89,7 +89,7 @@ using UnityEngine.SceneManagement;
                         correspondingImage.transform.Find("Image").GetComponent<Image>().enabled = false;
                     }
                 }
-
+                CheckPlayable();
             }
 
             // Update is called once per frame

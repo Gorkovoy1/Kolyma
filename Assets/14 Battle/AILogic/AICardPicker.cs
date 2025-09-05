@@ -65,11 +65,15 @@ public class AICardPicker : MonoBehaviour
         //depending on assigned values in inspector, assign points to cards in hand, sort in order of points, pick random from top 3 to play
         playableCards.Clear();
 
-        foreach (GameObject g in handController.opponentSpecialHand)
+        foreach (Transform c in handController.opponentHand.transform)
         {
-            if(g.GetComponent<AICardPlace>().isPlayable)
+            if(c.GetComponent<AICardPlace>().isPlayable)
             {
-                playableCards.Add(g);
+                playableCards.Add(c.gameObject);
+            }
+            else
+            {
+                Debug.Log("no add");
             }
 
         }
@@ -102,12 +106,20 @@ public class AICardPicker : MonoBehaviour
             }
         }
 
-        playableCards = playableCards.OrderByDescending(g => g.GetComponent<AICardPlace>().points).ToList();
+        if (playableCards.Count > 0)
+        {
+            // pick between 0 and either 3 or the count, whichever is smaller
+            int maxIndex = Mathf.Min(3, playableCards.Count);
 
-        selectedCard = playableCards[Random.Range(0, 3)];
+            selectedCard = playableCards[Random.Range(0, maxIndex)];
 
-        aiController.selectedCardToPlay = selectedCard;
-        aiController.PlayCard();
+            aiController.selectedCardToPlay = selectedCard;
+            aiController.PlayCard();
+        }
+        else
+        {
+            Debug.LogWarning("No playable cards available!");
+        }
 
         StartCoroutine(DelayTurn());
 

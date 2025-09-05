@@ -21,5 +21,6 @@ public class HUDController : MonoBehaviour
     {
         playerVal.text = NumberManager.instance.playerVal.ToString();
         oppVal.text = NumberManager.instance.oppVal.ToString();
+        targetVal.text = NumberManager.instance.targetVal.ToString();
     }
 }

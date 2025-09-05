@@ -19,6 +19,15 @@ public class HandFanController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(TurnManager.instance.isPlayerTurn)
+        {
+            fanHand = true;
+        }
+        else
+        {
+            fanHand = false;
+        }
+
         if(!fanHand)
         {
             rect.sizeDelta = new Vector2(50f, rect.sizeDelta.y);

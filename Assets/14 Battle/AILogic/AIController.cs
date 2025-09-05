@@ -26,6 +26,10 @@ public class AIController : MonoBehaviour
     public void PlayCard()
     {
         selectedCardToPlay.GetComponent<AICardPlace>().difficulty = difficulty;
+
+        //check if selected card will bust you, if itll bust you then dont play it, just skip turn ?? how to check if only happens after you play card though
+
+
         selectedCardToPlay.GetComponent<AICardPlace>().AnimateBeingPlayed();
     }
 }
