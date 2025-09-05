@@ -2019,7 +2019,7 @@ using UnityEngine.SceneManagement;
                     int randomIndex = Random.Range(0, discardedCards.Count);
                     GameObject chosenCard = discardedCards[randomIndex];
                     discardedCards.RemoveAt(randomIndex);
-                    chosenCard.GetComponent<CardPlace>().beingPlayed = false;
+                    chosenCard.GetComponent<AICardPlace>().beingPlayed = false;
                     //chosenCard.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                     chosenCard.transform.SetParent(opponentHand);
                 }

@@ -15,17 +15,25 @@ public class HandController : MonoBehaviour
 
     public Transform imagesParent;
 
+    public bool startGame = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        ShuffleSpecials();
+
+        
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(startGame)
+        {
+            startGame = false;
+            playerSpecialDeck = CardInventoryController.instance.playerDeck;
+            ShuffleSpecials();
+        }
     }
 
     void ShuffleSpecials()

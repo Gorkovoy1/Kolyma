@@ -17,6 +17,8 @@ public class DeckManagerController : MonoBehaviour
     public bool finishDeck;
     public GameObject sfxObj;
 
+    public HandController handController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +53,9 @@ public class DeckManagerController : MonoBehaviour
         ShowCanvas();
         finishDeck = true;
         //prevent changes to deck mid game
+
+        handController.startGame = true;
+
     }
 
     public IEnumerator LerpPullPanel()

@@ -66,4 +66,9 @@ public class TestingCards : MonoBehaviour
     {
         AIHandler.GetComponent<AIController>().PlayCard();
     }
+
+    public void ToggleTurn()
+    {
+        TurnManager.instance.isPlayerTurn = !TurnManager.instance.isPlayerTurn;
+    }
 }
