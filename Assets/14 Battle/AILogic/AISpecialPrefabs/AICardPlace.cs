@@ -55,6 +55,10 @@ using UnityEngine.SceneManagement;
             public Difficulty difficulty;
             public PersonalityType personalityType;
 
+            public int points;
+
+    
+
             // Start is called before the first frame update
             void Start()
             {
@@ -1750,16 +1754,60 @@ using UnityEngine.SceneManagement;
                 }
                 else if (specialCardType == SpecialCardType.Knife)
                 {
-                    foreach (GameObject g in NumberManager.instance.allNumbers)
+                    GameObject chosenCard = null;
+                    int val = 0;
+                    if (difficulty == Difficulty.Ideal)
                     {
-                        //find best number to flip
+                        //biggest difference, flip biggest abs value
+                        foreach (GameObject g in NumberManager.instance.allNumbers)
+                        {
+                            if (Mathf.Abs(NumberManager.instance.targetVal - (NumberManager.instance.playerVal - g.GetComponent<NumberStats>().value - g.GetComponent<NumberStats>().value)) > val)
+                            {
+                                chosenCard = g;
+                                val = Mathf.Abs(NumberManager.instance.targetVal - (NumberManager.instance.playerVal - g.GetComponent<NumberStats>().value - g.GetComponent<NumberStats>().value));
+                            }
+                        }
+                        StartCoroutine(CardSelectionController.instance.FlipNumber(chosenCard));
+
+                    }
+                    else if (difficulty == Difficulty.AlwaysLargest)
+                    {
+                        //flip smallest
+                        val = 9;
+                        foreach (GameObject g in NumberManager.instance.allNumbers)
+                        {
+                            if (g.GetComponent<NumberStats>().value < val)
+                            {
+                                val = g.GetComponent<NumberStats>().value;
+                                chosenCard = g;
+                            }
+                        }
+                        StartCoroutine(CardSelectionController.instance.FlipNumber(chosenCard));
+                    }
+                    else if (difficulty == Difficulty.AlwaysSmallest)
+                    {
+                        //flip largest
+                        val = 0;
+                        foreach (GameObject g in NumberManager.instance.allNumbers)
+                        {
+                            if (g.GetComponent<NumberStats>().value > val)
+                            {
+                                val = g.GetComponent<NumberStats>().value;
+                                chosenCard = g;
+                            }
+                        }
+                        StartCoroutine(CardSelectionController.instance.FlipNumber(chosenCard));
+                    }
+                    else if (difficulty == Difficulty.Random)
+                    {
+                        int randomInt = Random.Range(0, NumberManager.instance.allNumbers.Count);
+                        StartCoroutine(CardSelectionController.instance.FlipNumber(NumberManager.instance.allNumbers[randomInt]));
                     }
 
-                    //CardSelectionController.instance.CallButtons("flip", "player");
+                    PlayerStats.instance.flipped = true;
+                    NumberManager.instance.recalculate = true;
 
-                    //PlayerStats.instance.flipped = true;
-
-                }
+        }
                 else if (specialCardType == SpecialCardType.ExtraWork)
                 {
                     CardPlacementController.instance.DealOneCard("player");
@@ -2053,15 +2101,7 @@ public enum Difficulty
     Ideal
 }
 
-public enum PersonalityType
-{
-    OffensiveHigh,
-    OffensiveLow,
-    DefensiveThree,
-    DefensiveFour,
-    DefensiveFive,
-    Mixed
-}
+
 
     
 

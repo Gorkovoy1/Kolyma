@@ -3,28 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-  
-        public class AIController : MonoBehaviour
-        {
 
-            public GameObject selectedCardToPlay;
+public class AIController : MonoBehaviour
+{
 
-            // Start is called before the first frame update
-            void Start()
-            {
+    public GameObject selectedCardToPlay;
+    public Difficulty difficulty;
 
-            }
 
-            // Update is called once per frame
-            void Update()
-            {
+    // Start is called before the first frame update
+    void Start()
+    {
 
-            }
+    }
 
-            public void PlayCard()
-            {
-                selectedCardToPlay.GetComponent<AICardPlace>().AnimateBeingPlayed();
-            }
-        }
-    
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    public void PlayCard()
+    {
+        selectedCardToPlay.GetComponent<AICardPlace>().difficulty = difficulty;
+        selectedCardToPlay.GetComponent<AICardPlace>().AnimateBeingPlayed();
+    }
+}
+
+
+
 
