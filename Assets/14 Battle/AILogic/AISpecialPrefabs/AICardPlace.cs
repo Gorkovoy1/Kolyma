@@ -57,6 +57,8 @@ using UnityEngine.SceneManagement;
 
             public int points;
 
+            public int selfValue = 0; //check for self bust
+
     
 
             // Start is called before the first frame update
