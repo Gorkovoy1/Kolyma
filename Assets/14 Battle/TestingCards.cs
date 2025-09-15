@@ -7,6 +7,8 @@ public class TestingCards : MonoBehaviour
     public int value;
     public string target;
     public GameObject AIHandler;
+    public bool firstTurn = false;
+    public HandController handController;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +19,12 @@ public class TestingCards : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(firstTurn)
+        {
+            firstTurn = false;
+            //draw card
+            handController.DrawToHand("player");
+        }
     }
 
     public void TestDeal()
@@ -69,6 +76,8 @@ public class TestingCards : MonoBehaviour
 
     public void ToggleTurn()
     {
+        firstTurn = true;
         TurnManager.instance.isPlayerTurn = !TurnManager.instance.isPlayerTurn;
+        handController.DrawToHand("opponent");
     }
 }

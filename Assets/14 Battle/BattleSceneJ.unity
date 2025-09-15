@@ -1321,6 +1321,8 @@ MonoBehaviour:
   value: 6
   target: player
   AIHandler: {fileID: 1161671095}
+  firstTurn: 0
+  handController: {fileID: 2032142709}
 --- !u!1 &629652256
 GameObject:
   m_ObjectHideFlags: 0
