@@ -42,7 +42,7 @@ public class DiceController : MonoBehaviour
             Debug.Log("W");
             isFrozen = false;
             FlingDice();
-            StartCoroutine(MakeFrozen());
+            //StartCoroutine(MakeFrozen());
         }
         else if(Input.GetKeyDown(KeyCode.R))
         {
