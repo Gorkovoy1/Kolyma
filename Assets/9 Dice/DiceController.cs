@@ -111,12 +111,12 @@ public class DiceController : MonoBehaviour
         // Define each face direction and their associated number
         (Vector3 direction, int faceNumber)[] faceDirs = new[]
         {
-            (transform.up, 1),      // Top face
-            (-transform.up, 6),     // Bottom face
-            (transform.forward, 2), // Front
-            (-transform.forward, 5),// Back
-            (transform.right, 3),   // Right
-            (-transform.right, 4),  // Left
+            (transform.up, 3),      // Top face
+            (-transform.up, 4),     // Bottom face
+            (transform.forward, 1), // Front
+            (-transform.forward, 6),// Back
+            (transform.right, 5),   // Right
+            (-transform.right, 2),  // Left
         };
 
         foreach (var (dir, face) in faceDirs)
@@ -128,7 +128,7 @@ public class DiceController : MonoBehaviour
                 topFace = face;
             }
         }
-
+        Debug.Log(topFace);
         return topFace;
     }
 
