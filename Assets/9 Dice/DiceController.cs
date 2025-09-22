@@ -48,7 +48,7 @@ public class DiceController : MonoBehaviour
         {
             this.gameObject.transform.position = startPos;
         }
-
+        /*
         if(diceRigidbody.velocity.magnitude > velocityThreshold &&
                 diceRigidbody.angularVelocity.magnitude > angularVelocityThreshold)
         {
@@ -71,7 +71,7 @@ public class DiceController : MonoBehaviour
             
             diceRigidbody.constraints = RigidbodyConstraints.None;
         }
-        
+        */
     }
 
     void FlingDice()
@@ -80,20 +80,19 @@ public class DiceController : MonoBehaviour
         diceRigidbody.velocity = Vector3.zero;
         diceRigidbody.angularVelocity = Vector3.zero;
 
-        // Forward-only force (relative to world or dice orientation)
-        Vector3 forceDirection = transform.forward + transform.up * 1.5f; // Adjust if needed (e.g., transform.forward)
-        forceDirection.Normalize();
-        diceRigidbody.AddForce(forceDirection * throwForce, ForceMode.Impulse);
+        // Randomized forward force
+        Vector3 forceDirection = transform.forward * Random.Range(0.8f, 1.2f) +
+                                 transform.up * Random.Range(1f, 2f) +
+                                 transform.right * Random.Range(-0.5f, 0.5f);
+        diceRigidbody.AddForce(forceDirection.normalized * throwForce, ForceMode.Impulse);
 
         // Random torque for natural roll/spin
         Vector3 randomTorque = new Vector3(
             Random.Range(-1f, 1f),
             Random.Range(-1f, 1f),
             Random.Range(-1f, 1f)
-        ).normalized * spinForce;
-
+        ) * spinForce; // No normalization here
         diceRigidbody.AddTorque(randomTorque, ForceMode.Impulse);
-
     }
 
     IEnumerator MakeFrozen()
