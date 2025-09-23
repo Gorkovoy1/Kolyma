@@ -46,9 +46,9 @@ public class DiceBoxManager : MonoBehaviour
         {
             rb.WakeUp(); // make sure Rigidbody is active
 
-            Vector3 forceDir = Vector3.up * Random.Range(1f, 2f) +
-                               Vector3.forward * Random.Range(-0.5f, 0.5f) +
-                               Vector3.right * Random.Range(-0.5f, 0.5f);
+            Vector3 forceDir = transform.up * Random.Range(0.8f, 1.2f) +
+                                 transform.right * Random.Range(1f, 2f) +
+                                 transform.forward * Random.Range(-0.5f, 0.5f);
 
             rb.AddForce(forceDir.normalized * throwForce, ForceMode.Impulse);
 
