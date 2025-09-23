@@ -30,12 +30,17 @@ public class DiceController : MonoBehaviour
     {
 
         diceRigidbody.AddForce(Physics.gravity * extraGravityMultiplier);
+        topVal = GetTopFace();
 
+        /*
         if(Input.GetKeyUp(KeyCode.Space))
         {
             Debug.Log("Top face: " + GetTopFace());
             topVal = GetTopFace();
         }
+        
+
+        
 
         if (Input.GetKeyUp(KeyCode.W))
         {
@@ -48,7 +53,7 @@ public class DiceController : MonoBehaviour
         {
             this.gameObject.transform.position = startPos;
         }
-        /*
+        
         if(diceRigidbody.velocity.magnitude > velocityThreshold &&
                 diceRigidbody.angularVelocity.magnitude > angularVelocityThreshold)
         {

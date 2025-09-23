@@ -10,6 +10,7 @@ public class DiceBoxManager : MonoBehaviour
     public Vector3 boxSize = new Vector3(1f, 0.5f, 1f); // size of spawn area
     public float throwForce = 10f;
     public float spinForce = 10f;
+    public Transform diceParent;
 
     private List<Rigidbody> diceBodies = new List<Rigidbody>();
 
@@ -28,7 +29,7 @@ public class DiceBoxManager : MonoBehaviour
                 Random.Range(-boxSize.z / 2, boxSize.z / 2)
             );
 
-            GameObject dice = Instantiate(dicePrefab, randomPos, Random.rotation, this.transform.parent);
+            GameObject dice = Instantiate(dicePrefab, randomPos, Random.rotation, diceParent);
             Rigidbody rb = dice.GetComponent<Rigidbody>();
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
