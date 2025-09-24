@@ -48,6 +48,7 @@ public class BattleEndController : MonoBehaviour
     public void StartFade()
     {
         startBattleEnd = false;
+        //figure out if win or lose
         elapsed = 0f;
         isFading = true;
     }
