@@ -36,7 +36,7 @@ public class TutorialController : MonoBehaviour
             new TutorialStepData
             {
                 setPosition = new Vector2(242, -167), //484, 333
-                message = "First, draw four cards from the Number Deck. And I will do the same.",
+                message = "First, draw four cards from the Number Deck. I will do the same.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
@@ -49,25 +49,25 @@ public class TutorialController : MonoBehaviour
             new TutorialStepData
             {
                 setPosition = new Vector2(242, -167),
-                message = "The Number deck has number cards, they can be positive or negative. The number on the left side of the screen is your number. The number on the right side of the screen is your opponent’s number.",
+                message = "The Number deck has positives and negatives. The value at the top is mine. The bottom one is yours.",
                 requireContinue = true,
 
             },
             new TutorialStepData
             {
-                message = "Let’s roll the dice. The sum of the four dice will set the target.",
+                message = "Let’s roll the dice. The sum of the four dice will determine the target.",
                 requireContinue = true,
 
             },
             new TutorialStepData
             {
-                message = "You have to make your number reach the target or get as close as possible.",
+                message = "You must get as close to the target value as possible.",
                 requireContinue = true,
 
             },
             new TutorialStepData
             {
-                message = "But be careful! If you go busted, you will lose the game.",
+                message = "But be careful! If you are over at the end, you lose.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
@@ -77,7 +77,7 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
-                message = "The number in the middle is called The Target. Your goal is to manipulate the cards so your number gets as close as possible to the target, while your opponent should be either too high or too low. \r\nThe player whose number exceeds the Target loses the game.",
+                message = "The value in the top left is the Target. Your goal is to manipulate the cards so that you are closer to the Target than your opponent.",
                 requireContinue = true,
             },
             new TutorialStepData
@@ -87,17 +87,17 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
-                message = "Tricks are the cards that allow you to perform actions and change the numbers on the table.",
+                message = "Tricks are cards that allow you to change the numbers on the table.",
                 requireContinue = true,
             },
             new TutorialStepData
             {
-                message = "Each player selects 15 tricks from their decks. They will use these 15 cards for the rest of the current Game of Numbers, so you have to choose wisely.",
+                message = "To start, each player selects 15 tricks from their deck. These are the tricks you will use for the Game of Numbers, so choose wisely.",
                 requireContinue = true,
             },
             new TutorialStepData
             {
-                message = "Your deck will get bigger, but right now you only have 6 tricks, so go ahead and select all of them.",
+                message = "Your deck will get bigger, but right now you only have 6 tricks. Go ahead and select all of them.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
@@ -110,7 +110,7 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
-                message = "We start with 6 cards in your hand at the beginning of every game. Let's draw those.",
+                message = "We always start with 6 cards in hand. Let's draw those.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
@@ -123,7 +123,7 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
-                message = "My dice number is bigger, so I make the first move.",
+                message = "I rolled higher, so I go first.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
@@ -181,7 +181,7 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
-                message = "Use one of your own tricks to respond. Play Setup and make him get rid of his -4.",
+                message = "Respond with one of your own tricks. Play Setup and make him get rid of his -4.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
@@ -218,7 +218,7 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
-                message = "You gave Andreyev a yellow card before. Time to use it to your advantage. Play Weakness.",
+                message = "You gave Andreyev a yellow card earlier. Time to use it to your advantage. Play Weakness.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
@@ -276,7 +276,7 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
-                message = "Too many 2's on my board, I think I can give one of them back to you.",
+                message = "Too many 2's on my board, I think I can give one back to you.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
@@ -289,7 +289,7 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
-                message = "Your opponent has only one trick left. Make sure he cannot use it - play Poison.",
+                message = "Your opponent has one trick left. Make sure he cannot use it - play Poison.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
@@ -311,7 +311,7 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
-                message = "Good! I ran out of tricks. However, I still can flip or swap any of my Numbers on the table.",
+                message = "Good! I'm out of tricks. However, I can still flip or swap any of my Numbers.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
@@ -332,13 +332,13 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
-                message = "Each player has one action they can use during the Game of Numbers. They can either swap or flip any of the numbers they have. Andreyev chose to flip his 2.",
+                message = "Each player has one action they can use during the Game of Numbers. They can either flip or swap out any of their Numbers. Andreyev chose to flip his 2.",
                 requireContinue = true,
 
             },
             new TutorialStepData
             {
-                message = "Use your last trick. I hope the numbers are on your side.",
+                message = "Use your last trick. May the numbers be on your side.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
@@ -360,7 +360,7 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
-                message = "Now use your action. Flip your 4 to secure the victory.",
+                message = "Now, use your action. Flip your 4 to secure the victory.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
