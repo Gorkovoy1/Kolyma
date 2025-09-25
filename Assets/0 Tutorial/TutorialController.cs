@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using TutorialScripts;
+using UnityEngine.SceneManagement;
 
 
 public class TutorialController : MonoBehaviour
@@ -71,7 +72,7 @@ public class TutorialController : MonoBehaviour
                 requireContinue = true,
                 afterContinue = () =>
                 {
-                    //roll the dice
+                    SceneManager.LoadScene("DiceRoll", LoadSceneMode.Additive);
                 },
                 //waitUntil = () => doneRolling
             },

@@ -29,7 +29,8 @@ public class DiceBoxManager : MonoBehaviour
                 Random.Range(-boxSize.z / 2, boxSize.z / 2)
             );
 
-            GameObject dice = Instantiate(dicePrefab, randomPos, Random.rotation, diceParent);
+            GameObject dice = Instantiate(dicePrefab, randomPos, Random.rotation);
+            dice.transform.SetParent(diceParent, true);
             Rigidbody rb = dice.GetComponent<Rigidbody>();
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
