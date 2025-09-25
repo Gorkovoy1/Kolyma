@@ -1579,6 +1579,9 @@ MonoBehaviour:
   - {fileID: 514954980831254118, guid: 76e9f358ba6f9dc49869c750f6a0caaf, type: 3}
   - {fileID: 1905454823871813243, guid: 9236e952a9a6f744eb7c089845f5b046, type: 3}
   - {fileID: 1905454823871813243, guid: 9236e952a9a6f744eb7c089845f5b046, type: 3}
+  battleCanvas: {fileID: 638265588}
+  mainCamera: {fileID: 332195483}
+  diceCamera: {fileID: 0}
 --- !u!114 &638265591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2686,7 +2689,7 @@ MonoBehaviour:
   recalculate: 0
   playerVal: 0
   oppVal: 0
-  targetVal: 16
+  targetVal: 0
   oppAction: 0
   playerAction: 0
 --- !u!1 &938998339

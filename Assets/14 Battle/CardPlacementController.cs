@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class CardPlacementController : MonoBehaviour
 {
@@ -30,6 +31,10 @@ public class CardPlacementController : MonoBehaviour
     public List<GameObject> numberDeck;
 
     public static CardPlacementController instance;
+
+    public Canvas battleCanvas;
+    public Camera mainCamera;
+    public Camera diceCamera;
 
     void Awake()
     {
@@ -131,6 +136,32 @@ public class CardPlacementController : MonoBehaviour
             //Delay between cards
             yield return new WaitForSeconds(1f);
         }
+        StartCoroutine(RollDice());
+
+        
+    }
+
+    IEnumerator RollDice()
+    {
+        SceneManager.LoadScene("DiceRoll", LoadSceneMode.Additive);
+        yield return null;
+        diceCamera = GameObject.FindGameObjectWithTag("DiceCamera").GetComponent<Camera>();
+        mainCamera.gameObject.SetActive(false);
+        battleCanvas.enabled = false;
+        diceCamera.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        mainCamera.gameObject.SetActive(true);
+        diceCamera.gameObject.SetActive(false);
+        battleCanvas.enabled = true;
+
+
+        //update target value with player prefs
+        Debug.Log("Target is: " + PlayerPrefs.GetInt("TargetValue", 0));
+        
+        NumberManager.instance.targetVal = PlayerPrefs.GetInt("TargetValue", 0);
+        
+
+        SceneManager.UnloadSceneAsync("DiceRoll");
 
         //if value is higher
         TurnManager.instance.isPlayerTurn = true;
