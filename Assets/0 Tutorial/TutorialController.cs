@@ -28,9 +28,39 @@ public class TutorialController : MonoBehaviour
 
     public Button flipButton;
 
+    public Camera mainCamera;
+    public Camera diceCamera;
+    public Canvas tutorialCanvas;
+
+    public bool doneRolling = false;
+
+    IEnumerator SwitchToDiceScene()
+    {
+        SceneManager.LoadScene("DiceRoll", LoadSceneMode.Additive);
+        yield return null;
+        diceCamera = GameObject.FindGameObjectWithTag("DiceCamera").GetComponent<Camera>();
+        mainCamera.gameObject.SetActive(false);
+        tutorialCanvas.enabled = false;
+        diceCamera.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        doneRolling = true;
+        mainCamera.gameObject.SetActive(true);
+        diceCamera.gameObject.SetActive(false);
+        tutorialCanvas.enabled = true;
+
+
+        //update target value with player prefs
+
+
+        //unload scene
+        SceneManager.UnloadSceneAsync("DiceRoll");
+    }
+
     private async void Start()
     {
         tutorialObj = this.gameObject;
+        mainCamera = FindObjectOfType<Camera>();
+        
 
         steps = new List<TutorialStepData>
         {
@@ -72,9 +102,12 @@ public class TutorialController : MonoBehaviour
                 requireContinue = true,
                 afterContinue = () =>
                 {
-                    SceneManager.LoadScene("DiceRoll", LoadSceneMode.Additive);
+                    StartCoroutine(SwitchToDiceScene());
+                    
+
                 },
-                //waitUntil = () => doneRolling
+                waitUntil = () => doneRolling,
+                //when done rolling bool, then switch cameras back 
             },
             new TutorialStepData
             {

@@ -540,6 +540,10 @@ MonoBehaviour:
   weaknessCard: {fileID: 0}
   sfxObj: {fileID: 1097769620}
   flipButton: {fileID: 1537993268}
+  mainCamera: {fileID: 0}
+  diceCamera: {fileID: 0}
+  tutorialCanvas: {fileID: 638265588}
+  doneRolling: 0
 --- !u!114 &154296537
 MonoBehaviour:
   m_ObjectHideFlags: 0
