@@ -50,7 +50,10 @@ public class TutorialController : MonoBehaviour
 
 
         //update target value with player prefs
-
+        Debug.Log("Target is: " + PlayerPrefs.GetInt("TargetValue", 0));
+        NumberManager.instance.targetVal = 16;
+        //NumberManager.instance.targetVal = PlayerPrefs.GetInt("TargetValue", 0);
+        //above line is for non tutorial scene
 
         //unload scene
         SceneManager.UnloadSceneAsync("DiceRoll");

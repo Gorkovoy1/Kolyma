@@ -29,6 +29,11 @@ public class ValueCalculator : MonoBehaviour
         if(dice1 != null)
         {
             this.gameObject.GetComponent<TextMeshProUGUI>().text = "" + (dice1.GetComponent<DiceController>().topVal + dice2.GetComponent<DiceController>().topVal + dice3.GetComponent<DiceController>().topVal + dice4.GetComponent<DiceController>().topVal);
+           
+
+            PlayerPrefs.SetInt("TargetValue", dice1.GetComponent<DiceController>().topVal + dice2.GetComponent<DiceController>().topVal + dice3.GetComponent<DiceController>().topVal + dice4.GetComponent<DiceController>().topVal);
+            PlayerPrefs.Save();
+            Debug.Log(PlayerPrefs.GetInt("TargetValue", 0));
         }
         
 
@@ -36,5 +41,6 @@ public class ValueCalculator : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+
     }
 }

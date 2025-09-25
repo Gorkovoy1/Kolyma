@@ -132,7 +132,7 @@ public class DiceController : MonoBehaviour
                 topFace = face;
             }
         }
-        Debug.Log(topFace);
+        //Debug.Log(topFace);
         return topFace;
     }
 
