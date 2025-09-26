@@ -174,13 +174,14 @@ using UnityEngine.SceneManagement;
 
             IEnumerator BeingPlayed()
             {
-                this.GetComponent<RectTransform>().anchoredPosition = new Vector3(-80f, -350f, 0);
+                this.transform.SetParent(null, true);
+                this.GetComponent<RectTransform>().anchoredPosition = new Vector3(130f, 300f, 0f);
                 correspondingImage.transform.localScale = new Vector3(0.17f, 0.17f, 0.17f);
                 yield return new WaitForSeconds(1f);
                 StartCoroutine(FlipOverCard(this.gameObject));
                 yield return new WaitForSeconds(1f);
 
-            correspondingImage.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
+                correspondingImage.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
                 this.transform.SetParent(opponentDiscardZone.transform);
                 this.transform.position = opponentDiscardZone.transform.position;
 
