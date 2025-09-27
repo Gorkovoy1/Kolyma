@@ -34,6 +34,8 @@ public class TutorialController : MonoBehaviour
 
     public bool doneRolling = false;
 
+    public BattleEndController battleEndController;
+
     IEnumerator SwitchToDiceScene()
     {
         SceneManager.LoadScene("DiceRoll", LoadSceneMode.Additive);
@@ -407,6 +409,15 @@ public class TutorialController : MonoBehaviour
                 //
                 waitUntil = () => NumberManager.instance.playerAction
             },
+            new TutorialStepData
+            {
+                message = "Good work. Since we are out of cards, we both pass. Two turns passed means Game Over. Looks like the newbie wins. You wont be as lucky with the others.",
+                requireContinue = true,
+                afterContinue = () =>
+                {
+                    battleEndController.StartFade();
+                }
+            }
 
         };
 

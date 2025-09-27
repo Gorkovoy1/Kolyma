@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BattleEndController : MonoBehaviour
 {
@@ -40,15 +41,32 @@ public class BattleEndController : MonoBehaviour
             if (alpha >= 1f)
             {
                 isFading = false; // Fade finished
+                StartCoroutine(DelayToNextScene());
             }
         }
 
+    }
+
+    IEnumerator DelayToNextScene()
+    {
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void StartFade()
     {
         startBattleEnd = false;
         //figure out if win or lose
+        if(NumberManager.instance.playerVal <= NumberManager.instance.targetVal && Mathf.Abs(NumberManager.instance.targetVal - NumberManager.instance.playerVal) < Mathf.Abs(NumberManager.instance.targetVal - NumberManager.instance.oppVal))
+        {
+            image.sprite = victory;
+        }
+        else
+        {
+            image.sprite = defeat;
+            //tie or lose
+        }
+
         elapsed = 0f;
         isFading = true;
     }
