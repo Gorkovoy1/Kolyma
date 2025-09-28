@@ -31,6 +31,7 @@ public class CountingMatController : MonoBehaviour
                     foreach (Transform child in this.gameObject.transform)
                     {
                         Destroy(child.gameObject);
+                        Debug.Log("destroy");
                     }
                     foreach (Transform child in oppMatTwo)
                     {
@@ -42,6 +43,7 @@ public class CountingMatController : MonoBehaviour
                         for(int i = 0; i < NumberManager.instance.targetVal; i++)
                         {
                             Instantiate(countingBoxGreen, this.gameObject.transform);
+                            Debug.Log("spawn green");
                         }
                         for(int i = 0; i < NumberManager.instance.oppPosVal - NumberManager.instance.targetVal; i++)
                         {
