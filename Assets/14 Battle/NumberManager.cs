@@ -49,6 +49,9 @@ public class NumberManager : MonoBehaviour
     public bool oppAction = false;
     public bool playerAction = false;
 
+    public int playerPosVal;
+    public int oppPosVal;
+
 
     void Awake()
     {
@@ -227,21 +230,25 @@ public class NumberManager : MonoBehaviour
     void RecalculatePlayerPositives()
     {
         positives = new List<GameObject>();
+        playerPosVal = 0;
 
 
         foreach (Transform child in playerPositiveArea.transform)
         {
             positives.Add(child.gameObject);
+            playerPosVal += child.GetComponent<NumberStats>().value;
         }
     }
 
     void RecalculateOpponentPositives()
     {
         OPPpositives = new List<GameObject>();
+        oppPosVal = 0;
 
         foreach(Transform child in oppPositiveArea.transform)
         {
             OPPpositives.Add(child.gameObject);
+            oppPosVal += child.GetComponent<NumberStats>().value;
         }
     }
 
