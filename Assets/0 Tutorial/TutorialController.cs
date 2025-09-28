@@ -407,7 +407,7 @@ public class TutorialController : MonoBehaviour
                     flipButton.GetComponent<Button>().enabled = true;
                 },
                 //
-                waitUntil = () => NumberManager.instance.playerAction
+                waitUntil = () => NumberManager.instance.playerVal == 15,
             },
             new TutorialStepData
             {
