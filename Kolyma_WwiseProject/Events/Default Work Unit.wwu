@@ -396,6 +396,17 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
+				<Event Name="Play_Music_Battle_1" ID="{4D36F179-7491-49A7-86B0-498A998E6ABC}">
+					<ChildrenList>
+						<Action Name="" ID="{AF153BC9-B9D1-4D88-AE78-96279BAE4D67}" ShortID="311282352">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Battle_Theme_1" ID="{FBD644B8-84FC-4AAB-9378-6C5B1557556F}" WorkUnitID="{01660F24-42EF-4118-9DAA-A2B4ACD5D295}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

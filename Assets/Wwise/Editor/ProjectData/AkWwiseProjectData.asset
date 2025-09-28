@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584491298542235056
+    m_lastTime: -8584425056135329733
     List:
     - name: Andreyev
       guid: a6c0eb1ff2ce024c96aeb202fa8b346a
@@ -491,6 +491,23 @@ MonoBehaviour:
         ObjectType: 3
         guid: 2175ade8841a244cb5e4cba5416166f8
       Path: Events\Default Work Unit\Play_Dogs_Bark
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Music_Battle_1
+      guid: 79f1364d9174a74986b0498a998e6abc
+      id: 1716731688
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Play_Music_Battle_1
+        ObjectType: 3
+        guid: 79f1364d9174a74986b0498a998e6abc
+      Path: Events\Default Work Unit\Play_Music_Battle_1
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1

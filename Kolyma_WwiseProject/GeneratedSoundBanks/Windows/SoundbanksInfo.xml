@@ -22,7 +22,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{EE3B12B4-9DF9-288F-6368-D0DE9A1C10D4}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{3252300F-BEA1-E19D-D329-63FA994A8B91}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -36,7 +36,7 @@
 				</File>
 				<File Id="75083474" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>camp_arrival_no_intro.wav</ShortName>
-					<CachePath>SFX/camp_arrival_no_intro_FBC78EF0.wem</CachePath>
+					<CachePath>SFX/camp_arrival_no_intro_56CEF360.wem</CachePath>
 				</File>
 				<File Id="90128117" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Clocks, Chime, Metallic Wall Clock, Chime Ringing SND102458.wav</ShortName>
@@ -84,7 +84,7 @@
 				</File>
 				<File Id="328403887" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>kolyma daytime 1.4.wav</ShortName>
-					<CachePath>SFX/kolyma daytime 1.4_FBC78EF0.wem</CachePath>
+					<CachePath>SFX/kolyma daytime 1.4_56CEF360.wem</CachePath>
 				</File>
 				<File Id="355118563" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-001.wav</ShortName>
@@ -113,6 +113,10 @@
 				<File Id="435260790" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Barracks_Ambience.wav</ShortName>
 					<CachePath>SFX/Barracks_Ambience_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="461221407" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Battle_Theme_1.wav</ShortName>
+					<CachePath>SFX/Battle_Theme_1_56CEF360.wem</CachePath>
 				</File>
 				<File Id="471573529" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Breath-001.wav</ShortName>
@@ -364,6 +368,11 @@
 						<MediaRef Id="1005253697"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="1716731688" Name="Play_Music_Battle_1" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="461221407"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="238544951" Name="Play_Music_Camp_Arrival" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="75083474"/>
@@ -453,5 +462,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{C4FA1498-BD76-57B9-48F1-2B727F836077}</FileHash>
+	<FileHash>{2ECFF25B-E423-DBBD-147F-91E81F23277A}</FileHash>
 </SoundBanksInfo>

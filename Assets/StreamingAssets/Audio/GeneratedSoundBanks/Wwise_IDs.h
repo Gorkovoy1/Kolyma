@@ -33,6 +33,7 @@ namespace AK
         static const AkUniqueID PLAY_COUGH = 3234553616U;
         static const AkUniqueID PLAY_CROWS = 639442158U;
         static const AkUniqueID PLAY_DOGS_BARK = 1892391772U;
+        static const AkUniqueID PLAY_MUSIC_BATTLE_1 = 1716731688U;
         static const AkUniqueID PLAY_MUSIC_CAMP_ARRIVAL = 238544951U;
         static const AkUniqueID PLAY_MUSIC_CAMP_DAY = 2741544670U;
         static const AkUniqueID PLAY_MUSIC_JAIL = 3643466302U;
