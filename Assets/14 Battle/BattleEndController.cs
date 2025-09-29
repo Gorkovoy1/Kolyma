@@ -50,6 +50,7 @@ public class BattleEndController : MonoBehaviour
     IEnumerator DelayToNextScene()
     {
         yield return new WaitForSeconds(1.5f);
+        AkSoundEngine.StopAll();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

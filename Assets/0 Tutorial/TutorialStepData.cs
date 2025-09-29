@@ -11,4 +11,6 @@ public class TutorialStepData
     public float autoAdvanceDelay = 0.8f;
     public bool requireContinue = true;
     public Vector2 setPosition;
+    public bool circleSpawn = false;
+    public Vector2 circlePosition;
 }

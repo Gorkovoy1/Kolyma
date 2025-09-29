@@ -36,6 +36,11 @@ public class TutorialController : MonoBehaviour
 
     public BattleEndController battleEndController;
 
+    public GameObject redCircle;
+    public bool circleSpawn = false;
+
+    public GameObject circleTemp;
+
     IEnumerator SwitchToDiceScene()
     {
         SceneManager.LoadScene("DiceRoll", LoadSceneMode.Additive);
@@ -65,13 +70,13 @@ public class TutorialController : MonoBehaviour
     {
         tutorialObj = this.gameObject;
         mainCamera = FindObjectOfType<Camera>();
-        
+
 
         steps = new List<TutorialStepData>
         {
             new TutorialStepData
             {
-                setPosition = new Vector2(242, -167), //484, 333
+                setPosition = new Vector2(-138, -167), //484, 333
                 message = "First, draw four cards from the Number Deck. I will do the same.",
                 requireContinue = true,
                 afterContinue = () =>
@@ -84,31 +89,58 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
-                setPosition = new Vector2(242, -167),
-                message = "The Number deck has positives and negatives. The value at the top is mine. The bottom one is yours.",
+                setPosition = new Vector2(-138, -167),
+                message = "The Number deck has positives and negatives. They go from -4 to 9.",
                 requireContinue = true,
+            },
+            new TutorialStepData
+            {
+                setPosition = new Vector2(-138, -167),
+                circlePosition = new Vector2(300, 110),
+                circleSpawn = true,
+                message = "The value at the top is mine.",
+                requireContinue = true,
+                afterContinue = () =>
+                {
+                    Destroy(circleTemp.gameObject);
+                },
 
             },
             new TutorialStepData
             {
+                setPosition = new Vector2(-138, -167),
+                circlePosition = new Vector2(300, -77),
+                circleSpawn = true,
+                message = "The value at the bottom is yours.",
+                requireContinue = true,
+                afterContinue = () =>
+                {
+                    Destroy(circleTemp.gameObject);
+                },
+            },
+            new TutorialStepData
+            {
+                setPosition = new Vector2(-138, -167),
                 message = "Let’s roll the dice. The sum of the four dice will determine the target.",
                 requireContinue = true,
 
             },
             new TutorialStepData
             {
+                setPosition = new Vector2(-138, -167),
                 message = "You must get as close to the target value as possible.",
                 requireContinue = true,
 
             },
             new TutorialStepData
             {
+                setPosition = new Vector2(-138, -167),
                 message = "But be careful! If you are over at the end, you lose.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
                     StartCoroutine(SwitchToDiceScene());
-                    
+
 
                 },
                 waitUntil = () => doneRolling,
@@ -116,26 +148,37 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
+                setPosition = new Vector2(-138, -167),
+                circleSpawn = true,
+                circlePosition = new Vector2(-300, 179),
                 message = "The value in the top left is the Target. Your goal is to manipulate the cards so that you are closer to the Target than your opponent.",
                 requireContinue = true,
+                afterContinue = () =>
+                {
+                    Destroy(circleTemp.gameObject);
+                },
             },
             new TutorialStepData
             {
+                setPosition = new Vector2(-138, -167),
                 message = "Now it’s time to select your tricks.",
                 requireContinue = true,
             },
             new TutorialStepData
             {
+                setPosition = new Vector2(-138, -167),
                 message = "Tricks are cards that allow you to change the numbers on the table.",
                 requireContinue = true,
             },
             new TutorialStepData
             {
+                setPosition = new Vector2(-138, -167),
                 message = "To start, each player selects 15 tricks from their deck. These are the tricks you will use for the Game of Numbers, so choose wisely.",
                 requireContinue = true,
             },
             new TutorialStepData
             {
+                setPosition = new Vector2(-138, -167),
                 message = "Your deck will get bigger, but right now you only have 6 tricks. Go ahead and select all of them.",
                 requireContinue = true,
                 afterContinue = () =>
@@ -149,6 +192,7 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
+                setPosition = new Vector2(-138, -167),
                 message = "We always start with 6 cards in hand. Let's draw those.",
                 requireContinue = true,
                 afterContinue = () =>
@@ -162,6 +206,7 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
+                setPosition = new Vector2(-138, -167),
                 message = "I rolled higher, so I go first.",
                 requireContinue = true,
                 afterContinue = () =>
@@ -177,6 +222,7 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
+                setPosition = new Vector2(-138, -167),
                 message = "Now it's your turn. Select Thick Woolen Coat and give your opponent +2.",
                 requireContinue = true,
                 afterContinue = () =>
@@ -205,6 +251,7 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
+                setPosition = new Vector2(-138, -167),
                 message = "I must say, you are a fast learner. Here’s another lesson. It’s always better when your opponent has fewer tricks than you.",
                 requireContinue = true,
                 afterContinue = () =>
@@ -220,6 +267,7 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
+                setPosition = new Vector2(-138, -167),
                 message = "Respond with one of your own tricks. Play Setup and make him get rid of his -4.",
                 requireContinue = true,
                 afterContinue = () =>
@@ -243,6 +291,7 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
+                setPosition = new Vector2(-138, -167),
                 message = "One of your numbers is red, which allows me to use this trick.",
                 requireContinue = true,
                 afterContinue = () =>
@@ -257,6 +306,7 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
+                setPosition = new Vector2(-138, -167),
                 message = "You gave Andreyev a yellow card earlier. Time to use it to your advantage. Play Weakness.",
                 requireContinue = true,
                 afterContinue = () =>
@@ -280,6 +330,7 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
+                setPosition = new Vector2(-138, -167),
                 message = "Let's see if you can solve this problem.",
                 requireContinue = true,
                 afterContinue = () =>
@@ -293,6 +344,7 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
+                setPosition = new Vector2(-138, -167),
                 message = "Time to give your opponent another 2.",
                 requireContinue = true,
                 afterContinue = () =>
@@ -315,6 +367,7 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
+                setPosition = new Vector2(-138, -167),
                 message = "Too many 2's on my board, I think I can give one back to you.",
                 requireContinue = true,
                 afterContinue = () =>
@@ -328,6 +381,7 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
+                setPosition = new Vector2(-138, -167),
                 message = "Your opponent has one trick left. Make sure he cannot use it - play Poison.",
                 requireContinue = true,
                 afterContinue = () =>
@@ -350,6 +404,7 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
+                setPosition = new Vector2(-138, -167),
                 message = "Good! I'm out of tricks. However, I can still flip or swap any of my Numbers.",
                 requireContinue = true,
                 afterContinue = () =>
@@ -371,12 +426,14 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
+                setPosition = new Vector2(-138, -167),
                 message = "Each player has one action they can use during the Game of Numbers. They can either flip or swap out any of their Numbers. Andreyev chose to flip his 2.",
                 requireContinue = true,
 
             },
             new TutorialStepData
             {
+                setPosition = new Vector2(-138, -167),
                 message = "Use your last trick. May the numbers be on your side.",
                 requireContinue = true,
                 afterContinue = () =>
@@ -399,6 +456,7 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
+                setPosition = new Vector2(-138, -167),
                 message = "Now, use your action. Flip your 4 to secure the victory.",
                 requireContinue = true,
                 afterContinue = () =>
@@ -411,6 +469,7 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
+                setPosition = new Vector2(-138, -167),
                 message = "Good work. Since we are out of cards, we both pass. Two turns passed means Game Over. Looks like the newbie wins. You wont be as lucky with the others.",
                 requireContinue = true,
                 afterContinue = () =>
@@ -444,9 +503,15 @@ public class TutorialController : MonoBehaviour
         {
             Debug.Log("Tutorial step: " + step.message);
             blockerPanel.SetActive(true);
-            RectTransform parentRect = tutorialText.transform.parent as RectTransform;
-            parentRect.anchoredPosition = step.setPosition;
+            RectTransform parentRect = tutorialText.transform.parent as RectTransform; 
+            parentRect.localPosition = step.setPosition;
             tutorialText.text = step.message;
+
+            if(step.circleSpawn)
+            {
+                circleTemp = Instantiate(redCircle, this.gameObject.transform);
+                circleTemp.transform.localPosition = step.circlePosition;
+            }
 
             if (step.requireContinue)
             {
