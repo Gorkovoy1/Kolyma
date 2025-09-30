@@ -55,7 +55,7 @@ public class TutorialController : MonoBehaviour
         mainCamera.gameObject.SetActive(false);
         tutorialCanvas.enabled = false;
         diceCamera.gameObject.SetActive(true);
-        yield return new WaitForSeconds(5.5f);
+        yield return new WaitForSeconds(4.3f);
         //unload scene
         mainCamera.gameObject.SetActive(true);
         diceCamera.gameObject.SetActive(false);
