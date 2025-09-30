@@ -69,8 +69,8 @@ public class DiceBoxManager : MonoBehaviour
     {
         // Start fading in
         elapsed = 0f;
-        fadingIn = true;
-        yield return new WaitForSeconds(fadeTime); // wait for fade in to finish
+        //fadingIn = true;
+        //yield return new WaitForSeconds(fadeTime); // wait for fade in to finish
 
         // Reactivate everything
         yield return new WaitForSeconds(1f);
@@ -85,6 +85,12 @@ public class DiceBoxManager : MonoBehaviour
         // Roll the dice
         SpawnDice();
         target.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(1.5f);
+
+        elapsed = 0f;
+        fadingIn = true;
+        yield return new WaitForSeconds(1f);
     }
 
     IEnumerator FadeDiceAlpha(float startAlpha, float endAlpha, float fadeTime)

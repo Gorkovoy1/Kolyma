@@ -41,19 +41,32 @@ public class TutorialController : MonoBehaviour
 
     public GameObject circleTemp;
 
+    public Image blackImage;
+    public float elapsed;
+    public bool fadingIn = false;
+    public bool fadingOut = false;
+
     IEnumerator SwitchToDiceScene()
     {
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("DiceRoll", LoadSceneMode.Additive);
         yield return null;
         diceCamera = GameObject.FindGameObjectWithTag("DiceCamera").GetComponent<Camera>();
         mainCamera.gameObject.SetActive(false);
         tutorialCanvas.enabled = false;
         diceCamera.gameObject.SetActive(true);
-        yield return new WaitForSeconds(4f);
-        doneRolling = true;
+        yield return new WaitForSeconds(5.5f);
+        //unload scene
         mainCamera.gameObject.SetActive(true);
         diceCamera.gameObject.SetActive(false);
         tutorialCanvas.enabled = true;
+        SceneManager.UnloadSceneAsync("DiceRoll");
+        elapsed = 0f;
+        fadingOut = true;
+        Debug.Log("fade out");
+        yield return new WaitForSeconds(1f);
+        Debug.Log("done");
+        doneRolling = true;
 
 
         //update target value with player prefs
@@ -62,8 +75,7 @@ public class TutorialController : MonoBehaviour
         //NumberManager.instance.targetVal = PlayerPrefs.GetInt("TargetValue", 0);
         //above line is for non tutorial scene
 
-        //unload scene
-        SceneManager.UnloadSceneAsync("DiceRoll");
+        
     }
 
     private async void Start()
@@ -139,6 +151,7 @@ public class TutorialController : MonoBehaviour
                 requireContinue = true,
                 afterContinue = () =>
                 {
+                    fadingIn = true;
                     StartCoroutine(SwitchToDiceScene());
 
 
@@ -494,6 +507,33 @@ public class TutorialController : MonoBehaviour
         else //if any cards are "being played"
         {
             playerHand.GetComponent<HandFanController>().fanHand = false;
+        }
+
+        if (fadingIn)
+        {
+            elapsed += Time.deltaTime;
+            float alpha = Mathf.Clamp01(elapsed / 1f);
+            Color color = blackImage.color;
+            color.a = alpha;
+            blackImage.color = color;
+
+            if (alpha >= 1f)
+            {
+                fadingIn = false; // Fade finished
+            }
+        }
+        else if (fadingOut)
+        {
+            elapsed += Time.deltaTime;
+            float alpha = Mathf.Clamp01(1f - (elapsed / 1f));
+            Color color = blackImage.color;
+            color.a = alpha;
+            blackImage.color = color;
+
+            if (alpha <= 0f)
+            {
+                fadingOut = false; // Fade finished
+            }
         }
     }
 
