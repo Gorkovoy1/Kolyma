@@ -13,4 +13,5 @@ public class TutorialStepData
     public Vector2 setPosition;
     public bool circleSpawn = false;
     public Vector2 circlePosition;
+    public bool narrator = false;
 }

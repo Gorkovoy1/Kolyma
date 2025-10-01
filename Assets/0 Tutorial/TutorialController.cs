@@ -46,6 +46,8 @@ public class TutorialController : MonoBehaviour
     public bool fadingIn = false;
     public bool fadingOut = false;
 
+    public Image andreyevPortrait;
+
     IEnumerator SwitchToDiceScene()
     {
         yield return new WaitForSeconds(1f);
@@ -235,6 +237,7 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
+                narrator = true,
                 setPosition = new Vector2(-138, -167),
                 message = "Now it's your turn. Select Thick Woolen Coat and give your opponent +2.",
                 requireContinue = true,
@@ -281,6 +284,7 @@ public class TutorialController : MonoBehaviour
             new TutorialStepData
             {
                 setPosition = new Vector2(-138, -167),
+                narrator = true,
                 message = "Respond with one of your own tricks. Play Setup and make him get rid of his -4.",
                 requireContinue = true,
                 afterContinue = () =>
@@ -320,6 +324,7 @@ public class TutorialController : MonoBehaviour
             new TutorialStepData
             {
                 setPosition = new Vector2(-138, -167),
+                narrator = true,
                 message = "You gave Andreyev a yellow card earlier. Time to use it to your advantage. Play Weakness.",
                 requireContinue = true,
                 afterContinue = () =>
@@ -358,6 +363,7 @@ public class TutorialController : MonoBehaviour
             new TutorialStepData
             {
                 setPosition = new Vector2(-138, -167),
+                narrator = true,
                 message = "Time to give your opponent another 2.",
                 requireContinue = true,
                 afterContinue = () =>
@@ -395,6 +401,7 @@ public class TutorialController : MonoBehaviour
             new TutorialStepData
             {
                 setPosition = new Vector2(-138, -167),
+                narrator = true,
                 message = "Your opponent has one trick left. Make sure he cannot use it - play Poison.",
                 requireContinue = true,
                 afterContinue = () =>
@@ -440,6 +447,7 @@ public class TutorialController : MonoBehaviour
             new TutorialStepData
             {
                 setPosition = new Vector2(-138, -167),
+                narrator = true,
                 message = "Each player has one action they can use during the Game of Numbers. They can either flip or swap out any of their Numbers. Andreyev chose to flip his 2.",
                 requireContinue = true,
 
@@ -447,6 +455,7 @@ public class TutorialController : MonoBehaviour
             new TutorialStepData
             {
                 setPosition = new Vector2(-138, -167),
+                narrator = true,
                 message = "Use your last trick. May the numbers be on your side.",
                 requireContinue = true,
                 afterContinue = () =>
@@ -470,6 +479,7 @@ public class TutorialController : MonoBehaviour
             new TutorialStepData
             {
                 setPosition = new Vector2(-138, -167),
+                narrator = true,
                 message = "Now, use your action. Flip your 4 to secure the victory.",
                 requireContinue = true,
                 afterContinue = () =>
@@ -545,6 +555,7 @@ public class TutorialController : MonoBehaviour
             blockerPanel.SetActive(true);
             RectTransform parentRect = tutorialText.transform.parent as RectTransform; 
             parentRect.localPosition = step.setPosition;
+            andreyevPortrait.GetComponent<Image>().enabled = !step.narrator;
             tutorialText.text = step.message;
 
             if(step.circleSpawn)
