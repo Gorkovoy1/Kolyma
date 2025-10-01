@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using TutorialScripts;
 using UnityEngine.SceneManagement;
+using AK.Wwise;
 
 
 public class TutorialController : MonoBehaviour
@@ -50,7 +51,10 @@ public class TutorialController : MonoBehaviour
 
     IEnumerator SwitchToDiceScene()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
+        AkSoundEngine.PostEvent("Play_Dice", sfxObj);
+        yield return new WaitForSeconds(0.5f);
+
         SceneManager.LoadScene("DiceRoll", LoadSceneMode.Additive);
         yield return null;
         diceCamera = GameObject.FindGameObjectWithTag("DiceCamera").GetComponent<Camera>();
