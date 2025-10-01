@@ -85,11 +85,11 @@ public class DialogueAnimController : MonoBehaviour
         if(!portraitImage.enabled && !moved)
         {
             moved = true;
-            dialogueRect.anchoredPosition = new Vector2(-35f, dialogueRect.anchoredPosition.y);
+            dialogueRect.anchoredPosition = new Vector2(-40f, 0f);
         }
         else if(portraitImage.enabled)
         {
-            dialogueRect.anchoredPosition = new Vector2(-3f, dialogueRect.anchoredPosition.y);
+            dialogueRect.anchoredPosition = new Vector2(-3f, -3f);
         }
         
     }
