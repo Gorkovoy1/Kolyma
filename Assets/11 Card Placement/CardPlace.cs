@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using System.Linq;
 using UnityEngine.UI;
 using TMPro;
+using AK.Wwise;
 
 public class CardPlace : MonoBehaviour,
     IDragHandler, IBeginDragHandler, IEndDragHandler,
@@ -50,6 +51,9 @@ public class CardPlace : MonoBehaviour,
 
     //public bool isFlipping;
     public bool isFlipped;
+
+    public AK.Wwise.Event trickSound;
+    //public GameObject sfxObj;
 
     // Start is called before the first frame update
     void Start()
@@ -268,6 +272,13 @@ public class CardPlace : MonoBehaviour,
     public void AnimateBeingPlayed()
     {
         isPlayable = false;
+        //also set every other card to not playable
+
+        if(trickSound != null)
+        {
+            trickSound.Post(this.gameObject);
+        }
+        
         correspondingImage.GetComponent<Image>().material = defaultMat;
         StartCoroutine(BeingPlayed());
         

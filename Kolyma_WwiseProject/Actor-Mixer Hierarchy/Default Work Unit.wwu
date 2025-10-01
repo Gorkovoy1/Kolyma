@@ -2008,8 +2008,21 @@
 								<ActiveSource Name="CloseTrickCollection" ID="{7E1B8BDC-ADB1-4ED4-A62E-86F078F2CF1E}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<RandomSequenceContainer Name="Trick_Cards" ID="{E3196547-946C-4A8E-A56B-1E427A0487AA}" ShortID="758796">
+						<RandomSequenceContainer Name="Trick_Cards_Woosh" ID="{E3196547-946C-4A8E-A56B-1E427A0487AA}" ShortID="758796">
 							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{96C93660-AB2F-4171-B99B-4A7DE63DF8BA}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="400"/>
+													<Property Name="Min" Type="Real64" Value="-400"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-10</Value>
@@ -2025,28 +2038,6 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<Sound Name="TrickCard1" ID="{A5FA5F56-87E2-4A67-A84C-2F64CBC3DFCE}" ShortID="988829913">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="TrickCard1" ID="{0C4E4638-B649-4399-B4CD-A5981625DFEC}">
-											<Language>SFX</Language>
-											<AudioFile>TrickCard1.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="427725917"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="TrickCard1" ID="{0C4E4638-B649-4399-B4CD-A5981625DFEC}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
 								<Sound Name="TrickCard2" ID="{7BEB1138-8D2D-4E3F-891C-545F576DA451}" ShortID="373946125">
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -2091,7 +2082,11 @@
 										<ActiveSource Name="TrickCard3" ID="{7BFFF39C-B889-48C4-8D4B-3B45CACB16DC}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="TrickCard4" ID="{4B4E9307-0EA5-4ED1-BE55-5CB9AEC0A803}" ShortID="791566871">
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<Folder Name="Trick_Cards_SFX" ID="{29C45EB3-4016-4388-8944-A378EEF8BDAB}" ShortID="336827379">
+							<ChildrenList>
+								<Sound Name="Caught_Red_Handed" ID="{52CCD0E9-765E-48A9-A707-B8742A6A2714}" ShortID="299928107">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -2101,20 +2096,130 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="TrickCard4" ID="{61081469-D948-4A90-8C0C-5356F03C7F65}">
+										<AudioFileSource Name="CaughtRedHanded" ID="{0D3A429C-4195-4C14-BF10-6A34B1C233A6}">
 											<Language>SFX</Language>
-											<AudioFile>TrickCard4.wav</AudioFile>
+											<AudioFile>CaughtRedHanded.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="212902976"/>
+												<MediaID ID="869360124"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="TrickCard4" ID="{61081469-D948-4A90-8C0C-5356F03C7F65}" Platform="Linked"/>
+										<ActiveSource Name="CaughtRedHanded" ID="{0D3A429C-4195-4C14-BF10-6A34B1C233A6}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Setup" ID="{5140D4E3-0F67-4197-B56C-D41413C4F2A4}" ShortID="959601506">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Setup" ID="{1F5397ED-B2F8-46C6-964A-C39E8B17BEE5}">
+											<Language>SFX</Language>
+											<AudioFile>Setup.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="692733281"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Setup" ID="{1F5397ED-B2F8-46C6-964A-C39E8B17BEE5}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Poison" ID="{E99892D7-1F38-48AD-B326-4B0B9CF13DD6}" ShortID="701043246">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Poison" ID="{34D8348D-229F-4A02-9F19-425CE4674FDD}">
+											<Language>SFX</Language>
+											<AudioFile>Poison.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="69635862"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Poison" ID="{34D8348D-229F-4A02-9F19-425CE4674FDD}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Thick_Woolen_Coat" ID="{AFE1C432-26D8-49E2-BC5B-F7C9F176B116}" ShortID="989269388">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="ThickWoolenCoat" ID="{F7AC831C-B89A-43FB-80BB-008B9CDB8596}">
+											<Language>SFX</Language>
+											<AudioFile>ThickWoolenCoat.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="451771669"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="ThickWoolenCoat" ID="{F7AC831C-B89A-43FB-80BB-008B9CDB8596}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Empty_Pockets" ID="{DC77841B-D116-46C6-8125-E608EAC00A1F}" ShortID="534483189">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EmptyPockets" ID="{433F4ED7-4E48-45BB-B140-14B8D2578931}">
+											<Language>SFX</Language>
+											<AudioFile>EmptyPockets.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="92101620"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EmptyPockets" ID="{433F4ED7-4E48-45BB-B140-14B8D2578931}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
-						</RandomSequenceContainer>
+						</Folder>
+						<Sound Name="Dice" ID="{6688EC86-DC0B-4854-8DD4-E5EB3D3BA0B8}" ShortID="428171563">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Dice" ID="{FFED686E-5ECA-4378-8EE8-830A1EC1C40D}">
+									<Language>SFX</Language>
+									<AudioFile>Dice.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="788479797"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Dice" ID="{FFED686E-5ECA-4378-8EE8-830A1EC1C40D}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</ActorMixer>
 				<ActorMixer Name="Music" ID="{B6E27AF9-38C7-4636-969D-C5B2AD492F0B}" ShortID="275461302">

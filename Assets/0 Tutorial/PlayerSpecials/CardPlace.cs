@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using System.Linq;
 using UnityEngine.UI;
 using TMPro;
+using AK.Wwise;
 
 namespace TutorialScripts
 {
@@ -52,6 +53,8 @@ namespace TutorialScripts
 
         //public bool isFlipping;
         public bool isFlipped;
+
+        public AK.Wwise.Event trickSound;
 
         // Start is called before the first frame update
         void Start()
@@ -269,6 +272,7 @@ namespace TutorialScripts
         public void AnimateBeingPlayed()
         {
             isPlayable = false;
+            trickSound.Post(this.gameObject);
             correspondingImage.GetComponent<Image>().material = defaultMat;
             StartCoroutine(BeingPlayed());
 

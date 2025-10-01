@@ -388,7 +388,62 @@
 								<Action Name="" ID="{495C4B1F-5BF3-4608-AB52-4E9936E8041B}" ShortID="508048152">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Trick_Cards" ID="{E3196547-946C-4A8E-A56B-1E427A0487AA}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+											<ObjectRef Name="Trick_Cards_Woosh" ID="{E3196547-946C-4A8E-A56B-1E427A0487AA}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Caught_Red_Handed" ID="{F7A330EA-B4FE-4CAA-A217-D96D1A21C720}">
+							<ChildrenList>
+								<Action Name="" ID="{136856AA-3B54-481F-93AB-D650B133CE89}" ShortID="731700667">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Caught_Red_Handed" ID="{52CCD0E9-765E-48A9-A707-B8742A6A2714}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Empty_Pockets" ID="{4E242C64-776F-4699-800E-4AB9AA73DD71}">
+							<ChildrenList>
+								<Action Name="" ID="{7C2A74A9-F33C-4BA9-AAFB-726D2709FE60}" ShortID="92837803">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Empty_Pockets" ID="{DC77841B-D116-46C6-8125-E608EAC00A1F}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Setup" ID="{3AD6E652-839A-4A0C-8BD1-A70528CBC390}">
+							<ChildrenList>
+								<Action Name="" ID="{7E8EE0B1-E086-4165-B29D-8DC42AEC4B25}" ShortID="112830434">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Setup" ID="{5140D4E3-0F67-4197-B56C-D41413C4F2A4}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Thick_Woolen_Coat" ID="{94A3AD73-3A33-4DC3-897A-C4B19B9AB7B6}">
+							<ChildrenList>
+								<Action Name="" ID="{298F88B4-1BEF-49BC-86F5-02368732DF09}" ShortID="618245992">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Thick_Woolen_Coat" ID="{AFE1C432-26D8-49E2-BC5B-F7C9F176B116}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Dice" ID="{FD5C5A52-93C4-4502-8B61-AB853D507DCD}">
+							<ChildrenList>
+								<Action Name="" ID="{89F54818-68A5-4211-88E9-5E2287052F21}" ShortID="377033132">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Dice" ID="{6688EC86-DC0B-4854-8DD4-E5EB3D3BA0B8}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

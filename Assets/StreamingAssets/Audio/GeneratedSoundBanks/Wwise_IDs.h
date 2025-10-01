@@ -24,6 +24,7 @@ namespace AK
         static const AkUniqueID PLAY_BARRACKS_BACKGROUND_SFX = 455065390U;
         static const AkUniqueID PLAY_BARRACKS_DOOR = 3205279810U;
         static const AkUniqueID PLAY_BREATH = 3698047240U;
+        static const AkUniqueID PLAY_CAUGHT_RED_HANDED = 1108803945U;
         static const AkUniqueID PLAY_CELL_DOOR = 386574545U;
         static const AkUniqueID PLAY_CELL_DOOR_OPEN = 2237368892U;
         static const AkUniqueID PLAY_CELL_GUARD_ROLL_CALL = 3877743401U;
@@ -32,7 +33,9 @@ namespace AK
         static const AkUniqueID PLAY_CLOSE_TRICK_COLLECTION = 776203257U;
         static const AkUniqueID PLAY_COUGH = 3234553616U;
         static const AkUniqueID PLAY_CROWS = 639442158U;
+        static const AkUniqueID PLAY_DICE = 2213067183U;
         static const AkUniqueID PLAY_DOGS_BARK = 1892391772U;
+        static const AkUniqueID PLAY_EMPTY_POCKETS = 1971906101U;
         static const AkUniqueID PLAY_MUSIC_BATTLE_1 = 1716731688U;
         static const AkUniqueID PLAY_MUSIC_CAMP_ARRIVAL = 238544951U;
         static const AkUniqueID PLAY_MUSIC_CAMP_DAY = 2741544670U;
@@ -42,7 +45,9 @@ namespace AK
         static const AkUniqueID PLAY_OPEN_TRICK_COLLECTION = 1007146461U;
         static const AkUniqueID PLAY_PUNCH = 3946911806U;
         static const AkUniqueID PLAY_SCREEN_SFX = 1112221790U;
+        static const AkUniqueID PLAY_SETUP = 4244373777U;
         static const AkUniqueID PLAY_SILENCE = 2807572219U;
+        static const AkUniqueID PLAY_THICK_WOOLEN_COAT = 2537547804U;
         static const AkUniqueID PLAY_TRICK_CARD = 137383996U;
         static const AkUniqueID PLAY_TRUCK_ARRIVES = 1064403750U;
         static const AkUniqueID PLAY_TYPEWRITER = 57706899U;

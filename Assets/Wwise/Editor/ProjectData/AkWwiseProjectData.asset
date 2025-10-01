@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584425031160406079
+    m_lastTime: -8584423111686677732
     List:
     - name: Andreyev
       guid: a6c0eb1ff2ce024c96aeb202fa8b346a
@@ -338,6 +338,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Play_Caught_Red_Handed
+      guid: ea30a3f7feb4aa4ca217d96d1a21c720
+      id: 1108803945
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Battle
+        ObjectType: 4
+        guid: bdeeec5070f65944895c732b68bd80b2
+      - ElementName: Play_Caught_Red_Handed
+        ObjectType: 3
+        guid: ea30a3f7feb4aa4ca217d96d1a21c720
+      Path: Events\Default Work Unit\Battle\Play_Caught_Red_Handed
+      maxAttenuation: 0
+      maxDuration: 3.15
+      minDuration: 3.15
     - name: Play_Cell_Door
       guid: cb4834de18ec854e887f0bb7f1d694b3
       id: 386574545
@@ -477,6 +497,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Play_Dice
+      guid: 525a5cfdc49302458b61ab853d507dcd
+      id: 2213067183
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Battle
+        ObjectType: 4
+        guid: bdeeec5070f65944895c732b68bd80b2
+      - ElementName: Play_Dice
+        ObjectType: 3
+        guid: 525a5cfdc49302458b61ab853d507dcd
+      Path: Events\Default Work Unit\Battle\Play_Dice
+      maxAttenuation: 0
+      maxDuration: 4.260975
+      minDuration: 4.260975
     - name: Play_Dogs_Bark
       guid: 2175ade8841a244cb5e4cba5416166f8
       id: 1892391772
@@ -494,6 +534,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Play_Empty_Pockets
+      guid: 642c244e6f779946800e4ab9aa73dd71
+      id: 1971906101
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Battle
+        ObjectType: 4
+        guid: bdeeec5070f65944895c732b68bd80b2
+      - ElementName: Play_Empty_Pockets
+        ObjectType: 3
+        guid: 642c244e6f779946800e4ab9aa73dd71
+      Path: Events\Default Work Unit\Battle\Play_Empty_Pockets
+      maxAttenuation: 0
+      maxDuration: 3.22
+      minDuration: 3.22
     - name: Play_Music_Battle_1
       guid: 79f1364d9174a74986b0498a998e6abc
       id: 1716731688
@@ -653,6 +713,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 7.49264
       minDuration: 7.49264
+    - name: Play_Setup
+      guid: 52e6d63a9a830c4a8bd1a70528cbc390
+      id: 4244373777
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Battle
+        ObjectType: 4
+        guid: bdeeec5070f65944895c732b68bd80b2
+      - ElementName: Play_Setup
+        ObjectType: 3
+        guid: 52e6d63a9a830c4a8bd1a70528cbc390
+      Path: Events\Default Work Unit\Battle\Play_Setup
+      maxAttenuation: 0
+      maxDuration: 2.5132654
+      minDuration: 2.5132654
     - name: Play_Silence
       guid: a434e366e74e2d49bdb4c161f4758258
       id: 2807572219
@@ -670,6 +750,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: Play_Thick_Woolen_Coat
+      guid: 73ada394333ac34d897ac4b19b9ab7b6
+      id: 2537547804
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Battle
+        ObjectType: 4
+        guid: bdeeec5070f65944895c732b68bd80b2
+      - ElementName: Play_Thick_Woolen_Coat
+        ObjectType: 3
+        guid: 73ada394333ac34d897ac4b19b9ab7b6
+      Path: Events\Default Work Unit\Battle\Play_Thick_Woolen_Coat
+      maxAttenuation: 0
+      maxDuration: 2.3356462
+      minDuration: 2.3356462
     - name: Play_Trick_Card
       guid: 55e81a2237ebb14b848a0fec4c9a62fe
       id: 137383996
@@ -688,8 +788,8 @@ MonoBehaviour:
         guid: 55e81a2237ebb14b848a0fec4c9a62fe
       Path: Events\Default Work Unit\Battle\Play_Trick_Card
       maxAttenuation: 0
-      maxDuration: 1.2870069
-      minDuration: 1.2870069
+      maxDuration: 1.6215271
+      minDuration: 1.021498
     - name: Play_Truck_Arrives
       guid: dea162295cad5c4c9dacdf62d8bfae9c
       id: 1064403750
@@ -832,7 +932,7 @@ MonoBehaviour:
     m_lastTime: -8584425031120868339
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0100000005000000060000000700000008000000090000000a00000023000000240000002e000000
+  ExpandedWaapiItemIds: 0100000005000000060000000700000008000000090000000a0000002300000024000000250000002e0000008c0000008d0000008f000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
