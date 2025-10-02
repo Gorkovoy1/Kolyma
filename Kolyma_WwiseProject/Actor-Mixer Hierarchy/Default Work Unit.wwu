@@ -2087,6 +2087,13 @@
 						<Folder Name="Trick_Cards_SFX" ID="{29C45EB3-4016-4388-8944-A378EEF8BDAB}" ShortID="336827379">
 							<ChildrenList>
 								<Sound Name="Caught_Red_Handed" ID="{52CCD0E9-765E-48A9-A707-B8742A6A2714}" ShortID="299928107">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -2112,7 +2119,7 @@
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-4</Value>
+												<Value>-5</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -2138,6 +2145,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Poison" ID="{E99892D7-1F38-48AD-B326-4B0B9CF13DD6}" ShortID="701043246">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -2183,12 +2197,26 @@
 												<MediaID ID="171185922"/>
 											</MediaIDList>
 										</AudioFileSource>
+										<AudioFileSource Name="Thick Woolen Coat3" ID="{CF96290D-679D-4619-815E-B03DF94F9C20}">
+											<Language>SFX</Language>
+											<AudioFile>Thick Woolen Coat3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="241560530"/>
+											</MediaIDList>
+										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Thick Woolen Coat2" ID="{38ABD8B2-9419-479A-8E2B-B66ECFA162E1}" Platform="Linked"/>
+										<ActiveSource Name="Thick Woolen Coat3" ID="{CF96290D-679D-4619-815E-B03DF94F9C20}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Empty_Pockets" ID="{DC77841B-D116-46C6-8125-E608EAC00A1F}" ShortID="534483189">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -2208,6 +2236,35 @@
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="EmptyPockets" ID="{433F4ED7-4E48-45BB-B140-14B8D2578931}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Weakness" ID="{31CFD439-23C0-48FC-A594-E356C204B4C1}" ShortID="396644101">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-7</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="weakness" ID="{F68AB24E-A53E-4A06-B8F9-5F4AB0CD983F}">
+											<Language>SFX</Language>
+											<AudioFile>weakness.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="887701933"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="weakness" ID="{F68AB24E-A53E-4A06-B8F9-5F4AB0CD983F}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>

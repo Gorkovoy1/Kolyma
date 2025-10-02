@@ -22,7 +22,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{B739B71D-1052-611E-1A29-E52B84D976DB}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{AE97A232-1DCB-4F31-A41A-6310C149595F}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -74,10 +74,6 @@
 					<ShortName>Cell_SFX_Whisper-003.wav</ShortName>
 					<CachePath>SFX/Cell_SFX_Whisper-003_8E324C96.wem</CachePath>
 				</File>
-				<File Id="171185922" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Thick Woolen Coat2.wav</ShortName>
-					<CachePath>SFX/Thick Woolen Coat2_818F3B66.wem</CachePath>
-				</File>
 				<File Id="171785072" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Andreyev_Scared.wav</ShortName>
 					<CachePath>SFX/Andreyev_Scared_80FE5A8E.wem</CachePath>
@@ -85,6 +81,10 @@
 				<File Id="185742565" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>dice 2.wav</ShortName>
 					<CachePath>SFX/dice 2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="241560530" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Thick Woolen Coat3.wav</ShortName>
+					<CachePath>SFX/Thick Woolen Coat3_818F3B66.wem</CachePath>
 				</File>
 				<File Id="267717470" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>CloseTrickCollection.wav</ShortName>
@@ -225,6 +225,10 @@
 				<File Id="869360124" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>CaughtRedHanded.wav</ShortName>
 					<CachePath>SFX/CaughtRedHanded_818F3B66.wem</CachePath>
+				</File>
+				<File Id="887701933" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>weakness.wav</ShortName>
+					<CachePath>SFX/weakness_818F3B66.wem</CachePath>
 				</File>
 				<File Id="891624205" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Whisper-002.wav</ShortName>
@@ -460,7 +464,7 @@
 				<Event Id="2807572219" Name="Play_Silence" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="2537547804" Name="Play_Thick_Woolen_Coat" DurationType="OneShot" DurationMin="3.5054421" DurationMax="3.5054421">
 					<MediaRefs>
-						<MediaRef Id="171185922"/>
+						<MediaRef Id="241560530"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="137383996" Name="Play_Trick_Card" DurationType="OneShot" DurationMin="1.021498" DurationMax="1.6215271">
@@ -482,6 +486,11 @@
 						<MediaRef Id="555626868"/>
 						<MediaRef Id="737968334"/>
 						<MediaRef Id="912648772"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3318282719" Name="Play_Weakness" DurationType="OneShot" DurationMin="2.0088663" DurationMax="2.0088663">
+					<MediaRefs>
+						<MediaRef Id="887701933"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="2541567472" Name="Play_Whisper" DurationType="Infinite">
@@ -506,5 +515,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{5E9DDC0F-700A-EE39-797B-80BEC4D30219}</FileHash>
+	<FileHash>{BC76BEE3-137C-1961-5370-B35C0BE89146}</FileHash>
 </SoundBanksInfo>

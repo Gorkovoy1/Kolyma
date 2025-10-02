@@ -34,6 +34,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	3205279810	Play_Barracks_Door			\Default Work Unit\Play_Barracks_Door	
 	3234553616	Play_Cough			\Default Work Unit\Play_Cough	
 	3292663506	Play_Poison			\Default Work Unit\Battle\Play_Poison	
+	3318282719	Play_Weakness			\Default Work Unit\Battle\Play_Weakness	
 	3413568250	Play_Negative_Event			\Default Work Unit\Play_Negative_Event	
 	3643466302	Play_Music_Jail			\Default Work Unit\Play_Music_Jail	
 	3698047240	Play_Breath			\Default Work Unit\Play_Breath	
@@ -55,9 +56,9 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	158641502	Cell_SFX_Whisper-005	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_SFX_Whisper-005_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Whisper\Cell_SFX_Whisper-005		16727
 	163322872	Cell_Guard_Roll_Call	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Guard_Roll_Call_6C0AF96F.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Guard_Roll_Call		34158
 	169040873	Cell_SFX_Whisper-003	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_SFX_Whisper-003_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Whisper\Cell_SFX_Whisper-003		28960
-	171185922	Thick_Woolen_Coat	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Thick Woolen Coat2_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Trick_Cards_SFX\Thick_Woolen_Coat		618456
 	171785072	Andreyev_Scared	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Andreyev_Scared_80FE5A8E.wem		\Actor-Mixer Hierarchy\Default Work Unit\NPCs\Andreyev\Andreyev_Scared		154212
 	185742565	Dice	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\dice 2_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Dice		705448
+	241560530	Thick_Woolen_Coat	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Thick Woolen Coat3_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Trick_Cards_SFX\Thick_Woolen_Coat		618456
 	267717470	Close_Trick_Collection	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\CloseTrickCollection_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Close_Trick_Collection		260196
 	302096407	NumberCard1	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\NumberCard1_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Number_Cards\NumberCard1		260424
 	328403887	kolyma daytime 1_4	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\kolyma daytime 1.4_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Camp\Camp_Day\kolyma daytime 1_4		2320649
@@ -93,6 +94,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	837605639	Andreyev_Sigh	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Andreyev_Sigh_8DAE3998.wem		\Actor-Mixer Hierarchy\Default Work Unit\NPCs\Andreyev\Andreyev_Sigh		508132
 	850000760	Truck_Arrives	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Truck_Arrives_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camp_SFX\Truck_Arrives		161197
 	869360124	Caught_Red_Handed	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\CaughtRedHanded_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Trick_Cards_SFX\Caught_Red_Handed		555756
+	887701933	Weakness	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\weakness_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Trick_Cards_SFX\Weakness		354460
 	891624205	Cell_SFX_Whisper-002	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_SFX_Whisper-002_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Whisper\Cell_SFX_Whisper-002		43719
 	897836571	Cell_SFX_Cough-001	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_SFX_Cough-001_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Cough\Cell_SFX_Cough-001		42999
 	912648772	Typewriter_Loop_4	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\typewriter_loop-004_F031F9C3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text_Box\Typewriter_Loops\Typewriter_Loop_4		12998

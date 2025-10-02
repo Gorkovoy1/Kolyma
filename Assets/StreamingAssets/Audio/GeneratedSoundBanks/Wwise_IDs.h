@@ -52,6 +52,7 @@ namespace AK
         static const AkUniqueID PLAY_TRICK_CARD = 137383996U;
         static const AkUniqueID PLAY_TRUCK_ARRIVES = 1064403750U;
         static const AkUniqueID PLAY_TYPEWRITER = 57706899U;
+        static const AkUniqueID PLAY_WEAKNESS = 3318282719U;
         static const AkUniqueID PLAY_WHISPER = 2541567472U;
         static const AkUniqueID PLAY_WIND = 1020223172U;
         static const AkUniqueID PLAY_WOOSH_NARRATOR = 1714538498U;

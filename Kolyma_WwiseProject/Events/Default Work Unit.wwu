@@ -460,6 +460,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Weakness" ID="{90483568-9051-4B20-BCE3-D1FE749923EA}">
+							<ChildrenList>
+								<Action Name="" ID="{A57F3A4E-8FDD-4AF6-B4B6-7243FAB76BF3}" ShortID="439263068">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Weakness" ID="{31CFD439-23C0-48FC-A594-E356C204B4C1}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Event Name="Play_Music_Battle_1" ID="{4D36F179-7491-49A7-86B0-498A998E6ABC}">

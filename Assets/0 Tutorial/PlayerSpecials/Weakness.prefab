@@ -188,3 +188,7 @@ MonoBehaviour:
   cardBack: {fileID: 0}
   grey: {fileID: 0}
   isFlipped: 0
+  trickSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 76193240eac2e974dbafa4b6ff677e69, type: 2}
