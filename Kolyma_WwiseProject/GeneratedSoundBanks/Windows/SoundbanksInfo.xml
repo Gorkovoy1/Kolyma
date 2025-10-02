@@ -22,7 +22,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{7D00A233-25D5-E4DF-00BB-99F53A0FF6A6}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{B739B71D-1052-611E-1A29-E52B84D976DB}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -33,6 +33,10 @@
 				<File Id="7973089" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Barracks_Background.wav</ShortName>
 					<CachePath>SFX/Barracks_Background_07646D92.wem</CachePath>
+				</File>
+				<File Id="69635862" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Poison.wav</ShortName>
+					<CachePath>SFX/Poison_818F3B66.wem</CachePath>
 				</File>
 				<File Id="75083474" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>camp_arrival_no_intro.wav</ShortName>
@@ -70,9 +74,17 @@
 					<ShortName>Cell_SFX_Whisper-003.wav</ShortName>
 					<CachePath>SFX/Cell_SFX_Whisper-003_8E324C96.wem</CachePath>
 				</File>
+				<File Id="171185922" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Thick Woolen Coat2.wav</ShortName>
+					<CachePath>SFX/Thick Woolen Coat2_818F3B66.wem</CachePath>
+				</File>
 				<File Id="171785072" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Andreyev_Scared.wav</ShortName>
 					<CachePath>SFX/Andreyev_Scared_80FE5A8E.wem</CachePath>
+				</File>
+				<File Id="185742565" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>dice 2.wav</ShortName>
+					<CachePath>SFX/dice 2_818F3B66.wem</CachePath>
 				</File>
 				<File Id="267717470" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>CloseTrickCollection.wav</ShortName>
@@ -109,10 +121,6 @@
 				<File Id="435260790" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Barracks_Ambience.wav</ShortName>
 					<CachePath>SFX/Barracks_Ambience_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="451771669" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>ThickWoolenCoat.wav</ShortName>
-					<CachePath>SFX/ThickWoolenCoat_818F3B66.wem</CachePath>
 				</File>
 				<File Id="461221407" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Battle_Theme_1.wav</ShortName>
@@ -205,10 +213,6 @@
 				<File Id="778674395" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>negative_event1.2.wav</ShortName>
 					<CachePath>SFX/negative_event1.2_8E324C96.wem</CachePath>
-				</File>
-				<File Id="788479797" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Dice.wav</ShortName>
-					<CachePath>SFX/Dice_818F3B66.wem</CachePath>
 				</File>
 				<File Id="837605639" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Andreyev_Sigh.wav</ShortName>
@@ -377,9 +381,9 @@
 						<MediaRef Id="934665564"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2213067183" Name="Play_Dice" DurationType="OneShot" DurationMin="4.260975" DurationMax="4.260975">
+				<Event Id="2213067183" Name="Play_Dice" DurationType="OneShot" DurationMin="3.998594" DurationMax="3.998594">
 					<MediaRefs>
-						<MediaRef Id="788479797"/>
+						<MediaRef Id="185742565"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="1892391772" Name="Play_Dogs_Bark" DurationType="Infinite">
@@ -433,6 +437,11 @@
 						<MediaRef Id="127805243"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="3292663506" Name="Play_Poison" DurationType="OneShot" DurationMin="1.8075963" DurationMax="1.8075963">
+					<MediaRefs>
+						<MediaRef Id="69635862"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3946911806" Name="Play_Punch" DurationType="OneShot" DurationMin="0.98797745" DurationMax="0.98797745">
 					<MediaRefs>
 						<MediaRef Id="402054562"/>
@@ -449,9 +458,9 @@
 					</MediaRefs>
 				</Event>
 				<Event Id="2807572219" Name="Play_Silence" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="2537547804" Name="Play_Thick_Woolen_Coat" DurationType="OneShot" DurationMin="2.3356462" DurationMax="2.3356462">
+				<Event Id="2537547804" Name="Play_Thick_Woolen_Coat" DurationType="OneShot" DurationMin="3.5054421" DurationMax="3.5054421">
 					<MediaRefs>
-						<MediaRef Id="451771669"/>
+						<MediaRef Id="171185922"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="137383996" Name="Play_Trick_Card" DurationType="OneShot" DurationMin="1.021498" DurationMax="1.6215271">
@@ -497,5 +506,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{484B8D3D-5C12-B4F1-F53C-940DC7DF922B}</FileHash>
+	<FileHash>{5E9DDC0F-700A-EE39-797B-80BEC4D30219}</FileHash>
 </SoundBanksInfo>

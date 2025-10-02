@@ -33,6 +33,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	2807572219	Play_Silence			\Default Work Unit\Play_Silence	
 	3205279810	Play_Barracks_Door			\Default Work Unit\Play_Barracks_Door	
 	3234553616	Play_Cough			\Default Work Unit\Play_Cough	
+	3292663506	Play_Poison			\Default Work Unit\Battle\Play_Poison	
 	3413568250	Play_Negative_Event			\Default Work Unit\Play_Negative_Event	
 	3643466302	Play_Music_Jail			\Default Work Unit\Play_Music_Jail	
 	3698047240	Play_Breath			\Default Work Unit\Play_Breath	
@@ -44,6 +45,7 @@ Event	ID	Name			Wwise Object Path	Notes
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	2774197	Dogs_Bark_03	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Dogs_Bark-003_57DD6703.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camp_SFX\Dogs\Dogs_Bark_03		39227
 	7973089	Barracks_Background_SFX	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Barracks_Background_07646D92.wem		\Actor-Mixer Hierarchy\Default Work Unit\Barracks_SFX\Barracks_Background_SFX		9932960
+	69635862	Poison	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Poison_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Trick_Cards_SFX\Poison		318956
 	75083474	camp_arrival_no_intro	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\camp_arrival_no_intro_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Camp_Arrival\Camp_Arrival\camp_arrival_no_intro		632690
 	90128117	Clocks_Chime	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Clocks, Chime, Metallic Wall Clock, Chime Ringing SND102458_D8B369E4.wem		\Actor-Mixer Hierarchy\Default Work Unit\Clocks_Chime		775148
 	92101620	Empty_Pockets	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\EmptyPockets_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Trick_Cards_SFX\Empty_Pockets		568104
@@ -53,7 +55,9 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	158641502	Cell_SFX_Whisper-005	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_SFX_Whisper-005_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Whisper\Cell_SFX_Whisper-005		16727
 	163322872	Cell_Guard_Roll_Call	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Guard_Roll_Call_6C0AF96F.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Guard_Roll_Call		34158
 	169040873	Cell_SFX_Whisper-003	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_SFX_Whisper-003_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Whisper\Cell_SFX_Whisper-003		28960
+	171185922	Thick_Woolen_Coat	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Thick Woolen Coat2_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Trick_Cards_SFX\Thick_Woolen_Coat		618456
 	171785072	Andreyev_Scared	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Andreyev_Scared_80FE5A8E.wem		\Actor-Mixer Hierarchy\Default Work Unit\NPCs\Andreyev\Andreyev_Scared		154212
+	185742565	Dice	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\dice 2_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Dice		705448
 	267717470	Close_Trick_Collection	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\CloseTrickCollection_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Close_Trick_Collection		260196
 	302096407	NumberCard1	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\NumberCard1_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Number_Cards\NumberCard1		260424
 	328403887	kolyma daytime 1_4	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\kolyma daytime 1.4_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Camp\Camp_Day\kolyma daytime 1_4		2320649
@@ -63,7 +67,6 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	402054562	Punch	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Punch_8CD53560.wem		\Actor-Mixer Hierarchy\Default Work Unit\Barracks_SFX\Punch		174376
 	415365781	Cell_SFX_Cough-003	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_SFX_Cough-003_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Cough\Cell_SFX_Cough-003		40623
 	435260790	Barracks_Ambience	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Barracks_Ambience_FBC78EF0.wem		\Actor-Mixer Hierarchy\Default Work Unit\Barracks_SFX\Barracks_Ambience		7244120
-	451771669	Thick_Woolen_Coat	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\ThickWoolenCoat_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Trick_Cards_SFX\Thick_Woolen_Coat		412104
 	461221407	Battle_Theme_1	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Battle_Theme_1_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Battle_Theme_1\Battle_Theme_1\Battle_Theme_1		2842807
 	471573529	Cell_SFX_Breath-001	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_SFX_Breath-001_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Breath\Cell_SFX_Breath-001		67783
 	499405862	Cell_Men	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_Men_Talk_56CEF360.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Men		1202700
@@ -87,7 +90,6 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	766949846	Cell_SFX_Whisper-004	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_SFX_Whisper-004_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Whisper\Cell_SFX_Whisper-004		17716
 	768703265	Wind	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Wind_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camp_SFX\Wind		2996785
 	778674395	Negative_Event	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\negative_event1.2_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text_Box\Negative_Event		41907
-	788479797	Dice	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Dice_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Dice		751732
 	837605639	Andreyev_Sigh	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Andreyev_Sigh_8DAE3998.wem		\Actor-Mixer Hierarchy\Default Work Unit\NPCs\Andreyev\Andreyev_Sigh		508132
 	850000760	Truck_Arrives	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Truck_Arrives_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camp_SFX\Truck_Arrives		161197
 	869360124	Caught_Red_Handed	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\CaughtRedHanded_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Trick_Cards_SFX\Caught_Red_Handed		555756

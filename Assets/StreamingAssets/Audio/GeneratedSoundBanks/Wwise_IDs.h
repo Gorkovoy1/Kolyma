@@ -43,6 +43,7 @@ namespace AK
         static const AkUniqueID PLAY_NEGATIVE_EVENT = 3413568250U;
         static const AkUniqueID PLAY_NUMBER_CARD = 2304369006U;
         static const AkUniqueID PLAY_OPEN_TRICK_COLLECTION = 1007146461U;
+        static const AkUniqueID PLAY_POISON = 3292663506U;
         static const AkUniqueID PLAY_PUNCH = 3946911806U;
         static const AkUniqueID PLAY_SCREEN_SFX = 1112221790U;
         static const AkUniqueID PLAY_SETUP = 4244373777U;

@@ -2109,6 +2109,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Setup" ID="{5140D4E3-0F67-4197-B56C-D41413C4F2A4}" ShortID="959601506">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -2169,9 +2176,16 @@
 												<MediaID ID="451771669"/>
 											</MediaIDList>
 										</AudioFileSource>
+										<AudioFileSource Name="Thick Woolen Coat2" ID="{38ABD8B2-9419-479A-8E2B-B66ECFA162E1}">
+											<Language>SFX</Language>
+											<AudioFile>Thick Woolen Coat2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="171185922"/>
+											</MediaIDList>
+										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="ThickWoolenCoat" ID="{F7AC831C-B89A-43FB-80BB-008B9CDB8596}" Platform="Linked"/>
+										<ActiveSource Name="Thick Woolen Coat2" ID="{38ABD8B2-9419-479A-8E2B-B66ECFA162E1}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Empty_Pockets" ID="{DC77841B-D116-46C6-8125-E608EAC00A1F}" ShortID="534483189">
@@ -2199,6 +2213,13 @@
 							</ChildrenList>
 						</Folder>
 						<Sound Name="Dice" ID="{6688EC86-DC0B-4854-8DD4-E5EB3D3BA0B8}" ShortID="428171563">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-7</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -2215,9 +2236,16 @@
 										<MediaID ID="788479797"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="dice 2" ID="{1FDAA9AC-2BA1-45FA-A73A-D7CCDAC07E41}">
+									<Language>SFX</Language>
+									<AudioFile>dice 2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="185742565"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="Dice" ID="{FFED686E-5ECA-4378-8EE8-830A1EC1C40D}" Platform="Linked"/>
+								<ActiveSource Name="dice 2" ID="{1FDAA9AC-2BA1-45FA-A73A-D7CCDAC07E41}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>

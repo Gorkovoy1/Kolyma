@@ -449,6 +449,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Poison" ID="{8C2F419A-BE36-4968-B651-9C81AF30C064}">
+							<ChildrenList>
+								<Action Name="" ID="{088EA6F1-C9CD-48AE-8E6C-2C73BAA34F1D}" ShortID="908503906">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Poison" ID="{E99892D7-1F38-48AD-B326-4B0B9CF13DD6}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Event Name="Play_Music_Battle_1" ID="{4D36F179-7491-49A7-86B0-498A998E6ABC}">

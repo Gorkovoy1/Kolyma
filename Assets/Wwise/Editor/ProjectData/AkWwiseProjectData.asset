@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584422515520692581
+    m_lastTime: -8584422427410809805
     List:
     - name: Andreyev
       guid: a6c0eb1ff2ce024c96aeb202fa8b346a
@@ -515,8 +515,8 @@ MonoBehaviour:
         guid: 525a5cfdc49302458b61ab853d507dcd
       Path: Events\Default Work Unit\Battle\Play_Dice
       maxAttenuation: 0
-      maxDuration: 4.260975
-      minDuration: 4.260975
+      maxDuration: 3.998594
+      minDuration: 3.998594
     - name: Play_Dogs_Bark
       guid: 2175ade8841a244cb5e4cba5416166f8
       id: 1892391772
@@ -679,6 +679,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 1.5683674
       minDuration: 1.5683674
+    - name: Play_Poison
+      guid: 9a412f8c36be6849b6519c81af30c064
+      id: 3292663506
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Battle
+        ObjectType: 4
+        guid: bdeeec5070f65944895c732b68bd80b2
+      - ElementName: Play_Poison
+        ObjectType: 3
+        guid: 9a412f8c36be6849b6519c81af30c064
+      Path: Events\Default Work Unit\Battle\Play_Poison
+      maxAttenuation: 0
+      maxDuration: 1.8075963
+      minDuration: 1.8075963
     - name: Play_Punch
       guid: da18ba05f34dd7428e9966bd0527ff26
       id: 3946911806
@@ -768,8 +788,8 @@ MonoBehaviour:
         guid: 73ada394333ac34d897ac4b19b9ab7b6
       Path: Events\Default Work Unit\Battle\Play_Thick_Woolen_Coat
       maxAttenuation: 0
-      maxDuration: 2.3356462
-      minDuration: 2.3356462
+      maxDuration: 3.5054421
+      minDuration: 3.5054421
     - name: Play_Trick_Card
       guid: 55e81a2237ebb14b848a0fec4c9a62fe
       id: 137383996
