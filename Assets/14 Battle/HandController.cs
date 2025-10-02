@@ -82,7 +82,7 @@ public class HandController : MonoBehaviour
         {
             if (playerSpecialDeck.Count == 0)
             {
-                Debug.LogWarning("deck is empty, stopping coroutine.");
+                Debug.LogWarning("deck is empty");
                 
             }
             else
@@ -97,7 +97,7 @@ public class HandController : MonoBehaviour
         {
             if (opponentSpecialDeck.Count == 0)
             {
-                Debug.LogWarning("deck is empty, stopping coroutine.");
+                Debug.LogWarning("deck is empty");
             }
             else
             {

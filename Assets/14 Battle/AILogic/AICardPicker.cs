@@ -34,6 +34,8 @@ public class AICardPicker : MonoBehaviour
     public AIController aiController;
 
     public bool executingTurn = false;
+
+    public PassAnimationController passAnimationController;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +55,8 @@ public class AICardPicker : MonoBehaviour
         if(!TurnManager.instance.isPlayerTurn && !executingTurn)
         {
             executingTurn = true;
+            TurnManager.instance.opponentPassed = false;
+            TurnManager.instance.opponentPlayedCard = false;
             ChooseBestCard();
         }
     }
@@ -119,13 +123,16 @@ public class AICardPicker : MonoBehaviour
         else
         {
             Debug.LogWarning("No playable cards available!");
+            TurnManager.instance.opponentPlayedCard = false;
+            TurnManager.instance.opponentPassed = true;
+            passAnimationController.oppPass = true;
         }
 
         StartCoroutine(DelayTurn());
 
     }
 
-    IEnumerator DelayTurn()
+    public IEnumerator DelayTurn()
     {
         yield return new WaitForSeconds(2f);
         TurnManager.instance.isPlayerTurn = true;

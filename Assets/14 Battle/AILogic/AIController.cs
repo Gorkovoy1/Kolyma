@@ -22,10 +22,18 @@ public class AIController : MonoBehaviour
 
     }
 
+    IEnumerator DelayAction()
+    {
+        yield return new WaitForSeconds(1.5f);
+    }
+
     public void PlayCard()
     {
+        StartCoroutine(DelayAction());
         var picker = GetComponent<AICardPicker>();
         var cards = picker.playableCards;
+
+        TurnManager.instance.opponentPlayedCard = true;
 
         var selected = selectedCardToPlay.GetComponent<AICardPlace>();
         selected.difficulty = difficulty;
@@ -60,12 +68,22 @@ public class AIController : MonoBehaviour
 
             
             Debug.Log("All cards would bust — skipping turn.");
-            TurnManager.instance.isPlayerTurn = true; 
+            StartCoroutine(DelaySkipTurn());
             return;
         }
 
         //value is 0, safe card
         selected.AnimateBeingPlayed();
+    }
+
+    IEnumerator DelaySkipTurn()
+    {
+        yield return new WaitForSeconds(1f);
+        TurnManager.instance.opponentPlayedCard = false;
+        TurnManager.instance.opponentPassed = true;
+        this.gameObject.GetComponent<AICardPicker>().passAnimationController.oppPass = true;
+        StartCoroutine(this.gameObject.GetComponent<AICardPicker>().DelayTurn());
+
     }
 }
 

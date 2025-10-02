@@ -200,7 +200,7 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                 break;
 
             case SpecialCardType.EmptyPockets:
-                if (NumberManager.instance.blues.Count > 0)
+                if (NumberManager.instance.blues.Count > 0 && this.GetComponentInParent<HandController>().playerSpecialHand.Count > 0)
                 {
                     isPlayable = true;
                 }
@@ -279,7 +279,10 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                 break;
 
             case SpecialCardType.Poison:
-                isPlayable = true;
+                if (this.GetComponentInParent<HandController>().playerSpecialHand.Count > 0)
+                {
+                    isPlayable = true;
+                }
                 break;
 
             case SpecialCardType.BackstabDiscard:
@@ -294,7 +297,7 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                 break;
 
             case SpecialCardType.GiveItUp:
-                if (NumberManager.instance.OPPnegatives.Count > 0)
+                if (NumberManager.instance.OPPnegatives.Count > 0 && this.GetComponentInParent<HandController>().playerSpecialHand.Count > 0)
                 {
                     isPlayable = true;
                 }

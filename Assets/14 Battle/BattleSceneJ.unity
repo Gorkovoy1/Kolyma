@@ -2959,6 +2959,8 @@ MonoBehaviour:
   checkedPlayable: 0
   opponentPlayedCard: 0
   playerPlayedCard: 0
+  playerPassed: 0
+  opponentPassed: 0
 --- !u!1 &957836326
 GameObject:
   m_ObjectHideFlags: 0
@@ -3814,6 +3816,7 @@ MonoBehaviour:
   selectedCard: {fileID: 0}
   aiController: {fileID: 1161671100}
   executingTurn: 0
+  passAnimationController: {fileID: 1849388342}
 --- !u!114 &1161671100
 MonoBehaviour:
   m_ObjectHideFlags: 0

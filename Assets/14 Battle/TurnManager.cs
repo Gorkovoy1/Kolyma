@@ -10,6 +10,9 @@ public class TurnManager : MonoBehaviour
 
     public bool opponentPlayedCard = false;
     public bool playerPlayedCard = false;
+
+    public bool playerPassed = false;
+    public bool opponentPassed = false;
     // Start is called before the first frame update
 
     void Awake()
