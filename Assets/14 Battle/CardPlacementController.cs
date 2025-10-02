@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using AK.Wwise;
 
 public class CardPlacementController : MonoBehaviour
 {
@@ -36,16 +37,20 @@ public class CardPlacementController : MonoBehaviour
     public Camera mainCamera;
     public Camera diceCamera;
 
+    public GameObject sfxObj;
+
+    public bool fadingIn = false;
+    public bool fadingOut = false;
+
+    public Image blackImage;
+
+    public float elapsed = 0f;
+
     void Awake()
     {
         if(instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this);
-        }
-        else
-        {
-            Destroy(this);
         }
         
     }
@@ -59,7 +64,32 @@ public class CardPlacementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (fadingIn)
+        {
+            elapsed += Time.deltaTime;
+            float alpha = Mathf.Clamp01(elapsed / 1f);
+            Color color = blackImage.color;
+            color.a = alpha;
+            blackImage.color = color;
+
+            if (alpha >= 1f)
+            {
+                fadingIn = false; // Fade finished
+            }
+        }
+        else if (fadingOut)
+        {
+            elapsed += Time.deltaTime;
+            float alpha = Mathf.Clamp01(1f - (elapsed / 1f));
+            Color color = blackImage.color;
+            color.a = alpha;
+            blackImage.color = color;
+
+            if (alpha <= 0f)
+            {
+                fadingOut = false; // Fade finished
+            }
+        }
     }
 
     IEnumerator DealNumbers()
@@ -136,6 +166,8 @@ public class CardPlacementController : MonoBehaviour
             //Delay between cards
             yield return new WaitForSeconds(1f);
         }
+
+        fadingIn = true;
         StartCoroutine(RollDice());
 
         
@@ -143,25 +175,33 @@ public class CardPlacementController : MonoBehaviour
 
     IEnumerator RollDice()
     {
+        yield return new WaitForSeconds(0.5f);
+        AkSoundEngine.PostEvent("Play_Dice", sfxObj);
+        yield return new WaitForSeconds(0.5f);
+
         SceneManager.LoadScene("DiceRoll", LoadSceneMode.Additive);
         yield return null;
         diceCamera = GameObject.FindGameObjectWithTag("DiceCamera").GetComponent<Camera>();
         mainCamera.gameObject.SetActive(false);
         battleCanvas.enabled = false;
         diceCamera.gameObject.SetActive(true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4.3f);
+        //unload scene
         mainCamera.gameObject.SetActive(true);
         diceCamera.gameObject.SetActive(false);
         battleCanvas.enabled = true;
-
-
+        SceneManager.UnloadSceneAsync("DiceRoll");
+        elapsed = 0f;
+        fadingOut = true;
+        Debug.Log("fade out");
+        yield return new WaitForSeconds(1f);
+        Debug.Log("done");
+        
+        
         //update target value with player prefs
         Debug.Log("Target is: " + PlayerPrefs.GetInt("TargetValue", 0));
         
         NumberManager.instance.targetVal = PlayerPrefs.GetInt("TargetValue", 0);
-        
-
-        SceneManager.UnloadSceneAsync("DiceRoll");
 
         //if value is higher
         TurnManager.instance.isPlayerTurn = true;

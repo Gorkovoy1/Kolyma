@@ -9,6 +9,7 @@ public class TestingCards : MonoBehaviour
     public GameObject AIHandler;
     public bool firstTurn = false;
     public HandController handController;
+    public PassAnimationController passAnimationController;
 
     // Start is called before the first frame update
     void Start()
@@ -78,6 +79,13 @@ public class TestingCards : MonoBehaviour
     {
         firstTurn = true;
         TurnManager.instance.isPlayerTurn = !TurnManager.instance.isPlayerTurn;
+        TurnManager.instance.checkedPlayable = false;
+        if(!TurnManager.instance.playerPlayedCard)
+        {
+            //animate pass text
+            passAnimationController.playerPass = true;
+        }
         handController.DrawToHand("opponent");
+        TurnManager.instance.playerPlayedCard = false;
     }
 }

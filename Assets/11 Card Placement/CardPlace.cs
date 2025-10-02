@@ -55,6 +55,8 @@ public class CardPlace : MonoBehaviour,
     public AK.Wwise.Event trickSound;
     //public GameObject sfxObj;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -98,7 +100,12 @@ public class CardPlace : MonoBehaviour,
             if (TurnManager.instance.isPlayerTurn && this.transform.parent == playerHand) //check parent is hand
             {
                 NumberManager.instance.recalculate = true;
-                CheckPlayable();
+                if(!TurnManager.instance.checkedPlayable)
+                {
+                    
+                    CheckPlayable();
+                }
+                
                 if(isPlayable)
                 {
                     //outline card in green
@@ -272,7 +279,14 @@ public class CardPlace : MonoBehaviour,
     public void AnimateBeingPlayed()
     {
         isPlayable = false;
+        TurnManager.instance.playerPlayedCard = true;
         //also set every other card to not playable
+        TurnManager.instance.checkedPlayable = true;
+        foreach (Transform child in playerHand)
+        {
+            child.GetComponent<CardPlace>().isPlayable = false;
+        }
+
 
         if(trickSound != null)
         {
