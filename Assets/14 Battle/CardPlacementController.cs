@@ -46,6 +46,8 @@ public class CardPlacementController : MonoBehaviour
 
     public float elapsed = 0f;
 
+    public DeckManagerController deckManagerController;
+
     void Awake()
     {
         if(instance == null)
@@ -96,7 +98,6 @@ public class CardPlacementController : MonoBehaviour
     {
         ShuffleNumbers();
         yield return StartCoroutine(DealPlayerNumbers());  
-        yield return StartCoroutine(DealOpponentNumbers()); 
 
     }
 
@@ -132,6 +133,11 @@ public class CardPlacementController : MonoBehaviour
             //Delay between cards
             yield return new WaitForSeconds(1f);
         }
+        NumberManager.instance.recalculate = true;
+
+        yield return new WaitForSeconds(0.5f);
+
+        yield return StartCoroutine(DealOpponentNumbers());
     }
 
     IEnumerator DealOpponentNumbers()
@@ -166,6 +172,8 @@ public class CardPlacementController : MonoBehaviour
             //Delay between cards
             yield return new WaitForSeconds(1f);
         }
+        NumberManager.instance.recalculate = true;
+        yield return new WaitForSeconds(1f);
 
         fadingIn = true;
         StartCoroutine(RollDice());
@@ -203,8 +211,9 @@ public class CardPlacementController : MonoBehaviour
         
         NumberManager.instance.targetVal = PlayerPrefs.GetInt("TargetValue", 0);
 
-        //if value is higher
-        TurnManager.instance.isPlayerTurn = true;
+        yield return new WaitForSeconds(1f);
+        deckManagerController.ShowCanvas();
+        //determine whos turn after clicking finish deck
     }
 
     public void DealOneCard(string target)

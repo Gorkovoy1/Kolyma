@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TestingCards : MonoBehaviour
 {
@@ -11,10 +12,11 @@ public class TestingCards : MonoBehaviour
     public HandController handController;
     public PassAnimationController passAnimationController;
 
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -26,6 +28,7 @@ public class TestingCards : MonoBehaviour
             //draw card
             handController.DrawToHand("player");
         }
+
     }
 
     public void TestDeal()

@@ -19,17 +19,21 @@ public class DeckManagerController : MonoBehaviour
 
     public HandController handController;
 
+    public List<GameObject> buttonList;
+
     // Start is called before the first frame update
     void Start()
     {
         CardInventoryController.instance.ManageDeck();
         startPos = deckManagerPanel.anchoredPosition;
+        finishDeck = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         cardCount.text = "" + CardInventoryController.instance.playerDeck.Count + " /15";
+
     }
     
     public void ShowCanvas()
@@ -53,8 +57,20 @@ public class DeckManagerController : MonoBehaviour
         ShowCanvas();
         finishDeck = true;
         //prevent changes to deck mid game
+        //deactivate all buttons
+        foreach(GameObject b in buttonList)
+        {
+            Button[] buttonArray = b.GetComponentsInChildren<Button>();
+            foreach(Button btn in buttonArray)
+            {
+                btn.interactable = false;
+            }
+        }
 
         handController.startGame = true;
+
+        //if value is higher
+        TurnManager.instance.isPlayerTurn = true;
 
     }
 

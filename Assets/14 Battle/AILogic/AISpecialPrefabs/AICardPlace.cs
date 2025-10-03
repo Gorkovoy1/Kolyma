@@ -180,10 +180,15 @@ public class AICardPlace : MonoBehaviour //AICardPlace
         yield return new WaitForSeconds(1f);
         StartCoroutine(FlipOverCard(this.gameObject));
         yield return new WaitForSeconds(1f);
+        //extend time to read
+        yield return new WaitForSeconds(0.5f);
 
         correspondingImage.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
         this.transform.SetParent(opponentDiscardZone.transform);
         this.transform.position = opponentDiscardZone.transform.position;
+
+        //flip card back
+        correspondingImage.GetComponent<Image>().sprite = cardBack;
 
         StartCoroutine(PlayCorrespondingAction());
     }

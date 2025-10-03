@@ -17,6 +17,9 @@ public class HandController : MonoBehaviour
 
     public bool startGame = false;
 
+    public GameObject endTurnButton;
+    public GameObject actionButton;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +34,10 @@ public class HandController : MonoBehaviour
         if(startGame)
         {
             startGame = false;
+            //set action button and end button active
+            actionButton.SetActive(true);
+            endTurnButton.SetActive(true);
+
             playerSpecialDeck = CardInventoryController.instance.playerDeck;
             ShuffleSpecials();
         }

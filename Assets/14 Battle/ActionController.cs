@@ -9,10 +9,11 @@ public class ActionController : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public Button swapButton;
     public Button flipButton;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
