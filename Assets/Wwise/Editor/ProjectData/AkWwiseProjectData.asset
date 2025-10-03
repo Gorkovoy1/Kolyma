@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584422378263176384
+    m_lastTime: -8584420886783288287
     List:
     - name: Andreyev
       guid: a6c0eb1ff2ce024c96aeb202fa8b346a
@@ -844,6 +844,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 1.1041912
       minDuration: 0.5450275
+    - name: Play_Weakness
+      guid: 683548905190204bbce3d1fe749923ea
+      id: 3318282719
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Battle
+        ObjectType: 4
+        guid: bdeeec5070f65944895c732b68bd80b2
+      - ElementName: Play_Weakness
+        ObjectType: 3
+        guid: 683548905190204bbce3d1fe749923ea
+      Path: Events\Default Work Unit\Battle\Play_Weakness
+      maxAttenuation: 0
+      maxDuration: 2.0088663
+      minDuration: 2.0088663
     - name: Play_Whisper
       guid: ab2ee8dfee274c49bdcb46d15021f84b
       id: 2541567472
