@@ -126,6 +126,7 @@ public class HandController : MonoBehaviour
 
     IEnumerator InitialOpponentDraw()
     {
+        yield return new WaitForSeconds(1.3f);
         for (int i = 0; i < 6; i++)
         {
             if (opponentSpecialDeck.Count == 0)
@@ -146,6 +147,7 @@ public class HandController : MonoBehaviour
 
     IEnumerator InitialPlayerDraw()
     {
+        yield return new WaitForSeconds(1.3f);
         for (int i = 0; i < 6; i++)
         {
             if (playerSpecialDeck.Count == 0)
