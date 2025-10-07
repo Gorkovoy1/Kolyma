@@ -187,8 +187,22 @@ public class AICardPlace : MonoBehaviour //AICardPlace
         this.transform.SetParent(opponentDiscardZone.transform);
         this.transform.position = opponentDiscardZone.transform.position;
 
+        //update last played
+        opponentHand.GetComponentInParent<HandController>().oppDiscardButton.GetComponent<OpponentDiscardButton>().lastPlayed = correspondingImage.GetComponent<Image>();
+        
+        foreach (var tmp in correspondingImage.GetComponentsInChildren<TextMeshProUGUI>(true)) // true = include inactive
+        {
+            if (tmp.name == "Text (TMP) (1)") // Replace with your actual object name
+            {
+                opponentHand.GetComponentInParent<HandController>().oppDiscardButton.GetComponent<OpponentDiscardButton>().cardDesc = tmp.text;
+                break;
+            }
+        }
+
         //flip card back
         correspondingImage.GetComponent<Image>().sprite = cardBack;
+
+
 
         StartCoroutine(PlayCorrespondingAction());
     }

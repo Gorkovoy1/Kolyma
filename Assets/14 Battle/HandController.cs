@@ -22,6 +22,9 @@ public class HandController : MonoBehaviour
 
     public GameObject sfxObj;
 
+    public GameObject oppDiscardButton;
+    public GameObject playerDiscardButton;
+
     // Start is called before the first frame update
     void Start()
     {
