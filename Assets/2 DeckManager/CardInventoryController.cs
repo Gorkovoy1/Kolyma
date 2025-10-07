@@ -23,6 +23,8 @@ public class CardInventoryController : MonoBehaviour
         }
 
         DontDestroyOnLoad(this);
+
+        //FIX ERROR WHEN IN NON BATTLE SCENE
     }
     // Start is called before the first frame update
     void Start()

@@ -20,6 +20,8 @@ public class HandController : MonoBehaviour
     public GameObject endTurnButton;
     public GameObject actionButton;
 
+    public GameObject sfxObj;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -115,7 +117,7 @@ public class HandController : MonoBehaviour
             
         }
 
-
+        AkSoundEngine.PostEvent("Play_Trick_Card", sfxObj);
         UpdateHands();
     }
 
@@ -131,8 +133,8 @@ public class HandController : MonoBehaviour
 
             Instantiate(opponentSpecialDeck[0], opponentHand.transform);
             opponentSpecialDeck.RemoveAt(0);
-            
 
+            AkSoundEngine.PostEvent("Play_Trick_Card", sfxObj);
             //Delay between cards
             yield return new WaitForSeconds(1f);
         }
@@ -152,7 +154,7 @@ public class HandController : MonoBehaviour
             Instantiate(playerSpecialDeck[0], playerHand.transform);
             playerSpecialDeck.RemoveAt(0);
 
-
+            AkSoundEngine.PostEvent("Play_Trick_Card", sfxObj);
             //Delay between cards
             yield return new WaitForSeconds(1f);
         }

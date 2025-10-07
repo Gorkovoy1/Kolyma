@@ -176,7 +176,7 @@ namespace TutorialScripts
                 }
             }
 
-
+            AkSoundEngine.PostEvent("Play_Number_Card", tutorialObj.GetComponent<TutorialController>().sfxObj);
 
         }
 

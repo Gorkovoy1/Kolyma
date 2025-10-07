@@ -129,7 +129,7 @@ public class CardPlacementController : MonoBehaviour
                 Instantiate(numberDeck[0], playerNegativeArea);
                 numberDeck.RemoveAt(0);
             }
-
+            AkSoundEngine.PostEvent("Play_Number_Card", sfxObj);
             //Delay between cards
             yield return new WaitForSeconds(1f);
         }
@@ -168,7 +168,7 @@ public class CardPlacementController : MonoBehaviour
                 Instantiate(numberDeck[0], opponentNegativeArea);
                 numberDeck.RemoveAt(0);
             }
-
+            AkSoundEngine.PostEvent("Play_Number_Card", sfxObj);
             //Delay between cards
             yield return new WaitForSeconds(1f);
         }
@@ -251,8 +251,8 @@ public class CardPlacementController : MonoBehaviour
                 }
             }
         }
-        
-        
+
+        AkSoundEngine.PostEvent("Play_Number_Card", sfxObj);
 
     }
 

@@ -66,7 +66,7 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Dialogue 1 Ink");
+        SceneManager.LoadScene("DIALOGUE1");
     }
 
     

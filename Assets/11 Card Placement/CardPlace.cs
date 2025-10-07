@@ -1231,7 +1231,7 @@ public class CardPlace : MonoBehaviour,
             g.GetComponent<CardPlace>().correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(true);
             g.GetComponent<RectTransform>().anchoredPosition = new Vector3(400f, 0f, 0);
             g.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.17f, 0.17f, 0.17f);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1.5f);
 
             g.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
             g.transform.SetParent(playerDiscardZone.transform);
@@ -1249,7 +1249,7 @@ public class CardPlace : MonoBehaviour,
             g.GetComponent<AICardPlace>().correspondingImage.transform.localScale = new Vector3(0.14f, 0.14f, 0.14f);
             yield return new WaitForSeconds(1f);
             StartCoroutine(FlipOverCard(g));
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1.5f);
 
             g.GetComponent<AICardPlace>().correspondingImage.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
             g.transform.SetParent(opponentDiscardZone.transform);
