@@ -1083,8 +1083,17 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                 }
             }
 
-            StartCoroutine(CardSelectionController.instance.SwapOut(chosenCard, "player"));
-            PlayerStats.instance.swapped = true;
+            if (chosenCard.transform.parent == CardPlacementController.instance.playerPositiveArea || chosenCard.transform.parent == CardPlacementController.instance.playerNegativeArea)
+            {
+                StartCoroutine(CardSelectionController.instance.SwapOut(chosenCard, "player"));
+                PlayerStats.instance.swapped = true;
+            }
+            else
+            {
+                StartCoroutine(CardSelectionController.instance.SwapOut(chosenCard, "opponent"));
+                OpponentStats.instance.swapped = true;
+            }
+            
 
 }
         else if (specialCardType == SpecialCardType.InCahoots)
@@ -1993,7 +2002,7 @@ public class AICardPlace : MonoBehaviour //AICardPlace
             GameObject chosenCard = discardedCards[randomIndex];
             discardedCards.RemoveAt(randomIndex);
             chosenCard.GetComponent<AICardPlace>().beingPlayed = false;
-            //chosenCard.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            chosenCard.GetComponent<AICardPlace>().correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
             chosenCard.transform.SetParent(opponentHand);
         }
         else
