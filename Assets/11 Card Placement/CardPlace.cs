@@ -331,6 +331,17 @@ public class CardPlace : MonoBehaviour,
         this.transform.SetParent(playerDiscardZone.transform);
         this.transform.position = playerDiscardZone.transform.position;
 
+        playerHand.GetComponentInParent<HandController>().playerDiscardButton.GetComponent<PlayerDiscardButton>().lastPlayed = correspondingImage.GetComponent<Image>();
+        foreach (var tmp in correspondingImage.GetComponentsInChildren<TextMeshProUGUI>(true)) // true = include inactive
+        {
+            if (tmp.name == "Text (TMP) (1)") // Replace with your actual object name
+            {
+                playerHand.GetComponentInParent<HandController>().playerDiscardButton.GetComponent<PlayerDiscardButton>().cardDesc = tmp.text;
+                break;
+            }
+        }
+        playerHand.GetComponentInParent<HandController>().playerDiscardButton.GetComponent<PlayerDiscardButton>().AddCardToList();
+
         StartCoroutine(PlayCorrespondingAction());
     }
 
