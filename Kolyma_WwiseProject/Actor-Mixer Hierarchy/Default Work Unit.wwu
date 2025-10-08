@@ -1844,7 +1844,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-10</Value>
+										<Value>-11</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -2025,7 +2025,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-10</Value>
+										<Value>-18</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -2090,7 +2090,7 @@
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-5</Value>
+												<Value>-10</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -2119,7 +2119,7 @@
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-5</Value>
+												<Value>-10</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -2174,6 +2174,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Thick_Woolen_Coat" ID="{AFE1C432-26D8-49E2-BC5B-F7C9F176B116}" ShortID="989269388">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -2242,7 +2249,7 @@
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-7</Value>
+												<Value>-10</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -2267,13 +2274,71 @@
 										<ActiveSource Name="weakness" ID="{F68AB24E-A53E-4A06-B8F9-5F4AB0CD983F}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
+								<Sound Name="Search" ID="{83ECE0E0-909F-49FC-94EF-0FC5635769B4}" ShortID="824733876">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Search" ID="{43DC99F9-D731-4433-A3D0-2CC570E1EC3A}">
+											<Language>SFX</Language>
+											<AudioFile>Search.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="696251624"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Search" ID="{43DC99F9-D731-4433-A3D0-2CC570E1EC3A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Bribe" ID="{5C29805C-EDD9-4093-A966-0C093D5C055B}" ShortID="178707849">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-2</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Bribe" ID="{66D3B37F-EA17-4A27-A961-D006780110DF}">
+											<Language>SFX</Language>
+											<AudioFile>Bribe.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="77588350"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Bribe" ID="{66D3B37F-EA17-4A27-A961-D006780110DF}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</Folder>
 						<Sound Name="Dice" ID="{6688EC86-DC0B-4854-8DD4-E5EB3D3BA0B8}" ShortID="428171563">
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-7</Value>
+										<Value>-10</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -2294,6 +2359,11 @@
 									</MediaIDList>
 								</AudioFileSource>
 								<AudioFileSource Name="dice 2" ID="{1FDAA9AC-2BA1-45FA-A73A-D7CCDAC07E41}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="2.12251416670048"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="3.3864832772075"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>dice 2.wav</AudioFile>
 									<MediaIDList>
@@ -2306,6 +2376,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Card_Burn" ID="{B796DD3D-453D-4A97-B034-1879A1D956DE}" ShortID="553084134">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>

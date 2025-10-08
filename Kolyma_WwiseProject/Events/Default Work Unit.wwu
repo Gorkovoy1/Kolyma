@@ -482,6 +482,28 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Search" ID="{27F17FBF-541D-4E21-BF85-8ACFB587B32D}">
+							<ChildrenList>
+								<Action Name="" ID="{A1E60528-8578-4702-9CAF-F7EBBE5A9DEE}" ShortID="778725556">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Search" ID="{83ECE0E0-909F-49FC-94EF-0FC5635769B4}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Bribe" ID="{CD036EF7-42BE-4D77-9AE8-600B4A5A70FF}">
+							<ChildrenList>
+								<Action Name="" ID="{C81EB345-4AB7-460D-B6F9-C3765611484F}" ShortID="795773453">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Bribe" ID="{5C29805C-EDD9-4093-A966-0C093D5C055B}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Event Name="Play_Music_Battle_1" ID="{4D36F179-7491-49A7-86B0-498A998E6ABC}">

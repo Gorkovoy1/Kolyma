@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584420886783288287
+    m_lastTime: -8584417135098328409
     List:
     - name: Andreyev
       guid: a6c0eb1ff2ce024c96aeb202fa8b346a
@@ -338,6 +338,46 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Play_Bribe
+      guid: f76e03cdbe42774d9ae8600b4a5a70ff
+      id: 3822624772
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Battle
+        ObjectType: 4
+        guid: bdeeec5070f65944895c732b68bd80b2
+      - ElementName: Play_Bribe
+        ObjectType: 3
+        guid: f76e03cdbe42774d9ae8600b4a5a70ff
+      Path: Events\Default Work Unit\Battle\Play_Bribe
+      maxAttenuation: 0
+      maxDuration: 1.86
+      minDuration: 1.86
+    - name: Play_Card_Burn
+      guid: dfc5c2ac98e61044a0cc689b0dae88bd
+      id: 3130258220
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Battle
+        ObjectType: 4
+        guid: bdeeec5070f65944895c732b68bd80b2
+      - ElementName: Play_Card_Burn
+        ObjectType: 3
+        guid: dfc5c2ac98e61044a0cc689b0dae88bd
+      Path: Events\Default Work Unit\Battle\Play_Card_Burn
+      maxAttenuation: 0
+      maxDuration: 1.2869513
+      minDuration: 1.2869513
     - name: Play_Caught_Red_Handed
       guid: ea30a3f7feb4aa4ca217d96d1a21c720
       id: 1108803945
@@ -733,6 +773,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 7.49264
       minDuration: 7.49264
+    - name: Play_Search
+      guid: bf7ff1271d54214ebf858acfb587b32d
+      id: 3421211826
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Battle
+        ObjectType: 4
+        guid: bdeeec5070f65944895c732b68bd80b2
+      - ElementName: Play_Search
+        ObjectType: 3
+        guid: bf7ff1271d54214ebf858acfb587b32d
+      Path: Events\Default Work Unit\Battle\Play_Search
+      maxAttenuation: 0
+      maxDuration: 2.1152382
+      minDuration: 2.1152382
     - name: Play_Setup
       guid: 52e6d63a9a830c4a8bd1a70528cbc390
       id: 4244373777
@@ -972,7 +1032,7 @@ MonoBehaviour:
     m_lastTime: -8584425031120868339
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0100000005000000060000000700000008000000090000000a0000002300000024000000250000002e0000008c0000008d0000008f000000
+  ExpandedWaapiItemIds: 01000000050000000600000008000000090000000a0000002300000024000000250000002e0000008c0000008d0000008f000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

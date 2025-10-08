@@ -22,7 +22,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{1C6A20AB-A0F0-6DB2-4D71-26D4109570CE}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{23230B2D-4C12-7EAB-9A86-21AE9066E7E3}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -41,6 +41,10 @@
 				<File Id="75083474" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>camp_arrival_no_intro.wav</ShortName>
 					<CachePath>SFX/camp_arrival_no_intro_56CEF360.wem</CachePath>
+				</File>
+				<File Id="77588350" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bribe.wav</ShortName>
+					<CachePath>SFX/Bribe_818F3B66.wem</CachePath>
 				</File>
 				<File Id="90128117" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Clocks, Chime, Metallic Wall Clock, Chime Ringing SND102458.wav</ShortName>
@@ -80,7 +84,7 @@
 				</File>
 				<File Id="185742565" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>dice 2.wav</ShortName>
-					<CachePath>SFX/dice 2_818F3B66.wem</CachePath>
+					<CachePath>SFX/dice 2_CD2A5852.wem</CachePath>
 				</File>
 				<File Id="241560530" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Thick Woolen Coat3.wav</ShortName>
@@ -190,6 +194,10 @@
 					<ShortName>Setup.wav</ShortName>
 					<CachePath>SFX/Setup_818F3B66.wem</CachePath>
 				</File>
+				<File Id="696251624" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Search.wav</ShortName>
+					<CachePath>SFX/Search_818F3B66.wem</CachePath>
+				</File>
 				<File Id="736547814" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>NumberCard4.wav</ShortName>
 					<CachePath>SFX/NumberCard4_818F3B66.wem</CachePath>
@@ -264,7 +272,7 @@
 				</File>
 				<File Id="1015370664" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Card_Burn.wav</ShortName>
-					<CachePath>SFX/Card_Burn_1424F201.wem</CachePath>
+					<CachePath>SFX/Card_Burn_1B73DA4B.wem</CachePath>
 				</File>
 				<File Id="1027008973" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>TrickCard3.wav</ShortName>
@@ -341,6 +349,11 @@
 						<MediaRef Id="543919465"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="3822624772" Name="Play_Bribe" DurationType="OneShot" DurationMin="1.86" DurationMax="1.86">
+					<MediaRefs>
+						<MediaRef Id="77588350"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3130258220" Name="Play_Card_Burn" DurationType="OneShot" DurationMin="1.2869513" DurationMax="1.2869513">
 					<MediaRefs>
 						<MediaRef Id="1015370664"/>
@@ -394,7 +407,7 @@
 						<MediaRef Id="934665564"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2213067183" Name="Play_Dice" DurationType="OneShot" DurationMin="3.998594" DurationMax="3.998594">
+				<Event Id="2213067183" Name="Play_Dice" DurationType="OneShot" DurationMin="3.3864832" DurationMax="3.3864832">
 					<MediaRefs>
 						<MediaRef Id="185742565"/>
 					</MediaRefs>
@@ -465,6 +478,11 @@
 						<MediaRef Id="90128117"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="3421211826" Name="Play_Search" DurationType="OneShot" DurationMin="2.1152382" DurationMax="2.1152382">
+					<MediaRefs>
+						<MediaRef Id="696251624"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="4244373777" Name="Play_Setup" DurationType="OneShot" DurationMin="2.5132654" DurationMax="2.5132654">
 					<MediaRefs>
 						<MediaRef Id="692733281"/>
@@ -524,5 +542,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{FABF0CDB-2348-D210-8626-E84D4872A2DB}</FileHash>
+	<FileHash>{DE2B1870-13AA-7AF1-93ED-25825F6EC54B}</FileHash>
 </SoundBanksInfo>

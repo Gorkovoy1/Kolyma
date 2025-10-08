@@ -24,6 +24,7 @@ namespace AK
         static const AkUniqueID PLAY_BARRACKS_BACKGROUND_SFX = 455065390U;
         static const AkUniqueID PLAY_BARRACKS_DOOR = 3205279810U;
         static const AkUniqueID PLAY_BREATH = 3698047240U;
+        static const AkUniqueID PLAY_BRIBE = 3822624772U;
         static const AkUniqueID PLAY_CARD_BURN = 3130258220U;
         static const AkUniqueID PLAY_CAUGHT_RED_HANDED = 1108803945U;
         static const AkUniqueID PLAY_CELL_DOOR = 386574545U;
@@ -47,6 +48,7 @@ namespace AK
         static const AkUniqueID PLAY_POISON = 3292663506U;
         static const AkUniqueID PLAY_PUNCH = 3946911806U;
         static const AkUniqueID PLAY_SCREEN_SFX = 1112221790U;
+        static const AkUniqueID PLAY_SEARCH = 3421211826U;
         static const AkUniqueID PLAY_SETUP = 4244373777U;
         static const AkUniqueID PLAY_SILENCE = 2807572219U;
         static const AkUniqueID PLAY_THICK_WOOLEN_COAT = 2537547804U;
