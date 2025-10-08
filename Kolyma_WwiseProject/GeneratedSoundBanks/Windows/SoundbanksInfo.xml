@@ -22,7 +22,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{AE97A232-1DCB-4F31-A41A-6310C149595F}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{1C6A20AB-A0F0-6DB2-4D71-26D4109570CE}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -262,6 +262,10 @@
 					<ShortName>Dogs_Bark-004.wav</ShortName>
 					<CachePath>SFX/Dogs_Bark-004_F9AC0766.wem</CachePath>
 				</File>
+				<File Id="1015370664" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Card_Burn.wav</ShortName>
+					<CachePath>SFX/Card_Burn_1424F201.wem</CachePath>
+				</File>
 				<File Id="1027008973" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>TrickCard3.wav</ShortName>
 					<CachePath>SFX/TrickCard3_818F3B66.wem</CachePath>
@@ -335,6 +339,11 @@
 						<MediaRef Id="471573529"/>
 						<MediaRef Id="515368332"/>
 						<MediaRef Id="543919465"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3130258220" Name="Play_Card_Burn" DurationType="OneShot" DurationMin="1.2869513" DurationMax="1.2869513">
+					<MediaRefs>
+						<MediaRef Id="1015370664"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="1108803945" Name="Play_Caught_Red_Handed" DurationType="OneShot" DurationMin="3.15" DurationMax="3.15">
@@ -515,5 +524,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{BC76BEE3-137C-1961-5370-B35C0BE89146}</FileHash>
+	<FileHash>{FABF0CDB-2348-D210-8626-E84D4872A2DB}</FileHash>
 </SoundBanksInfo>

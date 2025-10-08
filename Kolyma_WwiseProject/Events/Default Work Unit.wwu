@@ -471,6 +471,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Card_Burn" ID="{ACC2C5DF-E698-4410-A0CC-689B0DAE88BD}">
+							<ChildrenList>
+								<Action Name="" ID="{AA3D0CCE-E618-48AF-B494-8270C3806616}" ShortID="465417426">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Card_Burn" ID="{B796DD3D-453D-4A97-B034-1879A1D956DE}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Event Name="Play_Music_Battle_1" ID="{4D36F179-7491-49A7-86B0-498A998E6ABC}">

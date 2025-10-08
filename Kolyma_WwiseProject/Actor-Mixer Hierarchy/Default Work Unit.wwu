@@ -2305,6 +2305,33 @@
 								<ActiveSource Name="dice 2" ID="{1FDAA9AC-2BA1-45FA-A73A-D7CCDAC07E41}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="Card_Burn" ID="{B796DD3D-453D-4A97-B034-1879A1D956DE}" ShortID="553084134">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Card_Burn" ID="{29474ED0-B67C-4C6D-97A2-A4B086964A0A}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.260625620655412"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="1.28695134061569"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Card_Burn.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1015370664"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Card_Burn" ID="{29474ED0-B67C-4C6D-97A2-A4B086964A0A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</ActorMixer>
 				<ActorMixer Name="Music" ID="{B6E27AF9-38C7-4636-969D-C5B2AD492F0B}" ShortID="275461302">

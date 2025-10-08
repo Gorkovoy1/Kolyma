@@ -151,6 +151,8 @@ public class AICardPlace : MonoBehaviour //AICardPlace
 
     IEnumerator BurnShader(GameObject g)
     {
+        AkSoundEngine.PostEvent("Play_Card_Burn", playerHand.GetComponentInParent<HandController>().sfxObj);
+
         RawImage rawImage = g.GetComponent<CardPlace>().correspondingImage.GetComponent<RawImage>();
 
         Material mat = new Material(rawImage.materialForRendering);

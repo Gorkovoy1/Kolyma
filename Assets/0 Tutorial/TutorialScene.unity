@@ -1674,6 +1674,7 @@ MonoBehaviour:
   AIHandler: {fileID: 0}
   firstTurn: 0
   handController: {fileID: 0}
+  passAnimationController: {fileID: 0}
 --- !u!1 &629652256
 GameObject:
   m_ObjectHideFlags: 0
@@ -3158,6 +3159,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayerTurn: 0
+  checkedPlayable: 0
+  opponentPlayedCard: 0
+  playerPlayedCard: 0
+  playerPassed: 0
+  opponentPassed: 0
 --- !u!1 &957836326
 GameObject:
   m_ObjectHideFlags: 0
@@ -3312,6 +3318,7 @@ MonoBehaviour:
   finishDeck: 0
   sfxObj: {fileID: 1097769620}
   handController: {fileID: 0}
+  buttonList: []
 --- !u!114 &975778166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3553,6 +3560,7 @@ MonoBehaviour:
   selected: 0
   buttonPrefab: {fileID: 1634184321075820668, guid: 73b2e4c9263a4ac4ea5dcc97065117d3, type: 3}
   choiceObj: {fileID: 1250807829}
+  sfxObj: {fileID: 1097769620}
 --- !u!1 &984533469
 GameObject:
   m_ObjectHideFlags: 0
@@ -3727,6 +3735,7 @@ GameObject:
   - component: {fileID: 1097769626}
   - component: {fileID: 1097769628}
   - component: {fileID: 1097769627}
+  - component: {fileID: 1097769629}
   m_Layer: 0
   m_Name: SFX
   m_TagString: Untagged
@@ -3920,6 +3929,35 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: fa689f997c9dda34b9d3afc3e25830f8, type: 2}
+  useCallbacks: 0
+  Callbacks: []
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  eventIdInternal: 0
+  valueGuidInternal: 
+  m_callbackDataInternal: {fileID: 0}
+--- !u!114 &1097769629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097769620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 384aaf24ba9908b4ea476d44fba22ea7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: 
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 3785eca6adb7a7141a5fd6c903b340d5, type: 2}
   useCallbacks: 0
   Callbacks: []
   playingId: 0

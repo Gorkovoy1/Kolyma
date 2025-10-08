@@ -16,6 +16,8 @@ namespace TutorialScripts
 
         public static CardSelectionController instance;
 
+        public GameObject sfxObj;
+
         void Awake()
         {
             if (instance == null)
@@ -411,6 +413,8 @@ namespace TutorialScripts
 
         IEnumerator DeleteShader(GameObject g)
         {
+            AkSoundEngine.PostEvent("Play_Card_Burn", sfxObj);
+
             RawImage rawImage = g.GetComponent<global::CardPlace>().correspondingImage.GetComponent<RawImage>();
             
             

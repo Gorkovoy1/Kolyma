@@ -24,6 +24,7 @@ namespace AK
         static const AkUniqueID PLAY_BARRACKS_BACKGROUND_SFX = 455065390U;
         static const AkUniqueID PLAY_BARRACKS_DOOR = 3205279810U;
         static const AkUniqueID PLAY_BREATH = 3698047240U;
+        static const AkUniqueID PLAY_CARD_BURN = 3130258220U;
         static const AkUniqueID PLAY_CAUGHT_RED_HANDED = 1108803945U;
         static const AkUniqueID PLAY_CELL_DOOR = 386574545U;
         static const AkUniqueID PLAY_CELL_DOOR_OPEN = 2237368892U;

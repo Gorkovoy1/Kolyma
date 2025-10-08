@@ -31,6 +31,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	2541567472	Play_Whisper			\Default Work Unit\Play_Whisper	
 	2741544670	Play_Music_Camp_Day			\Default Work Unit\Play_Music_Camp_Day	
 	2807572219	Play_Silence			\Default Work Unit\Play_Silence	
+	3130258220	Play_Card_Burn			\Default Work Unit\Battle\Play_Card_Burn	
 	3205279810	Play_Barracks_Door			\Default Work Unit\Play_Barracks_Door	
 	3234553616	Play_Cough			\Default Work Unit\Play_Cough	
 	3292663506	Play_Poison			\Default Work Unit\Battle\Play_Poison	
@@ -103,6 +104,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	943318692	Andreyev_Satisfied	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Andreyev_Satisfied_74B6C6FE.wem		\Actor-Mixer Hierarchy\Default Work Unit\NPCs\Andreyev\Andreyev_Satisfied		187108
 	946766250	Barracks_Door	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\barracks_doors_705BC893.wem		\Actor-Mixer Hierarchy\Default Work Unit\Barracks_SFX\Barracks_Door		389500
 	1005253697	Dogs_Bark_04	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Dogs_Bark-004_F9AC0766.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camp_SFX\Dogs\Dogs_Bark_04		32954
+	1015370664	Card_Burn	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Card_Burn_1424F201.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Card_Burn		227116
 	1027008973	TrickCard3	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\TrickCard3_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Trick_Cards_Woosh\TrickCard3		227124
 	1043577720	NumberCard3	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\NumberCard3_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Number_Cards\NumberCard3		260424
 	1051682366	TrickCard2	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\TrickCard2_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Trick_Cards_Woosh\TrickCard2		227124

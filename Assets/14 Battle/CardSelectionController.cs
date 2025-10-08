@@ -14,6 +14,8 @@ public class CardSelectionController : MonoBehaviour
 
     public static CardSelectionController instance;
 
+    public GameObject sfxObj;
+
     void Awake()
     {
         if (instance == null)
@@ -430,6 +432,8 @@ public class CardSelectionController : MonoBehaviour
 
     IEnumerator DeleteShader(GameObject g)
     {
+        AkSoundEngine.PostEvent("Play_Card_Burn", sfxObj);
+
         RawImage rawImage = g.GetComponent<CardPlace>().correspondingImage.GetComponent<RawImage>();
 
         Material mat = new Material(rawImage.materialForRendering);
