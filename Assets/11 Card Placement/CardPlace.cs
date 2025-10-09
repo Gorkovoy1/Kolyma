@@ -1365,6 +1365,7 @@ public class CardPlace : MonoBehaviour,
             discardedCards.RemoveAt(randomIndex);
             chosenCard.GetComponent<CardPlace>().beingPlayed = false;
             chosenCard.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            chosenCard.GetComponent<CardPlace>().correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(false);
             chosenCard.transform.SetParent(playerHand);
         }
         else

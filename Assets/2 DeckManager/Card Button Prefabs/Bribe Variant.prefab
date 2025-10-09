@@ -93,7 +93,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5147363108553547573, guid: 6e2fcb71f256d1a4bba15609cfa854f1, type: 3}
       propertyPath: m_Name
-      value: Bribe
+      value: Bribe Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5147363108553547574, guid: 6e2fcb71f256d1a4bba15609cfa854f1, type: 3}
       propertyPath: cardDesc
@@ -111,5 +111,13 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: d340d7ea2ad55cb4f9e20e16b69b7b88, type: 3}
+    - target: {fileID: 5147363108638173975, guid: 6e2fcb71f256d1a4bba15609cfa854f1, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5147363108638173975, guid: 6e2fcb71f256d1a4bba15609cfa854f1, type: 3}
+      propertyPath: m_Color.g
+      value: 0.627451
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e2fcb71f256d1a4bba15609cfa854f1, type: 3}

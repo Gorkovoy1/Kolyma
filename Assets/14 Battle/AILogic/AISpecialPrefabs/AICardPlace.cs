@@ -1981,7 +1981,7 @@ public class AICardPlace : MonoBehaviour //AICardPlace
             g.GetComponent<AICardPlace>().correspondingImage.transform.localScale = new Vector3(0.17f, 0.17f, 0.17f);
             yield return new WaitForSeconds(1f);
             StartCoroutine(FlipOverCard(g));
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1.5f);
 
             StartCoroutine(LerpScaleDown(g.GetComponent<AICardPlace>().correspondingImage.transform, 0.2f));
             g.transform.SetParent(opponentDiscardZone.transform);

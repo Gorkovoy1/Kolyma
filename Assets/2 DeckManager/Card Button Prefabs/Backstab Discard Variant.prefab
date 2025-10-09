@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 4274230351309652953, guid: cd1be740f5e789f429be52fd1cbe0f8f, type: 3}
     - target: {fileID: 8346053592480935290, guid: f4add6b0b822f6f4cb7e3885ea744955, type: 3}
       propertyPath: m_Name
-      value: Backstab Discard
+      value: Backstab Discard Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8346053592480935291, guid: f4add6b0b822f6f4cb7e3885ea744955, type: 3}
       propertyPath: m_Pivot.x
@@ -111,6 +111,14 @@ PrefabInstance:
     - target: {fileID: 8346053592480935291, guid: f4add6b0b822f6f4cb7e3885ea744955, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346053592665168216, guid: f4add6b0b822f6f4cb7e3885ea744955, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346053592665168216, guid: f4add6b0b822f6f4cb7e3885ea744955, type: 3}
+      propertyPath: m_Color.g
+      value: 0.627451
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4add6b0b822f6f4cb7e3885ea744955, type: 3}

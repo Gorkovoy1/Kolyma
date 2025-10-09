@@ -76,7 +76,9 @@ public class DeckManagerController : MonoBehaviour
 
     public IEnumerator LerpPullPanel()
     {
-        if(deckManagerPanel.anchoredPosition.y < 0)
+        this.GetComponentInChildren<ScrollRect>().verticalNormalizedPosition = 0f;
+
+        if (deckManagerPanel.anchoredPosition.y < 0)
         {
             endPos = new Vector2(startPos.x, 0f);
             AkSoundEngine.PostEvent("Play_Open_Trick_Collection", sfxObj);

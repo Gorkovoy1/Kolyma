@@ -21,7 +21,7 @@ MonoBehaviour:
   line2: Magadan, City Jail, The Soviet Union
   music: Play_Music_Jail
   inkfile: {fileID: 4900000, guid: 3934b32f015142e458520ba47dea4ce4, type: 3}
-  nextScene: 2
+  nextScene: 4
   ambient: {fileID: 1359792330407849116, guid: 6394e4bec55cea1498fb68ef1e03c7bf, type: 3}
   bganim: {fileID: 6376301021518508598, guid: e357a923dd6c78147bb2df2aa5a6ef04, type: 3}
   sfx: {fileID: 3393754126600923965, guid: 26dca8aa7cf0da14a861bb78ff2b9097, type: 3}

@@ -302,15 +302,44 @@ namespace TutorialScripts
             yield return new WaitForSeconds(0.5f);
         }
 
+        IEnumerator LerpScaleDown(Transform target, float duration)
+        {
+            Vector3 startScale = new Vector3(0.17f, 0.17f, 0.17f);
+            Vector3 endScale = new Vector3(0.01f, 0.01f, 0.01f);
+            float elapsed = 0f;
+
+            while (elapsed < duration)
+            {
+                target.localScale = Vector3.Lerp(startScale, endScale, elapsed / duration);
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+
+            target.localScale = endScale; // ensure final scale is exact
+        }
+
         IEnumerator BeingPlayed()
         {
-            this.GetComponent<RectTransform>().anchoredPosition = new Vector3(400f, 0f, 0);
+            RectTransform parentRect = opponentDiscardZone.transform.parent as RectTransform;
+            this.transform.SetParent(opponentDiscardZone.transform.parent, false);
+            this.GetComponent<RectTransform>().anchoredPosition = new Vector2(parentRect.rect.width / 2f, -parentRect.rect.height / 2f);
             correspondingImage.transform.localScale = new Vector3(0.17f, 0.17f, 0.17f);
             yield return new WaitForSeconds(1f);
 
-            correspondingImage.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
+            StartCoroutine(LerpScaleDown(correspondingImage.transform, 0.2f));
             this.transform.SetParent(playerDiscardZone.transform);
             this.transform.position = playerDiscardZone.transform.position;
+
+            playerHand.GetComponentInParent<HandController>().playerDiscardButton.GetComponent<PlayerDiscardButton>().lastPlayed = correspondingImage.GetComponent<Image>();
+            foreach (var tmp in correspondingImage.GetComponentsInChildren<TextMeshProUGUI>(true)) // true = include inactive
+            {
+                if (tmp.name == "Text (TMP) (1)") // Replace with your actual object name
+                {
+                    playerHand.GetComponentInParent<HandController>().playerDiscardButton.GetComponent<PlayerDiscardButton>().cardDesc = tmp.text;
+                    break;
+                }
+            }
+            playerHand.GetComponentInParent<HandController>().playerDiscardButton.GetComponent<PlayerDiscardButton>().AddCardToList();
 
             StartCoroutine(PlayCorrespondingAction());
         }
@@ -859,40 +888,47 @@ namespace TutorialScripts
             //opponent special cards upside down with card back
             //discard animation -goes down, upside down, and then turns around and goes away
 
-            g.GetComponent<AICardPlace>().isPlayable = false;
+            
             //show description
-
+            RectTransform parentRect = opponentDiscardZone.transform.parent as RectTransform;
 
             if (target == "player")
             {
+                g.GetComponent<CardPlace>().isPlayable = false;
                 g.GetComponent<CardPlace>().correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(true);
-                g.GetComponent<RectTransform>().anchoredPosition = new Vector3(300f, 300f, 0);
+                g.transform.SetParent(opponentDiscardZone.transform.parent, false);
+                g.GetComponent<RectTransform>().anchoredPosition = new Vector2(parentRect.rect.width / 2f, -parentRect.rect.height / 2f);
                 g.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.17f, 0.17f, 0.17f);
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(1.5f);
 
-                g.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
+                StartCoroutine(LerpScaleDown(g.GetComponent<CardPlace>().correspondingImage.transform, 0.2f));
                 g.transform.SetParent(playerDiscardZone.transform);
                 g.transform.position = playerDiscardZone.transform.position;
 
                 PlayerStats.instance.discarded = true;
+
+                g.GetComponent<CardPlace>().correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(false);
             }
             else
             {
                 //is card back
                 //squeeze to 0 then stretch back
                 //when 0, hide cardback and show card image
-
-                g.GetComponent<RectTransform>().anchoredPosition = new Vector3(200f, -320f, 0);
-                g.GetComponent<AICardPlace>().correspondingImage.transform.localScale = new Vector3(0.14f, 0.14f, 0.14f);
+                g.GetComponent<AICardPlace>().isPlayable = false;
+                g.transform.SetParent(opponentDiscardZone.transform.parent, false);
+                g.GetComponent<RectTransform>().anchoredPosition = new Vector2(parentRect.rect.width / 2f, -parentRect.rect.height / 2f);
+                g.GetComponent<AICardPlace>().correspondingImage.transform.localScale = new Vector3(0.17f, 0.17f, 0.17f);
                 yield return new WaitForSeconds(1f);
                 StartCoroutine(FlipOverCard(g));
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(1.5f);
 
-                g.GetComponent<AICardPlace>().correspondingImage.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
+                StartCoroutine(LerpScaleDown(g.GetComponent<AICardPlace>().correspondingImage.transform, 0.2f));
                 g.transform.SetParent(opponentDiscardZone.transform);
                 g.transform.position = opponentDiscardZone.transform.position;
 
                 OpponentStats.instance.discarded = true;
+
+                g.GetComponent<AICardPlace>().correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(false);
             }
 
         }
@@ -933,6 +969,7 @@ namespace TutorialScripts
                 discardedCards.Remove(chosenCard);
                 chosenCard.GetComponent<CardPlace>().beingPlayed = false;
                 chosenCard.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                chosenCard.GetComponent<CardPlace>().correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(false);
                 chosenCard.transform.SetParent(playerHand);
             }
             else
