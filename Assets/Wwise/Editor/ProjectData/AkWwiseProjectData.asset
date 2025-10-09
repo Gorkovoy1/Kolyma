@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584417135098328409
+    m_lastTime: -8584416595181707495
     List:
     - name: Andreyev
       guid: a6c0eb1ff2ce024c96aeb202fa8b346a
@@ -555,8 +555,8 @@ MonoBehaviour:
         guid: 525a5cfdc49302458b61ab853d507dcd
       Path: Events\Default Work Unit\Battle\Play_Dice
       maxAttenuation: 0
-      maxDuration: 3.998594
-      minDuration: 3.998594
+      maxDuration: 3.3864832
+      minDuration: 3.3864832
     - name: Play_Dogs_Bark
       guid: 2175ade8841a244cb5e4cba5416166f8
       id: 1892391772

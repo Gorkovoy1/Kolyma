@@ -174,10 +174,27 @@ public class AICardPlace : MonoBehaviour //AICardPlace
         yield return new WaitForSeconds(0.5f);
     }
 
+    IEnumerator LerpScaleDown(Transform target, float duration)
+    {
+        Vector3 startScale = new Vector3(0.17f, 0.17f, 0.17f);
+        Vector3 endScale = new Vector3(0.01f, 0.01f, 0.01f);
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            target.localScale = Vector3.Lerp(startScale, endScale, elapsed / duration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        target.localScale = endScale; // ensure final scale is exact
+    }
+
     IEnumerator BeingPlayed()
     {
-        this.transform.SetParent(null, true);
-        this.GetComponent<RectTransform>().anchoredPosition = new Vector3(130f, 250f, 0f);
+        RectTransform parentRect = opponentDiscardZone.transform.parent as RectTransform;
+        this.transform.SetParent(opponentDiscardZone.transform.parent, false);
+        this.GetComponent<RectTransform>().anchoredPosition = new Vector2(parentRect.rect.width / 2f, -parentRect.rect.height / 2f);
         correspondingImage.transform.localScale = new Vector3(0.17f, 0.17f, 0.17f);
         yield return new WaitForSeconds(1f);
         StartCoroutine(FlipOverCard(this.gameObject));
@@ -185,7 +202,8 @@ public class AICardPlace : MonoBehaviour //AICardPlace
         //extend time to read
         yield return new WaitForSeconds(0.5f);
 
-        correspondingImage.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
+        //correspondingImage.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+        StartCoroutine(LerpScaleDown(correspondingImage.transform, 0.2f));
         this.transform.SetParent(opponentDiscardZone.transform);
         this.transform.position = opponentDiscardZone.transform.position;
 
@@ -203,7 +221,7 @@ public class AICardPlace : MonoBehaviour //AICardPlace
 
         //flip card back
         correspondingImage.GetComponent<Image>().sprite = cardBack;
-
+        correspondingImage.transform.Find("Image").GetComponent<Image>().enabled = false;
 
 
         StartCoroutine(PlayCorrespondingAction());
@@ -1929,23 +1947,28 @@ public class AICardPlace : MonoBehaviour //AICardPlace
         //opponent special cards upside down with card back
         //discard animation -goes down, upside down, and then turns around and goes away
 
-                
+
         //show description
+        RectTransform parentRect = opponentDiscardZone.transform.parent as RectTransform;
+        
 
 
         if (target == "player")
         {
             g.GetComponent<CardPlace>().isPlayable = false;
             g.GetComponent<CardPlace>().correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(true);
-            g.GetComponent<RectTransform>().anchoredPosition = new Vector3(400f, 0f, 0);
+            g.transform.SetParent(opponentDiscardZone.transform.parent, false);
+            g.GetComponent<RectTransform>().anchoredPosition = new Vector2(parentRect.rect.width / 2f, -parentRect.rect.height / 2f);
             g.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.17f, 0.17f, 0.17f);
             yield return new WaitForSeconds(1f);
 
-            g.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
+            StartCoroutine(LerpScaleDown(g.GetComponent<CardPlace>().correspondingImage.transform, 0.2f));
             g.transform.SetParent(playerDiscardZone.transform);
             g.transform.position = playerDiscardZone.transform.position;
 
             PlayerStats.instance.discarded = true;
+
+            g.GetComponent<CardPlace>().correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(false);
         }
         else
         {
@@ -1953,19 +1976,23 @@ public class AICardPlace : MonoBehaviour //AICardPlace
             //squeeze to 0 then stretch back
             //when 0, hide cardback and show card image
             g.GetComponent<AICardPlace>().isPlayable = false;
-            g.GetComponent<RectTransform>().anchoredPosition = new Vector3(200f, -320f, 0);
-            g.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.14f, 0.14f, 0.14f);
+            g.transform.SetParent(opponentDiscardZone.transform.parent, false);
+            g.GetComponent<RectTransform>().anchoredPosition = new Vector2(parentRect.rect.width / 2f, -parentRect.rect.height / 2f);
+            g.GetComponent<AICardPlace>().correspondingImage.transform.localScale = new Vector3(0.17f, 0.17f, 0.17f);
             yield return new WaitForSeconds(1f);
             StartCoroutine(FlipOverCard(g));
             yield return new WaitForSeconds(1f);
 
-            g.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
+            StartCoroutine(LerpScaleDown(g.GetComponent<AICardPlace>().correspondingImage.transform, 0.2f));
             g.transform.SetParent(opponentDiscardZone.transform);
             g.transform.position = opponentDiscardZone.transform.position;
 
             OpponentStats.instance.discarded = true;
+
+            g.GetComponent<AICardPlace>().correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(false);
         }
 
+        
     }
 
     IEnumerator FlipOverCard(GameObject g)
@@ -2004,6 +2031,8 @@ public class AICardPlace : MonoBehaviour //AICardPlace
             GameObject chosenCard = discardedCards[randomIndex];
             discardedCards.RemoveAt(randomIndex);
             chosenCard.GetComponent<AICardPlace>().beingPlayed = false;
+            chosenCard.GetComponent<AICardPlace>().GetComponent<Image>().sprite = cardBack;
+            chosenCard.GetComponent<AICardPlace>().correspondingImage.transform.Find("Image").GetComponent<Image>().enabled = false;
             chosenCard.GetComponent<AICardPlace>().correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
             chosenCard.transform.SetParent(opponentHand);
         }
