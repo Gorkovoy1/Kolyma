@@ -2033,6 +2033,7 @@ public class AICardPlace : MonoBehaviour //AICardPlace
             chosenCard.GetComponent<AICardPlace>().beingPlayed = false;
             chosenCard.GetComponent<AICardPlace>().GetComponent<Image>().sprite = cardBack;
             chosenCard.GetComponent<AICardPlace>().correspondingImage.transform.Find("Image").GetComponent<Image>().enabled = false;
+            chosenCard.GetComponent<AICardPlace>().correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(false);
             chosenCard.GetComponent<AICardPlace>().correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
             chosenCard.transform.SetParent(opponentHand);
         }
