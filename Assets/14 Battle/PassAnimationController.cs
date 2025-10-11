@@ -16,6 +16,13 @@ public class PassAnimationController : MonoBehaviour
 
     private RectTransform textRect;
 
+    public bool playerLastTurnPassed = false;
+    public bool oppLastTurnPassed = false;
+
+    public BattleEndController battleEndController;
+
+    public bool triggerGameOver = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +35,7 @@ public class PassAnimationController : MonoBehaviour
         if(playerPass)
         {
             playerPass = false;
+            playerLastTurnPassed = true;
             midPos = new Vector3(midPos.x, -115f, midPos.z);
             endPos = new Vector3(endPos.x, -115f, endPos.z);
             startPos = new Vector3(0f, -115f, startPos.z);
@@ -36,10 +44,20 @@ public class PassAnimationController : MonoBehaviour
         else if(oppPass)
         {
             oppPass = false;
+            oppLastTurnPassed = true;
             midPos = new Vector3(midPos.x, 115f, midPos.z);
             endPos = new Vector3(endPos.x, 115f, endPos.z);
             startPos = new Vector3(0f, 115f, startPos.z);
             StartCoroutine(AnimatePassText(oppTextRect));
+        }
+
+        //everyt ime a card is played set lastturnpassed to false
+        //if both last turns are true, game over and calculate who wins
+        if(playerLastTurnPassed && oppLastTurnPassed && !triggerGameOver)
+        {
+            triggerGameOver = true;
+            //toggle game over
+            battleEndController.startBattleEnd = true;
         }
     }
 

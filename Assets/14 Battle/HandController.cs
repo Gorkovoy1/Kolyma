@@ -25,6 +25,8 @@ public class HandController : MonoBehaviour
     public GameObject oppDiscardButton;
     public GameObject playerDiscardButton;
 
+    public PassAnimationController passAnimationController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,6 +68,7 @@ public class HandController : MonoBehaviour
             opponentSpecialDeck[j] = temp;
         }
 
+        opponentSpecialDeck = opponentSpecialDeck.GetRange(0, Mathf.Min(15, opponentSpecialDeck.Count));
 
         //start draw
         StartCoroutine(InitialPlayerDraw());

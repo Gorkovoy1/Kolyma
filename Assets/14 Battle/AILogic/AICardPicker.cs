@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UI;
 
 
 public class AICardPicker : MonoBehaviour
@@ -35,6 +36,8 @@ public class AICardPicker : MonoBehaviour
 
     public bool executingTurn = false;
 
+    public bool opponentUsedAction = false;
+
     public PassAnimationController passAnimationController;
     // Start is called before the first frame update
     void Start()
@@ -57,7 +60,62 @@ public class AICardPicker : MonoBehaviour
             executingTurn = true;
             TurnManager.instance.opponentPassed = false;
             TurnManager.instance.opponentPlayedCard = false;
-            ChooseBestCard();
+
+            //if busted, flip or swap a card - if ideal flip, if not ideal, swap //ACTION
+            if (NumberManager.instance.oppVal > NumberManager.instance.targetVal && !opponentUsedAction)
+            {
+                //sort all opp numbers
+                List<GameObject> list = NumberManager.instance.OPPallNumbers;
+                list.Sort((a, b) =>
+                    a.GetComponent<NumberStats>().value.CompareTo(b.GetComponent<NumberStats>().value)
+                );
+
+                if (difficulty == Difficulty.Ideal)
+                {
+                    //flip middle number
+                    int i = list.Count / 2;
+                    GameObject g = list[i];
+                    
+                    
+                    StartCoroutine(CardSelectionController.instance.FlipNumber(g));
+                    opponentUsedAction = true;
+                }
+                else
+                {
+                    //flip largest number
+                    int i = list.Count - 1;
+                    GameObject g = list[i];
+                    StartCoroutine(CardSelectionController.instance.FlipNumber(g));
+                    opponentUsedAction = true;
+                }
+                NumberManager.instance.oppAction = true;
+                TurnManager.instance.opponentPlayedCard = true;
+
+                StartCoroutine(DelayTurn());
+                //ChooseBestCard();
+            }
+            else if ((NumberManager.instance.oppVal <= NumberManager.instance.targetVal && NumberManager.instance.playerVal > NumberManager.instance.targetVal))
+            {
+                //pass
+                TurnManager.instance.opponentPlayedCard = false;
+                TurnManager.instance.opponentPassed = true;
+                passAnimationController.oppPass = true;
+                StartCoroutine(DelayTurn());
+            }
+            else if(Mathf.Abs(NumberManager.instance.targetVal - NumberManager.instance.oppVal) < Mathf.Abs(NumberManager.instance.targetVal - NumberManager.instance.playerVal))
+            {
+                //pass
+                TurnManager.instance.opponentPlayedCard = false;
+                TurnManager.instance.opponentPassed = true;
+                passAnimationController.oppPass = true;
+                StartCoroutine(DelayTurn());
+            }
+            else
+            {
+                ChooseBestCard();
+            }
+            
+            
         }
     }
 
@@ -68,6 +126,7 @@ public class AICardPicker : MonoBehaviour
 
         //depending on assigned values in inspector, assign points to cards in hand, sort in order of points, pick random from top 3 to play
         playableCards.Clear();
+        NumberManager.instance.recalculate = true;
 
         foreach (Transform c in handController.opponentHand.transform)
         {

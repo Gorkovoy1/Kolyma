@@ -25,11 +25,17 @@ public class AIController : MonoBehaviour
     IEnumerator DelayAction()
     {
         yield return new WaitForSeconds(1.5f);
+        PlayCardContinued();
     }
 
     public void PlayCard()
     {
         StartCoroutine(DelayAction());
+        
+    }
+
+    public void PlayCardContinued()
+    {
         var picker = GetComponent<AICardPicker>();
         var cards = picker.playableCards;
 
@@ -66,7 +72,7 @@ public class AIController : MonoBehaviour
                 }
             }
 
-            
+
             Debug.Log("All cards would bust — skipping turn.");
             StartCoroutine(DelaySkipTurn());
             return;

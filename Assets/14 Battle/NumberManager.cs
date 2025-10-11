@@ -46,11 +46,13 @@ public class NumberManager : MonoBehaviour
     public int oppVal;
     public int targetVal;
 
-    public bool oppAction = false;
-    public bool playerAction = false;
 
     public int playerPosVal;
     public int oppPosVal;
+
+
+    public bool oppAction = false;
+    public bool playerAction = false;
 
 
     void Awake()

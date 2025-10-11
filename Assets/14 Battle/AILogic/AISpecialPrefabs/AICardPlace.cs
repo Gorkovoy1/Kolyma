@@ -192,6 +192,9 @@ public class AICardPlace : MonoBehaviour //AICardPlace
 
     IEnumerator BeingPlayed()
     {
+        opponentHand.parent.GetComponent<HandController>().passAnimationController.oppLastTurnPassed = false;
+
+
         RectTransform parentRect = opponentDiscardZone.transform.parent as RectTransform;
         this.transform.SetParent(opponentDiscardZone.transform.parent, false);
         this.GetComponent<RectTransform>().anchoredPosition = new Vector2(parentRect.rect.width / 2f, -parentRect.rect.height / 2f);
@@ -1926,6 +1929,8 @@ public class AICardPlace : MonoBehaviour //AICardPlace
 
     public void DiscardSpecial(GameObject g, string target)
     {
+        g.GetComponent<CanvasGroup>().blocksRaycasts = false;
+
         if (target == "player")
         {
             PlayerStats.instance.discarded = true;
@@ -1943,7 +1948,7 @@ public class AICardPlace : MonoBehaviour //AICardPlace
 
     IEnumerator DiscardAnimation(GameObject g, string target)
     {
-
+        g.GetComponent<CanvasGroup>().blocksRaycasts = false;
         //opponent special cards upside down with card back
         //discard animation -goes down, upside down, and then turns around and goes away
 
@@ -2030,6 +2035,7 @@ public class AICardPlace : MonoBehaviour //AICardPlace
             int randomIndex = Random.Range(0, discardedCards.Count);
             GameObject chosenCard = discardedCards[randomIndex];
             discardedCards.RemoveAt(randomIndex);
+            chosenCard.GetComponent<CanvasGroup>().blocksRaycasts = true;
             chosenCard.GetComponent<AICardPlace>().beingPlayed = false;
             chosenCard.GetComponent<AICardPlace>().GetComponent<Image>().sprite = cardBack;
             chosenCard.GetComponent<AICardPlace>().correspondingImage.transform.Find("Image").GetComponent<Image>().enabled = false;

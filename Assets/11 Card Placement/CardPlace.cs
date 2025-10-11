@@ -341,6 +341,8 @@ public class CardPlace : MonoBehaviour,
 
     IEnumerator BeingPlayed()
     {
+        playerHand.parent.GetComponent<HandController>().passAnimationController.playerLastTurnPassed = false;
+
         RectTransform parentRect = opponentDiscardZone.transform.parent as RectTransform;
         this.transform.SetParent(opponentDiscardZone.transform.parent, false);
         this.GetComponent<RectTransform>().anchoredPosition = new Vector2(parentRect.rect.width / 2f, -parentRect.rect.height / 2f);

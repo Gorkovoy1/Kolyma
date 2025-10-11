@@ -27,6 +27,7 @@ public class BattleEndController : MonoBehaviour
     {
         if (startBattleEnd)
         {
+            startBattleEnd = false;
             StartFade();
         }
 
@@ -56,7 +57,6 @@ public class BattleEndController : MonoBehaviour
 
     public void StartFade()
     {
-        startBattleEnd = false;
         //figure out if win or lose
         if(NumberManager.instance.playerVal <= NumberManager.instance.targetVal && Mathf.Abs(NumberManager.instance.targetVal - NumberManager.instance.playerVal) < Mathf.Abs(NumberManager.instance.targetVal - NumberManager.instance.oppVal))
         {

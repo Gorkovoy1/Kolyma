@@ -13,6 +13,7 @@ public class TurnManager : MonoBehaviour
 
     public bool playerPassed = false;
     public bool opponentPassed = false;
+
     // Start is called before the first frame update
 
     void Awake()
