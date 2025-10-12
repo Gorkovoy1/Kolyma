@@ -49,6 +49,10 @@ public class TutorialController : MonoBehaviour
 
     public Image andreyevPortrait;
 
+    public PassAnimationController passAnimationController;
+
+    public GameObject endTurnButton;
+
     IEnumerator SwitchToDiceScene()
     {
         yield return new WaitForSeconds(0.5f);
@@ -95,7 +99,7 @@ public class TutorialController : MonoBehaviour
             new TutorialStepData
             {
                 setPosition = new Vector2(-138, -167), //484, 333
-                message = "First, draw four cards from the Number Deck. I will do the same.",
+                message = "First, draw four numbers from the Deck. I will do the same.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
@@ -108,7 +112,7 @@ public class TutorialController : MonoBehaviour
             new TutorialStepData
             {
                 setPosition = new Vector2(-138, -167),
-                message = "The Number deck has positives and negatives. They go from -4 to 9.",
+                message = "The Number Deck has positives and negatives. They go from -4 to 9.",
                 requireContinue = true,
             },
             new TutorialStepData
@@ -116,7 +120,7 @@ public class TutorialController : MonoBehaviour
                 setPosition = new Vector2(-138, -167),
                 circlePosition = new Vector2(300, 110),
                 circleSpawn = true,
-                message = "The value at the top is mine.",
+                message = "The value at the top is my total.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
@@ -146,14 +150,14 @@ public class TutorialController : MonoBehaviour
             new TutorialStepData
             {
                 setPosition = new Vector2(-138, -167),
-                message = "You must get as close to the target value as possible.",
+                message = "You must get as close to the target as possible.",
                 requireContinue = true,
 
             },
             new TutorialStepData
             {
                 setPosition = new Vector2(-138, -167),
-                message = "But be careful! If you are over at the end, you lose.",
+                message = "But be careful! If you exceed it at the end of the round, you lose.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
@@ -170,7 +174,7 @@ public class TutorialController : MonoBehaviour
                 setPosition = new Vector2(-138, -167),
                 circleSpawn = true,
                 circlePosition = new Vector2(-300, 179),
-                message = "The value in the top left is the Target. Your goal is to manipulate the cards so that you are closer to the Target than your opponent.",
+                message = "The value in the top left is the Target. For this round, let's say it's 16. Be closer to it than your opponent, or face the consequences.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
@@ -180,25 +184,25 @@ public class TutorialController : MonoBehaviour
             new TutorialStepData
             {
                 setPosition = new Vector2(-138, -167),
-                message = "Now it’s time to select your tricks.",
+                message = "Now, it’s time to select your tricks.",
                 requireContinue = true,
             },
             new TutorialStepData
             {
                 setPosition = new Vector2(-138, -167),
-                message = "Tricks are cards that allow you to change the numbers on the table.",
+                message = "Tricks change the numbers on the table.",
                 requireContinue = true,
             },
             new TutorialStepData
             {
                 setPosition = new Vector2(-138, -167),
-                message = "To start, each player selects 15 tricks from their deck. These are the tricks you will use for the Game of Numbers, so choose wisely.",
+                message = "Each player selects up to 15 tricks. You will use them for the Game of Numbers, so choose wisely.",
                 requireContinue = true,
             },
             new TutorialStepData
             {
                 setPosition = new Vector2(-138, -167),
-                message = "Your deck will get bigger, but right now you only have 6 tricks. Go ahead and select all of them.",
+                message = "You'll collect more, but for now you've only got six tricks. Go ahead and select them all.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
@@ -212,7 +216,7 @@ public class TutorialController : MonoBehaviour
             new TutorialStepData
             {
                 setPosition = new Vector2(-138, -167),
-                message = "We always start with 6 cards in hand. Let's draw those.",
+                message = "We always start with six cards in hand. Let's draw those.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
@@ -226,7 +230,7 @@ public class TutorialController : MonoBehaviour
             new TutorialStepData
             {
                 setPosition = new Vector2(-138, -167),
-                message = "I rolled higher, so I go first.",
+                message = "I'm going to go first. Show you how it's done.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
@@ -272,7 +276,15 @@ public class TutorialController : MonoBehaviour
             new TutorialStepData
             {
                 setPosition = new Vector2(-138, -167),
-                message = "I must say, you are a fast learner. Here’s another lesson. It’s always better when your opponent has fewer tricks than you.",
+                message = "Don't forget to end your turn.",
+                requireContinue = true,
+                afterContinue = () => endTurnButton.SetActive(true),
+                waitUntil = () => endTurnButton.GetComponent<TestingCards>().pressed,
+            },
+            new TutorialStepData
+            {
+                setPosition = new Vector2(-138, -167),
+                message = "I must say, you are a fast learner. Here’s another lesson. It’s always better when your opponent has fewer tricks.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
@@ -304,16 +316,19 @@ public class TutorialController : MonoBehaviour
                         {
                             child.gameObject.GetComponent<TutorialScripts.CardPlace>().isPlayable = false;
                         }
+                        
                     }
+                    endTurnButton.GetComponent<TestingCards>().pressed = false;
+                    endTurnButton.GetComponent<Button>().interactable = true;
                 },
                 //wait until one less number
                 //wait until andreyev only ahs 1 negative
-                waitUntil = () => NumberManager.instance.OPPnegatives.Count == 1,
+                waitUntil = () => NumberManager.instance.OPPnegatives.Count == 1 && endTurnButton.GetComponent<TestingCards>().pressed,
             },
             new TutorialStepData
             {
                 setPosition = new Vector2(-138, -167),
-                message = "One of your numbers is red, which allows me to use this trick.",
+                message = "One of your numbers is red, which allows me to play this trick.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
@@ -329,7 +344,7 @@ public class TutorialController : MonoBehaviour
             {
                 setPosition = new Vector2(-138, -167),
                 narrator = true,
-                message = "You gave Andreyev a yellow card earlier. Time to use it to your advantage. Play Weakness.",
+                message = "You gave Andreyev a 2 earlier. Time to use it to your advantage. Play Weakness.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
@@ -346,9 +361,11 @@ public class TutorialController : MonoBehaviour
                             child.gameObject.GetComponent<TutorialScripts.CardPlace>().isPlayable = false;
                         }
                     }
+                    endTurnButton.GetComponent<TestingCards>().pressed = false;
+                    endTurnButton.GetComponent<Button>().interactable = true;
                 },
                 //wait until one less card in discard pile
-                waitUntil = () => weaknessCard.transform.parent.transform == playerHand.transform,
+                waitUntil = () => weaknessCard.transform.parent.transform == playerHand.transform && endTurnButton.GetComponent<TestingCards>().pressed,
             },
             new TutorialStepData
             {
@@ -384,14 +401,16 @@ public class TutorialController : MonoBehaviour
                             child.gameObject.GetComponent<TutorialScripts.CardPlace>().isPlayable = false;
                         }
                     }
+                    endTurnButton.GetComponent<TestingCards>().pressed = false;
+                    endTurnButton.GetComponent<Button>().interactable = true;
                 },
                 //wait until one more pos
-                waitUntil = () => NumberManager.instance.OPPpositives.Count == 4,
+                waitUntil = () => NumberManager.instance.OPPpositives.Count == 4 && endTurnButton.GetComponent<TestingCards>().pressed,
             },
             new TutorialStepData
             {
                 setPosition = new Vector2(-138, -167),
-                message = "Too many 2's on my board, I think I can give one back to you.",
+                message = "Too many 2's on my board. You'll take this one.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
@@ -422,14 +441,16 @@ public class TutorialController : MonoBehaviour
                             child.gameObject.GetComponent<TutorialScripts.CardPlace>().isPlayable = false;
                         }
                     }
+                    endTurnButton.GetComponent<TestingCards>().pressed = false;
+                    endTurnButton.GetComponent<Button>().interactable = true;
                 },
                 //wait until one more pos
-                waitUntil = () => opponentHand.transform.childCount == 0,
+                waitUntil = () => opponentHand.transform.childCount == 0 && endTurnButton.GetComponent<TestingCards>().pressed,
             },
             new TutorialStepData
             {
                 setPosition = new Vector2(-138, -167),
-                message = "Good! I'm out of tricks. However, I can still flip or swap any of my Numbers.",
+                message = "Impressive - I'm out of tricks. However, I can still flip or swap any of my Numbers.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
@@ -452,7 +473,7 @@ public class TutorialController : MonoBehaviour
             {
                 setPosition = new Vector2(-138, -167),
                 narrator = true,
-                message = "Each player has one action they can use during the Game of Numbers. They can either flip or swap out any of their Numbers. Andreyev chose to flip his 2.",
+                message = "Each player gets one special action during the Game of Numbers: flip or swap out any one of their Numbers. Andreyev flipped his 2.",
                 requireContinue = true,
 
             },
@@ -460,7 +481,7 @@ public class TutorialController : MonoBehaviour
             {
                 setPosition = new Vector2(-138, -167),
                 narrator = true,
-                message = "Use your last trick. May the numbers be on your side.",
+                message = "Play your last trick. May the numbers be on your side.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
@@ -484,20 +505,33 @@ public class TutorialController : MonoBehaviour
             {
                 setPosition = new Vector2(-138, -167),
                 narrator = true,
-                message = "Now, use your action. Flip your 4 to secure the victory.",
+                message = "Now use your action. Flip your 4 to secure the victory.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
                     TurnManager.instance.isPlayerTurn = true;
                     flipButton.GetComponent<Button>().enabled = true;
+                    endTurnButton.GetComponent<TestingCards>().pressed = false;
+                    endTurnButton.GetComponent<Button>().interactable = true;
                 },
                 //
-                waitUntil = () => NumberManager.instance.playerVal == 15,
+                waitUntil = () => NumberManager.instance.playerVal == 15 && endTurnButton.GetComponent<TestingCards>().pressed,
             },
             new TutorialStepData
             {
                 setPosition = new Vector2(-138, -167),
-                message = "Good work. Since we are out of cards, we both pass. Two turns passed means Game Over. Looks like the newbie wins. You wont be as lucky with the others.",
+                message = "Good work. Since we are out of tricks, we both pass. Two consecutive passed turns means Game Over.",
+                requireContinue = true,
+                afterContinue = () =>
+                {
+                    StartCoroutine(passAnimationController.tutorialPass());
+                },
+                waitUntil = () => passAnimationController.tutorialPassDone,
+            },
+            new TutorialStepData
+            {
+                setPosition = new Vector2(-138, -167),
+                message = "Looks like the newbie wins. You wont be as lucky with the others.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
@@ -553,14 +587,17 @@ public class TutorialController : MonoBehaviour
 
     IEnumerator RunTutorial()
     {
+        yield return new WaitForSeconds(2f);
         foreach (var step in steps)
         {
+
+            tutorialText.text = step.message;
+            yield return new WaitForSeconds(0.8f);
             Debug.Log("Tutorial step: " + step.message);
             blockerPanel.SetActive(true);
             RectTransform parentRect = tutorialText.transform.parent as RectTransform; 
             parentRect.localPosition = step.setPosition;
             andreyevPortrait.GetComponent<Image>().enabled = !step.narrator;
-            tutorialText.text = step.message;
 
             if(step.circleSpawn)
             {

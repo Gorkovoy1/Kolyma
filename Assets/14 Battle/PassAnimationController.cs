@@ -23,6 +23,8 @@ public class PassAnimationController : MonoBehaviour
 
     public bool triggerGameOver = false;
 
+    public bool tutorialPassDone = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -78,5 +80,16 @@ public class PassAnimationController : MonoBehaviour
             yield return null;
         }
         textRect.anchoredPosition = end;
+    }
+
+    public IEnumerator tutorialPass()
+    {
+        oppPass = true;
+        yield return new WaitForSeconds(1f);
+        oppLastTurnPassed = false;
+        playerPass = true;
+        yield return new WaitForSeconds(1f);
+        playerLastTurnPassed = false;
+        tutorialPassDone = true;
     }
 }

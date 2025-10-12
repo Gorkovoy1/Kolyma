@@ -82,7 +82,7 @@ public class AIController : MonoBehaviour
         selected.AnimateBeingPlayed();
     }
 
-    IEnumerator DelaySkipTurn()
+    public IEnumerator DelaySkipTurn()
     {
         yield return new WaitForSeconds(1f);
         yield return new WaitForSeconds(0.5f); //account for delay to read card text that was added

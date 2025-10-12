@@ -12,6 +12,7 @@ public class TestingCards : MonoBehaviour
     public HandController handController;
     public PassAnimationController passAnimationController;
 
+    public bool pressed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +29,18 @@ public class TestingCards : MonoBehaviour
             //draw card
             handController.DrawToHand("player");
         }
+        /*
+        if(pressed)
+        {
+            pressed = false;
+        }
+        */
+    }
 
+    public void TutorialEndTurn()
+    {
+        pressed = true;
+        GetComponent<Button>().interactable = false;
     }
 
     public void TestDeal()

@@ -97,18 +97,12 @@ public class AICardPicker : MonoBehaviour
             else if ((NumberManager.instance.oppVal <= NumberManager.instance.targetVal && NumberManager.instance.playerVal > NumberManager.instance.targetVal))
             {
                 //pass
-                TurnManager.instance.opponentPlayedCard = false;
-                TurnManager.instance.opponentPassed = true;
-                passAnimationController.oppPass = true;
-                StartCoroutine(DelayTurn());
+                StartCoroutine(aiController.DelaySkipTurn());
             }
             else if(Mathf.Abs(NumberManager.instance.targetVal - NumberManager.instance.oppVal) < Mathf.Abs(NumberManager.instance.targetVal - NumberManager.instance.playerVal))
             {
                 //pass
-                TurnManager.instance.opponentPlayedCard = false;
-                TurnManager.instance.opponentPassed = true;
-                passAnimationController.oppPass = true;
-                StartCoroutine(DelayTurn());
+                StartCoroutine(aiController.DelaySkipTurn());
             }
             else
             {
