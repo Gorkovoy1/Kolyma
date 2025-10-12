@@ -58,7 +58,11 @@ public class BattleEndController : MonoBehaviour
     public void StartFade()
     {
         //figure out if win or lose
-        if(NumberManager.instance.playerVal <= NumberManager.instance.targetVal && Mathf.Abs(NumberManager.instance.targetVal - NumberManager.instance.playerVal) < Mathf.Abs(NumberManager.instance.targetVal - NumberManager.instance.oppVal))
+        if(NumberManager.instance.playerVal <= NumberManager.instance.targetVal && NumberManager.instance.oppVal > NumberManager.instance.targetVal && NumberManager.instance.playerVal >= 0)
+        {
+            image.sprite = victory;
+        }
+        else if(NumberManager.instance.playerVal <= NumberManager.instance.targetVal && NumberManager.instance.oppVal <= NumberManager.instance.targetVal && Mathf.Abs(NumberManager.instance.targetVal - NumberManager.instance.playerVal) < Mathf.Abs(NumberManager.instance.targetVal - NumberManager.instance.oppVal))
         {
             image.sprite = victory;
         }

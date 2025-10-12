@@ -644,7 +644,11 @@ public class DialogueInk : MonoBehaviour
                 skip = false;
                 //this is a test
                 if(tags[0] == "ReceiveItem"){
-                        LoadNextScene();
+                        StartCoroutine(LoadNextScene());
+                }
+                if (tags[0] == "DialogueEnd")
+                {
+                    StartCoroutine(LoadNextScene());
                 }
             }
             else
@@ -756,10 +760,14 @@ public class DialogueInk : MonoBehaviour
     }
 
     //end of dialogue
-    void LoadNextScene()
+    IEnumerator LoadNextScene()
     {
+        yield return new WaitForSeconds(1f);
         PlayerPrefs.DeleteKey("SavedInkState");
+        AkSoundEngine.StopAll();
         SceneManager.LoadScene(nextSceneNumber);
+
+        //fade out sounds with rtpc? 
     }
 
     void NarratorSound()

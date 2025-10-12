@@ -21,8 +21,8 @@ EditorBuildSettings:
     path: Assets/1 Dialogues/DialogueSceneDuplicates/DIALOGUE2.unity
     guid: fa56338653f0b724ea73fdc3db631257
   - enabled: 1
-    path: Assets/3 Hub/MainHub.unity
-    guid: 06497e4d9a92f4643aeb10d4af86fb1f
+    path: Assets/3 Hub/TutorialHub.unity
+    guid: 0362a3eef9e6e384cb26ade01ca1c63b
   - enabled: 1
     path: Assets/1 Dialogues/DialogueSceneDuplicates/DIALOGUE3.unity
     guid: ab0fc493337344d4e8d3d1067ef3df33

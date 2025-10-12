@@ -9,4 +9,4 @@ But the Soviet Government is wise and humane. It gives you a second chance.#Ryba
 Work for the sake of the Soviet state and the Soviet people! Show your enthusiasm, join the proletariat and do your time with honor!#Rybakov
 Do not forget what Comrade Stalin once said: Labor in the USSR is a matter of honor, glory, courage and heroism!#Rybakov
 Only through hardships and labor will you find your way to join the Soviet society and step into the bright Socialist future!#Rybakov
- Alright, we are done here. Go to your assigned barracks and await further orders! Now move!#Rybakov
+ Alright, we are done here. Go to your assigned barracks and await further orders! Now move!#DialogueEnd#Rybakov
