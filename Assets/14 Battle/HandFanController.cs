@@ -9,6 +9,8 @@ public class HandFanController : MonoBehaviour
     private float yPos;
     public bool dragging;
 
+    public bool seeBoard = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +21,15 @@ public class HandFanController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(TurnManager.instance.isPlayerTurn)
+        if(TurnManager.instance.isPlayerTurn && !seeBoard)
         {
             fanHand = true;
         }
-        else
+        else if(TurnManager.instance.isPlayerTurn && seeBoard)
+        {
+            fanHand = false;
+        }
+        else if(!TurnManager.instance.isPlayerTurn)
         {
             fanHand = false;
         }
@@ -40,5 +46,10 @@ public class HandFanController : MonoBehaviour
             rect.anchoredPosition = new Vector2(0f, yPos);
             
         }
+    }
+
+    public void ToggleSee()
+    {
+        seeBoard = !seeBoard;
     }
 }
