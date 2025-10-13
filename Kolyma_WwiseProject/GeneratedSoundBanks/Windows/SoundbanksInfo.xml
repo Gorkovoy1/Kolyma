@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{B6CBD692-12EC-CDBA-0932-48F63C40C91F}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{576F296B-612B-D16C-B0D9-2D4877CFEA51}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -21,8 +21,20 @@
 			<Busses>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
+			<GameParameters>
+				<GameParameter Id="822163944" Name="SS_Air_RPM"/>
+				<GameParameter Id="1029930033" Name="SS_Air_Fury"/>
+				<GameParameter Id="1351367891" Name="SS_Air_Fear"/>
+				<GameParameter Id="2648548617" Name="SS_Air_Month"/>
+				<GameParameter Id="3002758120" Name="SS_Air_Freefall"/>
+				<GameParameter Id="3074696722" Name="SS_Air_Size"/>
+				<GameParameter Id="3203397129" Name="SS_Air_TimeOfDay"/>
+				<GameParameter Id="3715662592" Name="SS_Air_Storm"/>
+				<GameParameter Id="3847924954" Name="SS_Air_Presence"/>
+				<GameParameter Id="4160247818" Name="SS_Air_Turbulence"/>
+			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{2D687482-BF4A-3E89-53C1-3E2ED56A46DD}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{CDD92F67-E2EB-7E6E-5B4A-803863BF06FD}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -84,7 +96,7 @@
 				</File>
 				<File Id="185742565" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>dice 2.wav</ShortName>
-					<CachePath>SFX/dice 2_CD2A5852.wem</CachePath>
+					<CachePath>SFX/dice 2_45A879C8.wem</CachePath>
 				</File>
 				<File Id="241560530" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Thick Woolen Coat3.wav</ShortName>
@@ -101,6 +113,10 @@
 				<File Id="328403887" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>kolyma daytime 1.4.wav</ShortName>
 					<CachePath>SFX/kolyma daytime 1.4_56CEF360.wem</CachePath>
+				</File>
+				<File Id="334397050" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Battle_Theme_2.1.wav</ShortName>
+					<CachePath>SFX/Battle_Theme_2.1_56CEF360.wem</CachePath>
 				</File>
 				<File Id="355118563" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-001.wav</ShortName>
@@ -125,10 +141,6 @@
 				<File Id="435260790" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Barracks_Ambience.wav</ShortName>
 					<CachePath>SFX/Barracks_Ambience_FBC78EF0.wem</CachePath>
-				</File>
-				<File Id="461221407" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Battle_Theme_1.wav</ShortName>
-					<CachePath>SFX/Battle_Theme_1_56CEF360.wem</CachePath>
 				</File>
 				<File Id="471573529" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Breath-001.wav</ShortName>
@@ -197,6 +209,10 @@
 				<File Id="696251624" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Search.wav</ShortName>
 					<CachePath>SFX/Search_818F3B66.wem</CachePath>
+				</File>
+				<File Id="708500003" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Battle_Theme_1.2.wav</ShortName>
+					<CachePath>SFX/Battle_Theme_1.2_56CEF360.wem</CachePath>
 				</File>
 				<File Id="736547814" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>NumberCard4.wav</ShortName>
@@ -427,7 +443,12 @@
 				</Event>
 				<Event Id="1716731688" Name="Play_Music_Battle_1" DurationType="Infinite">
 					<MediaRefs>
-						<MediaRef Id="461221407"/>
+						<MediaRef Id="708500003"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1716731691" Name="Play_Music_Battle_2" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="334397050"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="238544951" Name="Play_Music_Camp_Arrival" DurationType="Infinite">
@@ -542,5 +563,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{9255AD9E-960E-6474-54C8-DE9858595239}</FileHash>
+	<FileHash>{87E92E33-3959-E2C9-8363-97B4664BCF15}</FileHash>
 </SoundBanksInfo>

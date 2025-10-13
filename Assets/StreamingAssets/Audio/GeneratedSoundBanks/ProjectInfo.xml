@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ProjectInfo>
-	<Project Name="Kolyma_WwiseProject" GUID="{0D781D7D-E9E5-4DAE-A806-EFD3EA957541}" Generator="2023.1.2.8444"/>
+	<Project Name="Kolyma_WwiseProject" GUID="{0D781D7D-E9E5-4DAE-A806-EFD3EA957541}" Generator="2023.1.4.8496"/>
 	<CacheRoot>../../../../Kolyma_WwiseProject/.cache</CacheRoot>
 	<Platforms>
 		<Platform Name="Windows" GUID="{8C2FAD65-DB0C-44FD-A4ED-8C56E524D7D3}" BasePlatform="Windows" BasePlatformGUID="{6E0CB257-C6C8-4C5C-8366-2740DFC441EB}" Path="../../../../Kolyma_WwiseProject/GeneratedSoundBanks/Windows"/>
@@ -8,5 +8,5 @@
 	<Languages>
 		<Language Name="English(US)" Id="684519430" GUID="{0B2F0E42-7007-4908-85B5-DFD526718C91}" Default="true" UseAsStandIn="true"/>
 	</Languages>
-	<FileHash>{1A3BDA76-799E-097B-7FB8-CCA442BE75D4}</FileHash>
+	<FileHash>{C2D255F8-6458-D679-DCAD-D2B7E36220C2}</FileHash>
 </ProjectInfo>

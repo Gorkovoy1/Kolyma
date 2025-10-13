@@ -39,6 +39,7 @@ namespace AK
         static const AkUniqueID PLAY_DOGS_BARK = 1892391772U;
         static const AkUniqueID PLAY_EMPTY_POCKETS = 1971906101U;
         static const AkUniqueID PLAY_MUSIC_BATTLE_1 = 1716731688U;
+        static const AkUniqueID PLAY_MUSIC_BATTLE_2 = 1716731691U;
         static const AkUniqueID PLAY_MUSIC_CAMP_ARRIVAL = 238544951U;
         static const AkUniqueID PLAY_MUSIC_CAMP_DAY = 2741544670U;
         static const AkUniqueID PLAY_MUSIC_JAIL = 3643466302U;
@@ -60,6 +61,20 @@ namespace AK
         static const AkUniqueID PLAY_WIND = 1020223172U;
         static const AkUniqueID PLAY_WOOSH_NARRATOR = 1714538498U;
     } // namespace EVENTS
+
+    namespace GAME_PARAMETERS
+    {
+        static const AkUniqueID SS_AIR_FEAR = 1351367891U;
+        static const AkUniqueID SS_AIR_FREEFALL = 3002758120U;
+        static const AkUniqueID SS_AIR_FURY = 1029930033U;
+        static const AkUniqueID SS_AIR_MONTH = 2648548617U;
+        static const AkUniqueID SS_AIR_PRESENCE = 3847924954U;
+        static const AkUniqueID SS_AIR_RPM = 822163944U;
+        static const AkUniqueID SS_AIR_SIZE = 3074696722U;
+        static const AkUniqueID SS_AIR_STORM = 3715662592U;
+        static const AkUniqueID SS_AIR_TIMEOFDAY = 3203397129U;
+        static const AkUniqueID SS_AIR_TURBULENCE = 4160247818U;
+    } // namespace GAME_PARAMETERS
 
     namespace BANKS
     {
