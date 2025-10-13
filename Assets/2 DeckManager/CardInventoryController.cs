@@ -17,12 +17,7 @@ public class CardInventoryController : MonoBehaviour
         {
             instance = this;
         }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-
-        DontDestroyOnLoad(this);
+        
 
         //FIX ERROR WHEN IN NON BATTLE SCENE
     }

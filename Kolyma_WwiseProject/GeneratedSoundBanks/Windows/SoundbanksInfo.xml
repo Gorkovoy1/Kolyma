@@ -34,7 +34,7 @@
 				<GameParameter Id="4160247818" Name="SS_Air_Turbulence"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{49AA3622-7D5E-9F68-3A44-15EFAD18B83C}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{7D051C2A-C25C-F05C-35CA-6CCE02042A3A}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -69,6 +69,10 @@
 				<File Id="111452232" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Dogs_Bark-002.wav</ShortName>
 					<CachePath>SFX/Dogs_Bark-002_8E324C96.wem</CachePath>
+				</File>
+				<File Id="121547243" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Menu Click.wav</ShortName>
+					<CachePath>SFX/Menu Click_56AF768F.wem</CachePath>
 				</File>
 				<File Id="121851638" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Door_Open.wav</ShortName>
@@ -409,6 +413,11 @@
 						<MediaRef Id="927065734"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="3821598057" Name="Play_Click_2" DurationType="OneShot" DurationMin="0.74560237" DurationMax="0.74560237">
+					<MediaRefs>
+						<MediaRef Id="121547243"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="776203257" Name="Play_Close_Trick_Collection" DurationType="OneShot" DurationMin="1.4744898" DurationMax="1.4744898">
 					<MediaRefs>
 						<MediaRef Id="267717470"/>
@@ -572,5 +581,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{2071962A-841C-ABEE-7A84-60242AE73540}</FileHash>
+	<FileHash>{4F4857C5-173E-8185-21BD-3805FCA5E571}</FileHash>
 </SoundBanksInfo>

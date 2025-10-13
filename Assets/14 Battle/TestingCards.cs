@@ -11,6 +11,7 @@ public class TestingCards : MonoBehaviour
     public bool firstTurn = false;
     public HandController handController;
     public PassAnimationController passAnimationController;
+    public GameObject sfxObj;
 
     public bool pressed = false;
 
@@ -40,6 +41,7 @@ public class TestingCards : MonoBehaviour
     public void TutorialEndTurn()
     {
         pressed = true;
+        AkSoundEngine.PostEvent("Play_Click_2", sfxObj);
         GetComponent<Button>().interactable = false;
     }
 

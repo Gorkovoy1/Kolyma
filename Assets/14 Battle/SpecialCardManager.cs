@@ -13,12 +13,9 @@ public class SpecialCardManager : MonoBehaviour
         if(instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this);
+            
         }
-        else
-        {
-            Destroy(this);
-        }
+        
     }
 
     // Start is called before the first frame update

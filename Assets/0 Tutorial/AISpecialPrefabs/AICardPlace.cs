@@ -55,6 +55,8 @@ using AK.Wwise;
             //public bool isFlipping;
             public bool isFlipped;
 
+            public AK.Wwise.Event trickSound;
+
             // Start is called before the first frame update
             void Start()
             {
@@ -138,6 +140,9 @@ using AK.Wwise;
             public void AnimateBeingPlayed()
             {
                 isPlayable = false;
+
+                
+
                 correspondingImage.GetComponent<Image>().material = defaultMat;
                 StartCoroutine(BeingPlayed());
 
@@ -192,6 +197,10 @@ using AK.Wwise;
                 correspondingImage.transform.localScale = new Vector3(0.17f, 0.17f, 0.17f);
                 yield return new WaitForSeconds(1f);
                 StartCoroutine(FlipOverCard(this.gameObject));
+                if (trickSound != null)
+                {
+                    trickSound.Post(this.gameObject);
+                }
                 yield return new WaitForSeconds(1f);
                 //extend time to read
                 yield return new WaitForSeconds(0.5f);

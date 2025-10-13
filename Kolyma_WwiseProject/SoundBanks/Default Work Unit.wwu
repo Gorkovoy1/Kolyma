@@ -6,6 +6,7 @@
 				<SoundBank Name="Main" ID="{55336CF1-834F-40C1-A4A6-A74ED017DAFB}">
 					<ObjectInclusionList>
 						<ObjectRef Name="Play_Breath" ID="{41E36353-7D1B-4192-8123-7A6774B48D4A}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Click_2" ID="{52004750-BD7E-41F5-93F8-D1DC60DC05B7}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Barracks_Background_SFX" ID="{329EE090-6BD7-4207-91F4-9905E94A39A7}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Punch" ID="{05BA18DA-4DF3-42D7-8E99-66BD0527FF26}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Cell_Men" ID="{517D0111-030F-4302-BB85-08C728DA6A4D}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>

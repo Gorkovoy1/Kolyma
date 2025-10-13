@@ -66,6 +66,7 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
+        AkSoundEngine.StopAll();
         SceneManager.LoadScene("DIALOGUE1");
     }
 

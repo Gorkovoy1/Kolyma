@@ -32,6 +32,7 @@ namespace AK
         static const AkUniqueID PLAY_CELL_GUARD_ROLL_CALL = 3877743401U;
         static const AkUniqueID PLAY_CELL_MEN = 1420083155U;
         static const AkUniqueID PLAY_CLICK = 311910498U;
+        static const AkUniqueID PLAY_CLICK_2 = 3821598057U;
         static const AkUniqueID PLAY_CLOSE_TRICK_COLLECTION = 776203257U;
         static const AkUniqueID PLAY_COUGH = 3234553616U;
         static const AkUniqueID PLAY_CROWS = 639442158U;

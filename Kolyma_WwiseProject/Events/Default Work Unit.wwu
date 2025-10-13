@@ -530,8 +530,30 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Music_Menu" ID="{1388582C-93B1-4947-B2D7-9DA0665E5046}">
+							<ChildrenList>
+								<Action Name="" ID="{9A87914C-3482-4A56-AD1D-F1066B5A67AD}" ShortID="446483504">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Menu" ID="{D1802B77-1E1D-4FE3-9258-90788B834468}" WorkUnitID="{01660F24-42EF-4118-9DAA-A2B4ACD5D295}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
+				<Event Name="Play_Click_2" ID="{52004750-BD7E-41F5-93F8-D1DC60DC05B7}">
+					<ChildrenList>
+						<Action Name="" ID="{CB001EE1-8101-4F68-99E7-80856E937225}" ShortID="504768329">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Click2" ID="{EA50D8FC-38E5-4D2A-B278-4BFB68BDC40C}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

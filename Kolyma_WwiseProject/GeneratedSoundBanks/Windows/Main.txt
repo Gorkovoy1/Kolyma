@@ -42,6 +42,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	3421211826	Play_Search			\Default Work Unit\Battle\Play_Search	
 	3643466302	Play_Music_Jail			\Default Work Unit\Music\Play_Music_Jail	
 	3698047240	Play_Breath			\Default Work Unit\Play_Breath	
+	3821598057	Play_Click_2			\Default Work Unit\Play_Click_2	
 	3822624772	Play_Bribe			\Default Work Unit\Battle\Play_Bribe	
 	3877743401	Play_Cell_Guard_Roll_Call			\Default Work Unit\Play_Cell_Guard_Roll_Call	
 	3946911806	Play_Punch			\Default Work Unit\Play_Punch	
@@ -57,6 +58,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	90128117	Clocks_Chime	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Clocks, Chime, Metallic Wall Clock, Chime Ringing SND102458_D8B369E4.wem		\Actor-Mixer Hierarchy\Default Work Unit\Clocks_Chime		775148
 	92101620	Empty_Pockets	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\EmptyPockets_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Trick_Cards_SFX\Empty_Pockets		568104
 	111452232	Dogs_Bark_02	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Dogs_Bark-002_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camp_SFX\Dogs\Dogs_Bark_02		39606
+	121547243	Click2	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Menu Click_56AF768F.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text_Box\Click2		11471
 	121851638	Cell_Door_Open	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_SFX_Door_Open_BB949EDF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Door_Open		81459
 	127805243	Open_Trick_Collection	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\OpenTrickCollection_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Open_Trick_Collection		276756
 	129889019	Menu	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Menu_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Menu\Menu\Menu		3079036
