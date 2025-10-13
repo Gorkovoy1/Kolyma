@@ -39,6 +39,7 @@ public class AICardPicker : MonoBehaviour
     public bool opponentUsedAction = false;
 
     public PassAnimationController passAnimationController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -90,6 +91,7 @@ public class AICardPicker : MonoBehaviour
                 }
                 NumberManager.instance.oppAction = true;
                 TurnManager.instance.opponentPlayedCard = true;
+                passAnimationController.oppLastTurnPassed = false;
 
                 StartCoroutine(DelayTurn());
                 //ChooseBestCard();

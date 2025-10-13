@@ -223,7 +223,7 @@ public class CardPlace : MonoBehaviour,
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name != "OpponentHand")
+        if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name != "OpponentHand" && this.gameObject.transform.parent.name != "PlayerDiscard")
         {
             if (!beingPlayed)
             {
@@ -402,7 +402,10 @@ public class CardPlace : MonoBehaviour,
         else if (specialCardType == SpecialCardType.SmokeBreak)
         {
             //draw 2 random specials from discard
-            isPlayable = true;
+            if (discardedCards.Count > 0)
+            {
+                isPlayable = true;
+            }
             
 
         }
@@ -1239,9 +1242,18 @@ public class CardPlace : MonoBehaviour,
             g.transform.SetParent(playerDiscardZone.transform);
             g.transform.position = playerDiscardZone.transform.position;
         }
-        else
+        else //opponent
         {
             OpponentStats.instance.discarded = true;
+            opponentHand.GetComponentInParent<HandController>().oppDiscardButton.GetComponent<OpponentDiscardButton>().lastPlayed = g.GetComponent<AICardPlace>().correspondingImage.GetComponent<Image>();
+            foreach (var tmp in g.GetComponent<AICardPlace>().correspondingImage.GetComponentsInChildren<TextMeshProUGUI>(true)) // true = include inactive
+            {
+                if (tmp.name == "Text (TMP) (1)") // Replace with your actual object name
+                {
+                    opponentHand.GetComponentInParent<HandController>().oppDiscardButton.GetComponent<OpponentDiscardButton>().cardDesc = tmp.text;
+                    break;
+                }
+            }
             g.transform.SetParent(opponentDiscardZone.transform);
             g.transform.position = opponentDiscardZone.transform.position;
         }

@@ -886,9 +886,10 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                         chosenCard = g;
                         
                     }
-                    chosenCard.transform.SetParent(NumberManager.instance.playerPositiveArea.transform);
-                    NumberManager.instance.recalculate = true;
+                    
                 }
+                chosenCard.transform.SetParent(NumberManager.instance.playerPositiveArea.transform);
+                NumberManager.instance.recalculate = true;
             }
             else if(difficulty == Difficulty.AlwaysSmallest)
             {
@@ -902,9 +903,10 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                         chosenCard = g;
 
                     }
-                    chosenCard.transform.SetParent(NumberManager.instance.playerPositiveArea.transform);
-                    NumberManager.instance.recalculate = true;
+                    
                 }
+                chosenCard.transform.SetParent(NumberManager.instance.playerPositiveArea.transform);
+                NumberManager.instance.recalculate = true;
             }
             else if (difficulty == Difficulty.Ideal)
             {
@@ -919,9 +921,10 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                         chosenCard = g;
                         val = Mathf.Abs(NumberManager.instance.targetVal - (NumberManager.instance.playerVal - g.GetComponent<NumberStats>().value));
                     }
-                    chosenCard.transform.SetParent(NumberManager.instance.playerPositiveArea.transform);
-                    NumberManager.instance.recalculate = true;
+                    
                 }
+                chosenCard.transform.SetParent(NumberManager.instance.playerPositiveArea.transform);
+                NumberManager.instance.recalculate = true;
                 /*
                 //if you are over, give away large card
                 if(NumberManager.instance.oppVal > NumberManager.instance.targetVal)
@@ -1997,7 +2000,7 @@ public class AICardPlace : MonoBehaviour //AICardPlace
             g.GetComponent<AICardPlace>().correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(false);
         }
 
-        
+        NumberManager.instance.recalculate = true;
     }
 
     IEnumerator FlipOverCard(GameObject g)

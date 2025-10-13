@@ -216,7 +216,7 @@ namespace TutorialScripts
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name != "OpponentHand")
+            if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name != "OpponentHand" && this.gameObject.transform.parent.name != "PlayerDiscard")
             {
                 if (!beingPlayed)
                 {
@@ -968,9 +968,10 @@ namespace TutorialScripts
                 GameObject chosenCard = discardedCards.Find(obj => obj.name == "ThickWoolenCoat(Clone)");
                 discardedCards.Remove(chosenCard);
                 chosenCard.GetComponent<CardPlace>().beingPlayed = false;
-                chosenCard.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                 chosenCard.GetComponent<CardPlace>().correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(false);
                 chosenCard.transform.SetParent(playerHand);
+                chosenCard.GetComponent<LayoutElement>().preferredWidth = -1;
+                chosenCard.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
             }
             else
             {

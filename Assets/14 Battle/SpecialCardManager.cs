@@ -8,6 +8,8 @@ public class SpecialCardManager : MonoBehaviour
 
     public static SpecialCardManager instance;
 
+    public GameObject sfxObj;
+
     void Awake()
     {
         if(instance == null)
@@ -110,6 +112,7 @@ public class SpecialCardManager : MonoBehaviour
         {
             Instantiate(CardPlacementController.instance.nineSpace, parentObj);
         }
+        AkSoundEngine.PostEvent("Play_Number_Card", sfxObj);
     }
 
     

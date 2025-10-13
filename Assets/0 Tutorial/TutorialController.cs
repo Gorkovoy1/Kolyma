@@ -157,7 +157,7 @@ public class TutorialController : MonoBehaviour
             new TutorialStepData
             {
                 setPosition = new Vector2(-138, -167),
-                message = "But be careful! If you exceed it at the end of the round, you lose.",
+                message = "But be careful! If you exceed it at the end of the round, or if you go negative, you lose.",
                 requireContinue = true,
                 afterContinue = () =>
                 {

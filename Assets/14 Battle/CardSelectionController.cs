@@ -216,7 +216,7 @@ public class CardSelectionController : MonoBehaviour
         {
             g.transform.SetParent(NumberManager.instance.playerNegativeArea.transform);
         }
-
+        AkSoundEngine.PostEvent("Play_Number_Card", sfxObj);
         NumberManager.instance.recalculate = true;
     }
 
@@ -238,7 +238,7 @@ public class CardSelectionController : MonoBehaviour
         {
             g.transform.SetParent(NumberManager.instance.playerPositiveArea.transform);
         }
-
+        AkSoundEngine.PostEvent("Play_Number_Card", sfxObj);
         NumberManager.instance.recalculate = true;
     }
 
@@ -369,6 +369,7 @@ public class CardSelectionController : MonoBehaviour
             {
                 Instantiate(g, CardPlacementController.instance.opponentNegativeArea);
             }
+            AkSoundEngine.PostEvent("Play_Number_Card", sfxObj);
         }
         else if (target == "player")
         {
@@ -380,6 +381,7 @@ public class CardSelectionController : MonoBehaviour
             {
                 Instantiate(g, CardPlacementController.instance.playerNegativeArea);
             }
+            AkSoundEngine.PostEvent("Play_Number_Card", sfxObj);
         }
 
         Destroy(g);

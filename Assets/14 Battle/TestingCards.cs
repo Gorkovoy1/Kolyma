@@ -36,6 +36,14 @@ public class TestingCards : MonoBehaviour
             pressed = false;
         }
         */
+        if(TurnManager.instance.isPlayerTurn)
+        {
+            GetComponent<Button>().interactable = true;
+        }
+        else
+        {
+            GetComponent<Button>().interactable = false;
+        }
     }
 
     public void TutorialEndTurn()
@@ -95,6 +103,7 @@ public class TestingCards : MonoBehaviour
     public void ToggleTurn()
     {
         firstTurn = true;
+        AkSoundEngine.PostEvent("Play_Click_2", sfxObj);
         TurnManager.instance.isPlayerTurn = !TurnManager.instance.isPlayerTurn;
         TurnManager.instance.checkedPlayable = false;
         if(!TurnManager.instance.playerPlayedCard)

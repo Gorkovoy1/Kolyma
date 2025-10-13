@@ -10,6 +10,8 @@ public class AIController : MonoBehaviour
     public GameObject selectedCardToPlay;
     public Difficulty difficulty;
 
+    public PassAnimationController passAnimationController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +33,7 @@ public class AIController : MonoBehaviour
     public void PlayCard()
     {
         StartCoroutine(DelayAction());
-        
+        passAnimationController.oppLastTurnPassed = false;
     }
 
     public void PlayCardContinued()
