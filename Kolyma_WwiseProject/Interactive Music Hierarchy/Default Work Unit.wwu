@@ -621,13 +621,6 @@
 							</ReferenceList>
 							<ChildrenList>
 								<MusicTrack Name="Battle_Theme_1_2" ID="{B05A27E5-4F10-4DF0-8053-0A68DC5360DB}" ShortID="169173803">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-10</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
 									<ReferenceList>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
@@ -810,6 +803,11 @@
 						<MusicSegment Name="Battle_Theme_2" ID="{34BB9072-BDFD-4543-A446-884B5CE275E1}" ShortID="524039365">
 							<PropertyList>
 								<Property Name="EndPosition" Type="Real64" Value="170945.666235446"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -821,13 +819,6 @@
 							</ReferenceList>
 							<ChildrenList>
 								<MusicTrack Name="Battle_Theme_2_1" ID="{AAC85BD6-6F02-40CD-85AB-7DEDB299D7A7}" ShortID="807515727">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-12</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
 									<ReferenceList>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>

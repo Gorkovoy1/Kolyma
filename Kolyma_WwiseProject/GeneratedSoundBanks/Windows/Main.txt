@@ -16,6 +16,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1410640362	Play_Barracks_Ambience			\Default Work Unit\Play_Barracks_Ambience	
 	1420083155	Play_Cell_Men			\Default Work Unit\Play_Cell_Men	
 	1624799736	Play_Andreyev_Sigh			\Default Work Unit\Andreyev\Play_Andreyev_Sigh	
+	1699343283	Play_Music_Menu			\Default Work Unit\Music\Play_Music_Menu	
 	1699492407	Play_Andreyev_Satisfied			\Default Work Unit\Andreyev\Play_Andreyev_Satisfied	
 	1701334921	Play_Andreyev_Scared			\Default Work Unit\Andreyev\Play_Andreyev_Scared	
 	1714538498	Play_Woosh_Narrator			\Default Work Unit\Play_Woosh_Narrator	
@@ -58,6 +59,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	111452232	Dogs_Bark_02	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Dogs_Bark-002_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camp_SFX\Dogs\Dogs_Bark_02		39606
 	121851638	Cell_Door_Open	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_SFX_Door_Open_BB949EDF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Door_Open		81459
 	127805243	Open_Trick_Collection	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\OpenTrickCollection_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Open_Trick_Collection		276756
+	129889019	Menu	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Menu_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Menu\Menu\Menu		3079036
 	158641502	Cell_SFX_Whisper-005	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_SFX_Whisper-005_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Whisper\Cell_SFX_Whisper-005		16727
 	163322872	Cell_Guard_Roll_Call	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Guard_Roll_Call_6C0AF96F.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Guard_Roll_Call		34158
 	169040873	Cell_SFX_Whisper-003	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Cell_SFX_Whisper-003_8E324C96.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Whisper\Cell_SFX_Whisper-003		28960

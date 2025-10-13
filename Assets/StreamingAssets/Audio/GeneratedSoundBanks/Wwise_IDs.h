@@ -43,6 +43,7 @@ namespace AK
         static const AkUniqueID PLAY_MUSIC_CAMP_ARRIVAL = 238544951U;
         static const AkUniqueID PLAY_MUSIC_CAMP_DAY = 2741544670U;
         static const AkUniqueID PLAY_MUSIC_JAIL = 3643466302U;
+        static const AkUniqueID PLAY_MUSIC_MENU = 1699343283U;
         static const AkUniqueID PLAY_NEGATIVE_EVENT = 3413568250U;
         static const AkUniqueID PLAY_NUMBER_CARD = 2304369006U;
         static const AkUniqueID PLAY_OPEN_TRICK_COLLECTION = 1007146461U;

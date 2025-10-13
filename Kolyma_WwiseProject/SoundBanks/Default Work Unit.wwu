@@ -31,6 +31,7 @@
 						<ObjectRef Name="Play_Cell_Guard_Roll_Call" ID="{81F0623F-4327-4CC7-841C-54977FF32C32}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Barracks_Ambience" ID="{C80F15DF-0B94-4E00-BCE5-937EC34F69D8}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Cell_Door" ID="{DE3448CB-EC18-4E85-887F-0BB7F1D694B3}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Music" ID="{42294E82-4A8C-4F7B-B73A-27B9EEC12A24}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Wind" ID="{7700EA0C-C2F2-4F86-84D1-08EA7B6FC822}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Negative_Event" ID="{A0CE8DB6-82CB-4FAA-93AF-FC2C79C4434B}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>

@@ -25,17 +25,6 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Play_Music_Jail" ID="{425E8658-6CCB-47D4-8B0C-38599CAF8C19}">
-					<ChildrenList>
-						<Action Name="" ID="{FAFFD9B4-348E-4FDE-8E8A-8DAFDA2A1BB4}" ShortID="495218095">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Jail" ID="{C2D76F21-7DDC-463D-AECD-9EDDD7629D7D}" WorkUnitID="{01660F24-42EF-4118-9DAA-A2B4ACD5D295}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Event Name="Play_Screen_Sfx" ID="{6629AA1A-B4A3-4B4A-91DB-2D799B805D35}">
 					<ChildrenList>
 						<Action Name="" ID="{4E9560BC-FBB5-46C1-A5AF-611591A626D6}" ShortID="485226448">
@@ -146,34 +135,12 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Play_Music_Camp_Day" ID="{C58169C9-01AD-436F-A815-A4D024B846BC}">
-					<ChildrenList>
-						<Action Name="" ID="{90B0789C-663D-4682-9D2F-102954CDD8AD}" ShortID="973600481">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Camp" ID="{4852A7B7-3CAE-4EEA-BD11-7970B7B049DD}" WorkUnitID="{01660F24-42EF-4118-9DAA-A2B4ACD5D295}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Event Name="Play_Truck_Arrives" ID="{2962A1DE-AD5C-4C5C-9DAC-DF62D8BFAE9C}">
 					<ChildrenList>
 						<Action Name="" ID="{C7A3BAFC-42E9-443A-A96C-ED2BC3510F42}" ShortID="169880434">
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Truck_Arrives" ID="{293EE730-78CB-4195-8546-3EDA33DCD695}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="Play_Music_Camp_Arrival" ID="{1A0A5CBE-54A0-499E-8A58-5D154449CEAD}">
-					<ChildrenList>
-						<Action Name="" ID="{A76FCB50-3458-432F-AEBD-8F964CDBC060}" ShortID="234895099">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Camp_Arrival" ID="{24E20EF2-96C2-4409-9C67-1EF0A86EAD59}" WorkUnitID="{01660F24-42EF-4118-9DAA-A2B4ACD5D295}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -506,17 +473,65 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
-				<Event Name="Play_Music_Battle_1" ID="{4D36F179-7491-49A7-86B0-498A998E6ABC}">
+				<Folder Name="Music" ID="{42294E82-4A8C-4F7B-B73A-27B9EEC12A24}" ShortID="234013611">
 					<ChildrenList>
-						<Action Name="" ID="{AF153BC9-B9D1-4D88-AE78-96279BAE4D67}" ShortID="311282352">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Battle_Theme_1" ID="{FBD644B8-84FC-4AAB-9378-6C5B1557556F}" WorkUnitID="{01660F24-42EF-4118-9DAA-A2B4ACD5D295}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
+						<Event Name="Play_Music_Camp_Arrival" ID="{1A0A5CBE-54A0-499E-8A58-5D154449CEAD}">
+							<ChildrenList>
+								<Action Name="" ID="{A76FCB50-3458-432F-AEBD-8F964CDBC060}" ShortID="234895099">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Camp_Arrival" ID="{24E20EF2-96C2-4409-9C67-1EF0A86EAD59}" WorkUnitID="{01660F24-42EF-4118-9DAA-A2B4ACD5D295}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Music_Battle_1" ID="{4D36F179-7491-49A7-86B0-498A998E6ABC}">
+							<ChildrenList>
+								<Action Name="" ID="{AF153BC9-B9D1-4D88-AE78-96279BAE4D67}" ShortID="311282352">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Battle_Theme_1" ID="{FBD644B8-84FC-4AAB-9378-6C5B1557556F}" WorkUnitID="{01660F24-42EF-4118-9DAA-A2B4ACD5D295}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Music_Camp_Day" ID="{C58169C9-01AD-436F-A815-A4D024B846BC}">
+							<ChildrenList>
+								<Action Name="" ID="{90B0789C-663D-4682-9D2F-102954CDD8AD}" ShortID="973600481">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Camp" ID="{4852A7B7-3CAE-4EEA-BD11-7970B7B049DD}" WorkUnitID="{01660F24-42EF-4118-9DAA-A2B4ACD5D295}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Music_Jail" ID="{425E8658-6CCB-47D4-8B0C-38599CAF8C19}">
+							<ChildrenList>
+								<Action Name="" ID="{FAFFD9B4-348E-4FDE-8E8A-8DAFDA2A1BB4}" ShortID="495218095">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Jail" ID="{C2D76F21-7DDC-463D-AECD-9EDDD7629D7D}" WorkUnitID="{01660F24-42EF-4118-9DAA-A2B4ACD5D295}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Music_Battle_2" ID="{0FD52281-75FC-4B1C-B9BC-9E73F550D6AB}">
+							<ChildrenList>
+								<Action Name="" ID="{D15F4660-8930-4BFE-AF4C-8CD43A91520F}" ShortID="548332268">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Battle_Theme_2" ID="{0667FA1C-835E-4585-87BD-5F9ED07ACD0C}" WorkUnitID="{01660F24-42EF-4118-9DAA-A2B4ACD5D295}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
-				</Event>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

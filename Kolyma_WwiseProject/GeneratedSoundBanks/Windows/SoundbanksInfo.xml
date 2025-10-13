@@ -34,7 +34,7 @@
 				<GameParameter Id="4160247818" Name="SS_Air_Turbulence"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{767CC2CC-60F7-898F-2A2B-F351536B3807}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{49AA3622-7D5E-9F68-3A44-15EFAD18B83C}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -77,6 +77,10 @@
 				<File Id="127805243" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>OpenTrickCollection.wav</ShortName>
 					<CachePath>SFX/OpenTrickCollection_818F3B66.wem</CachePath>
+				</File>
+				<File Id="129889019" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Menu.wav</ShortName>
+					<CachePath>SFX/Menu_56CEF360.wem</CachePath>
 				</File>
 				<File Id="158641502" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Whisper-005.wav</ShortName>
@@ -466,6 +470,11 @@
 						<MediaRef Id="619077475"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="1699343283" Name="Play_Music_Menu" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="129889019"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3413568250" Name="Play_Negative_Event" DurationType="OneShot" DurationMin="3" DurationMax="3">
 					<MediaRefs>
 						<MediaRef Id="778674395"/>
@@ -563,5 +572,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{606CFD4F-1B21-DBB2-5ECC-17E77A27953F}</FileHash>
+	<FileHash>{2071962A-841C-ABEE-7A84-60242AE73540}</FileHash>
 </SoundBanksInfo>
