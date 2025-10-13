@@ -222,7 +222,7 @@ namespace TutorialScripts
             {
                 g.transform.SetParent(NumberManager.instance.playerNegativeArea.transform);
             }
-
+            AkSoundEngine.PostEvent("Play_Number_Card", sfxObj);
             NumberManager.instance.recalculate = true;
         }
 
@@ -365,6 +365,7 @@ namespace TutorialScripts
                     Instantiate(g, CardPlacementController.instance.playerNegativeArea);
                 }
             }
+            AkSoundEngine.PostEvent("Play_Number_Card", sfxObj);
 
             Destroy(g);
             yield return new WaitForSeconds(0.7f);

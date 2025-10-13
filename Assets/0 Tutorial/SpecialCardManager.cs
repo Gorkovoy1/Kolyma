@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AK.Wwise;
 
 namespace TutorialScripts
 {
+    
 
     public class SpecialCardManager : MonoBehaviour
     {
         private Transform parentObj;
 
+
         public static SpecialCardManager instance;
+
+        public GameObject sfxObj;
 
         void Awake()
         {
@@ -113,6 +118,8 @@ namespace TutorialScripts
             {
                 Instantiate(CardPlacementController.instance.nineSpace, parentObj);
             }
+
+            AkSoundEngine.PostEvent("Play_Number_Card", sfxObj);
         }
 
 

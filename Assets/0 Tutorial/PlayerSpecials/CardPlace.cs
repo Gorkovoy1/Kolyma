@@ -972,6 +972,8 @@ namespace TutorialScripts
                 chosenCard.transform.SetParent(playerHand);
                 chosenCard.GetComponent<LayoutElement>().preferredWidth = -1;
                 chosenCard.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+
+                AkSoundEngine.PostEvent("Play_Trick_Card", playerHand.GetComponentInParent<HandController>().sfxObj);
             }
             else
             {

@@ -1381,6 +1381,7 @@ public class CardPlace : MonoBehaviour,
             chosenCard.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
             chosenCard.GetComponent<CardPlace>().correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(false);
             chosenCard.transform.SetParent(playerHand);
+            AkSoundEngine.PostEvent("Play_Trick_Card", playerHand.GetComponentInParent<HandController>().sfxObj);
         }
         else
         {

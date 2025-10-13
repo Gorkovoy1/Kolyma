@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
 using UnityEngine.UI;
+using AK.Wwise;
 
 public class DeckCardButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -45,6 +46,7 @@ public class DeckCardButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             sideButton.GetComponentInChildren<TextMeshProUGUI>().text = cardName;
             sideButton.GetComponent<DeckCardButtonSmall>().buttonReference = this.gameObject;
             this.GetComponent<Button>().interactable = false;
+            AkSoundEngine.PostEvent("Play_Click_2", this.gameObject);
         }
     }
 

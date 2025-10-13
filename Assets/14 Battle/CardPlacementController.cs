@@ -50,6 +50,7 @@ public class CardPlacementController : MonoBehaviour
 
     void Awake()
     {
+        AkSoundEngine.StopAll();
         if(instance == null)
         {
             instance = this;
