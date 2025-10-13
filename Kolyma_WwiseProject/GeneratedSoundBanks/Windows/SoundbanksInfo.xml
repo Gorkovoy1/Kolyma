@@ -34,7 +34,7 @@
 				<GameParameter Id="4160247818" Name="SS_Air_Turbulence"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{CDD92F67-E2EB-7E6E-5B4A-803863BF06FD}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{767CC2CC-60F7-898F-2A2B-F351536B3807}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -563,5 +563,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{87E92E33-3959-E2C9-8363-97B4664BCF15}</FileHash>
+	<FileHash>{606CFD4F-1B21-DBB2-5ECC-17E77A27953F}</FileHash>
 </SoundBanksInfo>
