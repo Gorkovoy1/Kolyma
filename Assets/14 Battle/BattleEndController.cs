@@ -52,7 +52,7 @@ public class BattleEndController : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         AkSoundEngine.StopAll();
-        if(SceneManager.GetActiveScene().buildIndex == 7)
+        if(SceneManager.GetActiveScene().buildIndex == 7 || SceneManager.GetActiveScene().buildIndex == 0)
         {
             SceneManager.LoadScene(0);
         }
