@@ -1999,7 +1999,7 @@ MonoBehaviour:
   transition: {fileID: 547149251}
   transitionTime: 1
   buildingName: Barracks
-  buildingNumber: 0
+  buildingNumber: 6
   myConfirmationWindow: {fileID: 345098016}
 --- !u!114 &1461313266
 MonoBehaviour:
