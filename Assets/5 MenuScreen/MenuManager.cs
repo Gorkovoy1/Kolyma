@@ -45,6 +45,12 @@ public class MenuManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void GoToBattle()
+    {
+        AkSoundEngine.StopAll();
+        SceneManager.LoadScene("BattleSceneJ");
+    }
+
     public void DisplayOptions()
     {
         mainMenu.gameObject.SetActive(false);
