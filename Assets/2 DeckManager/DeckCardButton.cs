@@ -38,8 +38,8 @@ public class DeckCardButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void AddCardToDeck()
     {
-        //check if deck has less than 15
-        if (CardInventoryController.instance.playerDeck.Count < 15)
+        //check if deck has less than 10
+        if (CardInventoryController.instance.playerDeck.Count < 10)
         {
             CardInventoryController.instance.playerDeck.Add(specialCardPrefab);
             GameObject sideButton = Instantiate(buttonPrefab, sidePanel.transform.GetChild(0));

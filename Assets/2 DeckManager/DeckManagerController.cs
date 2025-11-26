@@ -32,7 +32,7 @@ public class DeckManagerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        cardCount.text = "" + CardInventoryController.instance.playerDeck.Count + " /15";
+        cardCount.text = "" + CardInventoryController.instance.playerDeck.Count + " /10";
 
     }
     
