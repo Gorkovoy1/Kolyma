@@ -1899,6 +1899,7 @@ GameObject:
   - component: {fileID: 600508956}
   - component: {fileID: 600508955}
   - component: {fileID: 600508958}
+  - component: {fileID: 600508959}
   m_Layer: 5
   m_Name: EndTurn
   m_TagString: Untagged
@@ -1995,7 +1996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: a8c0bf489bac7c246a685c67fc636e08, type: 2}
   m_Color: {r: 1, g: 0.807896, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -2041,6 +2042,26 @@ MonoBehaviour:
   passAnimationController: {fileID: 1849388342}
   sfxObj: {fileID: 1398019612}
   pressed: 0
+--- !u!114 &600508959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600508953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2c78887b89174f4098c400c05c4fff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: a8c0bf489bac7c246a685c67fc636e08, type: 2}
+  outlinePropertyName: _ImageOutline
+  isFlashing: 0
+  elapsedTime: 0
+  fadeDuration: 1.5
+  timeOne: 0
+  timeTwo: 8
+  timerStart: 0
 --- !u!1 &629652256
 GameObject:
   m_ObjectHideFlags: 0

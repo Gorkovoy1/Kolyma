@@ -113,5 +113,7 @@ public class TestingCards : MonoBehaviour
         }
         handController.DrawToHand("opponent");
         TurnManager.instance.playerPlayedCard = false;
+
+        this.gameObject.GetComponent<EndTurnGlow>().isFlashing = false;
     }
 }
