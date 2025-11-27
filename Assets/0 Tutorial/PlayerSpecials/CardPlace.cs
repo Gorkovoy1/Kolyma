@@ -272,6 +272,7 @@ namespace TutorialScripts
         public void AnimateBeingPlayed()
         {
             isPlayable = false;
+            TurnManager.instance.playerPlayedCard = true;
             trickSound.Post(this.gameObject);
             correspondingImage.GetComponent<Image>().material = defaultMat;
             StartCoroutine(BeingPlayed());

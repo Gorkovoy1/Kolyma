@@ -51,6 +51,10 @@ public class TestingCards : MonoBehaviour
         pressed = true;
         AkSoundEngine.PostEvent("Play_Click_2", sfxObj);
         GetComponent<Button>().interactable = false;
+
+        TurnManager.instance.playerPlayedCard = false;
+
+        this.gameObject.GetComponent<EndTurnGlow>().isFlashing = false;
     }
 
     public void TestDeal()

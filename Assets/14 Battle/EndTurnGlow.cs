@@ -5,7 +5,7 @@ using UnityEngine;
 public class EndTurnGlow : MonoBehaviour
 {
     public Material mat;
-    public string outlinePropertyName = "_SolidOutlineColorBase";
+    public string outlinePropertyName = "_ImageOutline";
     public bool isFlashing = false;
     public float elapsedTime = 0f;
     public float fadeDuration = 1f;
