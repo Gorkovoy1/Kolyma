@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using AK.Wwise;
 
 public class HighlightObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
@@ -61,6 +62,7 @@ public class HighlightObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
         yield return new WaitForSeconds(transitionTime);
         //pauses coroutine for x amount of seconds
 
+        AkSoundEngine.StopAll();
         //Load scene
         SceneManager.LoadScene(levelIndex);
 
