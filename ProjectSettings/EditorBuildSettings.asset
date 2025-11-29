@@ -33,6 +33,12 @@ EditorBuildSettings:
     path: Assets/00 Scenes/8 Hub2.unity
     guid: 8f9c1d1bcd0e2d14588e779371b80e51
   - enabled: 1
+    path: Assets/00 Scenes/9 BarracksC Gamble.unity
+    guid: 457df3acfeff4324b96d0a15f71da891
+  - enabled: 1
     path: Assets/00 Scenes/10 BattleSceneJ.unity
     guid: 103377547bcfa374b8e9e67657367f09
+  - enabled: 1
+    path: Assets/00 Scenes/11 BorisBarracks.unity
+    guid: bf6d3edcf826b444ab25377b6cb818ec
   m_configObjects: {}

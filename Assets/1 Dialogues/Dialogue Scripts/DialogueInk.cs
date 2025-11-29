@@ -87,6 +87,8 @@ public class DialogueInk : MonoBehaviour
     public DialogueScriptableObject dialogueObj2;
     public DialogueScriptableObject dialogueObj3;
     public DialogueScriptableObject dialogueObj4;
+    public DialogueScriptableObject dialogueObj5;
+    public DialogueScriptableObject dialogueObj6;
 
     public int nextSceneNumber;
    
@@ -353,6 +355,94 @@ public class DialogueInk : MonoBehaviour
             //set next scene to load
             nextSceneNumber = dialogueObj4.nextScene;
         }
+        else if (dialogueNumber == 5)
+        {
+            //set level loader and text
+            foreach (Transform child in levelLoaderParent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            GameObject newLoader = Instantiate(dialogueObj5.blackScreen, levelLoaderParent.transform);
+            if (dialogueObj5.line1 != "" && dialogueObj5.line2 != "")
+            {
+                newLoader.GetComponentInChildren<TextMeshProUGUI>().text = dialogueObj5.line1 + Environment.NewLine + Environment.NewLine + dialogueObj5.line2;
+            }
+            //set background
+            background.sprite = dialogueObj5.bg;
+            //set NPCPortrait
+            NPCBlack.sprite = dialogueObj5.npcBlack;
+            NPCColor.sprite = dialogueObj5.npcColor;
+            //set NPC nameTag
+            nameTag.text = dialogueObj5.npcName;
+            //set smoke/background animations
+            foreach (Transform child in backgroundAnimParent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            GameObject newBgAnim = Instantiate(dialogueObj5.bganim, backgroundAnimParent.transform);
+            //set Music
+            musicName = dialogueObj5.music;
+            //set ambient sounds, delete all children and instantiate teh correct new prefab 
+            foreach (Transform child in ambientParent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            GameObject newAmbient = Instantiate(dialogueObj5.ambient, ambientParent.transform);
+            //set opening sound (jail door sfx)
+            foreach (Transform child in screenSFXParent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            GameObject newSFX = Instantiate(dialogueObj5.sfx, screenSFXParent.transform);
+            //set ink file
+            inkJSON = dialogueObj5.inkfile;
+            //set next scene to load
+            nextSceneNumber = dialogueObj5.nextScene;
+        }
+        else if (dialogueNumber == 6)
+        {
+            //set level loader and text
+            foreach (Transform child in levelLoaderParent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            GameObject newLoader = Instantiate(dialogueObj6.blackScreen, levelLoaderParent.transform);
+            if (dialogueObj6.line1 != "" && dialogueObj6.line2 != "")
+            {
+                newLoader.GetComponentInChildren<TextMeshProUGUI>().text = dialogueObj6.line1 + Environment.NewLine + Environment.NewLine + dialogueObj6.line2;
+            }
+            //set background
+            background.sprite = dialogueObj6.bg;
+            //set NPCPortrait
+            NPCBlack.sprite = dialogueObj6.npcBlack;
+            NPCColor.sprite = dialogueObj6.npcColor;
+            //set NPC nameTag
+            nameTag.text = dialogueObj6.npcName;
+            //set smoke/background animations
+            foreach (Transform child in backgroundAnimParent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            GameObject newBgAnim = Instantiate(dialogueObj6.bganim, backgroundAnimParent.transform);
+            //set Music
+            musicName = dialogueObj6.music;
+            //set ambient sounds, delete all children and instantiate teh correct new prefab 
+            foreach (Transform child in ambientParent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            GameObject newAmbient = Instantiate(dialogueObj6.ambient, ambientParent.transform);
+            //set opening sound (jail door sfx)
+            foreach (Transform child in screenSFXParent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            GameObject newSFX = Instantiate(dialogueObj6.sfx, screenSFXParent.transform);
+            //set ink file
+            inkJSON = dialogueObj6.inkfile;
+            //set next scene to load
+            nextSceneNumber = dialogueObj6.nextScene;
+        }
     }
 
     IEnumerator ShowInkStory()
@@ -482,7 +572,7 @@ public class DialogueInk : MonoBehaviour
                 {
                     NarratorSound();
                 }
-                if (tags[0] == "Andreyev" || tags[0] == "Rybakov"|| tags[0] == "Gangster" || tags[0] == "GenericPrisoner")
+                if (tags[0] == "Andreyev" || tags[0] == "Rybakov"|| tags[0] == "Gangster" || tags[0] == "GenericPrisoner" || tags[0] == "Boris")
                 {
                     HighlightNPC();
                     narratorTag.gameObject.SetActive(false);
