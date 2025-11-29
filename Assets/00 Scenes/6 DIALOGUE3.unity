@@ -634,7 +634,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Convoy Officer
+  m_text: Old Man
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7e2447a1bbc55e94aa428d0d139b1653, type: 2}
   m_sharedMaterial: {fileID: -4730502537268128557, guid: 7e2447a1bbc55e94aa428d0d139b1653, type: 2}
@@ -980,7 +980,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transition: {fileID: 8009139502368979478, guid: 29ac81a354d80234c9ba59859591b57e, type: 3}
   transitionTime: 1
-  levelIndex: 0
+  levelIndex: 7
 --- !u!114 &553575352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1181,7 +1181,7 @@ MonoBehaviour:
   smoke: {fileID: 2039440116}
   darkPrefab: {fileID: 6599969547959027016, guid: c7af16f7b0a1ac2409d365bd27e2f774, type: 3}
   bedObj: {fileID: 2113218634}
-  dialogueNumber: 1
+  dialogueNumber: 3
   background: {fileID: 1733045846}
   musicName: 
   NPCBlack: {fileID: 427078829}
@@ -1193,7 +1193,6 @@ MonoBehaviour:
   dialogueObj1: {fileID: 11400000, guid: 8f054f46d0a215c4faf0f8c2625111f1, type: 2}
   dialogueObj2: {fileID: 11400000, guid: 37f512111a594c74c963adf9a36f0bb7, type: 2}
   dialogueObj3: {fileID: 11400000, guid: 42e3b2c973330cc408b9801267040753, type: 2}
-  dialogueObj4: {fileID: 0}
   nextSceneNumber: 0
 --- !u!114 &634617716 stripped
 MonoBehaviour:
@@ -2834,8 +2833,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 61b26ecf8a8644045853c96142eb8abb, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 7fc39a025da054b489fc0b8b41684476, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 0
   m_FillMethod: 4

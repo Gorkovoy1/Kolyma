@@ -86,6 +86,7 @@ public class DialogueInk : MonoBehaviour
     public DialogueScriptableObject dialogueObj1;
     public DialogueScriptableObject dialogueObj2;
     public DialogueScriptableObject dialogueObj3;
+    public DialogueScriptableObject dialogueObj4;
 
     public int nextSceneNumber;
    
@@ -308,6 +309,50 @@ public class DialogueInk : MonoBehaviour
             //set next scene to load
             nextSceneNumber = dialogueObj3.nextScene;
         }
+        else if (dialogueNumber == 4)
+        {
+            //set level loader and text
+            foreach (Transform child in levelLoaderParent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            GameObject newLoader = Instantiate(dialogueObj4.blackScreen, levelLoaderParent.transform);
+            if (dialogueObj4.line1 != "" && dialogueObj4.line2 != "")
+            {
+                newLoader.GetComponentInChildren<TextMeshProUGUI>().text = dialogueObj4.line1 + Environment.NewLine + Environment.NewLine + dialogueObj4.line2;
+            }
+            //set background
+            background.sprite = dialogueObj4.bg;
+            //set NPCPortrait
+            NPCBlack.sprite = dialogueObj4.npcBlack;
+            NPCColor.sprite = dialogueObj4.npcColor;
+            //set NPC nameTag
+            nameTag.text = dialogueObj4.npcName;
+            //set smoke/background animations
+            foreach (Transform child in backgroundAnimParent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            GameObject newBgAnim = Instantiate(dialogueObj4.bganim, backgroundAnimParent.transform);
+            //set Music
+            musicName = dialogueObj4.music;
+            //set ambient sounds, delete all children and instantiate teh correct new prefab 
+            foreach (Transform child in ambientParent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            GameObject newAmbient = Instantiate(dialogueObj4.ambient, ambientParent.transform);
+            //set opening sound (jail door sfx)
+            foreach (Transform child in screenSFXParent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            GameObject newSFX = Instantiate(dialogueObj4.sfx, screenSFXParent.transform);
+            //set ink file
+            inkJSON = dialogueObj4.inkfile;
+            //set next scene to load
+            nextSceneNumber = dialogueObj4.nextScene;
+        }
     }
 
     IEnumerator ShowInkStory()
@@ -437,7 +482,7 @@ public class DialogueInk : MonoBehaviour
                 {
                     NarratorSound();
                 }
-                if (tags[0] == "Andreyev" || tags[0] == "Rybakov"|| tags[0] == "Gangster")
+                if (tags[0] == "Andreyev" || tags[0] == "Rybakov"|| tags[0] == "Gangster" || tags[0] == "GenericPrisoner")
                 {
                     HighlightNPC();
                     narratorTag.gameObject.SetActive(false);
@@ -513,7 +558,7 @@ public class DialogueInk : MonoBehaviour
                     //LoadNextScene();
                 }
 
-                if(tags[0] == "ClickBed")
+                if(tags[0] == "ClickBed" || tags[0] == "ClickDoor") //bedobj is just any clickable obj
                 {
                     NarratorSound();
 
