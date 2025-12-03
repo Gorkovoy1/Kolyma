@@ -52,6 +52,7 @@ public class TutorialController : MonoBehaviour
     public PassAnimationController passAnimationController;
 
     public GameObject endTurnButton;
+    public GameObject actionButton;
 
     IEnumerator SwitchToDiceScene()
     {
@@ -481,7 +482,7 @@ public class TutorialController : MonoBehaviour
             {
                 setPosition = new Vector2(-138, -167),
                 narrator = true,
-                message = "Play your last trick. May the numbers be on your side.",
+                message = "Play your last trick. May the numbers dance for you.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
@@ -510,9 +511,12 @@ public class TutorialController : MonoBehaviour
                 afterContinue = () =>
                 {
                     TurnManager.instance.isPlayerTurn = true;
+                    endTurnButton.GetComponent<EndTurnGlow>().isFlashing = false;
                     flipButton.GetComponent<Button>().enabled = true;
                     endTurnButton.GetComponent<TestingCards>().pressed = false;
                     endTurnButton.GetComponent<Button>().interactable = true;
+                    endTurnButton.GetComponent<EndTurnGlow>().timeTwo = 15f;
+                    actionButton.GetComponent<ActionGlow>().isFlashing = true;
                 },
                 //
                 waitUntil = () => NumberManager.instance.playerVal == 15 && endTurnButton.GetComponent<TestingCards>().pressed,

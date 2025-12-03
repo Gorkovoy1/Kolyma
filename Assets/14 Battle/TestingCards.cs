@@ -49,6 +49,7 @@ public class TestingCards : MonoBehaviour
     public void TutorialEndTurn()
     {
         pressed = true;
+        TurnManager.instance.isPlayerTurn = false;
         AkSoundEngine.PostEvent("Play_Click_2", sfxObj);
         GetComponent<Button>().interactable = false;
 

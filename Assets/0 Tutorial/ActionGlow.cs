@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EndTurnGlow : MonoBehaviour
+public class ActionGlow : MonoBehaviour
 {
     public Material mat;
     public string outlinePropertyName = "_ImageOutline";
@@ -22,35 +22,15 @@ public class EndTurnGlow : MonoBehaviour
 
     void Update()
     {
-        if(TurnManager.instance.playerPlayedCard && !isFlashing && !timerStart)
+        if (!TurnManager.instance.isPlayerTurn)
         {
-            timerStart = true;
+            isFlashing = false;
+            timerStart = false;
             timeOne = 0f;
-            
-            
         }
+        
 
-        if(timerStart)
-        {
-            if (timeOne < timeTwo && TurnManager.instance.isPlayerTurn)
-            {
-
-                timeOne += Time.deltaTime;
-            }
-            else if(timeOne > timeTwo && TurnManager.instance.isPlayerTurn)
-            {
-                isFlashing = true;
-                timerStart = false;
-            }
-            else if(!TurnManager.instance.isPlayerTurn)
-            {
-                isFlashing = false;
-                timerStart = false;
-                timeOne = 0f;
-            }
-        }
-
-        if(!isFlashing)
+        if (!isFlashing)
         {
             SetAlpha(0f);
             return;
@@ -80,5 +60,5 @@ public class EndTurnGlow : MonoBehaviour
         isFlashing = !isFlashing;
     }
 
-    
+
 }

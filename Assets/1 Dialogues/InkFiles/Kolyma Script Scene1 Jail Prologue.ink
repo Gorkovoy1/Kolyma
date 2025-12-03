@@ -91,5 +91,5 @@ As you wish. I've heard someone here call you Arkady. That is good enough for me
 ----Alright. Time to go.#Andreyev 
 Good luck.#Andreyev_Good_Luck #Andreyev 
 //next line should be changed. Instead of UI it's the narrator
-----You received a black leather glove#ReceiveItem #Narrator
+----You received a black leather glove.#ReceiveItem #Narrator
     -> END

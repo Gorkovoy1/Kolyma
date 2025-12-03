@@ -555,6 +555,7 @@ MonoBehaviour:
   andreyevPortrait: {fileID: 1883529520}
   passAnimationController: {fileID: 933523195}
   endTurnButton: {fileID: 600508953}
+  actionButton: {fileID: 687394370}
 --- !u!114 &154296537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2053,7 +2054,7 @@ MonoBehaviour:
   elapsedTime: 0
   fadeDuration: 1
   timeOne: 0
-  timeTwo: 6
+  timeTwo: 8
   timerStart: 0
 --- !u!1 &609922981
 GameObject:
@@ -3792,6 +3793,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swapButton: {fileID: 1527209910}
   flipButton: {fileID: 1537993268}
+--- !u!114 &857811379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687394370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c1cb40ded991e7469ef66751ee46331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: c5fdce2e5cecd5240ae14f0586616018, type: 2}
+  outlinePropertyName: _ImageOutline
+  isFlashing: 0
+  elapsedTime: 0
+  fadeDuration: 1
+  timeOne: 0
+  timeTwo: 0
+  timerStart: 0
 --- !u!1 &888176879
 GameObject:
   m_ObjectHideFlags: 0
@@ -10756,6 +10777,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.9921569
       objectReference: {fileID: 0}
+    - target: {fileID: 4620840407863286082, guid: abb363a6218e8944185220c1a955b523, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: c5fdce2e5cecd5240ae14f0586616018, type: 2}
     - target: {fileID: 4620840407863286082, guid: abb363a6218e8944185220c1a955b523, type: 3}
       propertyPath: m_RaycastTarget
       value: 1

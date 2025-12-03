@@ -608,7 +608,7 @@ using AK.Wwise;
                     //low tier is random
 
 
-                    if (SceneManager.GetActiveScene().name == "TutorialScene")
+                    if (SceneManager.GetActiveScene().name == "2 TutorialScene")
                     {
                         foreach (GameObject g in NumberManager.instance.allNumbers)
                         {
@@ -704,6 +704,7 @@ using AK.Wwise;
                         {
                         //StartCoroutine(CardSelectionController.instance.GiveNumber(g, "player"));
                             g.transform.SetParent(NumberManager.instance.playerPositiveArea.transform);
+                            AkSoundEngine.PostEvent("Play_Number_Card", playerHand.GetComponentInParent<HandController>().sfxObj);
                             NumberManager.instance.recalculate = true;
                         }
                         break;

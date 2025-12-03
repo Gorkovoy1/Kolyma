@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584412241884355578
+    m_lastTime: -8584368679434157631
     List:
     - name: Andreyev
       guid: a6c0eb1ff2ce024c96aeb202fa8b346a
@@ -147,6 +147,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: New_Event
+      guid: 6f11ec3fd68a6542a82b0db01acecaca
+      id: 3050945240
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Music
+        ObjectType: 4
+        guid: 824e29428c4a7b4fb73a27b9eec12a24
+      - ElementName: New_Event
+        ObjectType: 3
+        guid: 6f11ec3fd68a6542a82b0db01acecaca
+      Path: Events\Default Work Unit\Music\New_Event
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: Play_Andreyev_Clears_Throat
       guid: b6e91d400fd25a4898434b87449de4f5
       id: 2052887156
@@ -688,9 +708,9 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
-    - name: Play_Music_Camp_Day
+    - name: Play_Music_Camp_Hub_Day
       guid: c96981c5ad016f43a815a4d024b846bc
-      id: 2741544670
+      id: 3768845998
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -701,10 +721,10 @@ MonoBehaviour:
       - ElementName: Music
         ObjectType: 4
         guid: 824e29428c4a7b4fb73a27b9eec12a24
-      - ElementName: Play_Music_Camp_Day
+      - ElementName: Play_Music_Camp_Hub_Day
         ObjectType: 3
         guid: c96981c5ad016f43a815a4d024b846bc
-      Path: Events\Default Work Unit\Music\Play_Music_Camp_Day
+      Path: Events\Default Work Unit\Music\Play_Music_Camp_Hub_Day
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
