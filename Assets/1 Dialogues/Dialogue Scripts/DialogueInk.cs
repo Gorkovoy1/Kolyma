@@ -891,7 +891,7 @@ public class DialogueInk : MonoBehaviour
         string savedState = inkStory.state.ToJson();
         PlayerPrefs.SetString("SavedInkState", savedState);
         AkSoundEngine.StopAll();
-        SceneManager.LoadScene("TutorialScene");
+        SceneManager.LoadScene("2 TutorialScene");
     }
 
     //end of dialogue

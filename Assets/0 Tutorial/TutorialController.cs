@@ -59,7 +59,7 @@ public class TutorialController : MonoBehaviour
         AkSoundEngine.PostEvent("Play_Dice", sfxObj);
         yield return new WaitForSeconds(0.5f);
 
-        SceneManager.LoadScene("DiceRoll", LoadSceneMode.Additive);
+        SceneManager.LoadScene("1 DiceRoll", LoadSceneMode.Additive);
         yield return null;
         diceCamera = GameObject.FindGameObjectWithTag("DiceCamera").GetComponent<Camera>();
         mainCamera.gameObject.SetActive(false);
@@ -70,7 +70,7 @@ public class TutorialController : MonoBehaviour
         mainCamera.gameObject.SetActive(true);
         diceCamera.gameObject.SetActive(false);
         tutorialCanvas.enabled = true;
-        SceneManager.UnloadSceneAsync("DiceRoll");
+        SceneManager.UnloadSceneAsync("1 DiceRoll");
         elapsed = 0f;
         fadingOut = true;
         Debug.Log("fade out");
@@ -196,7 +196,7 @@ public class TutorialController : MonoBehaviour
             new TutorialStepData
             {
                 setPosition = new Vector2(-138, -167),
-                message = "Each player selects up to 15 tricks. You will use them for the Game of Numbers, so choose wisely.",
+                message = "Each player selects up to 10 tricks. You will use them for the Game of Numbers, so choose wisely.",
                 requireContinue = true,
             },
             new TutorialStepData
