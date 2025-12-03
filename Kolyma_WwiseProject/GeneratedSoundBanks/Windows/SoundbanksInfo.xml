@@ -34,7 +34,7 @@
 				<GameParameter Id="4160247818" Name="SS_Air_Turbulence"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{7D051C2A-C25C-F05C-35CA-6CCE02042A3A}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{E9A52682-E33D-0CC3-E704-7C30AC38C701}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -49,6 +49,10 @@
 				<File Id="69635862" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Poison.wav</ShortName>
 					<CachePath>SFX/Poison_818F3B66.wem</CachePath>
+				</File>
+				<File Id="71008113" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>kolyma daytime1.0.wav</ShortName>
+					<CachePath>SFX/kolyma daytime1.0_FBC78EF0.wem</CachePath>
 				</File>
 				<File Id="75083474" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>camp_arrival_no_intro.wav</ShortName>
@@ -117,10 +121,6 @@
 				<File Id="302096407" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>NumberCard1.wav</ShortName>
 					<CachePath>SFX/NumberCard1_818F3B66.wem</CachePath>
-				</File>
-				<File Id="328403887" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>kolyma daytime 1.4.wav</ShortName>
-					<CachePath>SFX/kolyma daytime 1.4_56CEF360.wem</CachePath>
 				</File>
 				<File Id="334397050" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Battle_Theme_2.1.wav</ShortName>
@@ -316,6 +316,7 @@
 				</File>
 			</Media>
 			<Events>
+				<Event Id="3050945240" Name="New_Event" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="2052887156" Name="Play_Andreyev_Clears_Throat" DurationType="OneShot" DurationMin="1.4883559" DurationMax="1.4883559">
 					<MediaRefs>
 						<MediaRef Id="594723613"/>
@@ -469,9 +470,9 @@
 						<MediaRef Id="75083474"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2741544670" Name="Play_Music_Camp_Day" DurationType="Infinite">
+				<Event Id="3768845998" Name="Play_Music_Camp_Hub_Day" DurationType="Infinite">
 					<MediaRefs>
-						<MediaRef Id="328403887"/>
+						<MediaRef Id="71008113"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3643466302" Name="Play_Music_Jail" DurationType="Infinite">
@@ -581,5 +582,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{4F4857C5-173E-8185-21BD-3805FCA5E571}</FileHash>
+	<FileHash>{EE63572F-CA76-EC3C-17E5-C0A77214C69F}</FileHash>
 </SoundBanksInfo>

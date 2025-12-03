@@ -57,16 +57,6 @@
 				<Property Name="Event Action List\{FD5C5A52-93C4-4502-8B61-AB853D507DCD}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="EventView\FilterMode1" Type="int32" Value="2"/>
 				<Property Name="EventView\FilterMode2" Type="int32" Value="2"/>
-				<Property Name="ExternalSourcesInputPath" Type="string">
-					<ValueList>
-						<Value Platform="Windows"></Value>
-					</ValueList>
-				</Property>
-				<Property Name="ExternalSourcesOutputPath" Type="string">
-					<ValueList>
-						<Value Platform="Windows">GeneratedSoundBanks\Windows\</Value>
-					</ValueList>
-				</Property>
 				<Property Name="Game Profiler\Voice Monitor\LastBus" Type="string" Value="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"/>
 				<Property Name="General\LatestLanguage" Type="int32" Value="684519430"/>
 				<Property Name="General\LatestPlatform" Type="string" Value="Windows"/>
@@ -179,31 +169,6 @@
 				<Property Name="SoundBank Manager\x64_Expand States Auto" Type="string" Value=""/>
 				<Property Name="SoundBank Manager\x64_Expand States User" Type="string" Value="jEsPUFagakqS2U51oYLhrg=="/>
 				<Property Name="SoundBankHeaderFilePath" Type="string" Value="GeneratedSoundBanks\"/>
-				<Property Name="SoundBankPaths" Type="string">
-					<ValueList>
-						<Value Platform="Windows">GeneratedSoundBanks\Windows\</Value>
-					</ValueList>
-				</Property>
-				<Property Name="SoundBankPostGenerateCustomCmdDescription" Type="string">
-					<ValueList>
-						<Value Platform="Windows"></Value>
-					</ValueList>
-				</Property>
-				<Property Name="SoundBankPostGenerateCustomCmdLines" Type="string">
-					<ValueList>
-						<Value Platform="Windows"></Value>
-					</ValueList>
-				</Property>
-				<Property Name="SoundBankPreGenerateCustomCmdDescription" Type="string">
-					<ValueList>
-						<Value Platform="Windows"></Value>
-					</ValueList>
-				</Property>
-				<Property Name="SoundBankPreGenerateCustomCmdLines" Type="string">
-					<ValueList>
-						<Value Platform="Windows"></Value>
-					</ValueList>
-				</Property>
 			</PropertyList>
 		</UserProjectSettings>
 	</UserProjectSettingsInfo>

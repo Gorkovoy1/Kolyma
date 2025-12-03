@@ -31,8 +31,8 @@ Event	ID	Name			Wwise Object Path	Notes
 	2304369006	Play_Number_Card			\Default Work Unit\Battle\Play_Number_Card	
 	2537547804	Play_Thick_Woolen_Coat			\Default Work Unit\Battle\Play_Thick_Woolen_Coat	
 	2541567472	Play_Whisper			\Default Work Unit\Play_Whisper	
-	2741544670	Play_Music_Camp_Day			\Default Work Unit\Music\Play_Music_Camp_Day	
 	2807572219	Play_Silence			\Default Work Unit\Play_Silence	
+	3050945240	New_Event			\Default Work Unit\Music\New_Event	
 	3130258220	Play_Card_Burn			\Default Work Unit\Battle\Play_Card_Burn	
 	3205279810	Play_Barracks_Door			\Default Work Unit\Play_Barracks_Door	
 	3234553616	Play_Cough			\Default Work Unit\Play_Cough	
@@ -42,6 +42,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	3421211826	Play_Search			\Default Work Unit\Battle\Play_Search	
 	3643466302	Play_Music_Jail			\Default Work Unit\Music\Play_Music_Jail	
 	3698047240	Play_Breath			\Default Work Unit\Play_Breath	
+	3768845998	Play_Music_Camp_Hub_Day			\Default Work Unit\Music\Play_Music_Camp_Hub_Day	
 	3821598057	Play_Click_2			\Default Work Unit\Play_Click_2	
 	3822624772	Play_Bribe			\Default Work Unit\Battle\Play_Bribe	
 	3877743401	Play_Cell_Guard_Roll_Call			\Default Work Unit\Play_Cell_Guard_Roll_Call	
@@ -53,6 +54,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	2774197	Dogs_Bark_03	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Dogs_Bark-003_57DD6703.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camp_SFX\Dogs\Dogs_Bark_03		39227
 	7973089	Barracks_Background_SFX	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Barracks_Background_07646D92.wem		\Actor-Mixer Hierarchy\Default Work Unit\Barracks_SFX\Barracks_Background_SFX		9932960
 	69635862	Poison	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Poison_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Trick_Cards_SFX\Poison		318956
+	71008113	kolyma daytime1_0	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\kolyma daytime1.0_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Camp_Hub_Day\Camp_Hub_Day\kolyma daytime1_0		32832160
 	75083474	camp_arrival_no_intro	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\camp_arrival_no_intro_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Camp_Arrival\Camp_Arrival\camp_arrival_no_intro		632690
 	77588350	Bribe	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Bribe_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Trick_Cards_SFX\Bribe		328200
 	90128117	Clocks_Chime	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Clocks, Chime, Metallic Wall Clock, Chime Ringing SND102458_D8B369E4.wem		\Actor-Mixer Hierarchy\Default Work Unit\Clocks_Chime		775148
@@ -70,7 +72,6 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	241560530	Thick_Woolen_Coat	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Thick Woolen Coat3_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Trick_Cards_SFX\Thick_Woolen_Coat		618456
 	267717470	Close_Trick_Collection	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\CloseTrickCollection_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Close_Trick_Collection		260196
 	302096407	NumberCard1	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\NumberCard1_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Number_Cards\NumberCard1		260424
-	328403887	kolyma daytime 1_4	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\kolyma daytime 1.4_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Camp\Camp_Day\kolyma daytime 1_4		2320649
 	334397050	Battle_Theme_2_1	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Battle_Theme_2.1_56CEF360.wem		\Interactive Music Hierarchy\Default Work Unit\Battle_Theme_2\Battle_Theme_2\Battle_Theme_2_1		2980747
 	355118563	Typewriter_Loop_1	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\typewriter_loop-001_F1969806.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text_Box\Typewriter_Loops\Typewriter_Loop_1		18804
 	355430885	Andreyev_Question	C:\Users\Andrei\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\Windows\SFX\Andreyev_Question_CA6FFA65.wem		\Actor-Mixer Hierarchy\Default Work Unit\NPCs\Andreyev\Andreyev_Question		173704
