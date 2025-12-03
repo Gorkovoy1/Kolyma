@@ -497,12 +497,12 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Play_Music_Camp_Day" ID="{C58169C9-01AD-436F-A815-A4D024B846BC}">
+						<Event Name="Play_Music_Camp_Hub_Day" ID="{C58169C9-01AD-436F-A815-A4D024B846BC}">
 							<ChildrenList>
-								<Action Name="" ID="{90B0789C-663D-4682-9D2F-102954CDD8AD}" ShortID="973600481">
+								<Action Name="" ID="{46D38DCD-1A31-444B-A8B7-CBDF51B15772}" ShortID="739287669">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Camp" ID="{4852A7B7-3CAE-4EEA-BD11-7970B7B049DD}" WorkUnitID="{01660F24-42EF-4118-9DAA-A2B4ACD5D295}"/>
+											<ObjectRef Name="Camp_Hub_Day" ID="{102753E6-38FF-4CA3-9367-AA127E76E045}" WorkUnitID="{01660F24-42EF-4118-9DAA-A2B4ACD5D295}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -541,6 +541,7 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="New_Event" ID="{3FEC116F-8AD6-4265-A82B-0DB01ACECACA}"/>
 					</ChildrenList>
 				</Folder>
 				<Event Name="Play_Click_2" ID="{52004750-BD7E-41F5-93F8-D1DC60DC05B7}">
