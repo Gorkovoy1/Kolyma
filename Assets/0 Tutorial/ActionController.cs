@@ -49,7 +49,7 @@ namespace TutorialScripts
 
         public void ActivateFlip()
         {
-            this.gameObject.GetComponent<EndTurnGlow>().isFlashing = false;
+            this.gameObject.GetComponent<ActionGlow>().isFlashing = false;
             foreach (GameObject g in NumberManager.instance.allNumbers)
             {
                 if(g.GetComponent<NumberStats>().value == 4)
