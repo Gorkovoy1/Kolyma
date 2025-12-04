@@ -113,6 +113,12 @@ MonoBehaviour:
   discardedCards: []
   discardUpdated: 0
   cardBack: {fileID: 21300000, guid: 5681a74c470359848acdb34ed992ba17, type: 3}
+  grey: {fileID: 0}
+  isFlipped: 0
+  trickSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 82c5b76ed3c56064895175298627e624, type: 2}
 --- !u!114 &3620195004621663236
 MonoBehaviour:
   m_ObjectHideFlags: 0

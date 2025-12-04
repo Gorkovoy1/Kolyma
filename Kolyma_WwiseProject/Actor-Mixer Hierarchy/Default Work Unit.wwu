@@ -1833,7 +1833,7 @@
 				<ActorMixer Name="Battle" ID="{627F01AD-03FF-4F3E-9190-4E1DFDA9323B}" ShortID="942046302">
 					<ReferenceList>
 						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+							<ObjectRef Name="SFX" ID="{3E2240E0-97A7-47A5-A838-BBA7507F9DDD}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
 						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
@@ -2316,6 +2316,64 @@
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="Bribe" ID="{66D3B37F-EA17-4A27-A961-D006780110DF}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Condensed_Milk" ID="{AA6EF2FC-2E3A-439C-B4FF-AB9956D77032}" ShortID="1066627488">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="CondensedMilk" ID="{DE3A3695-1540-40A4-92CD-9820B1DA05A0}">
+											<Language>SFX</Language>
+											<AudioFile>CondensedMilk.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="794957230"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="CondensedMilk" ID="{DE3A3695-1540-40A4-92CD-9820B1DA05A0}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Burden" ID="{7281144B-F3F3-43E9-A986-E1AB767974F8}" ShortID="82325054">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Burden" ID="{4DB685A2-2618-4551-9F41-066C5D47F44B}">
+											<Language>SFX</Language>
+											<AudioFile>Burden.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="736440791"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Burden" ID="{4DB685A2-2618-4551-9F41-066C5D47F44B}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>

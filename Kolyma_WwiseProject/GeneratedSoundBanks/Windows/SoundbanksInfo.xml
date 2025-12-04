@@ -34,7 +34,7 @@
 				<GameParameter Id="4160247818" Name="SS_Air_Turbulence"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{E9A52682-E33D-0CC3-E704-7C30AC38C701}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{28B52BAD-CEEC-18D2-C805-629241B46626}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -48,11 +48,11 @@
 				</File>
 				<File Id="69635862" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Poison.wav</ShortName>
-					<CachePath>SFX/Poison_818F3B66.wem</CachePath>
+					<CachePath>SFX/Poison_8E324C96.wem</CachePath>
 				</File>
 				<File Id="71008113" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>kolyma daytime1.0.wav</ShortName>
-					<CachePath>SFX/kolyma daytime1.0_FBC78EF0.wem</CachePath>
+					<CachePath>SFX/kolyma daytime1.0_56CEF360.wem</CachePath>
 				</File>
 				<File Id="75083474" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>camp_arrival_no_intro.wav</ShortName>
@@ -60,7 +60,7 @@
 				</File>
 				<File Id="77588350" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Bribe.wav</ShortName>
-					<CachePath>SFX/Bribe_818F3B66.wem</CachePath>
+					<CachePath>SFX/Bribe_8E324C96.wem</CachePath>
 				</File>
 				<File Id="90128117" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Clocks, Chime, Metallic Wall Clock, Chime Ringing SND102458.wav</ShortName>
@@ -68,7 +68,7 @@
 				</File>
 				<File Id="92101620" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>EmptyPockets.wav</ShortName>
-					<CachePath>SFX/EmptyPockets_818F3B66.wem</CachePath>
+					<CachePath>SFX/EmptyPockets_8E324C96.wem</CachePath>
 				</File>
 				<File Id="111452232" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Dogs_Bark-002.wav</ShortName>
@@ -84,7 +84,7 @@
 				</File>
 				<File Id="127805243" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>OpenTrickCollection.wav</ShortName>
-					<CachePath>SFX/OpenTrickCollection_818F3B66.wem</CachePath>
+					<CachePath>SFX/OpenTrickCollection_8E324C96.wem</CachePath>
 				</File>
 				<File Id="129889019" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Menu.wav</ShortName>
@@ -108,19 +108,19 @@
 				</File>
 				<File Id="185742565" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>dice 2.wav</ShortName>
-					<CachePath>SFX/dice 2_45A879C8.wem</CachePath>
+					<CachePath>SFX/dice 2_56516898.wem</CachePath>
 				</File>
 				<File Id="241560530" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Thick Woolen Coat3.wav</ShortName>
-					<CachePath>SFX/Thick Woolen Coat3_818F3B66.wem</CachePath>
+					<CachePath>SFX/Thick Woolen Coat3_8E324C96.wem</CachePath>
 				</File>
 				<File Id="267717470" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>CloseTrickCollection.wav</ShortName>
-					<CachePath>SFX/CloseTrickCollection_818F3B66.wem</CachePath>
+					<CachePath>SFX/CloseTrickCollection_8E324C96.wem</CachePath>
 				</File>
 				<File Id="302096407" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>NumberCard1.wav</ShortName>
-					<CachePath>SFX/NumberCard1_818F3B66.wem</CachePath>
+					<CachePath>SFX/NumberCard1_8E324C96.wem</CachePath>
 				</File>
 				<File Id="334397050" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Battle_Theme_2.1.wav</ShortName>
@@ -192,7 +192,7 @@
 				</File>
 				<File Id="613591171" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>NumberCard2.wav</ShortName>
-					<CachePath>SFX/NumberCard2_818F3B66.wem</CachePath>
+					<CachePath>SFX/NumberCard2_8E324C96.wem</CachePath>
 				</File>
 				<File Id="619077475" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>kolyma_jail 2.4.wav</ShortName>
@@ -212,19 +212,23 @@
 				</File>
 				<File Id="692733281" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Setup.wav</ShortName>
-					<CachePath>SFX/Setup_818F3B66.wem</CachePath>
+					<CachePath>SFX/Setup_8E324C96.wem</CachePath>
 				</File>
 				<File Id="696251624" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Search.wav</ShortName>
-					<CachePath>SFX/Search_818F3B66.wem</CachePath>
+					<CachePath>SFX/Search_8E324C96.wem</CachePath>
 				</File>
 				<File Id="708500003" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Battle_Theme_1.2.wav</ShortName>
 					<CachePath>SFX/Battle_Theme_1.2_56CEF360.wem</CachePath>
 				</File>
+				<File Id="736440791" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Burden.wav</ShortName>
+					<CachePath>SFX/Burden_8E324C96.wem</CachePath>
+				</File>
 				<File Id="736547814" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>NumberCard4.wav</ShortName>
-					<CachePath>SFX/NumberCard4_818F3B66.wem</CachePath>
+					<CachePath>SFX/NumberCard4_8E324C96.wem</CachePath>
 				</File>
 				<File Id="737968334" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-003.wav</ShortName>
@@ -246,6 +250,10 @@
 					<ShortName>negative_event1.2.wav</ShortName>
 					<CachePath>SFX/negative_event1.2_8E324C96.wem</CachePath>
 				</File>
+				<File Id="794957230" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>CondensedMilk.wav</ShortName>
+					<CachePath>SFX/CondensedMilk_8E324C96.wem</CachePath>
+				</File>
 				<File Id="837605639" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Andreyev_Sigh.wav</ShortName>
 					<CachePath>SFX/Andreyev_Sigh_8DAE3998.wem</CachePath>
@@ -256,11 +264,11 @@
 				</File>
 				<File Id="869360124" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>CaughtRedHanded.wav</ShortName>
-					<CachePath>SFX/CaughtRedHanded_818F3B66.wem</CachePath>
+					<CachePath>SFX/CaughtRedHanded_8E324C96.wem</CachePath>
 				</File>
 				<File Id="887701933" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>weakness.wav</ShortName>
-					<CachePath>SFX/weakness_818F3B66.wem</CachePath>
+					<CachePath>SFX/weakness_8E324C96.wem</CachePath>
 				</File>
 				<File Id="891624205" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Whisper-002.wav</ShortName>
@@ -296,19 +304,19 @@
 				</File>
 				<File Id="1015370664" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Card_Burn.wav</ShortName>
-					<CachePath>SFX/Card_Burn_1B73DA4B.wem</CachePath>
+					<CachePath>SFX/Card_Burn_013F85BB.wem</CachePath>
 				</File>
 				<File Id="1027008973" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>TrickCard3.wav</ShortName>
-					<CachePath>SFX/TrickCard3_818F3B66.wem</CachePath>
+					<CachePath>SFX/TrickCard3_8E324C96.wem</CachePath>
 				</File>
 				<File Id="1043577720" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>NumberCard3.wav</ShortName>
-					<CachePath>SFX/NumberCard3_818F3B66.wem</CachePath>
+					<CachePath>SFX/NumberCard3_8E324C96.wem</CachePath>
 				</File>
 				<File Id="1051682366" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>TrickCard2.wav</ShortName>
-					<CachePath>SFX/TrickCard2_818F3B66.wem</CachePath>
+					<CachePath>SFX/TrickCard2_8E324C96.wem</CachePath>
 				</File>
 				<File Id="1069812879" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX_NARRATOR.wav</ShortName>
@@ -379,6 +387,11 @@
 						<MediaRef Id="77588350"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="3584600694" Name="Play_Burden" DurationType="OneShot" DurationMin="2.4990704" DurationMax="2.4990704">
+					<MediaRefs>
+						<MediaRef Id="736440791"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3130258220" Name="Play_Card_Burn" DurationType="OneShot" DurationMin="1.2869513" DurationMax="1.2869513">
 					<MediaRefs>
 						<MediaRef Id="1015370664"/>
@@ -422,6 +435,11 @@
 				<Event Id="776203257" Name="Play_Close_Trick_Collection" DurationType="OneShot" DurationMin="1.4744898" DurationMax="1.4744898">
 					<MediaRefs>
 						<MediaRef Id="267717470"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3772331833" Name="Play_Condensed_Milk" DurationType="OneShot" DurationMin="1.7927665" DurationMax="1.7927665">
+					<MediaRefs>
+						<MediaRef Id="794957230"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3234553616" Name="Play_Cough" DurationType="Infinite">
@@ -582,5 +600,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{EE63572F-CA76-EC3C-17E5-C0A77214C69F}</FileHash>
+	<FileHash>{60241B40-3786-2E7B-FA0F-E2A5931741FB}</FileHash>
 </SoundBanksInfo>

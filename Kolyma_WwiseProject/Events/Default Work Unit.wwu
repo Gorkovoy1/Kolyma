@@ -471,6 +471,28 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Condensed_Milk" ID="{83B75B00-85C2-4886-A4B0-6217465C4B56}">
+							<ChildrenList>
+								<Action Name="" ID="{68E7C19B-82B9-4508-88B5-805907517C55}" ShortID="855824222">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Condensed_Milk" ID="{AA6EF2FC-2E3A-439C-B4FF-AB9956D77032}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Burden" ID="{F35DC349-5124-4C88-86B2-D334A1FD6EC9}">
+							<ChildrenList>
+								<Action Name="" ID="{51C1216B-7AF9-4D20-B778-B75AF64FA981}" ShortID="849104886">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Burden" ID="{7281144B-F3F3-43E9-A986-E1AB767974F8}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Music" ID="{42294E82-4A8C-4F7B-B73A-27B9EEC12A24}" ShortID="234013611">
