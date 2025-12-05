@@ -723,7 +723,7 @@ public class DialogueInk : MonoBehaviour
                 }
             }
 
-            if (tags[0] != "Narrator" && tags[0] != "NarratorSound" && tags[0] != "CloseEyes")
+            if (tags[0] != "Narrator" && tags[0] != "NarratorSound" && tags[0] != "CloseEyes" && tags[0] != "ReceiveItem")
             {
                 Debug.Log("foreach letter");
                 introText.text = "";
@@ -791,9 +791,11 @@ public class DialogueInk : MonoBehaviour
                 
                 skip = false;
                 //this is a test
+                /*
                 if(tags[0] == "ReceiveItem"){
                         StartCoroutine(LoadNextScene());
                 }
+                */
                 if (tags[0] == "DialogueEnd")
                 {
                     StartCoroutine(LoadNextScene());
@@ -811,6 +813,12 @@ public class DialogueInk : MonoBehaviour
                 {
                     introText.alpha += 0.3f * Time.deltaTime;
                     yield return null;
+                }
+
+
+                if (tags[0] == "ReceiveItem")
+                {
+                    StartCoroutine(LoadNextScene());
                 }
             }
             playSound = false;

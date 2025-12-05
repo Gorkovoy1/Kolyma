@@ -27,4 +27,4 @@ Why do you say that?#Arkady
 We'll talk about it later, not here. I have to go.#Boris
 Oh, one more thing. This coming week is going to be hard for you. Extremely hard.#Boris
 If you won anything today, visit the camp Kiosk and try to get something. Anything that will make your existence somewhat more bearable.#Boris
-The store is now available. You can buy consumables to help you survive the camp.#ReceiveItem #NarratorSound #Narrator
+The store is now available. You can purchase consumables to help you survive the camp.#ReceiveItem #NarratorSound #Narrator

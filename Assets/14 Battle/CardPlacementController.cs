@@ -188,7 +188,7 @@ public class CardPlacementController : MonoBehaviour
         AkSoundEngine.PostEvent("Play_Dice", sfxObj);
         yield return new WaitForSeconds(0.5f);
 
-        SceneManager.LoadScene("DiceRoll", LoadSceneMode.Additive);
+        SceneManager.LoadScene("1 DiceRoll", LoadSceneMode.Additive);
         yield return null;
         diceCamera = GameObject.FindGameObjectWithTag("DiceCamera").GetComponent<Camera>();
         mainCamera.gameObject.SetActive(false);
@@ -199,7 +199,7 @@ public class CardPlacementController : MonoBehaviour
         mainCamera.gameObject.SetActive(true);
         diceCamera.gameObject.SetActive(false);
         battleCanvas.enabled = true;
-        SceneManager.UnloadSceneAsync("DiceRoll");
+        SceneManager.UnloadSceneAsync("1 DiceRoll");
         elapsed = 0f;
         fadingOut = true;
         Debug.Log("fade out");

@@ -21,7 +21,7 @@ MonoBehaviour:
   line2: 
   music: Play_SIlence
   inkfile: {fileID: 4900000, guid: 2248d1ba9e2c364419000fe3d177d767, type: 3}
-  nextScene: 12
+  nextScene: 0
   ambient: {fileID: 4925410152361900339, guid: cc911a0777c28134b8d54a466e8a714d, type: 3}
   bganim: {fileID: 8768717230632645723, guid: 5c10576bdcb72e8428fa41a1be92868e, type: 3}
   sfx: {fileID: 4326509118235825067, guid: b5624135eb881cc46b78dbd2f326eef9, type: 3}
