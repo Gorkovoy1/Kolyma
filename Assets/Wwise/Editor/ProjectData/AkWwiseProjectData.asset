@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: 7ff20e69569aa447aa4bad254f338890
     GuidInternal: 
-    m_lastTime: -8584715311439677265
+    m_lastTime: -8584425031120868339
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 827e8785a52261498ec89ab5a759d8bc
     GuidInternal: 
-    m_lastTime: -8584715311517873092
+    m_lastTime: -8584425031156745798
     List:
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8c4b0f5056a06a4a92d94e75a182e1ae
     GuidInternal: 
-    m_lastTime: -8584412673515268925
+    m_lastTime: -8584412241858750816
     List:
     - name: Main
       guid: f16c33554f83c140a4a6a74ed017dafb
@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584368689007752572
+    m_lastTime: -8584367795446090491
     List:
     - name: Andreyev
       guid: a6c0eb1ff2ce024c96aeb202fa8b346a
@@ -395,6 +395,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 1.86
       minDuration: 1.86
+    - name: Play_Burden
+      guid: 49c35df32451884c86b2d334a1fd6ec9
+      id: 3584600694
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Battle
+        ObjectType: 4
+        guid: bdeeec5070f65944895c732b68bd80b2
+      - ElementName: Play_Burden
+        ObjectType: 3
+        guid: 49c35df32451884c86b2d334a1fd6ec9
+      Path: Events\Default Work Unit\Battle\Play_Burden
+      maxAttenuation: 0
+      maxDuration: 2.4990704
+      minDuration: 2.4990704
     - name: Play_Card_Burn
       guid: dfc5c2ac98e61044a0cc689b0dae88bd
       id: 3130258220
@@ -557,6 +577,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 1.4744898
       minDuration: 1.4744898
+    - name: Play_Condensed_Milk
+      guid: 005bb783c2858648a4b06217465c4b56
+      id: 3772331833
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Battle
+        ObjectType: 4
+        guid: bdeeec5070f65944895c732b68bd80b2
+      - ElementName: Play_Condensed_Milk
+        ObjectType: 3
+        guid: 005bb783c2858648a4b06217465c4b56
+      Path: Events\Default Work Unit\Battle\Play_Condensed_Milk
+      maxAttenuation: 0
+      maxDuration: 1.7927665
+      minDuration: 1.7927665
     - name: Play_Cough
       guid: c0ea32f00d90cc479f2de13e51f94076
       id: 3234553616
@@ -1093,7 +1133,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 69885a54fe5df748bbb6350072df5136
     GuidInternal: 
-    m_lastTime: -8584413034312200429
+    m_lastTime: -8584412241884174277
     List: []
   - PhysicalPath: Game Parameters\Factory Soundseed Air Game Syncs.wwu
     PathAndIcons:
@@ -1106,7 +1146,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Factory Soundseed Air Game Syncs
     guid: 5577163b42fb8b4598bf96f557afb3b9
     GuidInternal: 
-    m_lastTime: -8584413042391807040
+    m_lastTime: -8584412241884051546
     List:
     - name: SS_Air_Fear
       guid: 59062ef746431c4ea1b1dab46a05101e
@@ -1260,7 +1300,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: 283410e59790f7419619c4e374a02bf7
     GuidInternal: 
-    m_lastTime: -8584715311439687265
+    m_lastTime: -8584425031120888306
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -1274,7 +1314,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 55b4ae91b993ac4fafc20f3d3cbbe728
     GuidInternal: 
-    m_lastTime: -8584715311439687265
+    m_lastTime: -8584425031120878353
     List: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
@@ -1288,7 +1328,7 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: 2fec6b05bad7c94bb9d67b62092e85e6
     GuidInternal: 
-    m_lastTime: -8584715311439687265
+    m_lastTime: -8584425031120868339
     List: []
   ExpandedFileSystemItemIds: 
   ExpandedWaapiItemIds: 050000000600000008000000090000002200000023000000

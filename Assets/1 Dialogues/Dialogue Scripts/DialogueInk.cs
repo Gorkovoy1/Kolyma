@@ -370,7 +370,7 @@ public class DialogueInk : MonoBehaviour
             //set background
             background.sprite = dialogueObj5.bg;
             //set NPCPortrait
-            NPCBlack.sprite = dialogueObj5.npcBlack;
+            NPCBlack.sprite = dialogueObj5.npcColor;
             NPCColor.sprite = dialogueObj5.npcColor;
             //set NPC nameTag
             nameTag.text = dialogueObj5.npcName;
@@ -573,6 +573,19 @@ public class DialogueInk : MonoBehaviour
                     NarratorSound();
                 }
                 if (tags[0] == "Andreyev" || tags[0] == "Rybakov"|| tags[0] == "Gangster" || tags[0] == "GenericPrisoner" || tags[0] == "Boris")
+                {
+                    HighlightNPC();
+                    narratorTag.gameObject.SetActive(false);
+                }
+                if (tags[0] == "NPCSwitch")
+                {
+                    NPCPortrait.gameObject.SetActive(false);
+                    NPCBlack.sprite = dialogueObj5.npcBlack;
+                    NPCColor.sprite = dialogueObj5.npcBlack;
+                    HighlightNPC();
+                    narratorTag.gameObject.SetActive(false);
+                }
+                if (tags[0] == "GenericPrisoner2")
                 {
                     HighlightNPC();
                     narratorTag.gameObject.SetActive(false);

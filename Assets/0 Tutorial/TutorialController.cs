@@ -240,6 +240,8 @@ public class TutorialController : MonoBehaviour
                     tutorialObj.GetComponent<TutorialScripts.AIController>().selectedCardToPlay = opponentHand.transform.GetChild(0).gameObject;
                     tutorialObj.GetComponent<TutorialScripts.AIController>().PlayCard();
 
+                    tutorialText.color = Color.black;
+
                 },
                 //wait until card has been played and 2 is swapped for 8
                 waitUntil = () => NumberManager.instance.playerVal == 14,
@@ -269,6 +271,7 @@ public class TutorialController : MonoBehaviour
                     //set thick woolen coat as playable
                     
                     
+                    tutorialText.color = Color.white;
 
                 },
                 //wait until thick woolen coat is played
@@ -279,7 +282,10 @@ public class TutorialController : MonoBehaviour
                 setPosition = new Vector2(-138, -167),
                 message = "Don't forget to end your turn.",
                 requireContinue = true,
-                afterContinue = () => endTurnButton.SetActive(true),
+                afterContinue = () =>
+                {
+                    endTurnButton.SetActive(true);
+                },
                 waitUntil = () => endTurnButton.GetComponent<TestingCards>().pressed,
             },
             new TutorialStepData
@@ -293,6 +299,7 @@ public class TutorialController : MonoBehaviour
                     tutorialObj.GetComponent<TutorialScripts.AIController>().selectedCardToPlay = opponentHand.transform.GetChild(0).gameObject;
                     tutorialObj.GetComponent<TutorialScripts.AIController>().PlayCard();
 
+                    tutorialText.color = Color.black;
                 },
                 //wait until card is played (make sure ot discard empty pockets)
                 //wait until empty pockets is in discard pile
@@ -306,6 +313,7 @@ public class TutorialController : MonoBehaviour
                 requireContinue = true,
                 afterContinue = () =>
                 {
+                    tutorialText.color = Color.white;
                     TurnManager.instance.isPlayerTurn = true;
                     foreach(Transform child in playerHand.transform)
                     {
@@ -337,6 +345,8 @@ public class TutorialController : MonoBehaviour
                     //play Andreyev's turn
                     tutorialObj.GetComponent<TutorialScripts.AIController>().selectedCardToPlay = opponentHand.transform.GetChild(0).gameObject;
                     tutorialObj.GetComponent<TutorialScripts.AIController>().PlayCard();
+
+                    tutorialText.color = Color.black;
                 },
                 //wait until one more number
                 waitUntil = () => NumberManager.instance.positives.Count == 4,
@@ -364,6 +374,8 @@ public class TutorialController : MonoBehaviour
                     }
                     endTurnButton.GetComponent<TestingCards>().pressed = false;
                     endTurnButton.GetComponent<Button>().interactable = true;
+
+                    tutorialText.color = Color.white;
                 },
                 //wait until one less card in discard pile
                 waitUntil = () => weaknessCard.transform.parent.transform == playerHand.transform && endTurnButton.GetComponent<TestingCards>().pressed,
@@ -378,6 +390,8 @@ public class TutorialController : MonoBehaviour
                     TurnManager.instance.isPlayerTurn = false;
                     tutorialObj.GetComponent<TutorialScripts.AIController>().selectedCardToPlay = opponentHand.transform.GetChild(0).gameObject;
                     tutorialObj.GetComponent<TutorialScripts.AIController>().PlayCard();
+
+                    tutorialText.color = Color.black;
                 },
                 //wait until one less negative card
                 waitUntil = () => NumberManager.instance.negatives.Count == 0,
@@ -404,6 +418,8 @@ public class TutorialController : MonoBehaviour
                     }
                     endTurnButton.GetComponent<TestingCards>().pressed = false;
                     endTurnButton.GetComponent<Button>().interactable = true;
+
+                    tutorialText.color = Color.white;
                 },
                 //wait until one more pos
                 waitUntil = () => NumberManager.instance.OPPpositives.Count == 4 && endTurnButton.GetComponent<TestingCards>().pressed,
@@ -418,6 +434,8 @@ public class TutorialController : MonoBehaviour
                     TurnManager.instance.isPlayerTurn = false;
                     tutorialObj.GetComponent<TutorialScripts.AIController>().selectedCardToPlay = opponentHand.transform.GetChild(0).gameObject;
                     tutorialObj.GetComponent<TutorialScripts.AIController>().PlayCard();
+
+                    tutorialText.color = Color.black;
                 },
                 //wait until one less negative card
                 waitUntil = () => NumberManager.instance.positives.Count == 5,
@@ -444,6 +462,8 @@ public class TutorialController : MonoBehaviour
                     }
                     endTurnButton.GetComponent<TestingCards>().pressed = false;
                     endTurnButton.GetComponent<Button>().interactable = true;
+
+                    tutorialText.color = Color.white;
                 },
                 //wait until one more pos
                 waitUntil = () => opponentHand.transform.childCount == 0 && endTurnButton.GetComponent<TestingCards>().pressed,
@@ -465,6 +485,8 @@ public class TutorialController : MonoBehaviour
                             break;
                         }
                     }
+
+                    tutorialText.color = Color.black;
                 },
                 //wait until flip
                 waitUntil = () => NumberManager.instance.OPPnegatives.Count == 2,
@@ -517,6 +539,8 @@ public class TutorialController : MonoBehaviour
                     endTurnButton.GetComponent<Button>().interactable = true;
                     endTurnButton.GetComponent<EndTurnGlow>().timeTwo = 15f;
                     actionButton.GetComponent<ActionGlow>().isFlashing = true;
+
+                    tutorialText.color = Color.white;
                 },
                 //
                 waitUntil = () => NumberManager.instance.playerVal == 15 && endTurnButton.GetComponent<TestingCards>().pressed,

@@ -145,7 +145,7 @@ public class Glow : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
         //Wait
         yield return new WaitForSeconds(transitionTime);
         //pauses coroutine for x amount of seconds
-
+        AkSoundEngine.StopAll();
         //Load scene
         SceneManager.LoadScene(levelIndex);
 

@@ -17,7 +17,7 @@ MonoBehaviour:
   npcBlack: {fileID: 21300000, guid: 1f0271b5e7f372f4cadb1fd442335385, type: 3}
   npcColor: {fileID: 21300000, guid: 1f0271b5e7f372f4cadb1fd442335385, type: 3}
   npcName: ' Rybakov'
-  line1: Saturday, December 3rd, 1938
+  line1: Friday, December 2nd, 1938
   line2: North East Labour Camp, Kolyma Region, The Soviet Union
   music: Play_Music_Camp_Arrival
   inkfile: {fileID: 4900000, guid: d7b72d5111ddb1b4281902ec097761e8, type: 3}
