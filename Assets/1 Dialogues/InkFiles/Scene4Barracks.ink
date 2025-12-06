@@ -7,7 +7,7 @@ You shouldn't leave your stuff by your bed.#GenericPrisoner
 Who took my stuff?#Arkady
 I have no idea. And besides, I ain't no snitch. Figure it out yourself.#GenericPrisoner
 And how am I supposed to do that?#Arkady
-Try the Barracks. They are playing Numbers today, and there is always something on the line.#GenericPrisoner
+Try Barracks C. They are playing Numbers today, and there is always something on the line.#GenericPrisoner
 Whoever took your stuff will probably be there, trying to double his winnings.#GenericPrisoner
 If you're lucky, you might even win back what was once yours.#GenericPrisoner
 One more thing. Learn to keep your valuables close to you.#GenericPrisoner

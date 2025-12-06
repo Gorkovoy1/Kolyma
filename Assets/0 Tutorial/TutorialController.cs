@@ -559,7 +559,7 @@ public class TutorialController : MonoBehaviour
             new TutorialStepData
             {
                 setPosition = new Vector2(-138, -167),
-                message = "Looks like the newbie wins. You wont be as lucky with the others.",
+                message = "Hah, beginner's luck. You wont be as lucky with the others.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
