@@ -188,6 +188,11 @@ MonoBehaviour:
   cardBack: {fileID: 21300000, guid: 5681a74c470359848acdb34ed992ba17, type: 3}
   grey: {fileID: 0}
   isFlipped: 0
+  trickSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 73394f0ec1a66d745bbb244a097936ec, type: 2}
   difficulty: 3
   personalityType: 2
   points: 0
+  selfValue: 0

@@ -112,5 +112,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Backstab Swap
       objectReference: {fileID: 0}
+    - target: {fileID: 5616304533529118429, guid: c00c6ac809906e244b34cbe66f30f13e, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c00c6ac809906e244b34cbe66f30f13e, type: 3}
