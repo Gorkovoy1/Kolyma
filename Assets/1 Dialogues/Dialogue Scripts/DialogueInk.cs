@@ -92,8 +92,9 @@ public class DialogueInk : MonoBehaviour
 
     public int nextSceneNumber;
    
-    void Start()
+    IEnumerator Start()
     {
+        yield return null;
         //retrieve which dialogue this is and set things up
         //dialogueNumber = SceneData.DialogueNumber;
 

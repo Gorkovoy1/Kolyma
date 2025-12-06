@@ -52,6 +52,8 @@ public class AICardPlace : MonoBehaviour //AICardPlace
     //public bool isFlipping;
     public bool isFlipped;
 
+    public AK.Wwise.Event trickSound;
+
     public Difficulty difficulty;
     public PersonalityType personalityType;
 
@@ -201,9 +203,13 @@ public class AICardPlace : MonoBehaviour //AICardPlace
         correspondingImage.transform.localScale = new Vector3(0.17f, 0.17f, 0.17f);
         yield return new WaitForSeconds(1f);
         StartCoroutine(FlipOverCard(this.gameObject));
+        if (trickSound != null)
+        {
+            trickSound.Post(this.gameObject);
+        }
         yield return new WaitForSeconds(1f);
         //extend time to read
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f); //was 0.5, extended to 1
 
         //correspondingImage.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
         StartCoroutine(LerpScaleDown(correspondingImage.transform, 0.2f));
@@ -871,7 +877,15 @@ public class AICardPlace : MonoBehaviour //AICardPlace
             if(difficulty == Difficulty.Random)
             {
                 int randomInt = Random.Range(0, NumberManager.instance.OPPduplicates.Count);
-                NumberManager.instance.OPPduplicates[randomInt].transform.SetParent(NumberManager.instance.playerPositiveArea.transform);
+                if (NumberManager.instance.OPPduplicates[randomInt].GetComponent<NumberStats>().value > 0)
+                {
+                    NumberManager.instance.OPPduplicates[randomInt].transform.SetParent(NumberManager.instance.playerPositiveArea.transform);
+                }
+                else
+                {
+                    NumberManager.instance.OPPduplicates[randomInt].transform.SetParent(NumberManager.instance.playerNegativeArea.transform);
+                }
+                
                 NumberManager.instance.recalculate = true;
             }
             else if(difficulty == Difficulty.AlwaysLargest)
@@ -888,7 +902,15 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                     }
                     
                 }
-                chosenCard.transform.SetParent(NumberManager.instance.playerPositiveArea.transform);
+                if(chosenCard.GetComponent<NumberStats>().value > 0)
+                {
+                    chosenCard.transform.SetParent(NumberManager.instance.playerPositiveArea.transform);
+                }
+                else
+                {
+                    chosenCard.transform.SetParent(NumberManager.instance.playerNegativeArea.transform);
+                }
+                
                 NumberManager.instance.recalculate = true;
             }
             else if(difficulty == Difficulty.AlwaysSmallest)
@@ -905,7 +927,14 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                     }
                     
                 }
-                chosenCard.transform.SetParent(NumberManager.instance.playerPositiveArea.transform);
+                if (chosenCard.GetComponent<NumberStats>().value > 0)
+                {
+                    chosenCard.transform.SetParent(NumberManager.instance.playerPositiveArea.transform);
+                }
+                else
+                {
+                    chosenCard.transform.SetParent(NumberManager.instance.playerNegativeArea.transform);
+                }
                 NumberManager.instance.recalculate = true;
             }
             else if (difficulty == Difficulty.Ideal)
@@ -923,7 +952,14 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                     }
                     
                 }
-                chosenCard.transform.SetParent(NumberManager.instance.playerPositiveArea.transform);
+                if (chosenCard.GetComponent<NumberStats>().value > 0)
+                {
+                    chosenCard.transform.SetParent(NumberManager.instance.playerPositiveArea.transform);
+                }
+                else
+                {
+                    chosenCard.transform.SetParent(NumberManager.instance.playerNegativeArea.transform);
+                }
                 NumberManager.instance.recalculate = true;
                 /*
                 //if you are over, give away large card

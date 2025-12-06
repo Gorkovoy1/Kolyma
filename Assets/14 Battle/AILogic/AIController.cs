@@ -87,7 +87,7 @@ public class AIController : MonoBehaviour
     public IEnumerator DelaySkipTurn()
     {
         yield return new WaitForSeconds(1f);
-        yield return new WaitForSeconds(0.5f); //account for delay to read card text that was added
+        //yield return new WaitForSeconds(0.5f); //account for delay to read card text that was added
         TurnManager.instance.opponentPlayedCard = false;
         TurnManager.instance.opponentPassed = true;
         this.gameObject.GetComponent<AICardPicker>().passAnimationController.oppPass = true;

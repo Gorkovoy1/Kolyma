@@ -71,7 +71,7 @@ public class AICardPicker : MonoBehaviour
                     a.GetComponent<NumberStats>().value.CompareTo(b.GetComponent<NumberStats>().value)
                 );
 
-                if (difficulty == Difficulty.Ideal)
+                if (difficulty != Difficulty.Ideal) //flipped it so if ideal will flip largest number
                 {
                     //flip middle number
                     int i = list.Count / 2;
@@ -189,7 +189,7 @@ public class AICardPicker : MonoBehaviour
 
     public IEnumerator DelayTurn()
     {
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(2.8f);
         TurnManager.instance.isPlayerTurn = true;
         executingTurn = false;
     }

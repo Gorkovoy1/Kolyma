@@ -1,7 +1,7 @@
 Arkady put away his deck. The game was over. He turned to leave, but a tall man stepped out from the shadows, blocking his path.#Narrator
 His face... his posture... even the way he moved... there was no doubt this was a former Red Army officer.#Narrator
 That deck of yours. It's old.#Boris
-There's no way you made it yourself. So where did you get it?#Boris
+There's no way you could have made it yourself. So where did you get it?#Boris
 Who are you? And why are you asking?#Arkady
 My name is Boris. Boris Orlov.#Boris
 The sign on the back of your cards, I recognize it. It belongs to somebody I know.#Boris
@@ -21,7 +21,7 @@ Yes. I am. Excuse me.#Boris
 ...Did Andreyev give you anything of value, by chance?#Boris
 No. The only thing he gave me was an old glove.#Arkady
 A glove? Where is it?#Boris
-Well, someone stole it from me last night.#Arkady
+Well, someone stole it from me. Last night.#Arkady
 Of course. Fresh meat are easy prey for thieves. But we have to get the glove back, it's more valuable than you think.#Boris
 Why do you say that?#Arkady
 We'll talk about it later, not here. I have to go.#Boris

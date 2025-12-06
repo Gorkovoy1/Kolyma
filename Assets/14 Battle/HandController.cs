@@ -68,7 +68,7 @@ public class HandController : MonoBehaviour
             opponentSpecialDeck[j] = temp;
         }
 
-        opponentSpecialDeck = opponentSpecialDeck.GetRange(0, Mathf.Min(15, opponentSpecialDeck.Count));
+        opponentSpecialDeck = opponentSpecialDeck.GetRange(0, Mathf.Min(10, opponentSpecialDeck.Count));
 
         //start draw
         StartCoroutine(InitialPlayerDraw());
