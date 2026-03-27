@@ -1,0 +1,55 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+namespace TutorialScripts
+{
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+    using TMPro;
+    using UnityEngine.SceneManagement;
+
+    public class TutorialDiceValue : MonoBehaviour
+    {
+        public GameObject dice1;
+        public GameObject dice2;
+        public GameObject dice3;
+        public GameObject dice4;
+
+        public Transform diceParent;
+
+
+        // Start is called before the first frame update
+        void Start()
+        {
+            dice1 = diceParent.GetChild(0).gameObject;
+            dice2 = diceParent.GetChild(1).gameObject;
+            dice3 = diceParent.GetChild(2).gameObject;
+            dice4 = diceParent.GetChild(3).gameObject;
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (dice1 != null)
+            {
+                this.gameObject.GetComponent<TextMeshProUGUI>().text = "" + (dice1.GetComponent<TutorialDiceTop>().topVal + dice2.GetComponent<TutorialDiceTop>().topVal + dice3.GetComponent<TutorialDiceTop>().topVal + dice4.GetComponent<TutorialDiceTop>().topVal);
+
+
+                PlayerPrefs.SetInt("TargetValue", dice1.GetComponent<TutorialDiceTop>().topVal + dice2.GetComponent<TutorialDiceTop>().topVal + dice3.GetComponent<TutorialDiceTop>().topVal + dice4.GetComponent<TutorialDiceTop>().topVal);
+                PlayerPrefs.Save();
+                Debug.Log(PlayerPrefs.GetInt("TargetValue", 0));
+            }
+
+
+            if (Input.GetKeyUp(KeyCode.R))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+
+        }
+    }
+
+}
