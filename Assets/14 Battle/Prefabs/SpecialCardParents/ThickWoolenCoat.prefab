@@ -95,7 +95,7 @@ MonoBehaviour:
   isDragging: 0
   parentReturnTo: {fileID: 0}
   imagePrefab: {fileID: 8517531851131246620, guid: 396a726b8d99eb84ca2d7c7f67110c02, type: 3}
-  correspondingImage: {fileID: 0}
+  correspondingImage: {fileID: 8517531851131246620, guid: 396a726b8d99eb84ca2d7c7f67110c02, type: 3}
   imagesParent: {fileID: 0}
   hoverOffset: 75
   hovering: 0
@@ -119,6 +119,7 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 1e7ed6f1b1991f744a9f3bcf2e076df9, type: 2}
+  delayImageSpawn: 0
 --- !u!114 &1086059024571131946
 MonoBehaviour:
   m_ObjectHideFlags: 0

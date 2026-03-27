@@ -61,7 +61,7 @@ public class AICardPlace : MonoBehaviour //AICardPlace
 
     public int selfValue = 0; //check for self bust
 
-    
+    public bool delayImageSpawn = false;
 
     // Start is called before the first frame update
     void Start()
@@ -77,7 +77,7 @@ public class AICardPlace : MonoBehaviour //AICardPlace
         playerDiscardZone = GameObject.FindWithTag("PlayerDiscard");
         opponentDiscardZone = GameObject.FindWithTag("OpponentDiscard");
 
-        if (imagePrefab != null)
+        if (imagePrefab != null && !delayImageSpawn)
         {
             //this means its a special card
             imagesParent = this.GetComponentInParent<HandController>().imagesParent;
@@ -94,6 +94,23 @@ public class AICardPlace : MonoBehaviour //AICardPlace
             }
         }
         CheckPlayable();
+    }
+
+    public void SpawnImage()
+    {
+        //this means its a special card
+        imagesParent = this.GetComponentInParent<HandController>().imagesParent;
+        correspondingImage = Instantiate(imagePrefab, imagesParent);
+        correspondingImage.GetComponent<AISpecialCardMovement>().target = this.gameObject.GetComponent<RectTransform>();
+        defaultMat = correspondingImage.GetComponent<Image>().material;
+
+        //start flipped
+        if (this.transform.parent == opponentHand)
+        {
+            grey = correspondingImage.GetComponent<Image>().sprite;
+            correspondingImage.GetComponent<Image>().sprite = cardBack;
+            correspondingImage.transform.Find("Image").GetComponent<Image>().enabled = false;
+        }
     }
 
     // Update is called once per frame

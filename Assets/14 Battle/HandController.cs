@@ -138,12 +138,18 @@ public class HandController : MonoBehaviour
                 yield break; // Stop the coroutine if there are no more cards
             }
 
+            opponentSpecialDeck[0].GetComponent<AICardPlace>().delayImageSpawn = true;
             Instantiate(opponentSpecialDeck[0], opponentHand.transform);
             opponentSpecialDeck.RemoveAt(0);
 
+            
+        }
+        foreach (Transform child in opponentHand.transform)
+        {
             AkSoundEngine.PostEvent("Play_Trick_Card", sfxObj);
+            child.GetComponent<AICardPlace>().SpawnImage();
             //Delay between cards
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
         }
         UpdateHands();
     }
@@ -159,12 +165,17 @@ public class HandController : MonoBehaviour
                 yield break; // Stop the coroutine if there are no more cards
             }
 
+            playerSpecialDeck[0].GetComponent<CardPlace>().delayImageSpawn = true;
             Instantiate(playerSpecialDeck[0], playerHand.transform);
             playerSpecialDeck.RemoveAt(0);
 
+        }
+        foreach(Transform child in playerHand.transform)
+        {
             AkSoundEngine.PostEvent("Play_Trick_Card", sfxObj);
+            child.GetComponent<CardPlace>().SpawnImage();
             //Delay between cards
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
         }
         UpdateHands();
     }
