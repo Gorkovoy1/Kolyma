@@ -1,8 +1,9 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class ConsumableController : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
@@ -17,7 +18,14 @@ public class ConsumableController : MonoBehaviour, IDragHandler, IBeginDragHandl
     public float minY;
     public float maxY;
 
+    public bool betting = false;
+
     private GameObject consumeArea;
+
+    private Transform originalParent;
+    public Vector2 originalPosition;
+
+    private CanvasGroup cg;
 
     void Awake()
     {
@@ -27,8 +35,21 @@ public class ConsumableController : MonoBehaviour, IDragHandler, IBeginDragHandl
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(SceneManager.GetActiveScene().name == "BetSimulation")
+        {
+            betting = true;
+        }
+        else
+        {
+            betting = false;
+        }
+
+        cg = GetComponent<CanvasGroup>();
+
+        if(betting)
+            originalPosition = transform.position;
     }
+
 
     // Update is called once per frame
     void Update()
@@ -38,32 +59,69 @@ public class ConsumableController : MonoBehaviour, IDragHandler, IBeginDragHandl
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        //enable the consume area
-        consumeArea = transform.parent.parent.Find("ConsumeArea").gameObject;
-        consumeArea.SetActive(true);
+        if(!betting)
+        {
+            //enable the consume area
+            consumeArea = transform.parent.parent.Find("ConsumeArea").gameObject;
+            consumeArea.SetActive(true);
+        }
+        else
+        {
+            cg.blocksRaycasts = false;
+            originalParent = transform.parent;
+
+            transform.SetParent(canvas.transform); // bring to top
+        }
+        
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
-        StayInArea();
+        if(!betting)
+        {
+            rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+            StayInArea();
+        }
+        else
+        {
+            rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        }
+        
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log(rectTransform.anchoredPosition.y);
-        Debug.Log(rectTransform.anchoredPosition.x);
-        //if dragged into consumable square, delete self and replenish corresponding value
-        if (rectTransform.anchoredPosition.x < minX)
+        if(!betting)
         {
-            Replenish();
+            Debug.Log(rectTransform.anchoredPosition.y);
+            Debug.Log(rectTransform.anchoredPosition.x);
+
+            //if dragged into consumable square, delete self and replenish corresponding value
+            if (rectTransform.anchoredPosition.x < minX)
+            {
+                Replenish();
+            }
+
+            //if dragged outside of inventory, snap back
+            //save position
+
+
+            //disable consumearea back
+            consumeArea.SetActive(false);
         }
-        //if dragged outside of inventory, snap back
-        //save position
+        else
+        {
+            cg.blocksRaycasts = true;
 
-
-        //disable consumearea back
-        consumeArea.SetActive(false);
+            // If not placed in slot → snap back
+            if (transform.parent == canvas.transform)
+            {
+                transform.SetParent(originalParent);
+                transform.position = originalPosition;
+            }
+        }
+        
+        
     }
 
     void StayInArea()
