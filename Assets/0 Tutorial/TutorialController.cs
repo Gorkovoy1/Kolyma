@@ -56,22 +56,22 @@ public class TutorialController : MonoBehaviour
 
     IEnumerator SwitchToDiceScene()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
         AkSoundEngine.PostEvent("Play_Dice", sfxObj);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.75f);
 
-        SceneManager.LoadScene("1 DiceRoll", LoadSceneMode.Additive);
+        SceneManager.LoadScene("0.5 TutorialDice", LoadSceneMode.Additive);
         yield return null;
         diceCamera = GameObject.FindGameObjectWithTag("DiceCamera").GetComponent<Camera>();
         mainCamera.gameObject.SetActive(false);
         tutorialCanvas.enabled = false;
         diceCamera.gameObject.SetActive(true);
-        yield return new WaitForSeconds(4.3f);
+        yield return new WaitForSeconds(5f);
         //unload scene
         mainCamera.gameObject.SetActive(true);
         diceCamera.gameObject.SetActive(false);
         tutorialCanvas.enabled = true;
-        SceneManager.UnloadSceneAsync("1 DiceRoll");
+        SceneManager.UnloadSceneAsync("0.5 TutorialDice");
         elapsed = 0f;
         fadingOut = true;
         Debug.Log("fade out");

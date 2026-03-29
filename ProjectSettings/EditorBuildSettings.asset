@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/00 Scenes/0 MainMenu.unity
     guid: 21fe145527d067042812fa97310da1df
   - enabled: 1
+    path: Assets/00 Scenes/0.5 TutorialDice.unity
+    guid: ab01653a009f5b54fa98cb1f702a2bb5
+  - enabled: 1
     path: Assets/00 Scenes/1 DiceRoll.unity
     guid: 470665d5442fbaa4aac1a0e6990addf6
   - enabled: 1

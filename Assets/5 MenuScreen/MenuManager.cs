@@ -48,7 +48,9 @@ public class MenuManager : MonoBehaviour
     public void GoToBattle()
     {
         AkSoundEngine.StopAll();
-        SceneManager.LoadScene("10 BattleSceneJ");
+        //SceneManager.LoadScene("10 BattleSceneJ");
+        SceneLoader.instance.sceneName = "10 BattleSceneJ";
+        SceneLoader.instance.triggerLoad = true;
     }
 
     public void DisplayOptions()
@@ -73,7 +75,9 @@ public class MenuManager : MonoBehaviour
     public void StartGame()
     {
         AkSoundEngine.StopAll();
-        SceneManager.LoadScene("3 DIALOGUE1");
+        //SceneManager.LoadScene("3 DIALOGUE1");
+        SceneLoader.instance.sceneName = "3 DIALOGUE1";
+        SceneLoader.instance.triggerLoad = true;
     }
 
     

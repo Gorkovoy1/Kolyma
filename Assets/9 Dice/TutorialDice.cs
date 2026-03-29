@@ -92,7 +92,7 @@ namespace TutorialScripts
             SpawnDice();
             target.gameObject.SetActive(true);
 
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(2.5f);
 
             elapsed = 0f;
             fadingIn = true;
