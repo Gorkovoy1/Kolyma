@@ -102,6 +102,7 @@ public class HandController : MonoBehaviour
             }
             else
             {
+                playerSpecialDeck[0].GetComponent<CardPlace>().delayImageSpawn = false; //test
                 Instantiate(playerSpecialDeck[0], playerHand.transform);
                 playerSpecialDeck.RemoveAt(0);
             }

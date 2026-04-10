@@ -21,6 +21,11 @@ public class HandFanController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetMouseButtonDown(1))
+        {
+            ToggleSee();
+        }
+
         if(TurnManager.instance.isPlayerTurn && !seeBoard)
         {
             fanHand = true;
@@ -37,7 +42,7 @@ public class HandFanController : MonoBehaviour
         if(!fanHand)
         {
             rect.sizeDelta = new Vector2(50f, rect.sizeDelta.y);
-            rect.anchoredPosition = new Vector2(-350f, yPos - 50f);
+            rect.anchoredPosition = new Vector2(-500f, yPos - 50f);
             //make cards smaller?
         }
         else
