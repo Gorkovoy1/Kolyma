@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BloomMat
-  m_Shader: {fileID: -6465566751694194690, guid: ccc0542cbe143994697d1a047e8d347d, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: cf56acdb92a3df044986e5edf8d306e5, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: cb72c70fa4e5d824b8a049680e6a9e17, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5180b2eaf0e4602478384fc2fb4ef893, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -37,7 +37,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats: []
+    m_Floats:
+    - _QueueControl: 0
+    - _QueueOffset: 0
     m_Colors:
-    - _Color: {r: 0.10262709, g: 0.10262709, b: 0.10262709, a: 3.2840674}
+    - _Color: {r: 1, g: 1, b: 1, a: 0.16862746}
   m_BuildTextureStacks: []
