@@ -40,8 +40,7 @@ public class CardPlace : MonoBehaviour,
     public bool isPlayable; //for the player
 
 
-    public Material defaultMat;
-    public Material playableMat;
+    
 
     public List<GameObject> discardedCards;
     public bool discardUpdated;
@@ -78,14 +77,20 @@ public class CardPlace : MonoBehaviour,
             imagesParent = this.GetComponentInParent<HandController>().imagesParent;
             correspondingImage = Instantiate(imagePrefab, imagesParent);
             correspondingImage.GetComponent<SpecialCardMovement>().target = this.gameObject.GetComponent<RectTransform>();
-            defaultMat = correspondingImage.GetComponent<Image>().material;
-
+            
             //start flipped
             if(this.transform.parent == opponentHand)
             {
                 grey = correspondingImage.GetComponent<Image>().sprite;
                 correspondingImage.GetComponent<Image>().sprite = cardBack;
                 correspondingImage.transform.Find("Image").GetComponent<Image>().enabled = false;
+            }
+
+            //start with no green outline
+            Transform outline = this.correspondingImage.transform.Find("Outline");
+            if (outline != null)
+            {
+                outline.gameObject.SetActive(false);
             }
         }
         
@@ -97,7 +102,11 @@ public class CardPlace : MonoBehaviour,
         imagesParent = this.GetComponentInParent<HandController>().imagesParent;
         correspondingImage = Instantiate(imagePrefab, imagesParent);
         correspondingImage.GetComponent<SpecialCardMovement>().target = this.gameObject.GetComponent<RectTransform>();
-        defaultMat = correspondingImage.GetComponent<Image>().material;
+        Transform outline = this.correspondingImage.transform.Find("Outline");
+        if (outline != null)
+        {
+            outline.gameObject.SetActive(false);
+        }
 
         //start flipped
         if (this.transform.parent == opponentHand)
@@ -126,17 +135,21 @@ public class CardPlace : MonoBehaviour,
                 
                 if(isPlayable)
                 {
-                    //outline card in green
-                    //change material to outline shader
-                    //change back when playing card
-                    
-                    //note this is happening for opponent cards for some reason
-                    correspondingImage.GetComponent<Image>().material = playableMat;
+                    //activate green outline
+                    Transform outline = this.correspondingImage.transform.Find("Outline");
+                    if (outline != null)
+                    {
+                        outline.gameObject.SetActive(true);
+                    }
                 }
                 else
                 {
                     isPlayable = false;
-                    correspondingImage.GetComponent<Image>().material = defaultMat;
+                    Transform outline = this.correspondingImage.transform.Find("Outline");
+                    if (outline != null)
+                    {
+                        outline.gameObject.SetActive(false);
+                    }
                 }
             }
             
@@ -310,8 +323,12 @@ public class CardPlace : MonoBehaviour,
         {
             trickSound.Post(this.gameObject);
         }
-        
-        correspondingImage.GetComponent<Image>().material = defaultMat;
+
+        Transform outline = this.correspondingImage.transform.Find("Outline");
+        if (outline != null)
+        {
+            outline.gameObject.SetActive(false);
+        }
         StartCoroutine(BeingPlayed());
         
     }

@@ -25,7 +25,11 @@ public class DropZoneController : MonoBehaviour, IDropHandler
                     {
                         Debug.Log("set being played");
                         cardPlace.beingPlayed = true;
-                        cardPlace.correspondingImage.GetComponent<Image>().material = droppedCard.GetComponent<CardPlace>().defaultMat;
+                        Transform outline = droppedCard.GetComponent<CardPlace>().correspondingImage.transform.Find("Outline");
+                        if (outline != null)
+                        {
+                            outline.gameObject.SetActive(true);
+                        }
                         droppedCard.transform.SetParent(playerDiscardZone.transform);
 
 
