@@ -174,8 +174,8 @@ public class TutorialController : MonoBehaviour
             {
                 setPosition = new Vector2(-138, -167),
                 circleSpawn = true,
-                circlePosition = new Vector2(-300, 179),
-                message = "The value in the top left is the Target. For this round, let's say it's 16. Be closer to it than your opponent, or face the consequences.",
+                circlePosition = new Vector2(351, 15),
+                message = "The value in the middle is the Target. For this round, it's 16. Be closer to it than your opponent, or face the consequences.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
