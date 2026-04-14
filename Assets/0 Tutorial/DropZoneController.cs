@@ -22,7 +22,7 @@ namespace TutorialScripts
                     {
                         Debug.Log("set being played");
                         droppedCard.GetComponent<CardPlace>().beingPlayed = true;
-                        droppedCard.GetComponent<CardPlace>().correspondingImage.GetComponent<Image>().material = droppedCard.GetComponent<CardPlace>().defaultMat;
+                        droppedCard.GetComponent<CardPlace>().correspondingImage.transform.Find("Outline").gameObject.SetActive(false);
                         droppedCard.transform.SetParent(playerDiscardZone.transform);
 
 
