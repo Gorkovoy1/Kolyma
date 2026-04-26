@@ -16,6 +16,9 @@ public class CardSelectionController : MonoBehaviour
 
     public GameObject sfxObj;
 
+    private GameObject firstTrade;
+    private GameObject secondTrade;
+
     void Awake()
     {
         if (instance == null)
@@ -174,9 +177,45 @@ public class CardSelectionController : MonoBehaviour
                     {
                         GiftNumber(g);
                     }
+                    else if(toDo == "trade")
+                    {
+                        //update selectable
+                        //if y of button is < 0 then its player, set all other player buttons not interactable
+                        //if y of button is > 0 then its opponent, set all other opponent buttons not interactable
+                        //buttonObj.GetComponent<RectTransform>().anchoredPosition.y;
+                        if (buttonObj.GetComponent<RectTransform>().anchoredPosition.y < 0)
+                        {
+                            foreach (Transform child in choiceObj.gameObject.transform)
+                            {
+                                if(child.gameObject.GetComponent<RectTransform>().anchoredPosition.y < 0 && child.gameObject != buttonObj.gameObject)
+                                {
+                                    child.gameObject.GetComponent<Button>().interactable = false;
+                                    Debug.Log(child.gameObject.GetComponent<RectTransform>().anchoredPosition.y);
+                                }
+                            }
+                        }
+                        else if (buttonObj.GetComponent<RectTransform>().anchoredPosition.y > 0)
+                        {
+                            foreach (Transform child in choiceObj.gameObject.transform)
+                            {
+                                if (child.gameObject.GetComponent<RectTransform>().anchoredPosition.y > 0 && child.gameObject != buttonObj.gameObject)
+                                {
+                                    child.gameObject.GetComponent<Button>().interactable = false;
+                                    Debug.Log(child.gameObject.GetComponent<RectTransform>().anchoredPosition.y);
+                                }
+                            }
+                        }
+
+                        
+
+                        TradeSelection(g);
+                    }
 
                     Debug.Log("execute action");
-                    choiceObj.SetActive(false);
+                    if (toDo != "trade")
+                    {
+                        choiceObj.SetActive(false);
+                    }
                 });
 
 
@@ -191,6 +230,54 @@ public class CardSelectionController : MonoBehaviour
         }
 
 
+    }
+
+    public void TradeSelection(GameObject g)
+    {
+        if (firstTrade == null)
+        {
+            firstTrade = g;
+            return;
+        }
+
+        if (g != firstTrade)
+        {
+            secondTrade = g;
+            
+
+            TradeCards(firstTrade, secondTrade);
+
+            firstTrade = null;
+            secondTrade = null;
+
+            choiceObj.SetActive(false); 
+        }
+        
+    }
+
+    public void TradeCards(GameObject a, GameObject b)
+    {
+        if(a.transform.parent == NumberManager.instance.playerPositiveArea || NumberManager.instance.playerNegativeArea)
+        {
+            a = a;
+            b = b;
+        }
+        else
+        {
+            GameObject temp = a;
+            a = b;
+            b = temp;
+        }
+
+        if (a.transform.parent == NumberManager.instance.playerPositiveArea.transform)
+            a.transform.SetParent(NumberManager.instance.oppPositiveArea.transform);
+        else if (a.transform.parent == NumberManager.instance.playerNegativeArea.transform)
+            a.transform.SetParent(NumberManager.instance.oppNegativeArea.transform);
+
+        if (b.transform.parent == NumberManager.instance.oppPositiveArea.transform)
+            b.transform.SetParent(NumberManager.instance.playerPositiveArea.transform);
+        else if (b.transform.parent == NumberManager.instance.oppNegativeArea.transform)
+            b.transform.SetParent(NumberManager.instance.playerNegativeArea.transform);
     }
 
     public IEnumerator FlipNumber(GameObject g)

@@ -1081,7 +1081,15 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.LousyDeal)
         {
-
+            foreach(GameObject g in NumberManager.instance.allNumbers)
+            {
+                g.GetComponent<NumberStats>().selectable = true;
+            }
+            foreach(GameObject g in NumberManager.instance.OPPallNumbers)
+            {
+                g.GetComponent<NumberStats>().selectable = true;
+            }
+            CardSelectionController.instance.CallButtons("trade", "player");
 
         }
         else if (specialCardType == SpecialCardType.FindersKeepers)
