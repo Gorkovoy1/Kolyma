@@ -959,7 +959,12 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.DirtyTrickIV)
         {
+            foreach(GameObject g in NumberManager.instance.OPPyellows)
+            {
+                g.GetComponent<NumberStats>().selectable = true;
+            }
 
+            CardSelectionController.instance.CallButtons("gift", "opponent");
 
         }
         else if (specialCardType == SpecialCardType.BaitAndSwitch)
@@ -1104,7 +1109,12 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.FairShare)
         {
+            foreach (GameObject g in NumberManager.instance.OPPnegatives)
+            {
+                g.GetComponent<NumberStats>().selectable = true;
+            }
 
+            CardSelectionController.instance.CallButtons("gift", "opponent");
 
         }
         else if (specialCardType == SpecialCardType.SleeplessNight)

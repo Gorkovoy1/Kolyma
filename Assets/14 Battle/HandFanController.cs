@@ -11,6 +11,8 @@ public class HandFanController : MonoBehaviour
 
     public bool seeBoard = false;
 
+    public GameObject cardSelectionBlocker;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +40,11 @@ public class HandFanController : MonoBehaviour
         {
             fanHand = false;
         }
+        else if(cardSelectionBlocker.gameObject.activeSelf)
+        {
+            fanHand = false;
+        }
+        
 
         if(!fanHand)
         {
