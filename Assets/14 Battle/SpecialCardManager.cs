@@ -42,10 +42,12 @@ public class SpecialCardManager : MonoBehaviour
             if(value < 0)
             {
                 parentObj = CardPlacementController.instance.opponentNegativeArea;
+                PlayerStats.instance.gave = true;
             }
             else
             {
                 parentObj = CardPlacementController.instance.opponentPositiveArea;
+                PlayerStats.instance.gave = true;
             }
 
         }
@@ -54,10 +56,12 @@ public class SpecialCardManager : MonoBehaviour
             if (value < 0)
             {
                 parentObj = CardPlacementController.instance.playerNegativeArea;
+                OpponentStats.instance.gave = true;
             }
             else
             {
                 parentObj = CardPlacementController.instance.playerPositiveArea;
+                OpponentStats.instance.gave = true;
             }
         }
 

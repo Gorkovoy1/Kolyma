@@ -28,6 +28,12 @@ public class HandFanController : MonoBehaviour
             ToggleSee();
         }
 
+        if(cardSelectionBlocker.gameObject.activeSelf)
+        {
+            seeBoard = true;
+        }
+
+
         if(TurnManager.instance.isPlayerTurn && !seeBoard)
         {
             fanHand = true;
@@ -40,10 +46,7 @@ public class HandFanController : MonoBehaviour
         {
             fanHand = false;
         }
-        else if(cardSelectionBlocker.gameObject.activeSelf)
-        {
-            fanHand = false;
-        }
+        
         
 
         if(!fanHand)

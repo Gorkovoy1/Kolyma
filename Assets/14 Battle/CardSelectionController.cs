@@ -19,6 +19,8 @@ public class CardSelectionController : MonoBehaviour
     private GameObject firstTrade;
     private GameObject secondTrade;
 
+    public GameObject playerHandObj;
+
     void Awake()
     {
         if (instance == null)
@@ -215,6 +217,7 @@ public class CardSelectionController : MonoBehaviour
                     if (toDo != "trade")
                     {
                         choiceObj.SetActive(false);
+                        playerHandObj.GetComponent<HandFanController>().seeBoard = false;
                     }
                 });
 
@@ -250,14 +253,15 @@ public class CardSelectionController : MonoBehaviour
             firstTrade = null;
             secondTrade = null;
 
-            choiceObj.SetActive(false); 
+            choiceObj.SetActive(false);
+            playerHandObj.GetComponent<HandFanController>().seeBoard = false;
         }
         
     }
 
     public void TradeCards(GameObject a, GameObject b)
     {
-        if(a.transform.parent == NumberManager.instance.playerPositiveArea || NumberManager.instance.playerNegativeArea)
+        if(a.transform.parent == NumberManager.instance.playerPositiveArea || a.transform.parent == NumberManager.instance.playerNegativeArea)
         {
             a = a;
             b = b;
@@ -312,18 +316,22 @@ public class CardSelectionController : MonoBehaviour
         if(g.transform.parent.transform == NumberManager.instance.playerPositiveArea.transform)
         {
             g.transform.SetParent(NumberManager.instance.oppPositiveArea.transform);
+            PlayerStats.instance.gave = true;
         }
         else if(g.transform.parent.transform == NumberManager.instance.playerNegativeArea.transform)
         {
             g.transform.SetParent(NumberManager.instance.oppNegativeArea.transform);
+            PlayerStats.instance.gave = true;
         }
         else if (g.transform.parent.transform == NumberManager.instance.oppNegativeArea.transform)
         {
             g.transform.SetParent(NumberManager.instance.playerNegativeArea.transform);
+            OpponentStats.instance.gave = true;
         }
         else
         {
             g.transform.SetParent(NumberManager.instance.playerPositiveArea.transform);
+            OpponentStats.instance.gave = true;
         }
         AkSoundEngine.PostEvent("Play_Number_Card", sfxObj);
         NumberManager.instance.recalculate = true;
@@ -451,10 +459,12 @@ public class CardSelectionController : MonoBehaviour
             if (g.GetComponent<NumberStats>().positive)
             {
                 Instantiate(g, CardPlacementController.instance.opponentPositiveArea);
+                PlayerStats.instance.gave = true;
             }
             else
             {
                 Instantiate(g, CardPlacementController.instance.opponentNegativeArea);
+                PlayerStats.instance.gave = true;
             }
             AkSoundEngine.PostEvent("Play_Number_Card", sfxObj);
         }
@@ -463,10 +473,12 @@ public class CardSelectionController : MonoBehaviour
             if (g.GetComponent<NumberStats>().positive)
             {
                 Instantiate(g, CardPlacementController.instance.playerPositiveArea);
+                OpponentStats.instance.gave = true;
             }
             else
             {
                 Instantiate(g, CardPlacementController.instance.playerNegativeArea);
+                OpponentStats.instance.gave = true;
             }
             AkSoundEngine.PostEvent("Play_Number_Card", sfxObj);
         }

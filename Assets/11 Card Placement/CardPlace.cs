@@ -680,7 +680,10 @@ public class CardPlace : MonoBehaviour,
         else if (specialCardType == SpecialCardType.Scratch)
         {
             //if opp gave u something
-
+            if(OpponentStats.instance.gave)
+            {
+                isPlayable = true;
+            }
         }
         else if (specialCardType == SpecialCardType.Leftovers)
         {
@@ -1146,7 +1149,8 @@ public class CardPlace : MonoBehaviour,
         }
         else if (specialCardType == SpecialCardType.Scratch)
         {
-
+            GameObject randomSpecial = opponentHand.GetChild(Random.Range(0, opponentHand.childCount)).gameObject;
+            StartCoroutine(DiscardAnimation(randomSpecial, "opponent"));
 
         }
         else if (specialCardType == SpecialCardType.Leftovers)

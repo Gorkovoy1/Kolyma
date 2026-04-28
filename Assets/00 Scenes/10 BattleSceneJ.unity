@@ -3948,7 +3948,7 @@ MonoBehaviour:
   fanHand: 0
   dragging: 0
   seeBoard: 0
-  cardSelectionBlocker: {fileID: 0}
+  cardSelectionBlocker: {fileID: 1250807829}
 --- !u!1 &915968977
 GameObject:
   m_ObjectHideFlags: 0
@@ -4292,6 +4292,7 @@ MonoBehaviour:
   buttonPrefab: {fileID: 1634184321075820668, guid: 73b2e4c9263a4ac4ea5dcc97065117d3, type: 3}
   choiceObj: {fileID: 1250807829}
   sfxObj: {fileID: 1398019612}
+  playerHandObj: {fileID: 890806058}
 --- !u!210 &977553271
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -9179,6 +9180,7 @@ MonoBehaviour:
   - {fileID: 8726452730957375120, guid: ef97cec161feedd47aec1012ec9e8981, type: 3}
   - {fileID: 5616304533076947711, guid: 339eac4afd6dc9f4893a558cf35fd25a, type: 3}
   - {fileID: 5616304533076947711, guid: 88aa81d9ac3ba2e488081076af338c98, type: 3}
+  - {fileID: 5616304533076947711, guid: ea66a6b36932741479609176c592724d, type: 3}
   rowList:
   - {fileID: 1804623710}
   - {fileID: 1675773728}
