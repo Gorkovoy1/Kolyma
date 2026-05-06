@@ -18,10 +18,10 @@ EditorBuildSettings:
     path: Assets/00 Scenes/2 TutorialScene.unity
     guid: c9d4990bf3ada8649b72ac5fd5c3fabb
   - enabled: 1
-    path: Assets/00 Scenes/3 DIALOGUE1.unity
+    path: Assets/00 Scenes/3 DIALOGUE1 Jail.unity
     guid: 62ea3ddefd068054bb084b31eed3bd22
   - enabled: 1
-    path: Assets/00 Scenes/4 DIALOGUE2.unity
+    path: Assets/00 Scenes/4 DIALOGUE2 Arrival.unity
     guid: c9fe1757636f34c40a0ac1901d6cc97b
   - enabled: 1
     path: Assets/00 Scenes/5 TutorialHub.unity
