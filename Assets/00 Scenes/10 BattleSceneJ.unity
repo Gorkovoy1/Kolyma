@@ -9987,6 +9987,7 @@ MonoBehaviour:
   - {fileID: 4852111069550977221, guid: 6f0cba9b2a6c13b4383c766539fc93a1, type: 3}
   - {fileID: 5990009992433413227, guid: 1f33072067812f340a51e0b62cf8f02d, type: 3}
   - {fileID: 8438558763316495119, guid: cbcb6d1ad9c32c542b0b695a1fd9b5a1, type: 3}
+  - {fileID: 2879984809121984172, guid: 5ec37c936422f624a88970da860a5004, type: 3}
   playerHand: {fileID: 890806058}
   opponentHand: {fileID: 2137599024}
   imagesParent: {fileID: 1425571759}

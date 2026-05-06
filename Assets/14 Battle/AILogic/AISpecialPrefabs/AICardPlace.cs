@@ -1771,18 +1771,155 @@ public class AICardPlace : MonoBehaviour //AICardPlace
             }
 
         }
-        else if (specialCardType == SpecialCardType.DirtyTrickI)
+        else if (specialCardType == SpecialCardType.DirtyTrickI) //red number to 2  StartCoroutine(CardSelectionController.instance.ChangeNumber(g, 2, "player"));
         {
+            switch(difficulty)
+            {
+                case Difficulty.AlwaysLargest:
+                    if(NumberManager.instance.negatives.Count > 0)
+                    {
+                        GameObject smallest = NumberManager.instance.negatives[0];
+                        //find smallest negative, then change it to two
+                        foreach(GameObject g in NumberManager.instance.negatives)
+                        {
+                            if(g.GetComponent<NumberStats>().value < smallest.GetComponent<NumberStats>().value)
+                            {
+                                smallest = g;
+                            }
+                        }
+
+                        StartCoroutine(CardSelectionController.instance.ChangeNumber(smallest, 2, "player"));
+                    }
+                    else //otherwise lower your value
+                    {
+                        GameObject largest = NumberManager.instance.OPPreds[0];
+                        foreach(GameObject g in NumberManager.instance.OPPreds)
+                        {
+                            if(g.GetComponent<NumberStats>().value < largest.GetComponent<NumberStats>().value)
+                            {
+                                largest = g;
+                            }
+                        }
+                        StartCoroutine(CardSelectionController.instance.ChangeNumber(largest, 2, "opponent"));
+                    }
+                    break;
+
+                case Difficulty.AlwaysSmallest: //change largest player number to 2
+                    if (NumberManager.instance.reds.Count > 0)
+                    {
+                        GameObject largest = NumberManager.instance.reds[0];
+                        //find largest, then change it to two
+                        foreach (GameObject g in NumberManager.instance.reds)
+                        {
+                            if (g.GetComponent<NumberStats>().value > largest.GetComponent<NumberStats>().value)
+                            {
+                                largest = g;
+                            }
+                        }
+
+                        StartCoroutine(CardSelectionController.instance.ChangeNumber(largest, 2, "player"));
+                    }
+                    else //otherwise lower your value
+                    {
+                        GameObject largest = NumberManager.instance.OPPreds[0];
+                        foreach (GameObject g in NumberManager.instance.OPPreds)
+                        {
+                            if (g.GetComponent<NumberStats>().value < largest.GetComponent<NumberStats>().value)
+                            {
+                                largest = g;
+                            }
+                        }
+                        StartCoroutine(CardSelectionController.instance.ChangeNumber(largest, 2, "opponent"));
+                    }
+                    break;
+
+                case Difficulty.Random: //change random card to 2
+                    List<GameObject> tempCombined = new List<GameObject>();
+                    tempCombined.AddRange(NumberManager.instance.OPPreds);
+                    tempCombined.AddRange(NumberManager.instance.reds);
+                    int random = Random.Range(0, tempCombined.Count);
+                    GameObject selectedCard = tempCombined[random];
+
+                    if (NumberManager.instance.OPPreds.Contains(selectedCard))
+                    {
+                        StartCoroutine(CardSelectionController.instance.ChangeNumber(selectedCard, 2, "opponent"));
+                    }
+                    else
+                    {
+                        StartCoroutine(CardSelectionController.instance.ChangeNumber(selectedCard, 2, "player"));
+                    }
+                    break;
+
+                case Difficulty.Ideal: //if youre busted, help yourself first, otherwise compare all opponent combinations, and pick the one that yields closest to target
+                    if(NumberManager.instance.OPPreds.Count > 0)
+                    {
+                        if(NumberManager.instance.oppVal > NumberManager.instance.targetVal) //busted
+                        {
+                            GameObject selected = NumberManager.instance.OPPreds[0];
+                            foreach(GameObject g in NumberManager.instance.OPPreds)
+                            {
+                                int newVal = NumberManager.instance.oppVal - g.GetComponent<NumberStats>().value + 2;
+                                if((NumberManager.instance.targetVal - newVal) >= 0 && (NumberManager.instance.targetVal - newVal) < (NumberManager.instance.targetVal - (NumberManager.instance.oppVal - selected.GetComponent<NumberStats>().value + 2)))
+                                {
+                                    selected = g;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        //furthest from target for player
+                        GameObject selected = NumberManager.instance.reds[0];
+                        int currentVal = NumberManager.instance.playerVal - selected.GetComponent<NumberStats>().value + 2;
+                        foreach(GameObject g in NumberManager.instance.reds)
+                        {
+                            int newVal = NumberManager.instance.playerVal - g.GetComponent<NumberStats>().value + 2;
+                            if(Mathf.Abs(NumberManager.instance.targetVal - newVal) > Mathf.Abs(NumberManager.instance.targetVal - currentVal))
+                            {
+                                currentVal = newVal;
+                                selected = g;
+                            }
+                        }
+                    }
+                    break;
+            }
+                
 
 
         }
         else if (specialCardType == SpecialCardType.DirtyTrickII)
         {
+            switch (difficulty)
+            {
+                case Difficulty.AlwaysLargest:
+                    break;
 
+                case Difficulty.AlwaysSmallest:
+                    break;
+
+                case Difficulty.Random:
+                    break;
+
+                case Difficulty.Ideal:
+                    break;
+            }
         }
         else if (specialCardType == SpecialCardType.DirtyTrickIII)
         {
+            switch (difficulty)
+            {
+                case Difficulty.AlwaysLargest:
+                    break;
 
+                case Difficulty.AlwaysSmallest:
+                    break;
+
+                case Difficulty.Random:
+                    break;
+
+                case Difficulty.Ideal:
+                    break;
+            }
         }
         else if (specialCardType == SpecialCardType.LousyDeal)
         {
