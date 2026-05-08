@@ -12,6 +12,12 @@ TagManager:
   - PlayerDiscard
   - OpponentDiscard
   - DiceCamera
+  - InvSlot
+  - Bread
+  - Drink
+  - Clothes
+  - Other
+  - BetSlot
   layers:
   - Default
   - TransparentFX

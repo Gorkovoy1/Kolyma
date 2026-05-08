@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3730799398643846538}
   m_Layer: 5
   m_Name: Panel (8)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 2176355211170777931}
   m_Layer: 5
   m_Name: Panel (14)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 1880636328012749933}
   m_Layer: 5
   m_Name: Panel (8)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 5241230866294977566}
   m_Layer: 5
   m_Name: Panel (3)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 1364408573002724902}
   m_Layer: 5
   m_Name: Panel (6)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -503,7 +503,7 @@ GameObject:
   - component: {fileID: 6771604186164163250}
   m_Layer: 5
   m_Name: Panel (3)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -579,7 +579,7 @@ GameObject:
   - component: {fileID: 1310572051341804372}
   m_Layer: 5
   m_Name: Panel (9)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -655,7 +655,7 @@ GameObject:
   - component: {fileID: 2847846698418428504}
   m_Layer: 5
   m_Name: Panel (1)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -841,7 +841,7 @@ GameObject:
   - component: {fileID: 5387914943423923911}
   m_Layer: 5
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -917,7 +917,7 @@ GameObject:
   - component: {fileID: 8817421558157697844}
   m_Layer: 5
   m_Name: Panel (10)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1128,7 +1128,7 @@ GameObject:
   - component: {fileID: 5479951940537184317}
   m_Layer: 5
   m_Name: Panel (13)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1204,7 +1204,7 @@ GameObject:
   - component: {fileID: 1812210637486259563}
   m_Layer: 5
   m_Name: Panel (2)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1280,7 +1280,7 @@ GameObject:
   - component: {fileID: 3657968158406874765}
   m_Layer: 5
   m_Name: Panel (8)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1356,7 +1356,7 @@ GameObject:
   - component: {fileID: 8474261639136964048}
   m_Layer: 5
   m_Name: Panel (7)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1432,7 +1432,7 @@ GameObject:
   - component: {fileID: 3298543207068720410}
   m_Layer: 5
   m_Name: Panel (5)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1508,7 +1508,7 @@ GameObject:
   - component: {fileID: 8554175045121240875}
   m_Layer: 5
   m_Name: Panel (16)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1584,7 +1584,7 @@ GameObject:
   - component: {fileID: 5200503549360879298}
   m_Layer: 5
   m_Name: Panel (2)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1779,7 +1779,7 @@ GameObject:
   - component: {fileID: 7692524902107171352}
   m_Layer: 5
   m_Name: Panel (3)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1855,7 +1855,7 @@ GameObject:
   - component: {fileID: 2201384863846421310}
   m_Layer: 5
   m_Name: Panel (4)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2176,7 +2176,7 @@ GameObject:
   - component: {fileID: 7620207934358462460}
   m_Layer: 5
   m_Name: Panel (6)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2864,6 +2864,7 @@ GameObject:
   - component: {fileID: 5653948300502402804}
   - component: {fileID: 5653948300502402807}
   - component: {fileID: 5653948300502402805}
+  - component: {fileID: 7048889321426793768}
   m_Layer: 5
   m_Name: InventoryPanel
   m_TagString: Untagged
@@ -2958,6 +2959,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &7048889321426793768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5653948300502402761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfaf9f620e3aa0b45a21a8d504b91282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5770625339607636725
 GameObject:
   m_ObjectHideFlags: 0
@@ -2971,7 +2984,7 @@ GameObject:
   - component: {fileID: 5273935289800536798}
   m_Layer: 5
   m_Name: Panel (1)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3047,7 +3060,7 @@ GameObject:
   - component: {fileID: 8950155149973103521}
   m_Layer: 5
   m_Name: Panel (2)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3123,7 +3136,7 @@ GameObject:
   - component: {fileID: 8773708245480030250}
   m_Layer: 5
   m_Name: Panel (6)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3199,7 +3212,7 @@ GameObject:
   - component: {fileID: 743780621927100706}
   m_Layer: 5
   m_Name: Panel (4)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3275,7 +3288,7 @@ GameObject:
   - component: {fileID: 646073321721323721}
   m_Layer: 5
   m_Name: Panel (7)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3486,7 +3499,7 @@ GameObject:
   - component: {fileID: 8728115072348848995}
   m_Layer: 5
   m_Name: Panel (1)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3562,7 +3575,7 @@ GameObject:
   - component: {fileID: 8046432871740364646}
   m_Layer: 5
   m_Name: Panel (17)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3638,7 +3651,7 @@ GameObject:
   - component: {fileID: 9180787178460699824}
   m_Layer: 5
   m_Name: Panel (7)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3714,7 +3727,7 @@ GameObject:
   - component: {fileID: 2296483863970203621}
   m_Layer: 5
   m_Name: Panel (12)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3790,7 +3803,7 @@ GameObject:
   - component: {fileID: 6982728422038626460}
   m_Layer: 5
   m_Name: Panel (15)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3866,7 +3879,7 @@ GameObject:
   - component: {fileID: 7963726366328101612}
   m_Layer: 5
   m_Name: Panel (5)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4064,82 +4077,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &8276950363948976129
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4248338542657808842}
-  - component: {fileID: 5183161583893522691}
-  - component: {fileID: 3351040696251241377}
-  m_Layer: 5
-  m_Name: Panel
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &4248338542657808842
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8276950363948976129}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 9055226633445086217}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &5183161583893522691
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8276950363948976129}
-  m_CullTransparentMesh: 1
---- !u!114 &3351040696251241377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8276950363948976129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &8490537169039785799
 GameObject:
   m_ObjectHideFlags: 0
@@ -4153,7 +4090,7 @@ GameObject:
   - component: {fileID: 197847938381161936}
   m_Layer: 5
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4229,7 +4166,7 @@ GameObject:
   - component: {fileID: 4383185964775037027}
   m_Layer: 5
   m_Name: Panel (11)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4305,7 +4242,7 @@ GameObject:
   - component: {fileID: 1629660733308412858}
   m_Layer: 5
   m_Name: Panel (5)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4381,7 +4318,7 @@ GameObject:
   - component: {fileID: 2659213299077377918}
   m_Layer: 5
   m_Name: Panel (4)
-  m_TagString: Untagged
+  m_TagString: InvSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4554,3 +4491,105 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!1001 &6821607454242245042
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 9055226633445086217}
+    m_Modifications:
+    - target: {fileID: 3203912385446019507, guid: 071048a4158449647a01b431211843c3, type: 3}
+      propertyPath: m_Name
+      value: Panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232243009859625080, guid: 071048a4158449647a01b431211843c3, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232243009859625080, guid: 071048a4158449647a01b431211843c3, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232243009859625080, guid: 071048a4158449647a01b431211843c3, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232243009859625080, guid: 071048a4158449647a01b431211843c3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232243009859625080, guid: 071048a4158449647a01b431211843c3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232243009859625080, guid: 071048a4158449647a01b431211843c3, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232243009859625080, guid: 071048a4158449647a01b431211843c3, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232243009859625080, guid: 071048a4158449647a01b431211843c3, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232243009859625080, guid: 071048a4158449647a01b431211843c3, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232243009859625080, guid: 071048a4158449647a01b431211843c3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232243009859625080, guid: 071048a4158449647a01b431211843c3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232243009859625080, guid: 071048a4158449647a01b431211843c3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232243009859625080, guid: 071048a4158449647a01b431211843c3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232243009859625080, guid: 071048a4158449647a01b431211843c3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232243009859625080, guid: 071048a4158449647a01b431211843c3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232243009859625080, guid: 071048a4158449647a01b431211843c3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232243009859625080, guid: 071048a4158449647a01b431211843c3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232243009859625080, guid: 071048a4158449647a01b431211843c3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232243009859625080, guid: 071048a4158449647a01b431211843c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232243009859625080, guid: 071048a4158449647a01b431211843c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232243009859625080, guid: 071048a4158449647a01b431211843c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 071048a4158449647a01b431211843c3, type: 3}
+--- !u!224 &4248338542657808842 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7232243009859625080, guid: 071048a4158449647a01b431211843c3, type: 3}
+  m_PrefabInstance: {fileID: 6821607454242245042}
+  m_PrefabAsset: {fileID: 0}

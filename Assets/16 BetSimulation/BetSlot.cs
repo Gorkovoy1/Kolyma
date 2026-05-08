@@ -18,8 +18,22 @@ public class BetSlot : MonoBehaviour, IDropHandler
         if (transform.childCount > 0)
         {
             Transform oldItem = transform.GetChild(0);
-            oldItem.SetParent(inventoryParent);
-            oldItem.transform.position = oldItem.GetComponent<ConsumableController>().originalPosition;
+            if (oldItem.gameObject.CompareTag("Bread"))
+            {
+                InventoryManager.instance.AddNewItem(oldItem.gameObject, InventoryManager.instance.breadList, InventoryManager.instance.breadIndex);
+            }
+            else if (oldItem.gameObject.CompareTag("Drink"))
+            {
+                InventoryManager.instance.AddNewItem(oldItem.gameObject, InventoryManager.instance.drinkList, InventoryManager.instance.drinkIndex);
+            }
+            else if (oldItem.gameObject.CompareTag("Clothes"))
+            {
+                InventoryManager.instance.AddNewItem(oldItem.gameObject, InventoryManager.instance.clothesList, InventoryManager.instance.clothesIndex);
+            }
+            else if (oldItem.gameObject.CompareTag("Other"))
+            {
+                InventoryManager.instance.AddNewItem(oldItem.gameObject, InventoryManager.instance.otherList, InventoryManager.instance.otherIndex);
+            }
         }
 
         // Place new item

@@ -27,6 +27,8 @@ public class ConsumableController : MonoBehaviour, IDragHandler, IBeginDragHandl
 
     private CanvasGroup cg;
 
+    public GameObject[] betSlots;
+
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -35,9 +37,10 @@ public class ConsumableController : MonoBehaviour, IDragHandler, IBeginDragHandl
     // Start is called before the first frame update
     void Start()
     {
-        if(SceneManager.GetActiveScene().name == "BetSimulation")
+        if(SceneManager.GetActiveScene().name == "BetSimulation" || SceneManager.GetActiveScene().name == "4 Bet")
         {
             betting = true;
+            betSlots = InventoryManager.instance.betSlotArray;
         }
         else
         {
@@ -57,6 +60,7 @@ public class ConsumableController : MonoBehaviour, IDragHandler, IBeginDragHandl
         
     }
 
+    
     public void OnBeginDrag(PointerEventData eventData)
     {
         if(!betting)
@@ -77,34 +81,19 @@ public class ConsumableController : MonoBehaviour, IDragHandler, IBeginDragHandl
 
     public void OnDrag(PointerEventData eventData)
     {
-        if(!betting)
-        {
-            rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
-            StayInArea();
-        }
-        else
-        {
-            rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
-        }
-        
+        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         if(!betting)
         {
-            Debug.Log(rectTransform.anchoredPosition.y);
-            Debug.Log(rectTransform.anchoredPosition.x);
-
             //if dragged into consumable square, delete self and replenish corresponding value
-            if (rectTransform.anchoredPosition.x < minX)
+            if (RectTransformUtility.RectangleContainsScreenPoint(consumeArea.GetComponent<RectTransform>(), Input.mousePosition, eventData.pressEventCamera))
             {
                 Replenish();
             }
-
-            //if dragged outside of inventory, snap back
-            //save position
-
 
             //disable consumearea back
             consumeArea.SetActive(false);
@@ -117,7 +106,7 @@ public class ConsumableController : MonoBehaviour, IDragHandler, IBeginDragHandl
             if (transform.parent == canvas.transform)
             {
                 transform.SetParent(originalParent);
-                transform.position = originalPosition;
+                this.transform.localPosition = Vector3.zero;
             }
         }
         
@@ -133,6 +122,7 @@ public class ConsumableController : MonoBehaviour, IDragHandler, IBeginDragHandl
 
         rectTransform.anchoredPosition = pos;
     }
+    
 
     void Replenish()
     {
@@ -153,6 +143,46 @@ public class ConsumableController : MonoBehaviour, IDragHandler, IBeginDragHandl
         }
 
         Destroy(this.gameObject);
+    }
+
+    public void ItemClicked()
+    {
+        if(betting)
+        {
+            if(this.transform.parent.CompareTag("InvSlot"))
+            {
+                foreach(GameObject g in betSlots)
+                {
+                    if(g.transform.childCount == 0)
+                    {
+                        this.transform.SetParent(g.transform);
+                        this.transform.localPosition = Vector3.zero;
+                        break;
+                    }
+                }
+                
+                
+            }
+            else if(this.rectTransform.parent.CompareTag("BetSlot"))
+            {
+                if(this.gameObject.CompareTag("Bread"))
+                {
+                    InventoryManager.instance.AddNewItem(this.gameObject, InventoryManager.instance.breadList, InventoryManager.instance.breadIndex);
+                }
+                else if(this.gameObject.CompareTag("Drink"))
+                {
+                    InventoryManager.instance.AddNewItem(this.gameObject, InventoryManager.instance.drinkList, InventoryManager.instance.drinkIndex);
+                }
+                else if(this.gameObject.CompareTag("Clothes"))
+                {
+                    InventoryManager.instance.AddNewItem(this.gameObject, InventoryManager.instance.clothesList, InventoryManager.instance.clothesIndex);
+                }
+                else if(this.gameObject.CompareTag("Other"))
+                {
+                    InventoryManager.instance.AddNewItem(this.gameObject, InventoryManager.instance.otherList, InventoryManager.instance.otherIndex);
+                }
+            }
+        }
     }
 
     
