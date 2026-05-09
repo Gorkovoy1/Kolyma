@@ -13,6 +13,8 @@ public class BetNow : MonoBehaviour
     private int money = 0;
     private string item1 = "none";
     private string item2 = "none";
+    private GameObject obj1;
+    private GameObject obj2;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +26,39 @@ public class BetNow : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void LockBet()
+    {
+        if (moneyBet.text != "")
+        {
+            money = int.Parse(moneyBet.text);
+        }
+        else
+        {
+            money = 0;
+        }
+
+        if (betSlot1.GetComponent<BetSlot>().itemToBet != null)
+        {
+            obj1 = betSlot1.GetComponent<BetSlot>().itemToBet;
+        }
+        else
+        {
+            obj1 = null;
+        }
+
+        if (betSlot2.GetComponent<BetSlot>().itemToBet != null)
+        {
+            obj2 = betSlot2.GetComponent<BetSlot>().itemToBet;
+        }
+        else
+        {
+            obj2 = null;
+        }
+
+
+        InventoryManager.instance.LockPot(money, obj1, obj2);
     }
 
     public void ReadValues()

@@ -44,7 +44,7 @@ public class ConsumableController : MonoBehaviour, IDragHandler, IBeginDragHandl
     // Start is called before the first frame update
     void OnEnable()
     {
-        if(InventoryManager.instance.gameObject.GetComponent<UIPanelManager>().currentState == UIState.Bet)
+        if(InventoryManager.instance.uiPanelManager.currentState == UIState.Bet)
         {
             betting = true;
             betSlots = InventoryManager.instance.betSlotArray;
@@ -64,16 +64,13 @@ public class ConsumableController : MonoBehaviour, IDragHandler, IBeginDragHandl
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("update");
-        if(InventoryManager.instance.gameObject.GetComponent<UIPanelManager>().currentState == UIState.Bet || InventoryManager.instance.gameObject.GetComponent<UIPanelManager>().currentState == UIState.Winnings)
+        if(InventoryManager.instance.uiPanelManager.currentState == UIState.Bet || InventoryManager.instance.uiPanelManager.currentState == UIState.Winnings)
         {
             betting = true;
-            Debug.Log("betting");
         }
         else
         {
             betting = false;
-            Debug.Log("not betting");
         }
     }
 

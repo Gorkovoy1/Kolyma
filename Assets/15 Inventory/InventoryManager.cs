@@ -22,6 +22,15 @@ public class InventoryManager : MonoBehaviour
 
     public GameObject consumeArea;
 
+    public UIPanelManager uiPanelManager;
+
+    [Header("Pot")]
+    public int moneyInPot;
+    public GameObject[] itemsInPot;
+    public bool showWinnings;
+    public bool winningsShown;
+    
+
     void Awake()
     {
         if(instance == null)
@@ -34,18 +43,28 @@ public class InventoryManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(this.gameObject);
+
+        uiPanelManager = this.gameObject.GetComponent<UIPanelManager>();
+
     }
-    
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        itemsInPot = new GameObject[2];
+        showWinnings = false;
+        winningsShown = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(showWinnings && !winningsShown)
+        {
+            winningsShown = true;
+            InventoryManager.instance.uiPanelManager.SetState(UIState.Winnings);
+            ShowWinnings();
+        }
     }
 
     public void AddNewItem(GameObject objToAdd, List<GameObject> list, int index)
@@ -74,5 +93,27 @@ public class InventoryManager : MonoBehaviour
         objToAdd.transform.localPosition = Vector3.zero;
     }
 
+    public void LockPot(int money, GameObject objOne, GameObject objTwo)
+    {
+        moneyInPot = money;
+        itemsInPot[0] = objOne;
+        itemsInPot[1] = objTwo;
+    }
+
+    public void ShowWinnings()
+    {
+        //add money
+
+
+        //show objects
+        foreach(GameObject item in itemsInPot)
+        {
+            if(item != null)
+            {
+                Instantiate(item, uiPanelManager.winningsPanel.transform);
+                Instantiate(item, uiPanelManager.winningsPanel.transform);
+            }
+        }
+    }
 
 }

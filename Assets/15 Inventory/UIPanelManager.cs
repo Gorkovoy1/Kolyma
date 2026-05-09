@@ -19,7 +19,8 @@ public class UIPanelManager : MonoBehaviour
     void Start()
     {
         instance = InventoryManager.instance.gameObject.GetComponent<UIPanelManager>();
-        SetState(UIState.Minimized);
+        //SetState(UIState.Minimized);
+        SetState(currentState);
     }
 
     // Update is called once per frame
