@@ -38,9 +38,11 @@ public class ConsumableController : MonoBehaviour, IDragHandler, IBeginDragHandl
         rectTransform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
         parentRect = rectTransform.parent as RectTransform;
+        consumeArea = InventoryManager.instance.consumeArea;
+        betSlots = InventoryManager.instance.betSlotArray;
     }
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         if(InventoryManager.instance.gameObject.GetComponent<UIPanelManager>().currentState == UIState.Bet)
         {
@@ -62,7 +64,17 @@ public class ConsumableController : MonoBehaviour, IDragHandler, IBeginDragHandl
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log("update");
+        if(InventoryManager.instance.gameObject.GetComponent<UIPanelManager>().currentState == UIState.Bet || InventoryManager.instance.gameObject.GetComponent<UIPanelManager>().currentState == UIState.Winnings)
+        {
+            betting = true;
+            Debug.Log("betting");
+        }
+        else
+        {
+            betting = false;
+            Debug.Log("not betting");
+        }
     }
 
     
@@ -71,14 +83,15 @@ public class ConsumableController : MonoBehaviour, IDragHandler, IBeginDragHandl
         if(!betting)
         {
             //enable the consume area
-            consumeArea = InventoryManager.instance.consumeArea;
             consumeArea.SetActive(true);
             originalPosition = this.transform.position;
+            originalParent = this.transform.parent;
         }
         else
         {
             cg.blocksRaycasts = false;
             originalParent = transform.parent;
+            originalPosition = transform.position;
 
             transform.SetParent(canvas.transform); // bring to top
         }
@@ -124,6 +137,7 @@ public class ConsumableController : MonoBehaviour, IDragHandler, IBeginDragHandl
             {
                 //go back to original slot
                 this.transform.position = originalPosition;
+                this.transform.SetParent(originalParent);
             }
 
             //disable consumearea back

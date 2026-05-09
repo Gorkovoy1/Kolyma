@@ -8,12 +8,17 @@ public class UIPanelManager : MonoBehaviour
     public GameObject bettingPanel;
     public GameObject inventorySlotPanel;
     public GameObject hudPanel;
+    public GameObject betSlotsPanel;
+    public GameObject winningsPanel;
 
     public UIState currentState;
+
+    public static UIPanelManager instance;
 
     // Start is called before the first frame update
     void Start()
     {
+        instance = InventoryManager.instance.gameObject.GetComponent<UIPanelManager>();
         SetState(UIState.Minimized);
     }
 
@@ -28,10 +33,12 @@ public class UIPanelManager : MonoBehaviour
         currentState = newState;
 
         // Turn everything off first
-        inventoryUI.SetActive(false);
+        inventoryUI.SetActive(false); //for management
         bettingPanel.SetActive(false);
         inventorySlotPanel.SetActive(false);
         hudPanel.SetActive(false);
+        betSlotsPanel.SetActive(false);
+        winningsPanel.SetActive(false);
 
         // Turn on what this state needs
         switch (currentState)
@@ -42,6 +49,7 @@ public class UIPanelManager : MonoBehaviour
 
             case UIState.Bet:
                 bettingPanel.SetActive(true);
+                betSlotsPanel.SetActive(true);
                 inventorySlotPanel.SetActive(true);
                 break;
 
@@ -49,6 +57,14 @@ public class UIPanelManager : MonoBehaviour
                 inventoryUI.SetActive(true);
                 inventorySlotPanel.SetActive(true);
                 break;
+            case UIState.Inactive:
+                break;
+            case UIState.Winnings:
+                bettingPanel.SetActive(true);
+                winningsPanel.SetActive(true);
+                inventorySlotPanel.SetActive(true);
+                break;
+
         }
     }
 
@@ -67,5 +83,7 @@ public enum UIState
 {
     Inventory,
     Bet,
-    Minimized
+    Minimized,
+    Inactive,
+    Winnings
 }
