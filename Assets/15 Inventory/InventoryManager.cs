@@ -20,6 +20,8 @@ public class InventoryManager : MonoBehaviour
 
     public GameObject[] betSlotArray;
 
+    public GameObject consumeArea;
+
     void Awake()
     {
         if(instance == null)

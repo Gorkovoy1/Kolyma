@@ -20,7 +20,7 @@ public class ConsumableController : MonoBehaviour, IDragHandler, IBeginDragHandl
 
     public bool betting = false;
 
-    private GameObject consumeArea;
+    public GameObject consumeArea;
 
     private Transform originalParent;
     public Vector2 originalPosition;
@@ -29,15 +29,20 @@ public class ConsumableController : MonoBehaviour, IDragHandler, IBeginDragHandl
 
     public GameObject[] betSlots;
 
+    private RectTransform parentRect;
+
+    private Vector2 dragOffset;
+
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
+        parentRect = rectTransform.parent as RectTransform;
     }
     // Start is called before the first frame update
     void Start()
     {
-        if(SceneManager.GetActiveScene().name == "BetSimulation" || SceneManager.GetActiveScene().name == "4 Bet")
+        if(InventoryManager.instance.gameObject.GetComponent<UIPanelManager>().currentState == UIState.Bet)
         {
             betting = true;
             betSlots = InventoryManager.instance.betSlotArray;
@@ -66,8 +71,9 @@ public class ConsumableController : MonoBehaviour, IDragHandler, IBeginDragHandl
         if(!betting)
         {
             //enable the consume area
-            consumeArea = transform.parent.parent.Find("ConsumeArea").gameObject;
+            consumeArea = InventoryManager.instance.consumeArea;
             consumeArea.SetActive(true);
+            originalPosition = this.transform.position;
         }
         else
         {
@@ -76,12 +82,32 @@ public class ConsumableController : MonoBehaviour, IDragHandler, IBeginDragHandl
 
             transform.SetParent(canvas.transform); // bring to top
         }
-        
+
+        Vector2 localMousePos;
+
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            parentRect,
+            eventData.position,
+            eventData.pressEventCamera,
+            out localMousePos
+        );
+
+        dragOffset = rectTransform.anchoredPosition - localMousePos;
+
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        Vector2 localMousePos;
+
+        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            parentRect,
+            eventData.position,
+            eventData.pressEventCamera,
+            out localMousePos))
+        {
+            rectTransform.anchoredPosition = localMousePos + dragOffset;
+        }
 
     }
 
@@ -93,6 +119,11 @@ public class ConsumableController : MonoBehaviour, IDragHandler, IBeginDragHandl
             if (RectTransformUtility.RectangleContainsScreenPoint(consumeArea.GetComponent<RectTransform>(), Input.mousePosition, eventData.pressEventCamera))
             {
                 Replenish();
+            }
+            else
+            {
+                //go back to original slot
+                this.transform.position = originalPosition;
             }
 
             //disable consumearea back
