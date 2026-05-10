@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8726452730957375120, guid: 96f7213bcf4349b45bebe488e4bcbe57, type: 3}
       propertyPath: m_Name
-      value: Poison
+      value: Poison Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8726452730957375121, guid: 96f7213bcf4349b45bebe488e4bcbe57, type: 3}
       propertyPath: m_Pivot.x

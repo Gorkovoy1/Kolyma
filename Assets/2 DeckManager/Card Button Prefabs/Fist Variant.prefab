@@ -109,7 +109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5616304533076947711, guid: c00c6ac809906e244b34cbe66f30f13e, type: 3}
       propertyPath: m_Name
-      value: Fist
+      value: Fist Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c00c6ac809906e244b34cbe66f30f13e, type: 3}

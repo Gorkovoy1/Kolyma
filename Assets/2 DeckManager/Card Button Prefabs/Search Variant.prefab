@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: b2f5b7f80571d7a419bc0fde8a544015, type: 3}
     - target: {fileID: 1841617254225667036, guid: d0d51535144475e41be1bc83c3c73a00, type: 3}
       propertyPath: m_Name
-      value: Search
+      value: Search Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1841617254225667037, guid: d0d51535144475e41be1bc83c3c73a00, type: 3}
       propertyPath: m_Pivot.x

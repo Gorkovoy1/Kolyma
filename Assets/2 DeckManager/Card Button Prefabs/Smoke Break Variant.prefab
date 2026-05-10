@@ -109,7 +109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4309277989975084539, guid: a6e234c0fd98b0a40949064aa2caa79a, type: 3}
       propertyPath: m_Name
-      value: Smoke Break
+      value: Smoke Break Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6e234c0fd98b0a40949064aa2caa79a, type: 3}

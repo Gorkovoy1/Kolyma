@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: a74cc911bd5d5844497fe5522f0d1274, type: 3}
+    - target: {fileID: 8346053592480935287, guid: f4add6b0b822f6f4cb7e3885ea744955, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8346053592480935289, guid: f4add6b0b822f6f4cb7e3885ea744955, type: 3}
       propertyPath: cardDesc
       value: if your opponent discarded a special card this game, give them +2 or

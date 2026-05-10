@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7693267126269467024, guid: e8178dd65939c954884a7c588f9d5626, type: 3}
       propertyPath: m_Name
-      value: Setup
+      value: Setup Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7693267126269467025, guid: e8178dd65939c954884a7c588f9d5626, type: 3}
       propertyPath: m_Pivot.x
@@ -93,6 +93,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7693267126269467025, guid: e8178dd65939c954884a7c588f9d5626, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693267126269467027, guid: e8178dd65939c954884a7c588f9d5626, type: 3}
+      propertyPath: owned
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7693267126269467027, guid: e8178dd65939c954884a7c588f9d5626, type: 3}

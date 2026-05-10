@@ -11,6 +11,8 @@ public class CardInventoryController : MonoBehaviour
 
     public List<GameObject> rowList;
 
+    public List<GameObject> ownedCards; //for debug only
+
     void Awake()
     {
         if (instance == null)
@@ -40,28 +42,34 @@ public class CardInventoryController : MonoBehaviour
         int k = -1;
         foreach(GameObject g in cardInventory)
         {
-            k++;
-
-            if (!rowList[i-1].activeSelf)
+            if(g.GetComponent<DeckCardButton>().owned)
             {
-                rowList[i-1].SetActive(true);
-            }
+                ownedCards.Add(g); //for debug list
 
-            if (k%4 != 0)
-            {
-                Instantiate(g, rowList[i-1].transform);
-            }
-            else
-            {
-                i--;
+                k++;
 
-                if (!rowList[i-1].activeSelf)
+                if (!rowList[i - 1].activeSelf)
                 {
-                    rowList[i-1].SetActive(true);
+                    rowList[i - 1].SetActive(true);
                 }
 
-                Instantiate(g, rowList[i-1].transform);
+                if (k % 4 != 0)
+                {
+                    Instantiate(g, rowList[i - 1].transform);
+                }
+                else
+                {
+                    i--;
+
+                    if (!rowList[i - 1].activeSelf)
+                    {
+                        rowList[i - 1].SetActive(true);
+                    }
+
+                    Instantiate(g, rowList[i - 1].transform);
+                }
             }
+            
 
             
         }

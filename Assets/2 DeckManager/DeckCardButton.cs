@@ -20,6 +20,8 @@ public class DeckCardButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public TextMeshProUGUI title;
     public TextMeshProUGUI description;
+
+    public bool owned = false;
     
 
     // Start is called before the first frame update

@@ -25,7 +25,7 @@ PrefabInstance:
       objectReference: {fileID: 1086059024571131941, guid: 3c86dd04a38b3e347970849d43f6b7f1, type: 3}
     - target: {fileID: 8157540884944489754, guid: eb4e32f708efc28449772464a7853702, type: 3}
       propertyPath: m_Name
-      value: ThickWoolenCoat
+      value: ThickWoolenCoat Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8157540884944489755, guid: eb4e32f708efc28449772464a7853702, type: 3}
       propertyPath: m_Pivot.x
