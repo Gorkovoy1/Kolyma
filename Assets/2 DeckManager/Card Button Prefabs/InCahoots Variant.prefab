@@ -100,6 +100,10 @@ PrefabInstance:
       value: InCahoots Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8580508824025752926, guid: 43ccb6589a71d3b49baec4a43fe963bc, type: 3}
+      propertyPath: owned
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8580508824025752926, guid: 43ccb6589a71d3b49baec4a43fe963bc, type: 3}
       propertyPath: cardDesc
       value: Give both players +4
       objectReference: {fileID: 0}

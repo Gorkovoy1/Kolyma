@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -35,15 +36,16 @@ public class InventoryManager : MonoBehaviour
     {
         if (instance != null && instance != this)
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
             return;
         }
 
         instance = this;
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(this.gameObject);
 
         uiPanelManager = GetComponent<UIPanelManager>();
 
+        //Debug.Log("Inventory Awake: " + gameObject.name +  " ID: " + gameObject.GetInstanceID());
     }
 
     // Start is called before the first frame update
@@ -87,8 +89,20 @@ public class InventoryManager : MonoBehaviour
             index = list.IndexOf(newSlot);
         }
 
-        objToAdd.transform.SetParent(list[index].transform);
-        objToAdd.transform.localPosition = Vector3.zero;
+
+        if(objToAdd.transform.parent.name == "ItemPanel")
+        {
+            GameObject newObj = Instantiate(objToAdd, list[index].transform);
+            newObj.transform.localPosition = Vector3.zero;
+            objToAdd.GetComponent<Button>().interactable = false;
+            
+        }
+        else
+        {
+            objToAdd.transform.SetParent(list[index].transform);
+            objToAdd.transform.localPosition = Vector3.zero;
+        }
+            
     }
 
     public void LockPot(int money, GameObject objOne, GameObject objTwo)

@@ -610,9 +610,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5120096273680444056, guid: ae5cbdcfa30056f4e9e5fecd3399a17e, type: 3}
+      propertyPath: itemsInPot.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120096273680444056, guid: ae5cbdcfa30056f4e9e5fecd3399a17e, type: 3}
+      propertyPath: itemsInPot.Array.data[0]
+      value: 
+      objectReference: {fileID: 158754926693282395, guid: e16cc6ce8c1053146a28ee42bb8f8705, type: 3}
     - target: {fileID: 5120096273680444057, guid: ae5cbdcfa30056f4e9e5fecd3399a17e, type: 3}
       propertyPath: m_Name
       value: Inventory/Bet/Resources
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120096273680444059, guid: ae5cbdcfa30056f4e9e5fecd3399a17e, type: 3}
+      propertyPath: currentState
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5120096273680444063, guid: ae5cbdcfa30056f4e9e5fecd3399a17e, type: 3}
       propertyPath: m_Pivot.x
