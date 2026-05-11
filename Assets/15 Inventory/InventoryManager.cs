@@ -33,18 +33,16 @@ public class InventoryManager : MonoBehaviour
 
     void Awake()
     {
-        if(instance == null)
+        if (instance != null && instance != this)
         {
-            instance = this;
-        }
-        else
-        {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
+            return;
         }
 
-        DontDestroyOnLoad(this.gameObject);
+        instance = this;
+        DontDestroyOnLoad(gameObject);
 
-        uiPanelManager = this.gameObject.GetComponent<UIPanelManager>();
+        uiPanelManager = GetComponent<UIPanelManager>();
 
     }
 

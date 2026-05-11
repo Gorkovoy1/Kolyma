@@ -18,6 +18,7 @@ TagManager:
   - Clothes
   - Other
   - BetSlot
+  - ConsumeArea
   layers:
   - Default
   - TransparentFX

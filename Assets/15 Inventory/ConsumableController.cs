@@ -33,18 +33,28 @@ public class ConsumableController : MonoBehaviour, IDragHandler, IBeginDragHandl
 
     private Vector2 dragOffset;
 
-    void Awake()
+    void Start()
     {
         rectTransform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
         parentRect = rectTransform.parent as RectTransform;
-        consumeArea = InventoryManager.instance.consumeArea;
-        betSlots = InventoryManager.instance.betSlotArray;
+        //consumeArea = GameObject.FindWithTag("ConsumeArea");
     }
     // Start is called before the first frame update
     void OnEnable()
     {
-        if(InventoryManager.instance.uiPanelManager.currentState == UIState.Bet)
+        StartCoroutine(WaitForInventory());
+        
+    }
+
+
+    IEnumerator WaitForInventory()
+    {
+        yield return new WaitUntil(() => InventoryManager.instance != null);
+        consumeArea = InventoryManager.instance.consumeArea;
+        betSlots = InventoryManager.instance.betSlotArray;
+
+        if (InventoryManager.instance.uiPanelManager.currentState == UIState.Bet)
         {
             betting = true;
             betSlots = InventoryManager.instance.betSlotArray;
@@ -56,7 +66,7 @@ public class ConsumableController : MonoBehaviour, IDragHandler, IBeginDragHandl
 
         cg = GetComponent<CanvasGroup>();
 
-        if(betting)
+        if (betting)
             originalPosition = transform.position;
     }
 
@@ -223,6 +233,28 @@ public class ConsumableController : MonoBehaviour, IDragHandler, IBeginDragHandl
                 {
                     InventoryManager.instance.AddNewItem(this.gameObject, InventoryManager.instance.otherList, InventoryManager.instance.otherIndex);
                 }
+            }
+        }
+        else if(this.transform.parent.name == "ItemPanel") //shop scene, move item to inventory on click
+        {
+            //SUBTRACT MONEY HERE
+
+
+            if (this.gameObject.CompareTag("Bread"))
+            {
+                InventoryManager.instance.AddNewItem(this.gameObject, InventoryManager.instance.breadList, InventoryManager.instance.breadIndex);
+            }
+            else if (this.gameObject.CompareTag("Drink"))
+            {
+                InventoryManager.instance.AddNewItem(this.gameObject, InventoryManager.instance.drinkList, InventoryManager.instance.drinkIndex);
+            }
+            else if (this.gameObject.CompareTag("Clothes"))
+            {
+                InventoryManager.instance.AddNewItem(this.gameObject, InventoryManager.instance.clothesList, InventoryManager.instance.clothesIndex);
+            }
+            else if (this.gameObject.CompareTag("Other"))
+            {
+                InventoryManager.instance.AddNewItem(this.gameObject, InventoryManager.instance.otherList, InventoryManager.instance.otherIndex);
             }
         }
     }
