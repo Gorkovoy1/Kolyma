@@ -76,7 +76,7 @@ public class MenuManager : MonoBehaviour
     {
         AkSoundEngine.StopAll();
         //SceneManager.LoadScene("3 DIALOGUE1");
-        SceneLoader.instance.sceneName = "3 DIALOGUE1";
+        SceneLoader.instance.sceneName = "3 DIALOGUE1 Jail";
         SceneLoader.instance.triggerLoad = true;
     }
 
