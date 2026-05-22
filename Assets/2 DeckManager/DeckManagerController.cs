@@ -25,6 +25,7 @@ public class DeckManagerController : MonoBehaviour
     void Start()
     {
         CardInventoryController.instance.ManageDeck();
+
         startPos = deckManagerPanel.anchoredPosition;
         finishDeck = false;
     }

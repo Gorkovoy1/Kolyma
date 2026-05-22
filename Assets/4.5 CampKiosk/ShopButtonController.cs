@@ -27,6 +27,7 @@ public class ShopButtonController : MonoBehaviour
         if(deckButton != null)
         {
             deckButton.GetComponent<DeckCardButton>().owned = true;
+            CardInventoryController.instance.ManageDeck();
         }
 
         //deactivate button

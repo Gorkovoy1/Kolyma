@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CardInventoryController : MonoBehaviour
 {
@@ -12,6 +13,12 @@ public class CardInventoryController : MonoBehaviour
     public List<GameObject> rowList;
 
     public List<GameObject> ownedCards; //for debug only
+
+    public GameObject panel;
+
+    public bool reset;
+
+    public bool firstTime = true;
 
     void Awake()
     {
@@ -32,11 +39,47 @@ public class CardInventoryController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(reset)
+        {
+            //reset layout group
+            foreach (GameObject row in rowList)
+            {
+                LayoutGroup layout = row.GetComponent<LayoutGroup>();
+
+                layout.enabled = false;
+                layout.enabled = true;
+            }
+
+            if(firstTime)
+            {
+                RectTransform rect = panel.GetComponent<RectTransform>();
+                rect.anchoredPosition += new Vector2(0f, 22f);
+
+                firstTime = false;
+            }
+
+            reset = false;
+        }
     }
 
     public void ManageDeck()
     {
+        StartCoroutine(RebuildDeck());
+    }
+
+    IEnumerator RebuildDeck()
+    {
+        //clear all leftover children
+        foreach(GameObject row in rowList)
+        {
+            foreach(Transform child in row.transform)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+
+        yield return null;
+
         //instantiate buttons for each obj
         int i = rowList.Count;
         int k = -1;
@@ -73,5 +116,10 @@ public class CardInventoryController : MonoBehaviour
 
             
         }
+
+
+        yield return null;
+        reset = true;
+        
     }
 }
