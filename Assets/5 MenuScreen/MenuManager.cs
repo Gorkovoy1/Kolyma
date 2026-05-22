@@ -10,6 +10,8 @@ public class MenuManager : MonoBehaviour
     public GameObject mainMenu;
     public GameObject optionsMenu;
     public GameObject creditsMenu;
+
+    public string firstSceneName;
     // Start is called before the first frame update
     void Start()
     {
@@ -76,7 +78,7 @@ public class MenuManager : MonoBehaviour
     {
         AkSoundEngine.StopAll();
         //SceneManager.LoadScene("3 DIALOGUE1");
-        SceneLoader.instance.sceneName = "3 DIALOGUE1 Jail";
+        SceneLoader.instance.sceneName = firstSceneName; //change this with saving (playerprefs) in future
         SceneLoader.instance.triggerLoad = true;
     }
 

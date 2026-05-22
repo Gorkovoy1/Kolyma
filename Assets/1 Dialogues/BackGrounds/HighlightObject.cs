@@ -18,6 +18,8 @@ public class HighlightObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public int levelIndex;
 
+    public bool isTableScene;
+
 
     // Start is called before the first frame update
     void Start()
@@ -45,7 +47,7 @@ public class HighlightObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
     
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(SceneManager.GetActiveScene().name != "3 Barracks")
+        if(!isTableScene)
         {
             Debug.Log("go to scene");
 
@@ -53,7 +55,8 @@ public class HighlightObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
         }
         else
         {
-            //show betting window n stuff
+            //show scene with betting window n stuff
+            SceneManager.LoadScene("4 InvBet", LoadSceneMode.Additive);
         }
         
         
