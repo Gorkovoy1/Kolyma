@@ -45,9 +45,17 @@ public class HighlightObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
     
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("go to scene");
+        if(SceneManager.GetActiveScene().name != "3 Barracks")
+        {
+            Debug.Log("go to scene");
+
+            StartCoroutine(LoadLevel(levelIndex));
+        }
+        else
+        {
+            //show betting window n stuff
+        }
         
-        StartCoroutine(LoadLevel(levelIndex));
         
     }
 
