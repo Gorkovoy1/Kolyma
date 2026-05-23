@@ -8,8 +8,8 @@ using System.IO;
 public class MoneyController : MonoBehaviour
 {
     public static MoneyController instance;
-    public int balance = 0;
-    public TextMeshProUGUI moneyText;
+    public int balance;
+    public TextMeshProUGUI[] moneyTexts;
 
     void Awake()
     {
@@ -22,13 +22,14 @@ public class MoneyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LoadMoney();
+        //LoadMoney();          //put this back when persistent object
     }
 
     // Update is called once per frame
     void Update()
     {
-        moneyText.text = "Balance: " + balance.ToString();
+        foreach(TextMeshProUGUI moneyText in moneyTexts)
+            moneyText.text = "Balance: " + balance.ToString();
 
     }
 
