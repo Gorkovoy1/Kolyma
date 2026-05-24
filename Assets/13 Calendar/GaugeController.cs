@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class GaugeController : MonoBehaviour
 {
-    public Slider cold;
-    public Slider hunger;
-    public Slider weakness;
+    public int cold;
+    public int hunger;
+    public int weakness;
 
     public int coldIncrement;
     public int hungerIncrement;
@@ -50,31 +50,31 @@ public class GaugeController : MonoBehaviour
 
     public void AddCold() 
     {
-        cold.value += coldIncrement;
+        cold += coldIncrement;
     }
 
     public void AddHunger()
     {
-        hunger.value += hungerIncrement;
+        hunger += hungerIncrement;
     }
 
     public void AddWeakness()
     {
-        weakness.value += weaknessIncrement;
+        weakness += weaknessIncrement;
     }
 
     public void ReplenishCold(int amount)
     {
-        cold.value -= amount;
+        cold -= amount;
     }
 
     public void ReplenishHunger(int amount)
     {
-        hunger.value -= amount;
+        hunger -= amount;
     }
 
     public void ReplenishWeakness(int amount)
     {
-        weakness.value -= amount;
+        weakness -= amount;
     }
 }

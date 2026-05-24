@@ -15,6 +15,8 @@ public class UIPanelManager : MonoBehaviour
 
     public static UIPanelManager instance;
 
+    public Transform AnimTextParent;
+
     // Start is called before the first frame update
     void Start()
     {

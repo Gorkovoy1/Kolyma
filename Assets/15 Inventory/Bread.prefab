@@ -101,6 +101,7 @@ MonoBehaviour:
   consumeArea: {fileID: 0}
   originalPosition: {x: 0, y: 0}
   betSlots: []
+  gaugeTextPrefab: {fileID: 4510803599716079399, guid: 91c90ebc9c88eb1409393d3d1b4813f5, type: 3}
 --- !u!225 &158754926693282390
 CanvasGroup:
   m_ObjectHideFlags: 0

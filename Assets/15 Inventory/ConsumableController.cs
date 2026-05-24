@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class ConsumableController : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
@@ -32,6 +33,8 @@ public class ConsumableController : MonoBehaviour, IDragHandler, IBeginDragHandl
     private RectTransform parentRect;
 
     private Vector2 dragOffset;
+
+    public TextMeshProUGUI gaugeTextPrefab;
 
     void Start()
     {
@@ -174,6 +177,12 @@ public class ConsumableController : MonoBehaviour, IDragHandler, IBeginDragHandl
 
         rectTransform.anchoredPosition = pos;
     }
+
+    IEnumerator DelayedDestroy(TextMeshProUGUI g)
+    {
+        yield return new WaitForSeconds(1.5f);
+        Destroy(g);
+    }
     
 
     void Replenish()
@@ -183,18 +192,30 @@ public class ConsumableController : MonoBehaviour, IDragHandler, IBeginDragHandl
             //add replenish value to master hunger
             Debug.Log("replenished hunger " + replenishValue);
             GaugeController.instance.ReplenishHunger(replenishValue);
+            TextMeshProUGUI animText = Instantiate(gaugeTextPrefab, UIPanelManager.instance.AnimTextParent);
+            animText.text = $"Hunger\n-{replenishValue}!";
+            animText.color = new Color32(180, 179, 37, 255); //light yellow
+            StartCoroutine(DelayedDestroy(animText));
         }
         else if (consumableType == ConsumableType.Cold)
         {
             //add replenish value to master cold
             Debug.Log("replenished cold " + replenishValue);
             GaugeController.instance.ReplenishCold(replenishValue);
+            TextMeshProUGUI animText = Instantiate(gaugeTextPrefab, UIPanelManager.instance.AnimTextParent);
+            animText.text = $"Cold\n-{replenishValue}!";
+            animText.color = new Color32(107, 146, 187, 255); //light blue
+            StartCoroutine(DelayedDestroy(animText));
         }
         else if (consumableType == ConsumableType.Weakness)
         {
             //add replenish value to master weakness
             Debug.Log("replenished weakness " + replenishValue);
             GaugeController.instance.ReplenishWeakness(replenishValue);
+            TextMeshProUGUI animText = Instantiate(gaugeTextPrefab, UIPanelManager.instance.AnimTextParent);
+            animText.text = $"Weakness\n-{replenishValue}!";
+            animText.color = new Color32(152, 83, 66, 255); //light red
+            StartCoroutine(DelayedDestroy(animText));
         }
 
         Destroy(this.gameObject);
