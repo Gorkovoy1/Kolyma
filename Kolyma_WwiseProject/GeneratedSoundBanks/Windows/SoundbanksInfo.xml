@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="16" SoundBankVersion="150">
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="16" SoundBankVersion="154">
 	<RootPaths>
 		<ProjectRoot>../..</ProjectRoot>
-		<SourceFilesRoot>../../.cache/Windows</SourceFilesRoot>
+		<SourceFilesRoot>../../.cache</SourceFilesRoot>
 		<SoundBanksRoot>.</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
 		<ExternalSourcesOutputRoot>.</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{576F296B-612B-D16C-B0D9-2D4877CFEA51}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{EEA6A3D9-4894-9B33-0FAD-EFA474D17B25}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -23,8 +23,10 @@
 			</Busses>
 			<GameParameters>
 				<GameParameter Id="822163944" Name="SS_Air_RPM"/>
+				<GameParameter Id="988953028" Name="SFXVolume"/>
 				<GameParameter Id="1029930033" Name="SS_Air_Fury"/>
 				<GameParameter Id="1351367891" Name="SS_Air_Fear"/>
+				<GameParameter Id="2346531308" Name="MusicVolume"/>
 				<GameParameter Id="2648548617" Name="SS_Air_Month"/>
 				<GameParameter Id="3002758120" Name="SS_Air_Freefall"/>
 				<GameParameter Id="3074696722" Name="SS_Air_Size"/>
@@ -34,293 +36,293 @@
 				<GameParameter Id="4160247818" Name="SS_Air_Turbulence"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{28B52BAD-CEEC-18D2-C805-629241B46626}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{CF6BAEDB-C56F-566C-9F80-9261B463519F}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
 				<File Id="2774197" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Dogs_Bark-003.wav</ShortName>
-					<CachePath>SFX/Dogs_Bark-003_57DD6703.wem</CachePath>
+					<CachePath>6E/{6EDC1B89-7E23-F55C-5510-3270F29E4CD4}.wem</CachePath>
 				</File>
 				<File Id="7973089" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Barracks_Background.wav</ShortName>
-					<CachePath>SFX/Barracks_Background_07646D92.wem</CachePath>
+					<CachePath>3F/{3F03AA50-1614-A358-00B3-32960DE300B9}.wem</CachePath>
 				</File>
 				<File Id="69635862" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Poison.wav</ShortName>
-					<CachePath>SFX/Poison_8E324C96.wem</CachePath>
+					<CachePath>B7/{B74C7B0E-FE0E-0069-3430-C3C245B346FA}.wem</CachePath>
 				</File>
 				<File Id="71008113" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>kolyma daytime1.0.wav</ShortName>
-					<CachePath>SFX/kolyma daytime1.0_56CEF360.wem</CachePath>
+					<CachePath>86/{86F9D127-7B3F-6F2A-4F2F-D993A406533A}.wem</CachePath>
 				</File>
 				<File Id="75083474" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>camp_arrival_no_intro.wav</ShortName>
-					<CachePath>SFX/camp_arrival_no_intro_56CEF360.wem</CachePath>
+					<CachePath>CB/{CB1D2B64-8B95-22FE-E7E4-996BEB59057C}.wem</CachePath>
 				</File>
 				<File Id="77588350" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Bribe.wav</ShortName>
-					<CachePath>SFX/Bribe_8E324C96.wem</CachePath>
+					<CachePath>A6/{A686F5C6-0060-AB18-4744-D89EBE4A427C}.wem</CachePath>
 				</File>
 				<File Id="90128117" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Clocks, Chime, Metallic Wall Clock, Chime Ringing SND102458.wav</ShortName>
-					<CachePath>SFX/Clocks, Chime, Metallic Wall Clock, Chime Ringing SND102458_D8B369E4.wem</CachePath>
+					<CachePath>68/{68162842-D5D4-64D3-EF84-466C39C8A396}.wem</CachePath>
 				</File>
 				<File Id="92101620" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>EmptyPockets.wav</ShortName>
-					<CachePath>SFX/EmptyPockets_8E324C96.wem</CachePath>
+					<CachePath>A3/{A355866A-2098-1D66-92FF-483AABBADFFF}.wem</CachePath>
 				</File>
 				<File Id="111452232" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Dogs_Bark-002.wav</ShortName>
-					<CachePath>SFX/Dogs_Bark-002_8E324C96.wem</CachePath>
+					<CachePath>07/{078CC312-9C25-5318-8B22-87DA80A8D64B}.wem</CachePath>
 				</File>
 				<File Id="121547243" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Menu Click.wav</ShortName>
-					<CachePath>SFX/Menu Click_56AF768F.wem</CachePath>
+					<CachePath>BD/{BDD9E2A8-E7A6-EE62-5084-9FCDF9BE5844}.wem</CachePath>
 				</File>
 				<File Id="121851638" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Door_Open.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Door_Open_BB949EDF.wem</CachePath>
+					<CachePath>5A/{5A5888EF-B44D-4764-1E73-D9D5E37ACA11}.wem</CachePath>
 				</File>
 				<File Id="127805243" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>OpenTrickCollection.wav</ShortName>
-					<CachePath>SFX/OpenTrickCollection_8E324C96.wem</CachePath>
+					<CachePath>57/{5713C42E-C7E6-5F7E-8097-3EFBA5A0B305}.wem</CachePath>
 				</File>
 				<File Id="129889019" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Menu.wav</ShortName>
-					<CachePath>SFX/Menu_56CEF360.wem</CachePath>
+					<CachePath>71/{716997E3-BCD2-C72E-8C92-6B0E8070CDBE}.wem</CachePath>
 				</File>
 				<File Id="158641502" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Whisper-005.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Whisper-005_8E324C96.wem</CachePath>
+					<CachePath>77/{7784E33D-86C9-05B4-A5BC-56B980291838}.wem</CachePath>
 				</File>
 				<File Id="163322872" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Guard_Roll_Call.wav</ShortName>
-					<CachePath>SFX/Guard_Roll_Call_6C0AF96F.wem</CachePath>
+					<CachePath>44/{447472BA-00BD-5C2D-A866-4BE7724FA75D}.wem</CachePath>
 				</File>
 				<File Id="169040873" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Whisper-003.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Whisper-003_8E324C96.wem</CachePath>
+					<CachePath>D0/{D0904A50-ACED-54F5-BF52-372BD15AF7C1}.wem</CachePath>
 				</File>
 				<File Id="171785072" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Andreyev_Scared.wav</ShortName>
-					<CachePath>SFX/Andreyev_Scared_80FE5A8E.wem</CachePath>
+					<CachePath>AE/{AE2CC3CD-6D55-B8B5-A1CE-2F2FED9DB813}.wem</CachePath>
 				</File>
 				<File Id="185742565" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>dice 2.wav</ShortName>
-					<CachePath>SFX/dice 2_56516898.wem</CachePath>
+					<CachePath>03/{03529CCB-EAF7-D1D1-E389-E15B159A04B1}.wem</CachePath>
 				</File>
 				<File Id="241560530" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Thick Woolen Coat3.wav</ShortName>
-					<CachePath>SFX/Thick Woolen Coat3_8E324C96.wem</CachePath>
+					<CachePath>DB/{DB006446-ECE7-9F8B-5177-9EC3DF7AFB81}.wem</CachePath>
 				</File>
 				<File Id="267717470" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>CloseTrickCollection.wav</ShortName>
-					<CachePath>SFX/CloseTrickCollection_8E324C96.wem</CachePath>
+					<CachePath>06/{061158A1-00BB-02D9-D4B8-DF3A39CC1E82}.wem</CachePath>
 				</File>
 				<File Id="302096407" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>NumberCard1.wav</ShortName>
-					<CachePath>SFX/NumberCard1_8E324C96.wem</CachePath>
+					<CachePath>AD/{AD5D3F7F-6DD2-53A2-0003-57B196AF9217}.wem</CachePath>
 				</File>
 				<File Id="334397050" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Battle_Theme_2.1.wav</ShortName>
-					<CachePath>SFX/Battle_Theme_2.1_56CEF360.wem</CachePath>
+					<CachePath>C0/{C074812E-AA29-6CE6-F07F-EB783BB083C4}.wem</CachePath>
 				</File>
 				<File Id="355118563" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-001.wav</ShortName>
-					<CachePath>SFX/typewriter_loop-001_F1969806.wem</CachePath>
+					<CachePath>73/{737A05E9-2B31-BD5A-DD1C-7A52516A3F52}.wem</CachePath>
 				</File>
 				<File Id="355430885" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Andreyev_Question.wav</ShortName>
-					<CachePath>SFX/Andreyev_Question_CA6FFA65.wem</CachePath>
+					<CachePath>C3/{C309865C-49A3-587A-3DFA-7E23E56344F2}.wem</CachePath>
 				</File>
 				<File Id="381664103" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Dogs_Bark-001.wav</ShortName>
-					<CachePath>SFX/Dogs_Bark-001_8E324C96.wem</CachePath>
+					<CachePath>EE/{EEE5A62B-5CB3-4F17-37D4-5D5AA632EED7}.wem</CachePath>
 				</File>
 				<File Id="402054562" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Punch.wav</ShortName>
-					<CachePath>SFX/Punch_8CD53560.wem</CachePath>
+					<CachePath>12/{121D4457-B733-7AFD-C11C-0FE7BD445814}.wem</CachePath>
 				</File>
 				<File Id="415365781" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Cough-003.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Cough-003_8E324C96.wem</CachePath>
+					<CachePath>1F/{1FB3F257-B60F-F65F-F839-0AB356B6A06F}.wem</CachePath>
 				</File>
 				<File Id="435260790" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Barracks_Ambience.wav</ShortName>
-					<CachePath>SFX/Barracks_Ambience_FBC78EF0.wem</CachePath>
+					<CachePath>26/{264AC89B-AEA7-C58E-49E8-E58B869A560A}.wem</CachePath>
 				</File>
 				<File Id="471573529" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Breath-001.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Breath-001_8E324C96.wem</CachePath>
+					<CachePath>B4/{B4763E7F-05A5-278B-C702-89B7E6C65281}.wem</CachePath>
 				</File>
 				<File Id="499405862" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_Men_Talk.wav</ShortName>
-					<CachePath>SFX/Cell_Men_Talk_56CEF360.wem</CachePath>
+					<CachePath>E2/{E2C4AE97-2135-0045-780D-87C7E712C745}.wem</CachePath>
 				</File>
 				<File Id="508246985" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Andreyev_Good_Luck.wav</ShortName>
-					<CachePath>SFX/Andreyev_Good_Luck_9962DC21.wem</CachePath>
+					<CachePath>DD/{DDB6320B-33FC-449A-6C53-8224D1969E3F}.wem</CachePath>
 				</File>
 				<File Id="515368332" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Breath-002.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Breath-002_8E324C96.wem</CachePath>
+					<CachePath>F2/{F2CCFB30-AF0E-EC30-128D-FE632007B9E6}.wem</CachePath>
 				</File>
 				<File Id="543232325" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-002.wav</ShortName>
-					<CachePath>SFX/typewriter_loop-002_E3B2BE55.wem</CachePath>
+					<CachePath>E2/{E2F07F36-B9FC-0F71-B5C1-3D135D6BC335}.wem</CachePath>
 				</File>
 				<File Id="543919465" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Breath-003.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Breath-003_8E324C96.wem</CachePath>
+					<CachePath>12/{12DD1B58-5834-CDF8-8714-89EDC0FC5CAE}.wem</CachePath>
 				</File>
 				<File Id="551756399" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-006.wav</ShortName>
-					<CachePath>SFX/typewriter_loop-006_647F6CFF.wem</CachePath>
+					<CachePath>5C/{5CAE38CE-FE22-4DA5-61EB-04D719C08E3B}.wem</CachePath>
 				</File>
 				<File Id="555626868" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-005.wav</ShortName>
-					<CachePath>SFX/typewriter_loop-005_59D74268.wem</CachePath>
+					<CachePath>28/{2827C639-6926-42A2-1C6C-B3CFAAC52124}.wem</CachePath>
 				</File>
 				<File Id="570807466" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Doors, Dungeon, Stuck, Open, Long Reverb SND12490.wav</ShortName>
-					<CachePath>SFX/Doors, Dungeon, Stuck, Open, Long Reverb SND12490_80D97D70.wem</CachePath>
+					<CachePath>D2/{D24F9D33-E70D-887B-8EB4-36432BD23C2C}.wem</CachePath>
 				</File>
 				<File Id="594723613" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Andreyev_Clears_Throat.wav</ShortName>
-					<CachePath>SFX/Andreyev_Clears_Throat_4D39B397.wem</CachePath>
+					<CachePath>9F/{9F0C80A7-1FBB-A9C6-8072-D780775C0322}.wem</CachePath>
 				</File>
 				<File Id="613591171" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>NumberCard2.wav</ShortName>
-					<CachePath>SFX/NumberCard2_8E324C96.wem</CachePath>
+					<CachePath>63/{63CAF096-55D5-90F2-7905-01CFBC69EC21}.wem</CachePath>
 				</File>
 				<File Id="619077475" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>kolyma_jail 2.4.wav</ShortName>
-					<CachePath>SFX/kolyma_jail 2.4_56CEF360.wem</CachePath>
+					<CachePath>31/{31210321-FA02-F9A7-7BE6-5F255CA7EFAC}.wem</CachePath>
 				</File>
 				<File Id="623432057" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Andreyev_Snarky.wav</ShortName>
-					<CachePath>SFX/Andreyev_Snarky_802ACBA4.wem</CachePath>
+					<CachePath>48/{4899A3EB-0988-BA36-D3CE-295EE1D5C489}.wem</CachePath>
 				</File>
 				<File Id="631340173" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Cough-002.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Cough-002_8E324C96.wem</CachePath>
+					<CachePath>35/{356CC892-144A-6FA3-3305-6A8E9722C1EC}.wem</CachePath>
 				</File>
 				<File Id="646806883" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Whisper-001.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Whisper-001_8E324C96.wem</CachePath>
+					<CachePath>39/{39E0E2C4-69F4-9E8A-93B9-D436BE3E7F56}.wem</CachePath>
 				</File>
 				<File Id="692733281" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Setup.wav</ShortName>
-					<CachePath>SFX/Setup_8E324C96.wem</CachePath>
+					<CachePath>40/{4071F421-92CB-D449-0D9F-5C7E9856827F}.wem</CachePath>
 				</File>
 				<File Id="696251624" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Search.wav</ShortName>
-					<CachePath>SFX/Search_8E324C96.wem</CachePath>
+					<CachePath>E4/{E4A2C28B-D20F-FA64-0C17-1102FDC3EB64}.wem</CachePath>
 				</File>
 				<File Id="708500003" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Battle_Theme_1.2.wav</ShortName>
-					<CachePath>SFX/Battle_Theme_1.2_56CEF360.wem</CachePath>
+					<CachePath>B1/{B1A6DD0C-FB5F-B95C-827D-CB7F75CD08C6}.wem</CachePath>
 				</File>
 				<File Id="736440791" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Burden.wav</ShortName>
-					<CachePath>SFX/Burden_8E324C96.wem</CachePath>
+					<CachePath>24/{249471C3-7414-26DF-72AE-23A3CF62CCDB}.wem</CachePath>
 				</File>
 				<File Id="736547814" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>NumberCard4.wav</ShortName>
-					<CachePath>SFX/NumberCard4_8E324C96.wem</CachePath>
+					<CachePath>D7/{D70A8F90-9653-8E48-3895-D6BF80F25E63}.wem</CachePath>
 				</File>
 				<File Id="737968334" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-003.wav</ShortName>
-					<CachePath>SFX/typewriter_loop-003_507B088C.wem</CachePath>
+					<CachePath>E9/{E98B86F6-D966-64D1-DD42-E114C57CE881}.wem</CachePath>
 				</File>
 				<File Id="741442873" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>crows-001.wav</ShortName>
-					<CachePath>SFX/crows-001_69362260.wem</CachePath>
+					<CachePath>BA/{BAE3EBAF-EDC4-1A04-447B-BC493891F493}.wem</CachePath>
 				</File>
 				<File Id="766949846" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Whisper-004.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Whisper-004_8E324C96.wem</CachePath>
+					<CachePath>8D/{8DDBC58D-6D0C-D446-CC88-797F99FA956B}.wem</CachePath>
 				</File>
 				<File Id="768703265" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Wind.wav</ShortName>
-					<CachePath>SFX/Wind_8E324C96.wem</CachePath>
+					<CachePath>7E/{7EF7E9FD-EAF5-67DB-CA07-B10E0E3C5D33}.wem</CachePath>
 				</File>
 				<File Id="778674395" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>negative_event1.2.wav</ShortName>
-					<CachePath>SFX/negative_event1.2_8E324C96.wem</CachePath>
+					<CachePath>CC/{CC459060-28E4-BD52-BEFF-0C1EF4217E80}.wem</CachePath>
 				</File>
 				<File Id="794957230" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>CondensedMilk.wav</ShortName>
-					<CachePath>SFX/CondensedMilk_8E324C96.wem</CachePath>
+					<CachePath>9F/{9FF743E4-E015-0D1F-3C82-8DE37582FE40}.wem</CachePath>
 				</File>
 				<File Id="837605639" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Andreyev_Sigh.wav</ShortName>
-					<CachePath>SFX/Andreyev_Sigh_8DAE3998.wem</CachePath>
+					<CachePath>66/{66349460-0F3C-6592-4D96-90A0C87BD77C}.wem</CachePath>
 				</File>
 				<File Id="850000760" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Truck_Arrives.wav</ShortName>
-					<CachePath>SFX/Truck_Arrives_8E324C96.wem</CachePath>
+					<CachePath>60/{6086F268-C8EC-86C7-408E-F36BC64C205B}.wem</CachePath>
 				</File>
 				<File Id="869360124" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>CaughtRedHanded.wav</ShortName>
-					<CachePath>SFX/CaughtRedHanded_8E324C96.wem</CachePath>
+					<CachePath>0B/{0BE1D035-7B2D-7032-4D79-4BB1877453A7}.wem</CachePath>
 				</File>
 				<File Id="887701933" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>weakness.wav</ShortName>
-					<CachePath>SFX/weakness_8E324C96.wem</CachePath>
+					<CachePath>A3/{A39F3A76-2E57-0986-A023-DBAF5E08E692}.wem</CachePath>
 				</File>
 				<File Id="891624205" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Whisper-002.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Whisper-002_8E324C96.wem</CachePath>
+					<CachePath>7C/{7CF49A05-4E76-C137-B0E5-C0805366F1E5}.wem</CachePath>
 				</File>
 				<File Id="897836571" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cell_SFX_Cough-001.wav</ShortName>
-					<CachePath>SFX/Cell_SFX_Cough-001_8E324C96.wem</CachePath>
+					<CachePath>4C/{4CF4E883-1D84-A78A-E11B-A8546C031BBA}.wem</CachePath>
 				</File>
 				<File Id="912648772" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>typewriter_loop-004.wav</ShortName>
-					<CachePath>SFX/typewriter_loop-004_F031F9C3.wem</CachePath>
+					<CachePath>9F/{9FA864AB-CBF2-7FE1-B494-FF8295C5637D}.wem</CachePath>
 				</File>
 				<File Id="927065734" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Menu Click2.wav</ShortName>
-					<CachePath>SFX/Menu Click2_513CAFF1.wem</CachePath>
+					<CachePath>61/{6122B504-8810-D0C2-67FF-E6EBB707C77C}.wem</CachePath>
 				</File>
 				<File Id="934665564" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>crows-002.wav</ShortName>
-					<CachePath>SFX/crows-002_85CABCE8.wem</CachePath>
+					<CachePath>EF/{EF92E522-8DCA-C9AF-D97F-F8B299A23EE6}.wem</CachePath>
 				</File>
 				<File Id="943318692" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Andreyev_Satisfied.wav</ShortName>
-					<CachePath>SFX/Andreyev_Satisfied_74B6C6FE.wem</CachePath>
+					<CachePath>C5/{C5E7D388-4E02-D24F-7EBE-AE55A0D41855}.wem</CachePath>
 				</File>
 				<File Id="946766250" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>barracks_doors.wav</ShortName>
-					<CachePath>SFX/barracks_doors_705BC893.wem</CachePath>
+					<CachePath>18/{18C6B54E-C607-0AA8-924D-7FB1A2E0B2D8}.wem</CachePath>
 				</File>
 				<File Id="1005253697" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Dogs_Bark-004.wav</ShortName>
-					<CachePath>SFX/Dogs_Bark-004_F9AC0766.wem</CachePath>
+					<CachePath>99/{993BAE78-1DDC-5CB2-5816-5A6FE6AA636D}.wem</CachePath>
 				</File>
 				<File Id="1015370664" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Card_Burn.wav</ShortName>
-					<CachePath>SFX/Card_Burn_013F85BB.wem</CachePath>
+					<CachePath>CF/{CFBC8D31-B30B-A6A8-1DA5-81F767E7958B}.wem</CachePath>
 				</File>
 				<File Id="1027008973" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>TrickCard3.wav</ShortName>
-					<CachePath>SFX/TrickCard3_8E324C96.wem</CachePath>
+					<CachePath>18/{18C10147-F2AB-C868-3542-10297B9293C2}.wem</CachePath>
 				</File>
 				<File Id="1043577720" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>NumberCard3.wav</ShortName>
-					<CachePath>SFX/NumberCard3_8E324C96.wem</CachePath>
+					<CachePath>0B/{0B6CC505-2EE2-B6C2-3472-03CE4708F4FA}.wem</CachePath>
 				</File>
 				<File Id="1051682366" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>TrickCard2.wav</ShortName>
-					<CachePath>SFX/TrickCard2_8E324C96.wem</CachePath>
+					<CachePath>9C/{9CBF5E6F-9567-7563-8CDB-933ECC49A19F}.wem</CachePath>
 				</File>
 				<File Id="1069812879" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX_NARRATOR.wav</ShortName>
-					<CachePath>SFX/SFX_NARRATOR_8E324C96.wem</CachePath>
+					<CachePath>9A/{9A99011E-9CAD-EEC1-C6D9-3472F0D857F8}.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
@@ -598,7 +600,11 @@
 					</MediaRefs>
 				</Event>
 			</Events>
+			<GameParameters>
+				<GameParameter Id="988953028" Name="SFXVolume"/>
+				<GameParameter Id="2346531308" Name="MusicVolume"/>
+			</GameParameters>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{60241B40-3786-2E7B-FA0F-E2A5931741FB}</FileHash>
+	<FileHash>{F6EEB768-ABB6-C6B9-1CD1-33B87D6EF8EA}</FileHash>
 </SoundBanksInfo>
