@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PlatformInfo>
-	<Platform Name="Windows" BasePlatform="Windows" Generator="2023.1.4.8496"/>
+	<Platform Name="Windows" BasePlatform="Windows" Generator="2024.1.1.8691"/>
 	<RootPaths>
 		<ProjectRoot>../..</ProjectRoot>
-		<SourceFilesRoot>../../.cache/Windows</SourceFilesRoot>
+		<SourceFilesRoot>../../.cache</SourceFilesRoot>
 		<SoundBanksRoot>.</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
 		<ExternalSourcesOutputRoot>.</ExternalSourcesOutputRoot>
@@ -27,6 +27,7 @@
 		<EstimatedDurationInfo>true</EstimatedDurationInfo>
 		<PrintObjectGuid>false</PrintObjectGuid>
 		<PrintObjectPath>false</PrintObjectPath>
+		<PrintObjectColor>true</PrintObjectColor>
 	</Settings>
-	<FileHash>{0063ABAB-883D-B58C-FE26-FA4CE5C4FC07}</FileHash>
+	<FileHash>{C82027F4-0687-3FC0-98D5-2617EF1B1D86}</FileHash>
 </PlatformInfo>
