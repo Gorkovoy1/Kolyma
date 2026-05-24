@@ -57,6 +57,8 @@ public class HighlightObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
         {
             //show scene with betting window n stuff
             SceneManager.LoadScene("4 InvBet", LoadSceneMode.Additive);
+
+            //when using inv persistent, show inv canvas and set mode to bet mode
         }
         
         
