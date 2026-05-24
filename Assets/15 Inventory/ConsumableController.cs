@@ -182,16 +182,19 @@ public class ConsumableController : MonoBehaviour, IDragHandler, IBeginDragHandl
         {
             //add replenish value to master hunger
             Debug.Log("replenished hunger " + replenishValue);
+            GaugeController.instance.ReplenishHunger(replenishValue);
         }
         else if (consumableType == ConsumableType.Cold)
         {
             //add replenish value to master cold
             Debug.Log("replenished cold " + replenishValue);
+            GaugeController.instance.ReplenishCold(replenishValue);
         }
         else if (consumableType == ConsumableType.Weakness)
         {
             //add replenish value to master weakness
             Debug.Log("replenished weakness " + replenishValue);
+            GaugeController.instance.ReplenishWeakness(replenishValue);
         }
 
         Destroy(this.gameObject);

@@ -41,7 +41,14 @@ public class GaugeController : MonoBehaviour
         
     }
 
-    public void AddCold()
+    public void PassTime()
+    {
+        AddCold();
+        AddHunger();
+        AddWeakness();
+    }
+
+    public void AddCold() 
     {
         cold.value += coldIncrement;
     }
@@ -54,5 +61,20 @@ public class GaugeController : MonoBehaviour
     public void AddWeakness()
     {
         weakness.value += weaknessIncrement;
+    }
+
+    public void ReplenishCold(int amount)
+    {
+        cold.value -= amount;
+    }
+
+    public void ReplenishHunger(int amount)
+    {
+        hunger.value -= amount;
+    }
+
+    public void ReplenishWeakness(int amount)
+    {
+        weakness.value -= amount;
     }
 }
