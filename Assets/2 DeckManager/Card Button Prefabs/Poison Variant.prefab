@@ -96,6 +96,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8726452730957375123, guid: 96f7213bcf4349b45bebe488e4bcbe57, type: 3}
+      propertyPath: owned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8726452730957375123, guid: 96f7213bcf4349b45bebe488e4bcbe57, type: 3}
       propertyPath: cardDesc
       value: your opponent must discard a random special card
       objectReference: {fileID: 0}

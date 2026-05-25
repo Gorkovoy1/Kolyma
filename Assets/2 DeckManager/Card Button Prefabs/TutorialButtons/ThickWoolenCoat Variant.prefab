@@ -20,6 +20,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: aaa67e3bfcdc8f14bbff3cdd92e8b438, type: 3}
     - target: {fileID: 8157540884944489753, guid: eb4e32f708efc28449772464a7853702, type: 3}
+      propertyPath: owned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157540884944489753, guid: eb4e32f708efc28449772464a7853702, type: 3}
       propertyPath: cardDesc
       value: Give your opponent a +2 or -2
       objectReference: {fileID: 0}

@@ -3168,3 +3168,6 @@ MonoBehaviour:
   - {fileID: 8954820887687491061}
   - {fileID: 8954820889351103721}
   ownedCards: []
+  panel: {fileID: 8954820888459802603}
+  reset: 0
+  firstTime: 1

@@ -455,7 +455,6 @@ public class DialogueInk : MonoBehaviour
         //dont start the dialogue until levelloader is gone, then start sounds and dialogue
         else if (startScene)
         {
-            
                 if (dialogueNumber != 3)
                 {
                     yield return new WaitForSeconds(6f);
@@ -868,8 +867,14 @@ public class DialogueInk : MonoBehaviour
         inkStory.ChooseChoiceIndex(choice.index);
         choicesContainer.ClearChildren();
 
-        //pause = true;
-        StartCoroutine(ShowInkStory());
+        if(!pause)
+        {
+            StartCoroutine(ShowInkStory());
+        }
+        else
+        {
+            PauseScene();
+        }
     }
 
     // Update is called once per frame
@@ -912,8 +917,12 @@ public class DialogueInk : MonoBehaviour
     {
         string savedState = inkStory.state.ToJson();
         PlayerPrefs.SetString("SavedInkState", savedState);
-        AkSoundEngine.StopAll();
-        SceneManager.LoadScene("2 TutorialScene");
+        //AkSoundEngine.StopAll();
+        //SceneManager.LoadScene("2 TutorialScene");
+
+        //StartCoroutine(RTPCFader.instance.FadeOut());
+        SceneLoader.instance.sceneName = "2 TutorialScene"; 
+        SceneLoader.instance.triggerLoad = true;
     }
 
     //end of dialogue
@@ -921,10 +930,11 @@ public class DialogueInk : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         PlayerPrefs.DeleteKey("SavedInkState");
-        AkSoundEngine.StopAll();
-        SceneManager.LoadScene(nextSceneNumber);
+        //AkSoundEngine.StopAll();
+        //SceneManager.LoadScene(nextSceneNumber);
+        SceneLoader.instance.sceneName = SceneManager.GetSceneByBuildIndex(nextSceneNumber).name;
+        SceneLoader.instance.triggerLoad = true;
 
-        //fade out sounds with rtpc? 
     }
 
     void NarratorSound()

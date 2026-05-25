@@ -28,7 +28,7 @@ public class HandFanController : MonoBehaviour
             ToggleSee();
         }
 
-        if(cardSelectionBlocker.gameObject.activeSelf)
+        if(cardSelectionBlocker != null && cardSelectionBlocker.gameObject.activeSelf)
         {
             seeBoard = true;
         }

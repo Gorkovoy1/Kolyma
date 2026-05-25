@@ -49,7 +49,7 @@ public class MenuManager : MonoBehaviour
 
     public void GoToBattle()
     {
-        AkSoundEngine.StopAll();
+        StartCoroutine(RTPCFader.instance.FadeOut());
         //SceneManager.LoadScene("10 BattleSceneJ");
         SceneLoader.instance.sceneName = "10 BattleSceneJ";
         SceneLoader.instance.triggerLoad = true;
@@ -76,7 +76,6 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        AkSoundEngine.StopAll();
         //SceneManager.LoadScene("3 DIALOGUE1");
         SceneLoader.instance.sceneName = firstSceneName; //change this with saving (playerprefs) in future
         SceneLoader.instance.triggerLoad = true;

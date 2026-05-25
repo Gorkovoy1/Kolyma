@@ -426,7 +426,7 @@ MonoBehaviour:
   cardDesc: swap out one of your opponent's yellow numbers
   title: {fileID: 7693267126238522509}
   description: {fileID: 7693267125581197277}
-  owned: 0
+  owned: 1
 --- !u!210 &7693267126269467026
 SortingGroup:
   m_ObjectHideFlags: 0

@@ -43,6 +43,8 @@ public class SceneLoader : MonoBehaviour
 
     IEnumerator LoadNextScene(string sceneName)
     {
+        StartCoroutine(RTPCFader.instance.FadeOut());
+
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName); 
         operation.allowSceneActivation = false;
 
@@ -52,9 +54,10 @@ public class SceneLoader : MonoBehaviour
             //progressBar.value = progress;
             //loadingText.text = $"Loading...{Mathf.Floor(progress * 100)}%";
 
-            if (operation.progress >= 0.9f)
+            if (operation.progress >= 0.9f && RTPCFader.instance.done)
             {
                 operation.allowSceneActivation = true;
+                StartCoroutine(RTPCFader.instance.FadeIn());
             }
 
             yield return null;

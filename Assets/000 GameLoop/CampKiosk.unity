@@ -487,8 +487,8 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: d6c04cb7c120d3a47a4393954fe5c2a5, type: 2}
   useCallbacks: 0
+  stopSoundOnDestroy: 1
   Callbacks: []
-  playingId: 0
   soundEmitterObject: {fileID: 0}
   transitionDuration: 0
   eventIdInternal: 0
@@ -511,9 +511,11 @@ MonoBehaviour:
     useDefaultListeners: 1
   isEnvironmentAware: 1
   isStaticObject: 0
+  usePositionOffsetData: 0
   m_positionOffsetData:
     KeepMe: 0
     positionOffset: {x: 0, y: 0, z: 0}
+  scalingFactor: 1
   m_posOffsetData: {fileID: 0}
   listenerMask: 1
 --- !u!4 &239153884
@@ -637,11 +639,6 @@ PrefabInstance:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 158754926693282394, guid: e16cc6ce8c1053146a28ee42bb8f8705, type: 3}
   m_PrefabInstance: {fileID: 463705534}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &506343912 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8954820888459802603, guid: f70295cde019e4343940f2d16491ae9d, type: 3}
-  m_PrefabInstance: {fileID: 808653412}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &589305765
 PrefabInstance:
@@ -1016,6 +1013,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDefaultListener: 1
+  bOverrideScalingFactor: 0
+  scalingFactor: -1
   listenerId: 0
 --- !u!114 &671867976
 MonoBehaviour:
@@ -1034,9 +1033,11 @@ MonoBehaviour:
     useDefaultListeners: 1
   isEnvironmentAware: 1
   isStaticObject: 0
+  usePositionOffsetData: 0
   m_positionOffsetData:
     KeepMe: 0
     positionOffset: {x: 0, y: 0, z: 0}
+  scalingFactor: 1
   m_posOffsetData: {fileID: 0}
   listenerMask: 1
 --- !u!1 &711855799
@@ -2752,7 +2753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8954820889392910812, guid: f70295cde019e4343940f2d16491ae9d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -10
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8954820889421970880, guid: f70295cde019e4343940f2d16491ae9d, type: 3}
       propertyPath: m_Name
@@ -2766,10 +2767,6 @@ PrefabInstance:
       propertyPath: sfxObj
       value: 
       objectReference: {fileID: 2069222837}
-    - target: {fileID: 8954820889421970887, guid: f70295cde019e4343940f2d16491ae9d, type: 3}
-      propertyPath: panel
-      value: 
-      objectReference: {fileID: 506343912}
     - target: {fileID: 8954820889421970890, guid: f70295cde019e4343940f2d16491ae9d, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3403,8 +3400,8 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 5ceb0ec3e7a41bb4791c66fffa67388c, type: 2}
   useCallbacks: 0
+  stopSoundOnDestroy: 1
   Callbacks: []
-  playingId: 0
   soundEmitterObject: {fileID: 0}
   transitionDuration: 0
   eventIdInternal: 0
@@ -3432,8 +3429,8 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 95e6f35dc7b680b4d9b7a1c224b69db3, type: 2}
   useCallbacks: 0
+  stopSoundOnDestroy: 1
   Callbacks: []
-  playingId: 0
   soundEmitterObject: {fileID: 0}
   transitionDuration: 0
   eventIdInternal: 0
@@ -3461,8 +3458,8 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: fa689f997c9dda34b9d3afc3e25830f8, type: 2}
   useCallbacks: 0
+  stopSoundOnDestroy: 1
   Callbacks: []
-  playingId: 0
   soundEmitterObject: {fileID: 0}
   transitionDuration: 0
   eventIdInternal: 0
@@ -3490,8 +3487,8 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: ca121b3868ed4ee47b0dddc2c9f0d6a8, type: 2}
   useCallbacks: 0
+  stopSoundOnDestroy: 1
   Callbacks: []
-  playingId: 0
   soundEmitterObject: {fileID: 0}
   transitionDuration: 0
   eventIdInternal: 0
@@ -3560,8 +3557,8 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 66246e58cb884a447a862c77655220fc, type: 2}
   useCallbacks: 0
+  stopSoundOnDestroy: 1
   Callbacks: []
-  playingId: 0
   soundEmitterObject: {fileID: 0}
   transitionDuration: 0
   eventIdInternal: 0
@@ -3584,9 +3581,11 @@ MonoBehaviour:
     useDefaultListeners: 1
   isEnvironmentAware: 1
   isStaticObject: 0
+  usePositionOffsetData: 0
   m_positionOffsetData:
     KeepMe: 0
     positionOffset: {x: 0, y: 0, z: 0}
+  scalingFactor: 1
   m_posOffsetData: {fileID: 0}
   listenerMask: 1
 --- !u!4 &2069222846
