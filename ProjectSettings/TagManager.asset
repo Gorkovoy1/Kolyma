@@ -19,6 +19,7 @@ TagManager:
   - Other
   - BetSlot
   - ConsumeArea
+  - SFXObj
   layers:
   - Default
   - TransparentFX

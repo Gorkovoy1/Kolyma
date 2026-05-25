@@ -24,6 +24,12 @@ public class DeckManagerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(sfxObj == null)
+        {
+            sfxObj = GameObject.FindWithTag("SFXObj");
+        }
+        
+
         CardInventoryController.instance.ManageDeck();
 
         startPos = deckManagerPanel.anchoredPosition;

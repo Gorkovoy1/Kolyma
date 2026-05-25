@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CardInventoryController : MonoBehaviour
 {
@@ -33,6 +34,11 @@ public class CardInventoryController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(SceneManager.GetActiveScene().name == "10 BattleSceneJ")
+        {
+            RectTransform rect = panel.GetComponent<RectTransform>();
+            rect.anchoredPosition -= new Vector2(0f, 22f);
+        }
         
     }
 
@@ -50,7 +56,7 @@ public class CardInventoryController : MonoBehaviour
                 layout.enabled = true;
             }
 
-            if(firstTime)
+            if(firstTime && SceneManager.GetActiveScene().name != "10 BattleSceneJ")
             {
                 RectTransform rect = panel.GetComponent<RectTransform>();
                 rect.anchoredPosition += new Vector2(0f, 22f);

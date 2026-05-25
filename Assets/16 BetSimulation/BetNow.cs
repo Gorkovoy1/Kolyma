@@ -59,6 +59,11 @@ public class BetNow : MonoBehaviour
 
 
         InventoryManager.instance.LockPot(money, obj1, obj2);
+
+        UIPanelManager.instance.SetState(UIState.Inactive);
+
+        SceneLoader.instance.sceneName = "5 Battle";
+        SceneLoader.instance.triggerLoad = true;
     }
 
     public void ReadValues()

@@ -12,6 +12,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: ecf8ebe859a84ca48b7592dec08fa159, type: 3}
     - target: {fileID: 4309277989975084536, guid: a6e234c0fd98b0a40949064aa2caa79a, type: 3}
+      propertyPath: owned
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4309277989975084536, guid: a6e234c0fd98b0a40949064aa2caa79a, type: 3}
       propertyPath: cardDesc
       value: Draw 2 random special cards from your discard pile
       objectReference: {fileID: 0}
