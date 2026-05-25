@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Music_Jail
   id: 3643466302
   guid: 425E8658-6CCB-47D4-8B0C-38599CAF8C19
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

@@ -57,7 +57,7 @@ public class AkPluginActivator : UnityEditor.AssetPostprocessor
 		return CurrentConfig;
 	}
 
-	private static Dictionary<BuildTarget, AkPlatformPluginActivator> BuildTargetToPlatformPluginActivator = new Dictionary<BuildTarget, AkPlatformPluginActivator>();
+	public static Dictionary<BuildTarget, AkPlatformPluginActivator> BuildTargetToPlatformPluginActivator = new Dictionary<BuildTarget, AkPlatformPluginActivator>();
 
 	public static void RegisterPlatformPluginActivator(BuildTarget target, AkPlatformPluginActivator platformPluginActivator)
 	{
@@ -93,7 +93,7 @@ public class AkPluginActivator : UnityEditor.AssetPostprocessor
 		return wwisePlugins;
 	}
 
-	internal class PluginImporterInformation
+	public class PluginImporterInformation
 	{
 		public string PluginName;
 		public string PluginArch;
@@ -113,7 +113,7 @@ public class AkPluginActivator : UnityEditor.AssetPostprocessor
 	{
 		if (!BuildTargetToPlatformPluginActivator.TryGetValue(target, out var platformPluginActivator))
 		{
-			Debug.LogError("WwiseUnity: Build Target " + target + " not supported.");
+			Debug.LogError("WwiseUnity: Unable to find Plugin Activator for Build Target " + target + ". Check that platform " + target +  " has been installed as part of your Wwise Integration.");
 			return;
 		}
 
@@ -146,11 +146,7 @@ public class AkPluginActivator : UnityEditor.AssetPostprocessor
 			}
 
 			var pluginInfo = platformPluginActivator.GetPluginImporterInformation(pluginImporter);
-
-			if(!platformPluginActivator.ConfigurePlugin(pluginImporter, pluginInfo))
-			{
-				continue;
-			}
+			var bShouldActivatePlugin = platformPluginActivator.ConfigurePlugin(pluginImporter, pluginInfo);
 
 			if (pluginImporter.GetCompatibleWithAnyPlatform())
 			{
@@ -159,29 +155,28 @@ public class AkPluginActivator : UnityEditor.AssetPostprocessor
 				assetChanged = true;
 			}
 
-			var bShouldActOnPlugin = true;
 			if (pluginInfo.PluginConfig == "DSP")
 			{
 				if (!pluginInfo.IsSupportLibrary && !AkPlatformPluginList.IsPluginUsed(platformPluginActivator, pluginPlatform, Path.GetFileNameWithoutExtension(pluginImporter.assetPath)))
 				{
 					LogVerbose("Plugin" + pluginImporter.assetPath + " is not used, skipping.");
-					bShouldActOnPlugin = false;
+					bShouldActivatePlugin = false;
 				}
 			}
 			else if (pluginInfo.PluginConfig != GetCurrentConfig())
 			{
 				LogVerbose("Plugin" + pluginImporter.assetPath + " does not match current config (" + GetCurrentConfig() + "). Skipping.");
-				bShouldActOnPlugin = false;
+				bShouldActivatePlugin = false;
 			}
 
 			if (!string.IsNullOrEmpty(pluginInfo.PluginSDKVersion))
 			{
 				var sdkCompatible = platformPluginActivator.IsPluginSDKVersionCompatible(pluginInfo.PluginSDKVersion);
 				LogVerbose("Plugin " + pluginImporter.assetPath + " is " + (sdkCompatible ? "" : "NOT ") + "compatible with current platform SDK");
-				bShouldActOnPlugin &= sdkCompatible;
+				bShouldActivatePlugin &= sdkCompatible;
 			}
 
-			bool isCompatibleWithPlatform = bShouldActOnPlugin && Activate;
+			bool isCompatibleWithPlatform = bShouldActivatePlugin && Activate;
 			LogVerbose("Will set plugin " + pluginImporter.assetPath + " as " + (isCompatibleWithPlatform ? "" : "NOT ") + "compatible with platform.");
 			assetChanged |= pluginImporter.GetCompatibleWithPlatform(target) != isCompatibleWithPlatform;
 
@@ -294,9 +289,14 @@ public class AkPluginActivator : UnityEditor.AssetPostprocessor
 		}
 	}
 
-	public static void Update(bool forceUpdate = false)
+	public static void ForceUpdate()
 	{
-		AkPlatformPluginList.Update(forceUpdate);
+		AkPlatformPluginList.Update(true);
+		Update();
+	}
+
+	public static void Update()
+	{
 		AkPluginActivatorMenus.CheckMenuItems(GetCurrentConfig());
 	}
 

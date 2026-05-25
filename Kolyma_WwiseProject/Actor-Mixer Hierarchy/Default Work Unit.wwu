@@ -48,7 +48,7 @@
 						<ObjectList Name="RTPC">
 							<Reference>
 								<Local>
-									<RTPC Name="" ID="{4EFF8E7A-84CB-4F0E-8DCA-B7B1D6856A8F}" ShortID="848326186">
+									<RTPC Name="" ID="{F4743525-48A2-47B3-9EEB-5FDE4A1B6804}" ShortID="183650464">
 										<PropertyList>
 											<Property Name="PropertyName" Type="string" Value="Volume"/>
 										</PropertyList>
@@ -58,7 +58,7 @@
 											</Reference>
 											<Reference Name="Curve">
 												<Custom>
-													<Curve Name="" ID="{FD209E6F-49A6-4895-9A0F-C77E879C65BA}">
+													<Curve Name="" ID="{FCCFD42C-0FC5-438E-86FD-ABAF1C1035B9}">
 														<PropertyList>
 															<Property Name="Flags" Type="int32" Value="3"/>
 														</PropertyList>
@@ -714,7 +714,7 @@
 						<ObjectList Name="RTPC">
 							<Reference>
 								<Local>
-									<RTPC Name="" ID="{0A295D41-620F-480A-8C8F-0DC8E2419755}" ShortID="479321459">
+									<RTPC Name="" ID="{0F6AEACF-CC32-433A-AA0E-399F3DB61DA6}" ShortID="555359300">
 										<PropertyList>
 											<Property Name="PropertyName" Type="string" Value="Volume"/>
 										</PropertyList>
@@ -724,7 +724,7 @@
 											</Reference>
 											<Reference Name="Curve">
 												<Custom>
-													<Curve Name="" ID="{BF142C87-E2B0-4AF6-BE09-B7A9ED6B9816}">
+													<Curve Name="" ID="{6B1A2532-8CBA-457F-8CEB-1F65F48B6D64}">
 														<PropertyList>
 															<Property Name="Flags" Type="int32" Value="3"/>
 														</PropertyList>

@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Cell_Men
   id: 1420083155
   guid: 517D0111-030F-4302-BB85-08C728DA6A4D
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

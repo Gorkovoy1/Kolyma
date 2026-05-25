@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Music_Battle_2
   id: 1716731691
   guid: 0FD52281-75FC-4B1C-B9BC-9E73F550D6AB
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

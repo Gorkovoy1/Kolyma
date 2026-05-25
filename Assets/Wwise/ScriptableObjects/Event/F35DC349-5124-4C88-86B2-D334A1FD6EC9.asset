@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Burden
   id: 3584600694
   guid: F35DC349-5124-4C88-86B2-D334A1FD6EC9
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

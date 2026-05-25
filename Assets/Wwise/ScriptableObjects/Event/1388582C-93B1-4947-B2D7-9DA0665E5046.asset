@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Music_Menu
   id: 1699343283
   guid: 1388582C-93B1-4947-B2D7-9DA0665E5046
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

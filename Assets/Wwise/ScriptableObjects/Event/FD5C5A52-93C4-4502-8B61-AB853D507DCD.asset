@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Dice
   id: 2213067183
   guid: FD5C5A52-93C4-4502-8B61-AB853D507DCD
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

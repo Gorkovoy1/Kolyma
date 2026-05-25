@@ -22,9 +22,9 @@ MonoBehaviour:
       ObjectType: 12
       guid: 7ff20e69569aa447aa4bad254f338890
     ParentPath: Virtual Acoustics\Default Work Unit
-    guid: 7ff20e69569aa447aa4bad254f338890
+    guid: 00000000000000000000000000000000
     GuidInternal: 
-    m_lastTime: -8584242695876525829
+    m_lastTime: -8584219455369741743
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -36,9 +36,9 @@ MonoBehaviour:
       ObjectType: 12
       guid: 827e8785a52261498ec89ab5a759d8bc
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
-    guid: 827e8785a52261498ec89ab5a759d8bc
+    guid: 00000000000000000000000000000000
     GuidInternal: 
-    m_lastTime: -8584242695906963386
+    m_lastTime: -8584219455369314399
     List:
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -64,9 +64,9 @@ MonoBehaviour:
       ObjectType: 12
       guid: 8c4b0f5056a06a4a92d94e75a182e1ae
     ParentPath: SoundBanks\Default Work Unit
-    guid: 8c4b0f5056a06a4a92d94e75a182e1ae
+    guid: 00000000000000000000000000000000
     GuidInternal: 
-    m_lastTime: -8584242695876546741
+    m_lastTime: -8584219455369081756
     List:
     - name: Main
       guid: f16c33554f83c140a4a6a74ed017dafb
@@ -92,9 +92,9 @@ MonoBehaviour:
       ObjectType: 12
       guid: 28e6316132f675418a6369f192218f4d
     ParentPath: Events\Default Work Unit
-    guid: 28e6316132f675418a6369f192218f4d
+    guid: 00000000000000000000000000000000
     GuidInternal: 
-    m_lastTime: -8584242695910172761
+    m_lastTime: -8584219455369304315
     List:
     - name: Andreyev
       guid: a6c0eb1ff2ce024c96aeb202fa8b346a
@@ -322,8 +322,8 @@ MonoBehaviour:
         guid: df150fc8940b004ebce5937ec34f69d8
       Path: Events\Default Work Unit\Play_Barracks_Ambience
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Play_Barracks_Background_SFX
       guid: 90e09e32d76b074291f49905e94a39a7
       id: 455065390
@@ -339,8 +339,8 @@ MonoBehaviour:
         guid: 90e09e32d76b074291f49905e94a39a7
       Path: Events\Default Work Unit\Play_Barracks_Background_SFX
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Play_Barracks_Door
       guid: 5e04233db6407b43aaa9cb39b09b9caf
       id: 3205279810
@@ -373,8 +373,8 @@ MonoBehaviour:
         guid: 5363e3411b7d924181237a6774b48d4a
       Path: Events\Default Work Unit\Play_Breath
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Play_Bribe
       guid: f76e03cdbe42774d9ae8600b4a5a70ff
       id: 3822624772
@@ -521,8 +521,8 @@ MonoBehaviour:
         guid: 11017d510f030243bb8508c728da6a4d
       Path: Events\Default Work Unit\Play_Cell_Men
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Play_Click
       guid: 3d2c2d295ada4048b2eb693b20a41deb
       id: 311910498
@@ -612,8 +612,8 @@ MonoBehaviour:
         guid: c0ea32f00d90cc479f2de13e51f94076
       Path: Events\Default Work Unit\Play_Cough
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Play_Crows
       guid: 64ef8c3e3bc6114c8e3de75cfb01ea6d
       id: 639442158
@@ -629,8 +629,8 @@ MonoBehaviour:
         guid: 64ef8c3e3bc6114c8e3de75cfb01ea6d
       Path: Events\Default Work Unit\Play_Crows
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Play_Dice
       guid: 525a5cfdc49302458b61ab853d507dcd
       id: 2213067183
@@ -666,8 +666,8 @@ MonoBehaviour:
         guid: 2175ade8841a244cb5e4cba5416166f8
       Path: Events\Default Work Unit\Play_Dogs_Bark
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Play_Empty_Pockets
       guid: 642c244e6f779946800e4ab9aa73dd71
       id: 1971906101
@@ -706,8 +706,8 @@ MonoBehaviour:
         guid: 79f1364d9174a74986b0498a998e6abc
       Path: Events\Default Work Unit\Music\Play_Music_Battle_1
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Play_Music_Battle_2
       guid: 8122d50ffc751c4bb9bc9e73f550d6ab
       id: 1716731691
@@ -726,8 +726,8 @@ MonoBehaviour:
         guid: 8122d50ffc751c4bb9bc9e73f550d6ab
       Path: Events\Default Work Unit\Music\Play_Music_Battle_2
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Play_Music_Camp_Arrival
       guid: be5c0a1aa0549e498a585d154449cead
       id: 238544951
@@ -746,8 +746,8 @@ MonoBehaviour:
         guid: be5c0a1aa0549e498a585d154449cead
       Path: Events\Default Work Unit\Music\Play_Music_Camp_Arrival
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Play_Music_Camp_Hub_Day
       guid: c96981c5ad016f43a815a4d024b846bc
       id: 3768845998
@@ -766,8 +766,8 @@ MonoBehaviour:
         guid: c96981c5ad016f43a815a4d024b846bc
       Path: Events\Default Work Unit\Music\Play_Music_Camp_Hub_Day
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Play_Music_Jail
       guid: 58865e42cb6cd4478b0c38599caf8c19
       id: 3643466302
@@ -786,8 +786,8 @@ MonoBehaviour:
         guid: 58865e42cb6cd4478b0c38599caf8c19
       Path: Events\Default Work Unit\Music\Play_Music_Jail
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Play_Music_Menu
       guid: 2c588813b1934749b2d79da0665e5046
       id: 1699343283
@@ -806,8 +806,8 @@ MonoBehaviour:
         guid: 2c588813b1934749b2d79da0665e5046
       Path: Events\Default Work Unit\Music\Play_Music_Menu
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Play_Negative_Event
       guid: b68dcea0cb82aa4f93affc2c79c4434b
       id: 3413568250
@@ -1085,8 +1085,8 @@ MonoBehaviour:
         guid: ab2ee8dfee274c49bdcb46d15021f84b
       Path: Events\Default Work Unit\Play_Whisper
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Play_Wind
       guid: 0cea0077f2c2864f84d108ea7b6fc822
       id: 1020223172
@@ -1131,10 +1131,38 @@ MonoBehaviour:
       ObjectType: 12
       guid: 69885a54fe5df748bbb6350072df5136
     ParentPath: Game Parameters\Default Work Unit
-    guid: 69885a54fe5df748bbb6350072df5136
+    guid: 00000000000000000000000000000000
     GuidInternal: 
-    m_lastTime: -8584242695910172761
-    List: []
+    m_lastTime: -8584219411294805852
+    List:
+    - name: MusicVolume
+      guid: 5e4e52e22650f845a8bb7db358f47356
+      id: 2346531308
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 69885a54fe5df748bbb6350072df5136
+      - ElementName: MusicVolume
+        ObjectType: 13
+        guid: 5e4e52e22650f845a8bb7db358f47356
+      Path: Game Parameters\Default Work Unit\MusicVolume
+    - name: SFXVolume
+      guid: 0ba896e8cf4db648b90723863ac1c0f2
+      id: 988953028
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 69885a54fe5df748bbb6350072df5136
+      - ElementName: SFXVolume
+        ObjectType: 13
+        guid: 0ba896e8cf4db648b90723863ac1c0f2
+      Path: Game Parameters\Default Work Unit\SFXVolume
   - PhysicalPath: Game Parameters\Factory Soundseed Air Game Syncs.wwu
     PathAndIcons:
     - ElementName: Game Parameters
@@ -1144,9 +1172,9 @@ MonoBehaviour:
       ObjectType: 12
       guid: 5577163b42fb8b4598bf96f557afb3b9
     ParentPath: Game Parameters\Factory Soundseed Air Game Syncs
-    guid: 5577163b42fb8b4598bf96f557afb3b9
+    guid: 00000000000000000000000000000000
     GuidInternal: 
-    m_lastTime: -8584242695910172761
+    m_lastTime: -8584219455369216598
     List:
     - name: SS_Air_Fear
       guid: 59062ef746431c4ea1b1dab46a05101e
@@ -1298,9 +1326,9 @@ MonoBehaviour:
       ObjectType: 12
       guid: 283410e59790f7419619c4e374a02bf7
     ParentPath: States\Default Work Unit
-    guid: 283410e59790f7419619c4e374a02bf7
+    guid: 00000000000000000000000000000000
     GuidInternal: 
-    m_lastTime: -8584242695876533196
+    m_lastTime: -8584219455369435373
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -1312,9 +1340,9 @@ MonoBehaviour:
       ObjectType: 12
       guid: 55b4ae91b993ac4fafc20f3d3cbbe728
     ParentPath: Switches\Default Work Unit
-    guid: 55b4ae91b993ac4fafc20f3d3cbbe728
+    guid: 00000000000000000000000000000000
     GuidInternal: 
-    m_lastTime: -8584242695876533196
+    m_lastTime: -8584219455369227718
     List: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
@@ -1326,12 +1354,12 @@ MonoBehaviour:
       ObjectType: 12
       guid: 2fec6b05bad7c94bb9d67b62092e85e6
     ParentPath: Triggers\Default Work Unit
-    guid: 2fec6b05bad7c94bb9d67b62092e85e6
+    guid: 00000000000000000000000000000000
     GuidInternal: 
-    m_lastTime: -8584242695876525829
+    m_lastTime: -8584219455369859362
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 050000000600000008000000090000002200000023000000
+  ExpandedWaapiItemIds: 05000000060000000700000020000000220000002b0000002c0000002d000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Whisper
   id: 2541567472
   guid: DFE82EAB-27EE-494C-BDCB-46D15021F84B
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

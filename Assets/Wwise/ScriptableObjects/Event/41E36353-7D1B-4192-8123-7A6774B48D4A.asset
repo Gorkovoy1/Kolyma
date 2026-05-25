@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Breath
   id: 3698047240
   guid: 41E36353-7D1B-4192-8123-7A6774B48D4A
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

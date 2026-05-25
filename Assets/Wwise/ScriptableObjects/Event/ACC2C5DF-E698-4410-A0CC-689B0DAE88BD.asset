@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Card_Burn
   id: 3130258220
   guid: ACC2C5DF-E698-4410-A0CC-689B0DAE88BD
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

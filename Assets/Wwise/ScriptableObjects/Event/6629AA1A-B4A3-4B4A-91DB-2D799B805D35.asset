@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Screen_Sfx
   id: 1112221790
   guid: 6629AA1A-B4A3-4B4A-91DB-2D799B805D35
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

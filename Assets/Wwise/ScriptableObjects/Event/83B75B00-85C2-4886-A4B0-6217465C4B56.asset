@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Condensed_Milk
   id: 3772331833
   guid: 83B75B00-85C2-4886-A4B0-6217465C4B56
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

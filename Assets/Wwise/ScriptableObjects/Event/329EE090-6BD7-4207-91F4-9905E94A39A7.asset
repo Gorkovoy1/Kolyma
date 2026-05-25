@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Barracks_Background_SFX
   id: 455065390
   guid: 329EE090-6BD7-4207-91F4-9905E94A39A7
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

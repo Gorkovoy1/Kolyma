@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Truck_Arrives
   id: 1064403750
   guid: 2962A1DE-AD5C-4C5C-9DAC-DF62D8BFAE9C
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

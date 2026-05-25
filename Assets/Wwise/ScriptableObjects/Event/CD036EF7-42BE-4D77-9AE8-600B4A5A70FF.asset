@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Bribe
   id: 3822624772
   guid: CD036EF7-42BE-4D77-9AE8-600B4A5A70FF
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

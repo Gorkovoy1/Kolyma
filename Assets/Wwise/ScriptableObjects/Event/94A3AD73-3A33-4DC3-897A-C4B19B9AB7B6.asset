@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Thick_Woolen_Coat
   id: 2537547804
   guid: 94A3AD73-3A33-4DC3-897A-C4B19B9AB7B6
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

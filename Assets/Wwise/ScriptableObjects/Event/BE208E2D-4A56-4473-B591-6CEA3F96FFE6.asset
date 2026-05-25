@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Close_Trick_Collection
   id: 776203257
   guid: BE208E2D-4A56-4473-B591-6CEA3F96FFE6
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

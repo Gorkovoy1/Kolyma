@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Barracks_Door
   id: 3205279810
   guid: 3D23045E-40B6-437B-AAA9-CB39B09B9CAF
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

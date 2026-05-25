@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Music_Camp_Hub_Day
   id: 3768845998
   guid: C58169C9-01AD-436F-A815-A4D024B846BC
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Dogs_Bark
   id: 1892391772
   guid: E8AD7521-1A84-4C24-B5E4-CBA5416166F8
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

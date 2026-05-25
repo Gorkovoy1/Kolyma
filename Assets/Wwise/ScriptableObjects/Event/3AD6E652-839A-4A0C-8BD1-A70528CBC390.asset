@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Setup
   id: 4244373777
   guid: 3AD6E652-839A-4A0C-8BD1-A70528CBC390
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

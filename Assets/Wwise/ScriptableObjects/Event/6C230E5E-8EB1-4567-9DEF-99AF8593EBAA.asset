@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Typewriter
   id: 57706899
   guid: 6C230E5E-8EB1-4567-9DEF-99AF8593EBAA
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

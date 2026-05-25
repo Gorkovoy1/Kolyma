@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Cell_Door
   id: 386574545
   guid: DE3448CB-EC18-4E85-887F-0BB7F1D694B3
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Click_2
   id: 3821598057
   guid: 52004750-BD7E-41F5-93F8-D1DC60DC05B7
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

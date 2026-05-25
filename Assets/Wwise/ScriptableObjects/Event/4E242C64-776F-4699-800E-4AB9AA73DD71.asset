@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Empty_Pockets
   id: 1971906101
   guid: 4E242C64-776F-4699-800E-4AB9AA73DD71
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

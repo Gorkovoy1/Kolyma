@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Cough
   id: 3234553616
   guid: F032EAC0-900D-47CC-9F2D-E13E51F94076
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

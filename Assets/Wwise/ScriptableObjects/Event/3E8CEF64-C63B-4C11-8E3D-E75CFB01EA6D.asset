@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Crows
   id: 639442158
   guid: 3E8CEF64-C63B-4C11-8E3D-E75CFB01EA6D
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

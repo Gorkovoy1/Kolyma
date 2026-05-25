@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Caught_Red_Handed
   id: 1108803945
   guid: F7A330EA-B4FE-4CAA-A217-D96D1A21C720
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

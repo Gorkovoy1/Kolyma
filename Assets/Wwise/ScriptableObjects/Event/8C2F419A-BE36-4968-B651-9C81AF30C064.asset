@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Poison
   id: 3292663506
   guid: 8C2F419A-BE36-4968-B651-9C81AF30C064
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

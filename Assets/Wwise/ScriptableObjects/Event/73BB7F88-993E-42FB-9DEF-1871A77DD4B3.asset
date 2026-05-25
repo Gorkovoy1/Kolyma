@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Trick_Card
   id: 137383996
   guid: 73BB7F88-993E-42FB-9DEF-1871A77DD4B3
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

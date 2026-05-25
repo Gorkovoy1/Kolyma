@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Weakness
   id: 3318282719
   guid: 90483568-9051-4B20-BCE3-D1FE749923EA
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

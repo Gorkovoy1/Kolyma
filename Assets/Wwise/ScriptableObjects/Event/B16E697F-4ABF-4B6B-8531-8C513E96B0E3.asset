@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Number_Card
   id: 2304369006
   guid: B16E697F-4ABF-4B6B-8531-8C513E96B0E3
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

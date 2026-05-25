@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Play_Barracks_Ambience
   id: 1410640362
   guid: C80F15DF-0B94-4E00-BCE5-937EC34F69D8
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0
