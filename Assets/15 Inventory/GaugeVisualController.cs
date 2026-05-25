@@ -15,11 +15,14 @@ public class GaugeVisualController : MonoBehaviour
 
     public float gaugeSpeed = 4f;
 
-    // Start is called before the first frame update
     void Start()
     {
-        
+        yellowFill.fillAmount = GaugeController.instance.hunger / 100f; 
+        blueFill.fillAmount = GaugeController.instance.weakness / 100f; 
+        redFill.fillAmount = GaugeController.instance.cold / 100f; 
     }
+
+    
 
     // Update is called once per frame
     void Update()

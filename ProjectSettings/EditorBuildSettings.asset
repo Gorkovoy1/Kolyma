@@ -45,7 +45,7 @@ EditorBuildSettings:
     path: Assets/00 Scenes/11 BorisBarracks.unity
     guid: bf6d3edcf826b444ab25377b6cb818ec
   - enabled: 1
-    path: Assets/000 GameLoop/1 Calendar.unity
+    path: Assets/000 GameLoop/Other/1 Calendar.unity
     guid: cfe08766968cac749a0635cadd3427ba
   - enabled: 1
     path: Assets/000 GameLoop/2 Hub.unity

@@ -77,13 +77,14 @@ public class MarkerController : MonoBehaviour
         
         
     }
-
+    
     void UpdateGauge()
     {
-        GaugeController.instance.AddCold();
-        GaugeController.instance.AddHunger();
-        GaugeController.instance.AddWeakness();
+        //GaugeController.instance.AddCold();
+        //GaugeController.instance.AddHunger();
+        //GaugeController.instance.AddWeakness();
     }
+    
 
     void ShiftCalendar()
     {

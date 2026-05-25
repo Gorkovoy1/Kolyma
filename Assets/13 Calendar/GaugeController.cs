@@ -10,8 +10,11 @@ public class GaugeController : MonoBehaviour
     public int weakness;
 
     public int coldIncrement;
+    public int coldChange;
     public int hungerIncrement;
+    public int hungerChange;
     public int weaknessIncrement;
+    public int weaknessChange;
 
     public static GaugeController instance;
 
@@ -32,7 +35,9 @@ public class GaugeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        coldChange = coldIncrement / 7;
+        hungerChange = hungerIncrement / 7;
+        weaknessChange = weaknessIncrement / 7;
     }
 
     // Update is called once per frame
@@ -41,26 +46,26 @@ public class GaugeController : MonoBehaviour
         
     }
 
-    public void PassTime()
+    public void PassTime(int daysToAdvance)
     {
-        AddCold();
-        AddHunger();
-        AddWeakness();
+        AddCold(daysToAdvance * coldChange);
+        AddHunger(daysToAdvance * hungerChange);
+        AddWeakness(daysToAdvance * weaknessChange);
     }
 
-    public void AddCold() 
+    public void AddCold(int amount) 
     {
-        cold += coldIncrement;
+        cold += amount;
     }
 
-    public void AddHunger()
+    public void AddHunger(int amount)
     {
-        hunger += hungerIncrement;
+        hunger += amount;
     }
 
-    public void AddWeakness()
+    public void AddWeakness(int amount)
     {
-        weakness += weaknessIncrement;
+        weakness += amount;
     }
 
     public void ReplenishCold(int amount)
