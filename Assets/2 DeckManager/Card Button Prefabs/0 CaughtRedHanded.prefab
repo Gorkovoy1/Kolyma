@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 7693267126269467027}
   - component: {fileID: 7693267126269467026}
   m_Layer: 5
-  m_Name: CaughtRedHanded
+  m_Name: 0 CaughtRedHanded
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
