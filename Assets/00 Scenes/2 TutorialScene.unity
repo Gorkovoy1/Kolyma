@@ -6751,6 +6751,7 @@ MonoBehaviour:
   image: {fileID: 1416239526}
   fadeTime: 2
   isFading: 0
+  sfxObj: {fileID: 1097769620}
 --- !u!210 &1416239525
 SortingGroup:
   m_ObjectHideFlags: 0
