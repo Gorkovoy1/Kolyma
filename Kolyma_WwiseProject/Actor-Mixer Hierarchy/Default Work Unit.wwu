@@ -2687,6 +2687,64 @@
 								<ActiveSource Name="Card_Burn" ID="{29474ED0-B67C-4C6D-97A2-A4B086964A0A}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="BattleWon" ID="{2259E781-A70B-4E56-8362-8508CF62FC0D}" ShortID="1046816982">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="BattleWon" ID="{DE4EE9A9-4EC5-4086-B640-E7C80C02B8B1}">
+									<Language>SFX</Language>
+									<AudioFile>BattleWon.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="158462398"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="BattleWon" ID="{DE4EE9A9-4EC5-4086-B640-E7C80C02B8B1}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="BattleLost" ID="{6D80AD25-244D-4B08-B7CA-D94EA07A8BB6}" ShortID="555874816">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="BattleLost" ID="{F3D769FC-71F8-4D83-948D-906FDD381C15}">
+									<Language>SFX</Language>
+									<AudioFile>BattleLost.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="349823849"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="BattleLost" ID="{F3D769FC-71F8-4D83-948D-906FDD381C15}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 					<ObjectLists>
 						<ObjectList Name="RTPC">

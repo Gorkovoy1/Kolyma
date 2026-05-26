@@ -5,6 +5,7 @@
 			<ChildrenList>
 				<SoundBank Name="Main" ID="{55336CF1-834F-40C1-A4A6-A74ED017DAFB}">
 					<ObjectInclusionList>
+						<ObjectRef Name="Play_Battle_Won" ID="{025E978B-3222-40CB-99FE-CAC319BC3C37}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Breath" ID="{41E36353-7D1B-4192-8123-7A6774B48D4A}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Click_2" ID="{52004750-BD7E-41F5-93F8-D1DC60DC05B7}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Barracks_Background_SFX" ID="{329EE090-6BD7-4207-91F4-9905E94A39A7}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
@@ -14,6 +15,7 @@
 						<ObjectRef Name="Play_Barracks_Door" ID="{3D23045E-40B6-437B-AAA9-CB39B09B9CAF}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Battle" ID="{50ECEEBD-F670-4459-895C-732B68BD80B2}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Typewriter" ID="{6C230E5E-8EB1-4567-9DEF-99AF8593EBAA}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Battle_Lost" ID="{8EAA0D96-F9CE-46B9-9B03-1D88DF5F6C68}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Cough" ID="{F032EAC0-900D-47CC-9F2D-E13E51F94076}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Music_Jail" ID="{425E8658-6CCB-47D4-8B0C-38599CAF8C19}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Click" ID="{292D2C3D-DA5A-4840-B2EB-693B20A41DEB}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>

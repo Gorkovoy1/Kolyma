@@ -26,12 +26,14 @@ Event	ID	Name			Wwise Object Path	Notes
 	1892391772	Play_Dogs_Bark			\Default Work Unit\Play_Dogs_Bark	
 	1971906101	Play_Empty_Pockets			\Default Work Unit\Battle\Play_Empty_Pockets	
 	2052887156	Play_Andreyev_Clears_Throat			\Default Work Unit\Andreyev\Play_Andreyev_Clears_Throat	
+	2195670481	Play_Battle_Won			\Default Work Unit\Battle\Play_Battle_Won	
 	2213067183	Play_Dice			\Default Work Unit\Battle\Play_Dice	
 	2237368892	Play_Cell_Door_Open			\Default Work Unit\Play_Cell_Door_Open	
 	2304369006	Play_Number_Card			\Default Work Unit\Battle\Play_Number_Card	
 	2537547804	Play_Thick_Woolen_Coat			\Default Work Unit\Battle\Play_Thick_Woolen_Coat	
 	2541567472	Play_Whisper			\Default Work Unit\Play_Whisper	
 	2807572219	Play_Silence			\Default Work Unit\Play_Silence	
+	3014684957	Play_Battle_Lost			\Default Work Unit\Battle\Play_Battle_Lost	
 	3050945240	New_Event			\Default Work Unit\Music\New_Event	
 	3130258220	Play_Card_Burn			\Default Work Unit\Battle\Play_Card_Burn	
 	3205279810	Play_Barracks_Door			\Default Work Unit\Play_Barracks_Door	
@@ -70,6 +72,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	121851638	Cell_Door_Open	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\5A\{5A5888EF-B44D-4764-1E73-D9D5E37ACA11}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Door_Open		81459
 	127805243	Open_Trick_Collection	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\57\{5713C42E-C7E6-5F7E-8097-3EFBA5A0B305}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Open_Trick_Collection		22691
 	129889019	Menu	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\71\{716997E3-BCD2-C72E-8C92-6B0E8070CDBE}.wem		\Interactive Music Hierarchy\Default Work Unit\Menu\Menu\Menu		3079036
+	158462398	BattleWon	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\56\{56634CBE-8D16-032B-792B-24CBA499B2B4}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\BattleWon		50812
 	158641502	Cell_SFX_Whisper-005	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\77\{7784E33D-86C9-05B4-A5BC-56B980291838}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Whisper\Cell_SFX_Whisper-005		16727
 	163322872	Cell_Guard_Roll_Call	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\44\{447472BA-00BD-5C2D-A866-4BE7724FA75D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Guard_Roll_Call		34158
 	169040873	Cell_SFX_Whisper-003	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\D0\{D0904A50-ACED-54F5-BF52-372BD15AF7C1}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Whisper\Cell_SFX_Whisper-003		28960
@@ -79,6 +82,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	267717470	Close_Trick_Collection	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\06\{061158A1-00BB-02D9-D4B8-DF3A39CC1E82}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Close_Trick_Collection		23110
 	302096407	NumberCard1	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\AD\{AD5D3F7F-6DD2-53A2-0003-57B196AF9217}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Number_Cards\NumberCard1		22724
 	334397050	Battle_Theme_2_1	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\C0\{C074812E-AA29-6CE6-F07F-EB783BB083C4}.wem		\Interactive Music Hierarchy\Default Work Unit\Battle_Theme_2\Battle_Theme_2\Battle_Theme_2_1		2980747
+	349823849	BattleLost	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\3E\{3EE238A1-3C89-1677-0C6E-8FECE5E02DE2}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\BattleLost		66741
 	355118563	Typewriter_Loop_1	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\73\{737A05E9-2B31-BD5A-DD1C-7A52516A3F52}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text_Box\Typewriter_Loops\Typewriter_Loop_1		18804
 	355430885	Andreyev_Question	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\C3\{C309865C-49A3-587A-3DFA-7E23E56344F2}.wem		\Actor-Mixer Hierarchy\Default Work Unit\NPCs\Andreyev\Andreyev_Question		173704
 	381664103	Dogs_Bark_01	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\EE\{EEE5A62B-5CB3-4F17-37D4-5D5AA632EED7}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camp_SFX\Dogs\Dogs_Bark_01		38800

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using UnityEngine.SceneManagement;
+using AK.Wwise;
 
 public class BattleEndController : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class BattleEndController : MonoBehaviour
     public float fadeTime;
     private float elapsed = 0f;
     public bool isFading = false;
+    public GameObject sfxObj;
 
     // Start is called before the first frame update
     void Start()
@@ -90,14 +92,28 @@ public class BattleEndController : MonoBehaviour
         if(NumberManager.instance.playerVal <= NumberManager.instance.targetVal && NumberManager.instance.oppVal > NumberManager.instance.targetVal && NumberManager.instance.playerVal >= 0)
         {
             image.sprite = victory;
+
+            AkSoundEngine.StopAll();
+
+            AkSoundEngine.PostEvent("Play_Battle_Won", sfxObj);
+            
+
         }
         else if(NumberManager.instance.playerVal <= NumberManager.instance.targetVal && NumberManager.instance.oppVal <= NumberManager.instance.targetVal && Mathf.Abs(NumberManager.instance.targetVal - NumberManager.instance.playerVal) < Mathf.Abs(NumberManager.instance.targetVal - NumberManager.instance.oppVal))
         {
             image.sprite = victory;
+
+            AkSoundEngine.StopAll();
+
+            AkSoundEngine.PostEvent("Play_Battle_Won", sfxObj);
         }
         else
         {
             image.sprite = defeat;
+
+            AkSoundEngine.StopAll();
+
+            AkSoundEngine.PostEvent("Play_Battle_Lost", sfxObj);
             //tie or lose
         }
 

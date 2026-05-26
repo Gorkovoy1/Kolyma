@@ -493,6 +493,28 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Battle_Won" ID="{025E978B-3222-40CB-99FE-CAC319BC3C37}">
+							<ChildrenList>
+								<Action Name="" ID="{2B86499D-437C-4D26-8E21-A7E9C20E306A}" ShortID="992968014">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="BattleWon" ID="{2259E781-A70B-4E56-8362-8508CF62FC0D}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Battle_Lost" ID="{8EAA0D96-F9CE-46B9-9B03-1D88DF5F6C68}">
+							<ChildrenList>
+								<Action Name="" ID="{1FAB38C3-924C-476A-8F76-C9E84FC4DEA5}" ShortID="291226766">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="BattleLost" ID="{6D80AD25-244D-4B08-B7CA-D94EA07A8BB6}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Music" ID="{42294E82-4A8C-4F7B-B73A-27B9EEC12A24}" ShortID="234013611">

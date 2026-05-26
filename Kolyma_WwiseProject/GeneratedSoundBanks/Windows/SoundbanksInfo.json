@@ -130,7 +130,7 @@
     "Type": "User",
     "GUID": "{55336CF1-834F-40C1-A4A6-A74ED017DAFB}",
     "Language": "SFX",
-    "Hash": "{2D4D5085-F25C-F6FE-E2B6-B3928E229255}",
+    "Hash": "{D0DF99E2-3CDD-3944-A955-7EA1C30AA068}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -240,6 +240,14 @@
       "CachePath": "71/{716997E3-BCD2-C72E-8C92-6B0E8070CDBE}.wem"
      },
      {
+      "Id": "158462398",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BattleWon.wav",
+      "CachePath": "56/{56634CBE-8D16-032B-792B-24CBA499B2B4}.wem"
+     },
+     {
       "Id": "158641502",
       "Language": "SFX",
       "Streaming": "false",
@@ -310,6 +318,14 @@
       "Location": "Memory",
       "ShortName": "Battle_Theme_2.1.wav",
       "CachePath": "C0/{C074812E-AA29-6CE6-F07F-EB783BB083C4}.wem"
+     },
+     {
+      "Id": "349823849",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BattleLost.wav",
+      "CachePath": "3E/{3EE238A1-3C89-1677-0C6E-8FECE5E02DE2}.wem"
      },
      {
       "Id": "355118563",
@@ -848,6 +864,34 @@
       "MediaRefs": [
        {
         "Id": "946766250"
+       }
+      ]
+     },
+     {
+      "Id": "3014684957",
+      "Name": "Play_Battle_Lost",
+      "ObjectPath": "\\Events\\Default Work Unit\\Battle\\Play_Battle_Lost",
+      "GUID": "{8EAA0D96-F9CE-46B9-9B03-1D88DF5F6C68}",
+      "DurationType": "OneShot",
+      "DurationMin": "3.9839003",
+      "DurationMax": "3.9839003",
+      "MediaRefs": [
+       {
+        "Id": "349823849"
+       }
+      ]
+     },
+     {
+      "Id": "2195670481",
+      "Name": "Play_Battle_Won",
+      "ObjectPath": "\\Events\\Default Work Unit\\Battle\\Play_Battle_Won",
+      "GUID": "{025E978B-3222-40CB-99FE-CAC319BC3C37}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.996372",
+      "DurationMax": "2.996372",
+      "MediaRefs": [
+       {
+        "Id": "158462398"
        }
       ]
      },
@@ -1476,6 +1520,6 @@
     ]
    }
   ],
-  "FileHash": "{75BA0848-6AE3-8D52-F6F2-2E1536F6D8CA}"
+  "FileHash": "{2DF26FFC-DE79-5F30-ECCE-4AA967D654C7}"
  }
 }
