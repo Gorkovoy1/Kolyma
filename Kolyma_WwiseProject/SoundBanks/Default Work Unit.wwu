@@ -16,6 +16,7 @@
 						<ObjectRef Name="Battle" ID="{50ECEEBD-F670-4459-895C-732B68BD80B2}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Typewriter" ID="{6C230E5E-8EB1-4567-9DEF-99AF8593EBAA}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Battle_Lost" ID="{8EAA0D96-F9CE-46B9-9B03-1D88DF5F6C68}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Extra_Work" ID="{CD02EE89-0053-46EC-BF18-0709C9D34E73}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Cough" ID="{F032EAC0-900D-47CC-9F2D-E13E51F94076}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Music_Jail" ID="{425E8658-6CCB-47D4-8B0C-38599CAF8C19}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Click" ID="{292D2C3D-DA5A-4840-B2EB-693B20A41DEB}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>

@@ -130,7 +130,7 @@
     "Type": "User",
     "GUID": "{55336CF1-834F-40C1-A4A6-A74ED017DAFB}",
     "Language": "SFX",
-    "Hash": "{D0DF99E2-3CDD-3944-A955-7EA1C30AA068}",
+    "Hash": "{43FB0EC0-5224-3F72-4791-967236D52860}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -352,6 +352,14 @@
       "CachePath": "EE/{EEE5A62B-5CB3-4F17-37D4-5D5AA632EED7}.wem"
      },
      {
+      "Id": "384870138",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ExtraWork.wav",
+      "CachePath": "BB/{BB7770D3-0465-E2A6-CFBC-CE7C035DB355}.wem"
+     },
+     {
       "Id": "402054562",
       "Language": "SFX",
       "Streaming": "false",
@@ -534,6 +542,14 @@
       "Location": "Memory",
       "ShortName": "NumberCard4.wav",
       "CachePath": "D7/{D70A8F90-9653-8E48-3895-D6BF80F25E63}.wem"
+     },
+     {
+      "Id": "737090524",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "SmokeBreak.wav",
+      "CachePath": "C8/{C8D2AC8B-AAE7-9BFE-FA0C-FD7C4A9B3D33}.wem"
      },
      {
       "Id": "737968334",
@@ -1162,6 +1178,20 @@
       ]
      },
      {
+      "Id": "2887317804",
+      "Name": "Play_Extra_Work",
+      "ObjectPath": "\\Events\\Default Work Unit\\Battle\\Play_Extra_Work",
+      "GUID": "{CD02EE89-0053-46EC-BF18-0709C9D34E73}",
+      "DurationType": "OneShot",
+      "DurationMin": "3.0081406",
+      "DurationMax": "3.0081406",
+      "MediaRefs": [
+       {
+        "Id": "384870138"
+       }
+      ]
+     },
+     {
       "Id": "1716731688",
       "Name": "Play_Music_Battle_1",
       "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_Music_Battle_1",
@@ -1364,6 +1394,20 @@
       "DurationMax": "0"
      },
      {
+      "Id": "1251766965",
+      "Name": "Play_Smoke_Break",
+      "ObjectPath": "\\Events\\Default Work Unit\\Battle\\Play_Smoke_Break",
+      "GUID": "{DAE04024-64A9-4BE3-9C68-0FDD6550BBCA}",
+      "DurationType": "OneShot",
+      "DurationMin": "3.0045352",
+      "DurationMax": "3.0045352",
+      "MediaRefs": [
+       {
+        "Id": "737090524"
+       }
+      ]
+     },
+     {
       "Id": "2537547804",
       "Name": "Play_Thick_Woolen_Coat",
       "ObjectPath": "\\Events\\Default Work Unit\\Battle\\Play_Thick_Woolen_Coat",
@@ -1520,6 +1564,6 @@
     ]
    }
   ],
-  "FileHash": "{2DF26FFC-DE79-5F30-ECCE-4AA967D654C7}"
+  "FileHash": "{1DC1864C-0388-1563-5D64-8D42B9D87926}"
  }
 }

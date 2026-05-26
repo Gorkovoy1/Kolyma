@@ -515,6 +515,28 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Extra_Work" ID="{CD02EE89-0053-46EC-BF18-0709C9D34E73}">
+							<ChildrenList>
+								<Action Name="" ID="{21783C86-298A-4E6F-B283-351C5F31BA62}" ShortID="234681004">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Extra_Work" ID="{D9269EF2-A88B-40B1-82A4-B037780A6351}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Smoke_Break" ID="{DAE04024-64A9-4BE3-9C68-0FDD6550BBCA}">
+							<ChildrenList>
+								<Action Name="" ID="{DBB6908B-0065-4AAE-9F01-4CDE2EB2ABC3}" ShortID="221364285">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Smoke_Break" ID="{5BE89CFF-FF19-4160-81EF-A0B8F2E4F236}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Music" ID="{42294E82-4A8C-4F7B-B73A-27B9EEC12A24}" ShortID="234013611">

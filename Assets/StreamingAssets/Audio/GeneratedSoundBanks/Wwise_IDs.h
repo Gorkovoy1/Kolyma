@@ -44,6 +44,7 @@ namespace AK
         static const AkUniqueID PLAY_DICE = 2213067183U;
         static const AkUniqueID PLAY_DOGS_BARK = 1892391772U;
         static const AkUniqueID PLAY_EMPTY_POCKETS = 1971906101U;
+        static const AkUniqueID PLAY_EXTRA_WORK = 2887317804U;
         static const AkUniqueID PLAY_MUSIC_BATTLE_1 = 1716731688U;
         static const AkUniqueID PLAY_MUSIC_BATTLE_2 = 1716731691U;
         static const AkUniqueID PLAY_MUSIC_CAMP_ARRIVAL = 238544951U;
@@ -59,6 +60,7 @@ namespace AK
         static const AkUniqueID PLAY_SEARCH = 3421211826U;
         static const AkUniqueID PLAY_SETUP = 4244373777U;
         static const AkUniqueID PLAY_SILENCE = 2807572219U;
+        static const AkUniqueID PLAY_SMOKE_BREAK = 1251766965U;
         static const AkUniqueID PLAY_THICK_WOOLEN_COAT = 2537547804U;
         static const AkUniqueID PLAY_TRICK_CARD = 137383996U;
         static const AkUniqueID PLAY_TRUCK_ARRIVES = 1064403750U;

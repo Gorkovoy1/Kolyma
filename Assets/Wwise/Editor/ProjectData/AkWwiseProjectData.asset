@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8c4b0f5056a06a4a92d94e75a182e1ae
     GuidInternal: 
-    m_lastTime: -8584218387648952369
+    m_lastTime: -8584217869919411332
     List:
     - name: Main
       guid: f16c33554f83c140a4a6a74ed017dafb
@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584218387649025210
+    m_lastTime: -8584217858596602095
     List:
     - name: Andreyev
       guid: a6c0eb1ff2ce024c96aeb202fa8b346a
@@ -728,6 +728,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 3.22
       minDuration: 3.22
+    - name: Play_Extra_Work
+      guid: 89ee02cd5300ec46bf180709c9d34e73
+      id: 2887317804
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Battle
+        ObjectType: 4
+        guid: bdeeec5070f65944895c732b68bd80b2
+      - ElementName: Play_Extra_Work
+        ObjectType: 3
+        guid: 89ee02cd5300ec46bf180709c9d34e73
+      Path: Events\Default Work Unit\Battle\Play_Extra_Work
+      maxAttenuation: 0
+      maxDuration: 3.0081406
+      minDuration: 3.0081406
     - name: Play_Music_Battle_1
       guid: 79f1364d9174a74986b0498a998e6abc
       id: 1716731688
@@ -1016,6 +1036,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: Play_Smoke_Break
+      guid: 2440e0daa964e34b9c680fdd6550bbca
+      id: 1251766965
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Battle
+        ObjectType: 4
+        guid: bdeeec5070f65944895c732b68bd80b2
+      - ElementName: Play_Smoke_Break
+        ObjectType: 3
+        guid: 2440e0daa964e34b9c680fdd6550bbca
+      Path: Events\Default Work Unit\Battle\Play_Smoke_Break
+      maxAttenuation: 0
+      maxDuration: 3.0045352
+      minDuration: 3.0045352
     - name: Play_Thick_Woolen_Coat
       guid: 73ada394333ac34d897ac4b19b9ab7b6
       id: 2537547804
