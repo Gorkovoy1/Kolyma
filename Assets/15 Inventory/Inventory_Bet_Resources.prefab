@@ -3419,7 +3419,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!114 &5120096273680444061
 MonoBehaviour:
@@ -3548,6 +3548,7 @@ MonoBehaviour:
   itemsInPot: []
   showWinnings: 0
   winningsShown: 0
+  winningsPanel: {fileID: 5120096272220244943}
 --- !u!114 &5120096273680444062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4233,6 +4234,11 @@ GameObject:
 --- !u!1 &5120096272220244940 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8332074613080056172, guid: 3df1f4d68d405594ea5ba2ab3a414b3c, type: 3}
+  m_PrefabInstance: {fileID: 3796329811418458784}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &5120096272220244943 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8332074613080056175, guid: 3df1f4d68d405594ea5ba2ab3a414b3c, type: 3}
   m_PrefabInstance: {fileID: 3796329811418458784}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &5120096272384709286 stripped

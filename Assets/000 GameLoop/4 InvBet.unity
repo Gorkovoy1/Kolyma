@@ -865,7 +865,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5120096273680444059, guid: ae5cbdcfa30056f4e9e5fecd3399a17e, type: 3}
       propertyPath: currentState
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5120096273680444062, guid: ae5cbdcfa30056f4e9e5fecd3399a17e, type: 3}
       propertyPath: balance

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class Glow : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
@@ -145,10 +146,16 @@ public class Glow : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
         //Wait
         yield return new WaitForSeconds(transitionTime);
         //pauses coroutine for x amount of seconds
-        AkSoundEngine.StopAll();
+        //AkSoundEngine.StopAll();
         //Load scene
-        SceneManager.LoadScene(levelIndex);
+        //SceneManager.LoadScene(levelIndex);
 
+        string path = SceneUtility.GetScenePathByBuildIndex(levelIndex);
+
+        string sceneName = Path.GetFileNameWithoutExtension(path);
+
+        SceneLoader.instance.sceneName = sceneName;
+        SceneLoader.instance.triggerLoad = true;
     }
     
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 using UnityEngine.SceneManagement;
 
 public class BattleEndController : MonoBehaviour
@@ -51,14 +52,34 @@ public class BattleEndController : MonoBehaviour
     IEnumerator DelayToNextScene()
     {
         yield return new WaitForSeconds(1.5f);
-        AkSoundEngine.StopAll();
-        if(SceneManager.GetActiveScene().buildIndex == 7 || SceneManager.GetActiveScene().buildIndex == 0)
+
+        if(image.sprite == victory)
         {
-            SceneManager.LoadScene(0);
+            UIPanelManager.instance.SetState(UIState.Winnings);
+            InventoryManager.instance.showWinnings = true;
+
+            yield return new WaitUntil(() => InventoryManager.instance.winningsPanel.childCount == 0);
+        }
+        
+
+        if (SceneManager.GetActiveScene().buildIndex == 7 || SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            string path = SceneUtility.GetScenePathByBuildIndex(0);
+
+            string sceneName = Path.GetFileNameWithoutExtension(path);
+
+            SceneLoader.instance.sceneName = sceneName;
+            SceneLoader.instance.triggerLoad = true;
         }
         else
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            string path = SceneUtility.GetScenePathByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1);
+
+            string sceneName = Path.GetFileNameWithoutExtension(path);
+
+            SceneLoader.instance.sceneName = sceneName;
+            SceneLoader.instance.triggerLoad = true;
+            UIPanelManager.instance.SetState(UIState.Minimized);
         }
             
     }

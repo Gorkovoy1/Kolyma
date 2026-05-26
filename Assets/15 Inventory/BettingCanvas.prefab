@@ -164,7 +164,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &6182516080647406688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,7 +406,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278213262
+    rgba: 4280843693
   m_fontColor: {r: 0.6792453, g: 0.49056146, b: 0.15699539, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -957,7 +957,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278213262
+    rgba: 4280843693
   m_fontColor: {r: 0.6792453, g: 0.49056146, b: 0.15699539, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1227,7 +1227,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278213262
+    rgba: 4280843693
   m_fontColor: {r: 0.6792453, g: 0.49056146, b: 0.15699539, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3

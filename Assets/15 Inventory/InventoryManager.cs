@@ -30,6 +30,8 @@ public class InventoryManager : MonoBehaviour
     public GameObject[] itemsInPot;
     public bool showWinnings;
     public bool winningsShown;
+
+    public Transform winningsPanel;
     
 
     void Awake()

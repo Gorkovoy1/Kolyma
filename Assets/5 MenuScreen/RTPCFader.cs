@@ -68,7 +68,7 @@ public class RTPCFader : MonoBehaviour
 
     public IEnumerator FadeIn()
     {
-        float duration = 2f;
+        float duration = 0.5f;
         float time = 0f;
 
         float startValue = currentValue;
