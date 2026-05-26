@@ -108,8 +108,6 @@ MonoBehaviour:
   childCount: 0
   specialCardType: 9
   isPlayable: 0
-  defaultMat: {fileID: 0}
-  playableMat: {fileID: 2100000, guid: d872faa1aa03b3043ada6d7ff912f653, type: 2}
   discardedCards: []
   discardUpdated: 0
   cardBack: {fileID: 21300000, guid: 5681a74c470359848acdb34ed992ba17, type: 3}
@@ -118,7 +116,7 @@ MonoBehaviour:
   trickSound:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 2b615b9434396c846b9069c364246a4f, type: 2}
   delayImageSpawn: 1
 --- !u!114 &8132540026265061464
 MonoBehaviour:

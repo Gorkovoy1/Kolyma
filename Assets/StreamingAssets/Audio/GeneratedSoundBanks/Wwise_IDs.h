@@ -45,6 +45,7 @@ namespace AK
         static const AkUniqueID PLAY_DOGS_BARK = 1892391772U;
         static const AkUniqueID PLAY_EMPTY_POCKETS = 1971906101U;
         static const AkUniqueID PLAY_EXTRA_WORK = 2887317804U;
+        static const AkUniqueID PLAY_FIST = 2998547148U;
         static const AkUniqueID PLAY_MUSIC_BATTLE_1 = 1716731688U;
         static const AkUniqueID PLAY_MUSIC_BATTLE_2 = 1716731691U;
         static const AkUniqueID PLAY_MUSIC_CAMP_ARRIVAL = 238544951U;

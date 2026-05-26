@@ -130,7 +130,7 @@
     "Type": "User",
     "GUID": "{55336CF1-834F-40C1-A4A6-A74ED017DAFB}",
     "Language": "SFX",
-    "Hash": "{43FB0EC0-5224-3F72-4791-967236D52860}",
+    "Hash": "{ADDDFE8C-5F65-EA8E-1CA1-F4933D29C507}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -149,7 +149,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Barracks_Background.wav",
-      "CachePath": "3F/{3F03AA50-1614-A358-00B3-32960DE300B9}.wem"
+      "CachePath": "A1/{A1BD59B6-091D-2674-8822-C4031B0B5C7C}.wem"
      },
      {
       "Id": "69635862",
@@ -365,7 +365,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Punch.wav",
-      "CachePath": "12/{121D4457-B733-7AFD-C11C-0FE7BD445814}.wem"
+      "CachePath": "4C/{4C71B287-8BA6-DCE4-95E5-B4DFA970C6FD}.wem"
      },
      {
       "Id": "415365781",
@@ -381,7 +381,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Barracks_Ambience.wav",
-      "CachePath": "26/{264AC89B-AEA7-C58E-49E8-E58B869A560A}.wem"
+      "CachePath": "9A/{9A176E53-A0F9-8BFF-CF7F-4D624900A5C4}.wem"
      },
      {
       "Id": "471573529",
@@ -462,6 +462,14 @@
       "Location": "Memory",
       "ShortName": "Andreyev_Clears_Throat.wav",
       "CachePath": "9F/{9F0C80A7-1FBB-A9C6-8072-D780775C0322}.wem"
+     },
+     {
+      "Id": "604576587",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Fist.wav",
+      "CachePath": "CD/{CD92A69C-72E4-3543-DC28-315B4F1FA381}.wem"
      },
      {
       "Id": "613591171",
@@ -685,7 +693,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "barracks_doors.wav",
-      "CachePath": "18/{18C6B54E-C607-0AA8-924D-7FB1A2E0B2D8}.wem"
+      "CachePath": "BE/{BE6DA8AE-F236-8BAC-B53B-36C86AE55710}.wem"
      },
      {
       "Id": "1005253697",
@@ -1192,6 +1200,20 @@
       ]
      },
      {
+      "Id": "2998547148",
+      "Name": "Play_Fist",
+      "ObjectPath": "\\Events\\Default Work Unit\\Battle\\Play_Fist",
+      "GUID": "{C8F0BDB9-B7BB-48A8-A9CA-C7AD6750E27F}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.9978685",
+      "DurationMax": "1.9978685",
+      "MediaRefs": [
+       {
+        "Id": "604576587"
+       }
+      ]
+     },
+     {
       "Id": "1716731688",
       "Name": "Play_Music_Battle_1",
       "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_Music_Battle_1",
@@ -1564,6 +1586,6 @@
     ]
    }
   ],
-  "FileHash": "{1DC1864C-0388-1563-5D64-8D42B9D87926}"
+  "FileHash": "{23DC7788-AE49-BB8E-E57D-25F473C63B4F}"
  }
 }
