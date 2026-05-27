@@ -2119,6 +2119,9 @@ public class AICardPlace : MonoBehaviour //AICardPlace
             SpecialCardManager.instance.Give(5, "opponent");
         }
 
+        yield return null;
+        NumberManager.instance.recalculate = true;
+
     }
 
     public void DiscardSpecial(GameObject g, string target)
