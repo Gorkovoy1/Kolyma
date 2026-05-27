@@ -108,13 +108,16 @@ MonoBehaviour:
   childCount: 0
   specialCardType: 35
   isPlayable: 0
-  defaultMat: {fileID: 0}
-  playableMat: {fileID: 2100000, guid: d872faa1aa03b3043ada6d7ff912f653, type: 2}
   discardedCards: []
   discardUpdated: 0
   cardBack: {fileID: 21300000, guid: 5681a74c470359848acdb34ed992ba17, type: 3}
   grey: {fileID: 0}
   isFlipped: 0
+  trickSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 97c522c58b47d714981aef625a8584b8, type: 2}
+  delayImageSpawn: 1
 --- !u!114 &4151053006533154598
 MonoBehaviour:
   m_ObjectHideFlags: 0

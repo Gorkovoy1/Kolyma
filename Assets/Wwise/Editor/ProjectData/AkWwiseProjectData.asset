@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584217858596602095
+    m_lastTime: -8584217597358008773
     List:
     - name: Andreyev
       guid: a6c0eb1ff2ce024c96aeb202fa8b346a
@@ -748,6 +748,46 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 3.0081406
       minDuration: 3.0081406
+    - name: Play_Fist
+      guid: b9bdf0c8bbb7a848a9cac7ad6750e27f
+      id: 2998547148
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Battle
+        ObjectType: 4
+        guid: bdeeec5070f65944895c732b68bd80b2
+      - ElementName: Play_Fist
+        ObjectType: 3
+        guid: b9bdf0c8bbb7a848a9cac7ad6750e27f
+      Path: Events\Default Work Unit\Battle\Play_Fist
+      maxAttenuation: 0
+      maxDuration: 1.9978685
+      minDuration: 1.9978685
+    - name: Play_In_Cahoots
+      guid: cf575e2cfb32ac4990255bd55fb5787a
+      id: 1644609823
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Battle
+        ObjectType: 4
+        guid: bdeeec5070f65944895c732b68bd80b2
+      - ElementName: Play_In_Cahoots
+        ObjectType: 3
+        guid: cf575e2cfb32ac4990255bd55fb5787a
+      Path: Events\Default Work Unit\Battle\Play_In_Cahoots
+      maxAttenuation: 0
+      maxDuration: 2.178322
+      minDuration: 2.178322
     - name: Play_Music_Battle_1
       guid: 79f1364d9174a74986b0498a998e6abc
       id: 1716731688

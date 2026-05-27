@@ -130,7 +130,7 @@
     "Type": "User",
     "GUID": "{55336CF1-834F-40C1-A4A6-A74ED017DAFB}",
     "Language": "SFX",
-    "Hash": "{ADDDFE8C-5F65-EA8E-1CA1-F4933D29C507}",
+    "Hash": "{3C846FC9-DE3E-5D8A-E4E3-3688F643324C}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -304,6 +304,14 @@
       "CachePath": "06/{061158A1-00BB-02D9-D4B8-DF3A39CC1E82}.wem"
      },
      {
+      "Id": "274600887",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Fist2.wav",
+      "CachePath": "85/{8545DE32-02E9-C63B-ECB6-2C73A91A13B2}.wem"
+     },
+     {
       "Id": "302096407",
       "Language": "SFX",
       "Streaming": "false",
@@ -464,14 +472,6 @@
       "CachePath": "9F/{9F0C80A7-1FBB-A9C6-8072-D780775C0322}.wem"
      },
      {
-      "Id": "604576587",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "Fist.wav",
-      "CachePath": "CD/{CD92A69C-72E4-3543-DC28-315B4F1FA381}.wem"
-     },
-     {
       "Id": "613591171",
       "Language": "SFX",
       "Streaming": "false",
@@ -534,6 +534,14 @@
       "Location": "Memory",
       "ShortName": "Battle_Theme_1.2.wav",
       "CachePath": "B1/{B1A6DD0C-FB5F-B95C-827D-CB7F75CD08C6}.wem"
+     },
+     {
+      "Id": "735517161",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "InCahoots.wav",
+      "CachePath": "D4/{D47E89FB-C01A-FA39-B845-65006A66EFE0}.wem"
      },
      {
       "Id": "736440791",
@@ -1209,7 +1217,21 @@
       "DurationMax": "1.9978685",
       "MediaRefs": [
        {
-        "Id": "604576587"
+        "Id": "274600887"
+       }
+      ]
+     },
+     {
+      "Id": "1644609823",
+      "Name": "Play_In_Cahoots",
+      "ObjectPath": "\\Events\\Default Work Unit\\Battle\\Play_In_Cahoots",
+      "GUID": "{2C5E57CF-32FB-49AC-9025-5BD55FB5787A}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.178322",
+      "DurationMax": "2.178322",
+      "MediaRefs": [
+       {
+        "Id": "735517161"
        }
       ]
      },
@@ -1586,6 +1608,6 @@
     ]
    }
   ],
-  "FileHash": "{23DC7788-AE49-BB8E-E57D-25F473C63B4F}"
+  "FileHash": "{0A2AD56D-CE32-9E4E-C9A7-9AA35A769100}"
  }
 }
