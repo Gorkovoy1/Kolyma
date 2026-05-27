@@ -192,6 +192,8 @@ public class AICardPicker : MonoBehaviour
         yield return new WaitForSeconds(2.8f);
         TurnManager.instance.isPlayerTurn = true;
         executingTurn = false;
+
+        NumberManager.instance.recalculate = true;
     }
 }
 

@@ -60,11 +60,24 @@ public class BattleEndController : MonoBehaviour
             UIPanelManager.instance.SetState(UIState.Winnings);
             InventoryManager.instance.showWinnings = true;
 
-            yield return new WaitUntil(() => InventoryManager.instance.winningsPanel.childCount == 0);
+            if(InventoryManager.instance != null)
+            {
+                yield return new WaitUntil(() => InventoryManager.instance.winningsPanel.childCount == 0);
+            }
+            else
+            {
+                string path = SceneUtility.GetScenePathByBuildIndex(0);
+
+                string sceneName = Path.GetFileNameWithoutExtension(path);
+
+                SceneLoader.instance.sceneName = sceneName;
+                SceneLoader.instance.triggerLoad = true;
+            }
+                
         }
         
 
-        if (SceneManager.GetActiveScene().buildIndex == 7 || SceneManager.GetActiveScene().buildIndex == 0)
+        if (SceneManager.GetActiveScene().buildIndex == 12 || SceneManager.GetActiveScene().buildIndex == 0)
         {
             string path = SceneUtility.GetScenePathByBuildIndex(0);
 

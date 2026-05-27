@@ -294,18 +294,22 @@ public class CardSelectionController : MonoBehaviour
         if(g.transform.parent == NumberManager.instance.oppPositiveArea.transform)
         {
             g.transform.SetParent(NumberManager.instance.oppNegativeArea.transform);
+            OpponentStats.instance.flipped = true;
         }
         else if(g.transform.parent == NumberManager.instance.oppNegativeArea.transform)
         {
             g.transform.SetParent(NumberManager.instance.oppPositiveArea.transform);
+            OpponentStats.instance.flipped = true;
         }
         else if (g.transform.parent == NumberManager.instance.playerNegativeArea.transform)
         {
             g.transform.SetParent(NumberManager.instance.playerPositiveArea.transform);
+            PlayerStats.instance.flipped = true;
         }
         else if (g.transform.parent == NumberManager.instance.playerPositiveArea.transform)
         {
             g.transform.SetParent(NumberManager.instance.playerNegativeArea.transform);
+            PlayerStats.instance.flipped = true;
         }
         AkSoundEngine.PostEvent("Play_Number_Card", sfxObj);
         NumberManager.instance.recalculate = true;
