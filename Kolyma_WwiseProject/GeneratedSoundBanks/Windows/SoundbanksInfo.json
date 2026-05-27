@@ -130,7 +130,7 @@
     "Type": "User",
     "GUID": "{55336CF1-834F-40C1-A4A6-A74ED017DAFB}",
     "Language": "SFX",
-    "Hash": "{3C846FC9-DE3E-5D8A-E4E3-3688F643324C}",
+    "Hash": "{5F352B9D-81A2-3112-056E-5C662AB5F5CF}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -150,6 +150,14 @@
       "Location": "Memory",
       "ShortName": "Barracks_Background.wav",
       "CachePath": "A1/{A1BD59B6-091D-2674-8822-C4031B0B5C7C}.wem"
+     },
+     {
+      "Id": "21069396",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "RifleButt.wav",
+      "CachePath": "EE/{EECCB778-7B36-5727-F263-71C429CF4B51}.wem"
      },
      {
       "Id": "69635862",
@@ -1387,6 +1395,20 @@
       ]
      },
      {
+      "Id": "4115142720",
+      "Name": "Play_Rifle_Butt",
+      "ObjectPath": "\\Events\\Default Work Unit\\Battle\\Play_Rifle_Butt",
+      "GUID": "{21FB753F-4F67-4376-ACC0-1AA3696487DE}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.3412018",
+      "DurationMax": "2.3412018",
+      "MediaRefs": [
+       {
+        "Id": "21069396"
+       }
+      ]
+     },
+     {
       "Id": "1112221790",
       "Name": "Play_Screen_Sfx",
       "ObjectPath": "\\Events\\Default Work Unit\\Play_Screen_Sfx",
@@ -1608,6 +1630,6 @@
     ]
    }
   ],
-  "FileHash": "{0A2AD56D-CE32-9E4E-C9A7-9AA35A769100}"
+  "FileHash": "{DAEC5BC1-400F-D938-BA1D-60E63B745933}"
  }
 }

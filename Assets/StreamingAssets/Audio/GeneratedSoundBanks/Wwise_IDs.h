@@ -58,6 +58,7 @@ namespace AK
         static const AkUniqueID PLAY_OPEN_TRICK_COLLECTION = 1007146461U;
         static const AkUniqueID PLAY_POISON = 3292663506U;
         static const AkUniqueID PLAY_PUNCH = 3946911806U;
+        static const AkUniqueID PLAY_RIFLE_BUTT = 4115142720U;
         static const AkUniqueID PLAY_SCREEN_SFX = 1112221790U;
         static const AkUniqueID PLAY_SEARCH = 3421211826U;
         static const AkUniqueID PLAY_SETUP = 4244373777U;

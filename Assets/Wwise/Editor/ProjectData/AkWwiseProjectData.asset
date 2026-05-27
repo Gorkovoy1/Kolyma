@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584217592094496016
+    m_lastTime: -8584217003291910791
     List:
     - name: Andreyev
       guid: a6c0eb1ff2ce024c96aeb202fa8b346a
@@ -1002,6 +1002,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.98797745
       minDuration: 0.98797745
+    - name: Play_Rifle_Butt
+      guid: 3f75fb21674f7643acc01aa3696487de
+      id: 4115142720
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Battle
+        ObjectType: 4
+        guid: bdeeec5070f65944895c732b68bd80b2
+      - ElementName: Play_Rifle_Butt
+        ObjectType: 3
+        guid: 3f75fb21674f7643acc01aa3696487de
+      Path: Events\Default Work Unit\Battle\Play_Rifle_Butt
+      maxAttenuation: 0
+      maxDuration: 2.3412018
+      minDuration: 2.3412018
     - name: Play_Screen_Sfx
       guid: 1aaa2966a3b44a4b91db2d799b805d35
       id: 1112221790
@@ -1479,7 +1499,7 @@ MonoBehaviour:
     m_lastTime: -8584218757593755026
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 050000000600000007000000080000000900000020000000220000002b0000002c0000002d000000
+  ExpandedWaapiItemIds: 050000000600000007000000080000000900000020000000220000002b0000002c0000002d0000003b0100003c0100003e010000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

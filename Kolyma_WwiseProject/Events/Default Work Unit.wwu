@@ -559,6 +559,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Rifle_Butt" ID="{21FB753F-4F67-4376-ACC0-1AA3696487DE}">
+							<ChildrenList>
+								<Action Name="" ID="{3416956B-67B8-4751-89AE-A3BE4BA29365}" ShortID="320785962">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Rifle_Butt" ID="{0C02BAB2-F12F-4747-B204-ACA3FFA839F3}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Music" ID="{42294E82-4A8C-4F7B-B73A-27B9EEC12A24}" ShortID="234013611">

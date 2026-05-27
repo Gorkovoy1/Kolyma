@@ -56,6 +56,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	3877743401	Play_Cell_Guard_Roll_Call			\Default Work Unit\Play_Cell_Guard_Roll_Call	
 	3946911806	Play_Punch			\Default Work Unit\Play_Punch	
 	4095833387	Play_Andreyev_Snarky			\Default Work Unit\Andreyev\Play_Andreyev_Snarky	
+	4115142720	Play_Rifle_Butt			\Default Work Unit\Battle\Play_Rifle_Butt	
 	4244373777	Play_Setup			\Default Work Unit\Battle\Play_Setup	
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
@@ -65,6 +66,7 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	2774197	Dogs_Bark_03	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\6E\{6EDC1B89-7E23-F55C-5510-3270F29E4CD4}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camp_SFX\Dogs\Dogs_Bark_03		39227
 	7973089	Barracks_Background_SFX	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\A1\{A1BD59B6-091D-2674-8822-C4031B0B5C7C}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Barracks_SFX\Barracks_Background_SFX		998132
+	21069396	Rifle_Butt	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\EE\{EECCB778-7B36-5727-F263-71C429CF4B51}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Trick_Cards_SFX\Rifle_Butt		31259
 	69635862	Poison	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\B7\{B74C7B0E-FE0E-0069-3430-C3C245B346FA}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Trick_Cards_SFX\Poison		27184
 	71008113	kolyma daytime1_0	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\86\{86F9D127-7B3F-6F2A-4F2F-D993A406533A}.wem		\Interactive Music Hierarchy\Default Work Unit\Camp_Hub_Day\Camp_Hub_Day\kolyma daytime1_0		2389757
 	75083474	camp_arrival_no_intro	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\CB\{CB1D2B64-8B95-22FE-E7E4-996BEB59057C}.wem		\Interactive Music Hierarchy\Default Work Unit\Camp_Arrival\Camp_Arrival\camp_arrival_no_intro		632690
