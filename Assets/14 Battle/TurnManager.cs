@@ -42,5 +42,6 @@ public class TurnManager : MonoBehaviour
     public void SwitchTurn()
     {
         isPlayerTurn = !isPlayerTurn;
+        NumberManager.instance.recalculate = true;
     }
 }
