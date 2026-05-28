@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584216801452649957
+    m_lastTime: -8584216652077342629
     List:
     - name: Andreyev
       guid: a6c0eb1ff2ce024c96aeb202fa8b346a
@@ -307,6 +307,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 1.7987156
       minDuration: 1.7987156
+    - name: Play_Backstab
+      guid: 0b822cd6a9a868439c8227b8ba75bcd2
+      id: 3471540763
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Battle
+        ObjectType: 4
+        guid: bdeeec5070f65944895c732b68bd80b2
+      - ElementName: Play_Backstab
+        ObjectType: 3
+        guid: 0b822cd6a9a868439c8227b8ba75bcd2
+      Path: Events\Default Work Unit\Battle\Play_Backstab
+      maxAttenuation: 0
+      maxDuration: 1.9331746
+      minDuration: 1.9331746
     - name: Play_Barracks_Ambience
       guid: df150fc8940b004ebce5937ec34f69d8
       id: 1410640362
@@ -1022,6 +1042,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 2.3412018
       minDuration: 2.3412018
+    - name: Play_Scam
+      guid: cd5f48a1f448984ab0f6d11681c00230
+      id: 169023714
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Battle
+        ObjectType: 4
+        guid: bdeeec5070f65944895c732b68bd80b2
+      - ElementName: Play_Scam
+        ObjectType: 3
+        guid: cd5f48a1f448984ab0f6d11681c00230
+      Path: Events\Default Work Unit\Battle\Play_Scam
+      maxAttenuation: 0
+      maxDuration: 2.6280272
+      minDuration: 2.6280272
     - name: Play_Screen_Sfx
       guid: 1aaa2966a3b44a4b91db2d799b805d35
       id: 1112221790
@@ -1499,7 +1539,7 @@ MonoBehaviour:
     m_lastTime: -8584218757593755026
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 050000000600000007000000080000000900000020000000220000002b0000002c0000002d0000003b0100003c0100003e010000
+  ExpandedWaapiItemIds: 050000000600000007000000080000000900000020000000220000002b0000002c0000002d0000003b0100003c0100003e010000860100008701000089010000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

@@ -570,6 +570,28 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Scam" ID="{A1485FCD-48F4-4A98-B0F6-D11681C00230}">
+							<ChildrenList>
+								<Action Name="" ID="{E11CE5B1-F010-4CDF-B7D8-C6BDC64E8538}" ShortID="829104096">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Scam" ID="{65D990BD-6134-41EC-87D0-430BCB37DD6A}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Backstab" ID="{D62C820B-A8A9-4368-9C82-27B8BA75BCD2}">
+							<ChildrenList>
+								<Action Name="" ID="{CD963F0D-4867-4876-80F4-BCB689390EAB}" ShortID="420928868">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Backstab" ID="{438F1D10-463B-45EF-8428-B31DEB478425}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Music" ID="{42294E82-4A8C-4F7B-B73A-27B9EEC12A24}" ShortID="234013611">

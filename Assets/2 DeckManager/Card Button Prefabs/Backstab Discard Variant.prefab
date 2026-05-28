@@ -16,6 +16,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8346053592480935289, guid: f4add6b0b822f6f4cb7e3885ea744955, type: 3}
+      propertyPath: owned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346053592480935289, guid: f4add6b0b822f6f4cb7e3885ea744955, type: 3}
       propertyPath: cardDesc
       value: if your opponent discarded a special card this game, give them +2 or
         -2

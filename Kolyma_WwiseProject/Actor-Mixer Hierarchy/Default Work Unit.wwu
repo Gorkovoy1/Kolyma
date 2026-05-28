@@ -2324,7 +2324,7 @@
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-2</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -2379,13 +2379,6 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Poison" ID="{E99892D7-1F38-48AD-B326-4B0B9CF13DD6}" ShortID="701043246">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-2</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -2408,6 +2401,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Thick_Woolen_Coat" ID="{AFE1C432-26D8-49E2-BC5B-F7C9F176B116}" ShortID="989269388">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -2444,13 +2444,6 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Empty_Pockets" ID="{DC77841B-D116-46C6-8125-E608EAC00A1F}" ShortID="534483189">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-2</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -2737,6 +2730,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Rifle_Butt" ID="{0C02BAB2-F12F-4747-B204-ACA3FFA839F3}" ShortID="590060413">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -2756,6 +2756,64 @@
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="RifleButt" ID="{4E899245-0343-4C15-978D-A090C236E738}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Scam" ID="{65D990BD-6134-41EC-87D0-430BCB37DD6A}" ShortID="557998538">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-10</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Scam" ID="{26117086-9E52-40A9-9F12-3F87920652F9}">
+											<Language>SFX</Language>
+											<AudioFile>Scam.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="755802837"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Scam" ID="{26117086-9E52-40A9-9F12-3F87920652F9}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Backstab" ID="{438F1D10-463B-45EF-8428-B31DEB478425}" ShortID="498521610">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Backstab" ID="{7EE1DD44-4FBB-40DC-9A24-F4843EAA4C97}">
+											<Language>SFX</Language>
+											<AudioFile>Backstab.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="517895635"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Backstab" ID="{7EE1DD44-4FBB-40DC-9A24-F4843EAA4C97}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>

@@ -1,6 +1,7 @@
 Event	ID	Name			Wwise Object Path	Notes
 	57706899	Play_Typewriter			\Default Work Unit\Play_Typewriter	
 	137383996	Play_Trick_Card			\Default Work Unit\Battle\Play_Trick_Card	
+	169023714	Play_Scam			\Default Work Unit\Battle\Play_Scam	
 	238544951	Play_Music_Camp_Arrival			\Default Work Unit\Music\Play_Music_Camp_Arrival	
 	311910498	Play_Click			\Default Work Unit\Play_Click	
 	386574545	Play_Cell_Door			\Default Work Unit\Play_Cell_Door	
@@ -46,6 +47,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	3318282719	Play_Weakness			\Default Work Unit\Battle\Play_Weakness	
 	3413568250	Play_Negative_Event			\Default Work Unit\Play_Negative_Event	
 	3421211826	Play_Search			\Default Work Unit\Battle\Play_Search	
+	3471540763	Play_Backstab			\Default Work Unit\Battle\Play_Backstab	
 	3584600694	Play_Burden			\Default Work Unit\Battle\Play_Burden	
 	3643466302	Play_Music_Jail			\Default Work Unit\Music\Play_Music_Jail	
 	3698047240	Play_Breath			\Default Work Unit\Play_Breath	
@@ -101,6 +103,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	499405862	Cell_Men	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\E2\{E2C4AE97-2135-0045-780D-87C7E712C745}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Men		1202700
 	508246985	Andreyev_Good_Luck	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\DD\{DDB6320B-33FC-449A-6C53-8224D1969E3F}.wem		\Actor-Mixer Hierarchy\Default Work Unit\NPCs\Andreyev\Andreyev_Good_Luck		644584
 	515368332	Cell_SFX_Breath-002	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\F2\{F2CCFB30-AF0E-EC30-128D-FE632007B9E6}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Breath\Cell_SFX_Breath-002		64445
+	517895635	Backstab	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\98\{98CB8F3A-C587-D25D-1BED-B156DE5BB0BF}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Trick_Cards_SFX\Backstab		28707
 	543232325	Typewriter_Loop_2	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\E2\{E2F07F36-B9FC-0F71-B5C1-3D135D6BC335}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text_Box\Typewriter_Loops\Typewriter_Loop_2		14027
 	543919465	Cell_SFX_Breath-003	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\12\{12DD1B58-5834-CDF8-8714-89EDC0FC5CAE}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Breath\Cell_SFX_Breath-003		68071
 	551756399	Typewriter_Loop_6	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\5C\{5CAE38CE-FE22-4DA5-61EB-04D719C08E3B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text_Box\Typewriter_Loops\Typewriter_Loop_6		13683
@@ -121,6 +124,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	737090524	Smoke_Break	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\C8\{C8D2AC8B-AAE7-9BFE-FA0C-FD7C4A9B3D33}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Trick_Cards_SFX\Smoke_Break		38478
 	737968334	Typewriter_Loop_3	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\E9\{E98B86F6-D966-64D1-DD42-E114C57CE881}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text_Box\Typewriter_Loops\Typewriter_Loop_3		10037
 	741442873	Crow_01	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\BA\{BAE3EBAF-EDC4-1A04-447B-BC493891F493}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camp_SFX\Crows\Crow_01		35386
+	755802837	Scam	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\AD\{ADCBE2C7-FE3E-85DA-F60E-FA4146D49E03}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Trick_Cards_SFX\Scam		37447
 	766949846	Cell_SFX_Whisper-004	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\8D\{8DDBC58D-6D0C-D446-CC88-797F99FA956B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Whisper\Cell_SFX_Whisper-004		17716
 	768703265	Wind	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\7E\{7EF7E9FD-EAF5-67DB-CA07-B10E0E3C5D33}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Camp_SFX\Wind		2996785
 	778674395	Negative_Event	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\CC\{CC459060-28E4-BD52-BEFF-0C1EF4217E80}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Text_Box\Negative_Event		41907

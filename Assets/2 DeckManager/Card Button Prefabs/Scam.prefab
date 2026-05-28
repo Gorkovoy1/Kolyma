@@ -381,7 +381,7 @@ MonoBehaviour:
   cardDesc: duplicate one of your opponent's numbers
   title: {fileID: 3504012341692720679}
   description: {fileID: 6124115227254174888}
-  owned: 0
+  owned: 1
 --- !u!210 &3469586281095804976
 SortingGroup:
   m_ObjectHideFlags: 0

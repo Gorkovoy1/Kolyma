@@ -21,6 +21,7 @@ namespace AK
         static const AkUniqueID PLAY_ANDREYEV_SCARED = 1701334921U;
         static const AkUniqueID PLAY_ANDREYEV_SIGH = 1624799736U;
         static const AkUniqueID PLAY_ANDREYEV_SNARKY = 4095833387U;
+        static const AkUniqueID PLAY_BACKSTAB = 3471540763U;
         static const AkUniqueID PLAY_BARRACKS_AMBIENCE = 1410640362U;
         static const AkUniqueID PLAY_BARRACKS_BACKGROUND_SFX = 455065390U;
         static const AkUniqueID PLAY_BARRACKS_DOOR = 3205279810U;
@@ -59,6 +60,7 @@ namespace AK
         static const AkUniqueID PLAY_POISON = 3292663506U;
         static const AkUniqueID PLAY_PUNCH = 3946911806U;
         static const AkUniqueID PLAY_RIFLE_BUTT = 4115142720U;
+        static const AkUniqueID PLAY_SCAM = 169023714U;
         static const AkUniqueID PLAY_SCREEN_SFX = 1112221790U;
         static const AkUniqueID PLAY_SEARCH = 3421211826U;
         static const AkUniqueID PLAY_SETUP = 4244373777U;

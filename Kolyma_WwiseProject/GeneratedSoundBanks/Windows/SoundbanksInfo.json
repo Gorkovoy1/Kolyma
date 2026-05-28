@@ -130,7 +130,7 @@
     "Type": "User",
     "GUID": "{55336CF1-834F-40C1-A4A6-A74ED017DAFB}",
     "Language": "SFX",
-    "Hash": "{5F352B9D-81A2-3112-056E-5C662AB5F5CF}",
+    "Hash": "{96DAE77C-878A-7736-5807-0D8A87FA2883}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -432,6 +432,14 @@
       "CachePath": "F2/{F2CCFB30-AF0E-EC30-128D-FE632007B9E6}.wem"
      },
      {
+      "Id": "517895635",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Backstab.wav",
+      "CachePath": "98/{98CB8F3A-C587-D25D-1BED-B156DE5BB0BF}.wem"
+     },
+     {
       "Id": "543232325",
       "Language": "SFX",
       "Streaming": "false",
@@ -590,6 +598,14 @@
       "Location": "Memory",
       "ShortName": "crows-001.wav",
       "CachePath": "BA/{BAE3EBAF-EDC4-1A04-447B-BC493891F493}.wem"
+     },
+     {
+      "Id": "755802837",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Scam.wav",
+      "CachePath": "AD/{ADCBE2C7-FE3E-85DA-F60E-FA4146D49E03}.wem"
      },
      {
       "Id": "766949846",
@@ -866,6 +882,20 @@
       "MediaRefs": [
        {
         "Id": "623432057"
+       }
+      ]
+     },
+     {
+      "Id": "3471540763",
+      "Name": "Play_Backstab",
+      "ObjectPath": "\\Events\\Default Work Unit\\Battle\\Play_Backstab",
+      "GUID": "{D62C820B-A8A9-4368-9C82-27B8BA75BCD2}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.9331746",
+      "DurationMax": "1.9331746",
+      "MediaRefs": [
+       {
+        "Id": "517895635"
        }
       ]
      },
@@ -1409,6 +1439,20 @@
       ]
      },
      {
+      "Id": "169023714",
+      "Name": "Play_Scam",
+      "ObjectPath": "\\Events\\Default Work Unit\\Battle\\Play_Scam",
+      "GUID": "{A1485FCD-48F4-4A98-B0F6-D11681C00230}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.6280272",
+      "DurationMax": "2.6280272",
+      "MediaRefs": [
+       {
+        "Id": "755802837"
+       }
+      ]
+     },
+     {
       "Id": "1112221790",
       "Name": "Play_Screen_Sfx",
       "ObjectPath": "\\Events\\Default Work Unit\\Play_Screen_Sfx",
@@ -1630,6 +1674,6 @@
     ]
    }
   ],
-  "FileHash": "{DAEC5BC1-400F-D938-BA1D-60E63B745933}"
+  "FileHash": "{F67059BF-7CEE-3A71-D198-2C63BFAEA3D6}"
  }
 }
