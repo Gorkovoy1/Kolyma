@@ -448,7 +448,7 @@ public class CardPlace : MonoBehaviour,
         {
             foreach(GameObject g in NumberManager.instance.OPPpositives)
             {
-                if(g.GetComponent<NumberStats>().value == 2)
+                if(g.GetComponent<NumberStats>().value == 2 && discardedCards.Count > 0)
                 {
                     isPlayable = true;
                     break;
@@ -1431,7 +1431,7 @@ public class CardPlace : MonoBehaviour,
     {
         if (discardedCards.Count > 0)
         {
-            int randomIndex = Random.Range(0, discardedCards.Count);
+            int randomIndex = Random.Range(0, discardedCards.Count - 1);
             GameObject chosenCard = discardedCards[randomIndex];
             discardedCards.RemoveAt(randomIndex);
             chosenCard.GetComponent<CardPlace>().beingPlayed = false;
