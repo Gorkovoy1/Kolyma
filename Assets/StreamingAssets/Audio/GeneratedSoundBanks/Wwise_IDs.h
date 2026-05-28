@@ -43,11 +43,13 @@ namespace AK
         static const AkUniqueID PLAY_COUGH = 3234553616U;
         static const AkUniqueID PLAY_CROWS = 639442158U;
         static const AkUniqueID PLAY_DICE = 2213067183U;
+        static const AkUniqueID PLAY_DISCARD = 1805306256U;
         static const AkUniqueID PLAY_DOGS_BARK = 1892391772U;
         static const AkUniqueID PLAY_EMPTY_POCKETS = 1971906101U;
         static const AkUniqueID PLAY_EXTRA_WORK = 2887317804U;
         static const AkUniqueID PLAY_FIST = 2998547148U;
         static const AkUniqueID PLAY_IN_CAHOOTS = 1644609823U;
+        static const AkUniqueID PLAY_KNIFE = 2169194149U;
         static const AkUniqueID PLAY_MUSIC_BATTLE_1 = 1716731688U;
         static const AkUniqueID PLAY_MUSIC_BATTLE_2 = 1716731691U;
         static const AkUniqueID PLAY_MUSIC_CAMP_ARRIVAL = 238544951U;

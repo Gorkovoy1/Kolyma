@@ -592,6 +592,28 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Knife" ID="{E4C9BD66-AB27-4A61-B177-13B849785F9C}">
+							<ChildrenList>
+								<Action Name="" ID="{4A7FE6A9-A113-491C-A1FA-7C341AFC680B}" ShortID="287009425">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Knife" ID="{D13E019F-4EFC-456A-B957-416346EE53CB}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Discard" ID="{AEBA19C9-B0B3-4DF2-8B98-2D848F4D52C5}">
+							<ChildrenList>
+								<Action Name="" ID="{0ED553A2-7161-4011-B14E-B6F3C7773007}" ShortID="470887892">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Discard" ID="{7974BEA8-EEE1-432C-A087-F72B39781EBE}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Music" ID="{42294E82-4A8C-4F7B-B73A-27B9EEC12A24}" ShortID="234013611">

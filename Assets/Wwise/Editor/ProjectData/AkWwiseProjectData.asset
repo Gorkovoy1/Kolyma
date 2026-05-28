@@ -766,8 +766,8 @@ MonoBehaviour:
         guid: 89ee02cd5300ec46bf180709c9d34e73
       Path: Events\Default Work Unit\Battle\Play_Extra_Work
       maxAttenuation: 0
-      maxDuration: 3.0081406
-      minDuration: 3.0081406
+      maxDuration: 3
+      minDuration: 3
     - name: Play_Fist
       guid: b9bdf0c8bbb7a848a9cac7ad6750e27f
       id: 2998547148
@@ -1539,7 +1539,7 @@ MonoBehaviour:
     m_lastTime: -8584218757593755026
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 050000000600000007000000080000000900000020000000220000002b0000002c0000002d0000003b0100003c0100003e010000860100008701000089010000
+  ExpandedWaapiItemIds: 050000000600000007000000080000000900000020000000220000002b0000002c0000002d0000003b0100003c0100003e010000860100008701000089010000a8010000a9010000ab010000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

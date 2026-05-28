@@ -130,7 +130,7 @@
     "Type": "User",
     "GUID": "{55336CF1-834F-40C1-A4A6-A74ED017DAFB}",
     "Language": "SFX",
-    "Hash": "{96DAE77C-878A-7736-5807-0D8A87FA2883}",
+    "Hash": "{C1E5CFA8-3868-489D-FB3F-BAB6B65E79E1}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -214,6 +214,14 @@
       "Location": "Memory",
       "ShortName": "Dogs_Bark-002.wav",
       "CachePath": "07/{078CC312-9C25-5318-8B22-87DA80A8D64B}.wem"
+     },
+     {
+      "Id": "111599681",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ExtraWork3.wav",
+      "CachePath": "9A/{9AB3CDA6-1ACF-8740-AB3B-DC13EBFCC645}.wem"
      },
      {
       "Id": "121547243",
@@ -368,14 +376,6 @@
       "CachePath": "EE/{EEE5A62B-5CB3-4F17-37D4-5D5AA632EED7}.wem"
      },
      {
-      "Id": "384870138",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "ExtraWork.wav",
-      "CachePath": "BB/{BB7770D3-0465-E2A6-CFBC-CE7C035DB355}.wem"
-     },
-     {
       "Id": "402054562",
       "Language": "SFX",
       "Streaming": "false",
@@ -390,6 +390,14 @@
       "Location": "Memory",
       "ShortName": "Cell_SFX_Cough-003.wav",
       "CachePath": "1F/{1FB3F257-B60F-F65F-F839-0AB356B6A06F}.wem"
+     },
+     {
+      "Id": "434630941",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Knife.wav",
+      "CachePath": "EE/{EE5F360A-2011-A42F-DC70-19A4B7C4DC0E}.wem"
      },
      {
       "Id": "435260790",
@@ -726,6 +734,14 @@
       "Location": "Memory",
       "ShortName": "barracks_doors.wav",
       "CachePath": "BE/{BE6DA8AE-F236-8BAC-B53B-36C86AE55710}.wem"
+     },
+     {
+      "Id": "976493623",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Discard.wav",
+      "CachePath": "12/{121BB11A-B45C-F427-0C9B-20690DA57A6D}.wem"
      },
      {
       "Id": "1005253697",
@@ -1197,6 +1213,20 @@
       ]
      },
      {
+      "Id": "1805306256",
+      "Name": "Play_Discard",
+      "ObjectPath": "\\Events\\Default Work Unit\\Battle\\Play_Discard",
+      "GUID": "{AEBA19C9-B0B3-4DF2-8B98-2D848F4D52C5}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.769229",
+      "DurationMax": "1.769229",
+      "MediaRefs": [
+       {
+        "Id": "976493623"
+       }
+      ]
+     },
+     {
       "Id": "1892391772",
       "Name": "Play_Dogs_Bark",
       "ObjectPath": "\\Events\\Default Work Unit\\Play_Dogs_Bark",
@@ -1237,11 +1267,11 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Battle\\Play_Extra_Work",
       "GUID": "{CD02EE89-0053-46EC-BF18-0709C9D34E73}",
       "DurationType": "OneShot",
-      "DurationMin": "3.0081406",
-      "DurationMax": "3.0081406",
+      "DurationMin": "3",
+      "DurationMax": "3",
       "MediaRefs": [
        {
-        "Id": "384870138"
+        "Id": "111599681"
        }
       ]
      },
@@ -1270,6 +1300,20 @@
       "MediaRefs": [
        {
         "Id": "735517161"
+       }
+      ]
+     },
+     {
+      "Id": "2169194149",
+      "Name": "Play_Knife",
+      "ObjectPath": "\\Events\\Default Work Unit\\Battle\\Play_Knife",
+      "GUID": "{E4C9BD66-AB27-4A61-B177-13B849785F9C}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.785805",
+      "DurationMax": "2.785805",
+      "MediaRefs": [
+       {
+        "Id": "434630941"
        }
       ]
      },
@@ -1674,6 +1718,6 @@
     ]
    }
   ],
-  "FileHash": "{F67059BF-7CEE-3A71-D198-2C63BFAEA3D6}"
+  "FileHash": "{7D8FF87E-B05B-6841-460F-57B6F5153F34}"
  }
 }
