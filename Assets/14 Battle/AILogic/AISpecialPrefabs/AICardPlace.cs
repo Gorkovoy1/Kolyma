@@ -256,6 +256,8 @@ public class AICardPlace : MonoBehaviour //AICardPlace
 
     public void CheckPlayable()
     {
+        NumberManager.instance.recalculate = true;
+
         switch (specialCardType)
         {
             case SpecialCardType.CaughtRedHanded:
@@ -1395,7 +1397,7 @@ public class AICardPlace : MonoBehaviour //AICardPlace
         else if (specialCardType == SpecialCardType.Rotation)
         {
             int val = 0;
-            GameObject chosenCard = null;
+            GameObject chosenCard = NumberManager.instance.OPPnegatives[0];
             if(difficulty == Difficulty.AlwaysLargest || difficulty == Difficulty.AlwaysSmallest || difficulty == Difficulty.Random)
             {
                 int randomInt = Random.Range(0, NumberManager.instance.OPPnegatives.Count);
@@ -1864,6 +1866,7 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                                     selected = g;
                                 }
                             }
+                            StartCoroutine(CardSelectionController.instance.ChangeNumber(selected, 2, "opponent"));
                         }
                     }
                     else
@@ -1880,6 +1883,7 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                                 selected = g;
                             }
                         }
+                        StartCoroutine(CardSelectionController.instance.ChangeNumber(selected, 2, "player"));
                     }
                     break;
             }

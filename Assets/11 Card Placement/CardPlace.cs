@@ -92,6 +92,10 @@ public class CardPlace : MonoBehaviour,
             {
                 outline.gameObject.SetActive(false);
             }
+
+            //reset scale and description (unhovered)
+            this.correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            this.correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(false);
         }
         
     }
@@ -1356,7 +1360,13 @@ public class CardPlace : MonoBehaviour,
             g.GetComponent<AICardPlace>().correspondingImage.transform.localScale = new Vector3(0.17f, 0.17f, 0.17f);
             yield return new WaitForSeconds(1f);
             StartCoroutine(FlipOverCard(g));
-            yield return new WaitForSeconds(1.5f);
+            //1.5
+            yield return new WaitForSeconds(0.5f);
+            //flash trash can for 0.5f
+            g.GetComponent<AICardPlace>().correspondingImage.transform.Find("TRASHED").gameObject.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
+            g.GetComponent<AICardPlace>().correspondingImage.transform.Find("TRASHED").gameObject.SetActive(false);
+            yield return new WaitForSeconds(0.5f);
 
             StartCoroutine(LerpScaleDown(g.GetComponent<AICardPlace>().correspondingImage.transform, 0.2f));
             g.transform.SetParent(opponentDiscardZone.transform);
