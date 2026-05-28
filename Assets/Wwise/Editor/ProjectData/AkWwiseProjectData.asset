@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584216638324250394
+    m_lastTime: -8584216113379783415
     List:
     - name: Andreyev
       guid: a6c0eb1ff2ce024c96aeb202fa8b346a
@@ -711,6 +711,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 3.3864832
       minDuration: 3.3864832
+    - name: Play_Discard
+      guid: c919baaeb3b0f24d8b982d848f4d52c5
+      id: 1805306256
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Battle
+        ObjectType: 4
+        guid: bdeeec5070f65944895c732b68bd80b2
+      - ElementName: Play_Discard
+        ObjectType: 3
+        guid: c919baaeb3b0f24d8b982d848f4d52c5
+      Path: Events\Default Work Unit\Battle\Play_Discard
+      maxAttenuation: 0
+      maxDuration: 1.769229
+      minDuration: 1.769229
     - name: Play_Dogs_Bark
       guid: 2175ade8841a244cb5e4cba5416166f8
       id: 1892391772
@@ -808,6 +828,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 2.178322
       minDuration: 2.178322
+    - name: Play_Knife
+      guid: 66bdc9e427ab614ab17713b849785f9c
+      id: 2169194149
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Battle
+        ObjectType: 4
+        guid: bdeeec5070f65944895c732b68bd80b2
+      - ElementName: Play_Knife
+        ObjectType: 3
+        guid: 66bdc9e427ab614ab17713b849785f9c
+      Path: Events\Default Work Unit\Battle\Play_Knife
+      maxAttenuation: 0
+      maxDuration: 2.785805
+      minDuration: 2.785805
     - name: Play_Music_Battle_1
       guid: 79f1364d9174a74986b0498a998e6abc
       id: 1716731688
