@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using AK.Wwise;
 
 public class DeckCardButtonSmall : MonoBehaviour
 {
@@ -22,7 +23,8 @@ public class DeckCardButtonSmall : MonoBehaviour
 
     public void RemoveCardFromDeck()
     {
-        buttonReference.GetComponent<Button>().interactable = true;
+        AkSoundEngine.PostEvent("Play_Click_2", this.gameObject);
+        buttonReference.GetComponent<Image>().color = new Color32(200, 200, 200, 128); //darken cuz not in deck
         CardInventoryController.instance.playerDeck.Remove(buttonReference.GetComponent<DeckCardButton>().specialCardPrefab);
         Destroy(this.gameObject);
     }

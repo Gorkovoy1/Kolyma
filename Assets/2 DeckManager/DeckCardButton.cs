@@ -22,7 +22,10 @@ public class DeckCardButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public TextMeshProUGUI description;
 
     public bool owned = false;
-    
+
+    private GameObject sideButton;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +33,9 @@ public class DeckCardButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         title.text = cardName;
         description.text = cardDesc;
         sidePanel = GameObject.Find("SidePanel");
+
+        //darken because not added
+        this.GetComponent<Image>().color = new Color32(200, 200, 200, 128);
     }
 
     // Update is called once per frame
@@ -38,16 +44,28 @@ public class DeckCardButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         
     }
 
-    public void AddCardToDeck()
+    public void AddCardToDeck() //toggle card in deck
     {
         //check if deck has less than 10
-        if (CardInventoryController.instance.playerDeck.Count < 10)
+        if (CardInventoryController.instance.playerDeck.Count < 10 && !CardInventoryController.instance.playerDeck.Contains(specialCardPrefab))
         {
             CardInventoryController.instance.playerDeck.Add(specialCardPrefab);
-            GameObject sideButton = Instantiate(buttonPrefab, sidePanel.transform.GetChild(0));
+            sideButton = Instantiate(buttonPrefab, sidePanel.transform.GetChild(0));
             sideButton.GetComponentInChildren<TextMeshProUGUI>().text = cardName;
             sideButton.GetComponent<DeckCardButtonSmall>().buttonReference = this.gameObject;
-            this.GetComponent<Button>().interactable = false;
+            //this.GetComponent<Button>().interactable = false;
+            //lighten
+            this.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+
+            AkSoundEngine.PostEvent("Play_Click_2", this.gameObject);
+        }
+        else if(CardInventoryController.instance.playerDeck.Contains(specialCardPrefab)) //already in deck so remove it and darken (because its not in yoru deck)
+        {
+            CardInventoryController.instance.playerDeck.Remove(specialCardPrefab);
+            Destroy(sideButton);
+            //darken
+            this.GetComponent<Image>().color = new Color32(200, 200, 200, 128);
+
             AkSoundEngine.PostEvent("Play_Click_2", this.gameObject);
         }
     }
