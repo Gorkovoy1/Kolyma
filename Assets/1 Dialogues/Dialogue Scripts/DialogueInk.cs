@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine.UI;
 using System;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public static class TransformExtensions
 {
@@ -932,7 +933,9 @@ public class DialogueInk : MonoBehaviour
         PlayerPrefs.DeleteKey("SavedInkState");
         //AkSoundEngine.StopAll();
         //SceneManager.LoadScene(nextSceneNumber);
-        SceneLoader.instance.sceneName = SceneManager.GetSceneByBuildIndex(nextSceneNumber).name;
+        string path = SceneUtility.GetScenePathByBuildIndex(nextSceneNumber);
+        string sceneName = System.IO.Path.GetFileNameWithoutExtension(path);
+        SceneLoader.instance.sceneName = sceneName;
         SceneLoader.instance.triggerLoad = true;
 
     }

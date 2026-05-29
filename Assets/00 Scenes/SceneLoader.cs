@@ -43,6 +43,8 @@ public class SceneLoader : MonoBehaviour
 
     IEnumerator LoadNextScene(string sceneName)
     {
+        sceneName = sceneName;
+
         StartCoroutine(RTPCFader.instance.FadeOut());
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName); 
