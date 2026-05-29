@@ -117,6 +117,7 @@ public class HandController : MonoBehaviour
             }
             else
             {
+                opponentSpecialDeck[0].GetComponent<AICardPlace>().delayImageSpawn = false;
                 Instantiate(opponentSpecialDeck[0], opponentHand.transform);
                 opponentSpecialDeck.RemoveAt(0);
             }
@@ -145,6 +146,7 @@ public class HandController : MonoBehaviour
 
             
         }
+        yield return null;
         foreach (Transform child in opponentHand.transform)
         {
             AkSoundEngine.PostEvent("Play_Trick_Card", sfxObj);

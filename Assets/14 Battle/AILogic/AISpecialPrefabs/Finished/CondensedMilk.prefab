@@ -168,7 +168,7 @@ MonoBehaviour:
   isDragging: 0
   parentReturnTo: {fileID: 0}
   imagePrefab: {fileID: 2369653572934920453, guid: 96fefc52d6b0cb949abc4e94c63b39b9, type: 3}
-  correspondingImage: {fileID: 2369653572934920453, guid: 96fefc52d6b0cb949abc4e94c63b39b9, type: 3}
+  correspondingImage: {fileID: 0}
   imagesParent: {fileID: 0}
   hoverOffset: 75
   hovering: 0
@@ -196,3 +196,4 @@ MonoBehaviour:
   personalityType: 4
   points: 0
   selfValue: 0
+  delayImageSpawn: 0

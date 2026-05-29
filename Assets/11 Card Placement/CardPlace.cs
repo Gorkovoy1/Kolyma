@@ -415,12 +415,20 @@ public class CardPlace : MonoBehaviour,
             {
                 isPlayable = true;
             }
+            else
+            {
+                isPlayable = false;
+            }
         }
         else if (specialCardType == SpecialCardType.EmptyPockets)
         {
             if (NumberManager.instance.OPPblues.Count > 0)
             {
                 isPlayable = true;
+            }
+            else
+            {
+                isPlayable = false;
             }
 
         }
@@ -430,12 +438,20 @@ public class CardPlace : MonoBehaviour,
             {
                 isPlayable = true;
             }
+            else
+            {
+                isPlayable = false;
+            }
         }
         else if (specialCardType == SpecialCardType.RifleButt)
         {
             if (NumberManager.instance.OPPreds.Count > 0)
             {
                 isPlayable = true;
+            }
+            else
+            {
+                isPlayable = false;
             }
         }
         else if (specialCardType == SpecialCardType.SmokeBreak)
@@ -445,7 +461,11 @@ public class CardPlace : MonoBehaviour,
             {
                 isPlayable = true;
             }
-            
+            else
+            {
+                isPlayable = false;
+            }
+
 
         }
         else if (specialCardType == SpecialCardType.Weakness)
@@ -456,6 +476,10 @@ public class CardPlace : MonoBehaviour,
                 {
                     isPlayable = true;
                     break;
+                }
+                else
+                {
+                    isPlayable = false;
                 }
             }
 
@@ -471,6 +495,10 @@ public class CardPlace : MonoBehaviour,
             {
                 isPlayable = true;
             }
+            else
+            {
+                isPlayable = false;
+            }
 
         }
         else if (specialCardType == SpecialCardType.Bribe) 
@@ -480,13 +508,21 @@ public class CardPlace : MonoBehaviour,
             {
                 isPlayable = true;
             }
-            
+            else
+            {
+                isPlayable = false;
+            }
+
         }
         else if (specialCardType == SpecialCardType.Fist)
         {
             if (NumberManager.instance.OPPblues.Count > 0 || NumberManager.instance.blues.Count > 0)
             {
                 isPlayable = true;
+            }
+            else
+            {
+                isPlayable = false;
             }
 
         }
@@ -516,6 +552,10 @@ public class CardPlace : MonoBehaviour,
             {
                 isPlayable = true;
             }
+            else
+            {
+                isPlayable = false;
+            }
 
         }
         else if (specialCardType == SpecialCardType.Scam)
@@ -529,6 +569,10 @@ public class CardPlace : MonoBehaviour,
             {
                 isPlayable = true;
             }
+            else
+            {
+                isPlayable = false;
+            }
 
         }
         else if (specialCardType == SpecialCardType.Rotation)
@@ -537,6 +581,10 @@ public class CardPlace : MonoBehaviour,
             {
                 isPlayable = true;
             }
+            else
+            {
+                isPlayable = false;
+            }
 
         }
         else if (specialCardType == SpecialCardType.DirtyTrickIV)
@@ -544,6 +592,10 @@ public class CardPlace : MonoBehaviour,
             if (NumberManager.instance.OPPyellows.Count > 0)
             {
                 isPlayable = true;
+            }
+            else
+            {
+                isPlayable = false;
             }
 
         }
@@ -555,6 +607,10 @@ public class CardPlace : MonoBehaviour,
                 {
                     isPlayable = true;
                     break;
+                }
+                else
+                {
+                    isPlayable = false;
                 }
             }
 
@@ -571,6 +627,10 @@ public class CardPlace : MonoBehaviour,
             {
                 isPlayable = true;
             }
+            else
+            {
+                isPlayable = false;
+            }
 
         }
         else if (specialCardType == SpecialCardType.ThereThere)
@@ -578,6 +638,10 @@ public class CardPlace : MonoBehaviour,
             if (NumberManager.instance.duplicates.Count > 0)
             {
                 isPlayable = true;
+            }
+            else
+            {
+                isPlayable = false;
             }
 
         }
@@ -596,6 +660,10 @@ public class CardPlace : MonoBehaviour,
                     isPlayable = true;
                     break;
                 }
+                else
+                {
+                    isPlayable = false;
+                }
             }
             foreach (GameObject g in NumberManager.instance.OPPallNumbers)
             {
@@ -603,6 +671,10 @@ public class CardPlace : MonoBehaviour,
                 {
                     isPlayable = true;
                     break;
+                }
+                else
+                {
+                    isPlayable = false;
                 }
             }
 
@@ -613,6 +685,10 @@ public class CardPlace : MonoBehaviour,
             {
                 isPlayable = true;
             }
+            else
+            {
+                isPlayable = false;
+            }
 
         }
         else if (specialCardType == SpecialCardType.DirtyTrickII)
@@ -621,6 +697,10 @@ public class CardPlace : MonoBehaviour,
             {
                 isPlayable = true;
             }
+            else
+            {
+                isPlayable = false;
+            }
 
         }
         else if (specialCardType == SpecialCardType.DirtyTrickIII)
@@ -628,6 +708,10 @@ public class CardPlace : MonoBehaviour,
             if (NumberManager.instance.OPPblues.Count > 0 || NumberManager.instance.blues.Count > 0)
             {
                 isPlayable = true;
+            }
+            else
+            {
+                isPlayable = false;
             }
 
         }
@@ -642,6 +726,10 @@ public class CardPlace : MonoBehaviour,
             {
                 isPlayable = true;
             }
+            else
+            {
+                isPlayable = false;
+            }
 
         }
         else if (specialCardType == SpecialCardType.Gossip)
@@ -654,6 +742,10 @@ public class CardPlace : MonoBehaviour,
             if(NumberManager.instance.OPPnegatives.Count > 0)
             {
                 isPlayable = true;
+            }
+            else
+            {
+                isPlayable = false;
             }
 
         }
@@ -679,6 +771,10 @@ public class CardPlace : MonoBehaviour,
             {
                 isPlayable = true;
             }
+            else
+            {
+                isPlayable = false;
+            }
 
         }
         else if (specialCardType == SpecialCardType.Scratch)
@@ -688,6 +784,10 @@ public class CardPlace : MonoBehaviour,
             {
                 isPlayable = true;
             }
+            else
+            {
+                isPlayable = false;
+            }
         }
         else if (specialCardType == SpecialCardType.Leftovers)
         {
@@ -695,6 +795,10 @@ public class CardPlace : MonoBehaviour,
             if(OpponentStats.instance.discarded)
             {
                 isPlayable = true;
+            }
+            else
+            {
+                isPlayable = false;
             }
 
         }
@@ -709,6 +813,10 @@ public class CardPlace : MonoBehaviour,
             if(OpponentStats.instance.discarded)
             {
                 isPlayable = true;
+            }
+            else
+            {
+                isPlayable = false;
             }
 
         }
@@ -747,6 +855,10 @@ public class CardPlace : MonoBehaviour,
             if(NumberManager.instance.allNumbers.Count > 5)
             {
                 isPlayable = true;
+            }
+            else
+            {
+                isPlayable = false;
             }
 
         }

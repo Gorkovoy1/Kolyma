@@ -345,102 +345,102 @@ public class CardSelectionController : MonoBehaviour
     {
         if (!g.gameObject.GetComponent<CardPlace>().isFlipped)
         {
-            if (g.gameObject.GetComponent<NumberStats>().value == -5)
+            if (g.gameObject.GetComponent<NumberStats>().originalValue == -5)
             {
                 g.gameObject.GetComponent<RectTransform>().pivot = new Vector2(0.01f, g.gameObject.GetComponent<RectTransform>().pivot.y);
             }
-            if (g.gameObject.GetComponent<NumberStats>().value == -4)
+            if (g.gameObject.GetComponent<NumberStats>().originalValue == -4)
             {
                 g.gameObject.GetComponent<RectTransform>().pivot = new Vector2(-0.25f, g.gameObject.GetComponent<RectTransform>().pivot.y);
             }
-            if (g.gameObject.GetComponent<NumberStats>().value == -3)
+            if (g.gameObject.GetComponent<NumberStats>().originalValue == -3)
             {
                 g.gameObject.GetComponent<RectTransform>().pivot = new Vector2(-0.65f, g.gameObject.GetComponent<RectTransform>().pivot.y);
             }
-            if (g.gameObject.GetComponent<NumberStats>().value == -2)
+            if (g.gameObject.GetComponent<NumberStats>().originalValue == -2)
             {
                 g.gameObject.GetComponent<RectTransform>().pivot = new Vector2(-1.5f, g.gameObject.GetComponent<RectTransform>().pivot.y);
             }
-            if (g.gameObject.GetComponent<NumberStats>().value == 2)
+            if (g.gameObject.GetComponent<NumberStats>().originalValue == 2)
             {
                 g.gameObject.GetComponent<RectTransform>().pivot = new Vector2(2.55f, g.gameObject.GetComponent<RectTransform>().pivot.y);
             }
-            if (g.gameObject.GetComponent<NumberStats>().value == 3)
+            if (g.gameObject.GetComponent<NumberStats>().originalValue == 3)
             {
                 g.gameObject.GetComponent<RectTransform>().pivot = new Vector2(1.65f, g.gameObject.GetComponent<RectTransform>().pivot.y);
             }
-            if (g.gameObject.GetComponent<NumberStats>().value == 4)
+            if (g.gameObject.GetComponent<NumberStats>().originalValue == 4)
             {
                 g.gameObject.GetComponent<RectTransform>().pivot = new Vector2(1.25f, g.gameObject.GetComponent<RectTransform>().pivot.y);
             }
-            if (g.gameObject.GetComponent<NumberStats>().value == 5)
+            if (g.gameObject.GetComponent<NumberStats>().originalValue == 5)
             {
                 g.gameObject.GetComponent<RectTransform>().pivot = new Vector2(0.95f, g.gameObject.GetComponent<RectTransform>().pivot.y);
             }
-            if (g.gameObject.GetComponent<NumberStats>().value == 6)
+            if (g.gameObject.GetComponent<NumberStats>().originalValue == 6)
             {
                 g.gameObject.GetComponent<RectTransform>().pivot = new Vector2(0.82f, g.gameObject.GetComponent<RectTransform>().pivot.y);
             }
-            if (g.gameObject.GetComponent<NumberStats>().value == 7)
+            if (g.gameObject.GetComponent<NumberStats>().originalValue == 7)
             {
                 g.gameObject.GetComponent<RectTransform>().pivot = new Vector2(0.7f, g.gameObject.GetComponent<RectTransform>().pivot.y);
             }
-            if (g.gameObject.GetComponent<NumberStats>().value == 8)
+            if (g.gameObject.GetComponent<NumberStats>().originalValue == 8)
             {
                 g.gameObject.GetComponent<RectTransform>().pivot = new Vector2(0.62f, g.gameObject.GetComponent<RectTransform>().pivot.y);
             }
-            if (g.gameObject.GetComponent<NumberStats>().value == 9)
+            if (g.gameObject.GetComponent<NumberStats>().originalValue == 9)
             {
                 g.gameObject.GetComponent<RectTransform>().pivot = new Vector2(0.55f, g.gameObject.GetComponent<RectTransform>().pivot.y);
             }
         }
         else
         {
-            if (g.gameObject.GetComponent<NumberStats>().value == -5)
+            if (g.gameObject.GetComponent<NumberStats>().originalValue == -5)
             {
                 g.gameObject.GetComponent<RectTransform>().pivot = new Vector2(0.99f, g.gameObject.GetComponent<RectTransform>().pivot.y);
             }
-            if (g.gameObject.GetComponent<NumberStats>().value == -4)
+            if (g.gameObject.GetComponent<NumberStats>().originalValue == -4)
             {
                 g.gameObject.GetComponent<RectTransform>().pivot = new Vector2(1.25f, g.gameObject.GetComponent<RectTransform>().pivot.y);
             }
-            if (g.gameObject.GetComponent<NumberStats>().value == -3)
+            if (g.gameObject.GetComponent<NumberStats>().originalValue == -3)
             {
                 g.gameObject.GetComponent<RectTransform>().pivot = new Vector2(1.66f, g.gameObject.GetComponent<RectTransform>().pivot.y);
             }
-            if (g.gameObject.GetComponent<NumberStats>().value == -2)
+            if (g.gameObject.GetComponent<NumberStats>().originalValue == -2)
             {
                 g.gameObject.GetComponent<RectTransform>().pivot = new Vector2(2.57f, g.gameObject.GetComponent<RectTransform>().pivot.y);
             }
-            if (g.gameObject.GetComponent<NumberStats>().value == 2)
+            if (g.gameObject.GetComponent<NumberStats>().originalValue == 2)
             {
                 g.gameObject.GetComponent<RectTransform>().pivot = new Vector2(-1.56f, g.gameObject.GetComponent<RectTransform>().pivot.y);
             }
-            if (g.gameObject.GetComponent<NumberStats>().value == 3)
+            if (g.gameObject.GetComponent<NumberStats>().originalValue == 3)
             {
                 g.gameObject.GetComponent<RectTransform>().pivot = new Vector2(-0.68f, g.gameObject.GetComponent<RectTransform>().pivot.y);
             }
-            if (g.gameObject.GetComponent<NumberStats>().value == 4)
+            if (g.gameObject.GetComponent<NumberStats>().originalValue == 4)
             {
                 g.gameObject.GetComponent<RectTransform>().pivot = new Vector2(-0.25f, g.gameObject.GetComponent<RectTransform>().pivot.y);
             }
-            if (g.gameObject.GetComponent<NumberStats>().value == 5)
+            if (g.gameObject.GetComponent<NumberStats>().originalValue == 5)
             {
                 g.gameObject.GetComponent<RectTransform>().pivot = new Vector2(0.01f, g.gameObject.GetComponent<RectTransform>().pivot.y);
             }
-            if (g.gameObject.GetComponent<NumberStats>().value == 6)
+            if (g.gameObject.GetComponent<NumberStats>().originalValue == 6)
             {
                 g.gameObject.GetComponent<RectTransform>().pivot = new Vector2(0.18f, g.gameObject.GetComponent<RectTransform>().pivot.y);
             }
-            if (g.gameObject.GetComponent<NumberStats>().value == 7)
+            if (g.gameObject.GetComponent<NumberStats>().originalValue == 7)
             {
                 g.gameObject.GetComponent<RectTransform>().pivot = new Vector2(0.3f, g.gameObject.GetComponent<RectTransform>().pivot.y);
             }
-            if (g.gameObject.GetComponent<NumberStats>().value == 8)
+            if (g.gameObject.GetComponent<NumberStats>().originalValue == 8)
             {
                 g.gameObject.GetComponent<RectTransform>().pivot = new Vector2(0.38f, g.gameObject.GetComponent<RectTransform>().pivot.y);
             }
-            if (g.gameObject.GetComponent<NumberStats>().value == 9)
+            if (g.gameObject.GetComponent<NumberStats>().originalValue == 9)
             {
                 g.gameObject.GetComponent<RectTransform>().pivot = new Vector2(0.45f, g.gameObject.GetComponent<RectTransform>().pivot.y);
             }

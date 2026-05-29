@@ -168,7 +168,7 @@ MonoBehaviour:
   isDragging: 0
   parentReturnTo: {fileID: 0}
   imagePrefab: {fileID: 7503974184306191932, guid: e1460c07eb6a5e649924317a43cbe352, type: 3}
-  correspondingImage: {fileID: 7503974184306191932, guid: e1460c07eb6a5e649924317a43cbe352, type: 3}
+  correspondingImage: {fileID: 0}
   imagesParent: {fileID: 0}
   hoverOffset: 75
   hovering: 0

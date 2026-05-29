@@ -64,7 +64,7 @@ public class AICardPlace : MonoBehaviour //AICardPlace
     public bool delayImageSpawn = false;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         
         discardUpdated = false;
@@ -84,6 +84,7 @@ public class AICardPlace : MonoBehaviour //AICardPlace
             imagesParent = this.GetComponentInParent<HandController>().imagesParent;
             correspondingImage = Instantiate(imagePrefab, imagesParent);
             correspondingImage.GetComponent<AISpecialCardMovement>().target = this.gameObject.GetComponent<RectTransform>();
+            correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
             defaultMat = correspondingImage.GetComponent<Image>().material;
 
             //start flipped
@@ -103,6 +104,7 @@ public class AICardPlace : MonoBehaviour //AICardPlace
         imagesParent = this.GetComponentInParent<HandController>().imagesParent;
         correspondingImage = Instantiate(imagePrefab, imagesParent);
         correspondingImage.GetComponent<AISpecialCardMovement>().target = this.gameObject.GetComponent<RectTransform>();
+        correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         defaultMat = correspondingImage.GetComponent<Image>().material;
 
         //start flipped
@@ -265,12 +267,20 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                 {
                     isPlayable = true;
                 }
+                else
+                {
+                    isPlayable = false;
+                }
                 break;
 
             case SpecialCardType.EmptyPockets:
                 if (NumberManager.instance.blues.Count > 0 && this.GetComponentInParent<HandController>().playerSpecialHand.Count > 0)
                 {
                     isPlayable = true;
+                }
+                else
+                {
+                    isPlayable = false;
                 }
                 break;
 
@@ -279,6 +289,10 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                 {
                     isPlayable = true;
                 }
+                else
+                {
+                    isPlayable = false;
+                }
                 break;
 
             case SpecialCardType.RifleButt:
@@ -286,12 +300,20 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                 {
                     isPlayable = true;
                 }
+                else
+                {
+                    isPlayable = false;
+                }
                 break;
 
             case SpecialCardType.SmokeBreak:
                 if (discardedCards.Count > 0)
                 {
                     isPlayable = true;
+                }
+                else
+                {
+                    isPlayable = false;
                 }
                 break;
 
@@ -304,6 +326,10 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                         {
                             isPlayable = true;
                             break;
+                        }
+                        else
+                        {
+                            isPlayable = false;
                         }
                     }
                 }
@@ -318,6 +344,10 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                 {
                     isPlayable = true;
                 }
+                else
+                {
+                    isPlayable = false;
+                }
                 break;
 
             case SpecialCardType.Bribe:
@@ -325,12 +355,20 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                 {
                     isPlayable = true;
                 }
+                else
+                {
+                    isPlayable = false;
+                }
                 break;
 
             case SpecialCardType.Fist:
                 if (NumberManager.instance.OPPblues.Count > 0 || NumberManager.instance.blues.Count > 0)
                 {
                     isPlayable = true;
+                }
+                else
+                {
+                    isPlayable = false;
                 }
                 break;
 
@@ -351,12 +389,20 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                 {
                     isPlayable = true;
                 }
+                else
+                {
+                    isPlayable = false;
+                }
                 break;
 
             case SpecialCardType.BackstabDiscard:
                 if (PlayerStats.instance.discarded)
                 {
                     isPlayable = true;
+                }
+                else
+                {
+                    isPlayable = false;
                 }
                 break;
 
@@ -369,6 +415,10 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                 {
                     isPlayable = true;
                 }
+                else
+                {
+                    isPlayable = false;
+                }
                 break;
 
             case SpecialCardType.Rotation:
@@ -376,12 +426,20 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                 {
                     isPlayable = true;
                 }
+                else
+                {
+                    isPlayable = false;
+                }
                 break;
 
             case SpecialCardType.DirtyTrickIV:
                 if (NumberManager.instance.yellows.Count > 0)
                 {
                     isPlayable = true;
+                }
+                else
+                {
+                    isPlayable = false;
                 }
                 break;
 
@@ -392,6 +450,10 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                     {
                         isPlayable = true;
                         break;
+                    }
+                    else
+                    {
+                        isPlayable = false;
                     }
                 }
                 break;
@@ -405,12 +467,20 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                 {
                     isPlayable = true;
                 }
+                else
+                {
+                    isPlayable = false;
+                }
                 break;
 
             case SpecialCardType.ThereThere:
                 if (NumberManager.instance.OPPduplicates.Count > 0)
                 {
                     isPlayable = true;
+                }
+                else
+                {
+                    isPlayable = false;
                 }
                 break;
 
@@ -426,6 +496,10 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                         isPlayable = true;
                         break;
                     }
+                    else
+                    {
+                        isPlayable = false;
+                    }
                 }
                 foreach (GameObject g in NumberManager.instance.OPPallNumbers)
                 {
@@ -433,6 +507,10 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                     {
                         isPlayable = true;
                         break;
+                    }
+                    else
+                    {
+                        isPlayable = false;
                     }
                 }
                 break;
@@ -442,6 +520,10 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                 {
                     isPlayable = true;
                 }
+                else
+                {
+                    isPlayable = false;
+                }
                 break;
 
             case SpecialCardType.DirtyTrickII:
@@ -449,12 +531,20 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                 {
                     isPlayable = true;
                 }
+                else
+                {
+                    isPlayable = false;
+                }
                 break;
 
             case SpecialCardType.DirtyTrickIII:
                 if (NumberManager.instance.OPPblues.Count > 0 || NumberManager.instance.blues.Count > 0)
                 {
                     isPlayable = true;
+                }
+                else
+                {
+                    isPlayable = false;
                 }
                 break;
 
@@ -467,6 +557,10 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                 {
                     isPlayable = true;
                 }
+                else
+                {
+                    isPlayable = false;
+                }
                 break;
 
             case SpecialCardType.Gossip:
@@ -478,6 +572,10 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                 {
                     isPlayable = true;
                 }
+                else
+                {
+                    isPlayable = false;
+                }
                 break;
 
             case SpecialCardType.SleeplessNight:
@@ -485,12 +583,20 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                 {
                     isPlayable = true;
                 }
+                else
+                {
+                    isPlayable = false;
+                }
                 break;
 
             case SpecialCardType.Payback:
                 if (PlayerStats.instance.gave)
                 {
                     isPlayable = true;
+                }
+                else
+                {
+                    isPlayable = false;
                 }
                 break;
 
@@ -503,6 +609,10 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                 {
                     isPlayable = true;
                 }
+                else
+                {
+                    isPlayable = false;
+                }
                 break;
 
             case SpecialCardType.Scratch:
@@ -510,12 +620,20 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                 {
                     isPlayable = true;
                 }
+                else
+                {
+                    isPlayable = false;
+                }
                 break;
 
             case SpecialCardType.Leftovers:
                 if (PlayerStats.instance.discarded)
                 {
                     isPlayable = true;
+                }
+                else
+                {
+                    isPlayable = false;
                 }
                 break;
 
@@ -527,6 +645,10 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                 if (PlayerStats.instance.discarded)
                 {
                     isPlayable = true;
+                }
+                else
+                {
+                    isPlayable = false;
                 }
                 break;
 
@@ -558,6 +680,10 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                 if (NumberManager.instance.OPPallNumbers.Count > 5)
                 {
                     isPlayable = true;
+                }
+                else
+                {
+                    isPlayable = false;
                 }
                 break;
 

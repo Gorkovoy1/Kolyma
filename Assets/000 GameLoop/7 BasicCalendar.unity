@@ -2964,7 +2964,7 @@ MonoBehaviour:
   - {fileID: 1321924825}
   year: 1938
   month: 11
-  day: 30
+  day: 27
   monthWheel: {fileID: 202202390}
   yearWheel: {fileID: 1321924825}
   spin: 0
