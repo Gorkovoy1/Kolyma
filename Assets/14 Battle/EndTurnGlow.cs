@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class EndTurnGlow : MonoBehaviour
 {
@@ -13,15 +14,26 @@ public class EndTurnGlow : MonoBehaviour
     public float timeOne;
     public float timeTwo;
     public bool timerStart;
+    private TextMeshProUGUI buttonText;
 
 
     void Start()
     {
         SetAlpha(0f);
+        buttonText = this.GetComponentInChildren<TextMeshProUGUI>();
     }
 
     void Update()
     {
+        if(TurnManager.instance.isPlayerTurn)
+        {
+            buttonText.text = "END TURN";
+        }
+        else
+        {
+            buttonText.text = "OPP TURN";
+        }
+
         if(TurnManager.instance.playerPlayedCard && !isFlashing && !timerStart)
         {
             timerStart = true;

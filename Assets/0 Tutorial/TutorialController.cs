@@ -250,7 +250,7 @@ public class TutorialController : MonoBehaviour
             {
                 narrator = true,
                 setPosition = new Vector2(-138, -167),
-                message = "Now it's your turn. Select Thick Woolen Coat and give your opponent +2.",
+                message = "Now it's your turn. Drag Thick Woolen Coat onto the table to give your opponent +2.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
@@ -280,7 +280,7 @@ public class TutorialController : MonoBehaviour
             new TutorialStepData
             {
                 setPosition = new Vector2(-138, -167),
-                message = "Don't forget to end your turn.",
+                message = "Don't forget to end your turn. And if you can't see the table, use right click to show/hide your hand.",
                 requireContinue = true,
                 afterContinue = () =>
                 {

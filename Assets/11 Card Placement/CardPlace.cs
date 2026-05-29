@@ -1451,7 +1451,14 @@ public class CardPlace : MonoBehaviour,
             g.transform.SetParent(opponentDiscardZone.transform.parent, false);
             g.GetComponent<RectTransform>().anchoredPosition = new Vector2(parentRect.rect.width / 2f, -parentRect.rect.height / 2f);
             g.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.17f, 0.17f, 0.17f);
-            yield return new WaitForSeconds(1.5f);
+            //1.5
+            yield return new WaitForSeconds(0.5f);
+            //flash trash can for 0.5f
+            AkSoundEngine.PostEvent("Play_Discard", playerHand.GetComponentInParent<HandController>().sfxObj);
+            g.GetComponent<CardPlace>().correspondingImage.transform.Find("TRASHED").gameObject.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
+            g.GetComponent<CardPlace>().correspondingImage.transform.Find("TRASHED").gameObject.SetActive(false);
+            yield return new WaitForSeconds(0.5f);
 
             StartCoroutine(LerpScaleDown(g.GetComponent<CardPlace>().correspondingImage.transform, 0.2f));
             g.transform.SetParent(playerDiscardZone.transform);
@@ -1475,6 +1482,7 @@ public class CardPlace : MonoBehaviour,
             //1.5
             yield return new WaitForSeconds(0.5f);
             //flash trash can for 0.5f
+            AkSoundEngine.PostEvent("Play_Discard", playerHand.GetComponentInParent<HandController>().sfxObj);
             g.GetComponent<AICardPlace>().correspondingImage.transform.Find("TRASHED").gameObject.SetActive(true);
             yield return new WaitForSeconds(0.5f);
             g.GetComponent<AICardPlace>().correspondingImage.transform.Find("TRASHED").gameObject.SetActive(false);
