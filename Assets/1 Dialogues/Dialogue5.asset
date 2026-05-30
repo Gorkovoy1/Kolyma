@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dialogue5
   m_EditorClassIdentifier: 
   blackScreen: {fileID: 6951113013818776585, guid: 9077cdf7abd75854cbf5e2f527751988, type: 3}
-  bg: {fileID: 21300000, guid: 7fc39a025da054b489fc0b8b41684476, type: 3}
+  bg: {fileID: 21300000, guid: c88bf03b4c770664c9648da7868140f3, type: 3}
   npcBlack: {fileID: 21300000, guid: 3fbf797cc92f8444eb0c84dfbf7e1e9f, type: 3}
   npcColor: {fileID: 21300000, guid: bbefc7f5f31331e4594a8b01f5b15d75, type: 3}
   npcName: Prisoner
@@ -21,7 +21,7 @@ MonoBehaviour:
   line2: 
   music: Play_SIlence
   inkfile: {fileID: 4900000, guid: 7e08201bc7e93df46ba5f8781922b5cb, type: 3}
-  nextScene: 0
+  nextScene: 11
   ambient: {fileID: 4925410152361900339, guid: cc911a0777c28134b8d54a466e8a714d, type: 3}
   bganim: {fileID: 1886955173267799490, guid: ea9cd2c1747197a4e894cab48ebe2efd, type: 3}
   sfx: {fileID: 4326509118235825067, guid: 4c07bb8bd7e408f44a73158d1af7a38b, type: 3}
