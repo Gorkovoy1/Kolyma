@@ -271,7 +271,7 @@ public class TutorialController : MonoBehaviour
                     //set thick woolen coat as playable
                     
                     
-                    tutorialText.color = Color.white;
+                    tutorialText.color = Color.black;
 
                 },
                 //wait until thick woolen coat is played
@@ -279,12 +279,15 @@ public class TutorialController : MonoBehaviour
             },
             new TutorialStepData
             {
+                narrator = true,
                 setPosition = new Vector2(-138, -167),
                 message = "Don't forget to end your turn. And if you can't see the table, use right click to show/hide your hand.",
                 requireContinue = true,
                 afterContinue = () =>
                 {
                     endTurnButton.SetActive(true);
+
+                    tutorialText.color = Color.white;
                 },
                 waitUntil = () => endTurnButton.GetComponent<TestingCards>().pressed,
             },
