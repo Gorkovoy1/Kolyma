@@ -981,6 +981,12 @@ MonoBehaviour:
   transitionTime: 1
   levelIndex: 8
   isTableScene: 0
+  isFlashing: 0
+  mat: {fileID: 0}
+  outlinePropertyName: _ImageOutline
+  elapsedTime: 0
+  fadeDuration: 1
+  onGlow: 0
 --- !u!114 &553575352
 MonoBehaviour:
   m_ObjectHideFlags: 0

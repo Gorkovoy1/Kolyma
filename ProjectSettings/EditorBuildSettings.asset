@@ -41,9 +41,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/00 Scenes/10 BattleSceneJ.unity
     guid: 103377547bcfa374b8e9e67657367f09
-  - enabled: 1
-    path: Assets/00 Scenes/11 BorisBarracks.unity
-    guid: bf6d3edcf826b444ab25377b6cb818ec
   - enabled: 0
     path: Assets/000 GameLoop/2 Hub.unity
     guid: 18aac730600907e4a963bc041bce0b68
