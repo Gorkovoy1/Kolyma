@@ -13,18 +13,50 @@ public class MasterDateSpinner : MonoBehaviour
     public DateTime startDate;
     public DateWheel monthWheel;
     public DateWheel yearWheel;
+    public bool firstTime = false;
 
     public bool spin = false;
     // Start is called before the first frame update
     void Start()
     {
-        startDate = new DateTime(year, month, day);
+        if (PlayerPrefs.HasKey("StartDate"))
+        {
+            // Load previous date
+            startDate = DateTime.Parse(
+                PlayerPrefs.GetString("StartDate")
+            );
 
-        foreach(DateWheel dateWheel in dateWheels)
+            // Advance one week
+            startDate = startDate.AddDays(7);
+        }
+        else
+        {
+            // First launch
+            startDate = new DateTime(year, month, day);
+        }
+
+        // Save updated date
+        PlayerPrefs.SetString(
+            "StartDate",
+            startDate.ToString("O")
+        );
+
+        PlayerPrefs.Save();
+
+        foreach (DateWheel dateWheel in dateWheels)
         {
             dateWheel.startDate = startDate;
             dateWheel.InitializeDate();
         }
+
+        StartCoroutine(DelaySpin());
+    }
+
+    IEnumerator DelaySpin()
+    {
+        yield return new WaitForSeconds(1f);
+        spin = true;
+        UIPanelManager.instance.weekNumber++;
     }
 
     // Update is called once per frame

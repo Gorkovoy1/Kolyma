@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class UIPanelManager : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class UIPanelManager : MonoBehaviour
 
     public Transform AnimTextParent;
 
+    public int weekNumber = 1;
+    [SerializeField] TextMeshProUGUI weekText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +32,7 @@ public class UIPanelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        weekText.text = "Week " + weekNumber;
     }
 
     public void SetState(UIState newState)

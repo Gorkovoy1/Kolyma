@@ -104,7 +104,9 @@ public class HighlightObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
     
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(!isTableScene)
+        isFlashing = false;
+
+        if (!isTableScene)
         {
             Debug.Log("go to scene");
 

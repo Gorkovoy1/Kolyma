@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GaugeController : MonoBehaviour
 {
@@ -43,7 +44,11 @@ public class GaugeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(cold >= 100 || hunger >= 100 || weakness >= 100 && SceneManager.GetActiveScene().name != "2 YouLose")
+        {
+            //trigger lose scene
+            StartCoroutine(SceneLoader.instance.LoadNextScene("2 YouLose"));
+        }
     }
 
     public void PassTime(int daysToAdvance)

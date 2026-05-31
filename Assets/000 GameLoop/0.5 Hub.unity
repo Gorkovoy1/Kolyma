@@ -2585,7 +2585,7 @@ MonoBehaviour:
   transition: {fileID: 547149251}
   transitionTime: 1
   buildingName: Barracks C
-  buildingNumber: 14
+  buildingNumber: 3
   isFlashing: 1
   myConfirmationWindow: {fileID: 2987269800549945149}
   mat: {fileID: 0}

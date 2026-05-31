@@ -55,6 +55,8 @@ public class CardPlacementController : MonoBehaviour
         {
             instance = this;
         }
+
+        //deckManagerController = DeckManagerController.instance;
         
     }
 

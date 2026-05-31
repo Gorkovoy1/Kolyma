@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -32,6 +33,8 @@ public class InventoryManager : MonoBehaviour
     public bool winningsShown;
 
     public Transform winningsPanel;
+
+    public GameObject claimMoneyButton;
     
 
     void Awake()
@@ -112,12 +115,20 @@ public class InventoryManager : MonoBehaviour
         moneyInPot = money;
         itemsInPot[0] = objOne;
         itemsInPot[1] = objTwo;
+
+        //reset the bet slots
+        betSlotArray[0].GetComponentInChildren<TextMeshProUGUI>().text = "0";
+        foreach (Transform child in betSlotArray[1].transform)
+            Destroy(child.gameObject);
+        foreach (Transform child in betSlotArray[2].transform)
+            Destroy(child.gameObject);
     }
 
     public void ShowWinnings()
     {
         //add money
-
+        GameObject moneyButton = Instantiate(claimMoneyButton, uiPanelManager.winningsPanel.transform);
+        moneyButton.GetComponent<ClaimMoney>().SetMoney(moneyInPot);
 
         //show objects
         foreach(GameObject item in itemsInPot)

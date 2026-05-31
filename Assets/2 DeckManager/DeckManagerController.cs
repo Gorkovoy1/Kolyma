@@ -21,6 +21,23 @@ public class DeckManagerController : MonoBehaviour
 
     public List<GameObject> buttonList;
 
+    public static DeckManagerController instance;
+    /*
+    void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+
+        DontDestroyOnLoad(this.gameObject);
+    }
+    */
+
     // Start is called before the first frame update
     void Start()
     {

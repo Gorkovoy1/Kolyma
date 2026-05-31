@@ -41,7 +41,7 @@ public class SceneLoader : MonoBehaviour
 
     }
 
-    IEnumerator LoadNextScene(string sceneName)
+    public IEnumerator LoadNextScene(string sceneName)
     {
         sceneName = sceneName;
 

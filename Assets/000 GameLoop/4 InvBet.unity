@@ -519,6 +519,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3478527795717696581, guid: ae5cbdcfa30056f4e9e5fecd3399a17e, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5120096271765705602, guid: ae5cbdcfa30056f4e9e5fecd3399a17e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1986,6 +1990,22 @@ PrefabInstance:
     - target: {fileID: 6426242375064964538, guid: ae5cbdcfa30056f4e9e5fecd3399a17e, type: 3}
       propertyPath: weaknessIncrement
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000312151572495552, guid: ae5cbdcfa30056f4e9e5fecd3399a17e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000312151572495552, guid: ae5cbdcfa30056f4e9e5fecd3399a17e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000312151572495552, guid: ae5cbdcfa30056f4e9e5fecd3399a17e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000312151572495552, guid: ae5cbdcfa30056f4e9e5fecd3399a17e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae5cbdcfa30056f4e9e5fecd3399a17e, type: 3}
