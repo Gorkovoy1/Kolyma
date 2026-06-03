@@ -110,6 +110,8 @@ public class TestingCards : MonoBehaviour
         firstTurn = true;
         AkSoundEngine.PostEvent("Play_Click_2", sfxObj);
         TurnManager.instance.isPlayerTurn = !TurnManager.instance.isPlayerTurn;
+        NumberManager.instance.recalculate = true;
+        TurnManager.instance.discardUpdated = false;
         TurnManager.instance.checkedPlayable = false;
         if(!TurnManager.instance.playerPlayedCard)
         {

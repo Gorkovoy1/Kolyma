@@ -61,7 +61,7 @@ public class CardPlace : MonoBehaviour,
     public bool inDropZone = false;
 
 
-
+    public float baseY;
 
     public enum CardState
     {
@@ -91,7 +91,8 @@ public class CardPlace : MonoBehaviour,
         {
             SpawnImage();
         }
-        
+
+        baseY = -257.8f;
     }
 
     void ResetScale()
@@ -182,13 +183,16 @@ public class CardPlace : MonoBehaviour,
 
             TurnManager.instance.discardUpdated = true;
             NumberManager.instance.recalculate = true;
-        }
+        }     
 
         if (hovering && !IsPointerOverMe())
         {
             hovering = false;
             UnHoverOverCard();
         }
+
+        //remove this?
+        NumberManager.instance.recalculate = true;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -226,6 +230,7 @@ public class CardPlace : MonoBehaviour,
             if(CheckPlayable() && inDropZone)
             {
                 cardState = CardState.Playing;
+                DeactivateOutline();
                 AnimateBeingPlayed();
             }
             else
@@ -271,7 +276,7 @@ public class CardPlace : MonoBehaviour,
         {
             correspondingImage.transform.SetAsLastSibling();
             correspondingImage.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
-            correspondingImage.GetComponent<RectTransform>().anchoredPosition = new Vector3(correspondingImage.GetComponent<RectTransform>().anchoredPosition.x, correspondingImage.GetComponent<RectTransform>().anchoredPosition.y + hoverOffset, 0f);
+            correspondingImage.GetComponent<RectTransform>().anchoredPosition = new Vector3(correspondingImage.GetComponent<RectTransform>().anchoredPosition.x, baseY + hoverOffset, 0f);
             correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(true);
         }
     }

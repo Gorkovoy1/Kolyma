@@ -1923,7 +1923,7 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                         GameObject largest = NumberManager.instance.OPPreds[0];
                         foreach(GameObject g in NumberManager.instance.OPPreds)
                         {
-                            if(g.GetComponent<NumberStats>().value < largest.GetComponent<NumberStats>().value)
+                            if(g.GetComponent<NumberStats>().value > largest.GetComponent<NumberStats>().value)
                             {
                                 largest = g;
                             }
@@ -1978,22 +1978,19 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                     }
                     break;
 
-                case Difficulty.Ideal: //if youre busted, help yourself first, otherwise compare all opponent combinations, and pick the one that yields closest to target
-                    if(NumberManager.instance.OPPreds.Count > 0)
+                case Difficulty.Ideal: //if youre busted, help yourself first, otherwise compare all opponent combinations, and pick the one that yields farthest from target
+                    if(NumberManager.instance.OPPreds.Count > 0 && NumberManager.instance.oppVal > NumberManager.instance.targetVal) //busted
                     {
-                        if(NumberManager.instance.oppVal > NumberManager.instance.targetVal) //busted
+                        GameObject selected = NumberManager.instance.OPPreds[0];
+                        foreach (GameObject g in NumberManager.instance.OPPreds)
                         {
-                            GameObject selected = NumberManager.instance.OPPreds[0];
-                            foreach(GameObject g in NumberManager.instance.OPPreds)
+                            int newVal = NumberManager.instance.oppVal - g.GetComponent<NumberStats>().value + 2;
+                            if ((NumberManager.instance.targetVal - newVal) >= 0 && (NumberManager.instance.targetVal - newVal) < (NumberManager.instance.targetVal - (NumberManager.instance.oppVal - selected.GetComponent<NumberStats>().value + 2)))
                             {
-                                int newVal = NumberManager.instance.oppVal - g.GetComponent<NumberStats>().value + 2;
-                                if((NumberManager.instance.targetVal - newVal) >= 0 && (NumberManager.instance.targetVal - newVal) < (NumberManager.instance.targetVal - (NumberManager.instance.oppVal - selected.GetComponent<NumberStats>().value + 2)))
-                                {
-                                    selected = g;
-                                }
+                                selected = g;
                             }
-                            StartCoroutine(CardSelectionController.instance.ChangeNumber(selected, 2, "opponent"));
                         }
+                        StartCoroutine(CardSelectionController.instance.ChangeNumber(selected, 2, "opponent"));
                     }
                     else
                     {
@@ -2292,7 +2289,14 @@ public class AICardPlace : MonoBehaviour //AICardPlace
             g.transform.SetParent(opponentDiscardZone.transform.parent, false);
             g.GetComponent<RectTransform>().anchoredPosition = new Vector2(parentRect.rect.width / 2f, -parentRect.rect.height / 2f);
             g.GetComponent<CardPlace>().correspondingImage.transform.localScale = new Vector3(0.17f, 0.17f, 0.17f);
-            yield return new WaitForSeconds(1f);
+            
+            yield return new WaitForSeconds(0.4f);
+            //flash trash can for 0.5f
+            AkSoundEngine.PostEvent("Play_Discard", playerHand.GetComponentInParent<HandController>().sfxObj);
+            g.GetComponent<CardPlace>().correspondingImage.transform.Find("TRASHED").gameObject.SetActive(true);
+            yield return new WaitForSeconds(0.4f);
+            g.GetComponent<CardPlace>().correspondingImage.transform.Find("TRASHED").gameObject.SetActive(false);
+            yield return new WaitForSeconds(0.4f);
 
             StartCoroutine(LerpScaleDown(g.GetComponent<CardPlace>().correspondingImage.transform, 0.2f));
             g.transform.SetParent(playerDiscardZone.transform);
