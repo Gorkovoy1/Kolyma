@@ -181,6 +181,7 @@ public class CardPlace : MonoBehaviour,
             }
 
             TurnManager.instance.discardUpdated = true;
+            NumberManager.instance.recalculate = true;
         }
 
         if (hovering && !IsPointerOverMe())
@@ -246,6 +247,7 @@ public class CardPlace : MonoBehaviour,
             this.transform.position = eventData.position;
             this.correspondingImage.transform.SetAsLastSibling();
             correspondingImage.transform.SetAsLastSibling();
+            this.correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(true);
             ResetScale();
         }
     }

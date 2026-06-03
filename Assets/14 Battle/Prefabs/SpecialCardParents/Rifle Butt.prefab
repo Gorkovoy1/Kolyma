@@ -97,7 +97,7 @@ MonoBehaviour:
   imagePrefab: {fileID: 7084355783655531635, guid: 9de09764e0ac5c445a33480ef8c804bc, type: 3}
   correspondingImage: {fileID: 7084355783655531635, guid: 9de09764e0ac5c445a33480ef8c804bc, type: 3}
   imagesParent: {fileID: 0}
-  hoverOffset: 75
+  hoverOffset: 125
   hovering: 0
   dragging: 0
   beingPlayed: 0
@@ -118,6 +118,8 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 9df3db746f4d4b04296f0c69a3bc24b0, type: 2}
   delayImageSpawn: 0
+  cardState: 0
+  inDropZone: 0
 --- !u!114 &5541130004156535495
 MonoBehaviour:
   m_ObjectHideFlags: 0

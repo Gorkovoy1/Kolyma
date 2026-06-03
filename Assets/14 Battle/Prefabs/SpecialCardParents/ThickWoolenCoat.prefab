@@ -97,7 +97,7 @@ MonoBehaviour:
   imagePrefab: {fileID: 8517531851131246620, guid: 396a726b8d99eb84ca2d7c7f67110c02, type: 3}
   correspondingImage: {fileID: 8517531851131246620, guid: 396a726b8d99eb84ca2d7c7f67110c02, type: 3}
   imagesParent: {fileID: 0}
-  hoverOffset: 75
+  hoverOffset: 125
   hovering: 0
   dragging: 0
   beingPlayed: 0
@@ -108,8 +108,6 @@ MonoBehaviour:
   childCount: 0
   specialCardType: 6
   isPlayable: 0
-  defaultMat: {fileID: 0}
-  playableMat: {fileID: 2100000, guid: d872faa1aa03b3043ada6d7ff912f653, type: 2}
   discardedCards: []
   discardUpdated: 0
   cardBack: {fileID: 21300000, guid: 5681a74c470359848acdb34ed992ba17, type: 3}
@@ -119,7 +117,9 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 1e7ed6f1b1991f744a9f3bcf2e076df9, type: 2}
-  delayImageSpawn: 0
+  delayImageSpawn: 1
+  cardState: 0
+  inDropZone: 0
 --- !u!114 &1086059024571131946
 MonoBehaviour:
   m_ObjectHideFlags: 0
