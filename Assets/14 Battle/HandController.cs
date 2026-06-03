@@ -83,6 +83,7 @@ public class HandController : MonoBehaviour
         foreach (Transform child in playerHand.transform)
         {
             playerSpecialHand.Add(child.gameObject);
+            child.GetComponent<CardPlace>().cardState = CardPlace.CardState.Idle;
         }
 
         foreach (Transform child in opponentHand.transform)

@@ -40,7 +40,7 @@ public class CardPlace : MonoBehaviour,
     public bool isPlayable; //for the player
 
 
-    
+
 
     public List<GameObject> discardedCards;
     public bool discardUpdated;
@@ -55,14 +55,30 @@ public class CardPlace : MonoBehaviour,
     //public GameObject sfxObj;
 
     public bool delayImageSpawn = false;
-    
+
+    public CardState cardState;
+
+    public bool inDropZone = false;
+
+
+
+
+    public enum CardState
+    {
+        Idle,
+        Dealing,
+        Dragging,
+        Playing
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        discardUpdated = false;
-        isFlipped = false;
+        cardState = CardState.Dealing;
 
+        //reset bools and set references
+        discardUpdated = TurnManager.instance.discardUpdated;
+        isFlipped = false;
         playerHand = this.transform.parent;
         opponentHand = playerHand.parent.Find("OpponentHand");
         parentReturnTo = playerHand;
@@ -73,31 +89,40 @@ public class CardPlace : MonoBehaviour,
 
         if (imagePrefab != null && !delayImageSpawn)
         {
-            //this means its a special card
-            imagesParent = this.GetComponentInParent<HandController>().imagesParent;
-            correspondingImage = Instantiate(imagePrefab, imagesParent);
-            correspondingImage.GetComponent<SpecialCardMovement>().target = this.gameObject.GetComponent<RectTransform>();
-            
-            //start flipped
-            if(this.transform.parent == opponentHand)
-            {
-                grey = correspondingImage.GetComponent<Image>().sprite;
-                correspondingImage.GetComponent<Image>().sprite = cardBack;
-                correspondingImage.transform.Find("Image").GetComponent<Image>().enabled = false;
-            }
-
-            //start with no green outline
-            Transform outline = this.correspondingImage.transform.Find("Outline");
-            if (outline != null)
-            {
-                outline.gameObject.SetActive(false);
-            }
-
-            //reset scale and description (unhovered)
-            this.correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-            this.correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(false);
+            SpawnImage();
         }
         
+    }
+
+    void ResetScale()
+    {
+        this.correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+    }
+
+    void DeactivateOutline()
+    {
+        Transform outline = this.correspondingImage.transform.Find("Outline");
+        if (outline != null)
+        {
+            outline.gameObject.SetActive(false);
+        }
+    }
+
+    void ActivateOutline()
+    {
+        Transform outline = this.correspondingImage.transform.Find("Outline");
+        if (outline != null)
+        {
+            outline.gameObject.SetActive(true);
+        }
+    }
+
+    void StartFlipped()
+    {
+        //start with card back
+        grey = correspondingImage.GetComponent<Image>().sprite;
+        correspondingImage.GetComponent<Image>().sprite = cardBack;
+        correspondingImage.transform.Find("Image").GetComponent<Image>().enabled = false;
     }
 
     public void SpawnImage()
@@ -106,62 +131,47 @@ public class CardPlace : MonoBehaviour,
         imagesParent = this.GetComponentInParent<HandController>().imagesParent;
         correspondingImage = Instantiate(imagePrefab, imagesParent);
         correspondingImage.GetComponent<SpecialCardMovement>().target = this.gameObject.GetComponent<RectTransform>();
-        Transform outline = this.correspondingImage.transform.Find("Outline");
-        if (outline != null)
-        {
-            outline.gameObject.SetActive(false);
-        }
+
+        DeactivateOutline();
 
         //start flipped
         if (this.transform.parent == opponentHand)
         {
-            grey = correspondingImage.GetComponent<Image>().sprite;
-            correspondingImage.GetComponent<Image>().sprite = cardBack;
-            correspondingImage.transform.Find("Image").GetComponent<Image>().enabled = false;
+            StartFlipped();
         }
+
+        //reset scale and description (unhovered)
+        ResetScale();
+        //deactivate description
+        this.correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        if (imagePrefab != null)
+        if (imagePrefab == null) //not special card
+            return;
+
+        if(!TurnManager.instance.isPlayerTurn)
         {
-            //this means its a special card
-            if (TurnManager.instance.isPlayerTurn && this.transform.parent == playerHand) //check parent is hand
-            {
-                NumberManager.instance.recalculate = true;
-                if(!TurnManager.instance.checkedPlayable)
-                {
-                    
-                    CheckPlayable();
-                }
-                
-                if(isPlayable)
-                {
-                    //activate green outline
-                    Transform outline = this.correspondingImage.transform.Find("Outline");
-                    if (outline != null)
-                    {
-                        outline.gameObject.SetActive(true);
-                    }
-                }
-                else
-                {
-                    isPlayable = false;
-                    Transform outline = this.correspondingImage.transform.Find("Outline");
-                    if (outline != null)
-                    {
-                        outline.gameObject.SetActive(false);
-                    }
-                }
-            }
-            
-            
+            DeactivateOutline();
+            return;
         }
 
-        //track discarded cards, update whenever becomes player turn
-        if (TurnManager.instance.isPlayerTurn /*&& !discardUpdated*/)          //uncomment when have turns
+        if (transform.parent != playerHand)
+            return;
+
+        bool newPlayable = CheckPlayable();
+        if (newPlayable != isPlayable)
+            isPlayable = newPlayable;
+
+        if (isPlayable && cardState == CardState.Idle)
+            ActivateOutline();
+        else
+            DeactivateOutline();
+
+
+        if (TurnManager.instance.isPlayerTurn && !TurnManager.instance.discardUpdated)   
         {
             discardedCards = new List<GameObject>();
 
@@ -170,171 +180,144 @@ public class CardPlace : MonoBehaviour,
                 discardedCards.Add(child.gameObject);
             }
 
-            discardUpdated = true;
+            TurnManager.instance.discardUpdated = true;
         }
 
+        if (hovering && !IsPointerOverMe())
+        {
+            hovering = false;
+            UnHoverOverCard();
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (cardState != CardState.Idle)
+            return;
+
         if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name != "OpponentHand")
         {
             hovering = false;
-            Debug.Log("OnBeginDrag");
             dragging = true;
+            inDropZone = false;
+            cardState = CardState.Dragging;
 
-
-            //if(conditionMet == true)
-            //{
             parentReturnTo = this.transform.parent;
-
-            //
             this.correspondingImage.transform.SetAsLastSibling();
-
             this.transform.SetParent(parentReturnTo.transform.parent);
 
-
+            playerHand.GetComponent<HandFanController>().dragging = true;
             GetComponent<CanvasGroup>().blocksRaycasts = false;
-            //}
         }
-
-
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (cardState != CardState.Dragging)
+            return;
+
         if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name != "OpponentHand")
         {
             dragging = false;
             GetComponent<CanvasGroup>().blocksRaycasts = true;
             playerHand.GetComponent<HandFanController>().dragging = false;
 
-            if (!beingPlayed)
+            if(CheckPlayable() && inDropZone)
             {
-                this.transform.SetParent(parentReturnTo);
-                //this.transform.position = new Vector3(0,0,0);
-
+                cardState = CardState.Playing;
+                AnimateBeingPlayed();
             }
             else
             {
-                CheckPlayable();
-                if(isPlayable)
-                {
-                    AnimateBeingPlayed();
-                }
-                else
-                {
-                    this.transform.SetParent(parentReturnTo);
-                }
-                
+                cardState = CardState.Idle;
+                this.transform.SetParent(parentReturnTo);
+                UnHoverOverCard();
             }
         }
-        
-
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (cardState != CardState.Dragging)
+            return;
+
         if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name != "OpponentHand")
         {
-            //Debug.Log("OnDrag");
-
-            //if(conditionMet==true)
             this.transform.position = eventData.position;
             this.correspondingImage.transform.SetAsLastSibling();
-            //set as last index in array of specila cards (special number of cards)
-            playerHand.GetComponent<HandFanController>().dragging = true;
-
-
-
             correspondingImage.transform.SetAsLastSibling();
-            correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-            //correspondingImage.transform.position += new Vector3(0f, hoverOffset, 0f);
-            
+            ResetScale();
         }
-            
-
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name != "OpponentHand" && this.gameObject.transform.parent.name != "PlayerDiscard")
+        if (cardState != CardState.Idle)
+            return;
+
+        if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name != "OpponentHand" && this.gameObject.transform.parent.name != "PlayerDiscard" 
+            && !playerHand.GetComponent<HandFanController>().dragging && playerHand.GetComponent<HandFanController>().hoverable)
         {
-            if (!beingPlayed)
-            {
-                if (!dragging)
-                {
-                    hovering = true;
-
-                }
-                if (correspondingImage != null)
-                {
-                    if (!playerHand.GetComponent<HandFanController>().dragging)
-                    {
-                        correspondingImage.transform.SetAsLastSibling();
-                        correspondingImage.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
-                        correspondingImage.GetComponent<RectTransform>().anchoredPosition = new Vector3(correspondingImage.GetComponent<RectTransform>().anchoredPosition.x, correspondingImage.GetComponent<RectTransform>().anchoredPosition.y + hoverOffset, 0f);
-                        correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(true);
-                    }
-
-                }
-
-            }
+            hovering = true;
+            HoverOverCard();
         }
-        
     }
 
-    
+    void HoverOverCard() //enlarge card and show description
+    {
+        if (correspondingImage != null && cardState == CardState.Idle)
+        {
+            correspondingImage.transform.SetAsLastSibling();
+            correspondingImage.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
+            correspondingImage.GetComponent<RectTransform>().anchoredPosition = new Vector3(correspondingImage.GetComponent<RectTransform>().anchoredPosition.x, correspondingImage.GetComponent<RectTransform>().anchoredPosition.y + hoverOffset, 0f);
+            correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(true);
+        }
+    }
+
+    void UnHoverOverCard()
+    {
+        if (correspondingImage != null && cardState == CardState.Idle)
+        {
+            correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            correspondingImage.transform.position -= new Vector3(0f, hoverOffset, 0f);
+            correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(false);
+        }
+    }
+
+    bool IsPointerOverMe()
+    {
+        return RectTransformUtility.RectangleContainsScreenPoint(
+            (RectTransform)transform,
+            Input.mousePosition,
+            null
+        );
+    }
+
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name == "PlayerHand")
+        if (cardState != CardState.Idle)
+            return;
+
+        if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name == "PlayerHand" && !playerHand.GetComponent<HandFanController>().dragging 
+            && hovering && playerHand.GetComponent<HandFanController>().hoverable)
         {
-            if (!beingPlayed)
-            {
-                hovering = false;
-
-                if (correspondingImage != null)
-                {
-                    if (!playerHand.GetComponent<HandFanController>().dragging)
-                    {
-                        correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                        correspondingImage.transform.position -= new Vector3(0f, hoverOffset, 0f);
-                        correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(false);
-                    }
-
-                }
-
-
-
-            }
+            hovering = false;
+            UnHoverOverCard();
         }
-        
     }
 
     public void AnimateBeingPlayed()
     {
-        isPlayable = false;
+        cardState = CardState.Playing;
         TurnManager.instance.playerPlayedCard = true;
-        //also set every other card to not playable
-        TurnManager.instance.checkedPlayable = true;
-        foreach (Transform child in playerHand)
-        {
-            child.GetComponent<CardPlace>().isPlayable = false;
-        }
 
-
+        //play trick sound
         if(trickSound != null)
         {
             trickSound.Post(this.gameObject);
         }
 
-        Transform outline = this.correspondingImage.transform.Find("Outline");
-        if (outline != null)
-        {
-            outline.gameObject.SetActive(false);
-        }
-        StartCoroutine(BeingPlayed());
-        
+        StartCoroutine(BeingPlayed());        
     }
 
     IEnumerator BurnShader(GameObject g)
@@ -392,6 +375,15 @@ public class CardPlace : MonoBehaviour,
         this.transform.SetParent(playerDiscardZone.transform);
         this.transform.position = playerDiscardZone.transform.position;
 
+        cardState = CardState.Idle;
+
+        UpdateDiscardPile();
+
+        StartCoroutine(PlayCorrespondingAction());
+    }
+
+    void UpdateDiscardPile()
+    {
         playerHand.GetComponentInParent<HandController>().playerDiscardButton.GetComponent<PlayerDiscardButton>().lastPlayed = correspondingImage.GetComponent<Image>();
         foreach (var tmp in correspondingImage.GetComponentsInChildren<TextMeshProUGUI>(true)) // true = include inactive
         {
@@ -402,480 +394,171 @@ public class CardPlace : MonoBehaviour,
             }
         }
         playerHand.GetComponentInParent<HandController>().playerDiscardButton.GetComponent<PlayerDiscardButton>().AddCardToList();
-
-        StartCoroutine(PlayCorrespondingAction());
     }
 
-    public void CheckPlayable()
+    public bool CheckPlayable()
     {
-        //Debug.Log("checkingplayable");
-        if (specialCardType == SpecialCardType.CaughtRedHanded)
-        {
-            if (NumberManager.instance.OPPyellows.Count > 0)
-            {
-                isPlayable = true;
-            }
-            else
-            {
-                isPlayable = false;
-            }
-        }
-        else if (specialCardType == SpecialCardType.EmptyPockets)
-        {
-            if (NumberManager.instance.OPPblues.Count > 0)
-            {
-                isPlayable = true;
-            }
-            else
-            {
-                isPlayable = false;
-            }
+        if (TurnManager.instance.playerPlayedCard)
+            return false;
 
-        }
-        else if (specialCardType == SpecialCardType.Burden)
+        switch (specialCardType)
         {
-            if (NumberManager.instance.OPPreds.Count > 0)
-            {
-                isPlayable = true;
-            }
-            else
-            {
-                isPlayable = false;
-            }
-        }
-        else if (specialCardType == SpecialCardType.RifleButt)
-        {
-            if (NumberManager.instance.OPPreds.Count > 0)
-            {
-                isPlayable = true;
-            }
-            else
-            {
-                isPlayable = false;
-            }
-        }
-        else if (specialCardType == SpecialCardType.SmokeBreak)
-        {
-            //draw 2 random specials from discard
-            if (discardedCards.Count > 0)
-            {
-                isPlayable = true;
-            }
-            else
-            {
-                isPlayable = false;
-            }
+            case SpecialCardType.CaughtRedHanded:
+                return NumberManager.instance.OPPyellows.Count > 0;
 
+            case SpecialCardType.EmptyPockets:
+                return NumberManager.instance.OPPblues.Count > 0;
 
-        }
-        else if (specialCardType == SpecialCardType.Weakness)
-        {
-            foreach(GameObject g in NumberManager.instance.OPPpositives)
-            {
-                if(g.GetComponent<NumberStats>().value == 2 && discardedCards.Count > 0)
-                {
-                    isPlayable = true;
-                    break;
-                }
-                else
-                {
-                    isPlayable = false;
-                }
-            }
+            case SpecialCardType.Burden:
+                return NumberManager.instance.OPPreds.Count > 0;
 
-        }
-        else if (specialCardType == SpecialCardType.ThickWoolenCoat)
-        {
-            isPlayable = true;
+            case SpecialCardType.RifleButt:
+                return NumberManager.instance.OPPreds.Count > 0;
 
-        }
-        else if (specialCardType == SpecialCardType.Setup)
-        {
-            if (NumberManager.instance.OPPnegatives.Count > 0)
-            {
-                isPlayable = true;
-            }
-            else
-            {
-                isPlayable = false;
-            }
+            case SpecialCardType.SmokeBreak:
+                return discardedCards.Count > 0;
 
-        }
-        else if (specialCardType == SpecialCardType.Bribe) 
-        {
-            
-            if(NumberManager.instance.duplicates.Count > 0)
-            {
-                isPlayable = true;
-            }
-            else
-            {
-                isPlayable = false;
-            }
+            case SpecialCardType.Weakness:
+                return discardedCards.Count > 0 && NumberManager.instance.OPPpositives.Exists(g => g.GetComponent<NumberStats>().value == 2);
 
-        }
-        else if (specialCardType == SpecialCardType.Fist)
-        {
-            if (NumberManager.instance.OPPblues.Count > 0 || NumberManager.instance.blues.Count > 0)
-            {
-                isPlayable = true;
-            }
-            else
-            {
-                isPlayable = false;
-            }
+            case SpecialCardType.ThickWoolenCoat:
+                return true;
 
-        }
-        else if (specialCardType == SpecialCardType.CondensedMilk)
-        {
-            isPlayable = true;
+            case SpecialCardType.Setup:
+                return NumberManager.instance.OPPnegatives.Count > 0;
 
-        }
-        else if (specialCardType == SpecialCardType.InCahoots)
-        {
-             isPlayable = true;
-        }
-        else if (specialCardType == SpecialCardType.Search)
-        {
-            isPlayable = true;
+            case SpecialCardType.Bribe:
+                return NumberManager.instance.duplicates.Count > 0;
 
-        }
-        else if (specialCardType == SpecialCardType.Poison)
-        {
-            isPlayable = true;
+            case SpecialCardType.Fist:
+                return NumberManager.instance.OPPblues.Count > 0 || NumberManager.instance.blues.Count > 0;
 
-        }
-        else if (specialCardType == SpecialCardType.BackstabDiscard)
-        {
-            //if opponent discarded then true
-            if(OpponentStats.instance.discarded)
-            {
-                isPlayable = true;
-            }
-            else
-            {
-                isPlayable = false;
-            }
+            case SpecialCardType.CondensedMilk:
+                return true;
 
-        }
-        else if (specialCardType == SpecialCardType.Scam)
-        {
-            isPlayable = true;
+            case SpecialCardType.InCahoots:
+                return true;
 
-        }
-        else if (specialCardType == SpecialCardType.GiveItUp)
-        {
-            if(NumberManager.instance.negatives.Count > 0)
-            {
-                isPlayable = true;
-            }
-            else
-            {
-                isPlayable = false;
-            }
+            case SpecialCardType.Search:
+                return true;
 
-        }
-        else if (specialCardType == SpecialCardType.Rotation)
-        {
-            if (NumberManager.instance.negatives.Count > 0)
-            {
-                isPlayable = true;
-            }
-            else
-            {
-                isPlayable = false;
-            }
+            case SpecialCardType.Poison:
+                return true;
 
-        }
-        else if (specialCardType == SpecialCardType.DirtyTrickIV)
-        {
-            if (NumberManager.instance.OPPyellows.Count > 0)
-            {
-                isPlayable = true;
-            }
-            else
-            {
-                isPlayable = false;
-            }
+            case SpecialCardType.BackstabDiscard:
+                return OpponentStats.instance.discarded;
 
-        }
-        else if (specialCardType == SpecialCardType.BaitAndSwitch)
-        {
-            foreach (GameObject g in NumberManager.instance.OPPallNumbers)
-            {
-                if (g.GetComponent<NumberStats>().value == 2 || g.GetComponent<NumberStats>().value == -2)
-                {
-                    isPlayable = true;
-                    break;
-                }
-                else
-                {
-                    isPlayable = false;
-                }
-            }
+            case SpecialCardType.Scam:
+                return true;
 
-        }
-        else if (specialCardType == SpecialCardType.SelfHarm)
-        {
-            isPlayable = true;
+            case SpecialCardType.GiveItUp:
+                return NumberManager.instance.negatives.Count > 0;
 
-        }
-        else if (specialCardType == SpecialCardType.BackstabSwap)
-        {
-            //if opp swapped then playable
-            if(OpponentStats.instance.swapped)
-            {
-                isPlayable = true;
-            }
-            else
-            {
-                isPlayable = false;
-            }
+            case SpecialCardType.Rotation:
+                return NumberManager.instance.negatives.Count > 0;
 
-        }
-        else if (specialCardType == SpecialCardType.ThereThere)
-        {
-            if (NumberManager.instance.duplicates.Count > 0)
-            {
-                isPlayable = true;
-            }
-            else
-            {
-                isPlayable = false;
-            }
+            case SpecialCardType.DirtyTrickIV:
+                return NumberManager.instance.OPPyellows.Count > 0;
 
-        }
-        else if (specialCardType == SpecialCardType.NotMyProblem)
-        {
-            isPlayable = true;
+            case SpecialCardType.BaitAndSwitch:
+                return NumberManager.instance.OPPallNumbers.Exists(g => g.GetComponent<NumberStats>().value == 2) || NumberManager.instance.OPPallNumbers.Exists(g => g.GetComponent<NumberStats>().value == -2);
 
-        }
-        else if (specialCardType == SpecialCardType.Frostbite)
-        {
-            //if ahve 2 or -2
-            foreach(GameObject g in NumberManager.instance.allNumbers)
-            {
-                if (g.GetComponent<NumberStats>().value == 2 || g.GetComponent<NumberStats>().value == -2)
-                {
-                    isPlayable = true;
-                    break;
-                }
-                else
-                {
-                    isPlayable = false;
-                }
-            }
-            foreach (GameObject g in NumberManager.instance.OPPallNumbers)
-            {
-                if (g.GetComponent<NumberStats>().value == 2 || g.GetComponent<NumberStats>().value == -2)
-                {
-                    isPlayable = true;
-                    break;
-                }
-                else
-                {
-                    isPlayable = false;
-                }
-            }
+            case SpecialCardType.SelfHarm:
+                return true;
 
-        }
-        else if (specialCardType == SpecialCardType.DirtyTrickI)
-        {
-            if(NumberManager.instance.OPPreds.Count > 0 || NumberManager.instance.reds.Count > 0)
-            {
-                isPlayable = true;
-            }
-            else
-            {
-                isPlayable = false;
-            }
+            case SpecialCardType.BackstabSwap:
+                return OpponentStats.instance.swapped;
 
-        }
-        else if (specialCardType == SpecialCardType.DirtyTrickII)
-        {
-            if (NumberManager.instance.OPPyellows.Count > 0 || NumberManager.instance.yellows.Count > 0)
-            {
-                isPlayable = true;
-            }
-            else
-            {
-                isPlayable = false;
-            }
+            case SpecialCardType.ThereThere:
+                return NumberManager.instance.duplicates.Count > 0;
 
-        }
-        else if (specialCardType == SpecialCardType.DirtyTrickIII)
-        {
-            if (NumberManager.instance.OPPblues.Count > 0 || NumberManager.instance.blues.Count > 0)
-            {
-                isPlayable = true;
-            }
-            else
-            {
-                isPlayable = false;
-            }
+            case SpecialCardType.NotMyProblem:
+                return true;
 
-        }
-        else if (specialCardType == SpecialCardType.LousyDeal)
-        {
-            isPlayable = true;
+            case SpecialCardType.Frostbite:
+                return NumberManager.instance.OPPallNumbers.Exists(g => g.GetComponent<NumberStats>().value == 2) || NumberManager.instance.OPPallNumbers.Exists(g => g.GetComponent<NumberStats>().value == -2) ||
+                NumberManager.instance.allNumbers.Exists(g => g.GetComponent<NumberStats>().value == 2) || NumberManager.instance.allNumbers.Exists(g => g.GetComponent<NumberStats>().value == -2);
 
-        }
-        else if (specialCardType == SpecialCardType.FindersKeepers)
-        {
-            if (NumberManager.instance.reds.Count > 0)
-            {
-                isPlayable = true;
-            }
-            else
-            {
-                isPlayable = false;
-            }
+            case SpecialCardType.DirtyTrickI:
+                return NumberManager.instance.OPPreds.Count > 0 || NumberManager.instance.reds.Count > 0;
 
-        }
-        else if (specialCardType == SpecialCardType.Gossip)
-        {
-            isPlayable = true;
+            case SpecialCardType.DirtyTrickII:
+                return NumberManager.instance.OPPyellows.Count > 0 || NumberManager.instance.yellows.Count > 0;
 
-        }
-        else if (specialCardType == SpecialCardType.FairShare)
-        {
-            if(NumberManager.instance.OPPnegatives.Count > 0)
-            {
-                isPlayable = true;
-            }
-            else
-            {
-                isPlayable = false;
-            }
+            case SpecialCardType.DirtyTrickIII:
+                return NumberManager.instance.OPPblues.Count > 0 || NumberManager.instance.blues.Count > 0;
 
-        }
-        else if (specialCardType == SpecialCardType.SleeplessNight)
-        {
-            //if opp swapped
+            case SpecialCardType.LousyDeal:
+                return true;
 
-        }
-        else if (specialCardType == SpecialCardType.Payback)
-        {
-            //if opp gave u something
+            case SpecialCardType.FindersKeepers:
+                return NumberManager.instance.reds.Count > 0;
 
-        }
-        else if (specialCardType == SpecialCardType.Knife)
-        {
-            isPlayable = true;
+            case SpecialCardType.Gossip:
+                return true;
 
-        }
-        else if (specialCardType == SpecialCardType.ExtraWork)
-        {
-            //if opp flipped
-            if(OpponentStats.instance.flipped)
-            {
-                isPlayable = true;
-            }
-            else
-            {
-                isPlayable = false;
-            }
+            case SpecialCardType.FairShare:
+                return NumberManager.instance.OPPnegatives.Count > 0;
 
-        }
-        else if (specialCardType == SpecialCardType.Scratch)
-        {
-            //if opp gave u something
-            if(OpponentStats.instance.gave)
-            {
-                isPlayable = true;
-            }
-            else
-            {
-                isPlayable = false;
-            }
-        }
-        else if (specialCardType == SpecialCardType.Leftovers)
-        {
-            //if opp discarded
-            if(OpponentStats.instance.discarded)
-            {
-                isPlayable = true;
-            }
-            else
-            {
-                isPlayable = false;
-            }
+            case SpecialCardType.SleeplessNight:
+                return OpponentStats.instance.swapped;
 
-        }
-        else if (specialCardType == SpecialCardType.Glare)
-        {
-            isPlayable = true;
+            case SpecialCardType.Payback:
+                return OpponentStats.instance.gave;
 
-        }
-        else if (specialCardType == SpecialCardType.Snitch)
-        {
-            //if opp discarded
-            if(OpponentStats.instance.discarded)
-            {
-                isPlayable = true;
-            }
-            else
-            {
-                isPlayable = false;
-            }
+            case SpecialCardType.Knife:
+                return true;
 
-        }
-        else if (specialCardType == SpecialCardType.GoodDeal)
-        {
-            isPlayable = true;
+            case SpecialCardType.ExtraWork:
+                return OpponentStats.instance.flipped;
 
-        }
-        else if (specialCardType == SpecialCardType.EasyDay)
-        {
-            isPlayable = true;
+            case SpecialCardType.Scratch:
+                return OpponentStats.instance.gave;
 
-        }
-        else if (specialCardType == SpecialCardType.GoodFeeling)
-        {
-             isPlayable = true;
+            case SpecialCardType.Leftovers:
+                return OpponentStats.instance.discarded;
 
-        }
-        else if (specialCardType == SpecialCardType.Forgery)
-        {
-            isPlayable = true;
+            case SpecialCardType.Glare:
+                return true;
 
-        }
-        else if (specialCardType == SpecialCardType.Pushover)
-        {
-            isPlayable = true;
+            case SpecialCardType.Snitch:
+                return OpponentStats.instance.discarded;
 
-        }
-        else if (specialCardType == SpecialCardType.Scavenge)
-        {
-            isPlayable = true;
+            case SpecialCardType.GoodDeal:
+                return true;
 
-        }
-        else if (specialCardType == SpecialCardType.Overwhelmed)
-        {
-            if(NumberManager.instance.allNumbers.Count > 5)
-            {
-                isPlayable = true;
-            }
-            else
-            {
-                isPlayable = false;
-            }
+            case SpecialCardType.EasyDay:
+                return true;
 
-        }
-        else if (specialCardType == SpecialCardType.VitaminShotII)
-        {
-            isPlayable = true;
+            case SpecialCardType.GoodFeeling:
+                return true;
 
-        }
-        else if (specialCardType == SpecialCardType.VitaminShotV)
-        {
-            isPlayable = true;
+            case SpecialCardType.Forgery:
+                return true;
+
+            case SpecialCardType.Pushover:
+                return true;
+
+            case SpecialCardType.Scavenge:
+                return true;
+
+            case SpecialCardType.Overwhelmed:
+                return NumberManager.instance.allNumbers.Count > 5;
+
+            case SpecialCardType.VitaminShotII:
+                return true;
+
+            case SpecialCardType.VitaminShotV:
+                return true;
+
+            default:
+                return false;
+
         }
     }
 
     IEnumerator PlayCorrespondingAction()
     {
-        //
         NumberManager.instance.recalculate = true;
         yield return new WaitForSeconds(0.5f);
 
@@ -1404,7 +1087,7 @@ public class CardPlace : MonoBehaviour,
             }
 
         }
-
+        NumberManager.instance.recalculate = true;
     }
 
     public void DiscardSpecial(GameObject g, string target)
@@ -1435,13 +1118,6 @@ public class CardPlace : MonoBehaviour,
 
     IEnumerator DiscardAnimation(GameObject g, string target)
     {
-
-        //opponent special cards upside down with card back
-        //discard animation -goes down, upside down, and then turns around and goes away
-
-
-        //show description
-
         RectTransform parentRect = opponentDiscardZone.transform.parent as RectTransform;
 
         if (target == "player")

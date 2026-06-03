@@ -14,6 +14,8 @@ public class TurnManager : MonoBehaviour
     public bool playerPassed = false;
     public bool opponentPassed = false;
 
+    public bool discardUpdated = false;
+
     // Start is called before the first frame update
 
     void Awake()
@@ -43,5 +45,6 @@ public class TurnManager : MonoBehaviour
     {
         isPlayerTurn = !isPlayerTurn;
         NumberManager.instance.recalculate = true;
+        discardUpdated = false;
     }
 }

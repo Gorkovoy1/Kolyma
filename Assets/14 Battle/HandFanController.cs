@@ -13,11 +13,15 @@ public class HandFanController : MonoBehaviour
 
     public GameObject cardSelectionBlocker;
 
+    public bool hoverable;
+    public float hoverDelay;
+
     // Start is called before the first frame update
     void Start()
     {
         rect = GetComponent<RectTransform>();
         yPos = rect.anchoredPosition.y;
+        hoverable = true;
     }
 
     // Update is called once per frame
@@ -25,7 +29,7 @@ public class HandFanController : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(1))
         {
-            ToggleSee();
+            StartCoroutine(ToggleSee());
         }
 
         if(cardSelectionBlocker != null && cardSelectionBlocker.gameObject.activeSelf)
@@ -63,8 +67,11 @@ public class HandFanController : MonoBehaviour
         }
     }
 
-    public void ToggleSee()
+    IEnumerator ToggleSee()
     {
+        hoverable = false;
         seeBoard = !seeBoard;
+        yield return new WaitForSeconds(hoverDelay);
+        hoverable = true;
     }
 }
