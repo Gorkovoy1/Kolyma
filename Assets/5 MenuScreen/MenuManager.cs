@@ -51,7 +51,7 @@ public class MenuManager : MonoBehaviour
     {
         StartCoroutine(RTPCFader.instance.FadeOut());
         //SceneManager.LoadScene("10 BattleSceneJ");
-        SceneLoader.instance.sceneName = "10 BattleSceneJ";
+        SceneLoader.instance.sceneName = "0.5 Hub";
         SceneLoader.instance.triggerLoad = true;
     }
 
