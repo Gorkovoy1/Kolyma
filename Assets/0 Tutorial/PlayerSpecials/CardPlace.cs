@@ -171,7 +171,7 @@ namespace TutorialScripts
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            if (!playerHand.GetComponentInParent<HandController>().doneDealing)
+            if (!playerHand.GetComponentInParent<HandController>().doneDealing || !playerHand.GetComponent<HandFanController>().hoverable)
                 return;
 
             if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name != "OpponentHand")
@@ -200,7 +200,7 @@ namespace TutorialScripts
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            if (!playerHand.GetComponentInParent<HandController>().doneDealing)
+            if (!playerHand.GetComponentInParent<HandController>().doneDealing || !playerHand.GetComponent<HandFanController>().hoverable)
                 return;
 
             if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name != "OpponentHand")
@@ -235,7 +235,7 @@ namespace TutorialScripts
 
         public void OnDrag(PointerEventData eventData)
         {
-            if (!playerHand.GetComponentInParent<HandController>().doneDealing)
+            if (!playerHand.GetComponentInParent<HandController>().doneDealing || !playerHand.GetComponent<HandFanController>().hoverable)
                 return;
 
             if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name != "OpponentHand")
@@ -261,7 +261,7 @@ namespace TutorialScripts
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (!playerHand.GetComponentInParent<HandController>().doneDealing)
+            if (!playerHand.GetComponentInParent<HandController>().doneDealing || !playerHand.GetComponent<HandFanController>().hoverable)
                 return;
 
 
@@ -294,7 +294,7 @@ namespace TutorialScripts
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            if (!playerHand.GetComponentInParent<HandController>().doneDealing)
+            if (!playerHand.GetComponentInParent<HandController>().doneDealing || !playerHand.GetComponent<HandFanController>().hoverable)
                 return;
 
 

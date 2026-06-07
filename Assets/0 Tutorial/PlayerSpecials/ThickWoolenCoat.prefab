@@ -173,7 +173,7 @@ MonoBehaviour:
   imagePrefab: {fileID: 8517531851131246620, guid: 02c37e45dc841724cafd0033f77cf3de, type: 3}
   correspondingImage: {fileID: 8517531851131246620, guid: 02c37e45dc841724cafd0033f77cf3de, type: 3}
   imagesParent: {fileID: 0}
-  hoverOffset: 75
+  hoverOffset: 120
   hovering: 0
   dragging: 0
   beingPlayed: 0
@@ -184,8 +184,6 @@ MonoBehaviour:
   childCount: 0
   specialCardType: 6
   isPlayable: 0
-  defaultMat: {fileID: 0}
-  playableMat: {fileID: 2100000, guid: d872faa1aa03b3043ada6d7ff912f653, type: 2}
   discardedCards: []
   discardUpdated: 0
   cardBack: {fileID: 0}
@@ -195,6 +193,7 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 1e7ed6f1b1991f744a9f3bcf2e076df9, type: 2}
+  delayImageSpawn: 1
 --- !u!114 &-4044383377335310687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,9 +211,11 @@ MonoBehaviour:
     useDefaultListeners: 1
   isEnvironmentAware: 1
   isStaticObject: 0
+  usePositionOffsetData: 0
   m_positionOffsetData:
     KeepMe: 0
     positionOffset: {x: 0, y: 0, z: 0}
+  scalingFactor: 1
   m_posOffsetData: {fileID: 0}
   listenerMask: 1
 --- !u!114 &7291344732795119319
@@ -239,8 +240,8 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 1e7ed6f1b1991f744a9f3bcf2e076df9, type: 2}
   useCallbacks: 0
+  stopSoundOnDestroy: 1
   Callbacks: []
-  playingId: 0
   soundEmitterObject: {fileID: 0}
   transitionDuration: 0
   eventIdInternal: 0

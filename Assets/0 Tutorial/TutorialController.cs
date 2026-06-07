@@ -121,7 +121,7 @@ public class TutorialController : MonoBehaviour
             new TutorialStepData
             {
                 setPosition = new Vector2(-138, -167),
-                circlePosition = new Vector2(300, 110),
+                circlePosition = new Vector2(297, 31),
                 circleSpawn = true,
                 message = "The value at the top is my total.",
                 requireContinue = true,
@@ -134,7 +134,7 @@ public class TutorialController : MonoBehaviour
             new TutorialStepData
             {
                 setPosition = new Vector2(-138, -167),
-                circlePosition = new Vector2(300, -77),
+                circlePosition = new Vector2(297, -33),
                 circleSpawn = true,
                 message = "The value at the bottom is yours.",
                 requireContinue = true,
@@ -176,7 +176,7 @@ public class TutorialController : MonoBehaviour
             {
                 setPosition = new Vector2(-138, -167),
                 circleSpawn = true,
-                circlePosition = new Vector2(351, 15),
+                circlePosition = new Vector2(324, -1),
                 message = "The value in the middle is the Target. For this round, it's 16. Be closer to it than your opponent, or face the consequences.",
                 requireContinue = true,
                 afterContinue = () =>
