@@ -185,7 +185,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 9
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6ab5949ed37d5e241a624f40c21839a4, type: 2}
   m_sharedMaterial: {fileID: 1016296640245115326, guid: 6ab5949ed37d5e241a624f40c21839a4, type: 2}
@@ -218,7 +218,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -2455,7 +2455,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 15
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6ab5949ed37d5e241a624f40c21839a4, type: 2}
   m_sharedMaterial: {fileID: 1016296640245115326, guid: 6ab5949ed37d5e241a624f40c21839a4, type: 2}
@@ -2488,7 +2488,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -5688,7 +5688,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 20
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6ab5949ed37d5e241a624f40c21839a4, type: 2}
   m_sharedMaterial: {fileID: 1016296640245115326, guid: 6ab5949ed37d5e241a624f40c21839a4, type: 2}
@@ -5721,7 +5721,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -7694,7 +7694,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8954820889392910812, guid: f70295cde019e4343940f2d16491ae9d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -10
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8954820889421970880, guid: f70295cde019e4343940f2d16491ae9d, type: 3}
       propertyPath: m_Name
