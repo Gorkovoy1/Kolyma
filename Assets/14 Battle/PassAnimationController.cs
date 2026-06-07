@@ -34,6 +34,9 @@ public class PassAnimationController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (triggerGameOver)
+            return;
+
         if(playerPass)
         {
             playerPass = false;

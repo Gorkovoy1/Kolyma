@@ -54,6 +54,8 @@ public class TutorialController : MonoBehaviour
     public GameObject endTurnButton;
     public GameObject actionButton;
 
+    public bool canAdvanceDialogue = false;
+
     IEnumerator SwitchToDiceScene()
     {
         yield return new WaitForSeconds(0.25f);
@@ -523,6 +525,7 @@ public class TutorialController : MonoBehaviour
                             child.gameObject.GetComponent<TutorialScripts.CardPlace>().isPlayable = false;
                         }
                     }
+                    endTurnButton.GetComponent<EndTurnGlow>().timeOne -= 10f;
                 },
                 //wait until one more pos
                 waitUntil = () => NumberManager.instance.oppVal == 24,
@@ -535,6 +538,7 @@ public class TutorialController : MonoBehaviour
                 requireContinue = true,
                 afterContinue = () =>
                 {
+                    actionButton.SetActive(true);
                     TurnManager.instance.isPlayerTurn = true;
                     endTurnButton.GetComponent<EndTurnGlow>().isFlashing = false;
                     flipButton.GetComponent<Button>().enabled = true;
@@ -636,10 +640,14 @@ public class TutorialController : MonoBehaviour
                 circleTemp.transform.localPosition = step.circlePosition;
             }
 
+            canAdvanceDialogue = false;
+            yield return new WaitForSeconds(0.55f);
+            canAdvanceDialogue = true;
+
             if (step.requireContinue)
             {
                 Debug.Log("Waiting for click...");
-                yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+                yield return new WaitUntil(() => canAdvanceDialogue && Input.GetMouseButtonDown(0));
                 Debug.Log("Clicked!");
             }
 

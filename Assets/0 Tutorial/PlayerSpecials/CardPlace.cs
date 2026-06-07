@@ -53,6 +53,8 @@ namespace TutorialScripts
 
         public AK.Wwise.Event trickSound;
 
+        public bool delayImageSpawn = false;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -67,7 +69,7 @@ namespace TutorialScripts
             playerDiscardZone = GameObject.FindWithTag("PlayerDiscard");
             opponentDiscardZone = GameObject.FindWithTag("OpponentDiscard");
 
-            if (imagePrefab != null)
+            if (imagePrefab != null && !delayImageSpawn)
             {
                 //this means its a special card
                 imagesParent = this.GetComponentInParent<HandController>().imagesParent;
@@ -90,6 +92,29 @@ namespace TutorialScripts
                 }
             }
 
+        }
+
+        public void SpawnImage()
+        {
+            //this means its a special card
+            imagesParent = this.GetComponentInParent<HandController>().imagesParent;
+            correspondingImage = Instantiate(imagePrefab, imagesParent);
+            correspondingImage.GetComponent<SpecialCardMovement>().target = this.gameObject.GetComponent<RectTransform>();
+
+            //start flipped
+            if (this.transform.parent == opponentHand)
+            {
+                grey = correspondingImage.GetComponent<Image>().sprite;
+                correspondingImage.GetComponent<Image>().sprite = cardBack;
+                correspondingImage.transform.Find("Image").GetComponent<Image>().enabled = false;
+            }
+
+            //start with no green outline
+            Transform outline = this.correspondingImage.transform.Find("Outline");
+            if (outline != null)
+            {
+                outline.gameObject.SetActive(false);
+            }
         }
 
         // Update is called once per frame
@@ -146,6 +171,9 @@ namespace TutorialScripts
 
         public void OnBeginDrag(PointerEventData eventData)
         {
+            if (!playerHand.GetComponentInParent<HandController>().doneDealing)
+                return;
+
             if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name != "OpponentHand")
             {
                 hovering = false;
@@ -172,6 +200,9 @@ namespace TutorialScripts
 
         public void OnEndDrag(PointerEventData eventData)
         {
+            if (!playerHand.GetComponentInParent<HandController>().doneDealing)
+                return;
+
             if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name != "OpponentHand")
             {
                 dragging = false;
@@ -204,6 +235,9 @@ namespace TutorialScripts
 
         public void OnDrag(PointerEventData eventData)
         {
+            if (!playerHand.GetComponentInParent<HandController>().doneDealing)
+                return;
+
             if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name != "OpponentHand")
             {
                 //Debug.Log("OnDrag");
@@ -227,6 +261,10 @@ namespace TutorialScripts
 
         public void OnPointerEnter(PointerEventData eventData)
         {
+            if (!playerHand.GetComponentInParent<HandController>().doneDealing)
+                return;
+
+
             if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name != "OpponentHand" && this.gameObject.transform.parent.name != "PlayerDiscard")
             {
                 if (!beingPlayed)
@@ -256,6 +294,10 @@ namespace TutorialScripts
 
         public void OnPointerExit(PointerEventData eventData)
         {
+            if (!playerHand.GetComponentInParent<HandController>().doneDealing)
+                return;
+
+
             if (!gameObject.TryGetComponent<NumberStats>(out var component) && this.gameObject.transform.parent.name == "PlayerHand")
             {
                 if (!beingPlayed)

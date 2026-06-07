@@ -119,6 +119,7 @@ namespace TutorialScripts
 
         IEnumerator InitialOpponentDraw()
         {
+            yield return new WaitForSeconds(1.3f);
             for (int i = 0; i < 6; i++)
             {
                 if (opponentSpecialDeck.Count == 0)
@@ -127,18 +128,26 @@ namespace TutorialScripts
                     yield break; // Stop the coroutine if there are no more cards
                 }
 
+                opponentSpecialDeck[0].GetComponent<AICardPlace>().delayImageSpawn = true;
                 Instantiate(opponentSpecialDeck[0], opponentHand.transform);
                 opponentSpecialDeck.RemoveAt(0);
-                //AkSoundEngine.PostEvent("Play_Trick_Card", sfxObj); //MAYBE REMOVE
 
+
+            }
+            yield return null;
+            foreach (Transform child in opponentHand.transform)
+            {
+                AkSoundEngine.PostEvent("Play_Trick_Card", sfxObj);
+                child.GetComponent<AICardPlace>().SpawnImage();
                 //Delay between cards
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(0.5f);
             }
             UpdateHands();
         }
 
         IEnumerator InitialPlayerDraw()
         {
+            yield return new WaitForSeconds(1.3f);
             for (int i = 0; i < 6; i++)
             {
                 if (playerSpecialDeck.Count == 0)
@@ -146,13 +155,17 @@ namespace TutorialScripts
                     Debug.LogWarning("deck is empty, stopping coroutine.");
                     yield break; // Stop the coroutine if there are no more cards
                 }
-
+                playerSpecialDeck[0].GetComponent<CardPlace>().delayImageSpawn = true;
                 Instantiate(playerSpecialDeck[0], playerHand.transform);
                 playerSpecialDeck.RemoveAt(0);
-                AkSoundEngine.PostEvent("Play_Trick_Card", sfxObj);
+            }
+            foreach(Transform child in playerHand.transform)
+            {
 
+                AkSoundEngine.PostEvent("Play_Trick_Card", sfxObj);
+                child.GetComponent<CardPlace>().SpawnImage();
                 //Delay between cards
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(0.5f);
             }
             UpdateHands();
 

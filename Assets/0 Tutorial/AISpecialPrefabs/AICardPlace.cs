@@ -57,6 +57,8 @@ using AK.Wwise;
 
             public AK.Wwise.Event trickSound;
 
+            public bool delayImageSpawn = false;
+
             // Start is called before the first frame update
             void Start()
             {
@@ -71,7 +73,7 @@ using AK.Wwise;
                 playerDiscardZone = GameObject.FindWithTag("PlayerDiscard");
                 opponentDiscardZone = GameObject.FindWithTag("OpponentDiscard");
 
-                if (imagePrefab != null)
+                if (imagePrefab != null && !delayImageSpawn)
                 {
                     //this means its a special card
                     imagesParent = this.GetComponentInParent<TutorialScripts.HandController>().imagesParent;
@@ -90,8 +92,25 @@ using AK.Wwise;
 
             }
 
-            // Update is called once per frame
-            void Update()
+        public void SpawnImage()
+        {
+            //this means its a special card
+            imagesParent = this.GetComponentInParent<TutorialScripts.HandController>().imagesParent;
+            correspondingImage = Instantiate(imagePrefab, imagesParent);
+            correspondingImage.GetComponent<TutorialScripts.AISpecialCardMovement>().target = this.gameObject.GetComponent<RectTransform>();
+            defaultMat = correspondingImage.GetComponent<Image>().material;
+
+            //start flipped
+            if (this.transform.parent == playerHand)
+            {
+                grey = correspondingImage.GetComponent<Image>().sprite;
+                correspondingImage.GetComponent<Image>().sprite = cardBack;
+                correspondingImage.transform.Find("Image").GetComponent<Image>().enabled = false;
+            }
+        }
+
+        // Update is called once per frame
+        void Update()
             {
 
                 if (imagePrefab != null)
