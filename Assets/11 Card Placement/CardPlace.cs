@@ -150,6 +150,11 @@ public class CardPlace : MonoBehaviour,
     // Update is called once per frame
     void Update()
     {
+        //prevent actions when loading scenes
+        if (SceneLoader.instance.isLoading)
+            return;
+
+
         if (imagePrefab == null) //not special card
             return;
 
@@ -197,6 +202,10 @@ public class CardPlace : MonoBehaviour,
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        //prevent actions when loading scenes
+        if (SceneLoader.instance.isLoading)
+            return;
+
         if (cardState != CardState.Idle)
             return;
 
@@ -218,6 +227,11 @@ public class CardPlace : MonoBehaviour,
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        //prevent actions when loading scenes
+        if (SceneLoader.instance.isLoading)
+            return;
+
+
         if (cardState != CardState.Dragging)
             return;
 
@@ -244,6 +258,10 @@ public class CardPlace : MonoBehaviour,
 
     public void OnDrag(PointerEventData eventData)
     {
+        //prevent actions when loading scenes
+        if (SceneLoader.instance.isLoading)
+            return;
+
         if (cardState != CardState.Dragging)
             return;
 
@@ -259,6 +277,10 @@ public class CardPlace : MonoBehaviour,
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        //prevent actions when loading scenes
+        if (SceneLoader.instance.isLoading)
+            return;
+
         if (cardState != CardState.Idle)
             return;
 
@@ -302,6 +324,11 @@ public class CardPlace : MonoBehaviour,
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        //prevent actions when loading scenes
+        if (SceneLoader.instance.isLoading)
+            return;
+
+
         if (cardState != CardState.Idle)
             return;
 

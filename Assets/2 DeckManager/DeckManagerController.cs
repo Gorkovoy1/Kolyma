@@ -62,8 +62,10 @@ public class DeckManagerController : MonoBehaviour
     
     public void ShowCanvas()
     {
+        if (SceneLoader.instance.isLoading)
+            return;
+
         //lerp deckmanagerpanel from -450 to 0 and back
-        
         StartCoroutine(LerpPullPanel());
     }
 

@@ -115,8 +115,11 @@ public class TestingCards : MonoBehaviour
         TurnManager.instance.checkedPlayable = false;
         if(!TurnManager.instance.playerPlayedCard)
         {
-            //animate pass text
-            passAnimationController.playerPass = true;
+            if(!SceneLoader.instance.isLoading)
+            {
+                //animate pass text
+                passAnimationController.playerPass = true;
+            }
         }
         handController.DrawToHand("opponent");
         TurnManager.instance.playerPlayedCard = false;

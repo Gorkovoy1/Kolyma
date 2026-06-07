@@ -881,7 +881,11 @@ public class DialogueInk : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //prevent actions when loading scenes
+        if (SceneLoader.instance.isLoading)
+            return;
+
+
         if (Input.GetMouseButtonDown(0) && !startScene)
         {
             //textSpeed = 0.0006f;

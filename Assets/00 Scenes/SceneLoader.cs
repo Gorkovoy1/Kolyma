@@ -10,6 +10,9 @@ public class SceneLoader : MonoBehaviour
     public string sceneName;
     public bool triggerLoad = false;
     public static SceneLoader instance;
+    public Image blocker;
+    public bool isLoading = false;
+    [SerializeField] private float fadeDuration = 0.75f;
 
     void Awake()
     {
@@ -46,40 +49,61 @@ public class SceneLoader : MonoBehaviour
         sceneName = sceneName;
 
         StartCoroutine(RTPCFader.instance.FadeOut());
+        StartCoroutine(SceneEndLoad());
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName); 
         operation.allowSceneActivation = false;
 
         while (!operation.isDone)
         {
-            //float progress = Mathf.Clamp01(operation.progress / 0.9f);
-            //progressBar.value = progress;
-            //loadingText.text = $"Loading...{Mathf.Floor(progress * 100)}%";
-
             if (operation.progress >= 0.9f && RTPCFader.instance.done)
             {
                 operation.allowSceneActivation = true;
                 StartCoroutine(RTPCFader.instance.FadeIn());
+                StartCoroutine(SceneStartLoad());
             }
 
             yield return null;
         }
     }
-    /*
-    IEnumerator FadeOutMusic(float duration)
+
+    public IEnumerator SceneEndLoad()
     {
-        float t = 0;
+        isLoading = true;
+        this.GetComponent<CanvasGroup>().blocksRaycasts = true;
+        float timer = 0f;
+        Color color = blocker.color;
 
-        while (t < duration)
+        while(timer < fadeDuration)
         {
-            float v = Mathf.Lerp(100, 0, t / duration);
-            AKSoundEngine.SetRTPCValue("MusicVolume", v);
-
-            t += Time.deltaTime;
+            timer += Time.deltaTime;
+            color.a = Mathf.Lerp(0f, 1f, timer / fadeDuration);
+            blocker.color = color;
             yield return null;
         }
 
-        AKSoundEngine.SetRTPCValue("MusicVolume", 0);
+        color.a = 1f;
+        blocker.color = color;
     }
-    */
+
+    public IEnumerator SceneStartLoad()
+    {
+        float timer = 0f;
+        Color color = blocker.color;
+        while(timer < fadeDuration)
+        {
+            timer += Time.deltaTime;
+            color.a = Mathf.Lerp(1f, 0f, timer / fadeDuration);
+            blocker.color = color;
+
+            yield return null;
+        }
+
+        color.a = 0f;
+        blocker.color = color;
+
+        isLoading = false;
+        this.GetComponent<CanvasGroup>().blocksRaycasts = false;
+    }
+    
 }

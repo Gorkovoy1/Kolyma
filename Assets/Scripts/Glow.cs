@@ -139,16 +139,7 @@ public class Glow : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 
     IEnumerator LoadLevel(int levelIndex)
     {
-        //Play animation
-        transition.SetTrigger("Start");
-
-
-        //Wait
-        yield return new WaitForSeconds(transitionTime);
-        //pauses coroutine for x amount of seconds
-        //AkSoundEngine.StopAll();
-        //Load scene
-        //SceneManager.LoadScene(levelIndex);
+        yield return null; 
 
         string path = SceneUtility.GetScenePathByBuildIndex(levelIndex);
 
