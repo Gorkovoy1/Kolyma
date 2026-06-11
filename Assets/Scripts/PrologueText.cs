@@ -9,54 +9,33 @@ using System.Collections.Specialized;
 public class PrologueText : MonoBehaviour
 
 {
-    public TextMeshProUGUI nameBox;
-    public TextMeshProUGUI textBox;
-    public string[] speakerNames;
-    public string[] lines;
+    public string name;
+    public string text;
     public float textSpeed;
-    private int index;
-    private bool isTyping;
+    public bool isTyping;
+    public TextMeshProUGUI textBox;
+    public TextMeshProUGUI nameBox;
 
 
     void Start()
     {
-       textBox.text = string.Empty;
-        StartText();
+        
     }
 
     
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            
-            if (isTyping)
-            {
-               StopAllCoroutines();
-               textBox.text = lines[index];
-               isTyping = false;
-            }
-            else
-            {
-                NextLine();
-            }
         
-        }
         
     }
 
-    void StartText()
-    {
-        index = 0;
+    
 
-        ShowLine();
-    }
-
-    void ShowLine()
+    public void ShowLine()
 
     {
         textBox.text = "";
-        nameBox.text = speakerNames[index];
+        nameBox.text = name;
         StartCoroutine(TypeLine());
 
     }
@@ -65,24 +44,14 @@ public class PrologueText : MonoBehaviour
     {
         isTyping = true;
         
-        foreach (char c in lines[index])
+        foreach (char c in text)
         {
             textBox.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
 
-        isTyping=false;
+        isTyping = false;
     }
 
-    void NextLine() 
-    {
-        if (index < lines.Length - 1)
-        {
-            index++;
-            ShowLine();
-        
-        }
-        else gameObject.SetActive(false);
     
-    }
 }
