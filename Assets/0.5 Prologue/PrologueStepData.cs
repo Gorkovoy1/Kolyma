@@ -13,4 +13,5 @@ public class PrologueStepData : MonoBehaviour
     public bool requireContinue = true;
     public bool dialogue = true;
     public GameObject dialogueBox;
+    public bool activateNextCard = false;
 }

@@ -10,6 +10,8 @@ public class PrologueController : MonoBehaviour
     public PrologueText prologueText;
     public Canvas recordCanvas;
     public GameObject dialogueBox;
+    public int cardIndex = 0;
+    public GameObject[] cards;
 
     private async void Start()
     {
@@ -46,6 +48,7 @@ public class PrologueController : MonoBehaviour
                 //play car sound
 
                 //animate card SEARCH
+                activateNextCard = true,
 
                 dialogue = true,
                 speaker = "Male Voice",
@@ -81,6 +84,84 @@ public class PrologueController : MonoBehaviour
                 speaker = "Sofia",
                 message = "Stay in your room. I will talk to them. Maybe they will listen.",
                 requireContinue = true,
+            },
+            new PrologueStepData
+            {
+                //door open sound
+                activateNextCard = true,
+                speaker = "Male Voice",
+                message = "Sofia Nikolaevna Kojukh? Sergeant Zverev.  We need to see your son Arkady.",
+                requireContinue = true,
+            },
+            new PrologueStepData
+            {
+                speaker = "Sofia",
+                message = "Why?",
+                requireContinue = true,
+            },
+            new PrologueStepData
+            {
+                speaker = "Sergeant Zverev",
+                message = "He’s been summoned for an urgent interrogation. He will have to come with us.",
+                requireContinue = true,
+            },
+            new PrologueStepData
+            {
+                speaker = "Sofia",
+                message = "Please do not take my son away! He is innocent! I signed all the papers, I have no contact with my husband, our marriage is nullified. Arkady is innocent!",
+                requireContinue = true,
+            },
+            new PrologueStepData
+            {
+                speaker = "Sergeant Zverev",
+                message = "No need to worry, if he is innocent, the investigators will release him tomorrow.",
+                requireContinue = true,
+            },
+            new PrologueStepData
+            {
+                activateNextCard = true,
+                speaker = "Sergeant Zverev",
+                message = "Solomin and Zubov - search the place and protocol everything. Volkov - get the boy.",
+                requireContinue = true,
+                afterContinue = () =>
+                {
+                    cards[cardIndex].SetActive(true);
+                    cardIndex++;
+                },
+
+            },
+            new PrologueStepData
+            {
+                activateNextCard = true,
+                speaker = "Zubov",
+                message = "The boy is here! He is resisting!",
+                requireContinue = true,
+            },
+            new PrologueStepData
+            {
+                speaker = "Sergeant Zverev",
+                message = "Volkov, calm him down",
+                requireContinue = true,
+            },
+            new PrologueStepData
+            {
+                activateNextCard = true,
+                speaker = "Sofia",
+                message = "Arkady!",
+                requireContinue = true,
+            },
+            new PrologueStepData
+            {
+                activateNextCard = true,
+                speaker = "Sergeant Zverev",
+                message = "Arkady Kojukh, you are under arrest for organizing a terrorist group in the interests of the foreign imperialist states.",
+                requireContinue = true,
+            },
+            new PrologueStepData
+            {
+                speaker = "Arkady",
+                message = "Mother, I am sorry…",
+                requireContinue = true,
             }
         };
 
@@ -95,6 +176,12 @@ public class PrologueController : MonoBehaviour
             prologueText.name = step.speaker;
             prologueText.ShowLine();
             dialogueBox.SetActive(step.dialogue);
+
+            if(step.activateNextCard)
+            {
+                cards[cardIndex].SetActive(true);
+                cardIndex++;
+            }
 
 
             if (step.requireContinue)
