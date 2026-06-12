@@ -2633,7 +2633,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   record: {fileID: 1787034767}
   recordTarget: {fileID: 1855884196}
-  snapDistance: 10
+  snapDistance: 35
   snapped: 0
   creditsPanel: {fileID: 343764058}
   speed: 50
