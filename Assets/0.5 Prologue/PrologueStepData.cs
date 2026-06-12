@@ -11,4 +11,6 @@ public class PrologueStepData : MonoBehaviour
     public Func<bool> waitUntil;
     public float autoAdvanceDelay = 0.3f;
     public bool requireContinue = true;
+    public bool dialogue = true;
+    public GameObject dialogueBox;
 }
