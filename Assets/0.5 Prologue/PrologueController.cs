@@ -140,7 +140,7 @@ public class PrologueController : MonoBehaviour
             new PrologueStepData
             {
                 speaker = "Sergeant Zverev",
-                message = "Volkov, calm him down",
+                message = "Volkov, calm him down.",
                 requireContinue = true,
             },
             new PrologueStepData

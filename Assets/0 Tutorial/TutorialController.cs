@@ -38,7 +38,9 @@ public class TutorialController : MonoBehaviour
     public BattleEndController battleEndController;
 
     public GameObject redCircle;
+    public GameObject redRectangle;
     public bool circleSpawn = false;
+    public bool rectangleSpawn = false;
 
     public GameObject circleTemp;
 
@@ -252,10 +254,13 @@ public class TutorialController : MonoBehaviour
             {
                 narrator = true,
                 setPosition = new Vector2(-138, -167),
-                message = "Now it's your turn. Drag Thick Woolen Coat onto the table to give your opponent +2.",
+                message = "Now it's your turn. Drag Thick Woolen Coat into the table dropzone to give your opponent +2.",
+                rectangleSpawn = true,
                 requireContinue = true,
                 afterContinue = () =>
                 {
+                    Destroy(circleTemp.gameObject);
+
                     TurnManager.instance.isPlayerTurn = true;
                     //set everything as unplayable
                     foreach(Transform child in playerHand.transform)
@@ -638,6 +643,11 @@ public class TutorialController : MonoBehaviour
             {
                 circleTemp = Instantiate(redCircle, this.gameObject.transform);
                 circleTemp.transform.localPosition = step.circlePosition;
+            }
+            if(step.rectangleSpawn)
+            {
+                circleTemp = Instantiate(redRectangle, this.gameObject.transform);
+                circleTemp.transform.localPosition = new Vector2(0, 0);
             }
 
             canAdvanceDialogue = false;

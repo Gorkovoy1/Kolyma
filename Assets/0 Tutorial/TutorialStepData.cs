@@ -12,6 +12,7 @@ public class TutorialStepData
     public bool requireContinue = true;
     public Vector2 setPosition;
     public bool circleSpawn = false;
+    public bool rectangleSpawn = false;
     public Vector2 circlePosition;
     public bool narrator = false;
 }
