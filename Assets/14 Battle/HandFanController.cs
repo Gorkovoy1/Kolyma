@@ -16,6 +16,7 @@ public class HandFanController : MonoBehaviour
     public bool hoverable;
     public float hoverDelay;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,14 +41,20 @@ public class HandFanController : MonoBehaviour
 
         if(TurnManager.instance.isPlayerTurn && !seeBoard)
         {
+            if(!fanHand)
+                StartCoroutine(ToggleHover());
             fanHand = true;
         }
         else if(TurnManager.instance.isPlayerTurn && seeBoard)
         {
+            if(fanHand)
+                StartCoroutine(ToggleHover());
             fanHand = false;
         }
         else if(!TurnManager.instance.isPlayerTurn)
         {
+            if (fanHand)
+                StartCoroutine(ToggleHover());
             fanHand = false;
         }
         
@@ -71,6 +78,13 @@ public class HandFanController : MonoBehaviour
     {
         hoverable = false;
         seeBoard = !seeBoard;
+        yield return new WaitForSeconds(hoverDelay);
+        hoverable = true;
+    }
+
+    IEnumerator ToggleHover()
+    {
+        hoverable = false;
         yield return new WaitForSeconds(hoverDelay);
         hoverable = true;
     }
