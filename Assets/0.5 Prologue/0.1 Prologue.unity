@@ -363,6 +363,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeDuration: 0.5
+  startOffset: 1000
+  duration: 0.3
 --- !u!1 &162874835
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,6 +455,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeDuration: 0.5
+  startOffset: 1000
+  duration: 0.3
 --- !u!1 &244082219
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,7 +602,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   text: 
-  textSpeed: 0.045
+  textSpeed: 0.042
   isTyping: 0
   textBox: {fileID: 464843013}
   nameBox: {fileID: 1076967796}
@@ -692,6 +696,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeDuration: 0.5
+  startOffset: 1000
+  duration: 0.3
 --- !u!1 &290595446
 GameObject:
   m_ObjectHideFlags: 0
@@ -1356,6 +1362,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeDuration: 0.5
+  startOffset: 1000
+  duration: 0.3
 --- !u!1 &643594239
 GameObject:
   m_ObjectHideFlags: 0
@@ -1621,6 +1629,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeDuration: 0.5
+  startOffset: 1000
+  duration: 0.3
 --- !u!1 &852563863
 GameObject:
   m_ObjectHideFlags: 0
@@ -2167,6 +2177,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeDuration: 0.5
+  startOffset: 1000
+  duration: 0.3
 --- !u!1 &1755340095
 GameObject:
   m_ObjectHideFlags: 0
@@ -2257,6 +2269,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeDuration: 0.5
+  startOffset: 1000
+  duration: 0.3
 --- !u!1 &1787034767
 GameObject:
   m_ObjectHideFlags: 0
