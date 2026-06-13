@@ -71,10 +71,15 @@ public class CardPlace : MonoBehaviour,
         Playing
     }
 
+    void Awake()
+    {
+        cardState = CardState.Dealing;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        cardState = CardState.Dealing;
+        
 
         //reset bools and set references
         discardUpdated = TurnManager.instance.discardUpdated;
