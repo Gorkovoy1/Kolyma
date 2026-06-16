@@ -97,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5147363108553547574, guid: 6e2fcb71f256d1a4bba15609cfa854f1, type: 3}
       propertyPath: owned
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5147363108553547574, guid: 6e2fcb71f256d1a4bba15609cfa854f1, type: 3}
       propertyPath: cardDesc
