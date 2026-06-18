@@ -98,6 +98,7 @@ public class PrologueController : MonoBehaviour
             },
             new PrologueStepData
             {
+                playSameTime = true,
                 soundName1 = "Play_Doorbell2",
                 soundName2 = "Play_Knock2",
                 speaker = "Male Voice",
@@ -227,14 +228,23 @@ public class PrologueController : MonoBehaviour
             }
             if(step.soundName1 != null && step.soundName2 != null)
             {
-                AkSoundEngine.PostEvent(
-                step.soundName1,
-                this.gameObject,
-                (uint)AkCallbackType.AK_EndOfEvent,
-                OnSoundFinished,
-                null);
+                if(step.playSameTime)
+                {
+                    AkSoundEngine.PostEvent(step.soundName1, this.gameObject);
+                    AkSoundEngine.PostEvent(step.soundName2, this.gameObject);
+                }
+                else
+                {
+                    AkSoundEngine.PostEvent(
+                    step.soundName1,
+                    this.gameObject,
+                    (uint)AkCallbackType.AK_EndOfEvent,
+                    OnSoundFinished,
+                    null);
 
-                soundName = step.soundName2;
+                    soundName = step.soundName2;
+                }
+                
             }
             else if(step.soundName1 != null && step.soundName2 == null)
             {

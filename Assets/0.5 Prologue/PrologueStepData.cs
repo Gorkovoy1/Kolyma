@@ -17,4 +17,5 @@ public class PrologueStepData : MonoBehaviour
     public GameObject dialogueBox;
     public bool activateNextCard = false;
     public bool stopSounds = false;
+    public bool playSameTime = false;
 }
