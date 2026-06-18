@@ -13,6 +13,7 @@
 						<ObjectRef Name="Play_Cell_Men" ID="{517D0111-030F-4302-BB85-08C728DA6A4D}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Woosh_Narrator" ID="{2E34843D-113B-4342-9BD2-C9258471BCDF}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Barracks_Door" ID="{3D23045E-40B6-437B-AAA9-CB39B09B9CAF}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Handcuffs" ID="{D4F9A9FC-866D-43A9-9E98-086325151A90}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Battle" ID="{50ECEEBD-F670-4459-895C-732B68BD80B2}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Typewriter" ID="{6C230E5E-8EB1-4567-9DEF-99AF8593EBAA}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Battle_Lost" ID="{8EAA0D96-F9CE-46B9-9B03-1D88DF5F6C68}" WorkUnitID="{6131E628-F632-4175-8A63-69F192218F4D}" Origin="Manual" Filter="7"/>

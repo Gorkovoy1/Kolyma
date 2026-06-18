@@ -843,6 +843,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Handcuffs" ID="{D4F9A9FC-866D-43A9-9E98-086325151A90}">
+							<ChildrenList>
+								<Action Name="" ID="{31CCEAA9-F51C-41E1-9B4D-E4B0FD29A80F}" ShortID="1042414782">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Handcuffs" ID="{57F17D59-D45C-4980-9011-E14DB9DC61D8}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

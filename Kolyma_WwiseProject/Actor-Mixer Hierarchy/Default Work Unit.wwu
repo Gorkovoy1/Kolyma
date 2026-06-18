@@ -3454,6 +3454,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Record_Stops" ID="{0509D764-55E2-445E-A919-CC2A5833974E}" ShortID="798705776">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -3470,9 +3477,21 @@
 										<MediaID ID="316316642"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="PrologueRecordStops2" ID="{3DFEC207-91F7-4C96-9E23-12AA65877EC4}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.442447711668712"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.505990730358859"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>PrologueRecordStops2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="532709649"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="PrologueRecordStops" ID="{E98A965E-E0AA-4154-9496-3A96FA7AE999}" Platform="Linked"/>
+								<ActiveSource Name="PrologueRecordStops2" ID="{3DFEC207-91F7-4C96-9E23-12AA65877EC4}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="CarDoors" ID="{C7029D0A-D47E-4A5C-AAE4-AD7119005951}" ShortID="1042721760">
