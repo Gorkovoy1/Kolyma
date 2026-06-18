@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using AK.Wwise;
 
 public class RecordSpinner : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public float speed;
+    public bool startMusic = false;
+    public uint musicId;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +19,17 @@ public class RecordSpinner : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     void Update()
     {
         if(this.GetComponentInParent<RecordController>().snapped)
+        {
             this.transform.Rotate(0f, 0f, speed * Time.deltaTime);
+
+            if (!startMusic)
+            {
+                startMusic = true;
+                musicId = AkSoundEngine.PostEvent("Play_Prologue_Record", this.gameObject);
+            }
+            
+        }
+            
     }
 
     public void OnBeginDrag(PointerEventData eventData)

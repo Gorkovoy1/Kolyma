@@ -5,6 +5,8 @@ using System;
 
 public class PrologueStepData : MonoBehaviour
 {
+    public string soundName1;
+    public string soundName2;
     public string message;
     public string speaker;
     public Action afterContinue;
@@ -14,4 +16,5 @@ public class PrologueStepData : MonoBehaviour
     public bool dialogue = true;
     public GameObject dialogueBox;
     public bool activateNextCard = false;
+    public bool stopSounds = false;
 }

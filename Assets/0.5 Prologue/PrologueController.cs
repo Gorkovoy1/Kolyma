@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using AK.Wwise;
 
 public class PrologueController : MonoBehaviour
 {
@@ -12,12 +13,33 @@ public class PrologueController : MonoBehaviour
     public GameObject dialogueBox;
     public int cardIndex = 0;
     public GameObject[] cards;
+    public string soundName;
+    [SerializeField] RecordSpinner recordSpinner;
 
+    
     private async void Start()
     {
 
+        AkSoundEngine.PostEvent("Play_Prologue_Ambience", this.gameObject);
+
         steps = new List<PrologueStepData>
         {
+            new PrologueStepData
+            {
+                dialogue = true,
+                speaker = "Narrator",
+                message = "He remembered that hot summer night. His mother had opened all the windows " +
+                "in the apartment to let some fresh air in.",
+                requireContinue = true,
+            },
+            new PrologueStepData
+            {
+                dialogue = true,
+                speaker = "Narrator",
+                message = "It was late, but both of them were awake, listening " +
+                "to the silence of the dark, empty streets.",
+                requireContinue = true,
+            },
             new PrologueStepData
             {
                 dialogue = true,
@@ -45,10 +67,17 @@ public class PrologueController : MonoBehaviour
             new PrologueStepData
             {
                 //stop music
+                stopSounds = true,
+                //delete the music object
+                
                 //play car sound
 
+                
                 //animate card SEARCH
                 activateNextCard = true,
+
+                soundName1 = "Play_Doorbell1",
+                soundName2 = "Play_Knock1",
 
                 dialogue = true,
                 speaker = "Male Voice",
@@ -58,7 +87,7 @@ public class PrologueController : MonoBehaviour
             new PrologueStepData
             {
                 speaker = "Sofia",
-                message = "Arkady, wake up! They have come for you!",
+                message = "Arkady, they have come for you!",
                 requireContinue = true,
             },
             new PrologueStepData
@@ -69,6 +98,8 @@ public class PrologueController : MonoBehaviour
             },
             new PrologueStepData
             {
+                soundName1 = "Play_Doorbell2",
+                soundName2 = "Play_Knock2",
                 speaker = "Male Voice",
                 message = "In the name of the Soviet Government, open the door, or we will break it down.",
                 requireContinue = true,
@@ -88,6 +119,8 @@ public class PrologueController : MonoBehaviour
             new PrologueStepData
             {
                 //door open sound
+                soundName1 = "Play_Door_Opens",
+                soundName2 = "Play_Cigarette",
                 activateNextCard = true,
                 speaker = "Male Voice",
                 message = "Sofia Nikolaevna Kojukh? Sergeant Zverev.  We need to see your son Arkady.",
@@ -133,6 +166,7 @@ public class PrologueController : MonoBehaviour
             new PrologueStepData
             {
                 activateNextCard = true,
+                soundName1 = "Play_Fight",
                 speaker = "Zubov",
                 message = "The boy is here! He is resisting!",
                 requireContinue = true,
@@ -142,6 +176,10 @@ public class PrologueController : MonoBehaviour
                 speaker = "Sergeant Zverev",
                 message = "Volkov, calm him down.",
                 requireContinue = true,
+                afterContinue = () =>
+                {
+                    AkSoundEngine.PostEvent("Play_Rifle_Butt_Hit", this.gameObject);
+                },
             },
             new PrologueStepData
             {
@@ -168,6 +206,12 @@ public class PrologueController : MonoBehaviour
         StartCoroutine(RunPrologue());
     }
 
+    void OnSoundFinished(object in_cookie, AkCallbackType in_type, AkCallbackInfo in_info)
+    {
+        AkSoundEngine.PostEvent(soundName, this.gameObject);
+        soundName = null;
+    }
+
     IEnumerator RunPrologue()
     {
         foreach (var step in steps)
@@ -176,9 +220,31 @@ public class PrologueController : MonoBehaviour
             prologueText.name = step.speaker;
             prologueText.ShowLine();
             dialogueBox.SetActive(step.dialogue);
+            if(step.stopSounds)
+            {
+                AkSoundEngine.StopPlayingID(recordSpinner.musicId);
+                AkSoundEngine.PostEvent("Play_Record_Stops", this.gameObject);
+            }
+            if(step.soundName1 != null)
+            {
+                AkSoundEngine.PostEvent(
+                step.soundName1,
+                this.gameObject,
+                (uint)AkCallbackType.AK_EndOfEvent,
+                OnSoundFinished,
+                null);
+            }
+            if(step.soundName2 != null)
+            {
+                soundName = step.soundName2;
+            }
 
             if(step.activateNextCard)
             {
+                if(cardIndex == 1)
+                {
+                    yield return new WaitForSeconds(2.5f);
+                }
                 cards[cardIndex].SetActive(true);
                 cardIndex++;
             }

@@ -15,7 +15,7 @@ public class PrologueText : MonoBehaviour
     public bool isTyping;
     public TextMeshProUGUI textBox;
     public TextMeshProUGUI nameBox;
-
+    private Coroutine typingRoutine;
 
     void Start()
     {
@@ -25,23 +25,37 @@ public class PrologueText : MonoBehaviour
     
     void Update()
     {
-        
+        if(isTyping)
+        {
+            if(Input.GetMouseButtonDown(0))
+            {
+                StopCoroutine(typingRoutine);
+
+                textBox.text = text;
+                StartCoroutine(FinishTypingNextFrame());
+            }
+        }
         
     }
 
-    
+    IEnumerator FinishTypingNextFrame()
+    {
+        yield return null;
+        isTyping = false;
+    }
 
     public void ShowLine()
 
     {
         textBox.text = "";
         nameBox.text = name;
-        StartCoroutine(TypeLine());
+        typingRoutine = StartCoroutine(TypeLine());
 
     }
 
     IEnumerator TypeLine()
     {
+        textSpeed = 0.042f;
         isTyping = true;
         
         foreach (char c in text)
