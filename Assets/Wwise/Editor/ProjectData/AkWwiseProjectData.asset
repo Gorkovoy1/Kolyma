@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8c4b0f5056a06a4a92d94e75a182e1ae
     GuidInternal: 
-    m_lastTime: -8584198620475256199
+    m_lastTime: -8584198480743363261
     List:
     - name: Main
       guid: f16c33554f83c140a4a6a74ed017dafb
@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584198620475087027
+    m_lastTime: -8584198480743191260
     List:
     - name: Andreyev
       guid: a6c0eb1ff2ce024c96aeb202fa8b346a
@@ -475,6 +475,46 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 2.4990704
       minDuration: 2.4990704
+    - name: Play_Car_Doors
+      guid: c9c634c8d149144eb26de43a61c54c46
+      id: 2915805706
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Prologue
+        ObjectType: 4
+        guid: 94e787d7aa7e304bb84272d57f812281
+      - ElementName: Play_Car_Doors
+        ObjectType: 3
+        guid: c9c634c8d149144eb26de43a61c54c46
+      Path: Events\Default Work Unit\Prologue\Play_Car_Doors
+      maxAttenuation: 0
+      maxDuration: 3.002449
+      minDuration: 3.002449
+    - name: Play_Car_Stops
+      guid: ef8af4ba78a8fe4a96015a47e56a6a02
+      id: 2394352390
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Prologue
+        ObjectType: 4
+        guid: 94e787d7aa7e304bb84272d57f812281
+      - ElementName: Play_Car_Stops
+        ObjectType: 3
+        guid: ef8af4ba78a8fe4a96015a47e56a6a02
+      Path: Events\Default Work Unit\Prologue\Play_Car_Stops
+      maxAttenuation: 0
+      maxDuration: 10.99
+      minDuration: 10.99
     - name: Play_Card_Burn
       guid: dfc5c2ac98e61044a0cc689b0dae88bd
       id: 3130258220
@@ -768,6 +808,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: Play_Door_Opens
+      guid: 8ad69932c9a3964e9574c1b30b63000c
+      id: 2743573824
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Prologue
+        ObjectType: 4
+        guid: 94e787d7aa7e304bb84272d57f812281
+      - ElementName: Play_Door_Opens
+        ObjectType: 3
+        guid: 8ad69932c9a3964e9574c1b30b63000c
+      Path: Events\Default Work Unit\Prologue\Play_Door_Opens
+      maxAttenuation: 0
+      maxDuration: 2.0389662
+      minDuration: 2.0389662
     - name: Play_Doorbell1
       guid: 854917e88e42e04d8828983f38fb1850
       id: 303918582
@@ -786,8 +846,8 @@ MonoBehaviour:
         guid: 854917e88e42e04d8828983f38fb1850
       Path: Events\Default Work Unit\Prologue\Play_Doorbell1
       maxAttenuation: 0
-      maxDuration: 5.002608
-      minDuration: 5.002608
+      maxDuration: 2.7152567
+      minDuration: 2.7152567
     - name: Play_Doorbell2
       guid: a7534c2eae7c5e42b6c30788b595f9d1
       id: 303918581
@@ -806,8 +866,8 @@ MonoBehaviour:
         guid: a7534c2eae7c5e42b6c30788b595f9d1
       Path: Events\Default Work Unit\Prologue\Play_Doorbell2
       maxAttenuation: 0
-      maxDuration: 6.007052
-      minDuration: 6.007052
+      maxDuration: 2.7746415
+      minDuration: 2.7746415
     - name: Play_Empty_Pockets
       guid: 642c244e6f779946800e4ab9aa73dd71
       id: 1971906101
@@ -1203,8 +1263,8 @@ MonoBehaviour:
         guid: b46a69fc9affd8478555ecd19af6a64a
       Path: Events\Default Work Unit\Prologue\Play_Prologue_Record
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 266.65704
+      minDuration: 266.65704
     - name: Play_Punch
       guid: da18ba05f34dd7428e9966bd0527ff26
       id: 3946911806
