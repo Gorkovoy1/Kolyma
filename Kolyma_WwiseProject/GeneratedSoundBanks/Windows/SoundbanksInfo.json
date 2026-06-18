@@ -130,7 +130,7 @@
     "Type": "User",
     "GUID": "{55336CF1-834F-40C1-A4A6-A74ED017DAFB}",
     "Language": "SFX",
-    "Hash": "{E3B1C7E6-E4D2-D491-767E-3683F5FF0C2C}",
+    "Hash": "{E36E8E6E-DFF8-F57A-D47F-C49F7AC0CA51}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -336,6 +336,14 @@
       "CachePath": "AD/{AD5D3F7F-6DD2-53A2-0003-57B196AF9217}.wem"
      },
      {
+      "Id": "316316642",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PrologueRecordStops.wav",
+      "CachePath": "CD/{CDC07D5A-7088-5FDE-04F8-368AD1312F28}.wem"
+     },
+     {
       "Id": "334397050",
       "Language": "SFX",
       "Streaming": "false",
@@ -406,6 +414,22 @@
       "Location": "Memory",
       "ShortName": "Barracks_Ambience.wav",
       "CachePath": "9A/{9A176E53-A0F9-8BFF-CF7F-4D624900A5C4}.wem"
+     },
+     {
+      "Id": "443864791",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PrologueFight.wav",
+      "CachePath": "79/{798B8E03-15AE-27C2-7D7D-C5125F9CBDED}.wem"
+     },
+     {
+      "Id": "469360384",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PrologueRifleButtHit.wav",
+      "CachePath": "32/{326F168B-B635-F905-33E5-4D68F44DA5F1}.wem"
      },
      {
       "Id": "471573529",
@@ -486,6 +510,14 @@
       "Location": "Memory",
       "ShortName": "Doors, Dungeon, Stuck, Open, Long Reverb SND12490.wav",
       "CachePath": "D2/{D24F9D33-E70D-887B-8EB4-36432BD23C2C}.wem"
+     },
+     {
+      "Id": "580822898",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PrologueKnock2.wav",
+      "CachePath": "D6/{D60C6B6F-4446-D88F-06EF-959276E57431}.wem"
      },
      {
       "Id": "594723613",
@@ -712,12 +744,28 @@
       "CachePath": "61/{6122B504-8810-D0C2-67FF-E6EBB707C77C}.wem"
      },
      {
+      "Id": "929537310",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PrologueKnock1.wav",
+      "CachePath": "7F/{7FF883CF-DE33-6587-2C81-FFE8A18E8550}.wem"
+     },
+     {
       "Id": "934665564",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "crows-002.wav",
       "CachePath": "EF/{EF92E522-8DCA-C9AF-D97F-F8B299A23EE6}.wem"
+     },
+     {
+      "Id": "940050980",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PrologueCigarette.wav",
+      "CachePath": "26/{265E4B9D-B45A-D88C-5CCB-695C238F8FFE}.wem"
      },
      {
       "Id": "943318692",
@@ -736,12 +784,36 @@
       "CachePath": "BE/{BE6DA8AE-F236-8BAC-B53B-36C86AE55710}.wem"
      },
      {
+      "Id": "951302250",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PrologueAmbience.wav",
+      "CachePath": "96/{966D984C-AF1C-02CB-2FC8-3E57CA83EDF4}.wem"
+     },
+     {
       "Id": "976493623",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Discard.wav",
       "CachePath": "12/{121BB11A-B45C-F427-0C9B-20690DA57A6D}.wem"
+     },
+     {
+      "Id": "997760624",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PrologueDoorBell2.wav",
+      "CachePath": "AB/{AB5B9540-A2E8-3856-18F9-1F7CDA6CF7F4}.wem"
+     },
+     {
+      "Id": "998940632",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PrologueDoorBell1.wav",
+      "CachePath": "A4/{A4FFA9FE-AD06-3712-BF30-21D4BE2BB0CF}.wem"
      },
      {
       "Id": "1005253697",
@@ -766,6 +838,22 @@
       "Location": "Memory",
       "ShortName": "TrickCard3.wav",
       "CachePath": "18/{18C10147-F2AB-C868-3542-10297B9293C2}.wem"
+     },
+     {
+      "Id": "1027235124",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PrologueRecord.wav",
+      "CachePath": "02/{0275A0D6-AE99-9247-919F-8401ED37CED3}.wem"
+     },
+     {
+      "Id": "1033095620",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PrologueAmbience.wav",
+      "CachePath": "31/{313AC203-F1A7-3C59-1480-31E6DB53CDC3}.wem"
      },
      {
       "Id": "1043577720",
@@ -1110,6 +1198,20 @@
       ]
      },
      {
+      "Id": "1982384146",
+      "Name": "Play_Cigarette",
+      "ObjectPath": "\\Events\\Default Work Unit\\Prologue\\Play_Cigarette",
+      "GUID": "{7A15A1E0-6126-4B82-B968-474E48A7C3B9}",
+      "DurationType": "OneShot",
+      "DurationMin": "3.2814286",
+      "DurationMax": "3.2814286",
+      "MediaRefs": [
+       {
+        "Id": "940050980"
+       }
+      ]
+     },
+     {
       "Id": "311910498",
       "Name": "Play_Click",
       "ObjectPath": "\\Events\\Default Work Unit\\Play_Click",
@@ -1248,6 +1350,34 @@
       ]
      },
      {
+      "Id": "303918582",
+      "Name": "Play_Doorbell1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Prologue\\Play_Doorbell1",
+      "GUID": "{E8174985-428E-4DE0-8828-983F38FB1850}",
+      "DurationType": "OneShot",
+      "DurationMin": "5.002608",
+      "DurationMax": "5.002608",
+      "MediaRefs": [
+       {
+        "Id": "998940632"
+       }
+      ]
+     },
+     {
+      "Id": "303918581",
+      "Name": "Play_Doorbell2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Prologue\\Play_Doorbell2",
+      "GUID": "{2E4C53A7-7CAE-425E-B6C3-0788B595F9D1}",
+      "DurationType": "OneShot",
+      "DurationMin": "6.007052",
+      "DurationMax": "6.007052",
+      "MediaRefs": [
+       {
+        "Id": "997760624"
+       }
+      ]
+     },
+     {
       "Id": "1971906101",
       "Name": "Play_Empty_Pockets",
       "ObjectPath": "\\Events\\Default Work Unit\\Battle\\Play_Empty_Pockets",
@@ -1272,6 +1402,20 @@
       "MediaRefs": [
        {
         "Id": "111599681"
+       }
+      ]
+     },
+     {
+      "Id": "860858016",
+      "Name": "Play_Fight",
+      "ObjectPath": "\\Events\\Default Work Unit\\Prologue\\Play_Fight",
+      "GUID": "{04D7DCCF-B5DE-49B5-B29A-A369DAFDBBA2}",
+      "DurationType": "OneShot",
+      "DurationMin": "4.999864",
+      "DurationMax": "4.999864",
+      "MediaRefs": [
+       {
+        "Id": "443864791"
        }
       ]
      },
@@ -1314,6 +1458,34 @@
       "MediaRefs": [
        {
         "Id": "434630941"
+       }
+      ]
+     },
+     {
+      "Id": "902092819",
+      "Name": "Play_Knock1",
+      "ObjectPath": "\\Events\\Default Work Unit\\Prologue\\Play_Knock1",
+      "GUID": "{9F75BB1F-B36F-40E1-802C-AD4C879C53FC}",
+      "DurationType": "OneShot",
+      "DurationMin": "3.5035148",
+      "DurationMax": "3.5035148",
+      "MediaRefs": [
+       {
+        "Id": "929537310"
+       }
+      ]
+     },
+     {
+      "Id": "902092816",
+      "Name": "Play_Knock2",
+      "ObjectPath": "\\Events\\Default Work Unit\\Prologue\\Play_Knock2",
+      "GUID": "{D80B5CD3-1E6E-4972-A1A5-71EE7B4254D9}",
+      "DurationType": "OneShot",
+      "DurationMin": "3.9931293",
+      "DurationMax": "3.9931293",
+      "MediaRefs": [
+       {
+        "Id": "580822898"
        }
       ]
      },
@@ -1455,6 +1627,35 @@
       ]
      },
      {
+      "Id": "834250828",
+      "Name": "Play_Prologue_Ambience",
+      "ObjectPath": "\\Events\\Default Work Unit\\Prologue\\Play_Prologue_Ambience",
+      "GUID": "{1D736A7A-AA4A-49D6-9AAE-48836C4B4238}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "951302250"
+       },
+       {
+        "Id": "1033095620"
+       }
+      ]
+     },
+     {
+      "Id": "933084011",
+      "Name": "Play_Prologue_Record",
+      "ObjectPath": "\\Events\\Default Work Unit\\Prologue\\Play_Prologue_Record",
+      "GUID": "{FC696AB4-FF9A-47D8-8555-ECD19AF6A64A}",
+      "DurationType": "OneShot",
+      "DurationMin": "266.65704",
+      "DurationMax": "266.65704",
+      "MediaRefs": [
+       {
+        "Id": "1027235124"
+       }
+      ]
+     },
+     {
       "Id": "3946911806",
       "Name": "Play_Punch",
       "ObjectPath": "\\Events\\Default Work Unit\\Play_Punch",
@@ -1469,6 +1670,20 @@
       ]
      },
      {
+      "Id": "216822431",
+      "Name": "Play_Record_Stops",
+      "ObjectPath": "\\Events\\Default Work Unit\\Prologue\\Play_Record_Stops",
+      "GUID": "{39EFC65C-BE3F-4815-8B07-FEDFCDCC9E83}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.1161678",
+      "DurationMax": "2.1161678",
+      "MediaRefs": [
+       {
+        "Id": "316316642"
+       }
+      ]
+     },
+     {
       "Id": "4115142720",
       "Name": "Play_Rifle_Butt",
       "ObjectPath": "\\Events\\Default Work Unit\\Battle\\Play_Rifle_Butt",
@@ -1479,6 +1694,20 @@
       "MediaRefs": [
        {
         "Id": "21069396"
+       }
+      ]
+     },
+     {
+      "Id": "1033978646",
+      "Name": "Play_Rifle_Butt_Hit",
+      "ObjectPath": "\\Events\\Default Work Unit\\Prologue\\Play_Rifle_Butt_Hit",
+      "GUID": "{294E46E7-90FE-4A83-AE21-92596D43F428}",
+      "DurationType": "OneShot",
+      "DurationMin": "3.9980953",
+      "DurationMax": "3.9980953",
+      "MediaRefs": [
+       {
+        "Id": "469360384"
        }
       ]
      },
@@ -1718,6 +1947,6 @@
     ]
    }
   ],
-  "FileHash": "{1B3E9758-00EF-3C7E-D20F-5DC139C3B03E}"
+  "FileHash": "{DC3484CB-174B-1C4D-5EFE-B14B697E8FCD}"
  }
 }

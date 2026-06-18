@@ -3113,6 +3113,334 @@
 						</ObjectList>
 					</ObjectLists>
 				</ActorMixer>
+				<ActorMixer Name="Prologue" ID="{674FCC5C-B6DB-4334-8A86-71BBC2D85D1F}" ShortID="870548649">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="SFX" ID="{3E2240E0-97A7-47A5-A838-BBA7507F9DDD}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Knock1" ID="{C28ED460-F728-4493-A411-060E5C9BAE8C}" ShortID="542915903">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="PrologueKnock1" ID="{6349B628-C742-4E73-8E7D-75B18DF3B27A}">
+									<Language>SFX</Language>
+									<AudioFile>PrologueKnock1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="929537310"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="PrologueKnock1" ID="{6349B628-C742-4E73-8E7D-75B18DF3B27A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Knock2" ID="{D7081076-70B4-42BC-920D-CC9F5C7D4775}" ShortID="65353209">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="PrologueKnock2" ID="{200CA2DA-0836-4410-BADA-D58FDF17857F}">
+									<Language>SFX</Language>
+									<AudioFile>PrologueKnock2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="580822898"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="PrologueKnock2" ID="{200CA2DA-0836-4410-BADA-D58FDF17857F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Fight" ID="{3DCACAB6-CAE5-47DA-A739-B58F5D62E5BE}" ShortID="525502510">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="PrologueFight" ID="{8970BBC9-65AF-4BD9-89BF-53EF4AEB6B36}">
+									<Language>SFX</Language>
+									<AudioFile>PrologueFight.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="443864791"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="PrologueFight" ID="{8970BBC9-65AF-4BD9-89BF-53EF4AEB6B36}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Handcuffs" ID="{57F17D59-D45C-4980-9011-E14DB9DC61D8}" ShortID="172463600">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="PrologueHandCuffs" ID="{DF53C7C9-6810-4734-B39C-5917A803283A}">
+									<Language>SFX</Language>
+									<AudioFile>PrologueHandCuffs.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="742448796"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="PrologueHandCuffs" ID="{DF53C7C9-6810-4734-B39C-5917A803283A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Doorbell1" ID="{F3508CA4-8F53-475A-9686-776BA3907C38}" ShortID="955890553">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="PrologueDoorBell1" ID="{9AC2D8A0-233E-481D-A5A8-A2D0DA16A979}">
+									<Language>SFX</Language>
+									<AudioFile>PrologueDoorBell1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="998940632"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="PrologueDoorBell1" ID="{9AC2D8A0-233E-481D-A5A8-A2D0DA16A979}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Doorbell2" ID="{F9F39064-B9F9-482B-9DDE-4BC1AFBFB717}" ShortID="908652140">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="PrologueDoorBell2" ID="{4212CA2B-697E-4F30-AB17-E80DEC293FF1}">
+									<Language>SFX</Language>
+									<AudioFile>PrologueDoorBell2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="997760624"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="PrologueDoorBell2" ID="{4212CA2B-697E-4F30-AB17-E80DEC293FF1}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="CarStops" ID="{D600045C-1A64-40CE-910F-9DC26137B8C5}" ShortID="311489373">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+						</Sound>
+						<Sound Name="Rifle_Butt_Hit" ID="{A46BB905-6167-46F2-994F-81754FBA5127}" ShortID="233529549">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="PrologueRifleButtHit" ID="{FA48D00A-B6A0-42E9-B100-8C89081128E1}">
+									<Language>SFX</Language>
+									<AudioFile>PrologueRifleButtHit.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="469360384"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="PrologueRifleButtHit" ID="{FA48D00A-B6A0-42E9-B100-8C89081128E1}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<RandomSequenceContainer Name="PrologueAmbience" ID="{1A784626-2C04-42F2-90E6-5D028BDF21E1}" ShortID="65763002">
+							<PropertyList>
+								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+								<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="PrologueAmbienceStart" ID="{918D4D85-1C04-466B-A9D5-F9CF2D938B57}" ShortID="943864500">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="PrologueAmbience" ID="{6D395775-5355-4DEE-9DC3-25F1CE24FC49}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="29.5060149040605"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>PrologueAmbience.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="951302250"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="PrologueAmbience" ID="{6D395775-5355-4DEE-9DC3-25F1CE24FC49}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="PrologueAmbienceLoop" ID="{657503D8-CE66-43F4-B4AB-915D10984544}" ShortID="117635957">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="PrologueAmbience" ID="{DFD4A3BA-2856-45FE-9D1D-E82D1342F02A}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>PrologueAmbience.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1033095620"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="PrologueAmbience" ID="{DFD4A3BA-2856-45FE-9D1D-E82D1342F02A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Playlist">
+									<Reference>
+										<ObjectRef Name="PrologueAmbienceStart" ID="{918D4D85-1C04-466B-A9D5-F9CF2D938B57}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+									</Reference>
+									<Reference>
+										<ObjectRef Name="PrologueAmbienceLoop" ID="{657503D8-CE66-43F4-B4AB-915D10984544}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</RandomSequenceContainer>
+						<Sound Name="Cigarette" ID="{B50AE6CB-0AEA-4529-BD24-57B0BAEC0C51}" ShortID="57273508">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="PrologueCigarette" ID="{D839E0ED-5599-4823-9A9F-F112F0D56BEB}">
+									<Language>SFX</Language>
+									<AudioFile>PrologueCigarette.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="940050980"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="PrologueCigarette" ID="{D839E0ED-5599-4823-9A9F-F112F0D56BEB}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="DoorOpens" ID="{0D4678C7-F384-4617-B92B-5FB96D0C79B1}" ShortID="1059795986">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="PrologueDoorOpens" ID="{BB93A64C-CC87-4A15-A88C-77B62646511C}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.455198545683873"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="2.03896615184482"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>PrologueDoorOpens.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="175521301"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="PrologueDoorOpens" ID="{BB93A64C-CC87-4A15-A88C-77B62646511C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Record_Stops" ID="{0509D764-55E2-445E-A919-CC2A5833974E}" ShortID="798705776">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="PrologueRecordStops" ID="{E98A965E-E0AA-4154-9496-3A96FA7AE999}">
+									<Language>SFX</Language>
+									<AudioFile>PrologueRecordStops.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="316316642"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="PrologueRecordStops" ID="{E98A965E-E0AA-4154-9496-3A96FA7AE999}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</ActorMixer>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

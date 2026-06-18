@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8c4b0f5056a06a4a92d94e75a182e1ae
     GuidInternal: 
-    m_lastTime: -8584217733748935078
+    m_lastTime: -8584198620475256199
     List:
     - name: Main
       guid: f16c33554f83c140a4a6a74ed017dafb
@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584216007467140804
+    m_lastTime: -8584198620475087027
     List:
     - name: Andreyev
       guid: a6c0eb1ff2ce024c96aeb202fa8b346a
@@ -583,6 +583,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: Play_Cigarette
+      guid: e0a1157a2661824bb968474e48a7c3b9
+      id: 1982384146
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Prologue
+        ObjectType: 4
+        guid: 94e787d7aa7e304bb84272d57f812281
+      - ElementName: Play_Cigarette
+        ObjectType: 3
+        guid: e0a1157a2661824bb968474e48a7c3b9
+      Path: Events\Default Work Unit\Prologue\Play_Cigarette
+      maxAttenuation: 0
+      maxDuration: 3.2814286
+      minDuration: 3.2814286
     - name: Play_Click
       guid: 3d2c2d295ada4048b2eb693b20a41deb
       id: 311910498
@@ -748,6 +768,46 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: Play_Doorbell1
+      guid: 854917e88e42e04d8828983f38fb1850
+      id: 303918582
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Prologue
+        ObjectType: 4
+        guid: 94e787d7aa7e304bb84272d57f812281
+      - ElementName: Play_Doorbell1
+        ObjectType: 3
+        guid: 854917e88e42e04d8828983f38fb1850
+      Path: Events\Default Work Unit\Prologue\Play_Doorbell1
+      maxAttenuation: 0
+      maxDuration: 5.002608
+      minDuration: 5.002608
+    - name: Play_Doorbell2
+      guid: a7534c2eae7c5e42b6c30788b595f9d1
+      id: 303918581
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Prologue
+        ObjectType: 4
+        guid: 94e787d7aa7e304bb84272d57f812281
+      - ElementName: Play_Doorbell2
+        ObjectType: 3
+        guid: a7534c2eae7c5e42b6c30788b595f9d1
+      Path: Events\Default Work Unit\Prologue\Play_Doorbell2
+      maxAttenuation: 0
+      maxDuration: 6.007052
+      minDuration: 6.007052
     - name: Play_Empty_Pockets
       guid: 642c244e6f779946800e4ab9aa73dd71
       id: 1971906101
@@ -788,6 +848,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 3
       minDuration: 3
+    - name: Play_Fight
+      guid: cfdcd704deb5b549b29aa369dafdbba2
+      id: 860858016
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Prologue
+        ObjectType: 4
+        guid: 94e787d7aa7e304bb84272d57f812281
+      - ElementName: Play_Fight
+        ObjectType: 3
+        guid: cfdcd704deb5b549b29aa369dafdbba2
+      Path: Events\Default Work Unit\Prologue\Play_Fight
+      maxAttenuation: 0
+      maxDuration: 4.999864
+      minDuration: 4.999864
     - name: Play_Fist
       guid: b9bdf0c8bbb7a848a9cac7ad6750e27f
       id: 2998547148
@@ -848,6 +928,46 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 2.785805
       minDuration: 2.785805
+    - name: Play_Knock1
+      guid: 1fbb759f6fb3e140802cad4c879c53fc
+      id: 902092819
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Prologue
+        ObjectType: 4
+        guid: 94e787d7aa7e304bb84272d57f812281
+      - ElementName: Play_Knock1
+        ObjectType: 3
+        guid: 1fbb759f6fb3e140802cad4c879c53fc
+      Path: Events\Default Work Unit\Prologue\Play_Knock1
+      maxAttenuation: 0
+      maxDuration: 3.5035148
+      minDuration: 3.5035148
+    - name: Play_Knock2
+      guid: d35c0bd86e1e7249a1a571ee7b4254d9
+      id: 902092816
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Prologue
+        ObjectType: 4
+        guid: 94e787d7aa7e304bb84272d57f812281
+      - ElementName: Play_Knock2
+        ObjectType: 3
+        guid: d35c0bd86e1e7249a1a571ee7b4254d9
+      Path: Events\Default Work Unit\Prologue\Play_Knock2
+      maxAttenuation: 0
+      maxDuration: 3.9931293
+      minDuration: 3.9931293
     - name: Play_Music_Battle_1
       guid: 79f1364d9174a74986b0498a998e6abc
       id: 1716731688
@@ -1045,6 +1165,46 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 1.8075963
       minDuration: 1.8075963
+    - name: Play_Prologue_Ambience
+      guid: 7a6a731d4aaad6499aae48836c4b4238
+      id: 834250828
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Prologue
+        ObjectType: 4
+        guid: 94e787d7aa7e304bb84272d57f812281
+      - ElementName: Play_Prologue_Ambience
+        ObjectType: 3
+        guid: 7a6a731d4aaad6499aae48836c4b4238
+      Path: Events\Default Work Unit\Prologue\Play_Prologue_Ambience
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Play_Prologue_Record
+      guid: b46a69fc9affd8478555ecd19af6a64a
+      id: 933084011
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Prologue
+        ObjectType: 4
+        guid: 94e787d7aa7e304bb84272d57f812281
+      - ElementName: Play_Prologue_Record
+        ObjectType: 3
+        guid: b46a69fc9affd8478555ecd19af6a64a
+      Path: Events\Default Work Unit\Prologue\Play_Prologue_Record
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: Play_Punch
       guid: da18ba05f34dd7428e9966bd0527ff26
       id: 3946911806
@@ -1062,6 +1222,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.98797745
       minDuration: 0.98797745
+    - name: Play_Record_Stops
+      guid: 5cc6ef393fbe15488b07fedfcdcc9e83
+      id: 216822431
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Prologue
+        ObjectType: 4
+        guid: 94e787d7aa7e304bb84272d57f812281
+      - ElementName: Play_Record_Stops
+        ObjectType: 3
+        guid: 5cc6ef393fbe15488b07fedfcdcc9e83
+      Path: Events\Default Work Unit\Prologue\Play_Record_Stops
+      maxAttenuation: 0
+      maxDuration: 2.1161678
+      minDuration: 2.1161678
     - name: Play_Rifle_Butt
       guid: 3f75fb21674f7643acc01aa3696487de
       id: 4115142720
@@ -1082,6 +1262,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 2.3412018
       minDuration: 2.3412018
+    - name: Play_Rifle_Butt_Hit
+      guid: e7464e29fe90834aae2192596d43f428
+      id: 1033978646
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Prologue
+        ObjectType: 4
+        guid: 94e787d7aa7e304bb84272d57f812281
+      - ElementName: Play_Rifle_Butt_Hit
+        ObjectType: 3
+        guid: e7464e29fe90834aae2192596d43f428
+      Path: Events\Default Work Unit\Prologue\Play_Rifle_Butt_Hit
+      maxAttenuation: 0
+      maxDuration: 3.9980953
+      minDuration: 3.9980953
     - name: Play_Scam
       guid: cd5f48a1f448984ab0f6d11681c00230
       id: 169023714
@@ -1341,6 +1541,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 3.8133106
       minDuration: 3.8133106
+    - name: Prologue
+      guid: 94e787d7aa7e304bb84272d57f812281
+      id: 4203473902
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Prologue
+        ObjectType: 4
+        guid: 94e787d7aa7e304bb84272d57f812281
+      Path: Events\Default Work Unit\Prologue
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:

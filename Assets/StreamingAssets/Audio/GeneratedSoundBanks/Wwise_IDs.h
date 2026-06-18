@@ -36,6 +36,7 @@ namespace AK
         static const AkUniqueID PLAY_CELL_DOOR_OPEN = 2237368892U;
         static const AkUniqueID PLAY_CELL_GUARD_ROLL_CALL = 3877743401U;
         static const AkUniqueID PLAY_CELL_MEN = 1420083155U;
+        static const AkUniqueID PLAY_CIGARETTE = 1982384146U;
         static const AkUniqueID PLAY_CLICK = 311910498U;
         static const AkUniqueID PLAY_CLICK_2 = 3821598057U;
         static const AkUniqueID PLAY_CLOSE_TRICK_COLLECTION = 776203257U;
@@ -45,11 +46,16 @@ namespace AK
         static const AkUniqueID PLAY_DICE = 2213067183U;
         static const AkUniqueID PLAY_DISCARD = 1805306256U;
         static const AkUniqueID PLAY_DOGS_BARK = 1892391772U;
+        static const AkUniqueID PLAY_DOORBELL1 = 303918582U;
+        static const AkUniqueID PLAY_DOORBELL2 = 303918581U;
         static const AkUniqueID PLAY_EMPTY_POCKETS = 1971906101U;
         static const AkUniqueID PLAY_EXTRA_WORK = 2887317804U;
+        static const AkUniqueID PLAY_FIGHT = 860858016U;
         static const AkUniqueID PLAY_FIST = 2998547148U;
         static const AkUniqueID PLAY_IN_CAHOOTS = 1644609823U;
         static const AkUniqueID PLAY_KNIFE = 2169194149U;
+        static const AkUniqueID PLAY_KNOCK1 = 902092819U;
+        static const AkUniqueID PLAY_KNOCK2 = 902092816U;
         static const AkUniqueID PLAY_MUSIC_BATTLE_1 = 1716731688U;
         static const AkUniqueID PLAY_MUSIC_BATTLE_2 = 1716731691U;
         static const AkUniqueID PLAY_MUSIC_CAMP_ARRIVAL = 238544951U;
@@ -60,8 +66,12 @@ namespace AK
         static const AkUniqueID PLAY_NUMBER_CARD = 2304369006U;
         static const AkUniqueID PLAY_OPEN_TRICK_COLLECTION = 1007146461U;
         static const AkUniqueID PLAY_POISON = 3292663506U;
+        static const AkUniqueID PLAY_PROLOGUE_AMBIENCE = 834250828U;
+        static const AkUniqueID PLAY_PROLOGUE_RECORD = 933084011U;
         static const AkUniqueID PLAY_PUNCH = 3946911806U;
+        static const AkUniqueID PLAY_RECORD_STOPS = 216822431U;
         static const AkUniqueID PLAY_RIFLE_BUTT = 4115142720U;
+        static const AkUniqueID PLAY_RIFLE_BUTT_HIT = 1033978646U;
         static const AkUniqueID PLAY_SCAM = 169023714U;
         static const AkUniqueID PLAY_SCREEN_SFX = 1112221790U;
         static const AkUniqueID PLAY_SEARCH = 3421211826U;
