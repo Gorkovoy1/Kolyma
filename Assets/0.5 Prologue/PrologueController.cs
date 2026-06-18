@@ -68,11 +68,7 @@ public class PrologueController : MonoBehaviour
             {
                 //stop music
                 stopSounds = true,
-                //delete the music object
-                
-                //play car sound
 
-                
                 //animate card SEARCH
                 activateNextCard = true,
 
@@ -221,12 +217,16 @@ public class PrologueController : MonoBehaviour
             prologueText.name = step.speaker;
             prologueText.ShowLine();
             dialogueBox.SetActive(step.dialogue);
+
             if(step.stopSounds)
             {
+                AkSoundEngine.PostEvent(step.soundName1, this.gameObject);
+                yield return new WaitForSeconds(1.3f);
+                AkSoundEngine.PostEvent(step.soundName2, this.gameObject);
+                yield return new WaitForSeconds(2f);
                 AkSoundEngine.StopPlayingID(recordSpinner.musicId);
-                AkSoundEngine.PostEvent("Play_Record_Stops", this.gameObject);
             }
-            if(step.soundName1 != null && step.soundName2 != null)
+            else if(step.soundName1 != null && step.soundName2 != null)
             {
                 if(step.playSameTime)
                 {
