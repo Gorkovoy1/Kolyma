@@ -3229,6 +3229,11 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="PrologueDoorBell1" ID="{9AC2D8A0-233E-481D-A5A8-A2D0DA16A979}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="1.78942425996297"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="2.71525669918921"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>PrologueDoorBell1.wav</AudioFile>
 									<MediaIDList>
@@ -3251,6 +3256,11 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="PrologueDoorBell2" ID="{4212CA2B-697E-4F30-AB17-E80DEC293FF1}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="1.20047616624906"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="2.7746416209485"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>PrologueDoorBell2.wav</AudioFile>
 									<MediaIDList>

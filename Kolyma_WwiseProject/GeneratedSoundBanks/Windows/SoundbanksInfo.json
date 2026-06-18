@@ -130,7 +130,7 @@
     "Type": "User",
     "GUID": "{55336CF1-834F-40C1-A4A6-A74ED017DAFB}",
     "Language": "SFX",
-    "Hash": "{94C13E51-0ECA-AC6D-F3E6-5E0C4B3B76DE}",
+    "Hash": "{DF7A085E-32F0-30B5-B5AD-957F33279349}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -829,7 +829,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "PrologueDoorBell2.wav",
-      "CachePath": "AB/{AB5B9540-A2E8-3856-18F9-1F7CDA6CF7F4}.wem"
+      "CachePath": "15/{151EBE48-404A-32D9-7C7F-1F8BD9DEB97A}.wem"
      },
      {
       "Id": "998940632",
@@ -837,7 +837,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "PrologueDoorBell1.wav",
-      "CachePath": "A4/{A4FFA9FE-AD06-3712-BF30-21D4BE2BB0CF}.wem"
+      "CachePath": "63/{63DA945E-EEF4-E8A7-F78C-2C12B82EF4C8}.wem"
      },
      {
       "Id": "1005253697",
@@ -1421,8 +1421,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Prologue\\Play_Doorbell1",
       "GUID": "{E8174985-428E-4DE0-8828-983F38FB1850}",
       "DurationType": "OneShot",
-      "DurationMin": "5.002608",
-      "DurationMax": "5.002608",
+      "DurationMin": "2.7152567",
+      "DurationMax": "2.7152567",
       "MediaRefs": [
        {
         "Id": "998940632"
@@ -1435,8 +1435,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Prologue\\Play_Doorbell2",
       "GUID": "{2E4C53A7-7CAE-425E-B6C3-0788B595F9D1}",
       "DurationType": "OneShot",
-      "DurationMin": "6.007052",
-      "DurationMax": "6.007052",
+      "DurationMin": "2.7746415",
+      "DurationMax": "2.7746415",
       "MediaRefs": [
        {
         "Id": "997760624"
@@ -2013,6 +2013,6 @@
     ]
    }
   ],
-  "FileHash": "{648919B7-9A0F-6E22-D96A-6A97E522BC55}"
+  "FileHash": "{A346C040-8FEA-1F01-1F0D-7640229EC94B}"
  }
 }
