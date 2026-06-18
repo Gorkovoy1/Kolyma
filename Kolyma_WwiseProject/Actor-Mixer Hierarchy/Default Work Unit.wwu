@@ -3190,6 +3190,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Handcuffs" ID="{57F17D59-D45C-4980-9011-E14DB9DC61D8}" ShortID="172463600">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -3256,6 +3263,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="CarStops" ID="{D600045C-1A64-40CE-910F-9DC26137B8C5}" ShortID="311489373">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-20</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
@@ -3264,6 +3278,18 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
 								</Reference>
 							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="PrologueCarStops" ID="{F43B2677-E734-4A8C-9AC4-5BAC68190A6D}">
+									<Language>SFX</Language>
+									<AudioFile>PrologueCarStops.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="741906934"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="PrologueCarStops" ID="{F43B2677-E734-4A8C-9AC4-5BAC68190A6D}" Platform="Linked"/>
+							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Rifle_Butt_Hit" ID="{A46BB905-6167-46F2-994F-81754FBA5127}" ShortID="233529549">
 							<ReferenceList>
@@ -3437,6 +3463,35 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="PrologueRecordStops" ID="{E98A965E-E0AA-4154-9496-3A96FA7AE999}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="CarDoors" ID="{C7029D0A-D47E-4A5C-AAE4-AD7119005951}" ShortID="1042721760">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-20</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="PrologueCarDoors" ID="{D3CDAA87-FE52-404E-A03F-F9C2246801AC}">
+									<Language>SFX</Language>
+									<AudioFile>PrologueCarDoors.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="271658097"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="PrologueCarDoors" ID="{D3CDAA87-FE52-404E-A03F-F9C2246801AC}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>

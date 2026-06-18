@@ -810,6 +810,39 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Door_Opens" ID="{3299D68A-A3C9-4E96-9574-C1B30B63000C}">
+							<ChildrenList>
+								<Action Name="" ID="{BBA2C1ED-9517-4EB4-8E63-121BCE7D1D68}" ShortID="589007771">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DoorOpens" ID="{0D4678C7-F384-4617-B92B-5FB96D0C79B1}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Car_Stops" ID="{BAF48AEF-A878-4AFE-9601-5A47E56A6A02}">
+							<ChildrenList>
+								<Action Name="" ID="{0359FA04-7D58-4CF9-A1FE-BEDDAF801C86}" ShortID="884646603">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="CarStops" ID="{D600045C-1A64-40CE-910F-9DC26137B8C5}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Car_Doors" ID="{C834C6C9-49D1-4E14-B26D-E43A61C54C46}">
+							<ChildrenList>
+								<Action Name="" ID="{ADB19B03-1CB9-459E-867E-D4DDB36A98D8}" ShortID="874340085">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="CarDoors" ID="{C7029D0A-D47E-4A5C-AAE4-AD7119005951}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

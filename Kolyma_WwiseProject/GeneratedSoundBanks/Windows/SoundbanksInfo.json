@@ -130,7 +130,7 @@
     "Type": "User",
     "GUID": "{55336CF1-834F-40C1-A4A6-A74ED017DAFB}",
     "Language": "SFX",
-    "Hash": "{98267E0F-4FE7-2CF1-FBE7-982D5FCF1636}",
+    "Hash": "{94C13E51-0ECA-AC6D-F3E6-5E0C4B3B76DE}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -326,6 +326,14 @@
       "Location": "Memory",
       "ShortName": "CloseTrickCollection.wav",
       "CachePath": "06/{061158A1-00BB-02D9-D4B8-DF3A39CC1E82}.wem"
+     },
+     {
+      "Id": "271658097",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PrologueCarDoors.wav",
+      "CachePath": "BC/{BC6BBA1A-FE32-08FC-63E8-EB901E165D83}.wem"
      },
      {
       "Id": "274600887",
@@ -646,6 +654,14 @@
       "Location": "Memory",
       "ShortName": "crows-001.wav",
       "CachePath": "BA/{BAE3EBAF-EDC4-1A04-447B-BC493891F493}.wem"
+     },
+     {
+      "Id": "741906934",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PrologueCarStops.wav",
+      "CachePath": "A1/{A1CA93BB-AADC-6CC0-7ED8-ABE4D63D51BC}.wem"
      },
      {
       "Id": "755802837",
@@ -1120,6 +1136,34 @@
       "MediaRefs": [
        {
         "Id": "736440791"
+       }
+      ]
+     },
+     {
+      "Id": "2915805706",
+      "Name": "Play_Car_Doors",
+      "ObjectPath": "\\Events\\Default Work Unit\\Prologue\\Play_Car_Doors",
+      "GUID": "{C834C6C9-49D1-4E14-B26D-E43A61C54C46}",
+      "DurationType": "OneShot",
+      "DurationMin": "3.002449",
+      "DurationMax": "3.002449",
+      "MediaRefs": [
+       {
+        "Id": "271658097"
+       }
+      ]
+     },
+     {
+      "Id": "2394352390",
+      "Name": "Play_Car_Stops",
+      "ObjectPath": "\\Events\\Default Work Unit\\Prologue\\Play_Car_Stops",
+      "GUID": "{BAF48AEF-A878-4AFE-9601-5A47E56A6A02}",
+      "DurationType": "OneShot",
+      "DurationMin": "10.99",
+      "DurationMax": "10.99",
+      "MediaRefs": [
+       {
+        "Id": "741906934"
        }
       ]
      },
@@ -1969,6 +2013,6 @@
     ]
    }
   ],
-  "FileHash": "{5723E4DD-8E8C-D0DA-48CB-36C224E600C6}"
+  "FileHash": "{648919B7-9A0F-6E22-D96A-6A97E522BC55}"
  }
 }

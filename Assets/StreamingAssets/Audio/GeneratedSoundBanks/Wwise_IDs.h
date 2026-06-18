@@ -30,6 +30,8 @@ namespace AK
         static const AkUniqueID PLAY_BREATH = 3698047240U;
         static const AkUniqueID PLAY_BRIBE = 3822624772U;
         static const AkUniqueID PLAY_BURDEN = 3584600694U;
+        static const AkUniqueID PLAY_CAR_DOORS = 2915805706U;
+        static const AkUniqueID PLAY_CAR_STOPS = 2394352390U;
         static const AkUniqueID PLAY_CARD_BURN = 3130258220U;
         static const AkUniqueID PLAY_CAUGHT_RED_HANDED = 1108803945U;
         static const AkUniqueID PLAY_CELL_DOOR = 386574545U;
