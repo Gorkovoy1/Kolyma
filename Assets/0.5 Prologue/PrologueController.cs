@@ -225,7 +225,7 @@ public class PrologueController : MonoBehaviour
                 AkSoundEngine.StopPlayingID(recordSpinner.musicId);
                 AkSoundEngine.PostEvent("Play_Record_Stops", this.gameObject);
             }
-            if(step.soundName1 != null)
+            if(step.soundName1 != null && step.soundName2 != null)
             {
                 AkSoundEngine.PostEvent(
                 step.soundName1,
@@ -233,17 +233,19 @@ public class PrologueController : MonoBehaviour
                 (uint)AkCallbackType.AK_EndOfEvent,
                 OnSoundFinished,
                 null);
-            }
-            if(step.soundName2 != null)
-            {
+
                 soundName = step.soundName2;
+            }
+            else if(step.soundName1 != null && step.soundName2 == null)
+            {
+                AkSoundEngine.PostEvent(step.soundName1, this.gameObject);
             }
 
             if(step.activateNextCard)
             {
                 if(cardIndex == 1)
                 {
-                    yield return new WaitForSeconds(2.5f);
+                    yield return new WaitForSeconds(2.2f);
                 }
                 cards[cardIndex].SetActive(true);
                 cardIndex++;
