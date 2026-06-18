@@ -46,6 +46,7 @@ namespace AK
         static const AkUniqueID PLAY_DICE = 2213067183U;
         static const AkUniqueID PLAY_DISCARD = 1805306256U;
         static const AkUniqueID PLAY_DOGS_BARK = 1892391772U;
+        static const AkUniqueID PLAY_DOOR_OPENS = 2743573824U;
         static const AkUniqueID PLAY_DOORBELL1 = 303918582U;
         static const AkUniqueID PLAY_DOORBELL2 = 303918581U;
         static const AkUniqueID PLAY_EMPTY_POCKETS = 1971906101U;

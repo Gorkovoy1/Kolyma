@@ -47,6 +47,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	2304369006	Play_Number_Card			\Default Work Unit\Battle\Play_Number_Card	
 	2537547804	Play_Thick_Woolen_Coat			\Default Work Unit\Battle\Play_Thick_Woolen_Coat	
 	2541567472	Play_Whisper			\Default Work Unit\Play_Whisper	
+	2743573824	Play_Door_Opens			\Default Work Unit\Prologue\Play_Door_Opens	
 	2807572219	Play_Silence			\Default Work Unit\Play_Silence	
 	2887317804	Play_Extra_Work			\Default Work Unit\Battle\Play_Extra_Work	
 	2998547148	Play_Fist			\Default Work Unit\Battle\Play_Fist	
@@ -98,6 +99,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	163322872	Cell_Guard_Roll_Call	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\44\{447472BA-00BD-5C2D-A866-4BE7724FA75D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Guard_Roll_Call		34158
 	169040873	Cell_SFX_Whisper-003	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\D0\{D0904A50-ACED-54F5-BF52-372BD15AF7C1}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Whisper\Cell_SFX_Whisper-003		28960
 	171785072	Andreyev_Scared	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\AE\{AE2CC3CD-6D55-B8B5-A1CE-2F2FED9DB813}.wem		\Actor-Mixer Hierarchy\Default Work Unit\NPCs\Andreyev\Andreyev_Scared		154212
+	175521301	DoorOpens	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\67\{67029732-96F4-A1AD-123A-61A1CCD514C5}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Prologue\DoorOpens		36472
 	185742565	Dice	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\03\{03529CCB-EAF7-D1D1-E389-E15B159A04B1}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Dice		70435
 	241560530	Thick_Woolen_Coat	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\DB\{DB006446-ECE7-9F8B-5177-9EC3DF7AFB81}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Trick_Cards_SFX\Thick_Woolen_Coat		51336
 	267717470	Close_Trick_Collection	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\06\{061158A1-00BB-02D9-D4B8-DF3A39CC1E82}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Close_Trick_Collection		23110
@@ -159,7 +161,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	940050980	Cigarette	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\26\{265E4B9D-B45A-D88C-5CCB-695C238F8FFE}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Prologue\Cigarette		41937
 	943318692	Andreyev_Satisfied	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\C5\{C5E7D388-4E02-D24F-7EBE-AE55A0D41855}.wem		\Actor-Mixer Hierarchy\Default Work Unit\NPCs\Andreyev\Andreyev_Satisfied		187108
 	946766250	Barracks_Door	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\BE\{BE6DA8AE-F236-8BAC-B53B-36C86AE55710}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Barracks_SFX\Barracks_Door		41275
-	951302250	PrologueAmbienceStart	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\96\{966D984C-AF1C-02CB-2FC8-3E57CA83EDF4}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Prologue\PrologueAmbience\PrologueAmbienceStart		1601216
+	951302250	PrologueAmbienceStart	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\7F\{7F0B85D0-3724-819F-6B53-9E4AAF8246BD}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Prologue\PrologueAmbience\PrologueAmbienceStart		1601216
 	976493623	Discard	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\12\{121BB11A-B45C-F427-0C9B-20690DA57A6D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Trick_Cards_SFX\Discard		31269
 	997760624	Doorbell2	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\AB\{AB5B9540-A2E8-3856-18F9-1F7CDA6CF7F4}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Prologue\Doorbell2		70309
 	998940632	Doorbell1	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\A4\{A4FFA9FE-AD06-3712-BF30-21D4BE2BB0CF}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Prologue\Doorbell1		54560

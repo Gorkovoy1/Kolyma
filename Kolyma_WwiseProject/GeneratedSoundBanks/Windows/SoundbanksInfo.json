@@ -130,7 +130,7 @@
     "Type": "User",
     "GUID": "{55336CF1-834F-40C1-A4A6-A74ED017DAFB}",
     "Language": "SFX",
-    "Hash": "{E36E8E6E-DFF8-F57A-D47F-C49F7AC0CA51}",
+    "Hash": "{98267E0F-4FE7-2CF1-FBE7-982D5FCF1636}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -294,6 +294,14 @@
       "Location": "Memory",
       "ShortName": "Andreyev_Scared.wav",
       "CachePath": "AE/{AE2CC3CD-6D55-B8B5-A1CE-2F2FED9DB813}.wem"
+     },
+     {
+      "Id": "175521301",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PrologueDoorOpens.wav",
+      "CachePath": "67/{67029732-96F4-A1AD-123A-61A1CCD514C5}.wem"
      },
      {
       "Id": "185742565",
@@ -789,7 +797,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "PrologueAmbience.wav",
-      "CachePath": "96/{966D984C-AF1C-02CB-2FC8-3E57CA83EDF4}.wem"
+      "CachePath": "7F/{7F0B85D0-3724-819F-6B53-9E4AAF8246BD}.wem"
      },
      {
       "Id": "976493623",
@@ -1346,6 +1354,20 @@
        },
        {
         "Id": "1005253697"
+       }
+      ]
+     },
+     {
+      "Id": "2743573824",
+      "Name": "Play_Door_Opens",
+      "ObjectPath": "\\Events\\Default Work Unit\\Prologue\\Play_Door_Opens",
+      "GUID": "{3299D68A-A3C9-4E96-9574-C1B30B63000C}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.0389662",
+      "DurationMax": "2.0389662",
+      "MediaRefs": [
+       {
+        "Id": "175521301"
        }
       ]
      },
@@ -1947,6 +1969,6 @@
     ]
    }
   ],
-  "FileHash": "{DC3484CB-174B-1C4D-5EFE-B14B697E8FCD}"
+  "FileHash": "{5723E4DD-8E8C-D0DA-48CB-36C224E600C6}"
  }
 }
