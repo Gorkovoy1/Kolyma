@@ -55,6 +55,7 @@ namespace AK
         static const AkUniqueID PLAY_EXTRA_WORK = 2887317804U;
         static const AkUniqueID PLAY_FIGHT = 860858016U;
         static const AkUniqueID PLAY_FIST = 2998547148U;
+        static const AkUniqueID PLAY_HANDCUFFS = 3054582876U;
         static const AkUniqueID PLAY_IN_CAHOOTS = 1644609823U;
         static const AkUniqueID PLAY_KNIFE = 2169194149U;
         static const AkUniqueID PLAY_KNOCK1 = 902092819U;
