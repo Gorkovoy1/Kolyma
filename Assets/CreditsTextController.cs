@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using AK.Wwise;
 
 public class CreditsTextController : MonoBehaviour
 {
@@ -39,5 +40,20 @@ public class CreditsTextController : MonoBehaviour
     {
         creditsEnd = true;
         this.GetComponentInParent<RecordController>().gameObject.SetActive(false);
+    }
+
+    public void TriggerCarApproaching()
+    {
+        AkSoundEngine.PostEvent(
+                    "Play_Car_Stops",
+                    this.gameObject,
+                    (uint)AkCallbackType.AK_EndOfEvent,
+                    OnSoundFinished,
+                    null);
+    }
+
+    void OnSoundFinished(object in_cookie, AkCallbackType in_type, AkCallbackInfo in_info)
+    {
+        AkSoundEngine.PostEvent("Play_Car_Doors", this.gameObject);
     }
 }

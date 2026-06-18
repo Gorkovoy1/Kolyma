@@ -68,11 +68,7 @@ public class PrologueController : MonoBehaviour
             {
                 //stop music
                 stopSounds = true,
-                //delete the music object
-                
-                //play car sound
 
-                
                 //animate card SEARCH
                 activateNextCard = true,
 
@@ -98,6 +94,7 @@ public class PrologueController : MonoBehaviour
             },
             new PrologueStepData
             {
+                playSameTime = true,
                 soundName1 = "Play_Doorbell2",
                 soundName2 = "Play_Knock2",
                 speaker = "Male Voice",
@@ -220,21 +217,34 @@ public class PrologueController : MonoBehaviour
             prologueText.name = step.speaker;
             prologueText.ShowLine();
             dialogueBox.SetActive(step.dialogue);
+
             if(step.stopSounds)
             {
+                AkSoundEngine.PostEvent(step.soundName1, this.gameObject);
+                yield return new WaitForSeconds(1.3f);
+                AkSoundEngine.PostEvent(step.soundName2, this.gameObject);
+                yield return new WaitForSeconds(2f);
                 AkSoundEngine.StopPlayingID(recordSpinner.musicId);
-                AkSoundEngine.PostEvent("Play_Record_Stops", this.gameObject);
             }
-            if(step.soundName1 != null && step.soundName2 != null)
+            else if(step.soundName1 != null && step.soundName2 != null)
             {
-                AkSoundEngine.PostEvent(
-                step.soundName1,
-                this.gameObject,
-                (uint)AkCallbackType.AK_EndOfEvent,
-                OnSoundFinished,
-                null);
+                if(step.playSameTime)
+                {
+                    AkSoundEngine.PostEvent(step.soundName1, this.gameObject);
+                    AkSoundEngine.PostEvent(step.soundName2, this.gameObject);
+                }
+                else
+                {
+                    AkSoundEngine.PostEvent(
+                    step.soundName1,
+                    this.gameObject,
+                    (uint)AkCallbackType.AK_EndOfEvent,
+                    OnSoundFinished,
+                    null);
 
-                soundName = step.soundName2;
+                    soundName = step.soundName2;
+                }
+                
             }
             else if(step.soundName1 != null && step.soundName2 == null)
             {

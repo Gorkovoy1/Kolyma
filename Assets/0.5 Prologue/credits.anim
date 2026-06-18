@@ -1114,6 +1114,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 30.183332
+    functionName: TriggerCarApproaching
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 32.516666
     functionName: NextLine
     data: 
