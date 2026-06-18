@@ -456,7 +456,11 @@ public class DialogueInk : MonoBehaviour
         //dont start the dialogue until levelloader is gone, then start sounds and dialogue
         else if (startScene)
         {
-                if (dialogueNumber != 3)
+                if(SceneManager.GetActiveScene().name == "11 BorisBarracks" || SceneManager.GetActiveScene().name == "9 BarracksC Gamble")
+                {
+                    yield return new WaitForSeconds(1f);
+                }
+                else if (dialogueNumber != 3)
                 {
                     yield return new WaitForSeconds(6f);
                 }
@@ -475,14 +479,26 @@ public class DialogueInk : MonoBehaviour
 
                 //pause as we look at the background
                 if (dialogueNumber != 3)
-                { yield return new WaitForSeconds(3f); }
-                else { yield return new WaitForSeconds(1f); }
+                { 
+                    yield return new WaitForSeconds(3f); 
+                }
+                else 
+                { 
+                    yield return new WaitForSeconds(1f); 
+                }
 
 
                 smoke.gameObject.SetActive(true);
 
-
-                yield return new WaitForSeconds(4f);
+                if (SceneManager.GetActiveScene().name == "11 BorisBarracks" || SceneManager.GetActiveScene().name == "9 BarracksC Gamble")
+                {
+                    yield return new WaitForSeconds(1f);
+                }
+                else
+                {
+                    yield return new WaitForSeconds(4f);
+                }
+                
 
                 //fade paper in
                 //narratorTag.gameObject.SetActive(true);

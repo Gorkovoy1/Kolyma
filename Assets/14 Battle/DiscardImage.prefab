@@ -220,7 +220,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: No played cards yet!
+  m_text: No cards yet!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1536c5662972899418d1e29092024ed5, type: 2}
   m_sharedMaterial: {fileID: 1426295547487872739, guid: 1536c5662972899418d1e29092024ed5, type: 2}

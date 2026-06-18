@@ -1207,7 +1207,19 @@ public class CardPlace : MonoBehaviour,
             g.transform.SetParent(opponentDiscardZone.transform);
             g.transform.position = opponentDiscardZone.transform.position;
 
-            OpponentStats.instance.discarded = true;
+            OpponentStats.instance.discarded = true; 
+            
+            //add discarded card to discard pile
+            opponentHand.GetComponentInParent<HandController>().oppDiscardButton.GetComponent<OpponentDiscardButton>().lastPlayed = g.GetComponent<AICardPlace>().correspondingImage.GetComponent<Image>();
+            foreach (var tmp in g.GetComponent<AICardPlace>().correspondingImage.GetComponentsInChildren<TextMeshProUGUI>(true)) // true = include inactive
+            {
+                if (tmp.name == "Text (TMP) (1)") // Replace with your actual object name
+                {
+                    opponentHand.GetComponentInParent<HandController>().oppDiscardButton.GetComponent<OpponentDiscardButton>().cardDesc = tmp.text;
+                    break;
+                }
+            }
+
 
             g.GetComponent<AICardPlace>().correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(false);
         }
