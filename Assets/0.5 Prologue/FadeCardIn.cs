@@ -12,6 +12,7 @@ public class FadeCardIn : MonoBehaviour
     Vector2 originalPos;
     [SerializeField] float startOffset = 1000f;
     [SerializeField] float duration = 0.5f;
+    public bool skipSlideIn = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,9 +36,12 @@ public class FadeCardIn : MonoBehaviour
         c.a = 0f;
         image.color = c;
 
-        rect.anchoredPosition = originalPos + Vector2.right * startOffset;
-
-        StartCoroutine(SlideIn());
+        if(!skipSlideIn)
+        {
+            rect.anchoredPosition = originalPos + Vector2.right * startOffset;
+            StartCoroutine(SlideIn());
+        }
+            
         StartCoroutine(FadeIn());
 
     }

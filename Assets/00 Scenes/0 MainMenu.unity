@@ -1749,7 +1749,7 @@ MonoBehaviour:
   mainMenu: {fileID: 776771904}
   optionsMenu: {fileID: 1313422015}
   creditsMenu: {fileID: 732528842}
-  firstSceneName: 3 DIALOGUE1 Jail
+  firstSceneName: 0.1 Prologue
 --- !u!114 &896809677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2452,7 +2452,7 @@ GameObject:
   - component: {fileID: 1945598126}
   - component: {fileID: 1945598128}
   m_Layer: 0
-  m_Name: OPTIONS
+  m_Name: BATTLE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

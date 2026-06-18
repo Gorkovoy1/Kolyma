@@ -1300,8 +1300,8 @@ MonoBehaviour:
         guid: 5cc6ef393fbe15488b07fedfcdcc9e83
       Path: Events\Default Work Unit\Prologue\Play_Record_Stops
       maxAttenuation: 0
-      maxDuration: 2.1161678
-      minDuration: 2.1161678
+      maxDuration: 0.50599074
+      minDuration: 0.50599074
     - name: Play_Rifle_Butt
       guid: 3f75fb21674f7643acc01aa3696487de
       id: 4115142720

@@ -15,12 +15,57 @@ public class PrologueController : MonoBehaviour
     public GameObject[] cards;
     public string soundName;
     [SerializeField] RecordSpinner recordSpinner;
+    public float fadeDuration = 1f;
+    public CanvasGroup dialogueCanvasGroup;
 
-    
-    private async void Start()
+    IEnumerator FadeInDialogue()
+    {
+        dialogueCanvasGroup.alpha = 0f;
+
+        float timer = 0f;
+
+        while (timer < fadeDuration)
+        {
+            timer += Time.deltaTime;
+
+            dialogueCanvasGroup.alpha =
+                Mathf.Lerp(0f, 1f, timer / fadeDuration);
+
+            yield return null;
+        }
+
+        dialogueCanvasGroup.alpha = 1f;
+    }
+
+    IEnumerator FadeOutCanvas()
+    {
+        this.gameObject.GetComponentInChildren<CanvasGroup>().alpha = 1f;
+
+        float timer = 0f;
+
+        while (timer < fadeDuration)
+        {
+            timer += Time.deltaTime;
+
+            this.gameObject.GetComponentInChildren<CanvasGroup>().alpha =
+                Mathf.Lerp(1f, 0f, timer / fadeDuration);
+
+            yield return null;
+        }
+
+        this.gameObject.GetComponentInChildren<CanvasGroup>().alpha = 0f;
+
+        StartCoroutine(SceneLoader.instance.LoadNextScene("3 DIALOGUE1 Jail"));
+    }
+
+    IEnumerator Start()
     {
 
         AkSoundEngine.PostEvent("Play_Prologue_Ambience", this.gameObject);
+        yield return new WaitForSeconds(2f);
+        AkSoundEngine.PostEvent("Play_Woosh_Narrator", this.gameObject);
+
+        yield return StartCoroutine(FadeInDialogue());
 
         steps = new List<PrologueStepData>
         {
@@ -68,8 +113,6 @@ public class PrologueController : MonoBehaviour
             {
                 //stop music
                 stopSounds = true,
-
-                //animate card SEARCH
                 activateNextCard = true,
 
                 soundName1 = "Play_Doorbell1",
@@ -115,9 +158,6 @@ public class PrologueController : MonoBehaviour
             },
             new PrologueStepData
             {
-                //door open sound
-                soundName1 = "Play_Door_Opens",
-                soundName2 = "Play_Cigarette",
                 activateNextCard = true,
                 speaker = "Male Voice",
                 message = "Sofia Nikolaevna Kojukh? Sergeant Zverev.  We need to see your son Arkady.",
@@ -173,10 +213,7 @@ public class PrologueController : MonoBehaviour
                 speaker = "Sergeant Zverev",
                 message = "Volkov, calm him down.",
                 requireContinue = true,
-                afterContinue = () =>
-                {
-                    AkSoundEngine.PostEvent("Play_Rifle_Butt_Hit", this.gameObject);
-                },
+                
             },
             new PrologueStepData
             {
@@ -188,6 +225,7 @@ public class PrologueController : MonoBehaviour
             new PrologueStepData
             {
                 activateNextCard = true,
+                soundName1 = "Play_Handcuffs",
                 speaker = "Sergeant Zverev",
                 message = "Arkady Kojukh, you are under arrest for organizing a terrorist group in the interests of the foreign imperialist states.",
                 requireContinue = true,
@@ -197,10 +235,15 @@ public class PrologueController : MonoBehaviour
                 speaker = "Arkady",
                 message = "Mother, I am sorry…",
                 requireContinue = true,
+                afterContinue = () =>
+                {
+                    //fade canvas out
+                    StartCoroutine(FadeOutCanvas());
+                },
             }
         };
 
-        StartCoroutine(RunPrologue());
+        yield return StartCoroutine(RunPrologue());
     }
 
     void OnSoundFinished(object in_cookie, AkCallbackType in_type, AkCallbackInfo in_info)
@@ -218,12 +261,39 @@ public class PrologueController : MonoBehaviour
             prologueText.ShowLine();
             dialogueBox.SetActive(step.dialogue);
 
-            if(step.stopSounds)
+            if (step.activateNextCard)
+            {
+                if (cardIndex == 1)
+                {
+                    //play door open
+                    AkSoundEngine.PostEvent(
+                    "Play_Door_Opens",
+                    this.gameObject,
+                    (uint)AkCallbackType.AK_EndOfEvent,
+                    OnSoundFinished,
+                    null);
+
+                    soundName = "Play_Cigarette";
+
+                    //play smoke after and show card
+                    yield return new WaitForSeconds(2.2f);
+                }
+                else if (cardIndex == 5)
+                {
+                    AkSoundEngine.PostEvent("Play_Rifle_Butt_Hit", this.gameObject);
+                    this.gameObject.GetComponentInChildren<UIScreenShake>().Shake(0.25f, 15f);
+                }
+                cards[cardIndex].SetActive(true);
+                cardIndex++;
+            }
+
+            if (step.stopSounds)
             {
                 AkSoundEngine.PostEvent(step.soundName1, this.gameObject);
                 yield return new WaitForSeconds(1.3f);
                 AkSoundEngine.PostEvent(step.soundName2, this.gameObject);
                 yield return new WaitForSeconds(2f);
+                //AkSoundEngine.PostEvent("Play_Record_Stops", this.gameObject);
                 AkSoundEngine.StopPlayingID(recordSpinner.musicId);
             }
             else if(step.soundName1 != null && step.soundName2 != null)
@@ -251,15 +321,7 @@ public class PrologueController : MonoBehaviour
                 AkSoundEngine.PostEvent(step.soundName1, this.gameObject);
             }
 
-            if(step.activateNextCard)
-            {
-                if(cardIndex == 1)
-                {
-                    yield return new WaitForSeconds(2.2f);
-                }
-                cards[cardIndex].SetActive(true);
-                cardIndex++;
-            }
+            
 
 
             if (step.requireContinue)
@@ -271,7 +333,6 @@ public class PrologueController : MonoBehaviour
 
             step.afterContinue?.Invoke();
 
-            //blockerPanel.SetActive(false);
 
             if (step.waitUntil != null)
             {
