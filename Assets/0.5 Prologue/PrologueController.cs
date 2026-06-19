@@ -126,7 +126,7 @@ public class PrologueController : MonoBehaviour
             new PrologueStepData
             {
                 speaker = "Sofia",
-                message = "Arkady, they have come for you!",
+                message = "<i>Arkady, they have come for you!</i>",
                 requireContinue = true,
             },
             new PrologueStepData
@@ -153,7 +153,7 @@ public class PrologueController : MonoBehaviour
             new PrologueStepData
             {
                 speaker = "Sofia",
-                message = "Stay in your room. I will talk to them. Maybe they will listen.",
+                message = "<i>Stay in your room. I will talk to them. Maybe they will listen.</i>",
                 requireContinue = true,
             },
             new PrologueStepData
@@ -268,7 +268,7 @@ public class PrologueController : MonoBehaviour
             }
             else if(step.speaker == "Arkady")
             {
-                prologueText.GetComponentInChildren<TMP_Text>(true).color = Color.green;
+                prologueText.GetComponentInChildren<TMP_Text>(true).color = new Color32(32, 137, 32, 255);
             }
             else if(step.speaker == "Male Voice" || step.speaker == "Sergeant Zverev")
             {
@@ -276,7 +276,7 @@ public class PrologueController : MonoBehaviour
             }
             else if(step.speaker == "Zubov")
             {
-                prologueText.GetComponentInChildren<TMP_Text>(true).color = new Color32(255, 165, 0, 255);
+                prologueText.GetComponentInChildren<TMP_Text>(true).color = new Color32(0, 155, 255, 255);
             }
 
             prologueText.ShowLine();
@@ -313,9 +313,11 @@ public class PrologueController : MonoBehaviour
                 AkSoundEngine.PostEvent(step.soundName1, this.gameObject);
                 yield return new WaitForSeconds(1.3f);
                 AkSoundEngine.PostEvent(step.soundName2, this.gameObject);
+                AkSoundEngine.PostEvent("Play_Music_Prologue_Arrest", this.gameObject);
                 yield return new WaitForSeconds(2f);
                 //AkSoundEngine.PostEvent("Play_Record_Stops", this.gameObject);
                 AkSoundEngine.StopPlayingID(recordSpinner.musicId);
+                
             }
             else if(step.soundName1 != null && step.soundName2 != null)
             {

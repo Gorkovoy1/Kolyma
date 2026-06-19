@@ -13,7 +13,6 @@ namespace AK
 {
     namespace EVENTS
     {
-        static const AkUniqueID NEW_EVENT = 3050945240U;
         static const AkUniqueID PLAY_ANDREYEV_CLEARS_THROAT = 2052887156U;
         static const AkUniqueID PLAY_ANDREYEV_GOOD_LUCK = 675692170U;
         static const AkUniqueID PLAY_ANDREYEV_QUESTION = 1883782041U;
@@ -66,6 +65,7 @@ namespace AK
         static const AkUniqueID PLAY_MUSIC_CAMP_HUB_DAY = 3768845998U;
         static const AkUniqueID PLAY_MUSIC_JAIL = 3643466302U;
         static const AkUniqueID PLAY_MUSIC_MENU = 1699343283U;
+        static const AkUniqueID PLAY_MUSIC_PROLOGUE_ARREST = 2721766995U;
         static const AkUniqueID PLAY_NEGATIVE_EVENT = 3413568250U;
         static const AkUniqueID PLAY_NUMBER_CARD = 2304369006U;
         static const AkUniqueID PLAY_OPEN_TRICK_COLLECTION = 1007146461U;

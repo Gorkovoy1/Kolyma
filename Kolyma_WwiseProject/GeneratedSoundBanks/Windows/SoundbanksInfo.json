@@ -130,7 +130,7 @@
     "Type": "User",
     "GUID": "{55336CF1-834F-40C1-A4A6-A74ED017DAFB}",
     "Language": "SFX",
-    "Hash": "{0CCECFDD-03EB-57FD-15B6-C41AF409E507}",
+    "Hash": "{13FE79F0-AD4A-A608-CFFD-659279ECA594}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -824,6 +824,14 @@
       "CachePath": "7F/{7F0B85D0-3724-819F-6B53-9E4AAF8246BD}.wem"
      },
      {
+      "Id": "954436840",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PrologueArrestMusic.wav",
+      "CachePath": "11/{11214D97-B1A8-6D8E-1E31-865ACD58810D}.wem"
+     },
+     {
       "Id": "976493623",
       "Language": "SFX",
       "Streaming": "false",
@@ -913,16 +921,6 @@
      }
     ],
     "Events": [
-     {
-      "Id": "3050945240",
-      "Name": "New_Event",
-      "ObjectPath": "\\Events\\Default Work Unit\\Music\\New_Event",
-      "GUID": "{3FEC116F-8AD6-4265-A82B-0DB01ACECACA}",
-      "MaxAttenuation": "0",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
-     },
      {
       "Id": "2052887156",
       "Name": "Play_Andreyev_Clears_Throat",
@@ -1650,6 +1648,18 @@
       ]
      },
      {
+      "Id": "2721766995",
+      "Name": "Play_Music_Prologue_Arrest",
+      "ObjectPath": "\\Events\\Default Work Unit\\Music\\Play_Music_Prologue_Arrest",
+      "GUID": "{3FEC116F-8AD6-4265-A82B-0DB01ACECACA}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "954436840"
+       }
+      ]
+     },
+     {
       "Id": "3413568250",
       "Name": "Play_Negative_Event",
       "ObjectPath": "\\Events\\Default Work Unit\\Play_Negative_Event",
@@ -2035,6 +2045,6 @@
     ]
    }
   ],
-  "FileHash": "{2129EC04-0E2E-B96F-D2B4-40CE2E5E17C0}"
+  "FileHash": "{349C1558-466A-0E6D-A293-1BB711F5C274}"
  }
 }

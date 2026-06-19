@@ -48,13 +48,13 @@ Event	ID	Name			Wwise Object Path	Notes
 	2394352390	Play_Car_Stops			\Default Work Unit\Prologue\Play_Car_Stops	
 	2537547804	Play_Thick_Woolen_Coat			\Default Work Unit\Battle\Play_Thick_Woolen_Coat	
 	2541567472	Play_Whisper			\Default Work Unit\Play_Whisper	
+	2721766995	Play_Music_Prologue_Arrest			\Default Work Unit\Music\Play_Music_Prologue_Arrest	
 	2743573824	Play_Door_Opens			\Default Work Unit\Prologue\Play_Door_Opens	
 	2807572219	Play_Silence			\Default Work Unit\Play_Silence	
 	2887317804	Play_Extra_Work			\Default Work Unit\Battle\Play_Extra_Work	
 	2915805706	Play_Car_Doors			\Default Work Unit\Prologue\Play_Car_Doors	
 	2998547148	Play_Fist			\Default Work Unit\Battle\Play_Fist	
 	3014684957	Play_Battle_Lost			\Default Work Unit\Battle\Play_Battle_Lost	
-	3050945240	New_Event			\Default Work Unit\Music\New_Event	
 	3054582876	Play_Handcuffs			\Default Work Unit\Prologue\Play_Handcuffs	
 	3130258220	Play_Card_Burn			\Default Work Unit\Battle\Play_Card_Burn	
 	3205279810	Play_Barracks_Door			\Default Work Unit\Play_Barracks_Door	
@@ -168,6 +168,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	943318692	Andreyev_Satisfied	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\C5\{C5E7D388-4E02-D24F-7EBE-AE55A0D41855}.wem		\Actor-Mixer Hierarchy\Default Work Unit\NPCs\Andreyev\Andreyev_Satisfied		187108
 	946766250	Barracks_Door	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\BE\{BE6DA8AE-F236-8BAC-B53B-36C86AE55710}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Barracks_SFX\Barracks_Door		41275
 	951302250	PrologueAmbienceStart	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\7F\{7F0B85D0-3724-819F-6B53-9E4AAF8246BD}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Prologue\PrologueAmbience\PrologueAmbienceStart		1601216
+	954436840	PrologueArrestMusic	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\11\{11214D97-B1A8-6D8E-1E31-865ACD58810D}.wem		\Interactive Music Hierarchy\Default Work Unit\Prologue_Arrest\Prologue_Arrest\PrologueArrestMusic		1207826
 	976493623	Discard	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\12\{121BB11A-B45C-F427-0C9B-20690DA57A6D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Trick_Cards_SFX\Discard		31269
 	997760624	Doorbell2	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\4E\{4EED9B3B-A2BE-ACEA-AFB1-0C0B93B064F0}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Prologue\Doorbell2		42509
 	998940632	Doorbell1	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\45\{45689A3A-32B2-28CF-7CE8-6405ED045C6B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Prologue\Doorbell1		40766
