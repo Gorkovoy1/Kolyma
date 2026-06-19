@@ -257,7 +257,28 @@ public class PrologueController : MonoBehaviour
         foreach (var step in steps)
         {
             prologueText.text = step.message;
-            prologueText.name = step.speaker;
+            //prologueText.name = step.speaker;
+            if(step.speaker == "Narrator")
+            {
+                prologueText.GetComponentInChildren<TMP_Text>(true).color = Color.white;
+            }
+            else if(step.speaker == "Sofia Petrovna" || step.speaker == "Sofia")
+            {
+                prologueText.GetComponentInChildren<TMP_Text>(true).color = Color.yellow;
+            }
+            else if(step.speaker == "Arkady")
+            {
+                prologueText.GetComponentInChildren<TMP_Text>(true).color = Color.green;
+            }
+            else if(step.speaker == "Male Voice" || step.speaker == "Sergeant Zverev")
+            {
+                prologueText.GetComponentInChildren<TMP_Text>(true).color = Color.red;
+            }
+            else if(step.speaker == "Zubov")
+            {
+                prologueText.GetComponentInChildren<TMP_Text>(true).color = new Color32(255, 165, 0, 255);
+            }
+
             prologueText.ShowLine();
             dialogueBox.SetActive(step.dialogue);
 

@@ -16,6 +16,7 @@ public class PrologueText : MonoBehaviour
     public TextMeshProUGUI textBox;
     public TextMeshProUGUI nameBox;
     private Coroutine typingRoutine;
+    public float fadeDuration = 1.2f;
 
     void Start()
     {
@@ -32,6 +33,9 @@ public class PrologueText : MonoBehaviour
                 StopCoroutine(typingRoutine);
 
                 textBox.text = text;
+                Color color = textBox.color;
+                color.a = 1f;
+                textBox.color = color;
                 StartCoroutine(FinishTypingNextFrame());
             }
         }
@@ -40,7 +44,7 @@ public class PrologueText : MonoBehaviour
 
     IEnumerator FinishTypingNextFrame()
     {
-        yield return null;
+        yield return new WaitForSeconds(0.1f);
         isTyping = false;
     }
 
@@ -49,7 +53,8 @@ public class PrologueText : MonoBehaviour
     {
         textBox.text = "";
         nameBox.text = name;
-        typingRoutine = StartCoroutine(TypeLine());
+        isTyping = true;
+        typingRoutine = StartCoroutine(DisplayLine());
 
     }
 
@@ -67,5 +72,27 @@ public class PrologueText : MonoBehaviour
         isTyping = false;
     }
 
-    
+    IEnumerator DisplayLine()
+    {
+        textBox.text = text;
+        Color color = textBox.color;
+        color.a = 0f;
+        textBox.color = color;
+
+        float elapsed = 0f;
+
+        while (elapsed < fadeDuration)
+        {
+            elapsed += Time.deltaTime;
+
+            color.a = Mathf.Lerp(0f, 1f, elapsed / fadeDuration);
+            textBox.color = color;
+
+            yield return null;
+        }
+
+        color.a = 1f;
+        textBox.color = color;
+        isTyping = false;
+    }
 }

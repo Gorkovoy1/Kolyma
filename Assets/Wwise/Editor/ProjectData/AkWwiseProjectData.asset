@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8c4b0f5056a06a4a92d94e75a182e1ae
     GuidInternal: 
-    m_lastTime: -8584198479135118744
+    m_lastTime: -8584197888567170857
     List:
     - name: Main
       guid: f16c33554f83c140a4a6a74ed017dafb
@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584198479137033093
+    m_lastTime: -8584197888567240896
     List:
     - name: Andreyev
       guid: a6c0eb1ff2ce024c96aeb202fa8b346a
@@ -948,6 +948,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 1.9978685
       minDuration: 1.9978685
+    - name: Play_Handcuffs
+      guid: fca9f9d46d86a9439e98086325151a90
+      id: 3054582876
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Prologue
+        ObjectType: 4
+        guid: 94e787d7aa7e304bb84272d57f812281
+      - ElementName: Play_Handcuffs
+        ObjectType: 3
+        guid: fca9f9d46d86a9439e98086325151a90
+      Path: Events\Default Work Unit\Prologue\Play_Handcuffs
+      maxAttenuation: 0
+      maxDuration: 4.001451
+      minDuration: 4.001451
     - name: Play_In_Cahoots
       guid: cf575e2cfb32ac4990255bd55fb5787a
       id: 1644609823

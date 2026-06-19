@@ -130,7 +130,7 @@
     "Type": "User",
     "GUID": "{55336CF1-834F-40C1-A4A6-A74ED017DAFB}",
     "Language": "SFX",
-    "Hash": "{95A6766D-258A-8E7D-5420-85ECA0C1B5E5}",
+    "Hash": "{0CCECFDD-03EB-57FD-15B6-C41AF409E507}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -485,7 +485,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "PrologueRecordStops2.wav",
-      "CachePath": "87/{877B7278-2731-C9A5-4D66-F65A5C147103}.wem"
+      "CachePath": "FB/{FB4A23AF-22CF-B5F7-2AB1-9FB317169608}.wem"
      },
      {
       "Id": "543232325",
@@ -2035,6 +2035,6 @@
     ]
    }
   ],
-  "FileHash": "{BD784F66-8807-B8B4-A41A-614A1EC5F902}"
+  "FileHash": "{2129EC04-0E2E-B96F-D2B4-40CE2E5E17C0}"
  }
 }
