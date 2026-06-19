@@ -684,7 +684,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="New_Event" ID="{3FEC116F-8AD6-4265-A82B-0DB01ACECACA}"/>
+						<Event Name="Play_Music_Prologue_Arrest" ID="{3FEC116F-8AD6-4265-A82B-0DB01ACECACA}">
+							<ChildrenList>
+								<Action Name="" ID="{C0E14517-D354-42AF-8CC7-5FDAD89A5E18}" ShortID="390509951">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Prologue_Arrest" ID="{4C0EC6D0-5F27-4D21-BF17-13C4EE55763E}" WorkUnitID="{01660F24-42EF-4118-9DAA-A2B4ACD5D295}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Event Name="Play_Click_2" ID="{52004750-BD7E-41F5-93F8-D1DC60DC05B7}">

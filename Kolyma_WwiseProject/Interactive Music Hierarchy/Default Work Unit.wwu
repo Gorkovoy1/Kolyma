@@ -1392,7 +1392,7 @@
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
+							<ObjectRef Name="Music" ID="{C56BEF95-3DBD-4ADB-9DB3-249D506D0A88}" WorkUnitID="{B68A4AEE-AAE5-46CE-BED3-02E0C1C42B60}"/>
 						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{85877E82-22A5-4961-8EC8-9AB5A759D8BC}"/>
@@ -1400,6 +1400,9 @@
 						<Reference Name="PlaylistRoot">
 							<Custom>
 								<MusicPlaylistItem Name="" ID="{B3819388-FA32-4027-BBA4-114F30861289}" ShortID="1072766135">
+									<PropertyList>
+										<Property Name="LoopCount" Type="int16" Value="0"/>
+									</PropertyList>
 									<ChildrenList>
 										<MusicPlaylistItem Name="" ID="{656A2C49-6D3F-468A-BF8A-3CD6EAF83005}" ShortID="875602047">
 											<PropertyList>
@@ -1434,7 +1437,7 @@
 					<ChildrenList>
 						<MusicSegment Name="Prologue_Arrest" ID="{8B5B9BB5-3B5B-4C8E-A699-49251B76AA41}" ShortID="480736312">
 							<PropertyList>
-								<Property Name="EndPosition" Type="Real64" Value="104202.145833333"/>
+								<Property Name="EndPosition" Type="Real64" Value="104404.919156859"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1486,6 +1489,27 @@
 																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
 																			</PropertyList>
 																			<AudioSourceRef Name="PrologueArrestMusic" ID="{D20951EE-5914-4F75-968A-DCC9E8243195}"/>
+																			<PropertyCurveList>
+																				<PropertyCurve PropertyName="Volume">
+																					<Curve Name="" ID="{D9272C70-F948-43E9-A766-CF4D6EA0E608}">
+																						<PropertyList>
+																							<Property Name="Flags" Type="int32" Value="3"/>
+																						</PropertyList>
+																						<PointList>
+																							<Point>
+																								<XPos>0</XPos>
+																								<YPos>0</YPos>
+																								<Flags>5</Flags>
+																							</Point>
+																							<Point>
+																								<XPos>104.202145833333</XPos>
+																								<YPos>0</YPos>
+																								<Flags>37</Flags>
+																							</Point>
+																						</PointList>
+																					</Curve>
+																				</PropertyCurve>
+																			</PropertyCurveList>
 																		</MusicClip>
 																	</Local>
 																</Reference>
@@ -1510,7 +1534,7 @@
 											<MusicCue Name="Exit Cue" ID="{1208B379-DCD9-48C0-921D-48F67D2BAB35}">
 												<PropertyList>
 													<Property Name="CueType" Type="int16" Value="1"/>
-													<Property Name="TimeMs" Type="Real64" Value="1000"/>
+													<Property Name="TimeMs" Type="Real64" Value="104100.99631922"/>
 												</PropertyList>
 											</MusicCue>
 										</Local>
