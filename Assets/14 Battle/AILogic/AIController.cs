@@ -90,6 +90,7 @@ public class AIController : MonoBehaviour
         //yield return new WaitForSeconds(0.5f); //account for delay to read card text that was added
         TurnManager.instance.opponentPlayedCard = false;
         TurnManager.instance.opponentPassed = true;
+        NumberManager.instance.RecalculateDiscards();
         this.gameObject.GetComponent<AICardPicker>().passAnimationController.oppPass = true;
         StartCoroutine(this.gameObject.GetComponent<AICardPicker>().DelayTurn());
 

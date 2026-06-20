@@ -44,7 +44,9 @@ public class TurnManager : MonoBehaviour
     public void SwitchTurn()
     {
         isPlayerTurn = !isPlayerTurn;
+        NumberManager.instance.RecalculateDiscards();
         NumberManager.instance.recalculate = true;
-        discardUpdated = false;
+        TurnManager.instance.discardUpdated = false;
+        Debug.Log("discardupdatedfalse");
     }
 }

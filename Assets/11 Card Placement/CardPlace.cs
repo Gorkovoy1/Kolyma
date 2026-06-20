@@ -181,12 +181,8 @@ public class CardPlace : MonoBehaviour,
         else
             DeactivateOutline();
 
-
-        if (TurnManager.instance.isPlayerTurn && !TurnManager.instance.discardUpdated)   
-        {
-            NumberManager.instance.RecalculateDiscards();
-            discardedCards = NumberManager.instance.discardedCards;
-        }     
+        discardedCards = NumberManager.instance.discardedCards;
+         
 
         if (hovering && !IsPointerOverMe())
         {
@@ -432,6 +428,7 @@ public class CardPlace : MonoBehaviour,
     {
         if (TurnManager.instance.playerPlayedCard)
             return false;
+
 
         switch (specialCardType)
         {
