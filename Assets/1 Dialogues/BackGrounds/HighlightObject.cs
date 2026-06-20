@@ -127,6 +127,7 @@ public class HighlightObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     IEnumerator LoadLevel(int levelIndex)
     {
+        /*
         //Play animation
         transition.SetTrigger("Start");
 
@@ -138,6 +139,13 @@ public class HighlightObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
         AkSoundEngine.StopAll();
         //Load scene
         SceneManager.LoadScene(levelIndex);
+        */
+
+        string scenePath = SceneUtility.GetScenePathByBuildIndex(levelIndex);
+        string sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
+        StartCoroutine(SceneLoader.instance.LoadNextScene(sceneName));
+
+        yield return null;
 
     }
 
