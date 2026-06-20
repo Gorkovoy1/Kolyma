@@ -17,6 +17,8 @@ public class GaugeController : MonoBehaviour
     public int weaknessIncrement;
     public int weaknessChange;
 
+    private bool loadStarted = false;
+
     public static GaugeController instance;
 
     void Awake()
@@ -44,9 +46,11 @@ public class GaugeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(cold >= 100 || hunger >= 100 || weakness >= 100 && SceneManager.GetActiveScene().name != "2 YouLose")
+        if(cold >= 100 || hunger >= 100 || weakness >= 100 && SceneManager.GetActiveScene().name != "2 YouLose" && !loadStarted)
         {
             //trigger lose scene
+            loadStarted = true;
+            UIPanelManager.instance.SetState(UIState.Minimized);
             StartCoroutine(SceneLoader.instance.LoadNextScene("2 YouLose"));
         }
     }

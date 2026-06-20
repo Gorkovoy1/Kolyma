@@ -2416,7 +2416,7 @@ MonoBehaviour:
   transition: {fileID: 547149251}
   transitionTime: 1
   buildingName: Barracks B
-  buildingNumber: 0
+  buildingNumber: 16
   isFlashing: 0
   myConfirmationWindow: {fileID: 2987269800549945149}
   mat: {fileID: 0}
@@ -2585,7 +2585,7 @@ MonoBehaviour:
   transition: {fileID: 547149251}
   transitionTime: 1
   buildingName: Barracks C
-  buildingNumber: 14
+  buildingNumber: 16
   isFlashing: 1
   myConfirmationWindow: {fileID: 2987269800549945149}
   mat: {fileID: 0}
@@ -2723,7 +2723,7 @@ MonoBehaviour:
   transition: {fileID: 547149251}
   transitionTime: 1
   buildingName: Barracks A
-  buildingNumber: 6
+  buildingNumber: 16
   isFlashing: 0
   myConfirmationWindow: {fileID: 2987269800549945149}
   mat: {fileID: 0}

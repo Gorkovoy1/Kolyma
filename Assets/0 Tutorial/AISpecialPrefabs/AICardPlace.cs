@@ -627,7 +627,7 @@ using AK.Wwise;
                     //low tier is random
 
 
-                    if (SceneManager.GetActiveScene().name == "2 TutorialScene")
+                    if (SceneManager.GetActiveScene().name == "2 TutorialScene" || SceneManager.GetActiveScene().name == "0.1 Tutorial")
                     {
                         foreach (GameObject g in NumberManager.instance.allNumbers)
                         {

@@ -48,24 +48,24 @@ EditorBuildSettings:
     path: Assets/000 GameLoop/0.1 Tutorial.unity
     guid: 23b09cdc9e3d7f54a8c5f1692bbc6059
   - enabled: 1
-    path: Assets/000 GameLoop/0.5 Hub.unity
-    guid: 18aac730600907e4a963bc041bce0b68
+    path: Assets/000 EndlessSurvival/0.5 Hub.unity
+    guid: 10ccf438cc9fc33488d96b9db634f942
   - enabled: 1
-    path: Assets/000 GameLoop/2 YouLose.unity
-    guid: d10180a7c71e18143807773b1c032991
+    path: Assets/000 EndlessSurvival/2 YouLose.unity
+    guid: c526176740e28fd479999997637e2324
   - enabled: 1
-    path: Assets/000 GameLoop/3 Barracks.unity
-    guid: 1e847b09093ed114d84e2a54226fd974
+    path: Assets/000 EndlessSurvival/3 Barracks.unity
+    guid: 8f3dabf3d269a154cafa5ff0b3744236
   - enabled: 1
     path: Assets/000 GameLoop/4 InvBet.unity
     guid: df96c88641073124998b486f65ff0d67
   - enabled: 1
-    path: Assets/000 GameLoop/5 Battle.unity
-    guid: 2739cc563708b6b4f8845f5bbc9c7586
+    path: Assets/000 EndlessSurvival/5 Battle.unity
+    guid: 6f7754d60d5457f41ad8967b6b40f2fa
   - enabled: 1
-    path: Assets/000 GameLoop/6 CampKiosk.unity
-    guid: 0091c0d457c5a1d44af5980b56e68d11
+    path: Assets/000 EndlessSurvival/6 CampKiosk.unity
+    guid: e1c55e47387664941b2ed068c5ec0863
   - enabled: 1
-    path: Assets/000 GameLoop/7 BasicCalendar.unity
-    guid: 6b6d2c5fc7a33d64a867a40040538b97
+    path: Assets/000 EndlessSurvival/7 BasicCalendar.unity
+    guid: a163c023f6b54a04fac36da486ebe90e
   m_configObjects: {}

@@ -78,7 +78,7 @@ public class BattleEndController : MonoBehaviour
         }
         
 
-        if (SceneManager.GetActiveScene().buildIndex == 11 || SceneManager.GetActiveScene().buildIndex == 0)
+        if (SceneManager.GetActiveScene().buildIndex == 12 || SceneManager.GetActiveScene().buildIndex == 0)
         {
             string path = SceneUtility.GetScenePathByBuildIndex(0);
 
@@ -95,7 +95,8 @@ public class BattleEndController : MonoBehaviour
 
             SceneLoader.instance.sceneName = sceneName;
             SceneLoader.instance.triggerLoad = true;
-            UIPanelManager.instance.SetState(UIState.Minimized);
+            if(UIPanelManager.instance != null)
+                UIPanelManager.instance.SetState(UIState.Inactive);
         }
             
     }
