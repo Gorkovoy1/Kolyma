@@ -160,7 +160,7 @@ public class PrologueController : MonoBehaviour
             {
                 activateNextCard = true,
                 speaker = "Male Voice",
-                message = "Sofia Nikolaevna Kojukh? Sergeant Zverev.  We need to see your son Arkady.",
+                message = "Sofia Nikolaevna Kojukh? Sergeant Zverev. We need to see your son Arkady.",
                 requireContinue = true,
             },
             new PrologueStepData
