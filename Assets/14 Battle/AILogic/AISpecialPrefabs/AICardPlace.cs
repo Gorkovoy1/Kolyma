@@ -149,12 +149,9 @@ public class AICardPlace : MonoBehaviour //AICardPlace
         //track discarded cards, update whenever becomes player turn
         if (!TurnManager.instance.isPlayerTurn /*&& !discardUpdated*/)          //uncomment when have turns
         {
-            discardedCards = new List<GameObject>();
+            NumberManager.instance.RecalculateDiscards();
 
-            foreach (Transform child in opponentDiscardZone.transform)
-            {
-                discardedCards.Add(child.gameObject);
-            }
+            discardedCards = NumberManager.instance.OPPdiscardedCards;
 
             discardUpdated = true;
         }

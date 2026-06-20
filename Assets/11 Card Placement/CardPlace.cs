@@ -184,15 +184,8 @@ public class CardPlace : MonoBehaviour,
 
         if (TurnManager.instance.isPlayerTurn && !TurnManager.instance.discardUpdated)   
         {
-            discardedCards = new List<GameObject>();
-
-            foreach (Transform child in playerDiscardZone.transform)
-            {
-                discardedCards.Add(child.gameObject);
-            }
-
-            TurnManager.instance.discardUpdated = true;
-            NumberManager.instance.recalculate = true;
+            NumberManager.instance.RecalculateDiscards();
+            discardedCards = NumberManager.instance.discardedCards;
         }     
 
         if (hovering && !IsPointerOverMe())

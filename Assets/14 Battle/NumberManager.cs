@@ -33,6 +33,9 @@ public class NumberManager : MonoBehaviour
     public List<GameObject> OPPswapped = new List<GameObject>();
     public List<GameObject> OPPdiscarded = new List<GameObject>();
 
+    public List<GameObject> discardedCards;
+    public List<GameObject> OPPdiscardedCards;
+
     public GameObject oppPositiveArea;
     public GameObject oppNegativeArea;
     public GameObject playerPositiveArea;
@@ -54,6 +57,10 @@ public class NumberManager : MonoBehaviour
     public bool oppAction = false;
     public bool playerAction = false;
 
+    [SerializeField] GameObject playerDiscardZone;
+    [SerializeField] GameObject opponentDiscardZone;
+
+
 
     void Awake()
     {
@@ -66,7 +73,8 @@ public class NumberManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerDiscardZone = GameObject.FindWithTag("PlayerDiscard");
+        opponentDiscardZone = GameObject.FindWithTag("OpponentDiscard");
     }
 
     // Update is called once per frame
@@ -92,6 +100,25 @@ public class NumberManager : MonoBehaviour
         RecalculateAllYellows();
         RecalculateValues();
         RecalculateDuplicates();
+    }
+
+    public void RecalculateDiscards()
+    {
+        discardedCards = new List<GameObject>();
+        OPPdiscardedCards = new List<GameObject>();
+
+        foreach (Transform child in playerDiscardZone.transform)
+        {
+            discardedCards.Add(child.gameObject);
+        }
+        foreach (Transform child in opponentDiscardZone.transform)
+        {
+            OPPdiscardedCards.Add(child.gameObject);
+        }
+
+
+        TurnManager.instance.discardUpdated = true;
+        NumberManager.instance.recalculate = true;
     }
 
     void RecalculateDuplicates()

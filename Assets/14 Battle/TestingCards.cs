@@ -113,7 +113,7 @@ public class TestingCards : MonoBehaviour
         NumberManager.instance.recalculate = true;
         TurnManager.instance.discardUpdated = false;
         TurnManager.instance.checkedPlayable = false;
-        if(!TurnManager.instance.playerPlayedCard)
+        if(!TurnManager.instance.playerPlayedCard && !NumberManager.instance.playerAction)
         {
             if(!SceneLoader.instance.isLoading)
             {
