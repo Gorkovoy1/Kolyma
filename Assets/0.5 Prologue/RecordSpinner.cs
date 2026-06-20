@@ -34,10 +34,13 @@ public class RecordSpinner : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        transform.SetSiblingIndex(4);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        transform.SetSiblingIndex(4);
+
         if (this.GetComponentInParent<RecordController>().snapped)
             return;
 
@@ -46,5 +49,6 @@ public class RecordSpinner : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        transform.SetSiblingIndex(2);
     }
 }
