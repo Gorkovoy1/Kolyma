@@ -34,16 +34,16 @@ public class RecordSpinner : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        transform.SetSiblingIndex(4);
+        if(!this.GetComponentInParent<RecordController>().snapped)
+            transform.SetSiblingIndex(4);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        transform.SetSiblingIndex(4);
-
         if (this.GetComponentInParent<RecordController>().snapped)
             return;
 
+        transform.SetSiblingIndex(4);
         GetComponent<RectTransform>().anchoredPosition += eventData.delta / GetComponentInParent<Canvas>().scaleFactor;
     }
 
