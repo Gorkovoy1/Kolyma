@@ -96,7 +96,7 @@ public class BattleEndController : MonoBehaviour
             SceneLoader.instance.sceneName = sceneName;
             SceneLoader.instance.triggerLoad = true;
             if(UIPanelManager.instance != null)
-                UIPanelManager.instance.SetState(UIState.Inactive);
+                UIPanelManager.instance.SetState(UIState.Minimized);
         }
             
     }

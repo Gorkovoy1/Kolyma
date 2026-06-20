@@ -100,6 +100,7 @@ public class NumberManager : MonoBehaviour
         RecalculateAllYellows();
         RecalculateValues();
         RecalculateDuplicates();
+        RecalculateDiscards();
     }
 
     public void RecalculateDiscards()
