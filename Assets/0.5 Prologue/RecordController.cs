@@ -17,10 +17,59 @@ public class RecordController : MonoBehaviour
 
     public bool triggerCredits = false;
 
+    private CanvasGroup canvasGroup;
+    public float fadeDuration = 1f;
+
     // Start is called before the first frame update
     void Start()
     {
         
+    }
+
+    void OnEnable()
+    {
+        canvasGroup = this.GetComponent<CanvasGroup>();
+        StartCoroutine(FadeInRecord());
+    }
+
+    IEnumerator FadeInRecord()
+    {
+        canvasGroup.alpha = 0f;
+
+        float timer = 0f;
+
+        while (timer < fadeDuration)
+        {
+            timer += Time.deltaTime;
+
+            canvasGroup.alpha =
+                Mathf.Lerp(0f, 1f, timer / fadeDuration);
+
+            yield return null;
+        }
+
+        canvasGroup.alpha = 1f;
+    }
+
+    public IEnumerator FadeOutRecord()
+    {
+        canvasGroup.alpha = 1f;
+
+        float timer = 0f;
+
+        while (timer < 0.15f)
+        {
+            timer += Time.deltaTime;
+
+            canvasGroup.alpha =
+                Mathf.Lerp(1f, 0f, timer / 0.15f);
+
+            yield return null;
+        }
+
+        canvasGroup.alpha = 0f;
+
+        this.gameObject.SetActive(false);
     }
 
     // Update is called once per frame

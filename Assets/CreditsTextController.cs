@@ -39,7 +39,7 @@ public class CreditsTextController : MonoBehaviour
     public void CreditsEnd()
     {
         creditsEnd = true;
-        this.GetComponentInParent<RecordController>().gameObject.SetActive(false);
+        StartCoroutine(this.GetComponentInParent<RecordController>().FadeOutRecord());
     }
 
     public void TriggerCarApproaching()

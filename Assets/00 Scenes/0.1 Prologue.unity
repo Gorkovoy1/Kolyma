@@ -955,8 +955,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 214.9982, y: 0}
-  m_SizeDelta: {x: -429.9964, y: 0}
+  m_AnchoredPosition: {x: 205, y: 0}
+  m_SizeDelta: {x: -410, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &343764063
 MonoBehaviour:
@@ -3030,6 +3030,7 @@ GameObject:
   - component: {fileID: 1976989815}
   - component: {fileID: 1976989814}
   - component: {fileID: 1976989818}
+  - component: {fileID: 1976989819}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3144,6 +3145,19 @@ MonoBehaviour:
   creditsPanel: {fileID: 343764058}
   speed: 50
   triggerCredits: 0
+  fadeDuration: 1
+--- !u!225 &1976989819
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976989813}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &2128680580
 PrefabInstance:
   m_ObjectHideFlags: 0

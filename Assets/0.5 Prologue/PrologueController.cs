@@ -268,7 +268,7 @@ public class PrologueController : MonoBehaviour
             }
             else if(step.speaker == "Arkady")
             {
-                prologueText.GetComponentInChildren<TMP_Text>(true).color = new Color32(32, 137, 32, 255);
+                prologueText.GetComponentInChildren<TMP_Text>(true).color = new Color32(14, 172, 14, 255);
             }
             else if(step.speaker == "Male Voice" || step.speaker == "Sergeant Zverev")
             {
