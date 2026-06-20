@@ -121,6 +121,7 @@ public class TestingCards : MonoBehaviour
                 passAnimationController.playerPass = true;
             }
         }
+        NumberManager.instance.playerAction = false;
         handController.DrawToHand("opponent");
         TurnManager.instance.playerPlayedCard = false;
 
