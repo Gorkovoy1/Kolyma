@@ -85,5 +85,10 @@ public class FailSafe : MonoBehaviour
             AkSoundEngine.StopAll();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
+        else if(Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
     }
 }
