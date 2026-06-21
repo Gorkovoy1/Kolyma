@@ -36,7 +36,7 @@ public class InventoryManager : MonoBehaviour
 
     public GameObject claimMoneyButton;
     
-
+    
     void Awake()
     {
         if (instance != null && instance != this)
@@ -116,25 +116,22 @@ public class InventoryManager : MonoBehaviour
         itemsInPot[0] = objOne;
         itemsInPot[1] = objTwo;
 
-        //reset the bet slots
-        betSlotArray[0].GetComponentInChildren<TextMeshProUGUI>().text = "0";
-        foreach (Transform child in betSlotArray[1].transform)
-            Destroy(child.gameObject);
-        foreach (Transform child in betSlotArray[2].transform)
-            Destroy(child.gameObject);
+        
     }
 
     public void ShowWinnings()
     {
         //add money
-        GameObject moneyButton = Instantiate(claimMoneyButton, uiPanelManager.winningsPanel.transform);
-        moneyButton.GetComponent<ClaimMoney>().SetMoney(moneyInPot);
+        //GameObject moneyButton = Instantiate(claimMoneyButton, uiPanelManager.winningsPanel.transform);
+        //moneyButton.GetComponent<ClaimMoney>().SetMoney(moneyInPot);
 
         //show objects
         foreach(GameObject item in itemsInPot)
         {
+            Debug.Log("show winnings");
             if(item != null)
             {
+                Debug.Log("item is not null");
                 Instantiate(item, uiPanelManager.winningsPanel.transform);
                 Instantiate(item, uiPanelManager.winningsPanel.transform);
             }

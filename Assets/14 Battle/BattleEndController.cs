@@ -61,9 +61,12 @@ public class BattleEndController : MonoBehaviour
 
             if(InventoryManager.instance != null)
             {
-                UIPanelManager.instance.SetState(UIState.Winnings);
+                //UIPanelManager.instance.SetState(UIState.Winnings);
+                InventoryManager.instance.winningsShown = false;
                 InventoryManager.instance.showWinnings = true;
+                yield return new WaitForSeconds(0.5f);
                 yield return new WaitUntil(() => InventoryManager.instance.winningsPanel.childCount == 0);
+                yield return new WaitForSeconds(0.2f);
             }
             else
             {
