@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class BetNow : MonoBehaviour
 {
@@ -24,14 +25,17 @@ public class BetNow : MonoBehaviour
 
     void OnEnable()
     {
-        
-        //reset the bet slots
-        
-        foreach (Transform child in betSlot1.transform)
-            Destroy(child.gameObject);
-        foreach (Transform child in betSlot2.transform)
-            Destroy(child.gameObject);
-        
+        if (SceneManager.GetActiveScene().name == "3 Barracks") ;
+        {
+
+            //reset the bet slots
+
+            foreach (Transform child in betSlot1.transform)
+                Destroy(child.gameObject);
+            foreach (Transform child in betSlot2.transform)
+                Destroy(child.gameObject);
+
+        }
     }
 
     // Update is called once per frame
