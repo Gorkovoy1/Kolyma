@@ -24,14 +24,14 @@ public class BetNow : MonoBehaviour
 
     void OnEnable()
     {
-        /*
+        
         //reset the bet slots
         
         foreach (Transform child in betSlot1.transform)
             Destroy(child.gameObject);
         foreach (Transform child in betSlot2.transform)
             Destroy(child.gameObject);
-        */
+        
     }
 
     // Update is called once per frame
