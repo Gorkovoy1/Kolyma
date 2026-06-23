@@ -614,6 +614,28 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Rotation" ID="{DED9C264-06E4-464A-88AA-F5813CC109A5}">
+							<ChildrenList>
+								<Action Name="" ID="{04ED31CD-C6F8-451E-B7E7-84198D6A9161}" ShortID="677973435">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Rotation" ID="{86FE2082-9C66-431A-A0EB-8D018D89600D}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Give_It_Up" ID="{C58C12D1-BC04-49B6-9680-34F0E150D756}">
+							<ChildrenList>
+								<Action Name="" ID="{0C58B411-1A6A-4CED-A09F-492E45EADEA9}" ShortID="629034000">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Give_It_Up" ID="{13922E10-985B-4FDE-9DC4-81228C002EF3}" WorkUnitID="{74310AB0-07D5-4309-8789-1F30662D7577}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Music" ID="{42294E82-4A8C-4F7B-B73A-27B9EEC12A24}" ShortID="234013611">

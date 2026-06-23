@@ -48,6 +48,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	2394352390	Play_Car_Stops			\Default Work Unit\Prologue\Play_Car_Stops	
 	2537547804	Play_Thick_Woolen_Coat			\Default Work Unit\Battle\Play_Thick_Woolen_Coat	
 	2541567472	Play_Whisper			\Default Work Unit\Play_Whisper	
+	2703263060	Play_Rotation			\Default Work Unit\Battle\Play_Rotation	
 	2721766995	Play_Music_Prologue_Arrest			\Default Work Unit\Music\Play_Music_Prologue_Arrest	
 	2743573824	Play_Door_Opens			\Default Work Unit\Prologue\Play_Door_Opens	
 	2807572219	Play_Silence			\Default Work Unit\Play_Silence	
@@ -75,6 +76,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	3946911806	Play_Punch			\Default Work Unit\Play_Punch	
 	4095833387	Play_Andreyev_Snarky			\Default Work Unit\Andreyev\Play_Andreyev_Snarky	
 	4115142720	Play_Rifle_Butt			\Default Work Unit\Battle\Play_Rifle_Butt	
+	4115158161	Play_Give_It_Up			\Default Work Unit\Battle\Play_Give_It_Up	
 	4244373777	Play_Setup			\Default Work Unit\Battle\Play_Setup	
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
@@ -97,6 +99,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	121851638	Cell_Door_Open	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\5A\{5A5888EF-B44D-4764-1E73-D9D5E37ACA11}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Door_Open		81459
 	127805243	Open_Trick_Collection	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\57\{5713C42E-C7E6-5F7E-8097-3EFBA5A0B305}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Open_Trick_Collection		22691
 	129889019	Menu	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\71\{716997E3-BCD2-C72E-8C92-6B0E8070CDBE}.wem		\Interactive Music Hierarchy\Default Work Unit\Menu\Menu\Menu		3079036
+	140777167	Give_It_Up	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\65\{659F0997-44DC-4F6D-4709-33DC1A4EA8A3}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Trick_Cards_SFX\Give_It_Up		50093
 	158462398	BattleWon	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\56\{56634CBE-8D16-032B-792B-24CBA499B2B4}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\BattleWon		50812
 	158641502	Cell_SFX_Whisper-005	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\77\{7784E33D-86C9-05B4-A5BC-56B980291838}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Whisper\Cell_SFX_Whisper-005		16727
 	163322872	Cell_Guard_Roll_Call	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\44\{447472BA-00BD-5C2D-A866-4BE7724FA75D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cell_SFX\Cell_Guard_Roll_Call		34158
@@ -108,6 +111,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	267717470	Close_Trick_Collection	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\06\{061158A1-00BB-02D9-D4B8-DF3A39CC1E82}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Close_Trick_Collection		23110
 	271658097	CarDoors	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\BC\{BC6BBA1A-FE32-08FC-63E8-EB901E165D83}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Prologue\CarDoors		22220
 	274600887	Fist	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\85\{8545DE32-02E9-C63B-ECB6-2C73A91A13B2}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Trick_Cards_SFX\Fist		34021
+	297842592	Rotation	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\78\{78F41D2B-33C3-E341-6F48-AF5E580E0AB6}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Trick_Cards_SFX\Rotation		40149
 	302096407	NumberCard1	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\AD\{AD5D3F7F-6DD2-53A2-0003-57B196AF9217}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\Number_Cards\NumberCard1		22724
 	334397050	Battle_Theme_2_1	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\C0\{C074812E-AA29-6CE6-F07F-EB783BB083C4}.wem		\Interactive Music Hierarchy\Default Work Unit\Battle_Theme_2\Battle_Theme_2\Battle_Theme_2_1		2980747
 	349823849	BattleLost	C:\Users\agork\OneDrive\Documents\GitHub\Kolyma\Kolyma_WwiseProject\.cache\3E\{3EE238A1-3C89-1677-0C6E-8FECE5E02DE2}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Battle\BattleLost		66741

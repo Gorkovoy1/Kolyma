@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8c4b0f5056a06a4a92d94e75a182e1ae
     GuidInternal: 
-    m_lastTime: -8584197590291748381
+    m_lastTime: -8584193602279275312
     List:
     - name: Main
       guid: f16c33554f83c140a4a6a74ed017dafb
@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 28e6316132f675418a6369f192218f4d
     GuidInternal: 
-    m_lastTime: -8584197590294529239
+    m_lastTime: -8584193602279195369
     List:
     - name: Andreyev
       guid: a6c0eb1ff2ce024c96aeb202fa8b346a
@@ -928,6 +928,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 1.9978685
       minDuration: 1.9978685
+    - name: Play_Give_It_Up
+      guid: d1128cc504bcb649968034f0e150d756
+      id: 4115158161
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Battle
+        ObjectType: 4
+        guid: bdeeec5070f65944895c732b68bd80b2
+      - ElementName: Play_Give_It_Up
+        ObjectType: 3
+        guid: d1128cc504bcb649968034f0e150d756
+      Path: Events\Default Work Unit\Battle\Play_Give_It_Up
+      maxAttenuation: 0
+      maxDuration: 2.9987981
+      minDuration: 2.9987981
     - name: Play_Handcuffs
       guid: fca9f9d46d86a9439e98086325151a90
       id: 3054582876
@@ -1362,6 +1382,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 3.9980953
       minDuration: 3.9980953
+    - name: Play_Rotation
+      guid: 64c2d9dee4064a4688aaf5813cc109a5
+      id: 2703263060
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 28e6316132f675418a6369f192218f4d
+      - ElementName: Battle
+        ObjectType: 4
+        guid: bdeeec5070f65944895c732b68bd80b2
+      - ElementName: Play_Rotation
+        ObjectType: 3
+        guid: 64c2d9dee4064a4688aaf5813cc109a5
+      Path: Events\Default Work Unit\Battle\Play_Rotation
+      maxAttenuation: 0
+      maxDuration: 2.6050112
+      minDuration: 2.6050112
     - name: Play_Scam
       guid: cd5f48a1f448984ab0f6d11681c00230
       id: 169023714
@@ -1876,7 +1916,7 @@ MonoBehaviour:
     m_lastTime: -8584218757593755026
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 
+  ExpandedWaapiItemIds: 0500000006000000080000004601000047010000490100005e0200005f020000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

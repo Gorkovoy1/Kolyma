@@ -191,7 +191,7 @@ MonoBehaviour:
   trickSound:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: cd7e7a11ea692f048ba41db0d266bf19, type: 2}
   difficulty: 3
   personalityType: 2
   points: 0

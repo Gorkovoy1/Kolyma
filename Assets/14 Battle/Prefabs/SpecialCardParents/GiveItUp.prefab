@@ -116,10 +116,11 @@ MonoBehaviour:
   trickSound:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: cd7e7a11ea692f048ba41db0d266bf19, type: 2}
   delayImageSpawn: 0
   cardState: 0
   inDropZone: 0
+  baseY: 0
 --- !u!114 &8573296382224341611
 MonoBehaviour:
   m_ObjectHideFlags: 0

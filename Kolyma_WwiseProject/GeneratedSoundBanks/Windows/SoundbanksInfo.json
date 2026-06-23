@@ -130,7 +130,7 @@
     "Type": "User",
     "GUID": "{55336CF1-834F-40C1-A4A6-A74ED017DAFB}",
     "Language": "SFX",
-    "Hash": "{13FE79F0-AD4A-A608-CFFD-659279ECA594}",
+    "Hash": "{A5C57274-1E40-819F-AEA8-65E164C9623E}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -256,6 +256,14 @@
       "CachePath": "71/{716997E3-BCD2-C72E-8C92-6B0E8070CDBE}.wem"
      },
      {
+      "Id": "140777167",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "GiveItUp2.wav",
+      "CachePath": "65/{659F0997-44DC-4F6D-4709-33DC1A4EA8A3}.wem"
+     },
+     {
       "Id": "158462398",
       "Language": "SFX",
       "Streaming": "false",
@@ -342,6 +350,14 @@
       "Location": "Memory",
       "ShortName": "Fist2.wav",
       "CachePath": "85/{8545DE32-02E9-C63B-ECB6-2C73A91A13B2}.wem"
+     },
+     {
+      "Id": "297842592",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Rotation.wav",
+      "CachePath": "78/{78F41D2B-33C3-E341-6F48-AF5E580E0AB6}.wem"
      },
      {
       "Id": "302096407",
@@ -1506,6 +1522,20 @@
       ]
      },
      {
+      "Id": "4115158161",
+      "Name": "Play_Give_It_Up",
+      "ObjectPath": "\\Events\\Default Work Unit\\Battle\\Play_Give_It_Up",
+      "GUID": "{C58C12D1-BC04-49B6-9680-34F0E150D756}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.9987981",
+      "DurationMax": "2.9987981",
+      "MediaRefs": [
+       {
+        "Id": "140777167"
+       }
+      ]
+     },
+     {
       "Id": "3054582876",
       "Name": "Play_Handcuffs",
       "ObjectPath": "\\Events\\Default Work Unit\\Prologue\\Play_Handcuffs",
@@ -1810,6 +1840,20 @@
       ]
      },
      {
+      "Id": "2703263060",
+      "Name": "Play_Rotation",
+      "ObjectPath": "\\Events\\Default Work Unit\\Battle\\Play_Rotation",
+      "GUID": "{DED9C264-06E4-464A-88AA-F5813CC109A5}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.6050112",
+      "DurationMax": "2.6050112",
+      "MediaRefs": [
+       {
+        "Id": "297842592"
+       }
+      ]
+     },
+     {
       "Id": "169023714",
       "Name": "Play_Scam",
       "ObjectPath": "\\Events\\Default Work Unit\\Battle\\Play_Scam",
@@ -2045,6 +2089,6 @@
     ]
    }
   ],
-  "FileHash": "{349C1558-466A-0E6D-A293-1BB711F5C274}"
+  "FileHash": "{187C997B-2E48-FA47-0D2E-6DE152A268CC}"
  }
 }

@@ -54,6 +54,7 @@ namespace AK
         static const AkUniqueID PLAY_EXTRA_WORK = 2887317804U;
         static const AkUniqueID PLAY_FIGHT = 860858016U;
         static const AkUniqueID PLAY_FIST = 2998547148U;
+        static const AkUniqueID PLAY_GIVE_IT_UP = 4115158161U;
         static const AkUniqueID PLAY_HANDCUFFS = 3054582876U;
         static const AkUniqueID PLAY_IN_CAHOOTS = 1644609823U;
         static const AkUniqueID PLAY_KNIFE = 2169194149U;
@@ -76,6 +77,7 @@ namespace AK
         static const AkUniqueID PLAY_RECORD_STOPS = 216822431U;
         static const AkUniqueID PLAY_RIFLE_BUTT = 4115142720U;
         static const AkUniqueID PLAY_RIFLE_BUTT_HIT = 1033978646U;
+        static const AkUniqueID PLAY_ROTATION = 2703263060U;
         static const AkUniqueID PLAY_SCAM = 169023714U;
         static const AkUniqueID PLAY_SCREEN_SFX = 1112221790U;
         static const AkUniqueID PLAY_SEARCH = 3421211826U;
