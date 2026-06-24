@@ -1982,7 +1982,7 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                         }
                         StartCoroutine(CardSelectionController.instance.ChangeNumber(selected, 2, "opponent"));
                     }
-                    else
+                    else if(NumberManager.instance.reds.Count > 0)
                     {
                         //furthest from target for player
                         GameObject selected = NumberManager.instance.reds[0];
@@ -1997,6 +1997,19 @@ public class AICardPlace : MonoBehaviour //AICardPlace
                             }
                         }
                         StartCoroutine(CardSelectionController.instance.ChangeNumber(selected, 2, "player"));
+                    }
+                    else //swap out the red number that will yield closest
+                    {
+                        GameObject selected = NumberManager.instance.OPPreds[0];
+                        foreach (GameObject g in NumberManager.instance.OPPreds)
+                        {
+                            int newVal = NumberManager.instance.oppVal - g.GetComponent<NumberStats>().value + 2;
+                            if ((NumberManager.instance.targetVal - newVal) >= 0 && (NumberManager.instance.targetVal - newVal) < (NumberManager.instance.targetVal - (NumberManager.instance.oppVal - selected.GetComponent<NumberStats>().value + 2)))
+                            {
+                                selected = g;
+                            }
+                        }
+                        StartCoroutine(CardSelectionController.instance.ChangeNumber(selected, 2, "opponent"));
                     }
                     break;
             }
@@ -2358,7 +2371,7 @@ public class AICardPlace : MonoBehaviour //AICardPlace
             discardedCards.RemoveAt(randomIndex);
             chosenCard.GetComponent<CanvasGroup>().blocksRaycasts = true;
             chosenCard.GetComponent<AICardPlace>().beingPlayed = false;
-            chosenCard.GetComponent<AICardPlace>().GetComponent<Image>().sprite = cardBack;
+            chosenCard.GetComponent<AICardPlace>().correspondingImage.GetComponent<Image>().sprite = cardBack;
             chosenCard.GetComponent<AICardPlace>().correspondingImage.transform.Find("Image").GetComponent<Image>().enabled = false;
             chosenCard.GetComponent<AICardPlace>().correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(false);
             chosenCard.GetComponent<AICardPlace>().correspondingImage.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
