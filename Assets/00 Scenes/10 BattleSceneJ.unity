@@ -2969,6 +2969,8 @@ MonoBehaviour:
   OPPgiven: []
   OPPswapped: []
   OPPdiscarded: []
+  discardedCards: []
+  OPPdiscardedCards: []
   oppPositiveArea: {fileID: 1412833107}
   oppNegativeArea: {fileID: 773447978}
   playerPositiveArea: {fileID: 1735816423}
@@ -2981,6 +2983,8 @@ MonoBehaviour:
   oppPosVal: 0
   oppAction: 0
   playerAction: 0
+  playerDiscardZone: {fileID: 0}
+  opponentDiscardZone: {fileID: 0}
 --- !u!1 &938998339
 GameObject:
   m_ObjectHideFlags: 0
@@ -3572,7 +3576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
