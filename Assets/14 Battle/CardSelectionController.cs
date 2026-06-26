@@ -16,8 +16,8 @@ public class CardSelectionController : MonoBehaviour
 
     public GameObject sfxObj;
 
-    private GameObject firstTrade;
-    private GameObject secondTrade;
+    public GameObject firstTrade;
+    public GameObject secondTrade;
 
     public GameObject playerHandObj;
 
@@ -261,27 +261,8 @@ public class CardSelectionController : MonoBehaviour
 
     public void TradeCards(GameObject a, GameObject b)
     {
-        if(a.transform.parent == NumberManager.instance.playerPositiveArea || a.transform.parent == NumberManager.instance.playerNegativeArea)
-        {
-            a = a;
-            b = b;
-        }
-        else
-        {
-            GameObject temp = a;
-            a = b;
-            b = temp;
-        }
-
-        if (a.transform.parent == NumberManager.instance.playerPositiveArea.transform)
-            a.transform.SetParent(NumberManager.instance.oppPositiveArea.transform);
-        else if (a.transform.parent == NumberManager.instance.playerNegativeArea.transform)
-            a.transform.SetParent(NumberManager.instance.oppNegativeArea.transform);
-
-        if (b.transform.parent == NumberManager.instance.oppPositiveArea.transform)
-            b.transform.SetParent(NumberManager.instance.playerPositiveArea.transform);
-        else if (b.transform.parent == NumberManager.instance.oppNegativeArea.transform)
-            b.transform.SetParent(NumberManager.instance.playerNegativeArea.transform);
+        GiftNumber(a);
+        GiftNumber(b);
     }
 
     public IEnumerator FlipNumber(GameObject g)
