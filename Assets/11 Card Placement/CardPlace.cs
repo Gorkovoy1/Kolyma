@@ -1197,9 +1197,9 @@ public class CardPlace : MonoBehaviour,
             g.transform.SetParent(opponentDiscardZone.transform);
             g.transform.position = opponentDiscardZone.transform.position;
 
-            OpponentStats.instance.discarded = true; 
-            
-            //add discarded card to discard pile
+            OpponentStats.instance.discarded = true;
+
+            //add discarded card to discard pile and tint red
             opponentHand.GetComponentInParent<HandController>().oppDiscardButton.GetComponent<OpponentDiscardButton>().lastPlayed = g.GetComponent<AICardPlace>().correspondingImage.GetComponent<Image>();
             foreach (var tmp in g.GetComponent<AICardPlace>().correspondingImage.GetComponentsInChildren<TextMeshProUGUI>(true)) // true = include inactive
             {
@@ -1209,7 +1209,7 @@ public class CardPlace : MonoBehaviour,
                     break;
                 }
             }
-
+            opponentHand.GetComponentInParent<HandController>().oppDiscardButton.GetComponent<OpponentDiscardButton>().AddDiscardedToList();
 
             g.GetComponent<AICardPlace>().correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(false);
         }

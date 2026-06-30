@@ -39,6 +39,14 @@ public class PlayerDiscardButton : MonoBehaviour, IPointerEnterHandler, IPointer
         newCard.GetComponentInChildren<TextMeshProUGUI>().text = cardDesc;
     }
 
+    public void AddDiscardedToList()
+    {
+        GameObject newCard = Instantiate(discardedVisualPrefab, cardPanelParent);
+        newCard.GetComponent<Image>().sprite = lastPlayed.transform.Find("Image").GetComponent<Image>().sprite;
+        newCard.GetComponent<Image>().color = new Color32(161, 45, 45, 255);
+        newCard.GetComponentInChildren<TextMeshProUGUI>().text = cardDesc;
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         cardPanel.SetActive(true);

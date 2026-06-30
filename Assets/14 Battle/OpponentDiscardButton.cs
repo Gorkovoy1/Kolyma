@@ -7,36 +7,53 @@ using TMPro;
 
 public class OpponentDiscardButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    public GameObject discardedVisualPrefab;
+    public Transform cardPanelParent; 
     public Image lastPlayed;
-    public Image discardImage;
     public string cardDesc;
-    public GameObject discardedCard;
-    public TextMeshProUGUI cardDescText;
+    public bool lastPlayedBool = false;
+    public GameObject placeholderVisual;
+    public GameObject cardPanel;
 
     // Start is called before the first frame update
     void Start()
     {
-        discardedCard.SetActive(false);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(lastPlayed != null)
+        if (lastPlayed != null && !lastPlayedBool)
         {
-            discardImage.sprite = lastPlayed.transform.Find("Image").GetComponent<Image>().sprite;
-            cardDescText.text = cardDesc;
+            lastPlayedBool = true;
+            Destroy(placeholderVisual);
         }
 
     }
 
+    public void AddCardToList()
+    {
+        GameObject newCard = Instantiate(discardedVisualPrefab, cardPanelParent);
+        newCard.GetComponent<Image>().sprite = lastPlayed.transform.Find("Image").GetComponent<Image>().sprite;
+        newCard.GetComponentInChildren<TextMeshProUGUI>().text = cardDesc;
+    }
+
+    public void AddDiscardedToList()
+    {
+        GameObject newCard = Instantiate(discardedVisualPrefab, cardPanelParent);
+        newCard.GetComponent<Image>().sprite = lastPlayed.transform.Find("Image").GetComponent<Image>().sprite;
+        newCard.GetComponent<Image>().color = new Color32(161, 45, 45, 255);
+        newCard.GetComponentInChildren<TextMeshProUGUI>().text = cardDesc;
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
-        discardedCard.SetActive(true);
+        cardPanel.SetActive(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        discardedCard.SetActive(false);
+        cardPanel.SetActive(false);
     }
 }

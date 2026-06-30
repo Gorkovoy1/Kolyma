@@ -227,8 +227,21 @@ public class AICardPlace : MonoBehaviour //AICardPlace
         this.transform.position = opponentDiscardZone.transform.position;
 
         //update last played
-        opponentHand.GetComponentInParent<HandController>().oppDiscardButton.GetComponent<OpponentDiscardButton>().lastPlayed = correspondingImage.GetComponent<Image>();
+        UpdateDiscardPile();
         
+
+        //flip card back
+        correspondingImage.GetComponent<Image>().sprite = cardBack;
+        correspondingImage.transform.Find("Image").GetComponent<Image>().enabled = false;
+
+
+        StartCoroutine(PlayCorrespondingAction());
+    }
+
+    void UpdateDiscardPile()
+    {
+        opponentHand.GetComponentInParent<HandController>().oppDiscardButton.GetComponent<OpponentDiscardButton>().lastPlayed = correspondingImage.GetComponent<Image>();
+
         foreach (var tmp in correspondingImage.GetComponentsInChildren<TextMeshProUGUI>(true)) // true = include inactive
         {
             if (tmp.name == "Text (TMP) (1)") // Replace with your actual object name
@@ -238,12 +251,7 @@ public class AICardPlace : MonoBehaviour //AICardPlace
             }
         }
 
-        //flip card back
-        correspondingImage.GetComponent<Image>().sprite = cardBack;
-        correspondingImage.transform.Find("Image").GetComponent<Image>().enabled = false;
-
-
-        StartCoroutine(PlayCorrespondingAction());
+        opponentHand.GetComponentInParent<HandController>().oppDiscardButton.GetComponent<OpponentDiscardButton>().AddCardToList();
     }
 
     public void CheckPlayable()
@@ -1495,10 +1503,12 @@ public class AICardPlace : MonoBehaviour //AICardPlace
             if(chosenCard.GetComponent<NumberStats>().value > 0)
             {
                 Instantiate(chosenCard, CardPlacementController.instance.playerPositiveArea);
+                AkSoundEngine.PostEvent("Play_Number_Card", playerHand.GetComponentInParent<HandController>().sfxObj);
             }
             else if(chosenCard.GetComponent<NumberStats>().value < 0)
             {
                 Instantiate(chosenCard, CardPlacementController.instance.playerNegativeArea);
+                AkSoundEngine.PostEvent("Play_Number_Card", playerHand.GetComponentInParent<HandController>().sfxObj);
             }
                     
 
@@ -2306,6 +2316,18 @@ public class AICardPlace : MonoBehaviour //AICardPlace
             g.transform.position = playerDiscardZone.transform.position;
 
             PlayerStats.instance.discarded = true;
+
+            //add discarded card to discard pile and tint red
+            playerHand.GetComponentInParent<HandController>().playerDiscardButton.GetComponent<PlayerDiscardButton>().lastPlayed = g.GetComponent<CardPlace>().correspondingImage.GetComponent<Image>();
+            foreach (var tmp in g.GetComponent<CardPlace>().correspondingImage.GetComponentsInChildren<TextMeshProUGUI>(true)) // true = include inactive
+            {
+                if (tmp.name == "Text (TMP) (1)") // Replace with your actual object name
+                {
+                    playerHand.GetComponentInParent<HandController>().playerDiscardButton.GetComponent<PlayerDiscardButton>().cardDesc = tmp.text;
+                    break;
+                }
+            }
+            playerHand.GetComponentInParent<HandController>().playerDiscardButton.GetComponent<PlayerDiscardButton>().AddDiscardedToList();
 
             g.GetComponent<CardPlace>().correspondingImage.GetComponentInChildren<TextMeshProUGUI>(true).gameObject.transform.parent.gameObject.SetActive(false);
         }
