@@ -4705,6 +4705,10 @@ PrefabInstance:
       propertyPath: handController
       value: 
       objectReference: {fileID: 2032142709}
+    - target: {fileID: 4620840407863286080, guid: abb363a6218e8944185220c1a955b523, type: 3}
+      propertyPath: playerDiscardButton
+      value: 
+      objectReference: {fileID: 990825762}
     - target: {fileID: 4620840407863286082, guid: abb363a6218e8944185220c1a955b523, type: 3}
       propertyPath: m_Sprite
       value: 

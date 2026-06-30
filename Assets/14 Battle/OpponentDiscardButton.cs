@@ -30,6 +30,11 @@ public class OpponentDiscardButton : MonoBehaviour, IPointerEnterHandler, IPoint
             Destroy(placeholderVisual);
         }
 
+        if(lastPlayedBool && placeholderVisual != null)
+        {
+            Destroy(placeholderVisual);
+        }
+
     }
 
     public void AddCardToList()
@@ -45,6 +50,15 @@ public class OpponentDiscardButton : MonoBehaviour, IPointerEnterHandler, IPoint
         newCard.GetComponent<Image>().sprite = lastPlayed.transform.Find("Image").GetComponent<Image>().sprite;
         newCard.GetComponent<Image>().color = new Color32(161, 45, 45, 255);
         newCard.GetComponentInChildren<TextMeshProUGUI>().text = cardDesc;
+    }
+
+    public void AddActionToList(string type)
+    {
+        GameObject newCard = Instantiate(discardedVisualPrefab, cardPanelParent);
+        newCard.GetComponentInChildren<TextMeshProUGUI>().text = type; //type is ACTION SWAP or ACTION FLIP
+        //image for action
+
+        lastPlayedBool = true;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

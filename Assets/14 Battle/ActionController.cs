@@ -9,6 +9,7 @@ public class ActionController : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public Button swapButton;
     public Button flipButton;
+    public GameObject playerDiscardButton;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +44,7 @@ public class ActionController : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
         CardSelectionController.instance.CallButtons("swap", "player");
         NumberManager.instance.playerAction = true;
+        playerDiscardButton.GetComponent<PlayerDiscardButton>().AddActionToList("ACTION SWAP");
         this.gameObject.SetActive(false);
     }
 
@@ -55,6 +57,7 @@ public class ActionController : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
         CardSelectionController.instance.CallButtons("flip", "player");
         NumberManager.instance.playerAction = true;
+        playerDiscardButton.GetComponent<PlayerDiscardButton>().AddActionToList("ACTION FLIP");
         this.gameObject.SetActive(false);
     }
 

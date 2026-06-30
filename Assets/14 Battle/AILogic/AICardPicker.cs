@@ -80,6 +80,7 @@ public class AICardPicker : MonoBehaviour
                     
                     StartCoroutine(CardSelectionController.instance.FlipNumber(g));
                     opponentUsedAction = true;
+                    handController.oppDiscardButton.GetComponent<OpponentDiscardButton>().AddActionToList("ACTION FLIP");
                 }
                 else
                 {
@@ -88,6 +89,7 @@ public class AICardPicker : MonoBehaviour
                     GameObject g = list[i];
                     StartCoroutine(CardSelectionController.instance.FlipNumber(g));
                     opponentUsedAction = true;
+                    handController.oppDiscardButton.GetComponent<OpponentDiscardButton>().AddActionToList("ACTION FLIP");
                 }
                 NumberManager.instance.oppAction = true;
                 TurnManager.instance.opponentPlayedCard = true;
